@@ -1,0 +1,107 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+@require "_global"
+
+// @mixins
+//
+// create the container element for the pricing tables
+pricing-table-container() {
+	border: $price-table-border
+	margin-{$default-float}: 0
+	margin-bottom: $price-table-margin-bottom
+
+	& * {
+		list-style: none
+		line-height: 1
+	}
+}
+// @mixins
+//
+// create the pricing table title styles
+pricing-table-title() {
+	background-color: $price-title-bg
+	padding: $price-title-padding
+	text-align: $price-title-align
+	color: $price-title-color
+	font-weight: $price-title-weight
+	font-size: $price-title-size
+	font-family: $price-title-font-family
+}
+
+// @mixins
+//
+// control the pricing table price styles
+pricing-table-price() {
+	background-color: $price-money-bg
+	padding: $price-money-padding
+	text-align: $price-money-align
+	color: $price-money-color
+	font-weight: $price-money-weight
+	font-size: $price-money-size
+	font-family: $price-money-font-family
+}
+
+// @mixins
+//
+// create the description styles for the pricing table
+pricing-table-description() {
+	background-color: $price-bg
+	padding: $price-desc-padding
+	text-align: $price-desc-align
+	color: $price-desc-color
+	font-size: $price-desc-font-size
+	font-weight: $price-desc-weight
+	line-height: $price-desc-line-height
+	border-bottom: $price-desc-bottom-border
+}
+
+// @mixins
+//
+// style the bullet items in the pricing table
+pricing-table-bullet() {
+	background-color: $price-bg
+	padding: $price-item-padding
+	text-align: $price-item-align
+	color: $price-item-color
+	font-size: $price-item-font-size
+	font-weight: $price-item-weight
+	border-bottom: $price-item-bottom-border
+}
+
+// @mixins
+//
+// style the CTA area of the pricing tables
+pricing-table-cta() {
+	background-color: $price-cta-bg
+	text-align: $price-cta-align
+	padding: $price-cta-padding
+}
+
+// +exports("pricing-table") {
+	if $include-html-pricing-classes {
+
+		/* Pricing Tables */
+		.pricing-table {
+			pricing-table-container()
+
+			.title {
+				pricing-table-title()
+			}
+			.price {
+				pricing-table-price()
+			}
+			.description {
+				pricing-table-description()
+			}
+			.bullet-item {
+				pricing-table-bullet()
+			}
+			.cta-button {
+				pricing-table-cta()
+			}
+		}
+
+	}
+// }

@@ -1,0 +1,41 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+@require "_global"
+
+
+//
+// @mixins
+//
+// We use this mixin to create keystroke styles.
+// $bg - Default: $keystroke-bg || scale-color($white, $lightness: $keystroke-function-factor) !default
+keystroke($bg = $keystroke-bg) {
+
+	background-color: $bg
+	border-color: scale-color($bg, ($lightness = $keystroke-function-factor))
+
+	// We adjust the font color based on the brightness of the background.
+	if light($bg) {
+		color: $keystroke-font-color
+	} else {
+		color: $keystroke-font-color-alt
+	}
+
+	border-style: $keystroke-border-style
+	border-width: $keystroke-border-width
+	margin: 0
+	font-family: $keystroke-font
+	font-size: $keystroke-font-size
+	padding: $keystroke-padding
+}
+
+// +exports("keystroke") {
+	if $include-html-keystroke-classes  {
+		.keystroke,
+		kbd {
+			keystroke()
+			radius($keystroke-radius)
+		}
+	}
+// }
