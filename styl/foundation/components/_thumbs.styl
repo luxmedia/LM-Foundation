@@ -14,30 +14,30 @@
 // $box-shadow - Box shadow to apply to thumbnail. Default: $thumb-box-shadow.
 // $box-shadow-hover - Box shadow to apply on hover. Default: $thumb-box-shadow-hover.
 thumb($border-width = $thumb-border-width, $box-shadow = $thumb-box-shadow, $box-shadow-hover = $thumb-box-shadow-hover) {
-	line-height: 0
-	display: inline-block
-	border: $thumb-border-style $border-width $thumb-border-color
-	max-width: 100%
-	box-shadow: $box-shadow
+    line-height: 0
+    display: inline-block
+    border: $thumb-border-style $border-width $thumb-border-color
+    max-width: 100%
+    box-shadow: $box-shadow
 
-	&:hover,
-	&:focus {
-		box-shadow: $box-shadow-hover
-	}
+    &:hover,
+    &:focus {
+        box-shadow: $box-shadow-hover
+    }
 }
 
 
 // +exports("thumb") {
-	if $include-html-media-classes {
+    if $include-html-media-classes {
 
-		/* Image Thumbnails */
-		.th {
-			thumb()
-			single-transition(all,$thumb-transition-speed,ease-out)
+        /* Image Thumbnails */
+        .th {
+            thumb()
+            single-transition(all,$thumb-transition-speed,ease-out)
 
-			&.radius {
-				radius($thumb-radius)
-			}
-		}
-	}
+            &.radius {
+                radius($thumb-radius)
+            }
+        }
+    }
 // }

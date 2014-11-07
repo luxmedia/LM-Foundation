@@ -9,59 +9,59 @@
 //
 // We use this to set up the progress bar container
 progress-container() {
-	background-color: $progress-bar-color
-	height: $progress-bar-height
-	border: $progress-bar-border-size $progress-bar-border-style $progress-bar-border-color
-	padding: $progress-bar-pad
-	margin-bottom: $progress-bar-margin-bottom
+    background-color: $progress-bar-color
+    height: $progress-bar-height
+    border: $progress-bar-border-size $progress-bar-border-style $progress-bar-border-color
+    padding: $progress-bar-pad
+    margin-bottom: $progress-bar-margin-bottom
 }
 
 // @mixins
 //
 // $bg - Default: $progress-meter-color || $primary-color
 progress-meter($bg = $progress-meter-color) {
-	background: $bg
-	height: 100%
-	display: block
+    background: $bg
+    height: 100%
+    display: block
 }
 
 
 // +exports("progress-bar") {
-	if $include-html-media-classes {
+    if $include-html-media-classes {
 
-		/* Progress Bar */
-		.progress {
-			progress-container()
+        /* Progress Bar */
+        .progress {
+            progress-container()
 
-			// Meter
-			.meter {
-				progress-meter()
-			}
-			&.secondary .meter {
-				progress-meter(($bg = $progress-meter-secondary-color))
-			}
-			&.success .meter {
-				progress-meter(($bg = $progress-meter-success-color))
-			}
-			&.alert .meter {
-				progress-meter(($bg = $progress-meter-alert-color))
-			}
+            // Meter
+            .meter {
+                progress-meter()
+            }
+            &.secondary .meter {
+                progress-meter(($bg = $progress-meter-secondary-color))
+            }
+            &.success .meter {
+                progress-meter(($bg = $progress-meter-success-color))
+            }
+            &.alert .meter {
+                progress-meter(($bg = $progress-meter-alert-color))
+            }
 
-			&.radius {
-				radius($progress-bar-border-radius)
-				.meter {
-					radius(($progress-bar-border-radius - 1))
-				}
-			}
+            &.radius {
+                radius($progress-bar-border-radius)
+                .meter {
+                    radius(($progress-bar-border-radius - 1))
+                }
+            }
 
-			&.round {
-				radius(1000px)
-				.meter {
-					radius(999px)
-				}
-			}
+            &.round {
+                radius(1000px)
+                .meter {
+                    radius(999px)
+                }
+            }
 
-		}
+        }
 
-	}
+    }
 // }

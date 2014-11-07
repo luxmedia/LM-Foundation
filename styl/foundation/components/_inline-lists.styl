@@ -10,26 +10,26 @@
 //
 // We use this mixin to create inline lists
 inline-list() {
-	margin: $inline-list-top-margin auto $inline-list-bottom-margin auto
-	margin-{$default-float}: $inline-list-default-float-margin
-	margin-{$opposite-direction}: $inline-list-opposite-margin
-	padding: $inline-list-padding
-	list-style: none
-	overflow: $inline-list-overflow
+    margin: $inline-list-top-margin auto $inline-list-bottom-margin auto
+    margin-{$default-float}: $inline-list-default-float-margin
+    margin-{$opposite-direction}: $inline-list-opposite-margin
+    padding: $inline-list-padding
+    list-style: none
+    overflow: $inline-list-overflow
 
-	& > li {
-		list-style: none
-		float: $default-float
-		margin-{$default-float}: $inline-list-default-float-list-margin
-		display: $inline-list-display
-		&>* { display: $inline-list-children-display }
-	}
+    & > li {
+        list-style: none
+        float: $default-float
+        margin-{$default-float}: $inline-list-default-float-list-margin
+        display: $inline-list-display
+        &>* { display: $inline-list-children-display }
+    }
 }
 
 // +exports("inline-list") {
-	if $include-html-inline-list-classes {
-		.inline-list {
-			inline-list()
-		}
-	}
+    if $include-html-inline-list-classes {
+        .inline-list {
+            inline-list()
+        }
+    }
 // }

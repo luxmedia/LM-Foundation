@@ -10,58 +10,58 @@
 // Style the pagination container. Currently only used when centering elements.
 // $center - Default: false, Options: true
 pagination-container($center = false) {
-	if $center {
-		text-align: center
-	}
+    if $center {
+        text-align: center
+    }
 }
 
 // @mixins
 // Style unavailable list items
 pagination-unavailable-item() {
-	a, button {
-		cursor: $pagination-link-unavailable-cursor
-		color: $pagination-link-unavailable-font-color
-	}
-	&:hover a,
-	& a:focus,
+    a, button {
+        cursor: $pagination-link-unavailable-cursor
+        color: $pagination-link-unavailable-font-color
+    }
+    &:hover a,
+    & a:focus,
 
-	&:hover button,
-	& button:focus { 
-		background: $pagination-link-unavailable-bg-active 
-	}
+    &:hover button,
+    & button:focus { 
+        background: $pagination-link-unavailable-bg-active 
+    }
 }
 // @mixins
 // Style the current list item. Do not assume that the current item has
 // an anchor <a> element.
 // $has-anchor - Default: true, Options: false
 pagination-current-item($has-anchor= true) {
-	if $has-anchor {
-		a, button {
-			background: $pagination-link-current-background
-			color: $pagination-link-current-font-color
-			font-weight: $pagination-link-current-font-weight
-			cursor: $pagination-link-current-cursor
+    if $has-anchor {
+        a, button {
+            background: $pagination-link-current-background
+            color: $pagination-link-current-font-color
+            font-weight: $pagination-link-current-font-weight
+            cursor: $pagination-link-current-cursor
 
-			&:hover,
-			&:focus {
-				background: $pagination-link-current-active-bg
-			}
-		}
-		} else {
-			height: auto
-			padding: $pagination-link-pad
-			background: $pagination-link-current-background
-			color: $pagination-link-current-font-color
-			font-weight: $pagination-link-current-font-weight
-			cursor: $pagination-link-current-cursor
-			radius()
+            &:hover,
+            &:focus {
+                background: $pagination-link-current-active-bg
+            }
+        }
+        } else {
+            height: auto
+            padding: $pagination-link-pad
+            background: $pagination-link-current-background
+            color: $pagination-link-current-font-color
+            font-weight: $pagination-link-current-font-weight
+            cursor: $pagination-link-current-cursor
+            radius()
 
-			&:hover,
-			&:focus {
-			background: $pagination-link-current-active-bg
-		}
-		}
-	}
+            &:hover,
+            &:focus {
+            background: $pagination-link-current-active-bg
+        }
+        }
+    }
 
 // @mixins
 //
@@ -71,72 +71,72 @@ pagination-current-item($has-anchor= true) {
 // $use-default-classes - Makes unavailable & current classes available for use. Default: true
 pagination($center = false, $base-style = true, $use-default-classes = true) {
 
-	if $base-style {
-		display: block
-		min-height: $pagination-height
-		margin-{$default-float}: $pagination-margin
+    if $base-style {
+        display: block
+        min-height: $pagination-height
+        margin-{$default-float}: $pagination-margin
 
-		li {
-			height: $pagination-li-height
-			color: $pagination-li-font-color
-			font-size: $pagination-li-font-size
-			margin-{$default-float}: $pagination-li-margin
+        li {
+            height: $pagination-li-height
+            color: $pagination-li-font-color
+            font-size: $pagination-li-font-size
+            margin-{$default-float}: $pagination-li-margin
 
-			a, button {
-				display: block
-				padding: $pagination-link-pad
-				color: $pagination-link-font-color
-				background: none
-				radius()
-				font-weight: normal
-				font-size: 1em
-				line-height: inherit
-				single-transition(background-color)
-			}
+            a, button {
+                display: block
+                padding: $pagination-link-pad
+                color: $pagination-link-font-color
+                background: none
+                radius()
+                font-weight: normal
+                font-size: 1em
+                line-height: inherit
+                single-transition(background-color)
+            }
 
-			&:hover a,
-			a:focus,
-			&:hover button,
-			button:focus {
-				background: $pagination-link-active-bg
-			}
+            &:hover a,
+            a:focus,
+            &:hover button,
+            button:focus {
+                background: $pagination-link-active-bg
+            }
 
-			if $use-default-classes {
-				&.unavailable {
-					pagination-unavailable-item()
-				}
-				&.current {
-					pagination-current-item()
-				}
-			}
-		}
-	}
+            if $use-default-classes {
+                &.unavailable {
+                    pagination-unavailable-item()
+                }
+                &.current {
+                    pagination-current-item()
+                }
+            }
+        }
+    }
 
-	// Left or center align the li elements
-	li {
-		if $center {
-			float: none
-			display: inline-block
-		} else {
-			float: $pagination-li-float
-			display: block
-		}
-	}
+    // Left or center align the li elements
+    li {
+        if $center {
+            float: none
+            display: inline-block
+        } else {
+            float: $pagination-li-float
+            display: block
+        }
+    }
 }
 
 // +exports("pagination") {
-	if $include-pagination-classes {
-		ul.pagination {
-			pagination()
-		}
+    if $include-pagination-classes {
+        ul.pagination {
+            pagination()
+        }
 
-		/* Pagination centred wrapper */
-		.pagination-centered {
-			pagination-container(true)
+        /* Pagination centred wrapper */
+        .pagination-centered {
+            pagination-container(true)
 
-			ul.pagination {
-				pagination(true, false)
-			}
-		}
-	}
+            ul.pagination {
+                pagination(true, false)
+            }
+        }
+    }
 // }

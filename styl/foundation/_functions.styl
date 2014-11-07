@@ -6,13 +6,13 @@
 // We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
 $modules = () !default
 exports($name) {
-	$module_index = index($modules, $name)
-	if (($module_index == null) || ($module_index == false)) {
-		push($modules, $name)
-		//content: 'code'
-	}
-	// Reference: http://learnboost.github.io/stylus/docs/mixins.html
-	//{block}
+    $module_index = index($modules, $name)
+    if (($module_index == null) || ($module_index == false)) {
+        push($modules, $name)
+        //content: 'code'
+    }
+    // Reference: http://learnboost.github.io/stylus/docs/mixins.html
+    //{block}
 }
 
 // Based on Foundation by ZURB
@@ -24,29 +24,29 @@ exports($name) {
 /* ========================================================================= */
 // We use these functions to define ranges for various things, like media queries.
 lower-bound($range){
-	if length($range) <= 0 {
-		return 0;
-	}
-	return $range[0]
+    if length($range) <= 0 {
+        return 0;
+    }
+    return $range[0]
 }
 
 upper-bound($range) {
-	if length($range) < 2 {
-		return 999999999999;
-	}
-	return $range[1]
+    if length($range) < 2 {
+        return 999999999999;
+    }
+    return $range[1]
 }
 
 /* ========================================================================= */
 // COLOR CALCULATIONS
 /* ========================================================================= */
 scale-color($color, $mod = 0%) {
-	$value = unit($mod,"") // strip unit from value
-	if ($value < 0) {
-		return darken($color, unit($value,'%'))
-	} else {
-		return lighten($color, unit($value,'%'))
-	}
+    $value = unit($mod,"") // strip unit from value
+    if ($value < 0) {
+        return darken($color, unit($value,'%'))
+    } else {
+        return lighten($color, unit($value,'%'))
+    }
 
 }
 
@@ -55,11 +55,11 @@ scale-color($color, $mod = 0%) {
 /* ========================================================================= */
 // It strips the unit of measure and returns it
 strip-unit($num) {
-	if($num != null) { 
-		return $num / ($num * 0 + 1) 
-	} else {
-		return 0
-	}
+    if($num != null) { 
+        return $num / ($num * 0 + 1) 
+    } else {
+        return 0
+    }
 }
 
 /* ========================================================================= */
@@ -89,11 +89,11 @@ text-inputs( $types = all, $selector = input ) {
 // ADD CUSTOM NAMESPACE FOR DATA-ATTRIBUTES
 /* ========================================================================= */
 data($attr) {
-	if $namespace {
-		return '[data-' + $namespace + '-' + $attr + ']'
-	}
+    if $namespace {
+        return '[data-' + $namespace + '-' + $attr + ']'
+    }
 
-	return '[data-' + $attr + ']'
+    return '[data-' + $attr + ']'
 }
 
 /* ========================================================================= */
@@ -102,9 +102,9 @@ data($attr) {
 
 // CONVERT REM
 convert-to-rem($value, $base-value = $rem-base)  {
-	$val = strip-unit($value) / strip-unit($base-value) * 1rem
-	if ($val == 0rem) { $val = 0 } // Turn 0rem into 0
-	return $val
+    $val = strip-unit($value) / strip-unit($base-value) * 1rem
+    if ($val == 0rem) { $val = 0 } // Turn 0rem into 0
+    return $val
 }
 
 // REM CALC
@@ -127,44 +127,44 @@ convert-to-rem($value, $base-value = $rem-base)  {
 //   rem-calc((16px, 32px, 48), 8px);
 
 rem-calc($values, $base-value = $rem-base) {
-	$max = length($values)
+    $max = length($values)
 
-	if ($max == 1) { return convert-to-rem($values[1], $base-value) }
+    if ($max == 1) { return convert-to-rem($values[1], $base-value) }
 
-	$remValues = ()
-	for $i in 1..$max {
-		$remValues =  push($remValues, convert-to-rem($values[$i], $base-value))
-	}
-	return $remValues
+    $remValues = ()
+    for $i in 1..$max {
+        $remValues =  push($remValues, convert-to-rem($values[$i], $base-value))
+    }
+    return $remValues
 }
 
 
 /* Convert unit to rems if unit is in pixels. */
 remify($value) {
-	if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-		$value
-	} else if ($value == 'hairline') {
-		'1px'
-	} else if (unit($value) == 'px') {
-		unit($value/$font-size-base, 'rem')
-	} else if (unit($value) == 0 || unit($value) == null) {
-		unit($value, $base-unit)
-	} else {
-		unit($value, unit($value))
-	}
+    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
+        $value
+    } else if ($value == 'hairline') {
+        '1px'
+    } else if (unit($value) == 'px') {
+        unit($value/$font-size-base, 'rem')
+    } else if (unit($value) == 0 || unit($value) == null) {
+        unit($value, $base-unit)
+    } else {
+        unit($value, unit($value))
+    }
 }
 
 /* Convert unit to rems if unit is in pixels. */
 pxify($value) {
-	if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-		$value
-	} else if ($value == 'hairline') {
-		'1px'
-	} else if (unit($value) == 'px') {
-		unit($value, unit($value))
-	} else if (unit($value) == 'rem' || unit($value) == 'em' || unit($value) == 0 || unit($value) == null) {
-		round(unit($value*$font-size-base, 'px'))
-	} else {
-		unit($value, unit($value))
-	}
+    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
+        $value
+    } else if ($value == 'hairline') {
+        '1px'
+    } else if (unit($value) == 'px') {
+        unit($value, unit($value))
+    } else if (unit($value) == 'rem' || unit($value) == 'em' || unit($value) == 0 || unit($value) == null) {
+        round(unit($value*$font-size-base, 'px'))
+    } else {
+        unit($value, unit($value))
+    }
 }

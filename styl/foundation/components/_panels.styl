@@ -13,77 +13,77 @@
 // $adjust - Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust || true
 panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust) {
 
-	if $bg {
+    if $bg {
 
-		border-style: $panel-border-style
-		border-width: $panel-border-size
-		border-color: scale-color($bg, ($lightness = $panel-function-factor))
-		margin-bottom: $panel-margin-bottom
-		padding: $padding
+        border-style: $panel-border-style
+        border-width: $panel-border-size
+        border-color: scale-color($bg, ($lightness = $panel-function-factor))
+        margin-bottom: $panel-margin-bottom
+        padding: $padding
 
-		background: $bg
-		if light($bg) {
-			color: $panel-font-color
-		} else {
-			color: $panel-font-color-alt
-		}
+        background: $bg
+        if light($bg) {
+            color: $panel-font-color
+        } else {
+            color: $panel-font-color-alt
+        }
 
-		// Respect the padding, fool.
-		&>:first-child {
-			margin-top: 0
-		}
-		&>:last-child {
-			margin-bottom: 0
-		}
+        // Respect the padding, fool.
+        &>:first-child {
+            margin-top: 0
+        }
+        &>:last-child {
+            margin-bottom: 0
+        }
 
-		if $adjust {
-			// We set the font color based on the darkness of the bg.
-			if light($bg) {
-				h1,h2,h3,h4,h5,h6,p,li,dl {
-					color: $panel-font-color
-				}
-			} else {
-				h1,h2,h3,h4,h5,h6,p,li,dl {
-					color: $panel-font-color-alt
-				}
-			}
+        if $adjust {
+            // We set the font color based on the darkness of the bg.
+            if light($bg) {
+                h1,h2,h3,h4,h5,h6,p,li,dl {
+                    color: $panel-font-color
+                }
+            } else {
+                h1,h2,h3,h4,h5,h6,p,li,dl {
+                    color: $panel-font-color-alt
+                }
+            }
 
-			// reset header line-heights for panels
-			h1,h2,h3,h4,h5,h6 {
-				line-height: 1
-				margin-bottom: rem-calc(20) / 2
-				&.subheader {
-					line-height: 1.4
-				}
-			}
-		}
-	}
+            // reset header line-heights for panels
+            h1,h2,h3,h4,h5,h6 {
+                line-height: 1
+                margin-bottom: rem-calc(20) / 2
+                &.subheader {
+                    line-height: 1.4
+                }
+            }
+        }
+    }
 }
 
 // +exports("panel") {
-	if $include-html-panel-classes {
+    if $include-html-panel-classes {
 
-		/* Panels */
-		.panel { 
-			panel()
+        /* Panels */
+        .panel { 
+            panel()
 
-			&.callout {
-				panel(scale-color($primary-color, ($lightness = 94%)))
-				a:not(.button) {
-					color: $callout-panel-link-color
+            &.callout {
+                panel(scale-color($primary-color, ($lightness = 94%)))
+                a:not(.button) {
+                    color: $callout-panel-link-color
 
-					&:hover,
-					&:focus {
-						color: $callout-panel-link-color-hover
-					}
-				}
-			}
+                    &:hover,
+                    &:focus {
+                        color: $callout-panel-link-color-hover
+                    }
+                }
+            }
 
-			&.radius {
-				radius()
-			}
+            &.radius {
+                radius()
+            }
 
-		}
+        }
 
-	}
+    }
 // }

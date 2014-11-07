@@ -17,57 +17,57 @@
 // $link-color - Color of navigation links. Default: $side-nav-link-color.
 // $link-color-hover - Color of navigation links when hovered. Default: $side-nav-link-color-hover.
 side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-size, $link-color = $side-nav-link-color, $link-color-hover = $side-nav-link-color-hover, $link-bg-hover = $side-nav-link-bg-hover) {
-	display: block
-	margin: 0
-	padding: $side-nav-padding
-	list-style-type: $side-nav-list-type
-	list-style-position: $side-nav-list-position
-	font-family: $side-nav-font-family
+    display: block
+    margin: 0
+    padding: $side-nav-padding
+    list-style-type: $side-nav-list-type
+    list-style-position: $side-nav-list-position
+    font-family: $side-nav-font-family
 
-	li {
-		margin: $side-nav-list-margin
-		font-size: $font-size
-		font-weight: $side-nav-font-weight
+    li {
+        margin: $side-nav-list-margin
+        font-size: $font-size
+        font-weight: $side-nav-font-weight
 
-		a:not(.button) {
-			display: block
-			color: $link-color
-			margin: $side-nav-link-margin
-			padding: $side-nav-link-padding
-			&:hover,
-			&:focus {
-				background: $link-bg-hover
-				color: $link-color-hover
-			}
-		}
+        a:not(.button) {
+            display: block
+            color: $link-color
+            margin: $side-nav-link-margin
+            padding: $side-nav-link-padding
+            &:hover,
+            &:focus {
+                background: $link-bg-hover
+                color: $link-color-hover
+            }
+        }
 
-		&.active > a:first-child:not(.button) {
-			color: $side-nav-link-color-active
-			font-weight: $side-nav-font-weight-active
-			font-family: $side-nav-font-family-active
-		}
+        &.active > a:first-child:not(.button) {
+            color: $side-nav-link-color-active
+            font-weight: $side-nav-font-weight-active
+            font-family: $side-nav-font-family-active
+        }
 
-		&.divider {
-			border-top: $side-nav-divider-size $side-nav-divider-style
-			height: 0
-			padding: 0
-			list-style: none
-			border-top-color: $divider-color
-		}
+        &.divider {
+            border-top: $side-nav-divider-size $side-nav-divider-style
+            height: 0
+            padding: 0
+            list-style: none
+            border-top-color: $divider-color
+        }
 
-		&.heading {
-			color: $side-nav-heading-color
-			font-size: $side-nav-heading-font-size
-			font-weight: $side-nav-heading-font-weight
-			text-transform: $side-nav-heading-text-transform
-		}
-	}
+        &.heading {
+            color: $side-nav-heading-color
+            font-size: $side-nav-heading-font-size
+            font-weight: $side-nav-heading-font-weight
+            text-transform: $side-nav-heading-text-transform
+        }
+    }
 }
 
 // +exports("side-nav") {
-	if $include-html-nav-classes {
-		.side-nav {
-			side-nav()
-		}
-	}
+    if $include-html-nav-classes {
+        .side-nav {
+            side-nav()
+        }
+    }
 // }
