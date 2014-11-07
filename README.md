@@ -10,8 +10,15 @@ It is a reduced Version of Foundation with just the .styl files and .js.
 
 All Grunt or Bower or whatever buildsystems have to be defined on yourself. Also the gridsystem of Foundation isn't our first choice, instead we plan to use and implement jeet.gs
 
-INSTALLATION
+Dependencies
+------------
+- NodeJS
+- Grunt
+- Stylus
+- Jeet.gs
+
 Installation
+------------
 
 Install NodeJS
 ```
