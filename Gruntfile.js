@@ -20,10 +20,12 @@ module.exports = function(grunt) {
 
         copy: {
             build: {
+                expand: true,                
                 cwd: '<%= globalConfig.src  %>',
-                src: [ '**', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
+                src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
                 dest: '<%= globalConfig.dest %>',
-                expand: true
+                filter: 'isFile',
+                flatte: true
             },
         },
 
@@ -46,7 +48,7 @@ module.exports = function(grunt) {
                     linenos: true,
                     compress: false,
                     paths: [__dirname + '/<%= globalConfig.src  %>'],
-                    limit: 10000
+                    limit: 100000
                 },
                 files: [{
                     expand: true,
