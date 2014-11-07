@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                 cwd: '<%= globalConfig.src  %>',
                 src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
                 dest: '<%= globalConfig.dest %>',
-                flatten: true,
+                flatten: false,
                 filter: 'isFile'
             },
         },
