@@ -47,8 +47,12 @@ module.exports = function(grunt) {
                 options: {
                     linenos: true,
                     compress: false,
-                    paths: [__dirname + '/<%= globalConfig.src  %>'],
-                    limit: 10000
+                    urlfunc: {
+                        name: 'url',
+                        paths: [__dirname + '/<%= globalConfig.src  %>'],
+                        limit: 1000000
+                    }
+                    
                 },
                 files: [{
                     expand: true,
