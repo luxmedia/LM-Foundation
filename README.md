@@ -18,4 +18,4 @@ NOTE:
 
 - I also removed the predefined !default variables from the "components/*.styl" files. All variable-based settings must be done in "_settings.styl"
 
-- I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best for me using large screens.
+- I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best coding environment for me using large displays.
