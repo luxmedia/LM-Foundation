@@ -14,6 +14,6 @@ NOTE:
 -----------
 The Project is in alpha state and for internal use only!
 
-The module.export() function of foundation isnt't implemented yet. Instead we make a simple linear import of all .styl files in "foundation.styl". To avoid duplicate code i converted the @import rules inside the "components/*.styl" to @require. This should avoid redundant loading.
+The module.export() function of foundation is not implemented yet. Instead we make a simple linear import of all .styl files in "foundation.styl". To avoid duplicate code i converted the @import rules inside the "components/*.styl" to @require. This should avoid redundant loading.
 
 I also removed the predefined !default variables from the "components/*.styl" files. All variable-based settings must be done in "_settings.styl"
