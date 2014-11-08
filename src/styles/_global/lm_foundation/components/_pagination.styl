@@ -34,34 +34,35 @@ pagination-unavailable-item() {
 // Style the current list item. Do not assume that the current item has
 // an anchor <a> element.
 // $has-anchor - Default: true, Options: false
-pagination-current-item($has-anchor= true) {
+pagination-current-item($has-anchor = true) {
     if $has-anchor {
-        a, button {
+        a,
+        button {
             background: $pagination-link-current-background
             color: $pagination-link-current-font-color
             font-weight: $pagination-link-current-font-weight
             cursor: $pagination-link-current-cursor
-
+            
             &:hover,
             &:focus {
                 background: $pagination-link-current-active-bg
             }
         }
-        } else {
-            height: auto
-            padding: $pagination-link-pad
-            background: $pagination-link-current-background
-            color: $pagination-link-current-font-color
-            font-weight: $pagination-link-current-font-weight
-            cursor: $pagination-link-current-cursor
-            radius()
+    } else {
+        height: auto
+        padding: $pagination-link-pad
+        background: $pagination-link-current-background
+        color: $pagination-link-current-font-color
+        font-weight: $pagination-link-current-font-weight
+        cursor: $pagination-link-current-cursor
+        radius(0)
 
-            &:hover,
-            &:focus {
-            background: $pagination-link-current-active-bg
-        }
+        &:hover,
+        &:focus {
+        background: $pagination-link-current-active-bg
         }
     }
+}
 
 // @mixins
 //
@@ -82,16 +83,23 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             font-size: $pagination-li-font-size
             margin-{$default-float}: $pagination-li-margin
 
-            a, button {
+            a,
+            button {
                 display: block
                 padding: $pagination-link-pad
                 color: $pagination-link-font-color
-                background: none
-                radius()
+                background: $pagination-link-bg
+                radius(0)
                 font-weight: normal
-                font-size: 1em
+                font-size: $pagination-font-size
                 line-height: inherit
+                if $pagination-link-border {
+                    border:1px solid $pagination-link-border
+                    border-width:0 1px 1px 0
+                }
+                box-shadow: $pagination-link-boxshadow
                 single-transition(background-color)
+                single-transition(box-shadow)
             }
 
             &:hover a,
@@ -99,6 +107,11 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             &:hover button,
             button:focus {
                 background: $pagination-link-active-bg
+                color: $pagination-link-hover-color
+                if $pagination-link-hover-border {
+                    border-color: $pagination-link-hover-border
+                }                
+                box-shadow: $pagination-link-hover-boxshadow
             }
 
             if $use-default-classes {
