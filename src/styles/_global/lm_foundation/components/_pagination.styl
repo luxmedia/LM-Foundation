@@ -24,7 +24,6 @@ pagination-unavailable-item() {
     }
     &:hover a,
     & a:focus,
-
     &:hover button,
     & button:focus { 
         background: $pagination-link-unavailable-bg-active 
@@ -95,13 +94,36 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 line-height: inherit
                 if $pagination-link-border {
                     border:1px solid $pagination-link-border
-                    border-width:0 1px 1px 0
+                    border-width:0 0 1px 0
                 }
-                box-shadow: $pagination-link-boxshadow
+                if ($pagination-link-boxshadow != false) {
+                    box-shadow: $pagination-link-boxshadow
+                }
                 single-transition(background-color)
                 single-transition(box-shadow)
             }
-
+            
+            &:first-child a,
+            &:first-of-type a,
+            &:first-child button,
+            &:first-of-type button {
+                if ($pagination-link-border != false) {
+                    border-left: none
+                }
+            }
+            &:last-child a,
+            &:last-of-type a,
+            &:last-child button,
+            &:last-of-type button {
+                if ($pagination-link-border != false) {
+                    border-right:1px solid $pagination-link-border
+                }
+                if ($pagination-link-boxshadow != false) {
+                    box-shadow: 1px 1px 1px $pagination-link-border
+                }
+                
+            }
+            
             &:hover a,
             a:focus,
             &:hover button,
@@ -110,8 +132,10 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 color: $pagination-link-hover-color
                 if $pagination-link-hover-border {
                     border-color: $pagination-link-hover-border
-                }                
-                box-shadow: $pagination-link-hover-boxshadow
+                }
+                if $pagination-link-hover-boxshadow {            
+                    box-shadow: $pagination-link-hover-boxshadow
+                }
             }
 
             if $use-default-classes {
@@ -122,6 +146,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                     pagination-current-item()
                 }
             }
+            
         }
     }
 

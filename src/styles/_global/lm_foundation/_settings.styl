@@ -985,26 +985,26 @@ $include-pagination-classes =               $include-html-classes
 
 // the pagination container
 $pagination-height =                        rem-calc(24)
-$pagination-margin =                        rem-calc(-5)
+$pagination-margin =                        -(rem-calc(5))
 
 // set the list-item properties
 $pagination-li-float =                      $default-float
 $pagination-li-height =                     rem-calc(24)
 $pagination-li-font-color =                 $jet
 $pagination-li-font-size =                  rem-calc(14)
-$pagination-li-margin =                     rem-calc(5)
+$pagination-li-margin =                     rem-calc(1)
 
 // We use these for the pagination anchor links
-$pagination-link-pad =                      rem-calc(10 1 10)
+$pagination-link-pad =                      rem-calc(10 4 10)
 $pagination-link-font-color =               $aluminum
-$pagination-link-bg =                       #efefef
+$pagination-link-bg =                       rgba($black,0.1)
 $pagination-font-size =                     1rem
-$pagination-link-boxshadow =                1px 1px 1px rgba($black,0.15)
-$pagination-link-border =                   rgba(0,0,0,0.1)
+$pagination-link-boxshadow =                0 1px 1px rgba($black,0.1)
+$pagination-link-border =                   rgba($black,0.1)
 $pagination-link-active-bg =                $primary-color
 $pagination-link-hover-color =              $white
-$pagination-link-hover-boxshadow =          1px 1px 1px rgba($black,0.25)
-$pagination-link-hover-border =             rgba(0,0,0,0.1)
+$pagination-link-hover-boxshadow =          false // 1px 1px 1px rgba($black,0.25)
+$pagination-link-hover-border =             false // rgba(0,0,0,0.1)
 
 // We use these for disabled anchor links
 $pagination-link-unavailable-cursor =       default
