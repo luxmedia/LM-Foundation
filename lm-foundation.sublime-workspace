@@ -1,0 +1,482 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"styl",
+				"stylesheet"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"link",
+				"link-color"
+			],
+			[
+				"gray",
+				"gray-light-1"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 6721,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/styles/custom/_settings.styl",
+			"settings":
+			{
+				"buffer_size": 4698,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/sublime-grunt-build/grunt.sublime-build",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Stylus",
+				"Set Syntax: Stylus"
+			],
+			[
+				"Sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"Stylu",
+				"Set Syntax: Stylus"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 356.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_grid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_dropdown-buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/index.html",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/styles.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/dist/styles/styles.css",
+		"/Volumes/LM-HDD-PORTABLE-02/Ressources/Coding/foundation-5.4.7/index.html",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm-foundation.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/custom/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm-foundation/components/_global.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/custom/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/styles.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/scripts.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/_global/lm-foundation.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/global/lm-foundation/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/global/foundation.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/global/foundation/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_type.styl",
+		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_switches.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_visibility.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_top-bar.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_tooltips.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_thumbs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_tabs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_tables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_sub-nav.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_split-buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_side-nav.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_reveal.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_range-slider.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_progress-bars.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_pricing-tables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_panels.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_pagination.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_orbit.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_offcanvas.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_magellan.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_labels.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_keystrokes.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_joyride.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_inline-lists.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_icon-bar.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_grid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_global.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_forms.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_flex-video.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_dropdown.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_dropdown-buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_clearing.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_button-groups.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_block-grid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_breadcrumbs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_alert-boxes.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_accordion.styl",
+		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/_functions.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/normalize.styl",
+		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/dist/styles/styles.css",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_fonts.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/section/_product_view.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/section/_category_view.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/Gruntfile.js",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_functions.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/base.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/mixins.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/variables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/fonts.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_base.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_variables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_normalize.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_reset.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/styles.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_variables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/dist/css/styles.css",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_mixins.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_base.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_widgets.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_account.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_product_view.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_category_view.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_blocks.styl",
+		"/Users/volkerlux/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open files>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"grid-column",
+			"$include-html-classes",
+			"lm-foundation",
+			"_offcanvas",
+			"'",
+			"global/",
+			"foundation",
+			"global/",
+			"section",
+			"convert",
+			"text-base-color",
+			"base-font-size",
+			"dir_font'",
+			"bp_tablet",
+			"$header-font-family",
+			"@media",
+			"$medium-up",
+			"@media $screen ",
+			"@media ",
+			"@media",
+			"'",
+			"{",
+			"}",
+			"'{",
+			"\"{",
+			" =",
+			"@media",
+			"	",
+			"\"",
+			"brand-warning",
+			"body-bg",
+			"@media",
+			"clone",
+			"value",
+			",",
+			"_return",
+			"types ",
+			"brand-primary",
+			"gray-light-",
+			"gray-dark-",
+			"brand-primary",
+			"$$",
+			"gray-light-",
+			"gray-dark",
+			"dir_img",
+			"content-bg",
+			"brand-primary",
+			"font-family-base",
+			"definition-list-",
+			"radius",
+			"font-size",
+			"padding-horizontal",
+			"padding-vertical",
+			"line-height-computed",
+			")",
+			"(",
+			")",
+			"(",
+			"i",
+			",",
+			"antialiased()",
+			" !default",
+			" !default;",
+			"include-html-classes",
+			"link-color",
+			"link-color ",
+			"link-color",
+			"link-decoration",
+			"paragraph-",
+			"anchor-font-color",
+			"primary-color",
+			"optimizeLegibility",
+			"small-font-color",
+			"small-font-size",
+			"h6-font-reduction",
+			"h5-font-reduction",
+			"h4-font-reduction",
+			"h3-font-reduction",
+			"h2-font-reduction",
+			"h1-font-reduction",
+			"h6-font-size",
+			"h5-font-size",
+			"h4-font-size",
+			"h3-font-size",
+			"h2-font-size",
+			"h1-font-size",
+			"#",
+			"$",
+			"#",
+			"body-font-color",
+			"$",
+			" !default;",
+			"nth($align-class-names, $i)",
+			"  ",
+			"$",
+			":",
+			"@mixin ",
+			"@",
+			"$",
+			"#",
+			"$",
+			"#",
+			"$",
+			"$types",
+			"$return",
+			"strip-unit",
+			"$",
+			"$screen",
+			"antialiased",
+			"clearFix",
+			":",
+			"#",
+			":",
+			"box-sizing",
+			"@else",
+			"@if",
+			"@mixin ",
+			"function ",
+			"@",
+			"btn-default-border",
+			"basicButton",
+			".button-size",
+			";",
+			".button-variant",
+			"@",
+			";",
+			":",
+			"@"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"$",
+			"clearfix",
+			"btnBase",
+			"font-size-base",
+			"font-family-base",
+			"text-base-color",
+			"brand-primary-darker",
+			"brand-primary",
+			"content-bg",
+			"gray-light-",
+			"gray-dark-"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Gruntfile.js",
+					"settings":
+					{
+						"buffer_size": 6721,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								168,
+								168
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 47.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/styles/custom/_settings.styl",
+					"settings":
+					{
+						"buffer_size": 4698,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2817,
+								2817
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Stylus/Stylus.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1040.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 221.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 344.0,
+	"status_bar_visible": true
+}
