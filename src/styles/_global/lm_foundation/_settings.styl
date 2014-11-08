@@ -59,7 +59,7 @@ $namespace =                        false
 $rem-base =                         16px
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@require "_functions"
+@import "_functions"
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -102,8 +102,8 @@ $font-family-serif =                Georgia, Cambria, "Times New Roman", Times, 
 $font-family-monospace =            Consolas, "Menlo", "Liberation Mono", Courier, monospace
 
 // define default font weights
-$font-weight-normal =               normal !default
-$font-weight-bold =                 bold !default
+$font-weight-normal =               normal
+$font-weight-bold =                 bold
 
 $white        =                     #FFFFFF
 $ghost        =                     #FAFAFA
@@ -150,7 +150,7 @@ $default-float =                    left
 $last-child-float =                 $opposite-direction
 
 // make sure border radius matches unless we want it different.
-$global-radius =                    0 // 3px !default
+$global-radius =                    3px
 $global-rounded =                   1000px
 
 // inset shadow shiny edges and depressions.
@@ -199,7 +199,7 @@ $cursor-default-value =             default
 $cursor-pointer-value =             pointer
 $cursor-help-value =                help
 $cursor-text-value =                text
-
+$cursor-auto-value = 				auto
 
 // =========================================================================
 // e. Typography
@@ -245,7 +245,7 @@ $small-font-size =                  60%
 $small-font-color =                 scale-color($header-font-color, 35%)
 
 // style paragraphs
-$paragraph-font-family =            inhrit
+$paragraph-font-family =            inherit
 $paragraph-font-weight =            $font-weight-normal
 $paragraph-font-size =              1rem
 $paragraph-line-height =            1.6
@@ -461,7 +461,7 @@ $button-font-tny =                          rem-calc(11)
 $button-font-sml =                          rem-calc(13)
 $button-font-med =                          rem-calc(16)
 $button-font-lrg =                          rem-calc(20)
-$button-font-weight =                       $font-weight-normal
+$button-font-weight =                       $font-weight-bold
 $button-font-align =                        center
 $button-text-transform =                    uppercase // new custom variable
 
@@ -1033,6 +1033,7 @@ $panel-font-color-alt =                     $white
 
 $panel-header-adjust =                      true
 $callout-panel-link-color =                 $primary-color
+$callout-panel-link-color-hover = 			scale-color($callout-panel-link-color, $panel-function-factor)
 
 
 // =========================================================================
@@ -1132,6 +1133,7 @@ $range-slider-bar-border-color =            $gainsboro
 $range-slider-radius =                      $global-radius
 $range-slider-round =                       $global-rounded
 $range-slider-bar-bg-color =                $ghost
+$range-slider-active-segment-bg-color = 	scale-color($secondary-color, -1%)
 
 // Vertical bar styles
 $range-slider-vertical-bar-width =          rem-calc(16)
@@ -1140,7 +1142,7 @@ $range-slider-vertical-bar-height =         rem-calc(200)
 // These variables define the slider handle styles
 $range-slider-handle-width =                rem-calc(32)
 $range-slider-handle-height =               rem-calc(22)
-$range-slider-handle-position-top =         rem-calc(-5)
+$range-slider-handle-position-top =         -(rem-calc(5))
 $range-slider-handle-bg-color =             $primary-color
 $range-slider-handle-border-width =         1px
 $range-slider-handle-border-style =         solid
@@ -1312,6 +1314,7 @@ $switch-border-color =                      scale-color($white, -20%)
 $switch-border-style =                      solid
 $switch-border-width =                      1px
 $switch-bg =                                $white
+$switch-active-color = 						$primary-color
 
 // the switch heights for our default classes
 $switch-height-tny =                        rem-calc(22)
@@ -1363,6 +1366,19 @@ $table-head-font-size =                     rem-calc(14)
 $table-head-font-color =                    $jet
 $table-head-font-weight =                   $font-weight-bold
 $table-head-padding =                       rem-calc(8 10 10)
+
+// These control the table foot styles
+$table-foot-bg = 							$table-head-bg
+$table-foot-font-size = 					$table-head-font-size
+$table-foot-font-color = 					$table-head-font-color
+$table-foot-font-weight = 					$table-head-font-weight
+$table-foot-padding = 						$table-head-padding
+
+// These control the caption
+$table-caption-bg = 						transparent
+$table-caption-font-color = 				$table-head-font-color
+$table-caption-font-size = 					rem-calc(16)
+$table-caption-font-weight = 				bold
 
 // These control the row padding and font styles
 $table-row-padding =                        rem-calc(9 10)

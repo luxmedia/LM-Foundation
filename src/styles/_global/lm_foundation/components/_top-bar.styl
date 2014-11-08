@@ -2,10 +2,10 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+// @require "_global"
 // @import "_grid"
-@require "_buttons"
-@require "_forms"
+// @require "_buttons"
+// @require "_forms"
 
 
 // Accessibility mixins for hiding and showing the menu dropdown items
@@ -102,8 +102,8 @@ topbar-show-dropdown() {
 
             .button,
             button {
-                padding-top: .35rem + rem-calc(1)
-                padding-bottom: .35rem + rem-calc(1)
+                padding-top: (.35rem + rem-calc(1))
+                padding-bottom: (.35rem + rem-calc(1))
                 margin-bottom: 0
                 font-size: $topbar-button-font-size
                 // position: relative
@@ -256,19 +256,19 @@ topbar-show-dropdown() {
                         font-size: $topbar-link-font-size
                         padding-{$opposite-direction}: $topbar-link-padding
                         padding-{$default-float}: $topbar-link-padding
-                        button-style(($bg = $primary-color))
+                        button-style($primary-color)
                     }
                     &.button.secondary {
-                        button-style(($bg = $secondary-color))
+                        button-style($secondary-color)
                     }
                     &.button.success {
-                        button-style(($bg = $success-color))
+                        button-style($success-color)
                     }
                     &.button.alert {
-                        button-style(($bg = $alert-color))
+                        button-style($alert-color)
                     }
                     &.button.warning {
-                        button-style(($bg = $warning-color))
+                        button-style($warning-color)
                     }
                 }
 
@@ -276,19 +276,19 @@ topbar-show-dropdown() {
                 font-size: $topbar-link-font-size
                 padding-{$opposite-direction}: $topbar-link-padding
                 padding-{$default-float}: $topbar-link-padding
-                button-style(($bg = $primary-color))
+                button-style($primary-color)
 
                 &.secondary {
-                    button-style(($bg = $secondary-color))
+                    button-style($secondary-color)
                 }
                 &.success {
-                    button-style(($bg = $success-color))
+                    button-style($success-color)
                 }
                 &.alert {
-                    button-style(($bg = $alert-color))
+                    button-style($alert-color)
                 }
                 &.warning {
-                    button-style(($bg = $warning-color))
+                    button-style($warning-color)
                 }
             }
 

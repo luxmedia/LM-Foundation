@@ -2,8 +2,8 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
-@require "_type"
+// @require "_global"
+// @require "_type"
 
 
 // MIXINS
@@ -228,10 +228,10 @@ back-link() {
         }
 
         .left-small {
-            tabbar-small-section(($position = left))
+            tabbar-small-section(left)
         }
         .right-small {
-            tabbar-small-section(($position = right))
+            tabbar-small-section(right)
         }
 
         .tab-bar-section {
@@ -265,10 +265,10 @@ back-link() {
         }
 
         .left-off-canvas-menu {
-            off-canvas-menu(($position = left))
+            off-canvas-menu(left)
         }
         .right-off-canvas-menu {
-            off-canvas-menu(($position = right))
+            off-canvas-menu(right)
         }
 
         ul.off-canvas-list {
@@ -391,22 +391,22 @@ off-canvas-submenu($position) {
         if ($position == right) {
             if ($text-direction == rtl) {
                 &:before {
-                    icon-double-arrows(($position = left))
+                    icon-double-arrows(left)
                 }
             } else {
                 &:after {
-                    icon-double-arrows(($position = right))
+                    icon-double-arrows(right)
                 }
             }
         }
         if ($position == left) {
             if ($text-direction == rtl) {
                 &:after {
-                    icon-double-arrows(($position = right))
+                    icon-double-arrows(right)
                 }
             } else {
                 &:before {
-                    icon-double-arrows(($position = left))
+                    icon-double-arrows(left)
                 }
             }
         }
@@ -435,14 +435,14 @@ icon-double-arrows ($position){
 
 if $include-html-off-canvas-classes {
     .left-submenu {
-        off-canvas-submenu(($position = left))
+        off-canvas-submenu(left)
         &.move-right {
             translate-3d(0%,0,0)
         }
     }
 
     .right-submenu {
-        off-canvas-submenu(($position = right))
+        off-canvas-submenu(right)
         &.move-left {
             translate-3d(0%,0,0)
         }
@@ -450,17 +450,17 @@ if $include-html-off-canvas-classes {
 
     if ($text-direction == rtl) {
         .left-off-canvas-menu ul.off-canvas-list li.has-submenu > a:before {
-            icon-double-arrows(($position = left))
+            icon-double-arrows(left)
         }
         .right-off-canvas-menu ul.off-canvas-list li.has-submenu > a:after {
-            icon-double-arrows(($position = right))
+            icon-double-arrows(right)
         }
     } else {
         .left-off-canvas-menu ul.off-canvas-list li.has-submenu > a:after {
-            icon-double-arrows(($position = right))
+            icon-double-arrows(right)
         }
         .right-off-canvas-menu ul.off-canvas-list li.has-submenu > a:before {
-            icon-double-arrows(($position = left))
+            icon-double-arrows(left)
         }
     }
 }

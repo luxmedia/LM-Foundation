@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+// @require "_global"
 
 
 //
@@ -78,25 +78,25 @@ grid-column( $columns = false, $last-column = false, $center = false, $offset = 
 
     // If collapsed, get rid of gutter padding
     if $collapse {
-        padding-left: 0
-        padding-right: 0
+        $gutter = 0
+    } else {
+        $gutter = $column-gutter
     }
 
     // Gutter padding whenever a column isn't set to collapse
     // (use $collapse:null to do nothing)
-    else if ($collapse == false) {
-        padding-left: $column-gutter / 2
-        padding-right: $column-gutter / 2
-    }
+    // else if ($collapse == false) {
+    //     padding-left: $column-gutter / 2
+    //     padding-right: $column-gutter / 2
+    // }
 
     // If a column number is given, calculate width
     if $columns {
-        width: grid-calc($columns, $total-columns)
-
-        // If last column, float naturally instead of to the right
-        if $last-column {
-            float: $opposite-direction
-        }
+        // width: grid-calc($columns, $total-columns)
+        
+        // use jeet.gs
+        col(1/$columns, cycle:$total-columns, gutter:$gutter)
+        
     }
 
     // Source Ordering, adds left/right depending on which you use.
@@ -228,13 +228,6 @@ grid-html-classes($size) {
         .column,
         .columns {
             grid-column(($columns = $total-columns)) 
-        }
-
-        [class*="column"] + [class*="column"]:last-child {
-            float: $last-child-float
-        }
-        [class*="column"] + [class*="column"].end {
-            float: $default-float
         }
 
         @media $small-up {

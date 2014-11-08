@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+// @require "_global"
 
 if $align-block-grid-to-grid {
     $block-grid-default-spacing = $column-gutter
@@ -25,7 +25,7 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
         if $align-block-grid-to-grid {
             margin: 0
         } else {
-            margin: 0 (-($spacing)/2)
+            margin: 0 (-($spacing) / 2)
         }
         clearfix()
 
@@ -34,16 +34,16 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
             height: auto
             float: $default-float
             if $include-spacing {
-                padding: 0 ($spacing/2) $spacing
+                padding: 0 ($spacing / 2) $spacing
             }
         }
     }
 
     if $per-row {
-        &>li {
-            width: 100%/$per-row
+        & > li {
+            width: (100% / $per-row)
             if $include-spacing {
-                padding: 0 ($spacing/2) $spacing
+                padding: 0 ($spacing / 2) $spacing
             }
             list-style: none
 
@@ -62,9 +62,9 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
 
 block-grid-aligned($per-row, $spacing) {
     for $i in 1..$block-grid-elements {
-        if $per-row >= $i {
+        if ($per-row >= $i) {
             $grid-column = '+' + $i
-            if $per-row == $i {
+            if ($per-row == $i) {
                 $grid-column = ''
             }
             &:nth-of-type({$per-row}n{unquote($grid-column)}) {

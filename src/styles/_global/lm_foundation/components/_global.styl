@@ -124,13 +124,13 @@ hamburger($width, $left, $top, $thickness, $gap, $color, $hover-color, $offcanva
             }
             else {
                 top: 50%
-                margin-top: -$width/2
+                margin-top: -($width/2)
             }
             if $left {
                 left: $left
             }
             else {
-                left: ($tabbar-menu-icon-width - $width)/2
+                left: ($tabbar-menu-icon-width - ($width)/2)
             }
         }
         else {
@@ -156,8 +156,13 @@ hamburger($width, $left, $top, $thickness, $gap, $color, $hover-color, $offcanva
 // We use this to do clear floats
 clearfix() {
     &:before, 
-    &:after { content: " "; display: table }
-    &:after { clear: both }
+    &:after {
+        content: " ";
+        display: table
+    }
+    &:after {
+        clear: both
+    }
 }
 
 antialiased() {
@@ -222,6 +227,44 @@ if $text-direction == ltr {
 }
 
 
+// LUXMEDIA MOD
+// =========================================================================
+// FONT MIXINS
+// =========================================================================
+
+
+// Heading and Highlight Font
+fontCondensed() {
+    font-family: 'Dosis', $font-family-sans-serif
+    letter-spacing: 1px
+}
+
+// Convert font-size and line-height to rem
+fontSize(value) {
+    // add PX (or original value) as backup
+  font-size: pxify(value)
+  font-size: remify(value)
+}
+
+lineHeight(value) {
+    // add PX (or original value) as backup
+  line-height: pxify(value)
+  line-height: remify(value)
+}
+
+// =========================================================================
+// COLOR MIXINS
+// =========================================================================
+colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
+    {$property}: blend(rgba($maincolor,$opacity), $mix);
+    {$property}: rgba($maincolor, $opacity);
+}
+
+// =========================================================================
+// EOF - LUXMEDIA MOD
+// =========================================================================
+
+
 // +exports("global") {
 
     // Meta styles are included in all builds, as they are a dependancy of the Javascript.
@@ -264,7 +307,10 @@ if $text-direction == ltr {
     if $include-html-global-classes {
 
         // Must be 100% for off canvas to work
-        html, body { height: 100% }
+        html,
+        body {
+            height: 100%
+        }
 
         // Set box-sizing globally to handle padding and border widths
         *,
@@ -274,7 +320,9 @@ if $text-direction == ltr {
         }
 
         html,
-        body { font-size: $base-font-size }
+        body {
+            fontSize($base-font-size)
+        }
 
         // Default body styles
         body {
@@ -290,25 +338,39 @@ if $text-direction == ltr {
             cursor: $cursor-auto-value
         }
 
-        a:hover { cursor: $cursor-pointer-value }
+        a:hover {
+            cursor: $cursor-pointer-value
+        }
 
         // Grid Defaults to get images and embeds to work properly
-        img { max-width: 100%; height: auto }
+        img {
+            max-width: 100%
+            height: auto
+        }
 
-        img { -ms-interpolation-mode: bicubic }
+        img {
+            -ms-interpolation-mode: bicubic
+        }
 
         #map_canvas,
         .map_canvas {
             img,
             embed,
-            object { max-width: none !important
+            object {
+                max-width: none !important
             }
         }
 
         // Miscellaneous useful HTML classes
-        .left { float: left !important }
-        .right { float: right !important }
-        .clearfix { clearfix() }
+        .left {
+            float: left !important
+        }
+        .right {
+            float: right !important
+        }
+        .clearfix {
+            clearfix()
+        }
 
         // Hide visually and from screen readers
         .hide {

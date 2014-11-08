@@ -1,19 +1,77 @@
+// =========================================================================
+// CUSTOM LUXMEDIA FUNCTIONS
+// =========================================================================
+
+// REM CALCULATIONS
+
+// Convert unit to rems if unit is in pixels.
+remify($value, $isPx = false) {
+    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
+        $value
+    } else if ($value == 'hairline') {
+        '1px'
+    } else if (unit($value) == 'px' || $isPx) { // Assume that vaues gt 9 are pixe-values
+        unit($value/$rem-base, 'rem')
+    } else if ((unit($value) == 0 || unit($value) == null) && ($isPx == false)) {
+        unit($value, 'rem')
+    } else {
+        unit($value, unit($value))
+    }
+}
+
+// Convert unit to rems if unit is in pixels.
+pxify($value) {
+    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
+        $value
+    } else if ($value == 'hairline') {
+        '1px'
+    } else if (unit($value) == 'px') {
+        unit($value, unit($value))
+    } else if (unit($value) == 'rem' || unit($value) == 'em' || unit($value) == 0 || unit($value) == null) {
+        round(unit($value*$rem-base, 'px'))
+    } else {
+        unit($value, unit($value))
+    }
+}
+
+/* ========================================================================= */
+// COLOR CALCULATIONS
+/* ========================================================================= */
+scale-color($color, $mod = 0%) {
+    $value = unit($mod,"") // strip unit from value
+    if ($value < 0) {
+        return darken($color, unit($value,'%'))
+    } else {
+        return lighten($color, unit($value,'%'))
+    }
+
+}
+
+percentage($value){
+    if $value {
+        return unit(($value * 100),"%")
+    }
+}
+// =========================================================================
+// EOF - CUSTOM LUXMEDIA FUNCTIONS
+// =========================================================================
+
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
 // IMPORT ONCE
 // We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
-$modules = () !default
-exports($name) {
-    $module_index = index($modules, $name)
-    if (($module_index == null) || ($module_index == false)) {
-        push($modules, $name)
-        //content: 'code'
-    }
-    // Reference: http://learnboost.github.io/stylus/docs/mixins.html
-    //{block}
-}
+// $modules = () !default
+// exports($name) {
+//     $module_index = index($modules, $name)
+//     if (($module_index == null) || ($module_index == false)) {
+//         push($modules, $name)
+//         //content: 'code'
+//     }
+//     // Reference: http://learnboost.github.io/stylus/docs/mixins.html
+//     //{block}
+// }
 
 // Based on Foundation by ZURB
 // foundation.zurb.com
@@ -37,18 +95,6 @@ upper-bound($range) {
     return $range[1]
 }
 
-/* ========================================================================= */
-// COLOR CALCULATIONS
-/* ========================================================================= */
-scale-color($color, $mod = 0%) {
-    $value = unit($mod,"") // strip unit from value
-    if ($value < 0) {
-        return darken($color, unit($value,'%'))
-    } else {
-        return lighten($color, unit($value,'%'))
-    }
-
-}
 
 /* ========================================================================= */
 // STRIP UNIT
@@ -56,7 +102,7 @@ scale-color($color, $mod = 0%) {
 // It strips the unit of measure and returns it
 strip-unit($num) {
     if($num != null) { 
-        return $num / ($num * 0 + 1) 
+        return ($num / ($num * 0 + 1))
     } else {
         return 0
     }
@@ -65,21 +111,25 @@ strip-unit($num) {
 /* ========================================================================= */
 // TEXT INPUT TYPES
 /* ========================================================================= */
-text-inputs( $types = all, $selector = input ) {
+text-inputs( $types = all, $selector = "input" ) {
     $return = ()
-    $all-text-input-types = (text password date datetime datetime-local month week email number search tel time url color textarea)
+    $all-text-input-types = ("text" "password" "date" "datetime" "datetime-local" "month" "week" "email" "number" "search" "tel" "time" "url" "color" "textarea")
 
-    if ($types == all) { $types = $all-text-input-types; }
+    if ($types == all) {
+        $types = $all-text-input-types
+    }
 
-    each $type in $types {
-        if ($type == textarea) {
-            if ($selector == input) {
-              $return = push($return, unquote('{$type}'), comma)
+    for $type in $types {
+        if ($type == "textarea") {
+            if ($selector == "input") {
+              push($return, unquote($type))
             } else {
-              $return = push($return, unquote('{$type}{$selector}'), comma)
+                $_sel = $type + $selector
+                push($return, unquote($_sel))
             }
         } else {
-            $return = push($return, unquote('{$selector}[type="{$type}"]'), comma)
+            $_sel = $selector + '[type="' + $type + '"]'
+            push($return, unquote($_sel))
         }
     }
     return $return
@@ -101,9 +151,13 @@ data($attr) {
 /* ========================================================================= */
 
 // CONVERT REM
+// @Deprecated - we use remify() instead
 convert-to-rem($value, $base-value = $rem-base)  {
-    $val = strip-unit($value) / strip-unit($base-value) * 1rem
-    if ($val == 0rem) { $val = 0 } // Turn 0rem into 0
+    $val = (strip-unit($value) / strip-unit($base-value) * 1rem)
+    if ($val == 0rem) {
+        // Turn 0rem into 0
+        $val = 0
+    }
     return $val
 }
 
@@ -129,42 +183,15 @@ convert-to-rem($value, $base-value = $rem-base)  {
 rem-calc($values, $base-value = $rem-base) {
     $max = length($values)
 
-    if ($max == 1) { return convert-to-rem($values[1], $base-value) }
+    if ($max == 1) {
+        // return convert-to-rem($values[0], $base-value)
+        return remify($values[0],true)
+    }
 
     $remValues = ()
     for $i in 1..$max {
-        $remValues =  push($remValues, convert-to-rem($values[$i], $base-value))
+        // push($remValues, convert-to-rem($values[$i], $base-value))
+        push($remValues, remify($values[$i],true))
     }
     return $remValues
-}
-
-
-/* Convert unit to rems if unit is in pixels. */
-remify($value) {
-    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-        $value
-    } else if ($value == 'hairline') {
-        '1px'
-    } else if (unit($value) == 'px') {
-        unit($value/$font-size-base, 'rem')
-    } else if (unit($value) == 0 || unit($value) == null) {
-        unit($value, $base-unit)
-    } else {
-        unit($value, unit($value))
-    }
-}
-
-/* Convert unit to rems if unit is in pixels. */
-pxify($value) {
-    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-        $value
-    } else if ($value == 'hairline') {
-        '1px'
-    } else if (unit($value) == 'px') {
-        unit($value, unit($value))
-    } else if (unit($value) == 'rem' || unit($value) == 'em' || unit($value) == 0 || unit($value) == null) {
-        round(unit($value*$font-size-base, 'px'))
-    } else {
-        unit($value, unit($value))
-    }
 }
