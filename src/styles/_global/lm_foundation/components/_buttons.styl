@@ -26,8 +26,21 @@ button-base($style = true, $display = $button-display) {
         text-decoration: none
         text-align: $button-font-align
         text-transform: $button-text-transform
+        letter-spacing: $button-letter-spacing
+        
+        if $button-shadow {
+            box-shadow: $button-shadow
+        }
+                
         -webkit-appearance: none
         -webkit-border-radius:0
+        
+        &:hover,
+        &:focus {
+            if $button-hover-shadow {
+                box-shadow: $button-hover-shadow
+            }
+        }      
     }
     if $display {
         display: $display
@@ -68,7 +81,8 @@ button-size($padding = $button-med, $full-width = false) {
         // We still need to check if $padding is set.
         if ($padding != false && $padding != null) {
             padding-top: $padding
-            padding-bottom: ($padding + rem-calc(1))
+            // padding-bottom: ($padding + rem-calc(1))
+            padding-bottom: $padding
         } else if ($padding == false) {
             padding-top:0
             padding-bottom:0
@@ -99,28 +113,29 @@ button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hov
     if $bg {
 
         if ($bg-hover == null) {
-            $bg-hover = ($bg != $button-bg-color) ? $button-bg-hover : scale-color($bg, $button-function-factor)
+            // $bg-hover = ($bg != $button-bg-color) ? $button-bg-hover : scale-color($bg, $button-function-factor)
+            $bg-hover = darken($bg, $button-function-factor)
         }
 
-        if ($border-color == null) {
-            $border-color = ($bg != $button-bg-color) ? $button-border-color : scale-color($bg, $button-function-factor)
-        }
-
-        background-color: $bg
-        border-color: $border-color
-        &:hover,
-        &:focus {
-            background-color: $bg-hover
+        if ($border-color == null || lightness($bg) == lightness($border-color)) {
+            // $border-color = ($bg != $button-bg-color) ? $button-border-color : scale-color($bg, $button-function-factor)
+            $border-color = darken($bg, $button-function-factor)
         }
 
         // We control the text color for you based on the background color.
         color: dark($bg) ? $button-font-color : $button-font-color-alt
+        
+        background-color: $bg
+        border-color: $border-color
 
         &:hover,
         &:focus {
             color: dark($bg-hover) ? $button-font-color : $button-font-color-alt
-            
+            background-color: $bg-hover
+            // border-color: scale-color($border-color, $button-function-factor)
+            border-color: darken($border-color, $button-function-factor)
         }
+
     }
 
     // We can set $disabled:true to create a disabled transparent button.

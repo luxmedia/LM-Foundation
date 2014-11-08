@@ -199,7 +199,7 @@ $cursor-default-value =             default
 $cursor-pointer-value =             pointer
 $cursor-help-value =                help
 $cursor-text-value =                text
-$cursor-auto-value = 				auto
+$cursor-auto-value =                auto
 
 // =========================================================================
 // e. Typography
@@ -463,28 +463,32 @@ $button-font-med =                          rem-calc(16)
 $button-font-lrg =                          rem-calc(20)
 $button-font-weight =                       $font-weight-bold
 $button-font-align =                        center
-$button-text-transform =                    uppercase // new custom variable
+$button-text-transform =                    uppercase
+$button-letter-spacing =                    0 
 
 // various hover effects.
-$button-function-factor =                   -20%
+$button-function-factor =                   15% // darken amount
 
 // button border and hover styles.
-$button-border-width =                      0px
+$button-border-width =                      0 1px 1px 0
 $button-border-style =                      solid
 $button-bg-color =                          $primary-color
 $button-bg-hover =                          darken($button-bg-color, 20%)
-$button-border-color =                      $button-bg-hover
+$button-border-color =                      rgba($black,0.1)
+$button-border-hover-color =                rgba($black,0.2)
+$button-shadow =                            1px 1px 1px rgba($black,0.15)
+$button-hover-shadow =                      1px 1px 1px rgba($black,0.25)
 
-$secondary-button-bg-hover =                darken($secondary-color, 20%)
-$secondary-button-border-color =            $secondary-button-bg-hover
-$success-button-bg-hover =                  darken($success-color, 20%)
-$success-button-border-color =              $success-button-bg-hover
-$alert-button-bg-hover =                    darken($alert-color, 20%)
-$alert-button-border-color =                $alert-button-bg-hover
-$warning-button-bg-hover =                  darken($warning-color, 20%)
-$warning-button-border-color =              $warning-button-bg-hover
-$info-button-bg-hover =                     darken($info-color, 20%)
-$info-button-border-color =                 $info-button-bg-hover
+$secondary-button-bg-hover =                darken($secondary-color, $button-function-factor)
+$secondary-button-border-color =            darken($secondary-button-bg-hover,10%) // $secondary-button-bg-hover
+$success-button-bg-hover =                  darken($success-color, $button-function-factor)
+$success-button-border-color =              darken($success-button-bg-hover,10%) // $success-button-bg-hover
+$alert-button-bg-hover =                    darken($alert-color, $button-function-factor)
+$alert-button-border-color =                darken($alert-button-bg-hover, 10%) // $alert-button-bg-hover
+$warning-button-bg-hover =                  darken($warning-color, $button-function-factor)
+$warning-button-border-color =              darken($warning-button-bg-hover,10%) // $warning-button-bg-hover
+$info-button-bg-hover =                     darken($info-color, $button-function-factor)
+$info-button-border-color =                 darken($info-button-bg-hover,10%) // $info-button-bg-hover
 
 // set the default radius used throughout the core.
 $button-radius =                            $global-radius
@@ -503,7 +507,7 @@ $include-html-button-classes =              $include-html-classes
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
 $button-bar-margin-opposite =               rem-calc(10)
-$button-group-border-width =                1px
+$button-group-border-width =                0 1px 1px 0
 
 
 // =========================================================================
@@ -993,14 +997,14 @@ $pagination-li-margin =                     rem-calc(5)
 // We use these for the pagination anchor links
 $pagination-link-pad =                      rem-calc(10 1 10)
 $pagination-link-font-color =               $aluminum
-$pagination-link-bg = 						#efefef
-$pagination-font-size = 					1rem
-$pagination-link-boxshadow = 				0 1px 1px rgba(0,0,0,0.1)
-$pagination-link-border = 					rgba(0,0,0,0.1)
+$pagination-link-bg =                       #efefef
+$pagination-font-size =                     1rem
+$pagination-link-boxshadow =                1px 1px 1px rgba($black,0.15)
+$pagination-link-border =                   rgba(0,0,0,0.1)
 $pagination-link-active-bg =                $primary-color
-$pagination-link-hover-color = 				$white
-$pagination-link-hover-boxshadow = 			0 1px 1px rgba(0,0,0,0.2)
-$pagination-link-hover-border = 			rgba(0,0,0,0.1)
+$pagination-link-hover-color =              $white
+$pagination-link-hover-boxshadow =          1px 1px 1px rgba($black,0.25)
+$pagination-link-hover-border =             rgba(0,0,0,0.1)
 
 // We use these for disabled anchor links
 $pagination-link-unavailable-cursor =       default
@@ -1040,7 +1044,7 @@ $panel-font-color-alt =                     $white
 
 $panel-header-adjust =                      true
 $callout-panel-link-color =                 $primary-color
-$callout-panel-link-color-hover = 			scale-color($callout-panel-link-color, $panel-function-factor)
+$callout-panel-link-color-hover =           scale-color($callout-panel-link-color, $panel-function-factor)
 
 
 // =========================================================================
@@ -1140,7 +1144,7 @@ $range-slider-bar-border-color =            $gainsboro
 $range-slider-radius =                      $global-radius
 $range-slider-round =                       $global-rounded
 $range-slider-bar-bg-color =                $ghost
-$range-slider-active-segment-bg-color = 	scale-color($secondary-color, -1%)
+$range-slider-active-segment-bg-color =     scale-color($secondary-color, -1%)
 
 // Vertical bar styles
 $range-slider-vertical-bar-width =          rem-calc(16)
@@ -1321,7 +1325,7 @@ $switch-border-color =                      scale-color($white, -20%)
 $switch-border-style =                      solid
 $switch-border-width =                      1px
 $switch-bg =                                $white
-$switch-active-color = 						$primary-color
+$switch-active-color =                      $primary-color
 
 // the switch heights for our default classes
 $switch-height-tny =                        rem-calc(22)
@@ -1375,17 +1379,17 @@ $table-head-font-weight =                   $font-weight-bold
 $table-head-padding =                       rem-calc(8 10 10)
 
 // These control the table foot styles
-$table-foot-bg = 							$table-head-bg
-$table-foot-font-size = 					$table-head-font-size
-$table-foot-font-color = 					$table-head-font-color
-$table-foot-font-weight = 					$table-head-font-weight
-$table-foot-padding = 						$table-head-padding
+$table-foot-bg =                            $table-head-bg
+$table-foot-font-size =                     $table-head-font-size
+$table-foot-font-color =                    $table-head-font-color
+$table-foot-font-weight =                   $table-head-font-weight
+$table-foot-padding =                       $table-head-padding
 
 // These control the caption
-$table-caption-bg = 						transparent
-$table-caption-font-color = 				$table-head-font-color
-$table-caption-font-size = 					rem-calc(16)
-$table-caption-font-weight = 				bold
+$table-caption-bg =                         transparent
+$table-caption-font-color =                 $table-head-font-color
+$table-caption-font-size =                  rem-calc(16)
+$table-caption-font-weight =                bold
 
 // These control the row padding and font styles
 $table-row-padding =                        rem-calc(9 10)

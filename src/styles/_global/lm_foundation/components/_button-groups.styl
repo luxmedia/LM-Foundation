@@ -30,13 +30,15 @@ button-group-container($styles = true, $float = false) {
 // We use this to control styles for button groups
 button-group-style($radius = false, $even = false, $float = false, $orientation = horizontal) {
 
-    > button, .button {
+    > button,
+    .button {
         border-{$default-float}: $button-group-border-width solid
-        border-color: rgba(255, 255, 255, 0.5)
+        border-color: $button-border-color
     }
 
     &:first-child {
-        button, .button {
+        button,
+        .button {
             border-{$default-float}: 0
         }
     }
@@ -59,16 +61,18 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
     if ($orientation == vertical) {
         display:block
         margin:0
-        > button, .button {
+        > button,
+        .button {
             border-top: $button-group-border-width solid
-            border-color: rgba(255, 255, 255, 0.5)
-            border-left-width: 0px
+            border-color: $button-border-color
+            border-left-width: 0
             margin:0
             display: block
         }
 
         &:first-child {
-            button, .button {
+            button,
+            .button {
                 border-top: 0
             }
         }
@@ -109,7 +113,9 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         &,
         & > a,
         & > button,
-        & > .button { radius(0) }
+        & > .button {
+            radius(0)
+        }
         &:first-child,
         &:first-child > a,
         &:first-child > button,

@@ -37,9 +37,10 @@ pxify($value) {
 /* ========================================================================= */
 // COLOR CALCULATIONS
 /* ========================================================================= */
-scale-color($color, $mod = 0%) {
+// TODO: Negative values like -15% in settings not working !!!!
+scale-color($color, $mod = 0) {
     $value = unit($mod,"") // strip unit from value
-    if ($value < 0) {
+    if ($mod < 0) {
         return darken($color, unit($value,'%'))
     } else {
         return lighten($color, unit($value,'%'))
