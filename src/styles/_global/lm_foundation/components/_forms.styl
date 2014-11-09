@@ -451,6 +451,7 @@ html5number($browser, $on = true) {
         input[type="submit"] {
             -webkit-appearance: none
             -webkit-border-radius: 0px
+            antialiased()
         }
 
         /* Respect enforced amount of rows for textarea */
@@ -467,6 +468,7 @@ html5number($browser, $on = true) {
         select {
             form-select()
             height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
+            antialiased()
         }
 
         /* Adjust margin for form elements below */
