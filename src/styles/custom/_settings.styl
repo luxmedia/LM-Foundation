@@ -10,7 +10,7 @@
 
 // This is the default html and body font-size for the base rem value.
 $rem-base =                         14px
-$base-font-size =                   87.5% // reduce base font size from 16px to 14px
+$base-font-size =                   unit(percentage($rem-base / 16px),'%') // reduce base font size from 16px to 14px
 $base-line-height =                 140% // 150%
 
 @require "../_global/lm_foundation/_functions"
@@ -81,6 +81,8 @@ $h4-font-size =                     1.1rem // rem-calc(23)
 $h5-font-size =                     1rem // rem-calc(18)
 $h6-font-size =                     1rem
 
+$header-font-family =               $body-font-family
+$header-font-weight =               $font-weight-bold
 $header-font-color =                $jet
 $header-line-height =               1.2
 $subheader-line-height =            1.2

@@ -20,13 +20,17 @@ module.exports = function(grunt) {
 
         copy: {
             build: {
-                expand: true,                
-                cwd: '<%= globalConfig.src  %>',
-                src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
-                dest: '<%= globalConfig.dest %>',
-                flatten: false,
-                filter: 'isFile'
-            },
+                files: [
+                    {
+                        expand: true,                
+                        cwd: '<%= globalConfig.src  %>',
+                        src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
+                        dest: '<%= globalConfig.dest %>',
+                        flatten: false,
+                        filter: 'isFile'
+                    }
+                ]
+            }
         },
 
         clean: {
