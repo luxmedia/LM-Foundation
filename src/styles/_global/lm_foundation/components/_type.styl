@@ -12,10 +12,18 @@ $align-class-breakpoints = $small-only, $small-up, $medium-only, $medium-up, $la
 
 // Generates text align and justify classes
 align-classes() {
-    .text-left    { text-align: left !important }
-    .text-right   { text-align: right !important }
-    .text-center  { text-align: center !important }
-    .text-justify { text-align: justify !important }
+    .text-left    {
+        text-align: left !important
+    }
+    .text-right   {
+        text-align: right !important
+    }
+    .text-center  {
+        text-align: center !important
+    }
+    .text-justify {
+        text-align: justify !important
+    }
 
     for $i in 1..length($align-class-names) {
         @media $align-class-breakpoints[$i] {
@@ -41,8 +49,8 @@ align-classes() {
 
 // These will throw a deprecation warning if used within a media query.
 lead() {
-    fontSize($paragraph-font-size + rem-calc(3.5))
-    line-height: 1.6
+    fontSize($lead-font-size)
+    line-height: $lead-line-height
 }
 
 subheader() {

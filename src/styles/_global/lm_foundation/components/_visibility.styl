@@ -8,12 +8,12 @@
 // Media Class Names
 //
 // Visibility Breakpoints
-$visibility-breakpoint-sizes = (small medium large xlarge xxlarge)
+$visibility-breakpoint-sizes = 'small' 'medium' 'large' 'xlarge' 'xxlarge'
 
 $visibility-breakpoint-queries = $small-up, $medium-up, $large-up, $xlarge-up, $xxlarge-up
 
 visibility-loop() {
-    for $current-visibility-breakpoint in $visibility-breakpoint-sizes {
+    for $current-visibility-breakpoint, $i in $visibility-breakpoint-sizes {
         $visibility-inherit-list = ()
         $visibility-none-list = ()
 
@@ -26,8 +26,9 @@ visibility-loop() {
         $visibility-table-row-list = ()
         $visibility-table-cell-list = ()
 
-        for $visibility-comparison-breakpoint in $visibility-breakpoint-sizes {
-            if (index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) < index($visibility-breakpoint-sizes, $current-visibility-breakpoint)) {
+        for $visibility-comparison-breakpoint, $j in $visibility-breakpoint-sizes {
+            // if (index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) < index($visibility-breakpoint-sizes, $current-visibility-breakpoint)) {
+            if ($j < $i) {
                 // Smaller than current breakpoint
 
                 push($visibility-inherit-list, unquote('.hide-for-'+$visibility-comparison-breakpoint+'-only, .show-for-'+$visibility-comparison-breakpoint+'-up'))
@@ -40,7 +41,8 @@ visibility-loop() {
                 push($visibility-table-row-list, unquote('tr.hide-for-'+$visibility-comparison-breakpoint+'-only, tr.show-for-'+$visibility-comparison-breakpoint+'-up'))
                 push($visibility-table-cell-list, unquote('th.hide-for-'+$visibility-comparison-breakpoint+'-only, td.hide-for-'+$visibility-comparison-breakpoint+'-only, th.show-for-'+$visibility-comparison-breakpoint+'-up, td.show-for-'+$visibility-comparison-breakpoint+'-up'))
 
-            } else if (index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) > index($visibility-breakpoint-sizes, $current-visibility-breakpoint)) {
+            // } else if (index($visibility-breakpoint-sizes, $visibility-comparison-breakpoint) > index($visibility-breakpoint-sizes, $current-visibility-breakpoint)) {
+            } else if ($j > $i) {
                 // Larger than current breakpoint
 
                 push($visibility-inherit-list, unquote('.hide-for-'+$visibility-comparison-breakpoint+'-only, .hide-for-'+$visibility-comparison-breakpoint+'-up'))
@@ -69,7 +71,8 @@ visibility-loop() {
         }
 
         /* {$current-visibility-breakpoint} displays */
-        @media $visibility-breakpoint-queries[index($visibility-breakpoint-sizes, $current-visibility-breakpoint)] {
+        // @media $visibility-breakpoint-queries[index($visibility-breakpoint-sizes, $current-visibility-breakpoint)] {
+        @media $visibility-breakpoint-queries[$i] {
             {$visibility-inherit-list} {
                 display: inherit !important
             }

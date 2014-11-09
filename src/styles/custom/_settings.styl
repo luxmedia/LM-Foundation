@@ -7,54 +7,11 @@
 // PUT YOUR CUSTOM SETTIGNS AND OVERRIDES HERE
 // =========================================================================
 
-// Table of Contents
-// OVERRIDE - Foundation Settings
-// 
-//
-// 0-a - GLOBAL VARS
-// a. Base
-// b. Grid
-// c. Global
-// d. Media Query Ranges
-// e. Typography
-// 01. Accordion
-// 02. Alert Boxes
-// 03. Block Grid
-// 04. Breadcrumbs
-// 05. Buttons
-// 06. Button Groups
-// 07. Clearing
-// 08. Dropdown
-// 09. Dropdown Buttons
-// 10. Flex Video
-// 11. Forms
-// 12. Icon Bar
-// 13. Inline Lists
-// 14. Joyride
-// 15. Keystrokes
-// 16. Labels
-// 17. Magellan
-// 18. Off-canvas
-// 19. Orbit
-// 20. Pagination
-// 21. Panels
-// 22. Pricing Tables
-// 23. Progress Bar
-// 24. Range Slider
-// 25. Reveal
-// 26. Side Nav
-// 27. Split Buttons
-// 28. Sub Nav
-// 29. Switch
-// 30. Tables
-// 31. Tabs
-// 32. Thumbnails
-// 33. Tooltips
-// 34. Top Bar
-// 36. Visibility Classes
 
 // This is the default html and body font-size for the base rem value.
-$rem-base =                         13px
+$rem-base =                         14px
+$base-font-size =                   87.5% // reduce base font size from 16px to 14px
+$base-line-height =                 140% // 150%
 
 @require "../_global/lm_foundation/_functions"
 
@@ -74,13 +31,47 @@ $dir_js =                           $dir_themebase+"/src/js"
 $dir_font =                         $dir_themebase+"/src/fonts"
 
 // =========================================================================
-// Grid system (based on jeet.gs)
+// GRID system (based on jeet.gs)
 // =========================================================================
 // jeet overrides - requires jeet to be imported before!
 jeet.gutter =                       2
 jeet.max-width =                    rem-calc(1170)
 
+// =========================================================================
+// COLORS
+// =========================================================================
 
+$white        =                     #FFFFFF
+$ghost        =                     #FAFAFA
+$snow         =                     #F9F9F9
+$vapor        =                     #F6F6F6
+$white-smoke  =                     #F5F5F5
+$silver       =                     #EFEFEF
+$smoke        =                     #EEEEEE
+$gainsboro    =                     #DDDDDD
+$iron         =                     #CCCCCC
+$base         =                     #AAAAAA
+$aluminum     =                     #999999
+$jumbo        =                     #888888
+$monsoon      =                     #777777
+$steel        =                     #666666
+$charcoal     =                     #555555
+$tuatara      =                     #444444
+$oil          =                     #333333
+$jet          =                     #222222
+$black        =                     #000000
+
+// We use these as default colors throughout
+$primary-color =                    #008CBA
+$secondary-color =                  #e7e7e7
+$alert-color =                      #f04124
+$success-color =                    #43AC6A
+$warning-color =                    #f08a24
+$info-color =                       #a0d3e8
+
+// =========================================================================
+// FONT SIZES
+// =========================================================================
 
 // header font sizes
 $h1-font-size =                     1.8rem // rem-calc(44)
@@ -89,6 +80,12 @@ $h3-font-size =                     1.2rem // rem-calc(27)
 $h4-font-size =                     1.1rem // rem-calc(23)
 $h5-font-size =                     1rem // rem-calc(18)
 $h6-font-size =                     1rem
+
+$header-font-color =                $jet
+$header-line-height =               1.2
+$subheader-line-height =            1.2
+$paragraph-line-height =            1.4
+$small-font-size =                  0.8rem
 
 $button-font-tny =                  0.9rem // rem-calc(11)
 $button-font-sml =                  1rem // rem-calc(13)
@@ -139,6 +136,6 @@ $include-html-tabs-classes =                $include-html-classes
 $include-html-tooltip-classes =             $include-html-classes
 $include-html-top-bar-classes =             $include-html-classes
 $include-html-visibility-classes =          $include-html-classes
-$include-table-visibility-classes =         true
-$include-legacy-visibility-classes =        false // true !default
+$include-table-visibility-classes =         false
+$include-legacy-visibility-classes =        false // true !default - legacy breakpoints are not longer supported!
 $include-accessibility-classes =            true
