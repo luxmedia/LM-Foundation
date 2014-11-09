@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-// @require "_global"
+@require "_global"
 
 
 //
@@ -78,27 +78,21 @@ grid-column( $columns = false, $last-column = false, $center = false, $offset = 
 
     // If collapsed, get rid of gutter padding
     if $collapse {
-        $gutter = 0
-    } else {
-        $gutter = jeet.gutter
+        padding-left: 0
+        padding-right: 0
+    } else if ($collapse == false) {
+        // Gutter padding whenever a column isn't set to collapse
+        // (use $collapse:null to do nothing)        
+        padding-left: $column-gutter / 2
+        padding-right: $column-gutter / 2
     }
-
-    // Gutter padding whenever a column isn't set to collapse
-    // (use $collapse:null to do nothing)
-    // else if ($collapse == false) {
-    //     padding-left: $column-gutter / 2
-    //     padding-right: $column-gutter / 2
-    // }
 
     // If a column number is given, calculate width
     if $columns {
-        // width: grid-calc($columns, $total-columns)
-        
-        // use jeet.gs
-        if ($columns > 1) {
-            col($columns/$total-columns, cycle:$total-columns, gutter:$gutter)
+        width: grid-calc($columns, $total-columns)
+        if $last-column {
+            float: $opposite-direction
         }
-        
     }
 
     // Source Ordering, adds left/right depending on which you use.
@@ -123,11 +117,13 @@ grid-column( $columns = false, $last-column = false, $center = false, $offset = 
 
     // If centered, get rid of float and add appropriate margins
     if $center {
-        center($columns)
+        margin-{$default-float}: auto
+        margin-{$opposite-direction}: auto
+        float: none
     }
     
     if $offset {
-        shift()
+        margin-{$default-float}: grid-calc($offset, $total-columns) !important
     }
 
 }
@@ -172,7 +168,7 @@ grid-html-classes($size) {
 
     .column.{$size}-centered,
     .columns.{$size}-centered {
-        grid-column($size,false,($center = true), false,false,false,($collapse = null), ($float = false))
+        grid-column(false,false,($center = true), false,false,false,($collapse = null), ($float = false))
     }
 
     .column.{$size}-uncentered,
