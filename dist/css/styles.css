@@ -3238,7 +3238,7 @@ button,
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0;
-  box-shadow: 1px rgba(0,0,0,0.15);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
   -webkit-appearance: none;
   display: inline-block;
   padding-top: 0.428571428571429rem;
@@ -3262,7 +3262,7 @@ button:hover,
 .button:hover,
 button:focus,
 .button:focus {
-  box-shadow: 1px rgba(0,0,0,0.25);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
 }
 
 /* line 131 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
