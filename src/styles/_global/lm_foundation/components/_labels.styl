@@ -19,6 +19,9 @@ label-base() {
     display: inline-block
     position: relative
     margin-bottom: inherit
+    if ($label-text-transform != false) {
+        text-transform: $label-text-transform
+    }
 }
 
 // @mixins
@@ -47,9 +50,9 @@ label-style($bg = $primary-color, $radius = false) {
         background-color: $bg
         // We control the text color for you based on the background color.
         if light($bg) {
-            color: $label-font-color-alt
-        } else {
             color: $label-font-color
+        } else {
+            color: $label-font-color-alt
         }
     }
 

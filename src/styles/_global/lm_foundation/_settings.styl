@@ -105,25 +105,25 @@ $font-family-monospace =            Consolas, "Menlo", "Liberation Mono", Courie
 $font-weight-normal =               normal
 $font-weight-bold =                 bold
 
-$white        =                     #FFFFFF
-$ghost        =                     #FAFAFA
-$snow         =                     #F9F9F9
-$vapor        =                     #F6F6F6
-$white-smoke  =                     #F5F5F5
-$silver       =                     #EFEFEF
-$smoke        =                     #EEEEEE
-$gainsboro    =                     #DDDDDD
-$iron         =                     #CCCCCC
-$base         =                     #AAAAAA
-$aluminum     =                     #999999
-$jumbo        =                     #888888
-$monsoon      =                     #777777
-$steel        =                     #666666
-$charcoal     =                     #555555
-$tuatara      =                     #444444
-$oil          =                     #333333
-$jet          =                     #222222
-$black        =                     #000000
+$white =                     		#FFFFFF
+$gray-lighter-1 =                   #FAFAFA
+$gray-lighter-2 =                   #F9F9F9
+$gray-lighter-3 =                   #F6F6F6
+$gray-light-1 =                     #F5F5F5
+$gray-light-2 =                     #EFEFEF
+$gray-light-3 =                     #EEEEEE
+$gray-medium-1 =                    #DDDDDD
+$gray-medium-2 =                    #CCCCCC
+$gray-base =                     	#AAAAAA
+$gray-dark-1 =                     	#999999
+$gray-dark-2 =                     	#888888
+$gray-dark-3 =                     	#777777
+$gray-darker-1 =                    #666666
+$gray-darker-2 =                    #555555
+$gray-darker-3 =                    #444444
+$charcoal-1 =                     	#333333
+$charcoal-2 =                     	#222222
+$black =                     		#111111
 
 // We use these as default colors throughout
 $primary-color =                    #008CBA
@@ -135,7 +135,7 @@ $info-color =                       #a0d3e8
 
 // various global styles
 $body-bg =                          $white
-$body-font-color =                  $jet
+$body-font-color =                  $charcoal-2
 $body-font-family =                 $font-family-sans-serif
 $body-font-weight =                 $font-weight-normal
 $body-font-style =                  normal
@@ -211,7 +211,7 @@ $include-html-type-classes =        $include-html-classes
 $header-font-family =               $body-font-family
 $header-font-weight =               $font-weight-bold
 $header-font-style =                normal
-$header-font-color =                $jet
+$header-font-color =                $charcoal-2
 $header-line-height =               1.4
 $header-top-margin =                .2rem
 $header-bottom-margin =             .5rem
@@ -261,7 +261,7 @@ $lead-font-size =                   ($paragraph-font-size + rem-calc(3.5))
 $lead-line-height =                 1.6
 
 // style <code> tags
-$code-color =                       $oil
+$code-color =                       $charcoal-1
 $code-font-family =                 $font-family-monospace
 $code-font-weight =                 $font-weight-normal
 $code-background-color =            lighten($secondary-color, 70%)
@@ -279,7 +279,7 @@ $anchor-font-color-hover =          darken($primary-color, 14%)
 // style the <hr> element
 $hr-border-width =                  1px
 $hr-border-style =                  solid
-$hr-border-color =                  $gainsboro
+$hr-border-color =                  $gray-medium-1
 $hr-margin =                        rem-calc(20)
 
 // style lists
@@ -299,13 +299,13 @@ $definition-list-margin-bottom =        rem-calc(12)
 // style blockquotes
 $blockquote-font-color =                lighten($header-font-color, 35%)
 $blockquote-padding =                   rem-calc(9 20 0 19)
-$blockquote-border =                    1px solid $gainsboro
+$blockquote-border =                    1px solid $gray-medium-1
 $blockquote-cite-font-size =            rem-calc(13)
 $blockquote-cite-font-color =           lighten($header-font-color, 23%)
 $blockquote-cite-link-color =           $blockquote-cite-font-color
 
 // Acronym styles
-$acronym-underline =                    1px dotted $gainsboro
+$acronym-underline =                    1px dotted $gray-medium-1
 
 // padding and margin
 $microformat-padding =                  rem-calc(10 12)
@@ -314,7 +314,7 @@ $microformat-margin =                   rem-calc(0 0 20 0)
 // the border styles
 $microformat-border-width =             1px
 $microformat-border-style =             solid
-$microformat-border-color =             $gainsboro
+$microformat-border-color =             $gray-medium-1
 
 // full name font styles
 $microformat-fullname-font-weight =     $font-weight-bold
@@ -338,10 +338,10 @@ $microformat-abbr-font-decoration =     none
 $include-html-accordion-classes =           $include-html-classes
 
 $accordion-navigation-padding =             rem-calc(16)
-$accordion-navigation-bg-color =            $silver  
+$accordion-navigation-bg-color =            $gray-light-2  
 $accordion-navigation-hover-bg-color =      darken($accordion-navigation-bg-color, 5%)
 $accordion-navigation-active-bg-color =     darken($accordion-navigation-bg-color, 3%)
-$accordion-navigation-font-color =          $jet
+$accordion-navigation-font-color =          $charcoal-2
 $accordion-navigation-font-size =           rem-calc(16)
 $accordion-navigation-font-family =         $body-font-family
 
@@ -377,7 +377,7 @@ $alert-border-color =                       darken($primary-color, $alert-functi
 $alert-bottom-margin =                      rem-calc(20)
 
 // style the close buttons
-$alert-close-color =                        $oil
+$alert-close-color =                        $charcoal-1
 $alert-close-top =                          50%
 $alert-close-position =                     rem-calc(4)
 $alert-close-font-size =                    rem-calc(22)
@@ -432,8 +432,8 @@ $crumb-radius =                             $global-radius
 // set various text styles for breadcrumbs.
 $crumb-font-size =                          rem-calc(11)
 $crumb-font-color =                         $primary-color
-$crumb-font-color-current =                 $oil
-$crumb-font-color-unavailable =             $aluminum
+$crumb-font-color-current =                 $charcoal-1
+$crumb-font-color-unavailable =             $gray-dark-1
 $crumb-font-transform =                     uppercase
 $crumb-link-decor =                         underline
 
@@ -461,7 +461,7 @@ $button-margin-bottom =                     rem-calc(20)
 // button text styles.
 $button-font-family =                       $body-font-family
 $button-font-color =                        $white
-$button-font-color-alt =                    $oil
+$button-font-color-alt =                    $charcoal-1
 $button-font-tny =                          rem-calc(11)
 $button-font-sml =                          rem-calc(13)
 $button-font-med =                          rem-calc(16)
@@ -522,13 +522,13 @@ $button-group-border-width =                0 1px 1px 0
 $include-html-clearing-classes =            $include-html-classes
 
 // set the background colors for parts of Clearing.
-$clearing-bg =                              $oil
+$clearing-bg =                              $charcoal-1
 $clearing-caption-bg =                      $clearing-bg
 $clearing-carousel-bg =                     rgba(51,51,51,0.8)
 $clearing-img-bg =                          $clearing-bg
 
 // style the close button
-$clearing-close-color =                     $iron
+$clearing-close-color =                     $gray-medium-2
 $clearing-close-size =                      30px
 
 // style the arrows
@@ -536,7 +536,7 @@ $clearing-arrow-size =                      12px
 $clearing-arrow-color =                     $clearing-close-color
 
 // style captions
-$clearing-caption-font-color =              $iron
+$clearing-caption-font-color =              $gray-medium-2
 $clearing-caption-font-size =               0.875em
 $clearing-caption-padding =                 10px 30px 20px
 
@@ -585,11 +585,11 @@ $f-dropdown-triangle-side-offset =          10px
 
 // styles for the list elements.
 $f-dropdown-list-style =                    none
-$f-dropdown-font-color =                    $charcoal
+$f-dropdown-font-color =                    $gray-darker-2
 $f-dropdown-font-size =                     rem-calc(14)
 $f-dropdown-list-padding =                  rem-calc(5, 10)
 $f-dropdown-line-height =                   rem-calc(18)
-$f-dropdown-list-hover-bg =                 $smoke  
+$f-dropdown-list-hover-bg =                 $gray-light-3  
 $dropdown-mobile-default-float =            0
 
 // the styles for when the dropdown has custom content.
@@ -608,7 +608,7 @@ $include-html-button-classes =              $include-html-classes
 
 // set the color of the pip in dropdown buttons
 $dropdown-button-pip-color =                $white
-$dropdown-button-pip-color-alt =            $oil
+$dropdown-button-pip-color-alt =            $charcoal-1
 
 $button-pip-tny =                           rem-calc(6)
 $button-pip-sml =                           rem-calc(7)
@@ -682,14 +682,14 @@ $input-focus-border-color =                 darken($white, 40%)
 $input-border-style =                       solid
 $input-border-width =                       1px
 $input-border-radius =                      $global-radius
-$input-disabled-bg =                        $gainsboro
+$input-disabled-bg =                        $gray-medium-1
 $input-disabled-cursor =                    $cursor-default-value
 $input-box-shadow =                         inset 0 1px 2px rgba(0,0,0,0.1)
 
 // style the fieldset border and spacing.
 $fieldset-border-style =                    solid
 $fieldset-border-width =                    1px
-$fieldset-border-color =                    $gainsboro
+$fieldset-border-color =                    $gray-medium-1
 $fieldset-padding =                         rem-calc(20)
 $fieldset-margin =                          rem-calc(18 0)
 
@@ -704,7 +704,7 @@ $input-prefix-border-color =                darken($white, 20%)
 $input-prefix-border-size =                 1px
 $input-prefix-border-type =                 solid
 $input-prefix-overflow =                    hidden
-$input-prefix-font-color =                  $oil
+$input-prefix-font-color =                  $charcoal-1
 $input-prefix-font-color-alt =              $white
 
 // We use this setting to turn on/off HTML5 number spinners (the up/down arrows)
@@ -718,7 +718,7 @@ $input-error-message-font-weight =          $font-weight-normal
 $input-error-message-font-style =           italic
 $input-error-message-font-color =           $white
 $input-error-message-bg-color =             $alert-color
-$input-error-message-font-color-alt =           $oil
+$input-error-message-font-color-alt =           $charcoal-1
 
 // style the glowing effect of inputs when focused
 $input-include-glowing-effect =             true
@@ -726,7 +726,7 @@ $glowing-effect-fade-time =                 0.45s
 $glowing-effect-color =                     $input-focus-border-color
 
 // Select variables
-$select-bg-color =                          $ghost
+$select-bg-color =                          $gray-lighter-1
 $select-hover-bg-color =                    darken($select-bg-color, 3%)
 
 
@@ -736,7 +736,7 @@ $select-hover-bg-color =                    darken($select-bg-color, 3%)
 
 // style the icon-bar and items
 $include-html-icon-bar-classes =            $include-html-classes
-$icon-bar-bg =                              $oil
+$icon-bar-bg =                              $charcoal-1
 $icon-bar-font-color =                      $white
 $icon-bar-font-color-hover =                $icon-bar-font-color
 $icon-bar-font-size =                       1rem
@@ -782,10 +782,10 @@ $inline-list-children-display =             block
 $include-html-joyride-classes =             $include-html-classes
 
 // Controlling default Joyride styles
-$joyride-tip-bg =                           $oil
+$joyride-tip-bg =                           $charcoal-1
 $joyride-tip-default-width =                300px
 $joyride-tip-padding =                      rem-calc(18 20 24)
-$joyride-tip-border =                       solid 1px $charcoal
+$joyride-tip-border =                       solid 1px $gray-darker-2
 $joyride-tip-radius =                       4px
 $joyride-tip-position-offset =              22px
 
@@ -800,10 +800,10 @@ $joyride-tip-nub-size =                     10px
 // This adjusts the styles for the timer when its enabled
 $joyride-tip-timer-width =                  50px
 $joyride-tip-timer-height =                 3px
-$joyride-tip-timer-color =                  $steel
+$joyride-tip-timer-color =                  $gray-darker-1
 
 // This changes up the styles for the close button
-$joyride-tip-close-color =                  $monsoon
+$joyride-tip-close-color =                  $gray-dark-3
 $joyride-tip-close-size =                   24px
 $joyride-tip-close-weight =                 $font-weight-normal
 
@@ -820,7 +820,7 @@ $include-html-keystroke-classes =           $include-html-classes
 // text styles.
 $keystroke-font =                           $font-family-monospace
 $keystroke-font-size =                      inherit
-$keystroke-font-color =                     $jet
+$keystroke-font-color =                     $charcoal-2
 $keystroke-font-color-alt =                 $white
 $keystroke-function-factor =                7% // -7%
 
@@ -842,13 +842,14 @@ $keystroke-radius =                         $global-radius
 $include-html-label-classes =               $include-html-classes
 
 // style the labels
-$label-padding =                            rem-calc(4 8 4)
+$label-padding =                            rem-calc(10 8 10)
 $label-radius =                             $global-radius
 
 // style the label text
 $label-font-sizing =                        rem-calc(11)
-$label-font-weight =                        $font-weight-normal
-$label-font-color =                         $oil
+$label-font-weight =                        $font-weight-bold
+$label-text-transform = 					uppercase
+$label-font-color =                         $charcoal-1
 $label-font-color-alt =                     $white
 $label-font-family =                        $body-font-family
 
@@ -869,7 +870,7 @@ $magellan-padding =                         0 !important
 
 $include-html-off-canvas-classes =          $include-html-classes
 
-$tabbar-bg =                                $oil
+$tabbar-bg =                                $charcoal-1
 $tabbar-height =                            rem-calc(45)
 $tabbar-icon-width =                        $tabbar-height
 $tabbar-line-height =                       $tabbar-height
@@ -888,23 +889,23 @@ $tabbar-header-margin =                     0
 
 // Off Canvas Menu Variables
 $off-canvas-width =                         rem-calc(250)
-$off-canvas-bg =                            $oil
+$off-canvas-bg =                            $charcoal-1
 $off-canvas-bg-hover =                      darken($tabbar-bg, 30%)
 
 // Off Canvas Menu List Variables
 $off-canvas-label-padding =                 0.3rem rem-calc(15)
-$off-canvas-label-color =                   $aluminum
+$off-canvas-label-color =                   $gray-dark-1
 $off-canvas-label-text-transform =          uppercase
 $off-canvas-label-font-size =               rem-calc(12)
 $off-canvas-label-font-weight =             $font-weight-bold
-$off-canvas-label-bg =                      $tuatara
-$off-canvas-label-border-top =              1px solid lighten($tuatara, 14%)
+$off-canvas-label-bg =                      $gray-darker-3
+$off-canvas-label-border-top =              1px solid lighten($gray-darker-3, 14%)
 $off-canvas-label-border-bottom =           none
 $off-canvas-label-margin =                  0
 $off-canvas-link-padding =                  rem-calc(10, 15)
 $off-canvas-link-color =                    rgba($white, 0.7)
 $off-canvas-link-border-bottom =            1px solid darken($off-canvas-bg, 25%)
-$off-canvas-back-bg =                       $tuatara
+$off-canvas-back-bg =                       $gray-darker-3
 $off-canvas-back-border-top =               $off-canvas-label-border-top
 $off-canvas-back-border-bottom =            $off-canvas-label-border-bottom
 $off-canvas-back-hover-bg =                 darken($off-canvas-back-bg, 30%)
@@ -963,8 +964,8 @@ $orbit-timer-bg =                           rgba(255,255,255,0.3)
 $orbit-timer-show-progress-bar =            true
 
 // the bullet nav styles
-$orbit-bullet-nav-color =                   $iron
-$orbit-bullet-nav-color-active =            $aluminum
+$orbit-bullet-nav-color =                   $gray-medium-2
+$orbit-bullet-nav-color-active =            $gray-dark-1
 $orbit-bullet-radius =                      rem-calc(9)
 
 // controls the style of slide numbers
@@ -995,13 +996,13 @@ $pagination-margin =                        -(rem-calc(5))
 // set the list-item properties
 $pagination-li-float =                      $default-float
 $pagination-li-height =                     rem-calc(24)
-$pagination-li-font-color =                 $jet
+$pagination-li-font-color =                 $charcoal-2
 $pagination-li-font-size =                  rem-calc(14)
 $pagination-li-margin =                     0 // rem-calc(1)
 
 // We use these for the pagination anchor links
 $pagination-link-pad =                      rem-calc(10 4 10)
-$pagination-link-font-color =               $aluminum
+$pagination-link-font-color =               $gray-dark-1
 $pagination-link-bg =                       none // rgba($black,0.1)
 $pagination-font-size =                     1rem
 $pagination-link-boxshadow =                false // 0 1px 1px rgba($black,0.1)
@@ -1014,7 +1015,7 @@ $pagination-link-hover-border =             $white // rgba(0,0,0,0.1)
 
 // We use these for disabled anchor links
 $pagination-link-unavailable-cursor =       default
-$pagination-link-unavailable-font-color =   $gainsboro
+$pagination-link-unavailable-font-color =   $gray-medium-1
 $pagination-link-unavailable-bg-active =    none
 
 // We use these for currently selected anchor links
@@ -1045,7 +1046,7 @@ $panel-margin-bottom =                      rem-calc(20)
 $panel-padding =                            rem-calc(20)
 
 // set default font colors
-$panel-font-color =                         $oil
+$panel-font-color =                         $charcoal-1
 $panel-font-color-alt =                     $white
 
 $panel-header-adjust =                      true
@@ -1060,46 +1061,46 @@ $callout-panel-link-color-hover =           darken($callout-panel-link-color, $p
 $include-html-pricing-classes =             $include-html-classes
 
 // the border color
-$price-table-border =                       solid 1px $gainsboro
+$price-table-border =                       solid 1px $gray-medium-1
 
 // the bottom margin of the pricing table
 $price-table-margin-bottom =                rem-calc(20)
 
 // the title styles
-$price-title-bg =                           $oil
+$price-title-bg =                           $charcoal-1
 $price-title-padding =                      rem-calc(15 20)
 $price-title-align =                        center
-$price-title-color =                        $smoke
+$price-title-color =                        $gray-light-3
 $price-title-weight =                       $font-weight-normal
 $price-title-size =                         rem-calc(16)
 $price-title-font-family =                  $body-font-family
 
 // the price styles
-$price-money-bg =                           $vapor  
+$price-money-bg =                           $gray-lighter-3  
 $price-money-padding =                      rem-calc(15 20)
 $price-money-align =                        center
-$price-money-color =                        $oil
+$price-money-color =                        $charcoal-1
 $price-money-weight =                       $font-weight-normal
 $price-money-size =                         rem-calc(32)
 $price-money-font-family =                  $body-font-family
 
 // the description styles
 $price-bg =                                 $white
-$price-desc-color =                         $monsoon
+$price-desc-color =                         $gray-dark-3
 $price-desc-padding =                       rem-calc(15)
 $price-desc-align =                         center
 $price-desc-font-size =                     rem-calc(12)
 $price-desc-weight =                        $font-weight-normal
 $price-desc-line-height =                   1.4
-$price-desc-bottom-border =                 dotted 1px $gainsboro
+$price-desc-bottom-border =                 dotted 1px $gray-medium-1
 
 // the list item styles
-$price-item-color =                         $oil
+$price-item-color =                         $charcoal-1
 $price-item-padding =                       rem-calc(15)
 $price-item-align =                         center
 $price-item-font-size =                     rem-calc(14)
 $price-item-weight =                        $font-weight-normal
-$price-item-bottom-border =                 dotted 1px $gainsboro
+$price-item-bottom-border =                 dotted 1px $gray-medium-1
 
 // the CTA area styles
 $price-cta-bg =                             $white
@@ -1115,7 +1116,7 @@ $include-html-media-classes =               $include-html-classes
 
 // set the progress bar height
 $progress-bar-height =                      rem-calc(25)
-$progress-bar-color =                       $vapor  
+$progress-bar-color =                       $gray-lighter-3  
 
 // the border styles
 $progress-bar-border-color =                darken($white, 20%)
@@ -1146,10 +1147,10 @@ $range-slider-bar-height =                  rem-calc(16)
 
 $range-slider-bar-border-width =            1px
 $range-slider-bar-border-style =            solid
-$range-slider-bar-border-color =            $gainsboro
+$range-slider-bar-border-color =            $gray-medium-1
 $range-slider-radius =                      $global-radius
 $range-slider-round =                       $global-rounded
-$range-slider-bar-bg-color =                $ghost
+$range-slider-bar-bg-color =                $gray-lighter-1
 $range-slider-active-segment-bg-color =     darken($secondary-color, 1%)
 
 // Vertical bar styles
@@ -1202,7 +1203,7 @@ $reveal-round =                             $global-rounded
 // the modal border
 $reveal-border-style =                      solid
 $reveal-border-width =                      1px
-$reveal-border-color =                      $steel
+$reveal-border-color =                      $gray-darker-1
 
 $reveal-modal-class =                       "reveal-modal"
 $close-reveal-modal-class =                 "close-reveal-modal"
@@ -1256,7 +1257,7 @@ $include-html-button-classes =              $include-html-classes
 // different shared styles for Split Buttons
 $split-button-function-factor =             10%
 $split-button-pip-color =                   $white
-$split-button-pip-color-alt =               $oil
+$split-button-pip-color-alt =               $charcoal-1
 $split-button-active-bg-tint =              rgba(0,0,0,0.1)
 
 // tiny split buttons
@@ -1301,7 +1302,7 @@ $sub-nav-list-padding-top =                 rem-calc(4)
 // the definition
 $sub-nav-font-family =                      $body-font-family
 $sub-nav-font-size =                        rem-calc(14)
-$sub-nav-font-color =                       $aluminum
+$sub-nav-font-color =                       $gray-dark-1
 $sub-nav-font-weight =                      $font-weight-normal
 $sub-nav-text-decoration =                  none
 $sub-nav-padding =                          rem-calc(3 16)
@@ -1330,14 +1331,14 @@ $include-html-form-classes =                $include-html-classes
 $switch-border-color =                      darken($white, 20%)
 $switch-border-style =                      solid
 $switch-border-width =                      1px
-$switch-bg =                                $white
+$switch-bg =                                $gray-base
 $switch-active-color =                      $primary-color
 
 // the switch heights for our default classes
-$switch-height-tny =                        rem-calc(22)
-$switch-height-sml =                        rem-calc(28)
-$switch-height-med =                        rem-calc(36)
-$switch-height-lrg =                        rem-calc(44)
+$switch-height-tny =                        rem-calc(18)
+$switch-height-sml =                        rem-calc(20)
+$switch-height-med =                        rem-calc(24)
+$switch-height-lrg =                        rem-calc(32)
 $switch-bottom-margin =                     rem-calc(20)
 
 // default font sizes for our classes.
@@ -1356,10 +1357,10 @@ $switch-paddle-border-style =               solid
 $switch-paddle-transition-speed =           100ms // .1s !default
 $switch-paddle-transition-ease =            ease-out
 $switch-positive-color =                    lighten($success-color, 94%)
-$switch-negative-color =                    $white-smoke
+$switch-negative-color =                    $gray-light-1
 
 // Outline Style for tabbing through switches
-$switch-label-outline =                     1px dotted $jumbo
+$switch-label-outline =                     1px dotted $gray-dark-2
 
 
 // =========================================================================
@@ -1370,17 +1371,17 @@ $include-html-table-classes =               $include-html-classes
 
 // These control the background color for the table and even rows
 $table-bg =                                 $white
-$table-even-row-bg =                        $snow  
+$table-even-row-bg =                        $gray-lighter-2  
 
 // These control the table cell border style
 $table-border-style =                       solid
 $table-border-size =                        1px
-$table-border-color =                       $gainsboro
+$table-border-color =                       $gray-medium-1
 
 // These control the table head styles
-$table-head-bg =                            $white-smoke  
+$table-head-bg =                            $gray-light-1  
 $table-head-font-size =                     rem-calc(14)
-$table-head-font-color =                    $jet
+$table-head-font-color =                    $charcoal-2
 $table-head-font-weight =                   $font-weight-bold
 $table-head-padding =                       rem-calc(8 10 10)
 
@@ -1400,7 +1401,7 @@ $table-caption-font-weight =                bold
 // These control the row padding and font styles
 $table-row-padding =                        rem-calc(9 10)
 $table-row-font-size =                      rem-calc(14)
-$table-row-font-color =                     $jet
+$table-row-font-color =                     $charcoal-2
 $table-line-height =                        rem-calc(18)
 
 // These are for controlling the layout, display and margin of tables
@@ -1416,10 +1417,10 @@ $table-margin-bottom =                      rem-calc(20)
 $include-html-tabs-classes =                $include-html-classes
 
 $tabs-navigation-padding =                  rem-calc(5)
-$tabs-navigation-bg-color =                 $silver  
+$tabs-navigation-bg-color =                 $gray-light-2  
 $tabs-navigation-active-bg-color =          $white
 $tabs-navigation-hover-bg-color =           darken($tabs-navigation-bg-color, 6%)
-$tabs-navigation-font-color =               $jet
+$tabs-navigation-font-color =               $charcoal-2
 $tabs-navigation-hover-font-color = 		$primary-color
 $tabs-navigation-active-font-color =        $primary-color
 $tabs-navigation-font-size =                1rem
@@ -1457,22 +1458,22 @@ $thumb-transition-speed =                   200ms
 
 $include-html-tooltip-classes =             $include-html-classes
 
-$has-tip-border-bottom =                    dotted 1px $iron
+$has-tip-border-bottom =                    dotted 1px $gray-medium-2
 $has-tip-font-weight =                      $font-weight-bold
-$has-tip-font-color =                       $oil
+$has-tip-font-color =                       $charcoal-1
 $has-tip-border-bottom-hover =              dotted 1px darken($primary-color, 55%)
 $has-tip-font-color-hover =                 $primary-color
 $has-tip-cursor-type =                      help
 
 $tooltip-padding =                          rem-calc(12)
-$tooltip-bg =                               $oil
+$tooltip-bg =                               $charcoal-1
 $tooltip-font-size =                        rem-calc(14)
 $tooltip-font-weight =                      $font-weight-normal
 $tooltip-font-color =                       $white
 $tooltip-line-height =                      1.3
 $tooltip-close-font-size =                  rem-calc(10)
 $tooltip-close-font-weight =                $font-weight-normal
-$tooltip-close-font-color =                 $monsoon
+$tooltip-close-font-color =                 $gray-dark-3
 $tooltip-font-size-sml =                    rem-calc(14)
 $tooltip-radius =                           $global-radius
 $tooltip-rounded =                          $global-rounded
@@ -1487,7 +1488,7 @@ $tooltip-max-width =                        300px
 $include-html-top-bar-classes =             $include-html-classes
 
 // Background color for the top bar
-$topbar-bg-color =                          $oil
+$topbar-bg-color =                          $charcoal-1
 $topbar-bg =                                $topbar-bg-color
 
 // Height and margin
@@ -1501,7 +1502,7 @@ $topbar-title-font-size =                   rem-calc(17)
 $topbar-link-hover-lightness =              15% // -10% !default
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg =                       $oil
+$topbar-dropdown-bg =                       $charcoal-1
 $topbar-dropdown-link-color =               $white
 $topbar-dropdown-link-bg =                  $topbar-dropdown-bg
 $topbar-dropdown-link-bg-hover =            darken($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
@@ -1531,11 +1532,11 @@ $topbar-link-dropdown-padding =             20px
 $topbar-button-font-size =                  0.9rem
 $topbar-button-top =                        7px
 
-$topbar-dropdown-label-color =              $monsoon
+$topbar-dropdown-label-color =              $gray-dark-3
 $topbar-dropdown-label-text-transform =     uppercase
 $topbar-dropdown-label-font-weight =        $font-weight-bold
 $topbar-dropdown-label-font-size =          rem-calc(10)
-$topbar-dropdown-label-bg =                 $oil
+$topbar-dropdown-label-bg =                 $charcoal-1
 
 // Top menu icon styles
 $topbar-menu-link-transform =               uppercase
@@ -1543,8 +1544,8 @@ $topbar-menu-link-font-size =               rem-calc(13)
 $topbar-menu-link-weight =                  $font-weight-bold
 $topbar-menu-link-color =                   $white
 $topbar-menu-icon-color =                   $white
-$topbar-menu-link-color-toggled =           $jumbo
-$topbar-menu-icon-color-toggled =           $jumbo
+$topbar-menu-link-color-toggled =           $gray-dark-2
+$topbar-menu-icon-color-toggled =           $gray-dark-2
 
 // Transitions and breakpoint styles
 $topbar-transition-speed =                  300ms
