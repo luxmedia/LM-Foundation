@@ -319,7 +319,6 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         html,
         body {
             fontSize($base-font-size)
-            antialiased()
         }
 
         // Default body styles
@@ -334,6 +333,7 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
             line-height: $base-line-height // Set to $base-line-height to take on browser default of 150%
             position: relative
             cursor: $cursor-auto-value
+            antialiased()
         }
 
         a:hover {

@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             js_src_files_3: ['<%= globalConfig.src %>/js/custom/*.js'],
             js_dist_folder: ['<%= globalConfig.dest %>/js'],
             js_dist_file: '<%= globalConfig.dest %>/js/scripts.min.js',
-            styl_src: ['<%= globalConfig.src %>/styles/*.styl'],            
+            styl_src: ['<%= globalConfig.src %>/styles/*.styl'],
             styl_src_files: 'styles/styles.styl',
             css_dist_folder: '<%= globalConfig.dest %>/css',
             css_dist_file: '<%= globalConfig.dest %>/css/styles.css',

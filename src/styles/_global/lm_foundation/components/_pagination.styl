@@ -26,6 +26,9 @@ pagination-unavailable-item() {
     & a:focus,
     &:hover button,
     & button:focus { 
+        if $pagination-link-border {
+            border-color:$pagination-link-border
+        }        
         background: $pagination-link-unavailable-bg-active 
     }
 }
@@ -94,7 +97,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 line-height: inherit
                 if $pagination-link-border {
                     border:1px solid $pagination-link-border
-                    border-width:0 0 1px 0
+                    border-width: $pagination-link-border-width
                 }
                 if ($pagination-link-boxshadow != false) {
                     box-shadow: $pagination-link-boxshadow
@@ -116,7 +119,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             &:last-child button,
             &:last-of-type button {
                 if ($pagination-link-border != false) {
-                    border-right:1px solid $pagination-link-border
+                    border-right:none
                 }
                 if ($pagination-link-boxshadow != false) {
                     box-shadow: 1px 1px 1px $pagination-link-border

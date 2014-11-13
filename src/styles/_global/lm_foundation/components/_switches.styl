@@ -64,8 +64,8 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
         position: absolute
         top: .25rem
         left: .25rem
-        width: $switch-height-med - 0.5rem
-        height: $switch-height-med - 0.5rem
+        width: ($switch-height-med - 0.5rem)
+        height: ($switch-height-med - 0.5rem)
 
         transition: left $transition-speed $transition-ease
 
@@ -77,7 +77,7 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
     }
 
     input:checked + label:after {
-        left: $switch-height-med + 0.25rem
+        left: ($switch-height-med + 0.25rem)
     }
 }
 
@@ -89,17 +89,17 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
 switch-size($height = $switch-height-med) {
 
     label {
-        width: $height * 2
+        width: ($height * 2)
         height: $height
     }
 
     label:after {
-        width: $height - 0.5rem
-        height: $height - 0.5rem
+        width: ($height - 0.5rem)
+        height: ($height - 0.5rem)
     }
 
     input:checked + label:after {
-        left: $height + 0.25rem
+        left: ($height + 0.25rem)
     }
 
 }

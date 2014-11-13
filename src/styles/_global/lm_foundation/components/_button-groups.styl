@@ -161,52 +161,52 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
 
             &.stack {
                 & > li {
-                button-group-style(false,false,false,$orientation = vertical)
+                button-group-style($orientation:vertical)
                 float: none }
             }
 
             &.stack-for-small {
                 & > li {
-                    button-group-style(false,false,false,horizontal)
+                    button-group-style($orientation:horizontal)
                     @media $small-only {
-                        button-group-style(false,false,false,vertical)
+                        button-group-style($orientation:vertical)
                     }
                 }
             }
 
             &.radius > * {
-                button-group-style($button-radius, false, null)
+                button-group-style($radius:$button-radius, $float:null)
             }
             &.radius.stack > * {
-                button-group-style($button-radius, false, null, vertical)
+                button-group-style($radius:$button-radius, $float:null, $orientation:vertical)
             }
             &.radius.stack-for-small > * {
                 @media $medium-up {
-                    button-group-style($button-radius, false, false,horizontal)
+                    button-group-style($radius:$button-radius, $orientation:horizontal)
                 }
                 @media $small-only {
-                    button-group-style($button-radius,false,false,vertical)
+                    button-group-style($radius:$button-radius, $orientation:vertical)
                 }
             }
 
             &.round > * {
-                button-group-style($button-round, false, null)
+                button-group-style($radius:$button-round, $float:null)
             }
             &.round.stack > * {
-                button-group-style($button-med, false, null, vertical)
+                button-group-style($radius:$button-med, $float:null, $orientation:vertical)
             }
             &.round.stack-for-small > * {
                 @media $medium-up {
-                    button-group-style($button-round,false,false,horizontal)
+                    button-group-style($radius:$button-round, $orientation:horizontal)
                 }
                 @media $small-only {
-                    button-group-style($button-med,false,false,vertical)
+                    button-group-style($radius:$button-med, $orientation:vertical)
                 }
             }
 
             for $i in 2..8 {
                 &.even-{$i} li {
-                    button-group-style(false, $i, null)
+                    button-group-style($even:$i, $float:null)
                 }
             }
         }
@@ -214,7 +214,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         .button-bar {
             clearfix()
             .button-group {
-                button-group-container(false, true)
+                button-group-container($styles:false, $float:true)
             }
         }
     }

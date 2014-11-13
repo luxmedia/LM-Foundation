@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @require "_global"
+@require "_grid"
 
 
 // +exports("tab") {
@@ -11,26 +12,33 @@
             clearfix()
             margin-bottom: 0 !important
             margin-left: 0
-            dd, .tab-title {
+            dd,
+            .tab-title {
                 position: relative
                 margin-bottom: 0 !important
+                margin-right: 1px
                 list-style: none
                 float: $default-float
-                > a {
+                & > a {
                     outline: none
                     display: block
                     background-color: $tabs-navigation-bg-color
                     color: $tabs-navigation-font-color
-                    padding: ($tabs-navigation-padding $tabs-navigation-padding * 2)
+                    padding: $tabs-navigation-padding ($tabs-navigation-padding * 2.5)
                     font-family: $tabs-navigation-font-family
-                    font-size: $tabs-navigation-font-size
+                    fontSize($tabs-navigation-font-size)
+                    font-weight: $tabs-navigation-font-weight
+                    text-transform: $tabs-navigation-text-transform
+                    border-top:2px solid transparent
                     &:hover {
                         background-color: $tabs-navigation-hover-bg-color
+                        font-color: $tabs-navigation-hover-font-color
                     }
                 }
                 &.active a {
                     background-color: $tabs-navigation-active-bg-color
                     color: $tabs-navigation-active-font-color
+                    border-top-color: $primary-color
                 }
             }
             &.radius {
@@ -59,11 +67,12 @@
             clearfix()
             margin-bottom: $tabs-content-margin-bottom
             width: 100%
-            > .content {
+            & > .content {
                 display: none
                 float: $default-float
                 padding: $tabs-content-padding 0
                 width: 100%
+                border-bottom: 1px solid $silver
                 &.active {
                     display: block
                     float: none

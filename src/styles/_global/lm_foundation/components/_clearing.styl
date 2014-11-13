@@ -37,7 +37,9 @@
             {$default-float}: 0
             z-index: 998
 
-            .clearing-close { display: block }
+            .clearing-close {
+                display: block
+            }
         }
 
         .clearing-container {
@@ -94,11 +96,16 @@
             display: none
 
             &:hover,
-            &:focus { color: $iron }
+            &:focus {
+                color: $iron
+            }
         }
 
-        .clearing-assembled .clearing-container { height: 100%
-            .carousel > ul { display: none }
+        .clearing-assembled .clearing-container {
+            height: 100%
+            .carousel > ul {
+                display: none
+            }
         }
 
         // If you want to show a lightbox, but only have a single image come through as the thumbnail
@@ -124,7 +131,9 @@
                     width: 0
                     height: 0
                     border: solid $clearing-arrow-size
-                    &:hover { opacity: 0.8 }
+                    &:hover {
+                        opacity: 0.8
+                    }
                 }
             }
             .clearing-main-prev {
@@ -144,7 +153,9 @@
             }
             
             .clearing-main-prev.disabled,
-            .clearing-main-next.disabled { opacity: 0.3 }
+            .clearing-main-next.disabled {
+                opacity: 0.3
+            }
 
             .clearing-assembled .clearing-container {
 
@@ -192,8 +203,12 @@
                                 width: 100% !important
                             }
 
-                            &.visible { opacity: 1 }
-                            &:hover { opacity: 0.8 }
+                            &.visible {
+                                opacity: 1
+                            }
+                            &:hover {
+                                opacity: 0.8
+                            }
                         }
                     }
                 }

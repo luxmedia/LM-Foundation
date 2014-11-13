@@ -87,9 +87,9 @@ range-slider-handle() {
     if $include-html-range-slider-classes {
         .range-slider {
             range-slider-bar-base()
-            range-slider-bar-style(($bg = true,) ($radius = false))
+            range-slider-bar-style($bg:true, $radius:false)
             &.vertical-range {
-                range-slider-bar-base(($vertical = true))
+                range-slider-bar-base($vertical: true)
                 .range-slider-handle {
                     margin-top: 0
                     margin-{$default-float}: -($range-slider-handle-width / 4)
@@ -97,39 +97,39 @@ range-slider-handle() {
                     bottom: -($range-slider-vertical-bar-height - $range-slider-handle-width)
                 }
                 .range-slider-active-segment {
-                    width: $range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2))
+                    width: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
                     height: auto
                     bottom: 0
                 }
             }
             &.radius {
-                range-slider-bar-style(($radius = true))
+                range-slider-bar-style($radius:true)
                 .range-slider-handle {
-                    range-slider-handle-style(($radius = true))
+                    range-slider-handle-style($radius: true)
                 }
             }
             &.round {
-                range-slider-bar-style(($round=true))
+                range-slider-bar-style($round:true)
                 .range-slider-handle {
-                    range-slider-handle-style(($round = true))
+                    range-slider-handle-style($round: true)
                 }
             }
             &.disabled, &[disabled] {
-                range-slider-bar-style(($disabled = true))
+                range-slider-bar-style($disabled:true)
                 .range-slider-handle {
-                    range-slider-handle-style(($disabled = true))
+                    range-slider-handle-style($disabled: true)
                 }
             }
         }
         .range-slider-active-segment {
             display: inline-block
             position: absolute
-            height: $range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2))
+            height: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
             background: $range-slider-active-segment-bg-color
         }
         .range-slider-handle {
             range-slider-handle-base()
-            range-slider-handle-style(($bg = true), ($radius = false))
+            range-slider-handle-style($bg:true, $radius: false)
         }
     }
 // }

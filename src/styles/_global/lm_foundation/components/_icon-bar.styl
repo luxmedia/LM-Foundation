@@ -26,7 +26,7 @@ icon-bar-base() {
         padding: $icon-bar-item-padding
         float: left
 
-        i, img {
+        i, img, svg {
             display: block
             margin: 0 auto
 
@@ -40,7 +40,8 @@ icon-bar-base() {
             vertical-align: middle
         }
 
-        img {
+        img,
+        svg {
             width: $icon-bar-image-width
             height: $icon-bar-image-height
         }
@@ -48,7 +49,7 @@ icon-bar-base() {
 
     &.label-right > * {
 
-        i, img {
+        i, img, svg {
             margin: 0 .0625rem 0 0
             display: inline-block
 
@@ -57,7 +58,9 @@ icon-bar-base() {
             }
         }
 
-        label { display: inline-block }
+        label {
+            display: inline-block
+        }
     }
 
     &.vertical.label-right > * {
@@ -109,7 +112,7 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
         font-size: $font-size
         padding: $padding
 
-        i, img {
+        i, img, svg {
 
             & + label {
                 margin-top: .0625rem
@@ -120,7 +123,8 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
             font-size: $icon-size
         }
 
-        img {
+        img,
+        svg {
             width: $image-width
             height: $image-height
         }
@@ -175,112 +179,110 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
     icon-bar-style($bar-bg, $bar-font-color, $bar-font-color-hover, $bar-hover-color, $bar-icon-color, $bar-icon-color-hover, $bar-active-color, $base-style)
 }
 
-// +exports("icon-bar") {
-  if $include-html-icon-bar-classes {
-    .icon-bar {
-      icon-bar()
-    }
-  }
-// }
 
-if $include-html-icon-bar-classes {
-    // toolbar styles
-    .icon-bar {
-        // Counts
-        &.two-up {
-            .item {
-                width: 50%
-            }
-            &.vertical .item, 
-            &.small-vertical .item {
-                width: auto
-            }
-            &.medium-vertical .item {
-                @media $medium-up {
+// +exports("icon-bar") {
+    if $include-html-icon-bar-classes {
+        // toolbar styles
+        .icon-bar {
+            
+            icon-bar()
+            
+            // Counts
+            &.two-up {
+                .item {
+                    width: 50%
+                }
+                &.vertical .item, 
+                &.small-vertical .item {
                     width: auto
                 }
-            }
-            &.large-vertical .item {
-                @media $large-up {
-                    width: auto
+                &.medium-vertical .item {
+                    @media $medium-up {
+                        width: auto
+                    }
+                }
+                &.large-vertical .item {
+                    @media $large-up {
+                        width: auto
+                    }
                 }
             }
-        }
-        &.three-up {
-            .item {
-                width: 33.3333%
-            }
-            &.vertical .item, 
-            &.small-vertical .item {
-                width: auto
-            }
-            &.medium-vertical .item {
-                @media $medium-up {
+            &.three-up {
+                .item {
+                    width: 33.3333%
+                }
+                &.vertical .item, 
+                &.small-vertical .item {
                     width: auto
                 }
-            }
-            &.large-vertical .item {
-                @media $large-up {
-                    width: auto
+                &.medium-vertical .item {
+                    @media $medium-up {
+                        width: auto
+                    }
+                }
+                &.large-vertical .item {
+                    @media $large-up {
+                        width: auto
+                    }
                 }
             }
-        }
-        &.four-up {
-            .item {
-                width: 25%
-            }
-            &.vertical .item, 
-            &.small-vertical .item {
-                width: auto
-            }
-            &.medium-vertical .item {
-                @media $medium-up {
+            &.four-up {
+                .item {
+                    width: 25%
+                }
+                &.vertical .item, 
+                &.small-vertical .item {
                     width: auto
                 }
-            }
-            &.large-vertical .item {
-                @media $large-up {
-                    width: auto
+                &.medium-vertical .item {
+                    @media $medium-up {
+                        width: auto
+                    }
+                }
+                &.large-vertical .item {
+                    @media $large-up {
+                        width: auto
+                    }
                 }
             }
-        }
-        &.five-up {
-            .item {
-                width: 20%
-            }
-            &.vertical .item, 
-            &.small-vertical .item {
-                width: auto
-            }
-            &.medium-vertical .item {
-                @media $medium-up {
+            &.five-up {
+                .item {
+                    width: 20%
+                }
+                &.vertical .item, 
+                &.small-vertical .item {
                     width: auto
                 }
-            }
-            &.large-vertical .item {
-                @media $large-up {
-                    width: auto
+                &.medium-vertical .item {
+                    @media $medium-up {
+                        width: auto
+                    }
+                }
+                &.large-vertical .item {
+                    @media $large-up {
+                        width: auto
+                    }
                 }
             }
-        }
-        &.six-up {
-            .item {
-                width: 16.66667%
-            }
-            &.vertical .item, 
-            &.small-vertical .item {
-                width: auto
-            }
-            &.medium-vertical .item {
-                @media $medium-up {
+            &.six-up {
+                .item {
+                    width: 16.66667%
+                }
+                &.vertical .item, 
+                &.small-vertical .item {
                     width: auto
                 }
-            }
-            &.large-vertical .item {
-                @media $large-up {
-                    width: auto
+                &.medium-vertical .item {
+                    @media $medium-up {
+                        width: auto
+                    }
+                }
+                &.large-vertical .item {
+                    @media $large-up {
+                        width: auto
+                    }
                 }
             }
         }
     }
-}
+// }

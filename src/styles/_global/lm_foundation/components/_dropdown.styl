@@ -21,8 +21,12 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
     margin-{$default-float}: 0
     outline: none
 
-    > *:first-child { margin-top: 0 }
-    > *:last-child { margin-bottom: 0 }
+    > *:first-child {
+        margin-top: 0
+    }
+    > *:last-child {
+        margin-bottom: 0
+    }
 
     if $content == list {
         width: 100%
@@ -141,8 +145,12 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
 
     }
 
-    if $max-width { max-width: $max-width }
-    else { max-width: $f-dropdown-max-width }
+    if $max-width {
+        max-width: $max-width
+    }
+    else {
+        max-width: $f-dropdown-max-width
+    }
 
 }
 
@@ -158,9 +166,13 @@ dropdown-style() {
     margin: 0
 
     &:hover,
-    &:focus { background: $f-dropdown-list-hover-bg }
+    &:focus {
+        background: $f-dropdown-list-hover-bg
+    }
 
-    &.radius { radius($f-dropdown-radius) }
+    &.radius {
+        radius($f-dropdown-radius)
+    }
 
     a {
         display: block
@@ -195,14 +207,22 @@ dropdown-style() {
 
             // You can also put custom content in these dropdowns
             &.content {
-                dropdown-container(content, ($triangle = false))
+                dropdown-container(content, $triangle:false)
             }
 
             // Sizes
-            &.tiny    { max-width: 200px }
-            &.small   { max-width: 300px }
-            &.medium  { max-width: 500px }
-            &.large   { max-width: 800px }
+            &.tiny    {
+                max-width: 200px
+            }
+            &.small   {
+                max-width: 300px
+            }
+            &.medium  {
+                max-width: 500px
+            }
+            &.large   {
+                max-width: 800px
+            }
             &.mega    {
                 width:100%!important
                 max-width:100%!important

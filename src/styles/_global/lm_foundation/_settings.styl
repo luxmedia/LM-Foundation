@@ -235,7 +235,7 @@ $h6-font-reduction =                0
 
 // These control how subheaders are styled.
 $subheader-line-height =            1.4
-$subheader-font-color =             scale-color($header-font-color, 35%)
+$subheader-font-color =             lighten($header-font-color, 35%)
 $subheader-font-weight =            $font-weight-normal
 $subheader-top-margin =             .2rem
 $subheader-bottom-margin =          .5rem
@@ -243,7 +243,7 @@ $subheader-bottom-margin =          .5rem
 
 // A general <small> styling
 $small-font-size =                  60%
-$small-font-color =                 scale-color($header-font-color, 35%)
+$small-font-color =                 lighten($header-font-color, 35%)
 
 // style paragraphs
 $paragraph-font-family =            inherit
@@ -264,17 +264,17 @@ $lead-line-height =                 1.6
 $code-color =                       $oil
 $code-font-family =                 $font-family-monospace
 $code-font-weight =                 $font-weight-normal
-$code-background-color =            scale-color($secondary-color, 70%)
+$code-background-color =            lighten($secondary-color, 70%)
 $code-border-size =                 1px
 $code-border-style =                solid
-$code-border-color =                scale-color($code-background-color, -10%)
+$code-border-color =                darken($code-background-color, 10%)
 $code-padding =                     rem-calc(2) rem-calc(5) rem-calc(1)
 
 // style anchors
 $anchor-text-decoration =           none
 $anchor-text-decoration-hover =     none
 $anchor-font-color =                $primary-color
-$anchor-font-color-hover =          scale-color($primary-color, -14%)
+$anchor-font-color-hover =          darken($primary-color, 14%)
 
 // style the <hr> element
 $hr-border-width =                  1px
@@ -297,11 +297,11 @@ $definition-list-header-margin-bottom = .3rem
 $definition-list-margin-bottom =        rem-calc(12)
 
 // style blockquotes
-$blockquote-font-color =                scale-color($header-font-color, 35%)
+$blockquote-font-color =                lighten($header-font-color, 35%)
 $blockquote-padding =                   rem-calc(9 20 0 19)
 $blockquote-border =                    1px solid $gainsboro
 $blockquote-cite-font-size =            rem-calc(13)
-$blockquote-cite-font-color =           scale-color($header-font-color, 23%)
+$blockquote-cite-font-color =           lighten($header-font-color, 23%)
 $blockquote-cite-link-color =           $blockquote-cite-font-color
 
 // Acronym styles
@@ -339,13 +339,13 @@ $include-html-accordion-classes =           $include-html-classes
 
 $accordion-navigation-padding =             rem-calc(16)
 $accordion-navigation-bg-color =            $silver  
-$accordion-navigation-hover-bg-color =      scale-color($accordion-navigation-bg-color, -5%)
-$accordion-navigation-active-bg-color =     scale-color($accordion-navigation-bg-color, -3%)
+$accordion-navigation-hover-bg-color =      darken($accordion-navigation-bg-color, 5%)
+$accordion-navigation-active-bg-color =     darken($accordion-navigation-bg-color, 3%)
 $accordion-navigation-font-color =          $jet
 $accordion-navigation-font-size =           rem-calc(16)
 $accordion-navigation-font-family =         $body-font-family
 
-$accordion-content-padding =                $column-gutter/2
+$accordion-content-padding =                ($column-gutter / 2)
 $accordion-content-active-bg-color =        $white
 
 
@@ -358,22 +358,22 @@ $include-html-alert-classes =               $include-html-classes
 // alert padding.
 $alert-padding-top =                        rem-calc(14)
 $alert-padding-default-float =              $alert-padding-top
-$alert-padding-opposite-direction =         $alert-padding-top+rem-calc(10)
+$alert-padding-opposite-direction =         ($alert-padding-top + rem-calc(10))
 $alert-padding-bottom =                     $alert-padding-top
 
 // text style.
 $alert-font-weight =                        $font-weight-normal
-$alert-font-size =                          rem-calc(13)
+$alert-font-size =                          1.2rem
 $alert-font-color =                         $white
-$alert-font-color-alt =                     scale-color($secondary-color, -66%)
+$alert-font-color-alt =                     darken($secondary-color, 66%)
 
 // close hover effect.
-$alert-function-factor =                    -14%
+$alert-function-factor =                    14% // -14%
 
 // border styles.
 $alert-border-style =                       solid
 $alert-border-width =                       1px
-$alert-border-color =                       scale-color($primary-color, $alert-function-factor)
+$alert-border-color =                       darken($primary-color, $alert-function-factor)
 $alert-bottom-margin =                      rem-calc(20)
 
 // style the close buttons
@@ -416,17 +416,17 @@ $block-grid-media-queries =                 true
 $include-html-nav-classes =                 $include-html-classes
 
 // set the background color for the breadcrumb container.
-$crumb-bg =                                 scale-color($secondary-color, 55%)
+$crumb-bg =                                 lighten($secondary-color, 55%)
 
 // set the padding around the breadcrumbs.
 $crumb-padding =                            rem-calc(9 14 9)
 $crumb-side-padding =                       rem-calc(12)
 
 // border styles.
-$crumb-function-factor =                    -10%
+$crumb-function-factor =                    10% // -10%
 $crumb-border-size =                        1px
 $crumb-border-style =                       solid
-$crumb-border-color =                       scale-color($crumb-bg, $crumb-function-factor)
+$crumb-border-color =                       darken($crumb-bg, $crumb-function-factor)
 $crumb-radius =                             $global-radius
 
 // set various text styles for breadcrumbs.
@@ -576,7 +576,7 @@ $f-dropdown-bg =                            $white
 // set the border styles for dropdowns.
 $f-dropdown-border-style =                  solid
 $f-dropdown-border-width =                  1px
-$f-dropdown-border-color =                  scale-color($white, -20%)
+$f-dropdown-border-color =                  darken($white, 20%)
 
 // style the triangle pip.
 $f-dropdown-triangle-size =                 6px
@@ -619,25 +619,25 @@ $button-pip-lrg =                           rem-calc(11)
 $dropdown-button-padding-tny =              $button-pip-tny * 7
 $dropdown-button-pip-size-tny =             $button-pip-tny
 $dropdown-button-pip-opposite-tny =         $button-pip-tny * 3
-$dropdown-button-pip-top-tny =              -($button-pip-tny) / 2 + rem-calc(1)
+$dropdown-button-pip-top-tny =              -(($button-pip-tny) / 2 + rem-calc(1))
 
 // style small dropdown buttons
 $dropdown-button-padding-sml =              $button-pip-sml * 7
 $dropdown-button-pip-size-sml =             $button-pip-sml
 $dropdown-button-pip-opposite-sml =         $button-pip-sml * 3
-$dropdown-button-pip-top-sml =              -($button-pip-sml) / 2 + rem-calc(1)
+$dropdown-button-pip-top-sml =              -(($button-pip-sml) / 2 + rem-calc(1))
 
 // style medium dropdown buttons
 $dropdown-button-padding-med =              $button-pip-med * 6 + rem-calc(3)
 $dropdown-button-pip-size-med =             $button-pip-med - rem-calc(3)
 $dropdown-button-pip-opposite-med =         $button-pip-med * 2.5
-$dropdown-button-pip-top-med =              -($button-pip-med) / 2 + rem-calc(2)
+$dropdown-button-pip-top-med =              -(($button-pip-med) / 2 + rem-calc(2))
 
 // style large dropdown buttons
 $dropdown-button-padding-lrg =              $button-pip-lrg * 5 + rem-calc(3)
 $dropdown-button-pip-size-lrg =             $button-pip-lrg - rem-calc(6)
 $dropdown-button-pip-opposite-lrg =         $button-pip-lrg * 2.5
-$dropdown-button-pip-top-lrg =              -($button-pip-lrg) / 2 + rem-calc(3)
+$dropdown-button-pip-top-lrg =              -(($button-pip-lrg) / 2 + rem-calc(3))
 
 
 // =========================================================================
@@ -669,16 +669,16 @@ $form-label-pointer =                       pointer
 $form-label-font-size =                     rem-calc(14)
 $form-label-font-weight =                   $font-weight-normal
 $form-label-line-height =                   1.5
-$form-label-font-color =                    scale-color($black, 30%)
+$form-label-font-color =                    lighten($black, 30%)
 $form-label-small-transform =               capitalize
 $form-label-bottom-margin =                 0
 $input-font-family =                        inherit
 $input-font-color =                         rgba(0,0,0,0.75)
 $input-font-size =                          rem-calc(14)
 $input-bg-color =                           $white
-$input-focus-bg-color =                     scale-color($white, -2%)
-$input-border-color =                       scale-color($white, -20%)
-$input-focus-border-color =                 scale-color($white, -40%)
+$input-focus-bg-color =                     darken($white, 2%)
+$input-border-color =                       darken($white, 20%)
+$input-focus-border-color =                 darken($white, 40%)
 $input-border-style =                       solid
 $input-border-width =                       1px
 $input-border-radius =                      $global-radius
@@ -699,8 +699,8 @@ $legend-font-weight =                       $font-weight-bold
 $legend-padding =                           rem-calc(0 3)
 
 // style the prefix and postfix input elements
-$input-prefix-bg =                          scale-color($white, -5%)
-$input-prefix-border-color =                scale-color($white, -20%)
+$input-prefix-bg =                          darken($white, 5%)
+$input-prefix-border-color =                darken($white, 20%)
 $input-prefix-border-size =                 1px
 $input-prefix-border-type =                 solid
 $input-prefix-overflow =                    hidden
@@ -727,7 +727,7 @@ $glowing-effect-color =                     $input-focus-border-color
 
 // Select variables
 $select-bg-color =                          $ghost
-$select-hover-bg-color =                    scale-color($select-bg-color, -3%)
+$select-hover-bg-color =                    darken($select-bg-color, 3%)
 
 
 // =========================================================================
@@ -822,16 +822,16 @@ $keystroke-font =                           $font-family-monospace
 $keystroke-font-size =                      inherit
 $keystroke-font-color =                     $jet
 $keystroke-font-color-alt =                 $white
-$keystroke-function-factor =                -7%
+$keystroke-function-factor =                7% // -7%
 
 // keystroke padding.
 $keystroke-padding =                        rem-calc(2 4 0)
 
 // background and border styles.
-$keystroke-bg =                             scale-color($white, $keystroke-function-factor)
+$keystroke-bg =                             darken($white, $keystroke-function-factor)
 $keystroke-border-style =                   solid
 $keystroke-border-width =                   1px
-$keystroke-border-color =                   scale-color($keystroke-bg, $keystroke-function-factor)
+$keystroke-border-color =                   darken($keystroke-bg, $keystroke-function-factor)
 $keystroke-radius =                         $global-radius
 
 
@@ -877,8 +877,8 @@ $tabbar-color =                             $white
 $tabbar-middle-padding =                    0 rem-calc(10)
 
 // Off Canvas Divider Styles
-$tabbar-right-section-border =              solid 1px scale-color($tabbar-bg, 13%)
-$tabbar-left-section-border =               solid 1px scale-color($tabbar-bg, -50%)
+$tabbar-right-section-border =              solid 1px lighten($tabbar-bg, 13%)
+$tabbar-left-section-border =               solid 1px darken($tabbar-bg, 50%)
 
 // Off Canvas Tab Bar Headers
 $tabbar-header-color =                      $white
@@ -889,7 +889,7 @@ $tabbar-header-margin =                     0
 // Off Canvas Menu Variables
 $off-canvas-width =                         rem-calc(250)
 $off-canvas-bg =                            $oil
-$off-canvas-bg-hover =                      scale-color($tabbar-bg, -30%)
+$off-canvas-bg-hover =                      darken($tabbar-bg, 30%)
 
 // Off Canvas Menu List Variables
 $off-canvas-label-padding =                 0.3rem rem-calc(15)
@@ -898,22 +898,22 @@ $off-canvas-label-text-transform =          uppercase
 $off-canvas-label-font-size =               rem-calc(12)
 $off-canvas-label-font-weight =             $font-weight-bold
 $off-canvas-label-bg =                      $tuatara
-$off-canvas-label-border-top =              1px solid scale-color($tuatara, 14%)
+$off-canvas-label-border-top =              1px solid lighten($tuatara, 14%)
 $off-canvas-label-border-bottom =           none
 $off-canvas-label-margin =                  0
 $off-canvas-link-padding =                  rem-calc(10, 15)
 $off-canvas-link-color =                    rgba($white, 0.7)
-$off-canvas-link-border-bottom =            1px solid scale-color($off-canvas-bg, -25%)
+$off-canvas-link-border-bottom =            1px solid darken($off-canvas-bg, 25%)
 $off-canvas-back-bg =                       $tuatara
 $off-canvas-back-border-top =               $off-canvas-label-border-top
 $off-canvas-back-border-bottom =            $off-canvas-label-border-bottom
-$off-canvas-back-hover-bg =                 scale-color($off-canvas-back-bg, -30%)
-$off-canvas-back-hover-border-top =         1px solid scale-color($off-canvas-label-bg, 14%)
+$off-canvas-back-hover-bg =                 darken($off-canvas-back-bg, 30%)
+$off-canvas-back-hover-border-top =         1px solid lighten($off-canvas-label-bg, 14%)
 $off-canvas-back-hover-border-bottom =      none
 
 // Off Canvas Menu Icon Variables
 $tabbar-menu-icon-color =                   $white
-$tabbar-menu-icon-hover =                   scale-color($tabbar-menu-icon-color, -30%)
+$tabbar-menu-icon-hover =                   darken($tabbar-menu-icon-color, 30%)
 
 $tabbar-menu-icon-text-indent =             rem-calc(35)
 $tabbar-menu-icon-width =                   $tabbar-height
@@ -948,7 +948,7 @@ $orbit-container-bg =                       none
 $orbit-caption-bg =                         rgba(51,51,51, 0.8)
 $orbit-caption-font-color =                 $white
 $orbit-caption-font-size =                  rem-calc(14)
-$orbit-caption-position =                   "bottom" // Supported values =              "bottom", "under"
+$orbit-caption-position =                   "bottom" // Supported values = "bottom", "under"
 $orbit-caption-padding =                    rem-calc(10 14)
 $orbit-caption-height =                     auto
 
@@ -997,24 +997,25 @@ $pagination-li-float =                      $default-float
 $pagination-li-height =                     rem-calc(24)
 $pagination-li-font-color =                 $jet
 $pagination-li-font-size =                  rem-calc(14)
-$pagination-li-margin =                     rem-calc(1)
+$pagination-li-margin =                     0 // rem-calc(1)
 
 // We use these for the pagination anchor links
 $pagination-link-pad =                      rem-calc(10 4 10)
 $pagination-link-font-color =               $aluminum
-$pagination-link-bg =                       rgba($black,0.1)
+$pagination-link-bg =                       none // rgba($black,0.1)
 $pagination-font-size =                     1rem
-$pagination-link-boxshadow =                0 1px 1px rgba($black,0.1)
+$pagination-link-boxshadow =                false // 0 1px 1px rgba($black,0.1)
 $pagination-link-border =                   rgba($black,0.1)
+$pagination-link-border-width = 			0 1px 0 0
 $pagination-link-active-bg =                $primary-color
 $pagination-link-hover-color =              $white
 $pagination-link-hover-boxshadow =          false // 1px 1px 1px rgba($black,0.25)
-$pagination-link-hover-border =             false // rgba(0,0,0,0.1)
+$pagination-link-hover-border =             $white // rgba(0,0,0,0.1)
 
 // We use these for disabled anchor links
 $pagination-link-unavailable-cursor =       default
-$pagination-link-unavailable-font-color =   $aluminum
-$pagination-link-unavailable-bg-active =    transparent
+$pagination-link-unavailable-font-color =   $gainsboro
+$pagination-link-unavailable-bg-active =    none
 
 // We use these for currently selected anchor links
 $pagination-link-current-background =       $primary-color
@@ -1031,13 +1032,13 @@ $pagination-link-current-active-bg =        $primary-color
 $include-html-panel-classes =               $include-html-classes
 
 // the background and border styles
-$panel-bg =                                 scale-color($white, -5%)
+$panel-bg =                                 darken($white, 5%)
 $panel-border-style =                       solid
 $panel-border-size =                        1px
 
 // We use this % to control how much we darken things on hover
-$panel-function-factor =                    -11%
-$panel-border-color =                       scale-color($panel-bg, $panel-function-factor)
+$panel-function-factor =                    11% // -11%
+$panel-border-color =                       darken($panel-bg, $panel-function-factor)
 
 // set default inner padding and bottom margin
 $panel-margin-bottom =                      rem-calc(20)
@@ -1049,7 +1050,7 @@ $panel-font-color-alt =                     $white
 
 $panel-header-adjust =                      true
 $callout-panel-link-color =                 $primary-color
-$callout-panel-link-color-hover =           scale-color($callout-panel-link-color, $panel-function-factor)
+$callout-panel-link-color-hover =           darken($callout-panel-link-color, $panel-function-factor)
 
 
 // =========================================================================
@@ -1117,7 +1118,7 @@ $progress-bar-height =                      rem-calc(25)
 $progress-bar-color =                       $vapor  
 
 // the border styles
-$progress-bar-border-color =                scale-color($white, 20%)
+$progress-bar-border-color =                darken($white, 20%)
 $progress-bar-border-size =                 1px
 $progress-bar-border-style =                solid
 $progress-bar-border-radius =               $global-radius
@@ -1149,7 +1150,7 @@ $range-slider-bar-border-color =            $gainsboro
 $range-slider-radius =                      $global-radius
 $range-slider-round =                       $global-rounded
 $range-slider-bar-bg-color =                $ghost
-$range-slider-active-segment-bg-color =     scale-color($secondary-color, -1%)
+$range-slider-active-segment-bg-color =     darken($secondary-color, 1%)
 
 // Vertical bar styles
 $range-slider-vertical-bar-width =          rem-calc(16)
@@ -1165,7 +1166,7 @@ $range-slider-handle-border-style =         solid
 $range-slider-handle-border-color =         none
 $range-slider-handle-radius =               $global-radius
 $range-slider-handle-round =                $global-rounded
-$range-slider-handle-bg-hover-color =       scale-color($primary-color, -12%)
+$range-slider-handle-bg-hover-color =       darken($primary-color, 12%)
 $range-slider-handle-cursor =               $cursor-pointer-value
 
 
@@ -1223,8 +1224,8 @@ $side-nav-list-margin =                     rem-calc(0 0 7 0)
 
 // link styles.
 $side-nav-link-color =                      $primary-color
-$side-nav-link-color-active =               scale-color($side-nav-link-color, 30%)
-$side-nav-link-color-hover =                scale-color($side-nav-link-color, 30%)
+$side-nav-link-color-active =               lighten($side-nav-link-color, 30%)
+$side-nav-link-color-hover =                lighten($side-nav-link-color, 30%)
 $side-nav-link-bg-hover =                   hsla(0, 0, 0, 0.025)
 $side-nav-link-margin =                     0
 $side-nav-link-padding =                    rem-calc(7 14)
@@ -1243,7 +1244,7 @@ $side-nav-heading-text-transform =          uppercase
 // border styles
 $side-nav-divider-size =                    1px
 $side-nav-divider-style =                   solid
-$side-nav-divider-color =                   scale-color($white, 10%)
+$side-nav-divider-color =                   darken($white, 10%)
 
 
 // =========================================================================
@@ -1305,12 +1306,12 @@ $sub-nav-font-weight =                      $font-weight-normal
 $sub-nav-text-decoration =                  none
 $sub-nav-padding =                          rem-calc(3 16)
 $sub-nav-border-radius =                    3px
-$sub-nav-font-color-hover =                 scale-color($sub-nav-font-color, -25%)
+$sub-nav-font-color-hover =                 darken($sub-nav-font-color, 25%)
 
 // the active item styles
 $sub-nav-active-font-weight =               $font-weight-normal
 $sub-nav-active-bg =                        $primary-color
-$sub-nav-active-bg-hover =                  scale-color($sub-nav-active-bg, -14%)
+$sub-nav-active-bg-hover =                  darken($sub-nav-active-bg, 14%)
 $sub-nav-active-color =                     $white
 $sub-nav-active-padding =                   $sub-nav-padding
 $sub-nav-active-cursor =                    default
@@ -1326,7 +1327,7 @@ $sub-nav-item-divider-margin =              rem-calc(12)
 $include-html-form-classes =                $include-html-classes
 
 // Controlling border styles and background colors for the switch container
-$switch-border-color =                      scale-color($white, -20%)
+$switch-border-color =                      darken($white, 20%)
 $switch-border-style =                      solid
 $switch-border-width =                      1px
 $switch-bg =                                $white
@@ -1348,13 +1349,13 @@ $switch-label-side-padding =                6px
 
 // style the switch-paddle
 $switch-paddle-bg =                         $white
-$switch-paddle-fade-to-color =              scale-color($switch-paddle-bg, -10%)
-$switch-paddle-border-color =               scale-color($switch-paddle-bg, -35%)
+$switch-paddle-fade-to-color =              darken($switch-paddle-bg, 10%)
+$switch-paddle-border-color =               darken($switch-paddle-bg, 35%)
 $switch-paddle-border-width =               1px
 $switch-paddle-border-style =               solid
 $switch-paddle-transition-speed =           100ms // .1s !default
 $switch-paddle-transition-ease =            ease-out
-$switch-positive-color =                    scale-color($success-color, 94%)
+$switch-positive-color =                    lighten($success-color, 94%)
 $switch-negative-color =                    $white-smoke
 
 // Outline Style for tabbing through switches
@@ -1414,14 +1415,17 @@ $table-margin-bottom =                      rem-calc(20)
 
 $include-html-tabs-classes =                $include-html-classes
 
-$tabs-navigation-padding =                  rem-calc(16)
+$tabs-navigation-padding =                  rem-calc(5)
 $tabs-navigation-bg-color =                 $silver  
 $tabs-navigation-active-bg-color =          $white
-$tabs-navigation-hover-bg-color =           scale-color($tabs-navigation-bg-color, -6%)
+$tabs-navigation-hover-bg-color =           darken($tabs-navigation-bg-color, 6%)
 $tabs-navigation-font-color =               $jet
-$tabs-navigation-active-font-color =        $tabs-navigation-font-color
-$tabs-navigation-font-size =                rem-calc(16)
+$tabs-navigation-hover-font-color = 		$primary-color
+$tabs-navigation-active-font-color =        $primary-color
+$tabs-navigation-font-size =                1rem
 $tabs-navigation-font-family =              $body-font-family
+$tabs-navigation-font-weight = 				$font-weight-bold
+$tabs-navigation-text-transform = 			uppercase
 
 $tabs-content-margin-bottom =               rem-calc(24)
 $tabs-content-padding =                     $column-gutter/2
@@ -1456,7 +1460,7 @@ $include-html-tooltip-classes =             $include-html-classes
 $has-tip-border-bottom =                    dotted 1px $iron
 $has-tip-font-weight =                      $font-weight-bold
 $has-tip-font-color =                       $oil
-$has-tip-border-bottom-hover =              dotted 1px scale-color($primary-color, -55%)
+$has-tip-border-bottom-hover =              dotted 1px darken($primary-color, 55%)
 $has-tip-font-color-hover =                 $primary-color
 $has-tip-cursor-type =                      help
 
@@ -1487,19 +1491,21 @@ $topbar-bg-color =                          $oil
 $topbar-bg =                                $topbar-bg-color
 
 // Height and margin
-$topbar-height =                            50px // 45px !default
+$topbar-height =                            45px
 $topbar-margin-bottom =                     0
 
 // Controlling the styles for the title in the top bar
 $topbar-title-weight =                      $font-weight-normal
 $topbar-title-font-size =                   rem-calc(17)
 
+$topbar-link-hover-lightness =              15% // -10% !default
+
 // Style the top bar dropdown elements
 $topbar-dropdown-bg =                       $oil
 $topbar-dropdown-link-color =               $white
-$topbar-dropdown-link-bg =                  $oil
-$topbar-dropdown-link-bg-hover =            $oil
-$topbar-dropdown-link-weight =              $font-weight-normal
+$topbar-dropdown-link-bg =                  $topbar-dropdown-bg
+$topbar-dropdown-link-bg-hover =            darken($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
+$topbar-dropdown-link-weight =              $font-weight-bold
 $topbar-dropdown-toggle-size =              5px
 $topbar-dropdown-toggle-color =             $white
 $topbar-dropdown-toggle-alpha =             0.4
@@ -1509,21 +1515,20 @@ $topbar-link-color =                        $white
 $topbar-link-color-hover =                  $white
 $topbar-link-color-active =                 $white
 $topbar-link-color-active-hover =           $white
-$topbar-link-weight =                       $font-weight-normal
+$topbar-link-weight =                       $font-weight-bold
 $topbar-link-font-size =                    rem-calc(13)
-$topbar-link-hover-lightness =              -10% // -10% !default
 $topbar-link-bg =                           $topbar-bg
-$topbar-link-bg-color-hover =               $charcoal
-$topbar-link-bg-hover =                     $oil
+$topbar-link-bg-color-hover =               darken($topbar-link-bg, $topbar-link-hover-lightness)
+$topbar-link-bg-hover =                     darken($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-active =                    $primary-color
-$topbar-link-bg-active-hover =              scale-color($primary-color, -14%)
+$topbar-link-bg-active-hover =              darken($primary-color, 14%)
 $topbar-link-font-family =                  $body-font-family
-$topbar-link-text-transform =               none
+$topbar-link-text-transform =               uppercase
 $topbar-link-padding =                      $topbar-height / 3
 $topbar-back-link-size =                    $h5-font-size
 $topbar-link-dropdown-padding =             20px
 
-$topbar-button-font-size =                  0.75rem
+$topbar-button-font-size =                  0.9rem
 $topbar-button-top =                        7px
 
 $topbar-dropdown-label-color =              $monsoon
@@ -1548,8 +1553,8 @@ $topbar-breakpoint =                        lower-bound($medium-range) // Change
 $topbar-media-query =                       $medium-up
 
 // Divider Styles
-$topbar-divider-border-bottom =             solid 1px  scale-color($topbar-bg-color, 13%)
-$topbar-divider-border-top =                solid 1px scale-color($topbar-bg-color, -50%)
+$topbar-divider-border-bottom =             solid 1px lighten($topbar-bg-color, 13%)
+$topbar-divider-border-top =                solid 1px darken($topbar-bg-color, 50%)
 
 // Sticky Class
 $topbar-sticky-class =                      ".sticky"
@@ -1569,11 +1574,14 @@ $include-accessibility-classes =            true
 //-- Z-index master list
 // =========================================================================
 
+$zindex-topbar = 						99
+$zindex-joyride-tip =                   101
 $zindex-navbar =                        1000
 $zindex-dropdown =                      1000
 $zindex-popover =                       1060
-$zindex-tooltip =                       1070
+$zindex-tooltip =                       1070 // 1006
 $zindex-navbar-fixed =                  1030
 $zindex-modal =                         1040
+$zindex-off-canvas-menu = 				1001
 $zindex-offcanvas =                     1050
 $zindex-reveal =                        1060

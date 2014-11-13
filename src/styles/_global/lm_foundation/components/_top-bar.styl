@@ -49,7 +49,7 @@ topbar-show-dropdown() {
             {$default-float}: 0
             position: fixed
             top: 0
-            z-index: 99
+            z-index: $zindex-topbar
 
             &.expanded:not(.top-bar) {
                 overflow-y: auto
@@ -60,11 +60,11 @@ topbar-show-dropdown() {
                 .title-area {
                     position: fixed
                     width: 100%
-                    z-index: 99
+                    z-index: $zindex-topbar
                 }
                 // Ensure you can scroll the menu on small screens
                 .top-bar-section {
-                    z-index: 98
+                    z-index: ($zindex-topbar - 1)
                     margin-top: $topbar-height
                 }
             }
@@ -93,19 +93,26 @@ topbar-show-dropdown() {
                 margin-bottom: 0
             }
 
-            input { 
-                height: 1.8rem 
-                padding-top: .35rem 
-                padding-bottom: .35rem 
-                font-size: $topbar-button-font-size
+            input,
+            input[type="text"],
+            input[type="search"] { 
+                height: 2rem 
+                padding-top: $ptop = (.35rem + rem-calc(1))
+                padding-bottom: $ptop
+                fontSize($topbar-button-font-size)
+                border-color: darken($topbar-bg, 20%)
+                border-width: 1px 0 0 1px
+                box-shadow: none
+                box-sizing:border-box
             }
 
             .button,
             button {
-                padding-top: (.35rem + rem-calc(1))
-                padding-bottom: (.35rem + rem-calc(1))
+                padding-top: $ptop = (.35rem + rem-calc(1))
+                padding-bottom: $ptop
                 margin-bottom: 0
-                font-size: $topbar-button-font-size
+                fontSize($topbar-button-font-size)
+                border-color: darken($topbar-bg, 20%)
                 // position: relative
                 // top: -1px
 
@@ -157,6 +164,7 @@ topbar-show-dropdown() {
                     padding: 0 $topbar-link-padding
                     height: $topbar-height
                     line-height: $topbar-height
+
                 }
 
                 // Adding the class "menu-icon" will add the 3-line icon people love and adore.
@@ -170,7 +178,7 @@ topbar-show-dropdown() {
                         }
                         height: 34px
                         line-height: 33px
-                        padding: 0 ($topbar-link-padding+25) 0 $topbar-link-padding
+                        padding: 0 ($topbar-link-padding + 25) 0 $topbar-link-padding
                         color: $topbar-menu-link-color
                         position: relative
 
@@ -250,7 +258,8 @@ topbar-show-dropdown() {
                     font-size: $topbar-link-font-size
                     font-weight: $topbar-link-weight
                     text-transform: $topbar-link-text-transform
-
+                    
+                    single-transition(background-color)
 
                     &.button {
                         font-size: $topbar-link-font-size
@@ -259,44 +268,46 @@ topbar-show-dropdown() {
                         button-style($primary-color)
                     }
                     &.button.secondary {
-                        button-style($secondary-color)
+                        button-style($bg:$secondary-color)
                     }
                     &.button.success {
-                        button-style($success-color)
+                        button-style($bg:$success-color)
                     }
                     &.button.alert {
-                        button-style($alert-color)
+                        button-style($bg:$alert-color)
                     }
                     &.button.warning {
-                        button-style($warning-color)
+                        button-style($bg:$warning-color)
                     }
                 }
 
-            > button {
+            & > button {
                 font-size: $topbar-link-font-size
                 padding-{$opposite-direction}: $topbar-link-padding
                 padding-{$default-float}: $topbar-link-padding
-                button-style($primary-color)
+                button-style($bg:$primary-color)
 
                 &.secondary {
-                    button-style($secondary-color)
+                    button-style($bg:$secondary-color)
                 }
                 &.success {
-                    button-style($success-color)
+                    button-style($bg:$success-color)
                 }
                 &.alert {
-                    button-style($alert-color)
+                    button-style($bg:$alert-color)
                 }
                 &.warning {
-                    button-style($warning-color)
+                    button-style($bg:$warning-color)
                 }
             }
 
             // Apply the hover link color when it has that class
             &:hover:not(.has-form) > a {
-                background-color: $topbar-link-bg-color-hover
+                
                 if ($topbar-link-bg-hover) {
                     background: $topbar-link-bg-hover
+                } else {
+                    background-color: $topbar-link-bg-color-hover
                 }
                 color: $topbar-link-color-hover
 
@@ -363,6 +374,7 @@ topbar-show-dropdown() {
                 a {
                     font-weight: $topbar-dropdown-link-weight
                     padding: 8px $topbar-link-padding
+                    text-transform: uppercase
                     &.parent-link {
                         font-weight: $topbar-link-weight
                     }
@@ -378,7 +390,9 @@ topbar-show-dropdown() {
                         color: $topbar-link-color
                         // line-height: $topbar-height / 2
                         display: block
-                        &:hover { background:none }
+                        &:hover {
+                            background:none
+                        }
                     }
                 }
                 &.has-form {
@@ -463,9 +477,10 @@ topbar-show-dropdown() {
             li {
                 &.hover {
                     > a:not(.button) {
-                        background-color: $topbar-link-bg-color-hover
                         if ($topbar-link-bg-hover) {
                             background: $topbar-link-bg-hover
+                        } else {
+                            background-color: $topbar-link-bg-color-hover
                         }
                         color: $topbar-link-color-hover
                     }
@@ -476,9 +491,10 @@ topbar-show-dropdown() {
                         line-height: $topbar-height
                         background: $topbar-link-bg
                         &:hover {
-                            background-color: $topbar-link-bg-color-hover
                             if ($topbar-link-bg-hover) {
                                 background: $topbar-link-bg-hover
+                            } else {
+                                background-color: $topbar-link-bg-color-hover
                             }
                         }
                     }
@@ -495,6 +511,14 @@ topbar-show-dropdown() {
                         }
                     }
                 }
+                // Second Level
+                li {
+                    a {
+                        line-height: 1.4rem
+                        padding-bottom: 0.35rem
+                        padding-top: 0.35rem
+                    }
+                }                
             }
 
             .has-dropdown {
@@ -568,9 +592,11 @@ topbar-show-dropdown() {
 
                         &:hover > a:not(.button) {
                             color: $topbar-dropdown-link-color-hover
-                            background-color: $topbar-link-bg-color-hover
+                            
                             if ($topbar-dropdown-link-bg-hover) {
                                 background: $topbar-dropdown-link-bg-hover
+                            } else {
+                                background-color: $topbar-link-bg-color-hover
                             }
                         }
                     }
@@ -633,9 +659,11 @@ topbar-show-dropdown() {
             ul li {
                 // Apply the hover link color when it has that class
                 &:hover > a {
-                    background-color: $topbar-link-bg-color-hover
+                    
                     if ($topbar-link-bg-hover) {
                         background: $topbar-link-bg-hover
+                    } else {
+                        background-color: $topbar-link-bg-color-hover
                     }
                     color: $topbar-link-color-hover
                 }

@@ -137,23 +137,23 @@ reveal-close($color = $reveal-close-color) {
 
         .{$reveal-modal-class} {
             reveal-modal-base()
-            reveal-modal-style(($bg = $reveal-modal-bg), ($padding = $reveal-modal-padding), ($border = true), ($box-shadow = true), ($radius = false), ($top-offset = $reveal-position-top))
-            reveal-modal-style(($padding = $reveal-modal-padding * 1.5))
+            reveal-modal-style($bg:$reveal-modal-bg, $padding:$reveal-modal-padding, $border:true, $box-shadow:true, $radius:false, $top-offset:$reveal-position-top)
+            reveal-modal-style($padding:($reveal-modal-padding * 1.5))
 
             &.radius {
-                reveal-modal-style(($radius = true))
+                reveal-modal-style($radius:true)
             }
             &.round  {
-                reveal-modal-style(($radius = $reveal-round))
+                reveal-modal-style($radius:$reveal-round)
             }
             &.collapse {
-                reveal-modal-style(($padding = 0))
+                reveal-modal-style($padding:0)
             }
             &.tiny  {
-                reveal-modal-base(false, 30%)
+                reveal-modal-base(false, 40%)
             }
             &.small {
-                reveal-modal-base(false, 40%)
+                reveal-modal-base(false, 50%)
             }
             &.medium  {
                 reveal-modal-base(false, 60%)

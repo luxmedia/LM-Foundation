@@ -30,7 +30,7 @@
         .tooltip {
             display: none
             position: absolute
-            z-index: 1006
+            z-index: $zindex-tooltip
             font-weight: $tooltip-font-weight
             font-size: $tooltip-font-size
             line-height: $tooltip-line-height
@@ -41,7 +41,7 @@
             color: $tooltip-font-color
             background: $tooltip-bg
 
-            &>.nub {
+            & > .nub {
                 display: block
                 {$default-float}: $tooltip-pip-size
                 position: absolute
@@ -63,7 +63,7 @@
             }
             &.round {
                 radius($tooltip-rounded)
-                &>.nub {
+                & > .nub {
                     left: 2rem
                 }
             }

@@ -12,16 +12,22 @@
 
 // We use this mixin to give us form styles for rows inside of forms
 form-row-base() {
-    .row { margin: 0 ((-($form-spacing)) / 2)
+    .row {
+        margin: 0 ((-($form-spacing)) / 2)
 
         .column,
-        .columns { padding: 0 ($form-spacing / 2) }
+        .columns {
+            padding: 0 ($form-spacing / 2)
+        }
 
         // Use this to collapse the margins of a form row
-        &.collapse { margin: 0
+        &.collapse {
+            margin: 0
 
             .column,
-            .columns { padding: 0 }
+            .columns {
+                padding: 0
+            }
             input {
                 side-radius($opposite-direction, 0)
             }
@@ -316,7 +322,9 @@ html5number($browser, $on = true) {
 // +exports("form") {
     if $include-html-form-classes {
         /* Standard Forms */
-        form { margin: 0 0 $form-spacing }
+        form {
+            margin: 0 0 $form-spacing
+        }
 
         /* Using forms within rows, we need to set some defaults */
         form .row {
@@ -335,7 +343,7 @@ html5number($browser, $on = true) {
             /* Styles for required inputs */
             small {
                 text-transform: $form-label-small-transform
-                color: scale-color($form-label-font-color, 15%)
+                color: lighten($form-label-font-color, 15%)
             }
         }
 

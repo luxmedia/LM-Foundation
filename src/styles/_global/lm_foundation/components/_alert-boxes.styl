@@ -18,7 +18,7 @@ alert-base() {
     margin-bottom: $alert-bottom-margin
     position: relative
     padding: $alert-padding-top $alert-padding-opposite-direction $alert-padding-bottom $alert-padding-default-float
-    font-size: $alert-font-size
+    fontSize($alert-font-size)
     single-transition(opacity, $alert-transition-speed, $alert-transition-ease)
 }
 
@@ -35,8 +35,11 @@ alert-style($bg = $primary-color) {
     border-color: scale-color($bg, $lightness = $alert-function-factor)
 
     // We control the text color for you based on the background color.
-    if $bg-lightness > 70% { color: $alert-font-color-alt }
-    else                   { color: $alert-font-color }
+    if ($bg-lightness > 70%) {
+        color: $alert-font-color-alt
+    } else {
+        color: $alert-font-color
+    }
 
 }
 
@@ -71,17 +74,35 @@ alert($bg = $primary-color, $radius = false) {
         .alert-box {
             alert()
 
-            .close      { alert-close() }
+            .close      {
+                alert-close()
+            }
 
-            &.radius    { radius($alert-radius) }
-            &.round     { radius($global-rounded) }
+            &.radius    {
+                radius($alert-radius)
+            }
+            &.round     {
+                radius($global-rounded)
+            }
 
-            &.success   { alert-style($success-color) }
-            &.alert     { alert-style($alert-color) }
-            &.secondary { alert-style($secondary-color) }
-            &.warning { alert-style($warning-color) }
-            &.info { alert-style($info-color) }
-            &.alert-close { opacity: 0}
+            &.success   {
+                alert-style($success-color)
+            }
+            &.alert     {
+                alert-style($alert-color)
+            }
+            &.secondary {
+                alert-style($secondary-color)
+            }
+            &.warning {
+                alert-style($warning-color)
+            }
+            &.info {
+                alert-style($info-color)
+            }
+            &.alert-close {
+                opacity: 
+            }
         }
     }
 // }
