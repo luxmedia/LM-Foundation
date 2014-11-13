@@ -125,19 +125,19 @@
 
   var single_image_loaded = function (image, callback) {
     function loaded () {
-      callback(image[0]);
+        callback(image[0]);
     }
 
     function bindLoad () {
-      this.one('load', loaded);
+        this.one('load', loaded);
 
-      if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
-        var src = this.attr( 'src' ),
-            param = src.match( /\?/ ) ? '&' : '?';
+        if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+            var src = this.attr( 'src' ),
+                param = src.match( /\?/ ) ? '&' : '?';
 
-        param += 'random=' + (new Date()).getTime();
-        this.attr('src', src + param);
-      }
+            param += 'random=' + (new Date()).getTime();
+            this.attr('src', src + param);
+        }
     }
 
     if (!image.attr('src')) {
@@ -281,17 +281,17 @@
     version : '{{VERSION}}',
 
     media_queries : {
-      small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      medium : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      large : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      xlarge: S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-      xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
+        small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+        medium : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+        large : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+        xlarge: S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+        xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
     },
 
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
     global: {
-      namespace: undefined
+        namespace: undefined
     },
 
     init : function (scope, libraries, method, options, response) {
@@ -544,8 +544,8 @@
       //    Class (String): Class name for the generated <meta> tag
       register_media : function (media, media_class) {
         if(Foundation.media_queries[media] === undefined) {
-          $('head').append('<meta class="' + media_class + '"/>');
-          Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
+            $('head').append('<meta class="' + media_class + '"/>');
+            Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
         }
       },
 

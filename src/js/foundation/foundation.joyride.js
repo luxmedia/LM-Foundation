@@ -57,11 +57,11 @@
     },
 
     init : function (scope, method, options) {
-      Foundation.inherit(this, 'throttle random_str');
+        Foundation.inherit(this, 'throttle random_str');
 
-      this.settings = this.settings || $.extend({}, this.defaults, (options || method));
+        this.settings = this.settings || $.extend({}, this.defaults, (options || method));
 
-      this.bindings(method, options)
+        this.bindings(method, options);
     },
 
     go_next : function() {
@@ -98,20 +98,20 @@
       $(this.scope)
         .off('.joyride')
         .on('click.fndtn.joyride', '.joyride-next-tip, .joyride-modal-bg', function (e) {
-          e.preventDefault();
-          this.go_next()
+            e.preventDefault();
+            this.go_next();
         }.bind(this))
         .on('click.fndtn.joyride', '.joyride-prev-tip', function (e) {
-          e.preventDefault();
-          this.go_prev();
+            e.preventDefault();
+            this.go_prev();
         }.bind(this))
 
         .on('click.fndtn.joyride', '.joyride-close-tip', function (e) {
-          e.preventDefault();
-          this.end(this.settings.abort_on_close);
+            e.preventDefault();
+            this.end(this.settings.abort_on_close);
         }.bind(this))
 
-        .on("keyup.fndtn.joyride", function(e) {
+        .on('keyup.fndtn.joyride', function(e) {
           // Don't do anything if keystrokes are disabled
           // or if the joyride is not being shown
           if (!this.settings.keyboard || !this.settings.riding) return;
@@ -251,33 +251,29 @@
     },
 
     prev_button_text : function (txt, idx) {
-      if (this.settings.tip_settings.prev_button) {
-        txt = $.trim(txt) || 'Previous';
+        if (this.settings.tip_settings.prev_button) {
+            txt = $.trim(txt) || 'Previous';
 
         // Add the disabled class to the button if it's the first element
-        if (idx == 0)
-          txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[0].outerHTML;
-        else
-          txt = $(this.settings.template.prev_button).append(txt)[0].outerHTML;
-      } else {
-        txt = '';
-      }
-      return txt;
+            if (idx == 0) txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[0].outerHTML;
+            else txt = $(this.settings.template.prev_button).append(txt)[0].outerHTML;
+        } else {
+            txt = '';
+        }
+        return txt;
     },
 
     create : function (opts) {
       this.settings.tip_settings = $.extend({}, this.settings, this.data_options(opts.$li));
-      var buttonText = opts.$li.attr(this.add_namespace('data-button'))
-        || opts.$li.attr(this.add_namespace('data-text')),
-          prevButtonText = opts.$li.attr(this.add_namespace('data-button-prev'))
-        || opts.$li.attr(this.add_namespace('data-prev-text')),
+      var buttonText = opts.$li.attr(this.add_namespace('data-button')) || opts.$li.attr(this.add_namespace('data-text')),
+        prevButtonText = opts.$li.attr(this.add_namespace('data-button-prev')) || opts.$li.attr(this.add_namespace('data-prev-text')),
         tipClass = opts.$li.attr('class'),
         $tip_content = $(this.tip_template({
-          tip_class : tipClass,
-          index : opts.index,
-          button_text : buttonText,
-          prev_button_text : prevButtonText,
-          li : opts.$li
+            tip_class : tipClass,
+            index : opts.index,
+            button_text : buttonText,
+            prev_button_text : prevButtonText,
+            li : opts.$li
         }));
 
       $(this.settings.tip_container).append($tip_content);
@@ -287,8 +283,7 @@
       var $timer = null;
 
       // are we paused?
-      if (this.settings.$li === undefined
-        || ($.inArray(this.settings.$li.index(), this.settings.pause_after) === -1)) {
+      if (this.settings.$li === undefined || ($.inArray(this.settings.$li.index(), this.settings.pause_after) === -1)) {
 
         // don't go to the next li if the tour was paused
         if (this.settings.paused) {
@@ -434,7 +429,7 @@
     },
 
     set_next_tip : function () {
-      this.settings.$next_tip = $(".joyride-tip-guide").eq(this.settings.$li.index());
+      this.settings.$next_tip = $('.joyride-tip-guide').eq(this.settings.$li.index());
       this.settings.$next_tip.data('closed', '');
     },
 
@@ -462,7 +457,7 @@
 
       if (tipOffset != 0) {
         $('html, body').stop().animate({
-          scrollTop: tipOffset
+            scrollTop: tipOffset
         }, this.settings.scroll_speed, 'swing');
       }
     },
@@ -490,8 +485,8 @@
       }
 
       if (!/body/i.test(this.settings.$target.selector)) {
-      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
-			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
+          var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
+              leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
 
           if (this.bottom()) {
             if (this.rtl) {
