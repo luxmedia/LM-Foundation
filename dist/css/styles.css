@@ -11887,31 +11887,55 @@ icon-double-arrows ($position) {
 
 /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_offcanvas.styl */
 
-/* line 330 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 331 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 /* line 209 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
-/* line 17 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 18 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 @media only screen {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-small-only,
-  .show-for-small-up {
+  .show-for-small-up,
+  .hide-for-medium-only,
+  .hide-for-medium-up,
+  .hide-for-large-only,
+  .hide-for-large-up,
+  .hide-for-xlarge-only,
+  .hide-for-xlarge-up,
+  .hide-for-xxlarge-only,
+  .hide-for-xxlarge-up {
     display: inherit !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-small-only,
-  .hide-for-small-up {
+  .hide-for-small-up,
+  .show-for-medium-only,
+  .show-for-medium-up,
+  .show-for-large-only,
+  .show-for-large-up,
+  .show-for-xlarge-only,
+  .show-for-xlarge-up,
+  .show-for-xxlarge-only,
+  .show-for-xxlarge-up {
     display: none !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .visible-for-small-only,
-  .visible-for-small-up {
+  .visible-for-small-up,
+  .hidden-for-medium-only,
+  .hidden-for-medium-up,
+  .hidden-for-large-only,
+  .hidden-for-large-up,
+  .hidden-for-xlarge-only,
+  .hidden-for-xlarge-up,
+  .hidden-for-xxlarge-only,
+  .hidden-for-xxlarge-up {
     position: static !important;
     height: auto;
     width: auto;
@@ -11922,12 +11946,105 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hidden-for-small-only,
-  .hidden-for-small-up {
+  .hidden-for-small-up,
+  .visible-for-medium-only,
+  .visible-for-medium-up,
+  .visible-for-large-only,
+  .visible-for-large-up,
+  .visible-for-xlarge-only,
+  .visible-for-xlarge-up,
+  .visible-for-xxlarge-only,
+  .visible-for-xxlarge-up {
     position: absolute !important;
     height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  table.show-for-small-only,
+  table.show-for-small-up,
+  table.hide-for-medium-only,
+  table.hide-for-medium-up,
+  table.hide-for-large-only,
+  table.hide-for-large-up,
+  table.hide-for-xlarge-only,
+  table.hide-for-xlarge-up,
+  table.hide-for-xxlarge-only,
+  table.hide-for-xxlarge-up {
+    display: table !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  thead.show-for-small-only,
+  thead.show-for-small-up,
+  thead.hide-for-medium-only,
+  thead.hide-for-medium-up,
+  thead.hide-for-large-only,
+  thead.hide-for-large-up,
+  thead.hide-for-xlarge-only,
+  thead.hide-for-xlarge-up,
+  thead.hide-for-xxlarge-only,
+  thead.hide-for-xxlarge-up {
+    display: table-header-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tbody.show-for-small-only,
+  tbody.show-for-small-up,
+  tbody.hide-for-medium-only,
+  tbody.hide-for-medium-up,
+  tbody.hide-for-large-only,
+  tbody.hide-for-large-up,
+  tbody.hide-for-xlarge-only,
+  tbody.hide-for-xlarge-up,
+  tbody.hide-for-xxlarge-only,
+  tbody.hide-for-xxlarge-up {
+    display: table-row-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tr.show-for-small-only,
+  tr.show-for-small-up,
+  tr.hide-for-medium-only,
+  tr.hide-for-medium-up,
+  tr.hide-for-large-only,
+  tr.hide-for-large-up,
+  tr.hide-for-xlarge-only,
+  tr.hide-for-xlarge-up,
+  tr.hide-for-xxlarge-only,
+  tr.hide-for-xxlarge-up {
+    display: table-row !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  th.show-for-small-only,
+  td.show-for-small-only,
+  th.show-for-small-up,
+  td.show-for-small-up,
+  th.hide-for-medium-only,
+  td.hide-for-medium-only,
+  th.hide-for-medium-up,
+  td.hide-for-medium-up,
+  th.hide-for-large-only,
+  td.hide-for-large-only,
+  th.hide-for-large-up,
+  td.hide-for-large-up,
+  th.hide-for-xlarge-only,
+  td.hide-for-xlarge-only,
+  th.hide-for-xlarge-up,
+  td.hide-for-xlarge-up,
+  th.hide-for-xxlarge-only,
+  td.hide-for-xxlarge-only,
+  th.hide-for-xxlarge-up,
+  td.hide-for-xxlarge-up {
+    display: table-cell !important;
   }
 }
 
@@ -11935,21 +12052,45 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-small-only,
-  .show-for-small-up {
+  .show-for-small-up,
+  .show-for-medium-only,
+  .show-for-medium-up,
+  .hide-for-large-only,
+  .hide-for-large-up,
+  .hide-for-xlarge-only,
+  .hide-for-xlarge-up,
+  .hide-for-xxlarge-only,
+  .hide-for-xxlarge-up {
     display: inherit !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-small-only,
-  .hide-for-small-up {
+  .hide-for-small-up,
+  .hide-for-medium-only,
+  .hide-for-medium-up,
+  .show-for-large-only,
+  .show-for-large-up,
+  .show-for-xlarge-only,
+  .show-for-xlarge-up,
+  .show-for-xxlarge-only,
+  .show-for-xxlarge-up {
     display: none !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hidden-for-small-only,
-  .visible-for-small-up {
+  .visible-for-small-up,
+  .visible-for-medium-only,
+  .visible-for-medium-up,
+  .hidden-for-large-only,
+  .hidden-for-large-up,
+  .hidden-for-xlarge-only,
+  .hidden-for-xlarge-up,
+  .hidden-for-xxlarge-only,
+  .hidden-for-xxlarge-up {
     position: static !important;
     height: auto;
     width: auto;
@@ -11960,12 +12101,105 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .visible-for-small-only,
-  .hidden-for-small-up {
+  .hidden-for-small-up,
+  .hidden-for-medium-only,
+  .hidden-for-medium-up,
+  .visible-for-large-only,
+  .visible-for-large-up,
+  .visible-for-xlarge-only,
+  .visible-for-xlarge-up,
+  .visible-for-xxlarge-only,
+  .visible-for-xxlarge-up {
     position: absolute !important;
     height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  table.hide-for-small-only,
+  table.show-for-small-up,
+  table.show-for-medium-only,
+  table.show-for-medium-up,
+  table.hide-for-large-only,
+  table.hide-for-large-up,
+  table.hide-for-xlarge-only,
+  table.hide-for-xlarge-up,
+  table.hide-for-xxlarge-only,
+  table.hide-for-xxlarge-up {
+    display: table !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  thead.hide-for-small-only,
+  thead.show-for-small-up,
+  thead.show-for-medium-only,
+  thead.show-for-medium-up,
+  thead.hide-for-large-only,
+  thead.hide-for-large-up,
+  thead.hide-for-xlarge-only,
+  thead.hide-for-xlarge-up,
+  thead.hide-for-xxlarge-only,
+  thead.hide-for-xxlarge-up {
+    display: table-header-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tbody.hide-for-small-only,
+  tbody.show-for-small-up,
+  tbody.show-for-medium-only,
+  tbody.show-for-medium-up,
+  tbody.hide-for-large-only,
+  tbody.hide-for-large-up,
+  tbody.hide-for-xlarge-only,
+  tbody.hide-for-xlarge-up,
+  tbody.hide-for-xxlarge-only,
+  tbody.hide-for-xxlarge-up {
+    display: table-row-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tr.hide-for-small-only,
+  tr.show-for-small-up,
+  tr.show-for-medium-only,
+  tr.show-for-medium-up,
+  tr.hide-for-large-only,
+  tr.hide-for-large-up,
+  tr.hide-for-xlarge-only,
+  tr.hide-for-xlarge-up,
+  tr.hide-for-xxlarge-only,
+  tr.hide-for-xxlarge-up {
+    display: table-row !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  th.hide-for-small-only,
+  td.hide-for-small-only,
+  th.show-for-small-up,
+  td.show-for-small-up,
+  th.show-for-medium-only,
+  td.show-for-medium-only,
+  th.show-for-medium-up,
+  td.show-for-medium-up,
+  th.hide-for-large-only,
+  td.hide-for-large-only,
+  th.hide-for-large-up,
+  td.hide-for-large-up,
+  th.hide-for-xlarge-only,
+  td.hide-for-xlarge-only,
+  th.hide-for-xlarge-up,
+  td.hide-for-xlarge-up,
+  th.hide-for-xxlarge-only,
+  td.hide-for-xxlarge-only,
+  th.hide-for-xxlarge-up,
+  td.hide-for-xxlarge-up {
+    display: table-cell !important;
   }
 }
 
@@ -11973,21 +12207,45 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-small-only,
-  .show-for-small-up {
+  .show-for-small-up,
+  .hide-for-medium-only,
+  .show-for-medium-up,
+  .show-for-large-only,
+  .show-for-large-up,
+  .hide-for-xlarge-only,
+  .hide-for-xlarge-up,
+  .hide-for-xxlarge-only,
+  .hide-for-xxlarge-up {
     display: inherit !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-small-only,
-  .hide-for-small-up {
+  .hide-for-small-up,
+  .show-for-medium-only,
+  .hide-for-medium-up,
+  .hide-for-large-only,
+  .hide-for-large-up,
+  .show-for-xlarge-only,
+  .show-for-xlarge-up,
+  .show-for-xxlarge-only,
+  .show-for-xxlarge-up {
     display: none !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hidden-for-small-only,
-  .visible-for-small-up {
+  .visible-for-small-up,
+  .hidden-for-medium-only,
+  .visible-for-medium-up,
+  .visible-for-large-only,
+  .visible-for-large-up,
+  .hidden-for-xlarge-only,
+  .hidden-for-xlarge-up,
+  .hidden-for-xxlarge-only,
+  .hidden-for-xxlarge-up {
     position: static !important;
     height: auto;
     width: auto;
@@ -11998,12 +12256,105 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .visible-for-small-only,
-  .hidden-for-small-up {
+  .hidden-for-small-up,
+  .visible-for-medium-only,
+  .hidden-for-medium-up,
+  .hidden-for-large-only,
+  .hidden-for-large-up,
+  .visible-for-xlarge-only,
+  .visible-for-xlarge-up,
+  .visible-for-xxlarge-only,
+  .visible-for-xxlarge-up {
     position: absolute !important;
     height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  table.hide-for-small-only,
+  table.show-for-small-up,
+  table.hide-for-medium-only,
+  table.show-for-medium-up,
+  table.show-for-large-only,
+  table.show-for-large-up,
+  table.hide-for-xlarge-only,
+  table.hide-for-xlarge-up,
+  table.hide-for-xxlarge-only,
+  table.hide-for-xxlarge-up {
+    display: table !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  thead.hide-for-small-only,
+  thead.show-for-small-up,
+  thead.hide-for-medium-only,
+  thead.show-for-medium-up,
+  thead.show-for-large-only,
+  thead.show-for-large-up,
+  thead.hide-for-xlarge-only,
+  thead.hide-for-xlarge-up,
+  thead.hide-for-xxlarge-only,
+  thead.hide-for-xxlarge-up {
+    display: table-header-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tbody.hide-for-small-only,
+  tbody.show-for-small-up,
+  tbody.hide-for-medium-only,
+  tbody.show-for-medium-up,
+  tbody.show-for-large-only,
+  tbody.show-for-large-up,
+  tbody.hide-for-xlarge-only,
+  tbody.hide-for-xlarge-up,
+  tbody.hide-for-xxlarge-only,
+  tbody.hide-for-xxlarge-up {
+    display: table-row-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tr.hide-for-small-only,
+  tr.show-for-small-up,
+  tr.hide-for-medium-only,
+  tr.show-for-medium-up,
+  tr.show-for-large-only,
+  tr.show-for-large-up,
+  tr.hide-for-xlarge-only,
+  tr.hide-for-xlarge-up,
+  tr.hide-for-xxlarge-only,
+  tr.hide-for-xxlarge-up {
+    display: table-row !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  th.hide-for-small-only,
+  td.hide-for-small-only,
+  th.show-for-small-up,
+  td.show-for-small-up,
+  th.hide-for-medium-only,
+  td.hide-for-medium-only,
+  th.show-for-medium-up,
+  td.show-for-medium-up,
+  th.show-for-large-only,
+  td.show-for-large-only,
+  th.show-for-large-up,
+  td.show-for-large-up,
+  th.hide-for-xlarge-only,
+  td.hide-for-xlarge-only,
+  th.hide-for-xlarge-up,
+  td.hide-for-xlarge-up,
+  th.hide-for-xxlarge-only,
+  td.hide-for-xxlarge-only,
+  th.hide-for-xxlarge-up,
+  td.hide-for-xxlarge-up {
+    display: table-cell !important;
   }
 }
 
@@ -12011,21 +12362,45 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-small-only,
-  .show-for-small-up {
+  .show-for-small-up,
+  .hide-for-medium-only,
+  .show-for-medium-up,
+  .hide-for-large-only,
+  .show-for-large-up,
+  .show-for-xlarge-only,
+  .show-for-xlarge-up,
+  .hide-for-xxlarge-only,
+  .hide-for-xxlarge-up {
     display: inherit !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-small-only,
-  .hide-for-small-up {
+  .hide-for-small-up,
+  .show-for-medium-only,
+  .hide-for-medium-up,
+  .show-for-large-only,
+  .hide-for-large-up,
+  .hide-for-xlarge-only,
+  .hide-for-xlarge-up,
+  .show-for-xxlarge-only,
+  .show-for-xxlarge-up {
     display: none !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hidden-for-small-only,
-  .visible-for-small-up {
+  .visible-for-small-up,
+  .hidden-for-medium-only,
+  .visible-for-medium-up,
+  .hidden-for-large-only,
+  .visible-for-large-up,
+  .visible-for-xlarge-only,
+  .visible-for-xlarge-up,
+  .hidden-for-xxlarge-only,
+  .hidden-for-xxlarge-up {
     position: static !important;
     height: auto;
     width: auto;
@@ -12036,12 +12411,105 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .visible-for-small-only,
-  .hidden-for-small-up {
+  .hidden-for-small-up,
+  .visible-for-medium-only,
+  .hidden-for-medium-up,
+  .visible-for-large-only,
+  .hidden-for-large-up,
+  .hidden-for-xlarge-only,
+  .hidden-for-xlarge-up,
+  .visible-for-xxlarge-only,
+  .visible-for-xxlarge-up {
     position: absolute !important;
     height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  table.hide-for-small-only,
+  table.show-for-small-up,
+  table.hide-for-medium-only,
+  table.show-for-medium-up,
+  table.hide-for-large-only,
+  table.show-for-large-up,
+  table.show-for-xlarge-only,
+  table.show-for-xlarge-up,
+  table.hide-for-xxlarge-only,
+  table.hide-for-xxlarge-up {
+    display: table !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  thead.hide-for-small-only,
+  thead.show-for-small-up,
+  thead.hide-for-medium-only,
+  thead.show-for-medium-up,
+  thead.hide-for-large-only,
+  thead.show-for-large-up,
+  thead.show-for-xlarge-only,
+  thead.show-for-xlarge-up,
+  thead.hide-for-xxlarge-only,
+  thead.hide-for-xxlarge-up {
+    display: table-header-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tbody.hide-for-small-only,
+  tbody.show-for-small-up,
+  tbody.hide-for-medium-only,
+  tbody.show-for-medium-up,
+  tbody.hide-for-large-only,
+  tbody.show-for-large-up,
+  tbody.show-for-xlarge-only,
+  tbody.show-for-xlarge-up,
+  tbody.hide-for-xxlarge-only,
+  tbody.hide-for-xxlarge-up {
+    display: table-row-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tr.hide-for-small-only,
+  tr.show-for-small-up,
+  tr.hide-for-medium-only,
+  tr.show-for-medium-up,
+  tr.hide-for-large-only,
+  tr.show-for-large-up,
+  tr.show-for-xlarge-only,
+  tr.show-for-xlarge-up,
+  tr.hide-for-xxlarge-only,
+  tr.hide-for-xxlarge-up {
+    display: table-row !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  th.hide-for-small-only,
+  td.hide-for-small-only,
+  th.show-for-small-up,
+  td.show-for-small-up,
+  th.hide-for-medium-only,
+  td.hide-for-medium-only,
+  th.show-for-medium-up,
+  td.show-for-medium-up,
+  th.hide-for-large-only,
+  td.hide-for-large-only,
+  th.show-for-large-up,
+  td.show-for-large-up,
+  th.show-for-xlarge-only,
+  td.show-for-xlarge-only,
+  th.show-for-xlarge-up,
+  td.show-for-xlarge-up,
+  th.hide-for-xxlarge-only,
+  td.hide-for-xxlarge-only,
+  th.hide-for-xxlarge-up,
+  td.hide-for-xxlarge-up {
+    display: table-cell !important;
   }
 }
 
@@ -12049,21 +12517,45 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-small-only,
-  .show-for-small-up {
+  .show-for-small-up,
+  .hide-for-medium-only,
+  .show-for-medium-up,
+  .hide-for-large-only,
+  .show-for-large-up,
+  .hide-for-xlarge-only,
+  .show-for-xlarge-up,
+  .show-for-xxlarge-only,
+  .show-for-xxlarge-up {
     display: inherit !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-small-only,
-  .hide-for-small-up {
+  .hide-for-small-up,
+  .show-for-medium-only,
+  .hide-for-medium-up,
+  .show-for-large-only,
+  .hide-for-large-up,
+  .show-for-xlarge-only,
+  .hide-for-xlarge-up,
+  .hide-for-xxlarge-only,
+  .hide-for-xxlarge-up {
     display: none !important;
   }
 
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hidden-for-small-only,
-  .visible-for-small-up {
+  .visible-for-small-up,
+  .hidden-for-medium-only,
+  .visible-for-medium-up,
+  .hidden-for-large-only,
+  .visible-for-large-up,
+  .hidden-for-xlarge-only,
+  .visible-for-xlarge-up,
+  .visible-for-xxlarge-only,
+  .visible-for-xxlarge-up {
     position: static !important;
     height: auto;
     width: auto;
@@ -12074,68 +12566,161 @@ icon-double-arrows ($position) {
   /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .visible-for-small-only,
-  .hidden-for-small-up {
+  .hidden-for-small-up,
+  .visible-for-medium-only,
+  .hidden-for-medium-up,
+  .visible-for-large-only,
+  .hidden-for-large-up,
+  .visible-for-xlarge-only,
+  .hidden-for-xlarge-up,
+  .hidden-for-xxlarge-only,
+  .hidden-for-xxlarge-up {
     position: absolute !important;
     height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
   }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  table.hide-for-small-only,
+  table.show-for-small-up,
+  table.hide-for-medium-only,
+  table.show-for-medium-up,
+  table.hide-for-large-only,
+  table.show-for-large-up,
+  table.hide-for-xlarge-only,
+  table.show-for-xlarge-up,
+  table.show-for-xxlarge-only,
+  table.show-for-xxlarge-up {
+    display: table !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  thead.hide-for-small-only,
+  thead.show-for-small-up,
+  thead.hide-for-medium-only,
+  thead.show-for-medium-up,
+  thead.hide-for-large-only,
+  thead.show-for-large-up,
+  thead.hide-for-xlarge-only,
+  thead.show-for-xlarge-up,
+  thead.show-for-xxlarge-only,
+  thead.show-for-xxlarge-up {
+    display: table-header-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tbody.hide-for-small-only,
+  tbody.show-for-small-up,
+  tbody.hide-for-medium-only,
+  tbody.show-for-medium-up,
+  tbody.hide-for-large-only,
+  tbody.show-for-large-up,
+  tbody.hide-for-xlarge-only,
+  tbody.show-for-xlarge-up,
+  tbody.show-for-xxlarge-only,
+  tbody.show-for-xxlarge-up {
+    display: table-row-group !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  tr.hide-for-small-only,
+  tr.show-for-small-up,
+  tr.hide-for-medium-only,
+  tr.show-for-medium-up,
+  tr.hide-for-large-only,
+  tr.show-for-large-up,
+  tr.hide-for-xlarge-only,
+  tr.show-for-xlarge-up,
+  tr.show-for-xxlarge-only,
+  tr.show-for-xxlarge-up {
+    display: table-row !important;
+  }
+
+  /* line 1 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  th.hide-for-small-only,
+  td.hide-for-small-only,
+  th.show-for-small-up,
+  td.show-for-small-up,
+  th.hide-for-medium-only,
+  td.hide-for-medium-only,
+  th.show-for-medium-up,
+  td.show-for-medium-up,
+  th.hide-for-large-only,
+  td.hide-for-large-only,
+  th.show-for-large-up,
+  td.show-for-large-up,
+  th.hide-for-xlarge-only,
+  td.hide-for-xlarge-only,
+  th.show-for-xlarge-up,
+  td.show-for-xlarge-up,
+  th.show-for-xxlarge-only,
+  td.show-for-xxlarge-only,
+  th.show-for-xxlarge-up,
+  td.show-for-xxlarge-up {
+    display: table-cell !important;
+  }
 }
 
-/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .show-for-landscape,
 .hide-for-portrait {
   display: inherit !important;
 }
 
-/* line 121 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .hide-for-landscape,
 .show-for-portrait {
   display: none !important;
 }
 
-/* line 127 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
 /* line 128 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+/* line 129 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 table.hide-for-landscape,
 table.show-for-portrait {
   display: table !important;
 }
 
-/* line 133 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
 /* line 134 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+/* line 135 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 thead.hide-for-landscape,
 thead.show-for-portrait {
   display: table-header-group !important;
 }
 
-/* line 139 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
 /* line 140 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+/* line 141 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 tbody.hide-for-landscape,
 tbody.show-for-portrait {
   display: table-row-group !important;
 }
 
-/* line 145 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
 /* line 146 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+/* line 147 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 tr.hide-for-landscape,
 tr.show-for-portrait {
   display: table-row !important;
 }
 
-/* line 151 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 152 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
-/* line 153 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 154 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 td.hide-for-landscape,
 th.hide-for-landscape,
@@ -12145,59 +12730,59 @@ th.show-for-portrait {
 }
 
 @media only screen and (orientation: landscape) {
-  /* line 160 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 161 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-landscape,
   .hide-for-portrait {
     display: inherit !important;
   }
 
-  /* line 164 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 165 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-landscape,
   .show-for-portrait {
     display: none !important;
   }
 
-  /* line 170 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 171 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 172 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   table.show-for-landscape,
   table.hide-for-portrait {
     display: table !important;
   }
 
-  /* line 176 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 177 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 178 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   thead.show-for-landscape,
   thead.hide-for-portrait {
     display: table-header-group !important;
   }
 
-  /* line 182 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 183 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 184 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   tbody.show-for-landscape,
   tbody.hide-for-portrait {
     display: table-row-group !important;
   }
 
-  /* line 188 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 189 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 190 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   tr.show-for-landscape,
   tr.hide-for-portrait {
     display: table-row !important;
   }
 
-  /* line 194 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 195 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
-  /* line 196 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 197 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   td.show-for-landscape,
   th.show-for-landscape,
@@ -12208,59 +12793,59 @@ th.show-for-portrait {
 }
 
 @media only screen and (orientation: portrait) {
-  /* line 204 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 205 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-portrait,
   .hide-for-landscape {
     display: inherit !important;
   }
 
-  /* line 208 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 209 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-portrait,
   .show-for-landscape {
     display: none !important;
   }
 
-  /* line 214 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 215 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 216 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   table.show-for-portrait,
   table.hide-for-landscape {
     display: table !important;
   }
 
-  /* line 220 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 221 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 222 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   thead.show-for-portrait,
   thead.hide-for-landscape {
     display: table-header-group !important;
   }
 
-  /* line 226 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 227 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 228 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   tbody.show-for-portrait,
   tbody.hide-for-landscape {
     display: table-row-group !important;
   }
 
-  /* line 232 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
-
   /* line 233 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+
+  /* line 234 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   tr.show-for-portrait,
   tr.hide-for-landscape {
     display: table-row !important;
   }
 
-  /* line 238 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 239 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
-  /* line 240 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 241 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   td.show-for-portrait,
   th.show-for-portrait,
@@ -12270,146 +12855,146 @@ th.show-for-portrait {
   }
 }
 
-/* line 248 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 249 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .show-for-touch {
   display: none !important;
 }
 
-/* line 251 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 252 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .hide-for-touch {
   display: inherit !important;
 }
 
-/* line 254 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 255 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch .show-for-touch {
   display: inherit !important;
 }
 
-/* line 257 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 258 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch .hide-for-touch {
   display: none !important;
 }
 
-/* line 262 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 263 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 table.hide-for-touch {
   display: table !important;
 }
 
-/* line 265 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 266 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch table.show-for-touch {
   display: table !important;
 }
 
-/* line 268 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 269 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 thead.hide-for-touch {
   display: table-header-group !important;
 }
 
-/* line 271 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 272 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch thead.show-for-touch {
   display: table-header-group !important;
 }
 
-/* line 274 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 275 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 tbody.hide-for-touch {
   display: table-row-group !important;
 }
 
-/* line 277 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 278 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch tbody.show-for-touch {
   display: table-row-group !important;
 }
 
-/* line 280 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 281 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 tr.hide-for-touch {
   display: table-row !important;
 }
 
-/* line 283 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 284 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch tr.show-for-touch {
   display: table-row !important;
 }
 
-/* line 286 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 287 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 td.hide-for-touch {
   display: table-cell !important;
 }
 
-/* line 289 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 290 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch td.show-for-touch {
   display: table-cell !important;
 }
 
-/* line 292 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 293 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 th.hide-for-touch {
   display: table-cell !important;
 }
 
-/* line 295 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+/* line 296 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
 .touch th.show-for-touch {
   display: table-cell !important;
 }
 
 @media print {
-  /* line 302 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 303 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .show-for-print {
     display: block;
   }
 
-  /* line 305 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 306 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   .hide-for-print {
     display: none;
   }
 
-  /* line 309 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 310 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   table.show-for-print {
     display: table !important;
   }
 
-  /* line 312 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 313 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   thead.show-for-print {
     display: table-header-group !important;
   }
 
-  /* line 315 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 316 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   tbody.show-for-print {
     display: table-row-group !important;
   }
 
-  /* line 318 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 319 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   tr.show-for-print {
     display: table-row !important;
   }
 
-  /* line 321 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 322 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   td.show-for-print {
     display: table-cell !important;
   }
 
-  /* line 324 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
+  /* line 325 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl */
 
   th.show-for-print {
     display: table-cell !important;
