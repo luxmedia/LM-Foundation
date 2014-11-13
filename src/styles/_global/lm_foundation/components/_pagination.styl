@@ -27,7 +27,7 @@ pagination-unavailable-item() {
     &:hover button,
     & button:focus { 
         if $pagination-link-border {
-            border-color:$pagination-link-border
+            border-color: $pagination-link-border
         }        
         background: $pagination-link-unavailable-bg-active 
     }
@@ -48,6 +48,7 @@ pagination-current-item($has-anchor = true) {
             &:hover,
             &:focus {
                 background: $pagination-link-current-active-bg
+                border-color: $pagination-link-current-background
             }
         }
     } else {
@@ -61,7 +62,7 @@ pagination-current-item($has-anchor = true) {
 
         &:hover,
         &:focus {
-        background: $pagination-link-current-active-bg
+            background: $pagination-link-current-active-bg
         }
     }
 }
