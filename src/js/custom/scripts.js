@@ -2,6 +2,17 @@ if(jQuery) {
     
     $(document).ready(function(){
 
+        // LOAD FOUNDATION SCRIPTS
+        $(document).foundation({
+            offcanvas : {
+                // Sets method in which offcanvas opens.
+                // [ move | overlap_single | overlap ]
+                open_method: 'move',
+                // Should the menu close when a menu link is clicked?
+                // [ true | false ]
+                close_on_click: false
+            }
+        );
 
         // LOAD EXTERNAL SVG AND CONVERT IT TO INLINE SVG
         $('img[src*=".svg"]').each(function() {
