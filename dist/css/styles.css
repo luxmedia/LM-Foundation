@@ -3432,8 +3432,8 @@ button:focus,
 
 /* line 224 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--secondary,
-.btn.btn--secondary {
+button--secondary,
+.btn--secondary {
   color: #333;
   background-color: #e7e7e7;
   border-color: #bababa;
@@ -3441,10 +3441,10 @@ button.btn--secondary,
 
 /* line 145 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--secondary:hover,
-.btn.btn--secondary:hover,
-button.btn--secondary:focus,
-.btn.btn--secondary:focus {
+button--secondary:hover,
+.btn--secondary:hover,
+button--secondary:focus,
+.btn--secondary:focus {
   color: #2b2b2b;
   background-color: #c4c4c4;
   border-color: #a7a7a7;
@@ -3452,8 +3452,8 @@ button.btn--secondary:focus,
 
 /* line 227 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--success,
-.btn.btn--success {
+button--success,
+.btn--success {
   color: #fff;
   background-color: #4fc497;
   border-color: #38a67c;
@@ -3461,10 +3461,10 @@ button.btn--success,
 
 /* line 145 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--success:hover,
-.btn.btn--success:hover,
-button.btn--success:focus,
-.btn.btn--success:focus {
+button--success:hover,
+.btn--success:hover,
+button--success:focus,
+.btn--success:focus {
   color: #fff;
   background-color: #3baf82;
   border-color: #329570;
@@ -3472,8 +3472,8 @@ button.btn--success:focus,
 
 /* line 230 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--info,
-.btn.btn--info {
+button--info,
+.btn--info {
   color: #fff;
   background-color: #62a7d9;
   border-color: #318ccd;
@@ -3481,10 +3481,10 @@ button.btn--info,
 
 /* line 145 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--info:hover,
-.btn.btn--info:hover,
-button.btn--info:focus,
-.btn.btn--info:focus {
+button--info:hover,
+.btn--info:hover,
+button--info:focus,
+.btn--info:focus {
   color: #fff;
   background-color: #3c92d0;
   border-color: #2c7eb9;
@@ -3492,8 +3492,8 @@ button.btn--info:focus,
 
 /* line 233 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--warning,
-.btn.btn--warning {
+button--warning,
+.btn--warning {
   color: #e45a5a;
   background-color: #ffcd45;
   border-color: #ffbc06;
@@ -3501,10 +3501,10 @@ button.btn--warning,
 
 /* line 145 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--warning:hover,
-.btn.btn--warning:hover,
-button.btn--warning:focus,
-.btn.btn--warning:focus {
+button--warning:hover,
+.btn--warning:hover,
+button--warning:focus,
+.btn--warning:focus {
   color: #dd3131;
   background-color: #ffc014;
   border-color: #ebac00;
@@ -3512,8 +3512,8 @@ button.btn--warning:focus,
 
 /* line 236 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--alert,
-.btn.btn--alert {
+button--alert,
+.btn--alert {
   color: #c52121;
   background-color: #f09060;
   border-color: #eb6725;
@@ -3521,10 +3521,10 @@ button.btn--alert,
 
 /* line 145 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--alert:hover,
-.btn.btn--alert:hover,
-button.btn--alert:focus,
-.btn.btn--alert:focus {
+button--alert:hover,
+.btn--alert:hover,
+button--alert:focus,
+.btn--alert:focus {
   color: #a71c1c;
   background-color: #ec7032;
   border-color: #e05815;
@@ -3532,8 +3532,8 @@ button.btn--alert:focus,
 
 /* line 240 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--large,
-.btn.btn--large {
+button--large,
+.btn--large {
   padding-top: 0.571428571428571rem;
   padding-right: 1.142857142857142rem;
   padding-bottom: 0.642857142857142rem;
@@ -3544,8 +3544,8 @@ button.btn--large,
 
 /* line 243 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--small,
-.btn.btn--small {
+button--small,
+.btn--small {
   padding-top: 0.285714285714286rem;
   padding-right: 0.571428571428572rem;
   padding-bottom: 0.357142857142857rem;
@@ -3556,8 +3556,8 @@ button.btn--small,
 
 /* line 246 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--tiny,
-.btn.btn--tiny {
+button--tiny,
+.btn--tiny {
   padding-top: 0.142857142857143rem;
   padding-right: 0.285714285714286rem;
   padding-bottom: 0.214285714285714rem;
@@ -3568,8 +3568,8 @@ button.btn--tiny,
 
 /* line 249 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--expand,
-.btn.btn--expand {
+button--expand,
+.btn--expand {
   padding-right: 0;
   padding-left: 0;
   width: 100%;
@@ -3577,8 +3577,8 @@ button.btn--expand,
 
 /* line 253 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl */
 
-button.btn--left-align,
-.btn.btn--left-align {
+button--left-align,
+.btn--left-align {
   text-align: left;
   text-indent: 0.428571428571429rem;
 }
@@ -5738,10 +5738,10 @@ form .row textarea.columns {
 
 label {
   font-size: 1rem;
-  color: #585858;
+  color: #222;
   cursor: pointer;
   display: block;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.5;
   margin-bottom: 0;
   /* Styles for required inputs */
@@ -5765,7 +5765,7 @@ label.inline {
 
 label small {
   text-transform: capitalize;
-  color: #717171;
+  color: #434343;
 }
 
 /* line 361 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_forms.styl */
@@ -6261,7 +6261,7 @@ small.error {
 /* line 574 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_forms.styl */
 
 .error > label > small {
-  color: #717171;
+  color: #434343;
   background: transparent;
   padding: 0;
   text-transform: capitalize;

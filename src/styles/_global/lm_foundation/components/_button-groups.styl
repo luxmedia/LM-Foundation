@@ -159,14 +159,14 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 button-group-style()
             }
 
-            &.btn--stack {
+            &--stack {
                 & > li {
                     button-group-style($orientation:vertical)
                     float: none
                 }
             }
 
-            &.btn--stack-for-small {
+            &--stack-for-small {
                 & > li {
                     button-group-style($orientation:horizontal)
                     @media $small-only {
@@ -175,7 +175,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &.btn--radius > * {
+            &--radius > * {
                 button-group-style($radius:$button-radius, $float:null)
             }
             &.btn--radius.btn-stack > * {
