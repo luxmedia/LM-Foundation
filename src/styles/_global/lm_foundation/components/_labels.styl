@@ -10,18 +10,20 @@
 //
 // We use this mixin to create a default label base.
 label-base() {
+    display: inline-block
+    position: relative
+    margin-bottom: 0
+    min-width: 10px
+    line-height: 1
     font-weight: $label-font-weight
     font-family: $label-font-family
     text-align: center
     text-decoration: none
-    line-height: 1
-    white-space: nowrap
-    display: inline-block
-    position: relative
-    margin-bottom: inherit
     if ($label-text-transform != false) {
         text-transform: $label-text-transform
     }
+    vertical-align: baseline
+    white-space: nowrap
 }
 
 // @mixins
@@ -34,7 +36,7 @@ label-size($padding = $label-padding, $text-size = $label-font-sizing) {
         padding: $padding
     }
     if $text-size {
-        font-size: $text-size
+        fontSize($text-size)
     }
 }
 
@@ -43,16 +45,16 @@ label-size($padding = $label-padding, $text-size = $label-font-sizing) {
 // We use this mixin to add label styles.
 // $bg - Default: $primary-color (found in settings file)
 // $radius - Default: false, Options: true, sets radius to $global-radius (found in settings file)
-label-style($bg = $primary-color, $radius = false) {
+label-style($bg = $gray-base, $radius = false, $font-color = $label-font-color ) {
 
     // We control which background color comes through
     if $bg {
         background-color: $bg
         // We control the text color for you based on the background color.
-        if light($bg) {
-            color: $label-font-color
+        if ($font-color == $label-font-color) {
+            color: (lightness($bg) > 75%) ? $font-color : $label-font-color-alt
         } else {
-            color: $label-font-color-alt
+            color: $font-color
         }
     }
 
@@ -80,33 +82,118 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
 
 // +exports("label") {
     if $include-html-label-classes {
-        .label {
+        .lbl {
             label-base()
             label-size()
             label-style()
 
-            &.radius {
+            // Empty badges collapse automatically (not available in IE8)
+            &:empty {
+                display: none
+            }
+
+            // Label Variants
+            &.lbl-radius {
                 label-style(false, true)
             }
-            &.round {
+            &.lbl-round {
                 label-style(false, $radius:1000px)
             }
 
-            &.alert     {
-                label-style($alert-color)
-            }
-            &.warning   {
-                label-style($warning-color)
-            }
-            &.success   {
+            &.lbl-success {
                 label-style($success-color)
             }
-            &.secondary {
-                label-style($secondary-color)
+            &.lbl-primary {
+                label-style($primary-color)
             }
-            &.info      {
+            &.lbl-info {
                 label-style($info-color)
             }
+            &.lbl-alert {
+                label-style($bg:$alert-color, $font-color:$alert-font-color)
+            }
+            &.lbl-warning {
+                label-style($bg:$warning-color, $font-color:$warning-font-color)
+            }
+
+            // Badges
+            &.lbl-badge {
+                label-size($padding:$badge-padding)
+                label-style(false, $radius:1000px)
+            }
+
+            // Hover state, but only for links
+            a& {
+                &:hover,
+                &:focus {
+                  color: $badge-hover-color
+                  text-decoration: none
+                  cursor: pointer
+                }
+            }
+
+            // Account for badges in navs
+            .list-group-item.active > &,
+            .nav-pills > .active > a > & {
+                color: $badge-active-color
+                background-color: $badge-active-bg
+            }
+            .list-group-item > & {
+                float: right
+            }
+            .list-group-item > & + & {
+                margin-right: rem-calc(5)
+            }
+            .nav-pills > li > a > & {
+                margin-left: rem-calc(3)
+            }
+
+            // Quick fix for badges in buttons
+            .btn & {
+                label-style($bg:$white,$font-color:$button-bg-color)
+                top: -(rem-calc(2px))
+                line-height: 0.8
+            }
+            .btn-secondary & {
+                label-style($bg:$white,$font-color:$secondary-color)
+                &:hover,
+                &:focus {
+                    color: darken($secondary-color, $button-function-factor)
+                }
+            }
+            .btn-success & {
+                label-style($bg:$white,$font-color:$success-color)
+                &:hover,
+                &:focus {
+                    color: darken($success-color, $button-function-factor)
+                }
+            }
+            .btn-info & {
+                label-style($bg:$white,$font-color:$info-color)
+                &:hover,
+                &:focus {
+                    color: darken($info-color, $button-function-factor)
+                }
+            }
+            .btn-warning & {
+                label-style($bg:$white,$font-color:$warning-color)
+                &:hover,
+                &:focus {
+                    color: darken($warning-color, $button-function-factor)
+                }
+            }
+            .btn-alert & {
+                label-style($bg:$white,$font-color:$alert-color)
+                &:hover,
+                &:focus {
+                    color: darken($alert-color, $button-function-factor)
+                }
+            }
+            .btn-small & {
+                top: 0
+                padding: rem-calc(1 5 1)
+            }
+
         }
     }
 // }

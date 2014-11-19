@@ -31,14 +31,14 @@ button-group-container($styles = true, $float = false) {
 button-group-style($radius = false, $even = false, $float = false, $orientation = horizontal) {
 
     > button,
-    .button {
+    .btn {
         border-{$default-float}: $button-group-border-width solid
         border-color: $button-border-color
     }
 
     &:first-child {
         button,
-        .button {
+        .btn {
             border-{$default-float}: 0
         }
     }
@@ -62,7 +62,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         display:block
         margin:0
         > button,
-        .button {
+        .btn {
             border-top: $button-group-border-width solid
             border-color: $button-border-color
             border-left-width: 0
@@ -72,7 +72,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
 
         &:first-child {
             button,
-            .button {
+            .btn {
                 border-top: 0
             }
         }
@@ -83,13 +83,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         &,
         & > a,
         & > button,
-        & > .button {
+        & > .btn {
             radius(0)
         }
         &:first-child,
         &:first-child > a,
         &:first-child > button,
-        &:first-child > .button {
+        &:first-child > .btn {
             if ($orientation == vertical) {
                 side-radius(top, $button-radius)
             }
@@ -100,7 +100,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         &:last-child,
         &:last-child > a,
         &:last-child > button,
-        &:last-child > .button {
+        &:last-child > .btn {
             if ($orientation == vertical) {
                 side-radius(bottom, $button-radius)
             }
@@ -113,13 +113,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         &,
         & > a,
         & > button,
-        & > .button {
+        & > .btn {
             radius(0)
         }
         &:first-child,
         &:first-child > a,
         &:first-child > button,
-        &:first-child > .button {
+        &:first-child > .btn {
             if ($orientation == vertical) {
                 side-radius(top, $radius)
             }
@@ -130,7 +130,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         &:last-child,
         &:last-child > a,
         &:last-child > button,
-        &:last-child > .button {
+        &:last-child > .btn {
             if ($orientation == vertical) {
                 side-radius(bottom, $radius)
             }
@@ -144,7 +144,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
     if $even {
         width: percentage((100/$even) / 100)
         button,
-        .button {
+        .btn {
             width: 100%
         }
     }
@@ -152,20 +152,20 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
 
 // +exports("button-group") {
     if $include-html-button-classes {
-        .button-group {
+        .btn-group {
             button-group-container()
 
             & > li {
                 button-group-style()
             }
 
-            &.stack {
+            &.btn-stack {
                 & > li {
                 button-group-style($orientation:vertical)
                 float: none }
             }
 
-            &.stack-for-small {
+            &.btn-stack-for-small {
                 & > li {
                     button-group-style($orientation:horizontal)
                     @media $small-only {
@@ -174,13 +174,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &.radius > * {
+            &.btn-radius > * {
                 button-group-style($radius:$button-radius, $float:null)
             }
-            &.radius.stack > * {
+            &.btn-radius.btn-stack > * {
                 button-group-style($radius:$button-radius, $float:null, $orientation:vertical)
             }
-            &.radius.stack-for-small > * {
+            &.btn-radius.btn-stack-for-small > * {
                 @media $medium-up {
                     button-group-style($radius:$button-radius, $orientation:horizontal)
                 }
@@ -189,13 +189,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &.round > * {
+            &.btn-round > * {
                 button-group-style($radius:$button-round, $float:null)
             }
-            &.round.stack > * {
+            &.btn-round.btn-stack > * {
                 button-group-style($radius:$button-med, $float:null, $orientation:vertical)
             }
-            &.round.stack-for-small > * {
+            &.btn-round.btn-stack-for-small > * {
                 @media $medium-up {
                     button-group-style($radius:$button-round, $orientation:horizontal)
                 }
@@ -211,9 +211,9 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
             }
         }
 
-        .button-bar {
+        .btn-bar {
             clearfix()
-            .button-group {
+            .btn-group {
                 button-group-container($styles:false, $float:true)
             }
         }

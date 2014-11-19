@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-    // Variables
+    // Global Variables
     var globalConfig = {
         src: 'src',
         dest: 'dist',
@@ -19,19 +19,49 @@ module.exports = function(grunt) {
 
         globalConfig: globalConfig,
 
+        // CUSTOM VARIABLES
+        // define our source and destination folders
         lm_foundation: {
-            js_src_files_1: ['<%= globalConfig.src %>/js/foundation/foundation.js', '<%= globalConfig.src %>/js/foundation/foundation.*.js'],
-            js_src_files_3: ['<%= globalConfig.src %>/js/custom/*.js'],
+            // javascript source files
+            // make shure to load foundation.js before its components (see concat) !!!
+            js_src_fndtn: ['<%= globalConfig.src %>/js/foundation/foundation.js'],
+            // javascript components to include
+            js_src_fndtn_components: [
+                '<%= globalConfig.src %>/js/foundation/foundation.abide.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.accordion.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.msg.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.clearing.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.dropdown.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.equalizer.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.interchange.js',
+                // '<%= globalConfig.src %>/js/foundation/foundation.joyride.js',
+                // '<%= globalConfig.src %>/js/foundation/foundation.magellan.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.offcanvas.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.orbit.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.reveal.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.slider.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.tab.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.tooltip.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.topbar.js'
+            ],
+            js_src_custom: ['<%= globalConfig.src %>/js/custom/*.js'],
+            // js distribution folder and file
             js_dist_folder: ['<%= globalConfig.dest %>/js'],
             js_dist_file: '<%= globalConfig.dest %>/js/scripts.min.js',
+            // stylus source file(s)
             styl_src: ['<%= globalConfig.src %>/styles/*.styl'],
             styl_src_files: 'styles/styles.styl',
+            // css distribution folder and file
             css_dist_folder: '<%= globalConfig.dest %>/css',
             css_dist_file: '<%= globalConfig.dest %>/css/styles.css',
             css_dist_file_min: '<%= globalConfig.dest %>/css/styles.min.css',
+            // svg source folder
             svg_src: ['<%= globalConfig.src %>/svg/*.svg'],
+            // svg distribution sprite file
             svg_dist_file: '<%= globalConfig.dest %>/svg/sprite.svg',
+            // excludes for "copy" to avoid duplication
             do_not_copy: ['!<%= globalConfig.src  %>/**/*.styl', '!<%= globalConfig.src  %>/**/*.coffee', '!<%= globalConfig.src  %>/**/*.jade'],
+            // avoid cleaning out this files
             do_not_clean_js: ['!**/*.min.js'],
             do_not_clean_css: []
         },
@@ -110,8 +140,9 @@ module.exports = function(grunt) {
         concat: {
             build: {
                 files: {
-                  '<%= lm_foundation.js_dist_folder %>/foundation.js': '<%= lm_foundation.js_src_files_1 %>',
-                  '<%= lm_foundation.js_dist_folder %>/scripts.js': '<%= lm_foundation.js_src_files_3 %>'
+                    // make shure to load foundation.js before its components !!!
+                    '<%= lm_foundation.js_dist_folder %>/foundation.js': ['<%= lm_foundation.js_src_fndtn %>', '<%= lm_foundation.js_src_fndtn_components %>'],
+                    '<%= lm_foundation.js_dist_folder %>/scripts.js': '<%= lm_foundation.js_src_custom %>'
                 }
             }
         },
@@ -181,7 +212,7 @@ module.exports = function(grunt) {
             build: {
                 files: [
                     {
-                        expand: true,                
+                        expand: true,
                         cwd: '<%= globalConfig.src  %>',
                         src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
                         dest: '<%= globalConfig.dest %>',
@@ -253,7 +284,6 @@ module.exports = function(grunt) {
         'scripts',
         'Compiles the JavaScript files.',
         [ 'coffee', 'concat', 'uglify', 'clean:scripts' ]
-        // [ 'coffee', 'uglify', 'clean:scripts' ]
     );
 
     grunt.registerTask(

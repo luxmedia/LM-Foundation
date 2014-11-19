@@ -1,0 +1,107 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+@require "_global"
+
+
+//
+// Message Mixins // was: alert-boxes
+//
+
+// We use this mixin to create a default alert base.
+msg-base() {
+    border-style: $msg-border-style
+    border-width: $msg-border-width
+    display: block
+    font-weight: $msg-font-weight
+    margin-bottom: $msg-bottom-margin
+    position: relative
+    padding: $msg-padding-top $msg-padding-opposite-direction $msg-padding-bottom $msg-padding-default-float
+    fontSize($msg-font-size)
+    single-transition(opacity, $msg-transition-speed, $msg-transition-ease)
+}
+
+// We use this mixin to add alert styles
+//
+// $bg - The background of the alert. Default: $primary-color.
+msg-style($bg = $primary-color, $font-color = $msg-font-color) {
+
+    // This finds the lightness percentage of the background color.
+    $bg-lightness = lightness($bg)
+
+    // We control which background color and border come through.
+    background-color: $bg
+    border-color: scale-color($bg, $lightness = $msg-function-factor)
+
+    // We control the text color for you based on the background color.
+    if ($bg-lightness > 70% && $font-color == $msg-font-color) {
+        color: $msg-font-color-alt
+    } else {
+        color: $font-color
+    }
+
+}
+
+// We use this to create the close button.
+msg-close() {
+    font-size: $msg-close-font-size
+    padding: $msg-close-padding
+    line-height: 0
+    position: absolute
+    top: $msg-close-top
+    margin-top: -($msg-close-font-size / 2)
+    {$opposite-direction}: $msg-close-position
+    color: $msg-close-color
+    opacity: $msg-close-opacity
+    background: $msg-close-background
+    &:hover,
+    &:focus { opacity: $msg-close-opacity-hover }
+}
+
+// We use this to quickly create alerts with a single mixin.
+//
+// $bg - Background of alert. Default: $primary-color.
+// $radius - Radius of alert box. Default: false.
+msg($bg = $primary-color, $radius = false) {
+    msg-base()
+    msg-style($bg)
+    radius($radius)
+}
+
+// +exports("alert-box") {
+    if $include-html-alert-classes {
+        .msg {
+            msg()
+
+            .msg-close      {
+                msg-close()
+            }
+
+            &.msg-radius    {
+                radius($msg-radius)
+            }
+            &.msg-round     {
+                radius($global-rounded)
+            }
+            &.msg-success   {
+                msg-style($success-color)
+            }
+            &.msg-secondary {
+                msg-style($secondary-color)
+            }
+            &.msg-info {
+                msg-style($info-color)
+            }            
+            &.msg-alert     {
+                msg-style($bg: $alert-color, $font-color: $msg-font-color-alert)
+            }            
+            &.msg-warning {
+                msg-style($bg: $warning-color, $font-color: $msg-font-color-warning)
+            }
+            &.msg-alert-close {
+                opacity: 
+            }
+        }
+    }
+// }
