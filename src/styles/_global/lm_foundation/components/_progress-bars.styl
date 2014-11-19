@@ -37,24 +37,24 @@ progress-meter($bg = $progress-meter-color) {
             .meter {
                 progress-meter()
             }
-            &.secondary .meter {
+            &.progress--secondary .meter {
                 progress-meter($bg:$progress-meter-secondary-color)
             }
-            &.success .meter {
+            &.progress--success .meter {
                 progress-meter($bg:$progress-meter-success-color)
             }
-            &.alert .meter {
+            &.progress--alert .meter {
                 progress-meter($bg:$progress-meter-alert-color)
             }
 
-            &.radius {
+            &.progress--radius {
                 radius($progress-bar-border-radius)
                 .meter {
                     radius(($progress-bar-border-radius - 1))
                 }
             }
 
-            &.round {
+            &.progress--round {
                 radius(1000px)
                 .meter {
                     radius(999px)

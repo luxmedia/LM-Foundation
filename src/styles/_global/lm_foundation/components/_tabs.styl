@@ -35,26 +35,29 @@
                         font-color: $tabs-navigation-hover-font-color
                     }
                 }
-                &.active a {
+                &.is-active a {
                     background-color: $tabs-navigation-active-bg-color
                     color: $tabs-navigation-active-font-color
                     border-top-color: $primary-color
                 }
             }
-            &.radius {
-                dd:first-child, .tab:first-child {
+            &.tabs--radius {
+                dd:first-child,
+                .tab:first-child {
                     a {
                         side-radius($default-float, $global-radius)
                     }
                 }
-                dd:last-child, .tab:last-child {
+                dd:last-child,
+                .tab:last-child {
                     a {
                         side-radius($opposite-direction, $global-radius)
                     }
                 }
             }
-            &.vertical {
-                dd, .tab-title {
+            &.tabs--vertical {
+                dd,
+                .tab-title {
                     position: inherit
                     float: none
                     display: block
@@ -73,7 +76,7 @@
                 padding: $tabs-content-padding 0
                 width: 100%
                 border-bottom: 1px solid $gray-light-2
-                &.active {
+                &.is-active {
                     display: block
                     float: none
                 }
@@ -81,7 +84,7 @@
                     padding: $tabs-content-padding
                 }
             }
-            &.vertical {
+            &.tabs-content--vertical {
                 display: block
                 > .content {
                     padding: 0 $tabs-content-padding
@@ -90,7 +93,7 @@
         }
         @media $medium-up {
             .tabs {
-                &.vertical {
+                &.tabs--vertical {
                     width: 20%
                     max-width: 20%
                     float: $default-float
@@ -98,7 +101,7 @@
                 }
             }
             .tabs-content {
-                &.vertical {
+                &.tabs-content--vertical {
                     width: 80%
                     max-width: 80%
                     float: $default-float

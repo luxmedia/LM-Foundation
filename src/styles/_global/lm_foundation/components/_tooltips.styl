@@ -21,8 +21,8 @@
                 color: $has-tip-font-color-hover
             }
 
-            &.tip-left,
-            &.tip-right {
+            &.tip--left,
+            &.tip--right {
                 float: none !important
             }
         }
@@ -58,17 +58,17 @@
                 }
             }
 
-            &.radius {
+            &.tooltip--radius {
                 radius($tooltip-radius)
             }
-            &.round {
+            &.tooltip--round {
                 radius($tooltip-rounded)
                 & > .nub {
                     left: 2rem
                 }
             }
 
-            &.opened {
+            &.is-open {
                 color: $has-tip-font-color-hover !important
                 border-bottom: $has-tip-border-bottom-hover !important
             }
@@ -87,25 +87,25 @@
                     border-color: transparent transparent $tooltip-bg transparent
                     top: -($tooltip-pip-size * 2)
                 }
-                &.tip-top>.nub {
+                &.tip--top>.nub {
                     border-color: $tooltip-bg transparent transparent transparent
                     top: auto
                     bottom: -($tooltip-pip-size * 2)
                 }
 
-                &.tip-left,
-                &.tip-right {
+                &.tip--left,
+                &.tip--right {
                     float: none !important
                 }
 
-                &.tip-left>.nub {
+                &.tip--left>.nub {
                     border-color: transparent transparent transparent $tooltip-bg
                     right: -($tooltip-pip-size * 2)
                     left: auto
                     top: 50%
                     margin-top: -($tooltip-pip-size)
                 }
-                &.tip-right>.nub {
+                &.tip--right>.nub {
                     border-color: transparent $tooltip-bg transparent transparent
                     right: auto
                     left: -($tooltip-pip-size * 2)

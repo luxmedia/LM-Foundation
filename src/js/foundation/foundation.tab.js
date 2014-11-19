@@ -7,7 +7,7 @@
     version : '{{VERSION}}',
 
     settings : {
-      active_class: 'active',
+      active_class: 'is-active',
       callback : function () {},
       deep_linking: false,
       scroll_to_content: true,
@@ -26,7 +26,7 @@
       // Store the default active tabs which will be referenced when the
       // location hash is absent, as in the case of navigating the tabs and
       // returning to the first viewing via the browser Back button.
-      S('[' + this.attr_name() + '] > .active > a', this.scope).each(function () {
+      S('[' + this.attr_name() + '] > .is-active > a', this.scope).each(function () {
         self.default_tab_hashes.push(this.hash);
       });
     },

@@ -106,7 +106,7 @@ topbar-show-dropdown() {
                 box-sizing:border-box
             }
 
-            .button,
+            .btn,
             button {
                 padding-top: $ptop = (.35rem + rem-calc(1))
                 padding-bottom: $ptop
@@ -261,23 +261,23 @@ topbar-show-dropdown() {
                     
                     single-transition(background-color)
 
-                    &.button {
+                    &.btn {
                         font-size: $topbar-link-font-size
                         padding-{$opposite-direction}: $topbar-link-padding
                         padding-{$default-float}: $topbar-link-padding
                         button-style($primary-color)
                     }
-                    &.button.secondary {
+                    &.btn--secondary {
                         button-style($bg:$secondary-color)
                     }
-                    &.button.success {
+                    &.btn--success {
                         button-style($bg:$success-color)
                     }
-                    &.button.alert {
-                        button-style($bg:$alert-color)
+                    &.btn--warning {
+                        button-style($bg:$warning-color, $font-color:$warning-font-color)
                     }
-                    &.button.warning {
-                        button-style($bg:$warning-color)
+                    &.btn--alert {
+                        button-style($bg:$alert-color, $font-color:$critical-font-color)
                     }
                 }
 
@@ -287,17 +287,17 @@ topbar-show-dropdown() {
                 padding-{$default-float}: $topbar-link-padding
                 button-style($bg:$primary-color)
 
-                &.secondary {
+                &.btn--secondary {
                     button-style($bg:$secondary-color)
                 }
-                &.success {
+                &.btn--success {
                     button-style($bg:$success-color)
                 }
-                &.alert {
-                    button-style($bg:$alert-color)
+                &.btn--warning {
+                    button-style($bg:$warning-color, $font-color:$warning-font-color)
                 }
-                &.warning {
-                    button-style($bg:$warning-color)
+                &.btn--alert {
+                    button-style($bg:$alert-color, $font-color:$critical-font-color)
                 }
             }
 
@@ -314,7 +314,7 @@ topbar-show-dropdown() {
             }
 
             // Apply the active link color when it has that class
-            &.active > a {
+            &.is-active > a {
                 background: $topbar-link-bg-active
                 color: $topbar-link-color-active
                 &:hover {
@@ -399,7 +399,7 @@ topbar-show-dropdown() {
                     padding: 8px $topbar-link-padding
                 }
                 button,
-                .button {
+                .btn {
                     top: auto
                 }
             }
@@ -440,7 +440,7 @@ topbar-show-dropdown() {
 
             input,
             button,
-            .button {
+            .btn {
                 font-size: rem-calc(14)
                 position: relative
                 top: $topbar-button-top
@@ -476,7 +476,7 @@ topbar-show-dropdown() {
 
             li {
                 &.hover {
-                    > a:not(.button) {
+                    > a:not(.btn) {
                         if ($topbar-link-bg-hover) {
                             background: $topbar-link-bg-hover
                         } else {
@@ -486,7 +486,7 @@ topbar-show-dropdown() {
                     }
                 }
                 &:not(.has-form) {
-                    a:not(.button) {
+                    a:not(.btn) {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
                         background: $topbar-link-bg
@@ -500,7 +500,7 @@ topbar-show-dropdown() {
                     }
                 }
                 &.active:not(.has-form) {
-                    a:not(.button) {
+                    a:not(.btn) {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
                         color: $topbar-link-color-active
@@ -585,12 +585,12 @@ topbar-show-dropdown() {
                     }
 
                     &:not(.has-form):not(.active) {
-                        & > a:not(.button) {
+                        & > a:not(.btn) {
                             color: $topbar-dropdown-link-color
                             background: $topbar-dropdown-link-bg
                         }
 
-                        &:hover > a:not(.button) {
+                        &:hover > a:not(.btn) {
                             color: $topbar-dropdown-link-color-hover
                             
                             if ($topbar-dropdown-link-bg-hover) {

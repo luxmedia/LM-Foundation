@@ -71,7 +71,7 @@
 
           if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
 
-          if ($this.hasClass('open')) {
+          if ($this.hasClass('is-open')) {
             if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) e.preventDefault();
             self.hide($this);
           } else {
@@ -79,7 +79,7 @@
               return;
             } else if(!settings.disable_for_touch && Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) {
               e.preventDefault();
-              S(settings.tooltip_class + '.open').hide();
+              S(settings.tooltip_class + '.is-open').hide();
               is_touch = true;
             }
 
@@ -95,7 +95,7 @@
             }
           }
         })
-        .on('mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip', '[' + this.attr_name() + '].open', function (e) {
+        .on('mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip', '[' + this.attr_name() + '].is-open', function (e) {
           if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
 
           if($(this).data('tooltip-open-event-type') == 'touch' && e.type == 'mouseleave') {
@@ -273,7 +273,7 @@
       }
 
       this.reposition($target, $tip, $target.attr('class'));
-      $target.addClass('open');
+      $target.addClass('is-open');
       $tip.fadeIn(150);
     },
 
@@ -283,7 +283,7 @@
       $tip.fadeOut(150, function() {
         $tip.find('.tap-to-close').remove();
         $tip.off('click.fndtn.tooltip.tapclose MSPointerDown.fndtn.tapclose');
-        $target.removeClass('open');
+        $target.removeClass('is-open');
       });
     },
 

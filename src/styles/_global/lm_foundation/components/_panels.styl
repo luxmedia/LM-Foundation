@@ -17,7 +17,7 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
 
         border-style: $panel-border-style
         border-width: $panel-border-size
-        border-color: scale-color($bg, ($lightness = $panel-function-factor))
+        border-color: darken($bg, ($lightness = $panel-function-factor))
         margin-bottom: $panel-margin-bottom
         padding: $padding
 
@@ -67,9 +67,9 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
         .panel { 
             panel()
 
-            &.callout {
+            &.panel--callout {
                 panel(scale-color($primary-color, $lightness: 94%))
-                a:not(.button) {
+                a:not(.btn) {
                     color: $callout-panel-link-color
 
                     &:hover,
@@ -79,7 +79,7 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
                 }
             }
 
-            &.radius {
+            &.panel--radius {
                 radius()
             }
 

@@ -88,7 +88,7 @@ range-slider-handle() {
         .range-slider {
             range-slider-bar-base()
             range-slider-bar-style($bg:true, $radius:false)
-            &.vertical-range {
+            &.range-slider--vertical {
                 range-slider-bar-base($vertical: true)
                 .range-slider-handle {
                     margin-top: 0
@@ -102,19 +102,20 @@ range-slider-handle() {
                     bottom: 0
                 }
             }
-            &.radius {
+            &.range-slider--radius {
                 range-slider-bar-style($radius:true)
                 .range-slider-handle {
                     range-slider-handle-style($radius: true)
                 }
             }
-            &.round {
+            &.range-slider--round {
                 range-slider-bar-style($round:true)
                 .range-slider-handle {
                     range-slider-handle-style($round: true)
                 }
             }
-            &.disabled, &[disabled] {
+            &.is-disabled,
+            &[disabled] {
                 range-slider-bar-style($disabled:true)
                 .range-slider-handle {
                     range-slider-handle-style($disabled: true)

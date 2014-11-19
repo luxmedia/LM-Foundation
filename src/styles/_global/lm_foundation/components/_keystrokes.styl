@@ -13,7 +13,7 @@
 keystroke($bg = $keystroke-bg) {
 
     background-color: $bg
-    border-color: scale-color($bg, ($lightness = $keystroke-function-factor))
+    border-color: scale-color($bg, $lightness: $keystroke-function-factor)
 
     // We adjust the font color based on the brightness of the background.
     if light($bg) {

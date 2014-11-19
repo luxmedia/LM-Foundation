@@ -133,38 +133,40 @@ reveal-close($color = $reveal-close-color) {
     if $include-html-reveal-classes {
 
         // Reveal Modals
-        .reveal-modal-bg { reveal-bg() }
+        .reveal-modal-bg {
+            reveal-bg()
+        }
 
         .{$reveal-modal-class} {
             reveal-modal-base()
             reveal-modal-style($bg:$reveal-modal-bg, $padding:$reveal-modal-padding, $border:true, $box-shadow:true, $radius:false, $top-offset:$reveal-position-top)
             reveal-modal-style($padding:($reveal-modal-padding * 1.5))
 
-            &.radius {
+            &.{$reveal-modal-class}--radius {
                 reveal-modal-style($radius:true)
             }
-            &.round  {
+            &.{$reveal-modal-class}--round  {
                 reveal-modal-style($radius:$reveal-round)
             }
-            &.collapse {
+            &.{$reveal-modal-class}--collapse {
                 reveal-modal-style($padding:0)
             }
-            &.tiny  {
+            &.{$reveal-modal-class}--tiny  {
                 reveal-modal-base(false, 40%)
             }
-            &.small {
+            &.{$reveal-modal-class}--small {
                 reveal-modal-base(false, 50%)
             }
-            &.medium  {
+            &.{$reveal-modal-class}--medium  {
                 reveal-modal-base(false, 60%)
             }
-            &.large {
+            &.{$reveal-modal-class}--large {
                 reveal-modal-base(false, 70%)
             }
-            &.xlarge {
+            &.{$reveal-modal-class}--xlarge {
                 reveal-modal-base(false, 95%)
             }
-            &.full {
+            &.{$reveal-modal-class}--full {
                 reveal-modal-base(false, 100vw)
                 top:0
                 left:0

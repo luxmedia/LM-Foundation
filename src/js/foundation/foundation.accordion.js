@@ -8,7 +8,7 @@
 
     settings : {
       content_class: 'content',
-      active_class: 'active',
+      active_class: 'is-active',
       multi_expand: false,
       toggleable: true,
       callback : function () {}

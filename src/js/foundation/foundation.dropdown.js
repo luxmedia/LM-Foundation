@@ -7,9 +7,9 @@
     version : '{{VERSION}}',
 
     settings : {
-      active_class: 'open',
-      disabled_class: 'disabled',
-      mega_class: 'mega',
+      active_class: 'is-open',
+      disabled_class: 'is-disabled',
+      mega_class: 'f-dropdown--mega',
       align: 'bottom',
       is_hover: false,
       opened: function(){},

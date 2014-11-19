@@ -47,7 +47,7 @@ icon-bar-base() {
         }
     }
 
-    &.label-right > * {
+    &.icon-bar--label-right > * {
 
         i, img, svg {
             margin: 0 .0625rem 0 0
@@ -63,12 +63,12 @@ icon-bar-base() {
         }
     }
 
-    &.vertical.label-right > * {
+    &.icon-bar--vertical.icon-bar--label-right > * {
         text-align: left
     }
 
-    &.vertical, 
-    &.small-vertical{
+    &.icon-bar--vertical, 
+    &.icon-bar--small-vertical{
         height: 100%
         width: auto
 
@@ -79,7 +79,7 @@ icon-bar-base() {
         }
     }
 
-    &.medium-vertical {
+    &.icon-bar--medium-vertical {
         @media $medium-up {
             height: 100%
             width: auto
@@ -91,7 +91,7 @@ icon-bar-base() {
             }
         }
     }
-    &.large-vertical {
+    &.icon-bar--large-vertical {
         @media $large-up {
             height: 100%
             width: auto
@@ -188,96 +188,96 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
             icon-bar()
             
             // Counts
-            &.two-up {
+            &.icon-bar--two-up {
                 .item {
                     width: 50%
                 }
-                &.vertical .item, 
-                &.small-vertical .item {
+                &.icon-bar--vertical .item, 
+                &.icon-bar--small-vertical .item {
                     width: auto
                 }
-                &.medium-vertical .item {
+                &.icon-bar--medium-vertical .item {
                     @media $medium-up {
                         width: auto
                     }
                 }
-                &.large-vertical .item {
+                &.icon-bar--large-vertical .item {
                     @media $large-up {
                         width: auto
                     }
                 }
             }
-            &.three-up {
+            &.icon-bar--three-up {
                 .item {
                     width: 33.3333%
                 }
-                &.vertical .item, 
-                &.small-vertical .item {
+                &.icon-bar--vertical .item, 
+                &.icon-bar--small-vertical .item {
                     width: auto
                 }
-                &.medium-vertical .item {
+                &.icon-bar--medium-vertical .item {
                     @media $medium-up {
                         width: auto
                     }
                 }
-                &.large-vertical .item {
+                &.icon-bar--large-vertical .item {
                     @media $large-up {
                         width: auto
                     }
                 }
             }
-            &.four-up {
+            &.icon-bar--four-up {
                 .item {
                     width: 25%
                 }
-                &.vertical .item, 
-                &.small-vertical .item {
+                &.icon-bar--vertical .item, 
+                &.icon-bar--small-vertical .item {
                     width: auto
                 }
-                &.medium-vertical .item {
+                &.icon-bar--medium-vertical .item {
                     @media $medium-up {
                         width: auto
                     }
                 }
-                &.large-vertical .item {
+                &.icon-bar--large-vertical .item {
                     @media $large-up {
                         width: auto
                     }
                 }
             }
-            &.five-up {
+            &.icon-bar--five-up {
                 .item {
                     width: 20%
                 }
-                &.vertical .item, 
-                &.small-vertical .item {
+                &.icon-bar--vertical .item, 
+                &.icon-bar--small-vertical .item {
                     width: auto
                 }
-                &.medium-vertical .item {
+                &.icon-bar--medium-vertical .item {
                     @media $medium-up {
                         width: auto
                     }
                 }
-                &.large-vertical .item {
+                &.icon-bar--large-vertical .item {
                     @media $large-up {
                         width: auto
                     }
                 }
             }
-            &.six-up {
+            &.icon-bar--six-up {
                 .item {
                     width: 16.66667%
                 }
-                &.vertical .item, 
-                &.small-vertical .item {
+                &.icon-bar--vertical .item, 
+                &.icon-bar--small-vertical .item {
                     width: auto
                 }
-                &.medium-vertical .item {
+                &.icon-bar--medium-vertical .item {
                     @media $medium-up {
                         width: auto
                     }
                 }
-                &.large-vertical .item {
+                &.icon-bar--large-vertical .item {
                     @media $large-up {
                         width: auto
                     }

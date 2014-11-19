@@ -364,28 +364,28 @@ html5number($browser, $on = true) {
         }
 
         /* Adjust padding, alignment and radius if pre/post element is a button */
-        .postfix.button {
+        .postfix.btn {
             button-size(false,false)
             postfix(false, false, true)
         }
-        .prefix.button {
+        .prefix.btn {
             button-size(false,false)
             prefix(false, false, true)
         }
 
-        .prefix.button.radius {
+        .prefix.btn.btn--radius {
             radius(0)
             side-radius($default-float, $button-radius)
         }
-        .postfix.button.radius {
+        .postfix.btn.btn--radius {
             radius(0)
             side-radius($opposite-direction, $button-radius)
         }
-        .prefix.button.round {
+        .prefix.btn.btn--round {
             radius(0)
             side-radius($default-float, $button-round)
         }
-        .postfix.button.round {
+        .postfix.btn.btn--round {
             radius(0)
             side-radius($opposite-direction, $button-round)
         }

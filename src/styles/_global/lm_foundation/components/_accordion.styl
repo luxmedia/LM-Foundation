@@ -114,7 +114,7 @@ accordion-content($bg = $accordion-content-active-bg-color, $padding = $accordio
             .accordion-navigation, dd {
                 display: block
                 margin-bottom: 0 !important
-                &.active > a {
+                &.is-active > a {
                     background: $accordion-navigation-active-bg-color
                 }
                 > a {
@@ -130,7 +130,7 @@ accordion-content($bg = $accordion-content-active-bg-color, $padding = $accordio
                 > .content {
                     display: none
                     padding: $accordion-content-padding
-                    &.active {
+                    &.is-active {
                         display: block
                         background: $accordion-content-active-bg-color
                     }

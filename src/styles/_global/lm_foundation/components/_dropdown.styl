@@ -21,10 +21,10 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
     margin-{$default-float}: 0
     outline: none
 
-    > *:first-child {
+    & > *:first-child {
         margin-top: 0
     }
-    > *:last-child {
+    & > *:last-child {
         margin-bottom: 0
     }
 
@@ -211,19 +211,19 @@ dropdown-style() {
             }
 
             // Sizes
-            &.tiny    {
+            &.f-dropdown--tiny    {
                 max-width: 200px
             }
-            &.small   {
+            &.f-dropdown--small   {
                 max-width: 300px
             }
-            &.medium  {
+            &.f-dropdown--medium  {
                 max-width: 500px
             }
-            &.large   {
+            &.f-dropdown--large   {
                 max-width: 800px
             }
-            &.mega    {
+            &.f-dropdown--mega    {
                 width:100%!important
                 max-width:100%!important
 
