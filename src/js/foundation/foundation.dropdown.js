@@ -174,7 +174,7 @@
     },
 
     resize : function () {
-      var dropdown = this.S('[' + this.attr_name() + '-content].open'),
+      var dropdown = this.S('[' + this.attr_name() + '-content].is-open'),
           target = this.S('[' + this.attr_name() + '="' + dropdown.attr('id') + '"]');
 
       if (dropdown.length && target.length) {
@@ -191,7 +191,7 @@
       if (this.small()) {
         var p = this.dirs.bottom.call(dropdown, target, settings);
 
-        dropdown.attr('style', '').removeClass('drop-left drop-right drop-top').css({
+        dropdown.attr('style', '').removeClass('drop--left drop--right drop--top').css({
           position : 'absolute',
           width: '95%',
           'max-width': 'none',
@@ -270,11 +270,11 @@
         var self = Foundation.libs.dropdown,
             p = self.dirs._base.call(this, t);
 
-        this.addClass('drop-top');
+        this.addClass('drop--top');
         
         if (p.missTop == true) {
       p.top = p.top + t.outerHeight() + this.outerHeight();
-      this.removeClass('drop-top');
+      this.removeClass('drop--top');
     }
     
     if (p.missRight == true) {
@@ -313,12 +313,12 @@
       left: function (t, s) {
         var p = Foundation.libs.dropdown.dirs._base.call(this, t);
 
-        this.addClass('drop-left');
+        this.addClass('drop--left');
         
         if (p.missLeft == true) {
       p.left =  p.left + this.outerWidth();
       p.top = p.top + t.outerHeight();
-      this.removeClass('drop-left');
+      this.removeClass('drop--left');
     }
 
         return {left: p.left - this.outerWidth(), top: p.top};
@@ -326,12 +326,12 @@
       right: function (t, s) {
         var p = Foundation.libs.dropdown.dirs._base.call(this, t);
 
-        this.addClass('drop-right');
+        this.addClass('drop--right');
         
     if (p.missRight == true) {
       p.left = p.left - this.outerWidth();
       p.top = p.top + t.outerHeight();
-      this.removeClass('drop-right');
+      this.removeClass('drop--right');
     } else {
       p.triggeredRight = true;
     }
@@ -360,23 +360,23 @@
       this.rule_idx = sheet.cssRules.length;
 
       //default
-    var sel_before = '.f-dropdown.open:before',
-        sel_after  = '.f-dropdown.open:after',
+    var sel_before = '.f-dropdown.is-open:before',
+        sel_after  = '.f-dropdown.is-open:after',
       css_before = 'left: ' + pip_offset_base + 'px;',
         css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
         
     if (position.missRight == true) {
         pip_offset_base = dropdown.outerWidth() - 23;
-        sel_before = '.f-dropdown.open:before',
-        sel_after  = '.f-dropdown.open:after',
+        sel_before = '.f-dropdown.is-open:before',
+        sel_after  = '.f-dropdown.is-open:after',
         css_before = 'left: ' + pip_offset_base + 'px;',
         css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
     }
     
     //just a case where right is fired, but its not missing right
     if (position.triggeredRight == true) {
-        sel_before = '.f-dropdown.open:before',
-        sel_after  = '.f-dropdown.open:after',
+        sel_before = '.f-dropdown.is-open:before',
+        sel_after  = '.f-dropdown.is-open:after',
         css_before = 'left:-12px;',
         css_after  = 'left:-14px;';
     }

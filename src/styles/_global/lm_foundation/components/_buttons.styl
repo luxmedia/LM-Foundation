@@ -47,6 +47,16 @@ button-base($style = true, $display = $button-display) {
     }
 }
 
+// Flat Button style
+button-flat(){
+    border: none
+    box-shadow: none
+    &:hover,
+    &:focus {
+        box-shadow: none
+    }
+}
+
 // @MIXIN
 //
 // We use this mixin to add button size styles
@@ -106,7 +116,7 @@ button-size($padding = $button-med, $full-width = false) {
 // $disabled - We can set $disabled:true to create a disabled transparent button. Default: false
 // $bg-hover - Button Hover Background Color. Default: $button-bg-hover
 // $border-color - Button Border Color. Default: $button-border-color
-button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hover = null, $border-color = null, $font-color = $button-font-color) {
+button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hover = null, $border-color = null, $font-color = $button-font-color, $flat = false) {
     
     // We control which background styles are used,
     // these can be removed by setting $bg = false
@@ -141,9 +151,14 @@ button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hov
             }
             background-color: $bg-hover
             // border-color: scale-color($border-color, $button-function-factor)
-            border-color: darken($border-color, $button-function-factor)
+            border-color: darken($border-color, ($button-function-factor - 5))
         }
 
+    }
+
+    // Flat Button style without shadows
+    if $flat {
+        button-flat()
     }
 
     // We can set $disabled:true to create a disabled transparent button.
@@ -179,16 +194,17 @@ button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hov
 // $bg-hover - Button Hover Color - Default null - see button-style mixin
 // $border-color - Button Border Color - Default null - see button-style mixin
 // $transition - We can control whether or not to include the background-color transition property - Default:true.
-button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $full-width = false, $disabled = false, $is-prefix = false, $bg-hover = null, $border-color = null, $transition = true) {
+button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $full-width = false, $disabled = false, $is-prefix = false, $bg-hover = null, $border-color = null, $transition = true, $flat-style = false) {
     button-base()
     button-size($padding, $full-width)
-    button-style($bg, $radius, $disabled, $bg-hover, $border-color)
+    button-style($bg, $radius, $disabled, $bg-hover, $border-color, $flat:$flat-style)
 
     if $transition {
         single-transition(background-color)
         single-transition(color)
     }
 }
+
 
 
 // +exports("button") {
@@ -205,69 +221,73 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
             
             single-transition(background-color)
 
-            &.btn-secondary {
+            &.btn--secondary {
                 button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
             }
-            &.btn-success {
+            &.btn--success {
                 button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
             }
-            &.btn-info {
+            &.btn--info {
                 button-style($bg:$info-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
             }            
-            &.btn-alert {
-                button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$alert-font-color)
-            }
-            &.btn-warning {
+            &.btn--warning {
                 button-style($bg:$warning-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color, $font-color:$warning-font-color)
             }
+            &.btn--alert {
+                button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color)
+            }
 
-            &.btn-large {
+            &.btn--large {
                 button-size($padding:$button-lrg)
             }
-            &.btn-small {
+            &.btn--small {
                 button-size($padding:$button-sml)
             }
-            &.btn-tiny {
+            &.btn--tiny {
                 button-size($padding:$button-tny)
             }
-            &.btn-expand {
+            &.btn--expand {
                 button-size($padding:null,$full-width:true)
             }
 
-            &.btn-left-align {
+            &.btn--left-align {
                 text-align: left;
                 text-indent: $button-med
             }
-            &.btn-right-align {
+            &.btn--right-align {
                 text-align: right;
                 padding-right: $button-med
             }
             
-            &.btn-radius {
+            &.btn--radius {
                 button-style($bg:false, $radius:true)
             }
-            &.btn-round {
+            &.btn--round {
                 button-style($bg:false, $radius:$button-round)
             }
 
-            &.btn-disabled,
+            &.btn--flat {
+                button-flat()
+            }
+
+            &.btn--disabled,
             &[disabled] {
                 button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color)
                 
-                &.btn-secondary { 
+                &.btn--secondary { 
                     button-style($bg:$secondary-color, $disabled:true, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
                 }
-                &.btn-success { 
+                &.btn--success { 
                     button-style($bg:$success-color, $disabled:true, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
                 }
-                &.btn-alert { 
-                    button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color)
+                &.btn--info { 
+                    button-style($bg:$info-color, $disabled:true, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
                 }
-                &.btn-warning { 
+                &.btn--warning { 
                     button-style($bg:$warning-color, $disabled:true, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color)
                 }
-                &.btn-info { 
-                    button-style($bg:$info-color, $disabled:true, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
+                &.btn--alert {
+                    button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color) 
                 }
             }
         }

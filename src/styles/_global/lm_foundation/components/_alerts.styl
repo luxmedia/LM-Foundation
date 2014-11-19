@@ -1,0 +1,146 @@
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+@require "_global"
+
+
+//
+// Message Mixins // was: alert-boxes
+//
+
+// We use this mixin to create a default alert base.
+alert-base() {
+    display: block
+    font-weight: $alert-font-weight
+    margin-bottom: $alert-bottom-margin
+    position: relative
+
+    single-transition(opacity, $alert-transition-speed, $alert-transition-ease)
+}
+
+alert-size($padding = $alert-padding, $font-size = $alert-font-size, $full-width = false) {
+    padding: $alert-padding
+    fontSize($alert-font-size)
+
+    if $full-width {
+        // padding-right: 0
+        // padding-left: 0
+        // width: 100%
+        display: block
+    }
+}
+
+// We use this mixin to add alert styles
+//
+// $bg - The background of the alert. Default: $primary-color.
+alert-style($bg = $primary-color, $font-color = $alert-font-color, $border-color = $primary-color) {
+
+    // This finds the lightness percentage of the background color.
+    $bg-lightness = lightness($bg)
+
+    // We control which background color and border come through.
+    background-color: $bg
+
+    if $border-color {
+        border-style: $alert-border-style
+        border-width: $alert-border-width
+        border-color: $border-color
+    }
+
+    // We control the text color for you based on the background color.
+    if ($bg-lightness > 70% && $font-color == $alert-font-color) {
+        color: $alert-font-color-alt
+    } else {
+        color: $font-color
+    }
+
+}
+
+// We use this to create the close button.
+alert-close() {
+    font-size: $alert-close-font-size
+    padding: $alert-close-padding
+    line-height: 0
+    position: absolute
+    top: $alert-close-top
+    margin-top: -($alert-close-font-size / 2)
+    {$opposite-direction}: $alert-close-position
+    color: $alert-close-color
+    opacity: $alert-close-opacity
+    background: $alert-close-background
+    &:hover,
+    &:focus {
+        opacity: $alert-close-opacity-hover
+    }
+}
+
+// We use this to quickly create alerts with a single mixin.
+//
+// $bg - Background of alert. Default: $primary-color.
+// $radius - Radius of alert box. Default: false.
+alert($bg = $primary-color, $radius = false) {
+    alert-base()
+    alert-style($bg)
+    radius($radius)
+}
+
+// +exports("alert-box") {
+    if $include-html-alert-classes {
+        .alert {
+            alert()
+            alert-size()
+
+            .alert__close {
+                alert-close()
+            }
+
+            &.alert--radius {
+                radius($alert-radius)
+            }
+            &.alert--round {
+                radius($global-rounded)
+            }
+
+            &.alert--expand {
+                alert-size($full-width: true)
+            }
+
+            &.alert--success {
+                alert-style($bg:$success-color, $border-color:$success-color)
+            }
+            &.alert--secondary {
+                alert-style($bg:$secondary-color, $border-color:$secondary-color)
+            }
+            &.alert--info {
+                alert-style($bg:$info-color, $border-color:$info-color)
+            }            
+            &.alert--warning {
+                alert-style($bg: $warning-color, $font-color: $alert-font-color-warning, $border-color:$warning-color)
+            }
+            &.alert--critical {
+                alert-style($bg: $alert-color, $font-color: $alert-font-color-critical, $border-color:$alert-color)
+            }
+
+            &.alert--success-soft {
+                alert-style($bg: lighten($success-color, 80%), $font-color: darken($success-color, 40%), $border-color: $success-color)
+            }
+            &.alert--secondary-soft {
+                alert-style($bg: lighten($secondary-color, 80%), $font-color: darken($secondary-color, 40%), $border-color: $secondary-color)
+            }
+            &.alert--info-soft {
+                alert-style($bg: lighten($info-color, 80%), $font-color: darken($info-color, 40%), $border-color: $info-color)
+            }            
+            &.alert--warning-soft {
+                alert-style($bg: lighten($warning-color, 80%), $font-color: $alert-font-color-warning, $border-color: $warning-color)
+            }
+            &.alert--critical-soft {
+                alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
+            }
+
+            &.alert--is-closed {
+                opacity: 0
+            }
+        }
+    }
+// }

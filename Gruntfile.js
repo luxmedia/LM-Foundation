@@ -29,7 +29,7 @@ module.exports = function(grunt) {
             js_src_fndtn_components: [
                 '<%= globalConfig.src %>/js/foundation/foundation.abide.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.accordion.js',
-                '<%= globalConfig.src %>/js/foundation/foundation.msg.js',
+                '<%= globalConfig.src %>/js/foundation/foundation.alerts.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.clearing.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.dropdown.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.equalizer.js',

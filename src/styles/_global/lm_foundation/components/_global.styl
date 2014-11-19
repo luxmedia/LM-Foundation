@@ -51,6 +51,13 @@ inset-shadow($active = true) {
     }
 }
 
+expand() {
+    display: block
+    padding-left: 0
+    padding-right: 0
+    width: 100%
+}
+
 // @mixins
 //
 // We use this to add transitions to elements
@@ -370,13 +377,19 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
             clearfix()
         }
 
+        .expand {
+            expand()
+        }
+
         // Hide visually and from screen readers
+        .is-hidden,
         .hide {
             display: none !important
             visibility: hidden
         }
 
         // Hide visually and from screen readers, but maintain layout
+        .is-invisible,
         .invisible {
             visibility: hidden
         }

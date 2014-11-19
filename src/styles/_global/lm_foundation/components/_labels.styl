@@ -93,31 +93,31 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
             }
 
             // Label Variants
-            &.lbl-radius {
+            &.lbl--radius {
                 label-style(false, true)
             }
-            &.lbl-round {
+            &.lbl--round {
                 label-style(false, $radius:1000px)
             }
 
-            &.lbl-success {
+            &.lbl--success {
                 label-style($success-color)
             }
-            &.lbl-primary {
+            &.lbl--primary {
                 label-style($primary-color)
             }
-            &.lbl-info {
+            &.lbl--info {
                 label-style($info-color)
             }
-            &.lbl-alert {
+            &.lbl--alert {
                 label-style($bg:$alert-color, $font-color:$alert-font-color)
             }
-            &.lbl-warning {
+            &.lbl--warning {
                 label-style($bg:$warning-color, $font-color:$warning-font-color)
             }
 
             // Badges
-            &.lbl-badge {
+            &.lbl--badge {
                 label-size($padding:$badge-padding)
                 label-style(false, $radius:1000px)
             }
@@ -154,42 +154,41 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
                 top: -(rem-calc(2px))
                 line-height: 0.8
             }
-            .btn-secondary & {
-                label-style($bg:$white,$font-color:$secondary-color)
-                &:hover,
-                &:focus {
-                    color: darken($secondary-color, $button-function-factor)
-                }
+            .btn--secondary & {
+                label-style($bg:$gray-base)
             }
-            .btn-success & {
+            .btn--secondary:hover & {
+                background-color: darken($gray-base, $button-function-factor)
+                // color: darken($button-font-color-alt, $button-function-factor)
+            }
+            .btn--success & {
                 label-style($bg:$white,$font-color:$success-color)
-                &:hover,
-                &:focus {
-                    color: darken($success-color, $button-function-factor)
-                }
             }
-            .btn-info & {
+            .btn--success:hover & {
+                color: darken($success-color, $button-function-factor)
+            }
+            .btn--info & {
                 label-style($bg:$white,$font-color:$info-color)
-                &:hover,
-                &:focus {
-                    color: darken($info-color, $button-function-factor)
-                }
             }
-            .btn-warning & {
-                label-style($bg:$white,$font-color:$warning-color)
-                &:hover,
-                &:focus {
-                    color: darken($warning-color, $button-function-factor)
-                }
+            .btn--info:hover & {
+                color: darken($info-color, $button-function-factor)
             }
-            .btn-alert & {
-                label-style($bg:$white,$font-color:$alert-color)
-                &:hover,
-                &:focus {
-                    color: darken($alert-color, $button-function-factor)
-                }
+            .btn--warning & {
+                label-style($bg:$warning-font-color,$font-color:$warning-color)
             }
-            .btn-small & {
+            .btn--warning:hover & {
+                background-color: darken($warning-font-color, $button-function-factor)
+                color: darken($warning-color, $button-function-factor)
+            }
+            .btn--alert & {
+                label-style($bg:$critical-font-color,$font-color:$alert-color)
+            }
+            .btn--alert:hover & {
+                background-color: darken($critical-font-color, $button-function-factor)
+                color: darken($alert-color, $button-function-factor)
+            }
+
+            .btn--small & {
                 top: 0
                 padding: rem-calc(1 5 1)
             }

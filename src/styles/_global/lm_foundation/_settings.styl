@@ -132,9 +132,10 @@ $info-color =                       #62a7d9 // #a0d3e8
 $success-color =                    #4fc497 // #43AC6A
 $warning-color =                    #ffcd45 // #f08a24
 $alert-color =                      #f09060 // #f04124
+$critical-color =                   $alert-color
 
 $warning-font-color =               #e45a5a // #f08a24
-$alert-font-color =                 #c52121 // #f04124
+$critical-font-color =              #c52121 // #f04124
 
 // various global styles
 $body-bg =                          $white
@@ -359,43 +360,44 @@ $accordion-content-active-bg-color =        $white
 $include-html-alert-classes =               $include-html-classes
 
 // alert padding.
-$msg-padding-top =                        rem-calc(14)
-$msg-padding-default-float =              $msg-padding-top
-$msg-padding-opposite-direction =         ($msg-padding-top + rem-calc(10))
-$msg-padding-bottom =                     $msg-padding-top
+$alert-padding-top =                        rem-calc(14)
+$alert-padding-default-float =              $alert-padding-top
+$alert-padding-opposite-direction =         ($alert-padding-top + rem-calc(10))
+$alert-padding-bottom =                     $alert-padding-top
+$alert-padding =                            ($alert-padding-top $alert-padding-opposite-direction $alert-padding-bottom $alert-padding-default-float)
 
 // text style.
-$msg-font-weight =                        $font-weight-normal
-$msg-font-size =                          1.2rem
-$msg-font-color =                         $white
-$msg-font-color-alt =                     darken($secondary-color, 66%)
-$msg-font-color-warning =                   $warning-font-color
-$msg-font-color-alert =                     $alert-font-color
+$alert-font-weight =                        $font-weight-normal
+$alert-font-size =                          1.2rem
+$alert-font-color =                         $white
+$alert-font-color-alt =                     darken($secondary-color, 66%)
+$alert-font-color-warning =                 $warning-font-color
+$alert-font-color-critical =                $critical-font-color
 
 // close hover effect.
-$msg-function-factor =                    14% // -14%
+$alert-function-factor =                    14% // -14%
 
 // border styles.
-$msg-border-style =                       solid
-$msg-border-width =                       1px
-$msg-border-color =                       darken($primary-color, $msg-function-factor)
-$msg-bottom-margin =                      rem-calc(20)
+$alert-border-style =                       solid
+$alert-border-width =                       (2px 2px 2px 10px) // (1px 1px 1px 5px)
+$alert-border-color =                       darken($primary-color, $alert-function-factor)
+$alert-bottom-margin =                      rem-calc(20)
 
 // style the close buttons
-$msg-close-color =                        $charcoal-1
-$msg-close-top =                          50%
-$msg-close-position =                     rem-calc(4)
-$msg-close-font-size =                    rem-calc(22)
-$msg-close-opacity =                      0.3
-$msg-close-opacity-hover =                0.5
-$msg-close-padding =                      9px 6px 4px
+$alert-close-color =                        $charcoal-1
+$alert-close-top =                          50%
+$alert-close-position =                     rem-calc(4)
+$alert-close-font-size =                    rem-calc(22)
+$alert-close-opacity =                      0.3
+$alert-close-opacity-hover =                0.5
+$alert-close-padding =                      9px 6px 4px
 
 // border radius
-$msg-radius =                             $global-radius
+$alert-radius =                             $global-radius
 
 // transition effects
-$msg-transition-speed =                   300ms
-$msg-transition-ease =                    ease-out
+$alert-transition-speed =                   300ms
+$alert-transition-ease =                    ease-out
 
 
 // =========================================================================
@@ -490,15 +492,15 @@ $button-shadow =                            1px 1px 1px rgba($black,0.2)
 $button-hover-shadow =                      false // 1px 1px 1px rgba($black,0.25)
 
 $secondary-button-bg-hover =                darken($secondary-color, $button-function-factor)
-$secondary-button-border-color =            darken($secondary-button-bg-hover,10%) // $secondary-button-bg-hover
+$secondary-button-border-color =            darken($secondary-button-bg-hover,5%) // $secondary-button-bg-hover
 $success-button-bg-hover =                  darken($success-color, $button-function-factor)
-$success-button-border-color =              darken($success-button-bg-hover,10%) // $success-button-bg-hover
-$alert-button-bg-hover =                    darken($alert-color, $button-function-factor)
-$alert-button-border-color =                darken($alert-button-bg-hover, 10%) // $alert-button-bg-hover
-$warning-button-bg-hover =                  darken($warning-color, $button-function-factor)
-$warning-button-border-color =              darken($warning-button-bg-hover,10%) // $warning-button-bg-hover
+$success-button-border-color =              darken($success-button-bg-hover,5%) // $success-button-bg-hover
 $info-button-bg-hover =                     darken($info-color, $button-function-factor)
-$info-button-border-color =                 darken($info-button-bg-hover,10%) // $info-button-bg-hover
+$info-button-border-color =                 darken($info-button-bg-hover,5%) // $info-button-bg-hover
+$alert-button-bg-hover =                    darken($alert-color, $button-function-factor)
+$alert-button-border-color =                darken($alert-button-bg-hover, 5%) // $alert-button-bg-hover
+$warning-button-bg-hover =                  darken($warning-color, $button-function-factor)
+$warning-button-border-color =              darken($warning-button-bg-hover,5%) // $warning-button-bg-hover
 
 // set the default radius used throughout the core.
 $button-radius =                            $global-radius
@@ -723,7 +725,7 @@ $input-error-message-font-weight =          $font-weight-normal
 $input-error-message-font-style =           italic
 $input-error-message-font-color =           $white
 $input-error-message-bg-color =             $alert-color
-$input-error-message-font-color-alt =           $charcoal-1
+$input-error-message-font-color-alt =       $charcoal-1
 
 // style the glowing effect of inputs when focused
 $input-include-glowing-effect =             true

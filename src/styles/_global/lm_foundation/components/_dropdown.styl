@@ -188,15 +188,15 @@ dropdown-style() {
         .f-dropdown {
             dropdown-container(list, bottom)
 
-            &.drop-{$opposite-direction} {
+            &.drop--{$opposite-direction} {
                 dropdown-container(list, $default-float)
             }
 
-            &.drop-{$default-float} {
+            &.drop--{$default-float} {
                 dropdown-container(list, $opposite-direction)
             }
 
-            &.drop-top {
+            &.drop--top {
                 dropdown-container(list, top)
             }
             // max-width: none
@@ -227,7 +227,7 @@ dropdown-style() {
                 width:100%!important
                 max-width:100%!important
 
-                &.open{
+                &.is-open{
                     left:0!important
                 }
             }

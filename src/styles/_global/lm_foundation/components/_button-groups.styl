@@ -159,13 +159,14 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 button-group-style()
             }
 
-            &.btn-stack {
+            &.btn--stack {
                 & > li {
-                button-group-style($orientation:vertical)
-                float: none }
+                    button-group-style($orientation:vertical)
+                    float: none
+                }
             }
 
-            &.btn-stack-for-small {
+            &.btn--stack-for-small {
                 & > li {
                     button-group-style($orientation:horizontal)
                     @media $small-only {
@@ -174,13 +175,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &.btn-radius > * {
+            &.btn--radius > * {
                 button-group-style($radius:$button-radius, $float:null)
             }
-            &.btn-radius.btn-stack > * {
+            &.btn--radius.btn-stack > * {
                 button-group-style($radius:$button-radius, $float:null, $orientation:vertical)
             }
-            &.btn-radius.btn-stack-for-small > * {
+            &.btn--radius.btn--stack-for-small > * {
                 @media $medium-up {
                     button-group-style($radius:$button-radius, $orientation:horizontal)
                 }
@@ -189,13 +190,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &.btn-round > * {
+            &.btn--round > * {
                 button-group-style($radius:$button-round, $float:null)
             }
-            &.btn-round.btn-stack > * {
+            &.btn--round.btn--stack > * {
                 button-group-style($radius:$button-med, $float:null, $orientation:vertical)
             }
-            &.btn-round.btn-stack-for-small > * {
+            &.btn--round.btn--stack-for-small > * {
                 @media $medium-up {
                     button-group-style($radius:$button-round, $orientation:horizontal)
                 }
