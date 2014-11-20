@@ -8,15 +8,21 @@
 
 // +exports("tab") {
     if $include-html-tabs-classes {
+        
+        .tabs-list {
+            border-bottom: $tabs-navigation-border-width solid $tabs-content-border-color
+            overflow: visible
+        }
         .tabs,
         .tabs-list {
             clearfix()
             margin-bottom: 0 !important
             margin-left: 0
+
             dd,
             .tab-title {
                 position: relative
-                margin-bottom: 0 !important
+                margin-bottom: -($tabs-navigation-border-width) !important
                 margin-right: 1px
                 list-style: none
                 float: $default-float
@@ -32,16 +38,18 @@
                     text-transform: $tabs-navigation-text-transform
                     border-style: solid
                     border-color: transparent
-                    border-width: $tabs-navigation-border-width
+                    border-width: $tabs-navigation-border-width 0
+                    border-bottom-color: $tabs-content-border-color
                     &:hover {
                         background-color: $tabs-navigation-hover-bg-color
-                        font-color: $tabs-navigation-hover-font-color
+                        color: $tabs-navigation-hover-font-color
                     }
                 }
                 &.is-active a {
                     background-color: $tabs-navigation-active-bg-color
                     color: $tabs-navigation-active-font-color
                     border-top-color: $tabs-navigation-active-border-color
+                    border-bottom-color: $white
                 }
             }
             &--radius {
@@ -97,6 +105,7 @@
             }
         }
         @media $medium-up {
+            
             .tabs,
             .tabs-list {
                 &--vertical {
