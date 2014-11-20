@@ -255,7 +255,7 @@ topbar-show-dropdown() {
                     padding: 12px 0 12px 0
                     padding-{$default-float}: $topbar-link-padding
                     font-family: $topbar-link-font-family
-                    font-size: $topbar-link-font-size
+                    fontSize($topbar-link-font-size)
                     font-weight: $topbar-link-weight
                     text-transform: $topbar-link-text-transform
                     
@@ -499,7 +499,7 @@ topbar-show-dropdown() {
                         }
                     }
                 }
-                &.active:not(.has-form) {
+                &.is-active:not(.has-form) {
                     a:not(.btn) {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
@@ -584,7 +584,7 @@ topbar-show-dropdown() {
                         background: $topbar-dropdown-link-bg
                     }
 
-                    &:not(.has-form):not(.active) {
+                    &:not(.has-form):not(.is-active) {
                         & > a:not(.btn) {
                             color: $topbar-dropdown-link-color
                             background: $topbar-dropdown-link-bg

@@ -178,10 +178,10 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
             &--radius > * {
                 button-group-style($radius:$button-radius, $float:null)
             }
-            &.btn--radius.btn-stack > * {
+            &--radius.btn-group--stack > * {
                 button-group-style($radius:$button-radius, $float:null, $orientation:vertical)
             }
-            &.btn--radius.btn--stack-for-small > * {
+            &--radius.btn-group--stack-for-small > * {
                 @media $medium-up {
                     button-group-style($radius:$button-radius, $orientation:horizontal)
                 }
@@ -190,13 +190,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &.btn--round > * {
+            &--round > * {
                 button-group-style($radius:$button-round, $float:null)
             }
-            &.btn--round.btn--stack > * {
+            &--round.btn-group--stack > * {
                 button-group-style($radius:$button-med, $float:null, $orientation:vertical)
             }
-            &.btn--round.btn--stack-for-small > * {
+            &--round.btn-group--stack-for-small > * {
                 @media $medium-up {
                     button-group-style($radius:$button-round, $orientation:horizontal)
                 }

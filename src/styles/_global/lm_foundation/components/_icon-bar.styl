@@ -47,7 +47,7 @@ icon-bar-base() {
         }
     }
 
-    &.icon-bar--label-right > * {
+    &--label-right > * {
 
         i, img, svg {
             margin: 0 .0625rem 0 0
@@ -63,12 +63,12 @@ icon-bar-base() {
         }
     }
 
-    &.icon-bar--vertical.icon-bar--label-right > * {
+    &--vertical.icon-bar--label-right > * {
         text-align: left
     }
 
-    &.icon-bar--vertical, 
-    &.icon-bar--small-vertical{
+    &--vertical, 
+    &--small-vertical{
         height: 100%
         width: auto
 
@@ -79,7 +79,7 @@ icon-bar-base() {
         }
     }
 
-    &.icon-bar--medium-vertical {
+    &--medium-vertical {
         @media $medium-up {
             height: 100%
             width: auto
@@ -91,7 +91,7 @@ icon-bar-base() {
             }
         }
     }
-    &.icon-bar--large-vertical {
+    &--large-vertical {
         @media $large-up {
             height: 100%
             width: auto
@@ -188,7 +188,7 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
             icon-bar()
             
             // Counts
-            &.icon-bar--two-up {
+            &--two-up {
                 .item {
                     width: 50%
                 }
@@ -207,7 +207,7 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
                     }
                 }
             }
-            &.icon-bar--three-up {
+            &--three-up {
                 .item {
                     width: 33.3333%
                 }
@@ -226,7 +226,7 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
                     }
                 }
             }
-            &.icon-bar--four-up {
+            &--four-up {
                 .item {
                     width: 25%
                 }
@@ -245,7 +245,7 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
                     }
                 }
             }
-            &.icon-bar--five-up {
+            &--five-up {
                 .item {
                     width: 20%
                 }
@@ -264,7 +264,7 @@ icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-fo
                     }
                 }
             }
-            &.icon-bar--six-up {
+            &--six-up {
                 .item {
                     width: 16.66667%
                 }

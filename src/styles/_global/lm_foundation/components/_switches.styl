@@ -203,22 +203,22 @@ switch($transition-speed = $switch-paddle-transition-speed, $transition-ease = $
             switch()
 
             // Large radio switches
-            &.large {
+            &--large {
                 switch-size($switch-height-lrg)
             }
 
             // Small radio switches
-            &.small {
+            &--small {
                 switch-size($switch-height-sml)
             }
 
             // Tiny radio switches
-            &.tiny {
+            &--tiny {
                 switch-size($switch-height-tny)
             }
 
             // Add a radius to the switch
-            &.radius {
+            &--radius {
                 radius(2px)
                 label {
                     radius(2px)
@@ -226,7 +226,7 @@ switch($transition-speed = $switch-paddle-transition-speed, $transition-ease = $
             }
 
             // Make the switch completely round, like a pill
-            &.round {
+            &--round {
                 radius(1000px)
                 label {
                     radius(1000px)

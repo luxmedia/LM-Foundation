@@ -18,7 +18,8 @@ pagination-container($center = false) {
 // @mixins
 // Style unavailable list items
 pagination-unavailable-item() {
-    a, button {
+    a,
+    button {
         cursor: $pagination-link-unavailable-cursor
         color: $pagination-link-unavailable-font-color
     }
@@ -92,9 +93,9 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 padding: $pagination-link-pad
                 color: $pagination-link-font-color
                 background: $pagination-link-bg
-                radius(0)
+                font-family: $pagination-font-family
                 font-weight: normal
-                font-size: $pagination-font-size
+                fontSize($pagination-font-size)
                 line-height: inherit
                 if $pagination-link-border {
                     border:1px solid $pagination-link-border
@@ -103,6 +104,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 if ($pagination-link-boxshadow != false) {
                     box-shadow: $pagination-link-boxshadow
                 }
+                radius(0)
                 single-transition(background-color)
                 single-transition(box-shadow)
             }

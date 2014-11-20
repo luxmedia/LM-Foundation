@@ -160,7 +160,7 @@
 
                         // LUXMEDIA MOD
                         // nicely animate tabs
-                        var hideMe = $(el).find(o.options.tabbody).filter(':visible');
+                        var hideMe = $(el).find(o.options.tabbody+':visible');
                         var showMe = $(el).find(o.options.tabbody).eq(i);
                         var showMeHeight = $(showMe).actual("outerHeight");
                         if(!o.options.syncheights) {

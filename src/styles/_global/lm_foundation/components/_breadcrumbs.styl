@@ -45,7 +45,7 @@ crumbs() {
     }
 
     // Current is for the link of the current page
-    &.current {
+    &.is-current {
         cursor: $cursor-default-value
         color: $crumb-font-color-current
         a {
@@ -60,7 +60,7 @@ crumbs() {
     }
 
     // Unavailable removed color and link styles so it looks inactive.
-    &.unavailable {
+    &.is-unavailable {
         color: $crumb-font-color-unavailable
         a {
             color: $crumb-font-color-unavailable

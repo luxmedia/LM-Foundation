@@ -4,7 +4,9 @@
  * Version: 1.0.16
  *
  * Requires: jQuery >= 1.2.3
+ * https://github.com/dreamerslab/jquery.actual
  */
+ 
 ;( function ( $ ){
   $.fn.addBack = $.fn.addBack || $.fn.andSelf;
 

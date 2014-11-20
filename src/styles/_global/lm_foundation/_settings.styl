@@ -100,6 +100,8 @@ $column-gutter =                    rem-calc(30)
 $font-family-sans-serif =           "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
 $font-family-serif =                Georgia, Cambria, "Times New Roman", Times, serif
 $font-family-monospace =            Consolas, "Menlo", "Liberation Mono", Courier, monospace
+$font-family-headings =             $font-family-sans-serif
+$font-family-buttons =              $font-family-sans-serif
 
 // define default font weights
 $font-weight-normal =               normal
@@ -212,7 +214,7 @@ $cursor-auto-value =                auto
 $include-html-type-classes =        $include-html-classes
 
 // header font styles
-$header-font-family =               $body-font-family
+$header-font-family =               $font-family-headings
 $header-font-weight =               $font-weight-bold
 $header-font-style =                normal
 $header-font-color =                $gray-dark-1
@@ -466,7 +468,7 @@ $button-display =                           inline-block
 $button-margin-bottom =                     rem-calc(20)
 
 // button text styles.
-$button-font-family =                       $body-font-family
+$button-font-family =                       $font-family-buttons
 $button-font-color =                        $white
 $button-font-color-alt =                    $charcoal-1
 $button-font-tny =                          0.9rem // rem-calc(11)
@@ -858,7 +860,7 @@ $label-font-weight =                        $font-weight-bold
 $label-text-transform =                     uppercase
 $label-font-color =                         $charcoal-1
 $label-font-color-alt =                     $white
-$label-font-family =                        $body-font-family
+$label-font-family =                        $font-family-headings
 
 $badge-padding =                            rem-calc(5 3 5)
 $badge-radius =                             $global-radius
@@ -951,7 +953,8 @@ $off-canvas-overlay-background =            rgba($white, 0.2)
 $off-canvas-overlay-background-hover =      rgba($white, 0.05)
 
 // Transition Variables
-$menu-slide =                               "transform 500ms ease"
+$menu-slide =                               "transform 500ms ease" // deprecated
+$off-canvas-transition-speed =              500ms
 
 
 // =========================================================================
@@ -1013,7 +1016,7 @@ $pagination-margin =                        -(rem-calc(5))
 $pagination-li-float =                      $default-float
 $pagination-li-height =                     rem-calc(24)
 $pagination-li-font-color =                 $charcoal-2
-$pagination-li-font-size =                  rem-calc(14)
+$pagination-li-font-size =                  1rem // rem-calc(14)
 $pagination-li-margin =                     0 // rem-calc(1)
 
 // We use these for the pagination anchor links
@@ -1021,6 +1024,7 @@ $pagination-link-pad =                      rem-calc(10 4 10)
 $pagination-link-font-color =               $gray-dark-1
 $pagination-link-bg =                       none // rgba($black,0.1)
 $pagination-font-size =                     1rem
+$pagination-font-family =                   $font-family-buttons
 $pagination-link-boxshadow =                false // 0 1px 1px rgba($black,0.1)
 $pagination-link-border =                   rgba($black,0.1)
 $pagination-link-border-width =             0 1px 0 0
@@ -1098,7 +1102,7 @@ $price-money-align =                        center
 $price-money-color =                        $charcoal-1
 $price-money-weight =                       $font-weight-normal
 $price-money-size =                         rem-calc(32)
-$price-money-font-family =                  $body-font-family
+$price-money-font-family =                  $font-family-headings
 
 // the description styles
 $price-bg =                                 $white
@@ -1249,7 +1253,7 @@ $side-nav-link-padding =                    rem-calc(7 14)
 $side-nav-font-size =                       rem-calc(14)
 $side-nav-font-weight =                     $font-weight-normal
 $side-nav-font-weight-active =              $side-nav-font-weight
-$side-nav-font-family =                     $body-font-family
+$side-nav-font-family =                     $font-family-buttons
 $side-nav-font-family-active =              $side-nav-font-family
 
 // heading styles.
@@ -1316,7 +1320,7 @@ $sub-nav-list-margin =                      rem-calc(-4 0 18)
 $sub-nav-list-padding-top =                 rem-calc(4)
 
 // the definition
-$sub-nav-font-family =                      $body-font-family
+$sub-nav-font-family =                      $font-family-buttons
 $sub-nav-font-size =                        rem-calc(14)
 $sub-nav-font-color =                       $gray-dark-1
 $sub-nav-font-weight =                      $font-weight-normal
@@ -1441,13 +1445,17 @@ $tabs-navigation-hover-bg-color =           darken($tabs-navigation-bg-color, 6%
 $tabs-navigation-font-color =               $charcoal-2
 $tabs-navigation-hover-font-color =         $primary-color
 $tabs-navigation-active-font-color =        $primary-color
+$tabs-navigation-border-width =             2px 0 0 0
+$tabs-navigation-active-border-color =      $primary-color
 $tabs-navigation-font-size =                1rem
-$tabs-navigation-font-family =              $body-font-family
+$tabs-navigation-font-family =              $font-family-buttons
 $tabs-navigation-font-weight =              $font-weight-bold
 $tabs-navigation-text-transform =           uppercase
 
 $tabs-content-margin-bottom =               rem-calc(24)
 $tabs-content-padding =                     $column-gutter/2
+$tabs-content-border-width =                0 0 2px 0
+$tabs-content-border-color =                $gray-medium-1
 
 $tabs-vertical-navigation-margin-bottom =   1.25rem
 
@@ -1515,7 +1523,7 @@ $topbar-margin-bottom =                     0
 
 // Controlling the styles for the title in the top bar
 $topbar-title-weight =                      $font-weight-normal
-$topbar-title-font-size =                   rem-calc(17)
+$topbar-title-font-size =                   1rem // rem-calc(17)
 
 $topbar-link-hover-lightness =              15% // -10% !default
 
@@ -1535,25 +1543,25 @@ $topbar-link-color-hover =                  $white
 $topbar-link-color-active =                 $white
 $topbar-link-color-active-hover =           $white
 $topbar-link-weight =                       $font-weight-bold
-$topbar-link-font-size =                    rem-calc(13)
+$topbar-link-font-size =                    0.8rem // rem-calc(13)
 $topbar-link-bg =                           $topbar-bg
 $topbar-link-bg-color-hover =               darken($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-hover =                     darken($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-active =                    $primary-color
 $topbar-link-bg-active-hover =              darken($primary-color, 14%)
-$topbar-link-font-family =                  $body-font-family
+$topbar-link-font-family =                  $font-family-buttons
 $topbar-link-text-transform =               uppercase
-$topbar-link-padding =                      $topbar-height / 3
+$topbar-link-padding =                      ($topbar-height / 3)
 $topbar-back-link-size =                    $h5-font-size
 $topbar-link-dropdown-padding =             20px
 
-$topbar-button-font-size =                  0.9rem
+$topbar-button-font-size =                  0.8rem
 $topbar-button-top =                        7px
 
 $topbar-dropdown-label-color =              $gray-dark-3
 $topbar-dropdown-label-text-transform =     uppercase
 $topbar-dropdown-label-font-weight =        $font-weight-bold
-$topbar-dropdown-label-font-size =          rem-calc(10)
+$topbar-dropdown-label-font-size =          0.8rem // rem-calc(10)
 $topbar-dropdown-label-bg =                 $charcoal-1
 
 // Top menu icon styles

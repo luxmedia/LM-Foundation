@@ -126,37 +126,37 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
         .btn--split {
             split-button()
 
-            &.btn--secondary {
+            &--secondary {
                 split-button(false, $split-button-pip-color, $secondary-color, false)
             }
-            &.btn--alert {
+            &--alert {
                 split-button(false, false, $alert-color, false)
             }
-            &.btn--success {
+            &--success {
                 split-button(false, false, $success-color, false)
             }
 
-            &.btn--tiny {
+            &--tiny {
                 split-button(tiny, false, false, false)
             }
-            &.btn--small {
+            &--small {
                 split-button(small, false, false, false)
             }
-            &.btn--large {
+            &--large {
                 split-button(large, false, false, false)
             }
-            &.btn--expand {
+            &--expand {
                 padding-left: 2rem
             }
 
-            &.btn--secondary {
+            &--secondary {
                 split-button(false, $split-button-pip-color-alt, false, false)
             }
 
-            &.btn--radius span {
+            &--radius span {
                 side-radius($opposite-direction, $global-radius)
             }
-            &.btn--round span {
+            &--round span {
                 side-radius($opposite-direction, 1000px)
             }
         }

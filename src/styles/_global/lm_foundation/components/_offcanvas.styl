@@ -73,7 +73,8 @@ inner-wrap() {
     kill-flicker()
     wrap-base()
     clearfix()
-    transition: $menu-slide
+    // transition: $menu-slide
+    single-transition(transform, $speed:$off-canvas-transition-speed, $ease:ease)
 }
 
 // TAB BAR

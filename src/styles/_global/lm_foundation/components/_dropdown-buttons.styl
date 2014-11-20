@@ -86,16 +86,16 @@ dropdown-button($padding = medium, $pip-color = $white, $base-style = true) {
         .dropdown.btn,
         button.dropdown {
             dropdown-button()
-            &.btn--tiny {
+            &--tiny {
                 dropdown-button(tiny,$base-style:false)
             }
-            &.btn--small { 
+            &--small { 
                 dropdown-button(small,$base-style:false)
             }
-            &.btn--large { 
+            &--large { 
                 dropdown-button(large,$base-style:false)
             }
-            &.btn--secondary:after {
+            &--secondary:after {
                 border-color: $dropdown-button-pip-color-alt transparent transparent transparent
             }
         }

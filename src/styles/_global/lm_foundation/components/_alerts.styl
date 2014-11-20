@@ -95,50 +95,50 @@ alert($bg = $primary-color, $radius = false) {
                 alert-close()
             }
 
-            &.alert--radius {
+            &--radius {
                 radius($alert-radius)
             }
-            &.alert--round {
+            &--round {
                 radius($global-rounded)
             }
 
-            &.alert--expand {
+            &--expand {
                 alert-size($full-width: true)
             }
 
-            &.alert--success {
+            &--success {
                 alert-style($bg:$success-color, $border-color:$success-color)
             }
-            &.alert--secondary {
+            &--secondary {
                 alert-style($bg:$secondary-color, $border-color:$secondary-color)
             }
-            &.alert--info {
+            &--info {
                 alert-style($bg:$info-color, $border-color:$info-color)
             }            
-            &.alert--warning {
+            &--warning {
                 alert-style($bg: $warning-color, $font-color: $alert-font-color-warning, $border-color:$warning-color)
             }
-            &.alert--critical {
+            &--critical {
                 alert-style($bg: $alert-color, $font-color: $alert-font-color-critical, $border-color:$alert-color)
             }
 
-            &.alert--success-soft {
+            &--success-soft {
                 alert-style($bg: lighten($success-color, 80%), $font-color: darken($success-color, 40%), $border-color: $success-color)
             }
-            &.alert--secondary-soft {
+            &--secondary-soft {
                 alert-style($bg: lighten($secondary-color, 80%), $font-color: darken($secondary-color, 40%), $border-color: $secondary-color)
             }
-            &.alert--info-soft {
+            &--info-soft {
                 alert-style($bg: lighten($info-color, 80%), $font-color: darken($info-color, 40%), $border-color: $info-color)
             }            
-            &.alert--warning-soft {
+            &--warning-soft {
                 alert-style($bg: lighten($warning-color, 80%), $font-color: $alert-font-color-warning, $border-color: $warning-color)
             }
-            &.alert--critical-soft {
+            &--critical-soft {
                 alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
             }
 
-            &.alert--is-closed {
+            &--is-closed {
                 opacity: 0
             }
         }

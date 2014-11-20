@@ -30,7 +30,9 @@
                     fontSize($tabs-navigation-font-size)
                     font-weight: $tabs-navigation-font-weight
                     text-transform: $tabs-navigation-text-transform
-                    border-top:2px solid transparent
+                    border-style: solid
+                    border-color: transparent
+                    border-width: $tabs-navigation-border-width
                     &:hover {
                         background-color: $tabs-navigation-hover-bg-color
                         font-color: $tabs-navigation-hover-font-color
@@ -39,10 +41,10 @@
                 &.is-active a {
                     background-color: $tabs-navigation-active-bg-color
                     color: $tabs-navigation-active-font-color
-                    border-top-color: $primary-color
+                    border-top-color: $tabs-navigation-active-border-color
                 }
             }
-            &.tabs--radius {
+            &--radius {
                 dd:first-child,
                 .tab:first-child {
                     a {
@@ -56,7 +58,7 @@
                     }
                 }
             }
-            &.tabs--vertical {
+            &--vertical {
                 dd,
                 .tab-title {
                     position: inherit
@@ -71,12 +73,14 @@
             clearfix()
             margin-bottom: $tabs-content-margin-bottom
             width: 100%
+            border-style: solid
+            border-color: $tabs-content-border-color
+            border-width: $tabs-content-border-width
             & > .content {
                 display: none
                 float: $default-float
                 padding: $tabs-content-padding 0
                 width: 100%
-                border-bottom: 1px solid $gray-light-2
                 &.is-active {
                     display: block
                     float: none
@@ -85,7 +89,7 @@
                     padding: $tabs-content-padding
                 }
             }
-            &.tabs-content--vertical {
+            &--vertical {
                 display: block
                 > .content {
                     padding: 0 $tabs-content-padding
@@ -93,8 +97,9 @@
             }
         }
         @media $medium-up {
-            .tabs {
-                &.tabs--vertical {
+            .tabs,
+            .tabs-list {
+                &--vertical {
                     width: 20%
                     max-width: 20%
                     float: $default-float
@@ -102,7 +107,7 @@
                 }
             }
             .tabs-content {
-                &.tabs-content--vertical {
+                &--vertical {
                     width: 80%
                     max-width: 80%
                     float: $default-float

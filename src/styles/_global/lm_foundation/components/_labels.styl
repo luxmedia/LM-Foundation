@@ -93,31 +93,31 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
             }
 
             // Label Variants
-            &.lbl--radius {
+            &--radius {
                 label-style(false, true)
             }
-            &.lbl--round {
+            &--round {
                 label-style(false, $radius:1000px)
             }
 
-            &.lbl--success {
+            &--success {
                 label-style($success-color)
             }
-            &.lbl--primary {
+            &--primary {
                 label-style($primary-color)
             }
-            &.lbl--info {
+            &--info {
                 label-style($info-color)
             }
-            &.lbl--alert {
-                label-style($bg:$alert-color, $font-color:$alert-font-color)
+            &--alert {
+                label-style($bg:$alert-color, $font-color:$critical-font-color)
             }
-            &.lbl--warning {
+            &--warning {
                 label-style($bg:$warning-color, $font-color:$warning-font-color)
             }
 
             // Badges
-            &.lbl--badge {
+            &--badge {
                 label-size($padding:$badge-padding)
                 label-style(false, $radius:1000px)
             }
