@@ -7,30 +7,30 @@
 // Convert unit to rems if unit is in pixels.
 remify($value, $isPx = false) {
     if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-        $value
+        return $value
     } else if ($value == 'hairline') {
-        '1px'
+        return '1px'
     } else if (unit($value) == 'px' || $isPx) { // Assume that vaues gt 9 are pixe-values
-        unit($value/$rem-base, 'rem')
+        return unit($value/$rem-base, 'rem')
     } else if ((unit($value) == 0 || unit($value) == null) && ($isPx == false)) {
-        unit($value, 'rem')
+        return unit($value, 'rem')
     } else {
-        unit($value, unit($value))
+        return unit($value, unit($value))
     }
 }
 
 // Convert unit to rems if unit is in pixels.
 pxify($value) {
     if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-        $value
+        return $value
     } else if ($value == 'hairline') {
         '1px'
     } else if (unit($value) == 'px') {
-        unit($value, unit($value))
+        return unit($value, unit($value))
     } else if (unit($value) == 'rem' || unit($value) == 'em' || unit($value) == 0 || unit($value) == null) {
-        round(unit($value*$rem-base, 'px'))
+        return round(unit($value*$rem-base, 'px'))
     } else {
-        unit($value, unit($value))
+        return unit($value, unit($value))
     }
 }
 

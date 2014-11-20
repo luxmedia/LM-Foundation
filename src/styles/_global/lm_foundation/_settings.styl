@@ -429,25 +429,27 @@ $crumb-bg =                                 lighten($secondary-color, 55%)
 
 // set the padding around the breadcrumbs.
 $crumb-padding =                            rem-calc(9 14 9)
-$crumb-side-padding =                       rem-calc(12)
+$crumb-side-padding =                       rem-calc(6) // rem-calc(12)
 
 // border styles.
 $crumb-function-factor =                    10% // -10%
-$crumb-border-size =                        1px
+$crumb-border-size =                        false // 1px
 $crumb-border-style =                       solid
 $crumb-border-color =                       darken($crumb-bg, $crumb-function-factor)
-$crumb-radius =                             $global-radius
+$crumb-radius =                             false // $global-radius
 
 // set various text styles for breadcrumbs.
-$crumb-font-size =                          rem-calc(11)
+$crumb-font-size =                          0.8rem // rem-calc(11)
+$crumb-font-weight =                        $font-weight-bold
+$crumb-font-weight-current =                $font-weight-normal
 $crumb-font-color =                         $primary-color
-$crumb-font-color-current =                 $charcoal-1
-$crumb-font-color-unavailable =             $gray-dark-1
+$crumb-font-color-current =                 $gray-base
+$crumb-font-color-unavailable =             $gray-medium-2
 $crumb-font-transform =                     uppercase
-$crumb-link-decor =                         underline
+$crumb-link-decor =                         none // underline
 
 // the slash between breadcrumbs
-$crumb-slash-color =                        $white
+$crumb-slash-color =                        $gray-base
 $crumb-slash =                              "/"
 
 
@@ -675,12 +677,17 @@ $form-spacing =                             rem-calc(16)
 
 // style the labels in different ways
 $form-label-pointer =                       pointer
-$form-label-font-size =                     1rem
+$form-label-font-size =                     0.8rem
+$form-label-ui-font-size =                  1rem
 $form-label-font-weight =                   $font-weight-bold
+$form-label-ui-font-weight =                $font-weight-normal
 $form-label-line-height =                   1.5
-$form-label-font-color =                    $body-font-color
+$form-label-font-color =                    $gray-dark-1
+$form-label-ui-font-color =                 $gray-dark-3
+$form-label-font-color-hover =              $charcoal-1
 $form-label-small-transform =               capitalize
 $form-label-bottom-margin =                 0
+$form-label-bottom-padding =                rem-calc(4)
 $input-font-family =                        inherit
 $input-font-color =                         rgba(0,0,0,0.75)
 $input-font-size =                          rem-calc(14)
@@ -694,6 +701,16 @@ $input-border-radius =                      $global-radius
 $input-disabled-bg =                        $gray-medium-1
 $input-disabled-cursor =                    $cursor-default-value
 $input-box-shadow =                         inset 0 1px 2px rgba(0,0,0,0.1)
+
+$input-checkbox-width =                     14px
+$input-checkbox-bg =                        $white
+$input-checkbox-bg-hover =                  $gray-medium-2
+$input-checkbox-bg-checked =                $gray-dark-3
+$input-checkbox-inner-padding =             2px
+$input-checkbox-border-width =              2px
+$input-checkbox-border-color =              $gray-medium-2
+$input-checkbox-border-color-hover =        $gray-dark-3
+$input-checkbox-border-color-checked =      $gray-dark-3
 
 // style the fieldset border and spacing.
 $fieldset-border-style =                    solid

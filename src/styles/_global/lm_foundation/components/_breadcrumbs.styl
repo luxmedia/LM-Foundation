@@ -16,12 +16,13 @@ crumb-container() {
     overflow: hidden
     margin-{$default-float}: 0
     list-style: none
-    border-style: $crumb-border-style
-    border-width: $crumb-border-size
+    if ($crumb-border-size) {
+        border-style: $crumb-border-style
+        border-width: $crumb-border-size
+        border-color: $crumb-border-color
+    }
 
-    // We control which background color and border come through.
     background-color: $crumb-bg
-    border-color: $crumb-border-color
 }
 
 // We use this mixin to create breadcrumb styles from list items.
@@ -41,20 +42,24 @@ crumbs() {
     }
 
     a {
+        font-weight: $crumb-font-weight
         color: $crumb-font-color
     }
 
     // Current is for the link of the current page
     &.is-current {
-        cursor: $cursor-default-value
         color: $crumb-font-color-current
+        cursor: $cursor-default-value
         a {
-            cursor: $cursor-default-value
+            font-weight: $crumb-font-weight-current
             color: $crumb-font-color-current
+            cursor: $cursor-default-value
         }
 
-        &:hover, &:hover a,
-        &:focus, &:focus a {
+        &:hover,
+        &:hover a,
+        &:focus,
+        &:focus a {
             text-decoration: none
         }
     }
@@ -94,7 +99,9 @@ crumbs() {
     if $include-html-nav-classes {
         .breadcrumbs {
             crumb-container()
-            radius($crumb-radius)
+            if($crumb-radius) {
+                radius($crumb-radius)
+            }
 
             & > * {
                 crumbs()

@@ -96,13 +96,16 @@ form-label($alignment = false, $base-style = true) {
 
     // Control whether or not the base styles come through.
     if $base-style {
-        font-size: $form-label-font-size
+        fontSize($form-label-font-size)
         color: $form-label-font-color
         cursor: $form-label-pointer
         display: block
         font-weight: $form-label-font-weight
         line-height: $form-label-line-height
         margin-bottom: $form-label-bottom-margin
+        padding-bottom: $form-label-bottom-padding
+        text-transform: uppercase
+
     }
 
     // Alignment options
@@ -501,13 +504,69 @@ html5number($browser, $on = true) {
             margin: 0 0 $form-spacing 0
         }
 
+        input[type="checkbox"],
+        input[type="radio"] {
+            visibility: hidden
+            opacity: 0
+            position: absolute
+        }
+
         input[type="checkbox"] + label,
         input[type="radio"] + label {
+            position: relative
             display: inline-block
             margin-{$default-float}: $form-spacing * .5
             margin-{$opposite-direction}: $form-spacing
-            margin-bottom: 0
+            margin-bottom: ($form-spacing * .5) // 0
+            padding-bottom: 0
+            padding-left: ($input-checkbox-width * 1.5)
+            font-weight: $form-label-ui-font-weight
+            fontSize($form-label-ui-font-size)
+            text-transform: none
+            color: $form-label-ui-font-color
             vertical-align: baseline
+            cursor: pointer
+            &::-moz-selection,
+            &::selection {
+                background: transparent
+            }
+            &:before {
+                display: inline-block
+                width: $input-checkbox-width
+                height: $input-checkbox-width
+                position: absolute
+                left: 0px
+                bottom: ((pxify($form-label-line-height) - $input-checkbox-width) / 2)
+                // margin-right: ($w * 2)
+                background-color: $input-checkbox-bg
+                border: $input-checkbox-inner-padding solid $input-checkbox-bg // is actually our inner padding
+                border-top-color: darken($input-checkbox-bg, 6%)
+                content: ""
+                box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color // is actually our border
+                single-transition(all)
+            }
+            &:hover {
+                color: $form-label-font-color-hover
+                &:before {
+                    background-color: $input-checkbox-bg-hover
+                    box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color-hover 
+                }
+            }
+        }
+        input[type="radio"] + label:before {
+            radius(1000px)
+        }
+        input[type="radio"]:checked + label,
+        input[type="checkbox"]:checked + label {
+            &:before {
+                background-color: $input-checkbox-bg-checked
+                border-top-color: $input-checkbox-bg, 10%
+                box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color-checked
+                text-align: center
+            }
+            &:hover::before {
+                background-color: $input-checkbox-bg-checked
+            }
         }
 
         /* Normalize file input width */
