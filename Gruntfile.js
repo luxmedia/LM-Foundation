@@ -40,9 +40,14 @@ module.exports = function(grunt) {
                 '<%= globalConfig.src %>/js/foundation/foundation.orbit.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.reveal.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.slider.js',
-                '<%= globalConfig.src %>/js/foundation/foundation.tab.js',
+                // '<%= globalConfig.src %>/js/foundation/foundation.tab.js', // we use accessibleTabs instead!
                 '<%= globalConfig.src %>/js/foundation/foundation.tooltip.js',
                 '<%= globalConfig.src %>/js/foundation/foundation.topbar.js'
+            ],
+            js_src_plugins: [
+                '<%= globalConfig.src %>/js/custom/plugins/custom.functions.js',
+                '<%= globalConfig.src %>/js/custom/plugins/jquery.actual.js',
+                '<%= globalConfig.src %>/js/custom/plugins/jquery.tabs.js'
             ],
             js_src_custom: ['<%= globalConfig.src %>/js/custom/*.js'],
             // js distribution folder and file
@@ -142,6 +147,7 @@ module.exports = function(grunt) {
                 files: {
                     // make shure to load foundation.js before its components !!!
                     '<%= lm_foundation.js_dist_folder %>/foundation.js': ['<%= lm_foundation.js_src_fndtn %>', '<%= lm_foundation.js_src_fndtn_components %>'],
+                    '<%= lm_foundation.js_dist_folder %>/plugins.js': '<%= lm_foundation.js_src_plugins %>',
                     '<%= lm_foundation.js_dist_folder %>/scripts.js': '<%= lm_foundation.js_src_custom %>'
                 }
             }
@@ -158,6 +164,7 @@ module.exports = function(grunt) {
                     '<%= lm_foundation.js_dist_folder %>/foundation.min.js': ['<%= lm_foundation.js_dist_folder %>/foundation.js'],
                     // 'dist/docs/assets/js/modernizr.js': ['<%= vendor %>/modernizr/modernizr.js'],
                     // 'dist/docs/assets/js/all.js': ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lm_foundation.js %>', 'doc/assets/js/docs.js']
+                    '<%= lm_foundation.js_dist_folder %>/plugins.min.js': [ '<%= lm_foundation.js_dist_folder %>/plugins.js' ],
                     '<%= lm_foundation.js_dist_file %>': [ '<%= lm_foundation.js_dist_folder %>/scripts.js' ]
                 }
             }

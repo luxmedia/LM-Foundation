@@ -10,21 +10,25 @@ $(document).foundation({
     }
 });
 
-if(jQuery) {
-    
-    $(document).ready(function(){
+$(document).ready(function(){
 
-        // LOAD EXTERNAL SVG AND CONVERT IT TO INLINE SVG
-        $('img[src*=".svg"]').each(function() {
-            var svg = $(this).attr('src');
-            var svgClass = svg.replace(/^.+\/([^\/]+).svg/g,'$1');
-            
-            $(this).load(svg, function(i) {
-                $(this).children('svg').unwrap();
-                $('svg').children('style').remove();
-            });
+    if($(".tabs").length) {
+        try {
+            $(".tabs").accessibleTabs();
+        } catch(e) {
+            debug(e);
+        }
+    }
+
+    // LOAD EXTERNAL SVG AND CONVERT IT TO INLINE SVG
+    $('img[src*=".svg"]').each(function() {
+        var svg = $(this).attr('src');
+        var svgClass = svg.replace(/^.+\/([^\/]+).svg/g,'$1');
+        
+        $(this).load(svg, function(i) {
+            $(this).children('svg').unwrap();
+            $('svg').children('style').remove();
         });
+    });
 
-    }); // EOF - DOMREADY
-
-}
+}); // EOF - DOMREADY
