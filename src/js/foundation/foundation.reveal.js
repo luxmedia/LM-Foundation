@@ -247,8 +247,17 @@
       var visible = this.settings.bg.filter(':visible').length > 0;
       if ( state != visible ) {
         if ( state == undefined ? visible : !state ) {
+
+          // LUXMEDIA MOD
+          // Blur BG
+          $('[role="main"]').removeClass('is-blurred');
+          //
           this.hide(this.settings.bg);
         } else {
+          // LUXMEDIA MOD
+          // Blur BG
+          $('[role="main"]').addClass('is-blurred');
+          //
           this.show(this.settings.bg);
         }
       }
@@ -321,6 +330,7 @@
       this.locked = false;
 
       return el.show();
+
     },
 
     hide : function (el, css) {

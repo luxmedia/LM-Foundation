@@ -58,6 +58,12 @@ expand() {
     width: 100%
 }
 
+blur-filter($radius = $global-blur-radius) {
+    if $radius {
+        filter: blur($radius)
+    }
+}
+
 // @mixins
 //
 // We use this to add transitions to elements
@@ -400,6 +406,12 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         // Note this only applies to webkit-based desktop browsers and Firefox 25 (and later) on the Mac.
         .antialiased {
             antialiased()
+        }
+
+        // Blurred out elements or bgs
+        .is-blurred {
+            single-transition(filter,$speed:500ms, $ease:ease)
+            blur-filter()
         }
 
         // Get rid of gap under images by making them display: inline-block; by default

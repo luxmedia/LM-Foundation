@@ -22,6 +22,7 @@ reveal-bg( $include-z-index-value = true ) {
     z-index: $include-z-index-value ? 'auto' : $zindex-reveal
     display: none
     {$default-float}: 0
+
 }
 
 // We use this mixin to create the structure of a reveal modal
@@ -92,7 +93,8 @@ reveal-modal-style($bg = false, $padding = false, $border = false, $border-style
     }
 
     if $border {
-        border: $border-style $border-width $border-color
+        border: $border-width $border-style $border-color
+        border-top: $border-width $border-style $reveal-border-highlight-color
     }
 
     // We can choose whether or not to include the default box-shadow.

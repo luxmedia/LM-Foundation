@@ -46,21 +46,23 @@ form-row-base() {
 //
 // We use this mixin to give all basic form elements their style
 form-element() {
-    background-color: $input-bg-color
+    display: block
+    margin: 0 0 $form-spacing 0
+    padding: ($form-spacing / 2)
+    height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
+    width: 100%
     font-family: $input-font-family
+    fontSize($input-font-size)
+    font-weight: $input-font-weight
+    color: $input-font-color
+    background-color: $input-bg-color
     border-style: $input-border-style
     border-width: $input-border-width
     border-color: $input-border-color
     border-bottom-color: $edge = lighten($input-border-color, 45%)
     border-right-color: $edge    
     box-shadow: $input-box-shadow
-    color: $input-font-color
-    display: block
-    font-size: $input-font-size
-    margin: 0 0 $form-spacing 0
-    padding: ($form-spacing / 2)
-    height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
-    width: 100%
+    
     box-sizing(border-box)
     if $input-include-glowing-effect {
         block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color)
@@ -295,9 +297,9 @@ form-select()  {
     background-repeat: no-repeat
     padding: ($form-spacing / 2)
     line-height: normal
-    font-size: $input-font-size
+    fontSize($input-font-size)
     font-family: $body-font-family
-    font-weight: $font-weight-bold
+    font-weight: $input-font-weight
     color: $input-font-color
     border-style: $input-border-style
     border-width: $input-border-width
