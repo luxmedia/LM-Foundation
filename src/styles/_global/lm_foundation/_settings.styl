@@ -678,19 +678,17 @@ $form-spacing =                             rem-calc(16)
 // style the labels in different ways
 $form-label-pointer =                       pointer
 $form-label-font-size =                     0.8rem
-$form-label-ui-font-size =                  1rem
 $form-label-font-weight =                   $font-weight-bold
 $form-label-ui-font-weight =                $font-weight-normal
 $form-label-line-height =                   1.5
 $form-label-font-color =                    $gray-dark-1
-$form-label-ui-font-color =                 $gray-dark-3
 $form-label-font-color-hover =              $charcoal-1
 $form-label-small-transform =               capitalize
 $form-label-bottom-margin =                 0
 $form-label-bottom-padding =                rem-calc(4)
 $input-font-family =                        inherit
-$input-font-color =                         rgba(0,0,0,0.75)
-$input-font-size =                          rem-calc(14)
+$input-font-color =                         $charcoal-1
+$input-font-size =                          1rem
 $input-bg-color =                           $white
 $input-focus-bg-color =                     darken($white, 2%)
 $input-border-color =                       darken($white, 20%)
@@ -698,7 +696,7 @@ $input-focus-border-color =                 darken($white, 40%)
 $input-border-style =                       solid
 $input-border-width =                       1px
 $input-border-radius =                      $global-radius
-$input-disabled-bg =                        $gray-medium-1
+$input-disabled-bg =                        transparent
 $input-disabled-cursor =                    $cursor-default-value
 $input-box-shadow =                         inset 0 1px 2px rgba(0,0,0,0.1)
 
@@ -713,6 +711,7 @@ $input-checkbox-border-color-hover =        $gray-dark-3
 $input-checkbox-border-color-checked =      $gray-dark-3
 
 // style the fieldset border and spacing.
+$fieldset-bg-color =                        $gray-lighter-3
 $fieldset-border-style =                    solid
 $fieldset-border-width =                    1px
 $fieldset-border-color =                    $gray-medium-1
@@ -721,8 +720,9 @@ $fieldset-margin =                          rem-calc(18 0)
 
 // style the legends when you use them
 $legend-bg =                                $white
+$legend-font-color =                        $gray-medium-2
 $legend-font-weight =                       $font-weight-bold
-$legend-padding =                           rem-calc(0 3)
+$legend-padding =                           rem-calc(0 5)
 
 // style the prefix and postfix input elements
 $input-prefix-bg =                          darken($white, 5%)
@@ -752,8 +752,10 @@ $glowing-effect-fade-time =                 0.45s
 $glowing-effect-color =                     $input-focus-border-color
 
 // Select variables
-$select-bg-color =                          $gray-light-1
-$select-hover-bg-color =                    $gray-light-3
+$select-bg-color =                          $white
+$select-shadow-color =                      rgba($charcoal-1,0.1)
+$select-shadow-color-hover =                rgba($charcoal-1,0.2)
+$select-hover-bg-color =                    $white
 
 
 // =========================================================================
@@ -910,7 +912,7 @@ $tabbar-height =                            rem-calc(45)
 $tabbar-icon-width =                        $tabbar-height
 $tabbar-line-height =                       $tabbar-height
 $tabbar-color =                             $white
-$tabbar-middle-padding =                    0 rem-calc(10)
+$tabbar-middle-padding =                    (0 rem-calc(10))
 
 // Off Canvas Divider Styles
 $tabbar-right-section-border =              solid 1px lighten($tabbar-bg, 13%)
@@ -924,11 +926,11 @@ $tabbar-header-margin =                     0
 
 // Off Canvas Menu Variables
 $off-canvas-width =                         rem-calc(250)
-$off-canvas-bg =                            $charcoal-1
-$off-canvas-bg-hover =                      darken($tabbar-bg, 30%)
+$off-canvas-bg =                            $tabbar-bg
+$off-canvas-bg-hover =                      darken($off-canvas-bg, 30%)
 
 // Off Canvas Menu List Variables
-$off-canvas-label-padding =                 0.3rem rem-calc(15)
+$off-canvas-label-padding =                 (0.3rem rem-calc(15))
 $off-canvas-label-color =                   $gray-dark-1
 $off-canvas-label-text-transform =          uppercase
 $off-canvas-label-font-size =               rem-calc(12)
@@ -937,10 +939,14 @@ $off-canvas-label-bg =                      $gray-darker-3
 $off-canvas-label-border-top =              1px solid lighten($gray-darker-3, 14%)
 $off-canvas-label-border-bottom =           none
 $off-canvas-label-margin =                  0
-$off-canvas-link-padding =                  rem-calc(10, 15)
-$off-canvas-link-color =                    rgba($white, 0.7)
+$off-canvas-link-padding =                  rem-calc(10)
+$off-canvas-link-color =                    $white
+$off-canvas-link-font-family =              $font-family-buttons
+$off-canvas-link-font-size =                0.9rem
+$off-canvas-link-font-weight =              $font-weight-bold
+$off-canvas-link-text-transform =           uppercase
 $off-canvas-link-border-bottom =            1px solid darken($off-canvas-bg, 25%)
-$off-canvas-back-bg =                       $gray-darker-3
+$off-canvas-back-bg =                       lighten($off-canvas-bg, 20%)
 $off-canvas-back-border-top =               $off-canvas-label-border-top
 $off-canvas-back-border-bottom =            $off-canvas-label-border-bottom
 $off-canvas-back-hover-bg =                 darken($off-canvas-back-bg, 30%)
@@ -963,14 +969,14 @@ $tabbar-hamburger-icon-thickness =          1px
 $tabbar-hamburger-icon-gap =                6px
 
 // Off Canvas Back-Link Overlay
-$off-canvas-overlay-transition =            background 300ms ease
-$off-canvas-overlay-cursor =                pointer
-$off-canvas-overlay-box-shadow =            -4px 0 4px rgba($black, 0.5), 4px 0 4px rgba($black, 0.5)
-$off-canvas-overlay-background =            rgba($white, 0.2)
+$off-canvas-overlay-transition =            true // background 300ms ease
+$off-canvas-overlay-cursor =                $cursor-pointer-value
+$off-canvas-overlay-box-shadow =            2px 0 15px rgba($black, 0.5) // -4px 0 4px rgba($black, 0.5), 4px 0 4px rgba($black, 0.5)
+$off-canvas-overlay-box-shadow-right =      -2px 0 15px rgba($black, 0.5)
+$off-canvas-overlay-background =            false // rgba($white, 0.2)
 $off-canvas-overlay-background-hover =      rgba($white, 0.05)
 
 // Transition Variables
-$menu-slide =                               "transform 500ms ease" // deprecated
 $off-canvas-transition-speed =              500ms
 
 

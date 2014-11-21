@@ -209,17 +209,20 @@ postfix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button
 
 // We use this mixin to style fieldsets
 fieldset() {
-    border: $fieldset-border-width $fieldset-border-style $fieldset-border-color
+    display: inline-block
     padding: $fieldset-padding
     margin: $fieldset-margin
+    background: $fieldset-bg-color
+    border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color,3%)
 
     // and legend styles
     legend {
-        font-weight: $legend-font-weight
-        background: $legend-bg
         padding: $legend-padding
         margin: 0
         margin-{$default-float}: -(rem-calc(3))
+        font-weight: $legend-font-weight
+        color: $legend-font-color
+        background: $legend-bg
     }
 }
 
@@ -271,8 +274,7 @@ form-error-message($bg = $input-error-message-bg-color) {
 // We use this mixin to style select elements
 form-select()  {
     -webkit-appearance: none !important
-    -webkit-border-radius: 0px
-    background-color: $select-bg-color
+    background-color: $white
 
     // Hide the dropdown arrow shown in newer IE versions
     &::-ms-expand {
@@ -281,27 +283,30 @@ form-select()  {
 
     // The custom arrow have some fake horizontal padding so we can align it
     // from the right side of the element without relying on CSS3
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+')
+    // background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+')
+    // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="6px" y="0px" width="30px" height="5px" viewBox="0 0 6 3" enable-background="new 0 0 6 3" xml:space="preserve"><polygon points="5.992,0 2.992,3 -0.008,0 "/></svg>')
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iNnB4IiB5PSIwcHgiIHdpZHRoPSIzMHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDYgMyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNiAzIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBwb2ludHM9IjUuOTkyLDAgMi45OTIsMyAtMC4wMDgsMCAiLz48L3N2Zz4=')
+    // background-size: 15%
 
     // We can safely use leftmost and rightmost now
     $bg_pos = ($text-direction == 'rtl') ? "0%" : "100%"
     background-position: unquote($bg_pos) center
 
     background-repeat: no-repeat
-    border-style: $input-border-style
-    border-width: $input-border-width
-    border-color: $input-border-color
-    border-top-color: $edge = darken($select-bg-color, 2%)
-    border-left-color: $edge
     padding: ($form-spacing / 2)
+    line-height: normal
     font-size: $input-font-size
     font-family: $body-font-family
     font-weight: $font-weight-bold
     color: $input-font-color
-    line-height: normal
-    box-shadow: 1px 1px 1px rgba($black,0.1)
+    border-style: $input-border-style
+    border-width: $input-border-width
+    border-color: $input-border-color
+    border-top-color: $edge = darken($fieldset-bg-color, 4%)
+    border-left-color: $edge
+    box-shadow: 1px 1px 1px $select-shadow-color
     cursor: $cursor-pointer-value
-    radius(0)
+    border-radius: 0
     &.radius {
         radius($global-radius)
     }
@@ -309,14 +314,21 @@ form-select()  {
         background-color: $select-hover-bg-color
         border-bottom-color: $input-focus-border-color
         border-right-color: $input-focus-border-color
-        border-top-color: $edge = darken($select-hover-bg-color, 2%)
+        border-top-color: $edge = darken($fieldset-bg-color, 7%)
         border-left-color: $edge
-        box-shadow: 1px 1px 1px rgba($black,0.2)
+        box-shadow: 1px 1px 1px $select-shadow-color-hover
     }
     // Disabled Styles
     &:disabled {
         background-color: $input-disabled-bg
+        opacity: 0.5
         cursor: $input-disabled-cursor
+        &:hover {
+            border-color: $input-border-color
+            border-top-color: $edge = darken($fieldset-bg-color, 4%)
+            border-left-color: $edge
+            box-shadow: 1px 1px 1px $select-shadow-color
+        }
     }
 }
 
@@ -521,9 +533,9 @@ html5number($browser, $on = true) {
             padding-bottom: 0
             padding-left: ($input-checkbox-width * 1.5)
             font-weight: $form-label-ui-font-weight
-            fontSize($form-label-ui-font-size)
+            fontSize($input-font-size)
             text-transform: none
-            color: $form-label-ui-font-color
+            color: $input-font-color
             vertical-align: baseline
             cursor: pointer
             &::-moz-selection,
@@ -536,7 +548,7 @@ html5number($browser, $on = true) {
                 height: $input-checkbox-width
                 position: absolute
                 left: 0px
-                bottom: ((pxify($form-label-line-height) - $input-checkbox-width) / 2)
+                bottom: ((pxify($form-label-line-height) - $input-checkbox-width) / 2) 
                 // margin-right: ($w * 2)
                 background-color: $input-checkbox-bg
                 border: $input-checkbox-inner-padding solid $input-checkbox-bg // is actually our inner padding
@@ -546,7 +558,7 @@ html5number($browser, $on = true) {
                 single-transition(all)
             }
             &:hover {
-                color: $form-label-font-color-hover
+                color: darken($input-font-color, 10%)
                 &:before {
                     background-color: $input-checkbox-bg-hover
                     box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color-hover 

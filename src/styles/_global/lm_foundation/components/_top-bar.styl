@@ -29,7 +29,7 @@ topbar-show-dropdown() {
         // This class is generated despite the value of $include-html-top-bar-classes
         // to ensure width calculations work correctly.
         meta.foundation-mq-topbar {
-            font-family: "/"+unquote($topbar-media-query)+"/"
+            font-family: ("/" + unquote($topbar-media-query) + "/")
             width: $topbar-breakpoint
         }
 
@@ -44,7 +44,7 @@ topbar-show-dropdown() {
         }
 
         // Wrapped around .top-bar to make it stick to the top
-        .fixed {
+        .top-bar__cont--fixed {
             width: 100%
             {$default-float}: 0
             position: fixed

@@ -38,17 +38,21 @@ off-canvas-menu($position) {
     overflow-y: auto
     background: $off-canvas-bg
     z-index: $zindex-off-canvas-menu
+
     box-sizing: content-box
-    transition: transform 500ms ease 0s
+
+    single-transition(transform, $speed:500ms, $ease:ease)
     -webkit-overflow-scrolling: touch
     -ms-overflow-style: -ms-autohiding-scrollbar
 
     if ($position == left) {
-        translate-3d(-100.5%,0,0)
+        // translate-3d(-100.5%,0,0)
+        translate-3d(-100%,0,0)
         left: 0
     }
     if ($position == right) {
-        translate-3d(100.5%,0,0)
+        // translate-3d(100.5%,0,0)
+        translate-3d(100%,0,0)
         right: 0
     }
 
@@ -73,7 +77,7 @@ inner-wrap() {
     kill-flicker()
     wrap-base()
     clearfix()
-    // transition: $menu-slide
+
     single-transition(transform, $speed:$off-canvas-transition-speed, $ease:ease)
 }
 
@@ -164,7 +168,7 @@ off-canvas-list() {
             padding: $off-canvas-label-padding
             color: $off-canvas-label-color
             text-transform: $off-canvas-label-text-transform
-            font-size: $off-canvas-label-font-size
+            fontSize($off-canvas-label-font-size)
             font-weight: $off-canvas-label-font-weight
             background: $off-canvas-label-bg
             border-top: $off-canvas-label-border-top
@@ -175,8 +179,12 @@ off-canvas-list() {
             display: block
             padding: $off-canvas-link-padding
             color: $off-canvas-link-color
+            fontSize($off-canvas-link-font-size)
+            font-family: $off-canvas-link-font-family
+            font-weight: $off-canvas-link-font-weight
+            text-transform: $off-canvas-link-text-transform
             border-bottom: $off-canvas-link-border-bottom
-            transition: background 300ms ease
+            single-transition(background)
             &:hover {
                 background: $off-canvas-bg-hover
             }
@@ -189,25 +197,33 @@ off-canvas-list() {
 // This is an overlay that, when clicked, will toggle off the off canvas menu
 back-link() {
     kill-flicker()
-
-    transition: $off-canvas-overlay-transition
-    cursor: $off-canvas-overlay-cursor
-    box-shadow: $off-canvas-overlay-box-shadow
-
+    
     // fill the screen
     display: block
     position: absolute
-    background: $off-canvas-overlay-background
     top: 0
     bottom: 0
     left:0
     right:0
-    z-index: 1002
+    if ($off-canvas-overlay-background) {
+        background: $off-canvas-overlay-background
+    }
+    
+    z-index: ($zindex-off-canvas-menu + 1)
+    
+    cursor: $off-canvas-overlay-cursor
+
+    if ($off-canvas-overlay-transition) {
+        single-transition(background, $ease:ease)
+    }
+
     -webkit-tap-highlight-color: rgba(0,0,0,0)
 
     @media $medium-up {
         &:hover {
-            background: $off-canvas-overlay-background-hover
+            if ($off-canvas-overlay-background) {
+                background: $off-canvas-overlay-background-hover
+            }
         }
     }
 }
@@ -283,19 +299,34 @@ back-link() {
         .move-right {
             > .inner-wrap {
                 translate-3d($off-canvas-width,0,0)
+                & > section[class*="main"] {
+                    padding-left: rem-calc(10)
+                } 
             }
             .exit-off-canvas {
                 back-link()
+            }
+            .left-off-canvas-menu {           
+                if ($off-canvas-overlay-box-shadow) {
+                    box-shadow: $off-canvas-overlay-box-shadow
+                }
             }
         }
 
         .move-left {
             > .inner-wrap {
                 translate-3d(-($off-canvas-width),0,0)
-
+                & > section[class*="main"] {
+                    padding-right: rem-calc(10)
+                }
             }
             .exit-off-canvas {
                 back-link()
+            }
+            .right-off-canvas-menu {           
+                if ($off-canvas-overlay-box-shadow) {
+                    box-shadow: $off-canvas-overlay-box-shadow-right
+                }
             }
         }
         .offcanvas-overlap {
@@ -373,7 +404,7 @@ off-canvas-submenu($position) {
         translate-3d(100%,0,0)
         right: 0
     }
-    transition: $menu-slide
+    single-transition(transform, $speed:$off-canvas-transition-speed, $ease:ease)
 
     //back button style like label
     .back > a {
