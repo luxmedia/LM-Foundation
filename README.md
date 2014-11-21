@@ -16,6 +16,8 @@ Dependencies
 - Grunt
 - Stylus
 - Jeet.gs
+- jQuery
+- Modernizr
 
 Installation
 ------------
@@ -48,3 +50,6 @@ NOTE:
 - I also removed the predefined !default variables from the ```"components/*.styl"``` files. Alle default values are stored in ```"_global/lm-foundation/_settings.styl"```. Overrides can be done in ```"custom/_settings.styl"```.
 
 - I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best coding environment for me using large displays.
+
+- We do not use foundation's tabs library. Instead we use accessibleTabs which provide a better readable HTML-Markup.
+
