@@ -4,6 +4,7 @@
 
 @require "_global"
 @require "_buttons"
+@require "_alerts"
 
 
 //
@@ -256,6 +257,9 @@ form-label-error-color($color = $alert-color) {
 // We use this mixin to create error message styles
 // $bg - Default: $alert-color (Found in settings file)
 form-error-message($bg = $input-error-message-bg-color) {
+    // Load critical alert style
+    alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
+
     display: block
     padding: $input-error-message-padding
     margin-top: $input-error-message-top
@@ -264,13 +268,13 @@ form-error-message($bg = $input-error-message-bg-color) {
     font-weight: $input-error-message-font-weight
     font-style: $input-error-message-font-style
 
-    // We can control the text color based on the brightness of the background.
-    background: $bg
-    if (light($bg) || $bg == yellow) {
-        color: $input-error-message-font-color
-    } else {
-        color: $input-error-message-font-color-alt
-    }
+    // background: $bg
+    // if (light($bg) || $bg == yellow) {
+    //     color: $input-error-message-font-color
+    // } else {
+    //     color: $input-error-message-font-color-alt
+    // }
+
 }
 
 // We use this mixin to style select elements
@@ -625,6 +629,7 @@ html5number($browser, $on = true) {
             input,
             textarea,
             select {
+                form-error-color($input-error-message-bg-color)
                 margin-bottom: 0
             }
 
@@ -635,7 +640,7 @@ html5number($browser, $on = true) {
 
             label,
             label.error {
-                form-label-error-color()
+                form-label-error-color($input-error-message-font-color)
             }
 
             small.error {
@@ -644,13 +649,13 @@ html5number($browser, $on = true) {
 
             > label {
                 > small {
-                    color: scale-color($form-label-font-color, 15%)
+                    color: lighten($form-label-font-color, 15%)
                     background: transparent
                     padding: 0
+                    margin: 0
                     text-transform: $form-label-small-transform
                     font-style: normal
-                    font-size: 60%
-                    margin: 0
+                    font-size: 0.75rem
                     display: inline
                 }
             }
