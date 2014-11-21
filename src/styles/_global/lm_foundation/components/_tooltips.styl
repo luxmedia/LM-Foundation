@@ -40,6 +40,9 @@
             width: 100%
             color: $tooltip-font-color
             background: $tooltip-bg
+            border-longhand($width:$tooltip-border-width,$color:$tooltip-border-color)
+            border-top-color: $tooltip-border-color-highlight
+            box-shadow: $tooltip-box-shadow
 
             & > .nub {
                 display: block
@@ -48,7 +51,7 @@
                 width: 0
                 height: 0
                 border: solid $tooltip-pip-size
-                border-color: transparent transparent $tooltip-bg transparent
+                border-color: transparent transparent $tooltip-border-color-highlight transparent
                 top: -($tooltip-pip-size * 2)
                 pointer-events: none
 
@@ -83,34 +86,36 @@
 
         @media $small {
             .tooltip {
-                &>.nub {
-                    border-color: transparent transparent $tooltip-bg transparent
+                & > .nub {
+                    border-color: transparent transparent $tooltip-border-color-highlight transparent
                     top: -($tooltip-pip-size * 2)
                 }
-                &.tip--top>.nub {
-                    border-color: $tooltip-bg transparent transparent transparent
-                    top: auto
-                    bottom: -($tooltip-pip-size * 2)
-                }
+                &.tip {
+                    &--top > .nub {
+                        border-color: $tooltip-border-color-highlight transparent transparent transparent
+                        top: auto
+                        bottom: -($tooltip-pip-size * 2)
+                    }
+                    
+                    &--left,
+                    &--right {
+                        float: none !important
+                    }
 
-                &.tip--left,
-                &.tip--right {
-                    float: none !important
-                }
-
-                &.tip--left>.nub {
-                    border-color: transparent transparent transparent $tooltip-bg
-                    right: -($tooltip-pip-size * 2)
-                    left: auto
-                    top: 50%
-                    margin-top: -($tooltip-pip-size)
-                }
-                &.tip--right>.nub {
-                    border-color: transparent $tooltip-bg transparent transparent
-                    right: auto
-                    left: -($tooltip-pip-size * 2)
-                    top: 50%
-                    margin-top: -($tooltip-pip-size)
+                    &--left > .nub {
+                        border-color: transparent transparent transparent $tooltip-border-color-highlight
+                        right: -($tooltip-pip-size * 2)
+                        left: auto
+                        top: 50%
+                        margin-top: -($tooltip-pip-size)
+                    }
+                    &--right > .nub {
+                        border-color: transparent $tooltip-border-color-highlight transparent transparent
+                        right: auto
+                        left: -($tooltip-pip-size * 2)
+                        top: 50%
+                        margin-top: -($tooltip-pip-size)
+                    }
                 }
 
             }

@@ -22,6 +22,7 @@ module.exports = function(grunt) {
         // CUSTOM VARIABLES
         // define our source and destination folders
         lm_foundation: {
+            js_src_vendor: ['<%= globalConfig.src %>/js/vendor/*.js'],
             // javascript source files
             // make shure to load foundation.js before its components (see concat) !!!
             js_src_fndtn: ['<%= globalConfig.src %>/js/foundation/foundation.js'],
@@ -146,6 +147,7 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     // make shure to load foundation.js before its components !!!
+                    '<%= lm_foundation.js_dist_folder %>/vendor.js': '<%= lm_foundation.js_src_vendor %>',
                     '<%= lm_foundation.js_dist_folder %>/foundation.js': ['<%= lm_foundation.js_src_fndtn %>', '<%= lm_foundation.js_src_fndtn_components %>'],
                     '<%= lm_foundation.js_dist_folder %>/plugins.js': '<%= lm_foundation.js_src_plugins %>',
                     '<%= lm_foundation.js_dist_folder %>/scripts.js': '<%= lm_foundation.js_src_custom %>'
@@ -161,6 +163,7 @@ module.exports = function(grunt) {
                     preserveComments: 'some'
                 },
                 files: {
+                    '<%= lm_foundation.js_dist_folder %>/vendor.min.js': ['<%= lm_foundation.js_dist_folder %>/vendor.js'],
                     '<%= lm_foundation.js_dist_folder %>/foundation.min.js': ['<%= lm_foundation.js_dist_folder %>/foundation.js'],
                     // 'dist/docs/assets/js/modernizr.js': ['<%= vendor %>/modernizr/modernizr.js'],
                     // 'dist/docs/assets/js/all.js': ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lm_foundation.js %>', 'doc/assets/js/docs.js']
