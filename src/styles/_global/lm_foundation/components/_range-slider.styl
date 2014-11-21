@@ -91,6 +91,20 @@ range-slider-handle() {
     range-slider-handle-style()
 }
 
+range-slider-label-base() {
+    display: inline-block
+    position: relative
+    top: -($range-slider-handle-height)
+    padding: $rang-slider-label-padding
+    line-height: $range-slider-handle-height
+    font-family: $rang-slider-label-font-family
+    fontSize($rang-slider-label-font-size)
+    font-weight: $rang-slider-label-font-weight
+    color: $rang-slider-label-color
+    background-color: $rang-slider-label-bg-color
+    border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-border-color
+
+}
 // CSS Generation
 // +exports("range-slider-bar") {
     if $include-html-range-slider-classes {
@@ -142,6 +156,14 @@ range-slider-handle() {
         .range-slider-handle {
             range-slider-handle-base()
             range-slider-handle-style($bg:true, $radius: false)
+        }
+
+        .rs-label {
+            range-slider-label-base()
+
+            $--end {
+
+            }
         }
     }
 // }
