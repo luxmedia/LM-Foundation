@@ -159,6 +159,7 @@ $last-child-float =                 $opposite-direction
 $global-radius =                    3px
 $global-rounded =                   1000px
 $global-blur-radius =               3px
+$global-ui-shadow =                 1px 1px 1px rgba($black,0.2)
 
 // inset shadow shiny edges and depressions.
 $shiny-edge-size =                  0 1px 0
@@ -493,7 +494,7 @@ $button-bg-color =                          $primary-color
 $button-bg-hover =                          darken($button-bg-color, 20%)
 $button-border-color =                      rgba($black,0.1)
 $button-border-hover-color =                rgba($black,0.1)
-$button-shadow =                            1px 1px 1px rgba($black,0.2)
+$button-shadow =                            $global-ui-shadow
 $button-hover-shadow =                      false // 1px 1px 1px rgba($black,0.25)
 
 $secondary-button-bg-hover =                darken($secondary-color, $button-function-factor)
@@ -1188,32 +1189,36 @@ $include-html-range-slider-classes =        $include-html-classes
 
 // These variables define the slider bar styles
 $range-slider-bar-width =                   100%
-$range-slider-bar-height =                  rem-calc(16)
+$range-slider-bar-height =                  rem-calc(6)
 
 $range-slider-bar-border-width =            1px
 $range-slider-bar-border-style =            solid
 $range-slider-bar-border-color =            $gray-medium-1
 $range-slider-radius =                      $global-radius
 $range-slider-round =                       $global-rounded
-$range-slider-bar-bg-color =                $gray-lighter-1
-$range-slider-active-segment-bg-color =     darken($secondary-color, 1%)
+$range-slider-bar-bg-color =                $gray-light-1
+$range-slider-active-segment-bg-color =     darken($primary-color, 20%)
+$range-slider-bar-active-border-color =     $white
 
 // Vertical bar styles
-$range-slider-vertical-bar-width =          rem-calc(16)
+$range-slider-vertical-bar-width =          $range-slider-bar-height
 $range-slider-vertical-bar-height =         rem-calc(200)
 
 // These variables define the slider handle styles
-$range-slider-handle-width =                rem-calc(32)
-$range-slider-handle-height =               rem-calc(22)
-$range-slider-handle-position-top =         -(rem-calc(5))
+$range-slider-handle-width =                ($range-slider-bar-height * 3)
+$range-slider-handle-height =               ($range-slider-bar-height * 2)
+$range-slider-handle-position-top =         ((($range-slider-handle-height - $range-slider-bar-height) / 2) + rem-calc($range-slider-bar-border-width))
+$range-slider-handle-position-left =        ((($range-slider-handle-width - $range-slider-bar-height) / 2) + rem-calc($range-slider-bar-border-width))
 $range-slider-handle-bg-color =             $primary-color
-$range-slider-handle-border-width =         1px
+$range-slider-handle-border-width =         0 1px 1px 0
 $range-slider-handle-border-style =         solid
-$range-slider-handle-border-color =         none
+$range-slider-handle-border-color =         darken($range-slider-handle-bg-color, 10%)
 $range-slider-handle-radius =               $global-radius
 $range-slider-handle-round =                $global-rounded
 $range-slider-handle-bg-hover-color =       darken($primary-color, 12%)
+$range-slider-handle-border-color-hover =   darken($range-slider-handle-bg-hover-color, 10%)
 $range-slider-handle-cursor =               $cursor-pointer-value
+$range-slider-handle-box-shadow =           $global-ui-shadow
 
 
 // =========================================================================

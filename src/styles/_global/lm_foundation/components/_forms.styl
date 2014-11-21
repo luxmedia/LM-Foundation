@@ -301,9 +301,7 @@ form-select()  {
     font-family: $body-font-family
     font-weight: $input-font-weight
     color: $input-font-color
-    border-style: $input-border-style
-    border-width: $input-border-width
-    border-color: $input-border-color
+    border-longhand($width:$input-border-width,$style:$input-border-style,$color:$input-border-color)
     border-top-color: $edge = darken($fieldset-bg-color, 4%)
     border-left-color: $edge
     box-shadow: 1px 1px 1px $select-shadow-color
@@ -325,6 +323,7 @@ form-select()  {
         background-color: $input-disabled-bg
         opacity: 0.5
         cursor: $input-disabled-cursor
+        border-style: dotted
         &:hover {
             border-color: $input-border-color
             border-top-color: $edge = darken($fieldset-bg-color, 4%)
