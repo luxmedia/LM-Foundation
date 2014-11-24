@@ -27,7 +27,8 @@
 // 13. Inline Lists
 // 14. Joyride
 // 15. Keystrokes
-// 16. Labels & badges
+// 16. a) Labels & badges
+// 16. b) Ribbons
 // 17. Magellan
 // 18. Off-canvas
 // 19. Orbit
@@ -867,7 +868,7 @@ $keystroke-radius =                         $global-radius
 
 
 // =========================================================================
-// 16. Labels & Badges
+// 16. a) Labels & Badges
 // =========================================================================
 
 $include-html-label-classes =               $include-html-classes
@@ -893,6 +894,26 @@ $badge-font-color-alt =                     $charcoal-1
 $badge-hover-color =                        $badge-font-color
 $badge-active-color =                       $charcoal-1
 $badge-active-bg =                          $badge-font-color
+
+// =========================================================================
+// 16. b) Ribbons
+// =========================================================================
+
+$ribbon-font-size =                         0.9rem
+$ribbon-font-family =                       $font-family-buttons
+$ribbon-font-weight =                       $font-weight-bold
+$ribbon-font-color =                        $white
+$ribbon-bg-color =                          $gray-base
+$ribbon-text-transform =                    uppercase
+$ribbon-padding-top =                       rem-calc(5)
+$ribbon-padding-left =                      rem-calc(7)
+$ribbon-line-height =                       1
+$ribbon-backface-dimensions =               6px
+$ribbon-flag-dimensions =                   6px
+$ribbon-flag-padding =                      ($ribbon-padding-left - rem-calc($ribbon-flag-dimensions/2))
+$ribbon-box-shadow =                        -1px 2px 10px rgba($black,0.1) // -5px 5px 10px rgba(0,0,0,0.1)
+$ribbon-box-shadow-left =                   1px 2px 10px rgba($black,0.1) // -5px 5px 10px rgba(0,0,0,0.1)
+
 
 // =========================================================================
 // 17. Magellan

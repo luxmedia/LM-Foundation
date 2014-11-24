@@ -1,0 +1,159 @@
+/*================== RIBBON =========================*/
+
+@require "_global"
+
+/*================== MIXINS =========================*/
+
+
+ribbon-base() {
+    
+    display: inline-block
+    line-height: $line-height = 1
+    position: absolute
+    top: rem-calc(10)
+    right: -($ribbon-backface-dimensions)
+    font-family: $ribbon-font-family
+    font-size: $ribbon-font-size
+    font-weight: $ribbon-font-weight
+    text-transform: $ribbon-text-transform
+    text-align: right
+    white-space: nowrap
+
+    padding: $ribbon-padding-top $ribbon-padding-left // rem-calc(30 10 30)
+    box-shadow: $ribbon-box-shadow
+
+    &:after {
+        content:""
+        display: block
+        position: absolute
+        top: (rem-calc($ribbon-line-height * $rem-base) + (2*$ribbon-padding-top) - rem-calc(1))
+        right: 0
+        width: 0
+        height: 0
+        border: 0px solid transparent
+        border-left-width: $ribbon-backface-dimensions
+        border-bottom-width: $ribbon-backface-dimensions
+        margin: 0
+        z-index: -1 // NOTE: Immediate parent container MUST have a positive z-index value (e.g. 1) to make negative z-index work!!!
+    }
+
+}
+
+ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = "normal"){
+    color: $color
+    background-color: $bg
+
+    &:after {
+        border-left-color: darken($bg, 20%)
+        border-right-color: darken($bg, 20%) // Set color if we have a .--left ribbon
+    }
+
+    if ($type == "flag") {
+        // If we have a left tip, minimize left padding so that left and right padding match optically
+        padding-left: (strip-unit($ribbon-flag-padding) > 0) ? $ribbon-flag-padding : 0
+
+        // Add tip at left side
+        &:before {
+            content: ""
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 0
+            height: 0
+            border: 0px solid transparent
+            border-top-width: $border-height = floor((($ribbon-line-height * $rem-base) / 2) + pxify($ribbon-padding-top))
+            border-right-width: $ribbon-flag-dimensions
+            margin: 0 0 0 (-(rem-calc($ribbon-flag-dimensions)))
+            border-right-color: $bg
+            border-left-color: $bg // Set color if we have a .--left ribbon
+            border-bottom-width: ($border-height - 1px) // correct minimal overlapping tip
+            
+        }
+    }
+
+}
+
+
+/*================== HTML CLASSES ===================*/
+
+// dummy for docs.html
+.columns .item {
+    width:100%
+    height:50px
+    position: relative
+    background: #efefef
+    z-index: 1
+}
+
+.ribbon {
+    // load base ribbon styles
+    ribbon-base()
+    ribbon-style()
+
+    // ribbon with tip
+    &--flag {
+        ribbon-base()
+        ribbon-style($type:"flag")
+    }
+
+    // colored ribbons
+    &--primary {
+        ribbon-style($color: $white, $bg:$primary-color )
+    }
+    &--success {
+        ribbon-style($color: $white, $bg:$success-color )
+    }
+    &--info {
+        ribbon-style($color: $white, $bg:$info-color )
+    }
+    &--warning {
+        ribbon-style($color: $warning-font-color, $bg:$warning-color )
+    }
+    &--alert {
+        ribbon-style($color: $critical-font-color, $bg:$alert-color )
+    }
+    // colored flag ribbons
+    &--flag.ribbon--primary {
+        ribbon-style($color: $white, $bg:$primary-color, $type:"flag")
+    }
+    &--flag.ribbon--success {
+        ribbon-style($color: $white, $bg:$success-color, $type:"flag")
+    }
+    &--flag.ribbon--info {
+        ribbon-style($color: $white, $bg:$info-color, $type:"flag")
+    }
+    &--flag.ribbon--warning {
+        ribbon-style($color: $warning-font-color, $bg:$warning-color, $type:"flag")
+    }
+    &--flag.ribbon--alert {
+        ribbon-style($color: $critical-font-color, $bg:$alert-color, $type:"flag")
+    }
+
+    // Left ribbon
+    &--left {
+        right: auto
+        left: -($ribbon-backface-dimensions)
+        text-align: left
+        box-shadow: $ribbon-box-shadow-left
+        &:after {
+            right: auto
+            left: 0
+            border-left-width: 0
+            border-right-width: $ribbon-backface-dimensions
+        }
+    }
+    // left flag ribbon
+    &--left.ribbon--flag {
+        padding-left: $ribbon-padding-left
+        padding-right: (strip-unit($ribbon-flag-padding) > 0) ? $ribbon-flag-padding : 0
+        &:before {
+            left: auto
+            right: 0
+            border-right-width: 0
+            border-left-width: $ribbon-flag-dimensions
+            margin: 0 (-(rem-calc($ribbon-flag-dimensions))) 0 0
+        }
+    }
+
+}
