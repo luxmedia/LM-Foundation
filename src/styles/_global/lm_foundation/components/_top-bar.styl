@@ -266,19 +266,20 @@ topbar-show-dropdown() {
                         padding-{$opposite-direction}: $topbar-link-padding
                         padding-{$default-float}: $topbar-link-padding
                         button-style($primary-color)
+                        &--secondary {
+                            button-style($bg:$secondary-color)
+                        }
+                        &--success {
+                            button-style($bg:$success-color)
+                        }
+                        &--warning {
+                            button-style($bg:$warning-color, $font-color:$warning-font-color)
+                        }
+                        &--alert {
+                            button-style($bg:$alert-color, $font-color:$critical-font-color)
+                        }
                     }
-                    &.btn--secondary {
-                        button-style($bg:$secondary-color)
-                    }
-                    &.btn--success {
-                        button-style($bg:$success-color)
-                    }
-                    &.btn--warning {
-                        button-style($bg:$warning-color, $font-color:$warning-font-color)
-                    }
-                    &.btn--alert {
-                        button-style($bg:$alert-color, $font-color:$critical-font-color)
-                    }
+                    
                 }
 
             & > button {
@@ -512,8 +513,11 @@ topbar-show-dropdown() {
                     }
                 }
                 // Second Level
+                &:not(.has-form) li,
+                &.is-active:not(.has-form) li,
                 li {
-                    a {
+                    a,
+                    a:not(.btn) {
                         line-height: 1.4rem
                         padding-bottom: 0.35rem
                         padding-top: 0.35rem
