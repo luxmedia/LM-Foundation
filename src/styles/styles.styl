@@ -1,11 +1,12 @@
 @charset "UTF-8"
 
+$base-path = "../../node_modules"
 // NORMALIZATION
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 @import "_global/normalize"
 
 // GRID SYSTEM: jeet.gs
-@import "../../node_modules/jeet/stylus/jeet/index"
+@import ($base-path+"/jeet/stylus/jeet/index")
 
 // BASIC SETTINGS OF FRAMEWORK: LM-Foundation
 @import "_global/lm_foundation/_settings"

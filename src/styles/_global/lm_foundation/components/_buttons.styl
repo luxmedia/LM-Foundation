@@ -40,7 +40,19 @@ button-base($style = true, $display = $button-display) {
             if $button-hover-shadow {
                 box-shadow: $button-hover-shadow
             }
-        }      
+        }
+        
+        // SVGs inside buttons
+        background-position: right center
+        background-repeat: no-repeat
+        svg {
+            position: relative
+            width: $w = (rem-calc(strip-unit($base-line-height/100) * $rem-base) + $button-svg-padding)
+            height: $h = ($w - $button-svg-padding - 0.1)
+            top: ($h/4)
+            margin-right: -($w)
+        }
+
     }
     if $display {
         display: $display
@@ -48,13 +60,16 @@ button-base($style = true, $display = $button-display) {
 }
 
 // Flat Button style
-button-flat(){
+button-flat($font-color = $gray-base){
+    background-color: transparent
     border: none
     box-shadow: none
+    color: $font-color
     &:hover,
     &:focus {
         box-shadow: none
     }
+
 }
 
 // @MIXIN
@@ -77,12 +92,23 @@ button-size($padding = $button-med, $full-width = false) {
         // We control the font-size based on mixin input.
         if ($padding == $button-med) {
             fontSize($button-font-med)
+            background-size: ($button-font-med + $button-svg-scale-correction)
+            // svg {
+            //     width: $w = ($button-font-med + $button-svg-padding)
+            //     height: $h = ($w - $button-svg-padding - 0.1)
+            //     top: ($h/4)
+            //     margin-right: -($w)
+            // }
         } else if ($padding == $button-tny) {
             fontSize($button-font-tny)
+            background-size: ($button-font-tny + $button-svg-scale-correction)
         } else if ($padding == $button-sml) {
             fontSize($button-font-sml)
+            background-size: ($button-font-sml + $button-svg-scale-correction)
         } else if ($padding == $button-lrg) {
             fontSize($button-font-lrg)
+            background-size: ($button-font-lrg + $button-svg-scale-correction)
+
         }
     }
 
@@ -145,7 +171,7 @@ button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hov
         &:hover,
         &:focus {
             if ($font-color == $button-font-color) {
-                color: (lightness($bg) < 75%) ? $font-color : darken($button-font-color-alt, $button-function-factor)
+                color: $col = (lightness($bg) < 75%) ? $font-color : darken($button-font-color-alt, $button-function-factor)
             } else {
                 color: darken($font-color, $button-function-factor)
             }
@@ -290,6 +316,7 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
                     button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color) 
                 }
             }
+
         }
 
         //firefox 2px fix

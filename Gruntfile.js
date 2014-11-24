@@ -22,6 +22,7 @@ module.exports = function(grunt) {
         // CUSTOM VARIABLES
         // define our source and destination folders
         lm_foundation: {
+            stylus_plugins: ['svg-stylus'],
             js_src_vendor: ['<%= globalConfig.src %>/js/vendor/*.js'],
             // javascript source files
             // make shure to load foundation.js before its components (see concat) !!!
@@ -82,8 +83,8 @@ module.exports = function(grunt) {
                         name: 'url',
                         paths: [__dirname + '/<%= globalConfig.src  %>'],
                         limit: 1000000
-                    }
-                    
+                    },
+                    use: [require('svg-stylus')]
                 },
                 files: [{
                     expand: true,
@@ -128,6 +129,12 @@ module.exports = function(grunt) {
                 files: {
                     '<%= lm_foundation.svg_dist_file %>': '<%= lm_foundation.svg_src %>'
                 }
+            }
+        },
+
+        svgstylus: {
+            build: {
+                src: [ 'build' ]
             }
         },
 

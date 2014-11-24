@@ -167,6 +167,11 @@ $shiny-edge-size =                  0 1px 0
 $shiny-edge-color =                 rgba($white, .5)
 $shiny-edge-active-color =          rgba($black, .2)
 
+// SVGs
+$svg-stroke-width =                 6 // Stroke width for linea svgs
+$svg-linea-icons-base-dimensions =  (svg width 64px height 32px) // make width bigger to get pseudo horizontal padding for better alignment
+$svg-linea-icons-base-params =      (polyline stroke-width $svg-stroke-width) // param for stroke width
+
 // =========================================================================
 //== d. Breakpoints for media queries
 // =========================================================================
@@ -516,6 +521,9 @@ $button-round =                             $global-rounded
 // set default opacity and cursor for disabled buttons.
 $button-disabled-opacity =                  0.7
 $button-disabled-cursor =                   $cursor-default-value
+
+$button-svg-padding =                       0.6rem
+$button-svg-scale-correction =              0.2rem // is added to background-size value to make bg-icons a bit bigger
 
 
 // =========================================================================
@@ -1545,7 +1553,7 @@ $thumb-transition-speed =                   200ms
 $include-html-tooltip-classes =             $include-html-classes
 
 $has-tip-border-bottom =                    dotted 1px $gray-medium-2
-$has-tip-font-weight =                      $font-weight-bold
+$has-tip-font-weight =                      inherit // $font-weight-bold
 $has-tip-font-color =                       $body-font-color
 $has-tip-font-color-hover =                 $primary-color
 $has-tip-border-bottom-hover =              dotted 1px $has-tip-font-color-hover
