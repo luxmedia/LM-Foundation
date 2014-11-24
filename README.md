@@ -39,6 +39,7 @@ npm install grunt-contrib-jshint
 npm install grunt-contrib-stylus
 npm install grunt-contrib-uglify
 npm install grunt-contrib-watch
+npm install svg-stylus
 ```
 
 NOTE:
