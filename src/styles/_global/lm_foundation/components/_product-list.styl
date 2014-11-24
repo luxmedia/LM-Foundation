@@ -5,7 +5,9 @@ $product-list-item-height =                     290px
 $product-list-item-padding =                    rem-calc(10)
 $product-list-item-bg =                         $gray-light-1
 $product-list-item-bg-hover =                   $white
-$product-list-item-border =                     2px solid transparent
+$product-list-item-border-width =               2px 0
+$product-list-item-border-style =               solid
+$product-list-item-border-color =               transparent
 $product-list-item-border-hover-color =         $primary-color
 $product-list-item-box-shadow-hover =           0 0 10px rgba($black, 0.2)
 $product-list-img-bg =                          $white
@@ -57,7 +59,7 @@ $product-list-button-size =                     rem-calc(22) // needed for conta
             padding: $product-list-item-padding
             background-color: $product-list-item-bg
             if ($product-list-item-border) {
-                border: $product-list-item-border
+                border-longhand($width:$product-list-item-border-width,$style:$product-list-item-border-style,$color:$product-list-item-border-color)
             }
             col(1/4, $cycle:4)
             z-index: 1
