@@ -78,6 +78,10 @@ $include-html-classes =             true
 $include-print-styles =             true
 $include-html-global-classes =      $include-html-classes
 
+$base-path-src =                    "./src"
+$base-path-svg =                    $base-path-src+'/svg'
+$base-path-dist =                   "./dist"
+
 
 // =========================================================================
 // b. Grid
@@ -168,9 +172,14 @@ $shiny-edge-color =                 rgba($white, .5)
 $shiny-edge-active-color =          rgba($black, .2)
 
 // SVGs
-$svg-stroke-width =                 6 // Stroke width for linea svgs
-$svg-linea-icons-base-dimensions =  (svg width 64px height 32px) // make width bigger to get pseudo horizontal padding for better alignment
-$svg-linea-icons-base-params =      (polyline stroke-width $svg-stroke-width) // param for stroke width
+$svg-stroke-width-tiny =            6 // Stroke width for linea svgs
+$svg-stroke-width-small =           5
+$svg-stroke-width-medium =          4
+$svg-stroke-width-large =           3
+$svg-icons-base-size =              rem-calc(32px) // make width bigger to get pseudo horizontal padding for better alignment
+$svg-scale-factor-uni =             0.2 // rem-based - is added to background-size value to make bg-icons a bit bigger
+$svg-scale-factor-x =               2 // we multiply the svg width with this factor to get a pseudo padding for better icon alignment
+$svg-scale-factor-y =               1 // we multiply the svg height with this factor to get a pseudo padding for better icon alignment
 
 // =========================================================================
 //== d. Breakpoints for media queries

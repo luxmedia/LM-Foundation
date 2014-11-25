@@ -51,6 +51,9 @@ inset-shadow($active = true) {
     }
 }
 
+// @mixins
+//
+// Make item full width
 expand() {
     display: block
     padding-left: 0
@@ -58,17 +61,45 @@ expand() {
     width: 100%
 }
 
+// @mixins
+//
+// CSS Blur filter
 blur-filter($radius = $global-blur-radius) {
     if $radius {
         filter: blur($radius)
     }
 }
 
+// @mixins
+//
+// Border parameters
 border-longhand($width = 0, $style = solid, $color = transparent) {
     border-width: $width
     border-style: $style
     border-color: $color
 }
+
+// @mixins
+//
+// SVG backgrounds based on "svg-stylus" plugin
+svg-background($path = $base-path-svg, $file = false, $properties = false, $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni) {
+    if ($file) {
+        $path-to-file = ($path+'/'+$file)
+        if ($properties) {
+            background-image svgurl($path-to-file) svg($properties)
+        } else {
+            background-image svgurl($path-to-file) svg(path fill $fill, polyline stroke $stroke, polyline stroke-width $stroke-width)
+            &:hover {
+                background-image svgurl($path-to-file) svg(path fill $fill-hover, polyline stroke $stroke-hover, polyline stroke-width $stroke-width)
+            }
+        }
+    }
+    if ($size) {
+        $size = remify($size)
+        background-size: ($size*$scale-x + $scale-uni) ($size*$scale-y + $scale-uni)
+    }
+}
+
 
 // @mixins
 //

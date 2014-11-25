@@ -231,7 +231,8 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: '<%= globalConfig.src  %>',
-                        src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
+                        // src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
+                        src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade' ],
                         dest: '<%= globalConfig.dest %>',
                         flatten: false,
                         filter: 'isFile'
@@ -312,7 +313,8 @@ module.exports = function(grunt) {
     grunt.registerTask(
         'build',
         'Compiles all of the assets and copies the files to the build directory.',
-        [ 'clean:build', 'copy', 'stylesheets', 'scripts', 'svgstore', 'jade', 'cleanempty' ]
+        // [ 'clean:build', 'copy', 'stylesheets', 'scripts', 'svgstore', 'jade', 'cleanempty' ]
+        [ 'clean:build', 'copy', 'stylesheets', 'scripts', 'cleanempty' ]
     );
 
     grunt.registerTask(

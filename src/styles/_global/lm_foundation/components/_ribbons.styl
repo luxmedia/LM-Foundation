@@ -74,6 +74,19 @@ ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = "norma
 
 }
 
+ribbon-left() {
+    right: auto
+    left: -($ribbon-backface-dimensions)
+    text-align: left
+    box-shadow: $ribbon-box-shadow-left
+    &:after {
+        right: auto
+        left: 0
+        border-left-width: 0
+        border-right-width: $ribbon-backface-dimensions
+    }
+}
+
 
 /*================== HTML CLASSES ===================*/
 
@@ -123,16 +136,7 @@ ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = "norma
 
     // Left ribbon
     &--left {
-        right: auto
-        left: -($ribbon-backface-dimensions)
-        text-align: left
-        box-shadow: $ribbon-box-shadow-left
-        &:after {
-            right: auto
-            left: 0
-            border-left-width: 0
-            border-right-width: $ribbon-backface-dimensions
-        }
+        ribbon-left()
     }
     // left flag ribbon
     &--left.ribbon--flag {

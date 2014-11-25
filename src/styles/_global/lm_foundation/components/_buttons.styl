@@ -67,7 +67,7 @@ button-flat($font-color = $gray-base){
     color: $font-color
     &:hover,
     &:focus {
-        box-shadow: none
+        // box-shadow: none
     }
 
 }
@@ -92,22 +92,16 @@ button-size($padding = $button-med, $full-width = false) {
         // We control the font-size based on mixin input.
         if ($padding == $button-med) {
             fontSize($button-font-med)
-            background-size: ($button-font-med + $button-svg-scale-correction)
-            // svg {
-            //     width: $w = ($button-font-med + $button-svg-padding)
-            //     height: $h = ($w - $button-svg-padding - 0.1)
-            //     top: ($h/4)
-            //     margin-right: -($w)
-            // }
+            svg-background($size:$button-font-med)
         } else if ($padding == $button-tny) {
             fontSize($button-font-tny)
-            background-size: ($button-font-tny + $button-svg-scale-correction)
+            svg-background($size:$button-font-tny)
         } else if ($padding == $button-sml) {
             fontSize($button-font-sml)
-            background-size: ($button-font-sml + $button-svg-scale-correction)
+            svg-background($size:$button-font-sml)
         } else if ($padding == $button-lrg) {
             fontSize($button-font-lrg)
-            background-size: ($button-font-lrg + $button-svg-scale-correction)
+            svg-background($size:$button-font-lrg)
 
         }
     }
