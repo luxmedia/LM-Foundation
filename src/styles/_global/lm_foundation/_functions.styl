@@ -114,7 +114,7 @@ strip-unit($num) {
 /* ========================================================================= */
 text-inputs( $types = all, $selector = "input" ) {
     $return = ()
-    $all-text-input-types = ("text" "password" "date" "datetime" "datetime-local" "month" "week" "email" "number" "search" "tel" "time" "url" "color" "textarea")
+    $all-text-input-types = ("text" "search" "password" "date" "datetime" "datetime-local" "month" "week" "email" "number" "tel" "time" "url" "color" "textarea")
 
     if ($types == all) {
         $types = $all-text-input-types
@@ -190,7 +190,7 @@ rem-calc($values, $base-value = $rem-base) {
     }
 
     $remValues = ()
-    for $i in 1..$max {
+    for $i in 0..$max {
         // push($remValues, convert-to-rem($values[$i], $base-value))
         push($remValues, remify($values[$i],true))
     }

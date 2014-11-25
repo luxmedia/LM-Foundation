@@ -96,6 +96,12 @@ $row-width =                        rem-calc(1000)
 $total-columns =                    12
 $column-gutter =                    rem-calc(30)
 
+// =========================================================================
+// GRID system (based on jeet.gs)
+// =========================================================================
+// jeet overrides - requires jeet to be imported before!
+jeet.gutter =                       2
+jeet.max-width =                    $row-width // rem-calc(1170)
 
 // =========================================================================
 // c. Global
@@ -445,7 +451,7 @@ $include-html-nav-classes =                 $include-html-classes
 $crumb-bg =                                 lighten($secondary-color, 55%)
 
 // set the padding around the breadcrumbs.
-$crumb-padding =                            rem-calc(9 14 9)
+$crumb-padding =                            rem-calc(9 14)
 $crumb-side-padding =                       rem-calc(6) // rem-calc(12)
 
 // border styles.
@@ -618,7 +624,7 @@ $f-dropdown-triangle-side-offset =          10px
 $f-dropdown-list-style =                    none
 $f-dropdown-font-color =                    $gray-darker-2
 $f-dropdown-font-size =                     rem-calc(14)
-$f-dropdown-list-padding =                  rem-calc(5, 10)
+$f-dropdown-list-padding =                  rem-calc(5 10)
 $f-dropdown-line-height =                   rem-calc(18)
 $f-dropdown-list-hover-bg =                 $gray-light-3  
 $dropdown-mobile-default-float =            0
@@ -760,7 +766,7 @@ $input-prefix-font-color-alt =              $white
 $input-number-spinners =                    true
 
 // style the error states for inputs and labels
-$input-error-message-padding =              rem-calc(6 9 9)
+$input-error-message-padding =              rem-calc(6 9)
 $input-error-message-top =                  -1px
 $input-error-message-font-size =            rem-calc(12)
 $input-error-message-font-weight =          $font-weight-normal
@@ -811,7 +817,7 @@ $include-html-inline-list-classes =         $include-html-classes
 $inline-list-top-margin =                   0
 $inline-list-opposite-margin =              0
 $inline-list-bottom-margin =                rem-calc(17)
-$inline-list-default-float-margin =         rem-calc(-22)
+$inline-list-default-float-margin =         -(rem-calc(22))
 $inline-list-default-float-list-margin =    rem-calc(22)
 
 $inline-list-padding =                      0
@@ -893,7 +899,7 @@ $keystroke-radius =                         $global-radius
 $include-html-label-classes =               $include-html-classes
 
 // style the labels
-$label-padding =                            rem-calc(8 5 8)
+$label-padding =                            rem-calc(5 8)
 $label-radius =                             $global-radius
 
 // style the label text
@@ -904,7 +910,7 @@ $label-font-color =                         $charcoal-1
 $label-font-color-alt =                     $white
 $label-font-family =                        $font-family-headings
 
-$badge-padding =                            rem-calc(5 3 5)
+$badge-padding =                            rem-calc(3 5)
 $badge-radius =                             $global-radius
 $badge-font-sizing =                        0.75
 $badge-font-weight =                        $font-weight-bold
@@ -1086,7 +1092,7 @@ $pagination-li-font-size =                  1rem // rem-calc(14)
 $pagination-li-margin =                     0 // rem-calc(1)
 
 // We use these for the pagination anchor links
-$pagination-link-pad =                      rem-calc(10 4 10)
+$pagination-link-pad =                      rem-calc(4 10)
 $pagination-link-font-color =               $gray-dark-1
 $pagination-link-bg =                       none // rgba($black,0.1)
 $pagination-font-size =                     1rem
@@ -1260,7 +1266,7 @@ $range-slider-handle-border-color-hover =   darken($range-slider-handle-bg-hover
 $range-slider-handle-cursor =               $cursor-pointer-value
 $range-slider-handle-box-shadow =           $global-ui-shadow
 
-$rang-slider-label-padding =                rem-calc(0 5)
+$rang-slider-label-padding =                rem-calc(5 0)
 $rang-slider-label-font-family =            $font-family-buttons
 $rang-slider-label-font-size =              0.9rem
 $rang-slider-label-font-weight =            $font-weight-normal
@@ -1358,32 +1364,32 @@ $split-button-pip-color-alt =               $charcoal-1
 $split-button-active-bg-tint =              rgba(0,0,0,0.1)
 
 // tiny split buttons
-$split-button-padding-tny =                 $button-pip-tny * 10
-$split-button-span-width-tny =              $button-pip-tny * 6
-$split-button-pip-size-tny =                $button-pip-tny
-$split-button-pip-top-tny =                 $button-pip-tny * 2
-$split-button-pip-default-float-tny =       rem-calc(-6)
+$split-button-padding-tny =                 ($button-pip-tny * 10)
+$split-button-span-width-tny =              ($button-pip-tny * 6)
+$split-button-pip-size-tny =                ($button-pip-tny)
+$split-button-pip-top-tny =                 ($button-pip-tny * 2)
+$split-button-pip-default-float-tny =       -(rem-calc(6))
 
 // small split buttons
-$split-button-padding-sml =                 $button-pip-sml * 10
-$split-button-span-width-sml =              $button-pip-sml * 6
-$split-button-pip-size-sml =                $button-pip-sml
-$split-button-pip-top-sml =                 $button-pip-sml * 1.5
-$split-button-pip-default-float-sml =       rem-calc(-6)
+$split-button-padding-sml =                 ($button-pip-sml * 10)
+$split-button-span-width-sml =              ($button-pip-sml * 6)
+$split-button-pip-size-sml =                ($button-pip-sml)
+$split-button-pip-top-sml =                 ($button-pip-sml * 1.5)
+$split-button-pip-default-float-sml =       -(rem-calc(6))
 
 // medium split buttons
-$split-button-padding-med =                 $button-pip-med * 9
-$split-button-span-width-med =              $button-pip-med * 5.5
-$split-button-pip-size-med =                $button-pip-med - rem-calc(3)
-$split-button-pip-top-med =                 $button-pip-med * 1.5
+$split-button-padding-med =                 ($button-pip-med * 9)
+$split-button-span-width-med =              ($button-pip-med * 5.5)
+$split-button-pip-size-med =                ($button-pip-med - rem-calc(3))
+$split-button-pip-top-med =                 ($button-pip-med * 1.5)
 $split-button-pip-default-float-med =       rem-calc(-6)
 
 // large split buttons
-$split-button-padding-lrg =                 $button-pip-lrg * 8
-$split-button-span-width-lrg =              $button-pip-lrg * 5
-$split-button-pip-size-lrg =                $button-pip-lrg - rem-calc(6)
-$split-button-pip-top-lrg =                 $button-pip-lrg + rem-calc(5)
-$split-button-pip-default-float-lrg =       rem-calc(-6)
+$split-button-padding-lrg =                 ($button-pip-lrg * 8)
+$split-button-span-width-lrg =              ($button-pip-lrg * 5)
+$split-button-pip-size-lrg =                ($button-pip-lrg - rem-calc(6))
+$split-button-pip-top-lrg =                 ($button-pip-lrg + rem-calc(5))
+$split-button-pip-default-float-lrg =       -(rem-calc(6))
 
 
 // =========================================================================
@@ -1482,7 +1488,7 @@ $table-head-bg =                            $table-bg
 $table-head-font-size =                     0.8rem // rem-calc(14)
 $table-head-font-color =                    $gray-dark-1
 $table-head-font-weight =                   $font-weight-bold
-$table-head-padding =                       rem-calc(8 10 10)
+$table-head-padding =                       rem-calc(8 10)
 $table-head-text-transform =                uppercase
 $table-head-border =                        1px solid $table-border-color
 
@@ -1605,8 +1611,10 @@ $topbar-height =                            45px
 $topbar-margin-bottom =                     0
 
 // Controlling the styles for the title in the top bar
-$topbar-title-weight =                      $font-weight-normal
-$topbar-title-font-size =                   1rem // rem-calc(17)
+$topbar-logo-weight =                       $font-weight-normal
+$topbar-logo-font-size =                    1rem // rem-calc(17)
+$topbar-logo-bg =                           $primary-color
+$topbar-logo-bg-hover =                     darken($primary-color, 10%)
 
 $topbar-link-hover-lightness =              15% // -10% !default
 
@@ -1638,8 +1646,16 @@ $topbar-link-padding =                      ($topbar-height / 3)
 $topbar-back-link-size =                    $h5-font-size
 $topbar-link-dropdown-padding =             20px
 
+$topbar-site-search-padding =               rem-calc(0 7)
+$topbar-site-search-font-size =             1rem
+$topbar-site-search-font-color =            $black
+$topbar-site-search-text-transform =        lowercase
+$topbar-button-top =                        rem-calc(7)
+$topbar-button-font-size =                  1rem // rem-calc(14)
+$topbar-input-height =                      (rem-calc($topbar-height) - (2*$topbar-button-top))
+$topbar-input-border-width =                false // 1px 0 0 1px
+$topbar-input-border-color =                darken($topbar-bg, 20%)
 $topbar-button-font-size =                  0.8rem
-$topbar-button-top =                        7px
 
 $topbar-dropdown-label-color =              $gray-dark-3
 $topbar-dropdown-label-text-transform =     uppercase

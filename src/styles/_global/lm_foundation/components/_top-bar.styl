@@ -44,28 +44,32 @@ topbar-show-dropdown() {
         }
 
         // Wrapped around .top-bar to make it stick to the top
-        .top-bar__cont--fixed {
-            width: 100%
-            {$default-float}: 0
-            position: fixed
-            top: 0
-            z-index: $zindex-topbar
+        .top-bar__cont {
+            background-color: $topbar-bg
 
-            &.expanded:not(.top-bar) {
-                overflow-y: auto
-                height: auto
+            &--fixed {
                 width: 100%
-                max-height: 100%
+                {$default-float}: 0
+                position: fixed
+                top: 0
+                z-index: $zindex-topbar
 
-                .title-area {
-                    position: fixed
+                &.expanded:not(.top-bar) {
+                    overflow-y: auto
+                    height: auto
                     width: 100%
-                    z-index: $zindex-topbar
-                }
-                // Ensure you can scroll the menu on small screens
-                .top-bar-section {
-                    z-index: ($zindex-topbar - 1)
-                    margin-top: $topbar-height
+                    max-height: 100%
+
+                    .logo-wrap {
+                        position: fixed
+                        width: 100%
+                        z-index: $zindex-topbar
+                    }
+                    // Ensure you can scroll the menu on small screens
+                    .top-bar-section {
+                        z-index: ($zindex-topbar - 1)
+                        margin-top: $topbar-height
+                    }
                 }
             }
         }
@@ -96,14 +100,18 @@ topbar-show-dropdown() {
             input,
             input[type="text"],
             input[type="search"] { 
-                height: 2rem 
+                height: $topbar-input-height
                 padding-top: $ptop = (.35rem + rem-calc(1))
                 padding-bottom: $ptop
                 fontSize($topbar-button-font-size)
-                border-color: darken($topbar-bg, 20%)
-                border-width: 1px 0 0 1px
+                if ($topbar-input-border-width) {
+                    border-color: $topbar-input-border-color
+                    border-width: $topbar-input-border-width
+                } else {
+                    border: none
+                }
                 box-shadow: none
-                box-sizing:border-box
+                box-sizing: border-box
             }
 
             .btn,
@@ -113,8 +121,6 @@ topbar-show-dropdown() {
                 margin-bottom: 0
                 fontSize($topbar-button-font-size)
                 border-color: darken($topbar-bg, 20%)
-                // position: relative
-                // top: -1px
 
                 // Corrects a slight misalignment when put next to an input field
                 @media $small-only {
@@ -124,27 +130,58 @@ topbar-show-dropdown() {
             }
 
             // Title Area
-            .title-area {
+            .logo-wrap {
                 position: relative
                 margin: 0
             }
 
-            .name {
+            .logo {
+                background-color: $topbar-logo-bg
                 height: $topbar-height
                 margin: 0
                 font-size: $rem-base
 
                 h1, h2, h3, h4, p, span {
                     line-height: $topbar-height
-                    font-size: $topbar-title-font-size
+                    font-size: $topbar-logo-font-size
                     margin: 0
                     a {
-                        font-weight: $topbar-title-weight
+                        font-weight: $topbar-logo-weight
                         color: $topbar-link-color
                         width: 75%
                         display: block
                         padding: 0 $topbar-link-padding
+                        &:hover {
+                            background-color: $topbar-logo-bg-hover
+                        }
                     }
+                }
+            }
+
+            // search form in top-bar
+            .site-search {
+                padding: $topbar-site-search-padding
+                @media $small-up {
+                    col(1/4, gutter:0)
+                }
+                input[type="text"],
+                input[type="search"] {
+                    col(4/5, gutter:0)
+                    fontSize($topbar-site-search-font-size)
+                    color: $topbar-site-search-font-color
+                    text-transform: $topbar-site-search-text-transform
+                }
+                .btn,
+                button {
+                    col(1/5, gutter:0)
+                    font-size: 0
+                    text-indent: -9999em
+                    background-color: $input-bg-color
+                    border-left: 1px solid darken($input-bg-color,10%)
+                    &:hover {
+                        background-color: darken($input-bg-color,10%)
+                    }
+                    svg-background($file:'basic_magnifier.svg', $stroke:$gray-base, $stroke-hover:$primary-color, $stroke-width:$svg-stroke-width-tiny, $position-x:center)
                 }
             }
 
@@ -205,8 +242,8 @@ topbar-show-dropdown() {
                 height: auto
                 background-color: transparent
 
-                .title-area {
-                    background-color: $topbar-bg
+                .logo-wrap {
+                    background-color: $topbar-logo-bg
                 }
 
                 .toggle-topbar {
@@ -435,19 +472,23 @@ topbar-show-dropdown() {
                 display: none
             }
 
-            .title-area {
+            .logo-wrap {
                 float: $default-float
             }
-            .name h1 a {
+            .logo h1 a {
                 width: auto
             }
 
             input,
             button,
             .btn {
-                font-size: rem-calc(14)
+                fontSize($topbar-button-font-size)
                 position: relative
                 top: $topbar-button-top
+                height: $topbar-input-height
+                line-height: $topbar-input-height
+                padding-top: 0
+                padding-bottom: 0
             }
 
             &.expanded {

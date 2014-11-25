@@ -417,14 +417,14 @@ html5number($browser, $on = true) {
         }
 
         /* We use this to get basic styling on all basic form elements */
-        {text-inputs(all, 'input')} {
+        {unquote(join(', ', text-inputs(all, 'input')))} {
             -webkit-appearance: none
             -webkit-border-radius: 0px
             form-element()
             if ($input-include-glowing-effect == false) {
                 single-transition(all, 0.15s, linear)
             }
-            &.radius {
+            &--radius {
                 radius($input-border-radius)
             }
         }
