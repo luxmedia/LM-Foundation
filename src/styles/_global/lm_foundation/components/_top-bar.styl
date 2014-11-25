@@ -36,7 +36,7 @@ topbar-show-dropdown() {
         /* Wrapped around .top-bar to contain to grid width */
         .contain-to-grid {
             width: 100%
-            background: $topbar-bg
+            background-color: $topbar-bg
 
             .top-bar {
                 margin-bottom: $topbar-margin-bottom
@@ -75,7 +75,7 @@ topbar-show-dropdown() {
             height: $topbar-height
             line-height: $topbar-height
             position: relative
-            background: $topbar-bg
+            background-color: $topbar-bg
             margin-bottom: $topbar-margin-bottom
 
             // Topbar Global list Styles
@@ -203,10 +203,10 @@ topbar-show-dropdown() {
             // Change things up when the top-bar is expanded
             &.expanded {
                 height: auto
-                background: transparent
+                background-color: transparent
 
                 .title-area {
-                    background: $topbar-bg
+                    background-color: $topbar-bg
                 }
 
                 .toggle-topbar {
@@ -247,7 +247,7 @@ topbar-show-dropdown() {
             }
 
             ul li {
-                background: $topbar-dropdown-bg
+                background-color: $topbar-dropdown-bg
                 & > a {
                     display: block
                     width: 100%
@@ -306,7 +306,7 @@ topbar-show-dropdown() {
             &:hover:not(.has-form) > a {
                 
                 if ($topbar-link-bg-hover) {
-                    background: $topbar-link-bg-hover
+                    background-color: $topbar-link-bg-hover
                 } else {
                     background-color: $topbar-link-bg-color-hover
                 }
@@ -316,10 +316,10 @@ topbar-show-dropdown() {
 
             // Apply the active link color when it has that class
             &.is-active > a {
-                background: $topbar-link-bg-active
+                background-color: $topbar-link-bg-active
                 color: $topbar-link-color-active
                 &:hover {
-                    background: $topbar-link-bg-active-hover
+                    background-color: $topbar-link-bg-active-hover
                     color: $topbar-link-color-active-hover
                 }
             }
@@ -335,16 +335,19 @@ topbar-show-dropdown() {
             position: relative
 
             & > a {
-                &:after {
-                    if ($topbar-arrows){
-                        css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
-                    }
-                    margin-{$opposite-direction}: $topbar-link-padding
-                    margin-top: -($topbar-dropdown-toggle-size / 2) - 2
-                    position: absolute
-                    top: 50%
-                    {$opposite-direction}: 0
+                if ($topbar-arrows){
+                    svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
                 }
+                // &:after {
+                //     if ($topbar-arrows){
+                //         css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
+                //     }
+                //     margin-{$opposite-direction}: $topbar-link-padding
+                //     margin-top: -($topbar-dropdown-toggle-size / 2) - 2
+                //     position: absolute
+                //     top: 50%
+                //     {$opposite-direction}: 0
+                // }
             }
 
             &.moved {
@@ -392,7 +395,7 @@ topbar-show-dropdown() {
                         // line-height: $topbar-height / 2
                         display: block
                         &:hover {
-                            background:none
+                            background-color: transparent
                         }
                     }
                 }
@@ -424,7 +427,7 @@ topbar-show-dropdown() {
     // Top Bar styles intended for screen sizes above the breakpoint.
     @media $topbar-media-query {
         .top-bar {
-            background: $topbar-bg
+            background-color: $topbar-bg
             clearfix()
             overflow: visible
 
@@ -448,7 +451,7 @@ topbar-show-dropdown() {
             }
 
             &.expanded {
-                background: $topbar-bg
+                background-color: $topbar-bg
             }
         }
 
@@ -479,7 +482,7 @@ topbar-show-dropdown() {
                 &.hover {
                     > a:not(.btn) {
                         if ($topbar-link-bg-hover) {
-                            background: $topbar-link-bg-hover
+                            background-color: $topbar-link-bg-hover
                         } else {
                             background-color: $topbar-link-bg-color-hover
                         }
@@ -490,10 +493,10 @@ topbar-show-dropdown() {
                     a:not(.btn) {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
-                        background: $topbar-link-bg
+                        background-color: $topbar-link-bg
                         &:hover {
                             if ($topbar-link-bg-hover) {
-                                background: $topbar-link-bg-hover
+                                background-color: $topbar-link-bg-hover
                             } else {
                                 background-color: $topbar-link-bg-color-hover
                             }
@@ -505,9 +508,9 @@ topbar-show-dropdown() {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
                         color: $topbar-link-color-active
-                        background: $topbar-link-bg-active
+                        background-color: $topbar-link-bg-active
                         &:hover {
-                            background: $topbar-link-bg-active-hover
+                            background-color: $topbar-link-bg-active-hover
                             color: $topbar-link-color-active-hover
                         }
                     }
@@ -530,12 +533,13 @@ topbar-show-dropdown() {
                 if($topbar-arrows){
 
                     & > a {
-                        padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        &:after {
-                            css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
-                            margin-top: -($topbar-dropdown-toggle-size / 2)
-                            top: ($topbar-height / 2)
-                        }
+                        padding-{$opposite-direction}: rem-calc($topbar-link-padding + $topbar-link-dropdown-padding) !important
+                        svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                        // &:after {
+                        //     css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
+                        //     margin-top: -($topbar-dropdown-toggle-size / 2)
+                        //     top: round($topbar-height / 2)
+                        // }
                     }
 
                 }
@@ -547,7 +551,8 @@ topbar-show-dropdown() {
                     }
                 }
 
-                &.hover, &.not-click:hover {
+                &.hover,
+                &.not-click:hover {
                     & > .dropdown {
                         topbar-show-dropdown()
                     }
@@ -576,7 +581,7 @@ topbar-show-dropdown() {
             .dropdown {
                 {$default-float}: 0
                 top: auto
-                background: transparent
+                background-color: transparent
                 min-width: 100%
 
                 li {
@@ -585,20 +590,20 @@ topbar-show-dropdown() {
                         line-height: $topbar-height
                         white-space: nowrap
                         padding: 12px $topbar-link-padding
-                        background: $topbar-dropdown-link-bg
+                        background-color: $topbar-dropdown-link-bg
                     }
 
                     &:not(.has-form):not(.is-active) {
                         & > a:not(.btn) {
                             color: $topbar-dropdown-link-color
-                            background: $topbar-dropdown-link-bg
+                            background-color: $topbar-dropdown-link-bg
                         }
 
                         &:hover > a:not(.btn) {
                             color: $topbar-dropdown-link-color-hover
                             
                             if ($topbar-dropdown-link-bg-hover) {
-                                background: $topbar-dropdown-link-bg-hover
+                                background-color: $topbar-dropdown-link-bg-hover
                             } else {
                                 background-color: $topbar-link-bg-color-hover
                             }
@@ -607,7 +612,7 @@ topbar-show-dropdown() {
 
                     label {
                         white-space: nowrap
-                        background: $topbar-dropdown-label-bg
+                        background-color: $topbar-dropdown-label-bg
                     }
 
                     // Second Level Dropdowns
@@ -629,7 +634,7 @@ topbar-show-dropdown() {
             }
 
             .has-form {
-                background: $topbar-link-bg
+                background-color: $topbar-link-bg
                 padding: 0 ($topbar-height / 3)
                 height: $topbar-height
             }
@@ -665,7 +670,7 @@ topbar-show-dropdown() {
                 &:hover > a {
                     
                     if ($topbar-link-bg-hover) {
-                        background: $topbar-link-bg-hover
+                        background-color: $topbar-link-bg-hover
                     } else {
                         background-color: $topbar-link-bg-color-hover
                     }
@@ -674,7 +679,7 @@ topbar-show-dropdown() {
 
                 // Apply the active link color when it has that class
                 &:active > a {
-                    background: $topbar-link-bg-active
+                    background-color: $topbar-link-bg-active
                     color: $topbar-link-color-active
                 }
             }

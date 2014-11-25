@@ -290,15 +290,9 @@ form-select()  {
     // The custom arrow have some fake horizontal padding so we can align it
     // from the right side of the element without relying on CSS3
     // background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+')
-    // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="6px" y="0px" width="30px" height="5px" viewBox="0 0 6 3" enable-background="new 0 0 6 3" xml:space="preserve"><polygon points="5.992,0 2.992,3 -0.008,0 "/></svg>')
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iNnB4IiB5PSIwcHgiIHdpZHRoPSIzMHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDYgMyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNiAzIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBwb2ludHM9IjUuOTkyLDAgMi45OTIsMyAtMC4wMDgsMCAiLz48L3N2Zz4=')
-    // background-size: 15%
 
-    // We can safely use leftmost and rightmost now
-    $bg_pos = ($text-direction == 'rtl') ? "0%" : "100%"
-    background-position: unquote($bg_pos) center
+    svg-background($file:'arrows_down.svg', $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
 
-    background-repeat: no-repeat
     padding: ($form-spacing / 2)
     line-height: normal
     fontSize($input-font-size)
@@ -315,6 +309,7 @@ form-select()  {
         radius($global-radius)
     }
     &:hover {
+        color: $input-font-color-hover
         background-color: $select-hover-bg-color
         border-bottom-color: $input-focus-border-color
         border-right-color: $input-focus-border-color
@@ -329,6 +324,7 @@ form-select()  {
         cursor: $input-disabled-cursor
         border-style: dotted
         &:hover {
+            color: $input-font-color
             border-color: $input-border-color
             border-top-color: $edge = darken($fieldset-bg-color, 4%)
             border-left-color: $edge
