@@ -153,6 +153,7 @@ topbar-show-dropdown() {
                         padding: 0 $topbar-link-padding
                         &:hover {
                             background-color: $topbar-logo-bg-hover
+                            single-transition(background-color)
                         }
                     }
                 }
@@ -162,18 +163,18 @@ topbar-show-dropdown() {
             .site-search {
                 padding: $topbar-site-search-padding
                 @media $small-up {
-                    col(1/4, gutter:0)
+                    col(1/3, gutter:0)
                 }
                 input[type="text"],
                 input[type="search"] {
-                    col(4/5, gutter:0)
+                    col(5/6, gutter:0)
                     fontSize($topbar-site-search-font-size)
                     color: $topbar-site-search-font-color
                     text-transform: $topbar-site-search-text-transform
                 }
                 .btn,
                 button {
-                    col(1/5, gutter:0)
+                    col(1/6, gutter:0)
                     font-size: 0
                     text-indent: -9999em
                     background-color: $input-bg-color

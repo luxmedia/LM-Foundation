@@ -58,6 +58,7 @@ $namespace =                        false
 
 // This is the default html and body font-size for the base rem value.
 $rem-base =                         14px
+$rem-base-unitless =                strip-unit($rem-base)
 
 // Allows the use of rem-calc() or lower-bound() in your settings
 @require "_functions"
@@ -69,6 +70,7 @@ $rem-base =                         14px
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
 $base-font-size =                   unit(percentage($rem-base / 16px),'%') // reduce base font size from 16px to 14px
+
 
 // The $base-font-size is 100% while $base-line-height is 150%
 $base-line-height =                 140% // 150%
@@ -1646,16 +1648,17 @@ $topbar-link-padding =                      ($topbar-height / 3)
 $topbar-back-link-size =                    $h5-font-size
 $topbar-link-dropdown-padding =             20px
 
-$topbar-site-search-padding =               rem-calc(0 7)
-$topbar-site-search-font-size =             1rem
-$topbar-site-search-font-color =            $black
-$topbar-site-search-text-transform =        lowercase
 $topbar-button-top =                        rem-calc(7)
 $topbar-button-font-size =                  1rem // rem-calc(14)
 $topbar-input-height =                      (rem-calc($topbar-height) - (2*$topbar-button-top))
 $topbar-input-border-width =                false // 1px 0 0 1px
 $topbar-input-border-color =                darken($topbar-bg, 20%)
 $topbar-button-font-size =                  0.8rem
+
+$topbar-site-search-padding =               rem-calc(0 (3*7)) // 7 is based on $topbar-button-top
+$topbar-site-search-font-size =             1rem
+$topbar-site-search-font-color =            $black
+$topbar-site-search-text-transform =        lowercase
 
 $topbar-dropdown-label-color =              $gray-dark-3
 $topbar-dropdown-label-text-transform =     uppercase
