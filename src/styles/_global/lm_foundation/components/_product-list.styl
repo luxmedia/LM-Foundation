@@ -24,7 +24,7 @@ $product-grid-img-height =                      150px
 $product-list-img-height =                      120px
 $product-list-img-width =                       $product-list-img-height
 
-$product-list-title-font-family =               $font-family-buttons
+$product-list-title-font-family =               $font-family-custom
 $product-grid-title-font-size =                 0.9rem
 $product-list-title-font-size =                 1rem
 $product-list-title-color =                     $gray-darker-3
@@ -68,7 +68,7 @@ $product-price-old-font-size =                  0.8rem
 $product-price-old-font-weight =                $font-weight-bold
 $product-price-old-color =                      $gray-darker-1
 $product-price-old-decoration =                 line-through
-$product-price-special-font-family =            $font-family-buttons
+$product-price-special-font-family =            $font-family-custom
 $product-price-special-font-size =              1.1rem
 $product-price-special-font-weight =            $font-weight-bold
 $product-price-special-color =                  $primary-color
@@ -132,8 +132,8 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
             line-height: $product-list-title-line-height
             overflow: hidden
             color: $product-list-manu-color
-            font-family: $product-list-title-font-family
-            fontSize($product-list-manu-font-size)
+            font_family($product-list-title-font-family)
+            font_size($product-list-manu-font-size)
             font-weight: $product-grid-manu-font-weight
             text-transform: $product-grid-manu-text-transform
         }
@@ -145,8 +145,8 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
             padding: $product-list-title-padding
             line-height: $product-list-title-line-height
             color: $product-list-title-color 
-            font-family: $product-list-title-font-family
-            fontSize($product-grid-title-font-size)
+            font_family($product-list-title-font-family)
+            font_size($product-grid-title-font-size)
             font-weight: $product-list-title-font-weight
             text-decoration: none
             overflow: hidden
@@ -159,8 +159,8 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
         &__shortdesc,
         &__shortdesc p {
             margin: $product-list-desc-margin
-            if ($product-list-desc-font-family != $body-font-family) { font-family: $product-list-desc-font-family }
-            fontSize($product-list-desc-font-size)
+            font_family($product-list-desc-font-family)
+            font_size($product-list-desc-font-size)
             color: $product-list-desc-color
             line-height: $product-list-desc-line-height
         }
@@ -168,8 +168,8 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
         &__options {
             text-transform: uppercase
             line-height: $product-list-opts-line-height
-            if ($product-list-opts-font-family != $body-font-family) { font-family: $product-list-opts-font-family }
-            fontSize($product-list-opts-font-size)
+            font_family($product-list-opts-font-family)
+            font_size($product-list-opts-font-size)
             font-weight: $product-list-opts-font-weight
             color: $product-list-opts-color
 
@@ -182,7 +182,7 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
 
         // Prices
         .price-box {
-            font-family: $font-family-buttons
+            font_family($font-family-custom)
             text-align: right
 
             .price {
@@ -191,15 +191,15 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
 
                 &--special,
                 &--minimal {
-                    font-family: $product-price-special-font-family
-                    fontSize($product-price-special-font-size)
+                    font_family($product-price-special-font-family)
+                    font_size($product-price-special-font-size)
                     font-weight: $product-price-special-font-weight
                     color: $product-price-special-color
                     text-decoration: $product-price-special-decoration
                 }
                 &--old {
-                    font-family: $product-price-old-font-family
-                    fontSize($product-price-old-font-size)
+                    font_family($product-price-old-font-family)
+                    font_size($product-price-old-font-size)
                     font-weight: $product-price-old-font-weight
                     color: $product-price-old-color
                     text-decoration: $product-price-old-decoration
@@ -208,7 +208,7 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
                 // Price labels (e.g. uvp, from)
                 &__label {
                     margin-right: rem-calc(4)
-                    fontSize($product-price-label-font-size) // Fallback font size
+                    font_size($product-price-label-font-size) // Fallback font size
                     font-weight: $product-price-label-font-weight
                     text-transform: $product-price-label-text-transform
                     &--uvp { }
@@ -322,7 +322,7 @@ $product-grid-item-height = round((1.5*$product-list-padding) + $product-grid-im
             }
             &__title {
                 display: block
-                fontSize($product-list-title-font-size)
+                font_size($product-list-title-font-size)
             }
 
             &__shortdesc {

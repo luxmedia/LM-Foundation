@@ -49,7 +49,7 @@ align-classes() {
 
 // These will throw a deprecation warning if used within a media query.
 lead() {
-    fontSize($lead-font-size)
+    font_size($lead-font-size)
     line-height: $lead-line-height
 }
 
@@ -112,7 +112,7 @@ subheader() {
         p {
             font-family: $paragraph-font-family
             font-weight: $paragraph-font-weight
-            fontSize($paragraph-font-size)
+            font_size($paragraph-font-size)
             line-height: $paragraph-line-height
             margin-bottom: $paragraph-margin-bottom
             text-rendering: $paragraph-text-rendering
@@ -122,7 +122,7 @@ subheader() {
             }
 
             & aside {
-                fontSize($paragraph-aside-font-size)
+                font_size($paragraph-aside-font-size)
                 line-height: $paragraph-aside-line-height
                 font-style: $paragraph-aside-font-style
             }
@@ -140,29 +140,29 @@ subheader() {
             line-height: $header-line-height
 
             small {
-                fontSize($small-font-size)
+                font_size($small-font-size)
                 color: $small-font-color
                 line-height: 0
             }
         }
 
         h1 {
-            fontSize($h1-font-size - $h1-font-reduction)
+            font_size($h1-font-size - $h1-font-reduction)
         }
         h2 {
-            fontSize($h2-font-size - $h2-font-reduction)
+            font_size($h2-font-size - $h2-font-reduction)
         }
         h3 {
-            fontSize($h3-font-size - $h3-font-reduction)
+            font_size($h3-font-size - $h3-font-reduction)
         }
         h4 {
-            fontSize($h4-font-size - $h4-font-reduction)
+            font_size($h4-font-size - $h4-font-reduction)
         }
         h5 {
-            fontSize($h5-font-size - $h5-font-reduction)
+            font_size($h5-font-size - $h5-font-reduction)
         }
         h6 {
-            fontSize($h6-font-size - $h6-font-reduction)
+            font_size($h6-font-size - $h6-font-reduction)
         }
 
         .subheader {
@@ -191,7 +191,7 @@ subheader() {
         }
 
         small {
-            fontSize($small-font-size)
+            font_size($small-font-size)
             line-height: inherit
         }
 
@@ -210,7 +210,7 @@ subheader() {
         ul,
         ol,
         dl {
-            fontSize($list-font-size)
+            font_size($list-font-size)
             line-height: $list-line-height
             margin-bottom: $list-margin-bottom
             list-style-position: $list-style-position
@@ -293,7 +293,7 @@ subheader() {
         abbr,
         acronym {
             text-transform: uppercase
-            fontSize(90%)
+            font_size(90%)
             color: $body-font-color
             cursor: $cursor-help-value
         }
@@ -312,7 +312,7 @@ subheader() {
 
             cite {
                 display: block
-                fontSize($blockquote-cite-font-size)
+                font_size($blockquote-cite-font-size)
                 color: $blockquote-cite-font-color
                 &:before {
                     content: "\2014 \0020"
@@ -343,7 +343,7 @@ subheader() {
             }
             .fn {
                 font-weight: $microformat-fullname-font-weight
-                fontSize($microformat-fullname-font-size)
+                font_size($microformat-fullname-font-size)
             }
         }
 
@@ -367,22 +367,22 @@ subheader() {
                 line-height: $header-line-height
             }
             h1 {
-                fontSize($h1-font-size)
+                font_size($h1-font-size)
             }
             h2 {
-                fontSize($h2-font-size)
+                font_size($h2-font-size)
             }
             h3 {
-                fontSize($h3-font-size)
+                font_size($h3-font-size)
             }
             h4 {
-                fontSize($h4-font-size)
+                font_size($h4-font-size)
             }
             h5 {
-                fontSize($h5-font-size)
+                font_size($h5-font-size)
             }
             h6 {
-                fontSize($h6-font-size)
+                font_size($h6-font-size)
             }
         }
 

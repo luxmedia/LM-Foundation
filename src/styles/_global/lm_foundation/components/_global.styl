@@ -82,15 +82,36 @@ border-longhand($width = 0, $style = solid, $color = transparent) {
 // @mixins
 //
 // SVG backgrounds based on "svg-stylus" plugin
-svg-background($path = $base-path-svg, $file = false, $properties = false, $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
+svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = "g", $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
+    // possible svg shapes
+    // e.g. see: http://de.wikipedia.org/wiki/Scalable_Vector_Graphics
+    // "g" is the svg group selector which inherits its styling to all children
+    $svg-shapes-all = ("path" "circle" "ellipse" "rect" "line" "polyline" "polygon" "text")
+
+    if ($shapes == all) {
+        $shapes = $svg-shapes-all
+    }
+    // placeholder for final params
+    $svg-params-normal-state = ()
+    $svg-params-hover-state = ()
+
     if ($file) {
         $path-to-file = ($path+'/'+$file)
+        // set styles (normal and hover) for all possible shapes
+        for $shape in $shapes {
+            $params-normal = ($shape+" fill "+$fill+", "+$shape+" stroke "+$stroke+", "+$shape+" stroke-width "+$stroke-width)
+            $params-hover = ($shape+" fill "+$fill-hover+", "+$shape+" stroke "+$stroke-hover+", "+$shape+" stroke-width "+$stroke-width)
+            push($svg-params-normal-state, $params-normal)
+            push($svg-params-hover-state, $params-hover)
+        }
+
+        // set background image
         if ($properties) {
             background-image: svgurl($path-to-file) svg($properties)
         } else {
-            background-image: svgurl($path-to-file) svg(path fill $fill, polyline stroke $stroke, polyline stroke-width $stroke-width)
+            background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
             &:hover {
-                background-image: svgurl($path-to-file) svg(path fill $fill-hover, polyline stroke $stroke-hover, polyline stroke-width $stroke-width)
+                background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))
             }
         }
         background-repeat: $repeat
@@ -289,10 +310,29 @@ fontCondensed() {
 }
 
 // Convert font-size and line-height to rem
-fontSize(value) {
+font_size(value) {
     // add PX (or original value) as backup
-  font-size: pxify(value)
-  font-size: remify(value)
+    {$is-no-remunit-support} & {
+        font-size: pxify(value)
+    }
+    {$is-remunit-support} & {
+        font-size: remify(value)
+    }
+}
+// Handle fallback for non-fontface Browsers
+font_family($family = $body-font-family, $spacing = $font-custom-spacing) {
+    // add PX (or original value) as backup
+    if ($family == $font-family-custom && $family != $body-font-family ) {
+        {$is-fontface-support} & {
+            font-family: $family
+            letter-spacing: $spacing
+        }
+        {$is-no-fontface-support} & {
+            font-family: $font-family-custom-fallback
+        }
+    } else {
+        font-family: $family
+    }
 }
 
 lineHeight(value) {
@@ -370,7 +410,7 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
 
         html,
         body {
-            fontSize($base-font-size)
+            font-size: $base-font-size
         }
 
         // Default body styles
@@ -379,7 +419,7 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
             color: $body-font-color
             padding: 0
             margin: 0
-            font-family: $body-font-family
+            font_family($body-font-family)
             font-weight: $body-font-weight
             font-style: $body-font-style
             line-height: $base-line-height // Set to $base-line-height to take on browser default of 150%

@@ -53,7 +53,7 @@ form-element() {
     height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
     width: 100%
     font-family: $input-font-family
-    fontSize($input-font-size)
+    font_size($input-font-size)
     font-weight: $input-font-weight
     color: $input-font-color
     background-color: $input-bg-color
@@ -99,7 +99,7 @@ form-label($alignment = false, $base-style = true) {
 
     // Control whether or not the base styles come through.
     if $base-style {
-        fontSize($form-label-font-size)
+        font_size($form-label-font-size)
         color: $form-label-font-color
         cursor: $form-label-pointer
         display: block
@@ -295,7 +295,7 @@ form-select()  {
 
     padding: ($form-spacing / 2)
     line-height: normal
-    fontSize($input-font-size)
+    font_size($input-font-size)
     font-family: $body-font-family
     font-weight: $input-font-weight
     color: $input-font-color
@@ -534,7 +534,7 @@ html5number($browser, $on = true) {
             padding-bottom: 0
             padding-left: ($input-checkbox-width * 1.5)
             font-weight: $form-label-ui-font-weight
-            fontSize($input-font-size)
+            font_size($input-font-size)
             text-transform: none
             color: $input-font-color
             vertical-align: baseline

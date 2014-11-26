@@ -101,9 +101,9 @@ topbar-show-dropdown() {
             input[type="text"],
             input[type="search"] { 
                 height: $topbar-input-height
-                padding-top: $ptop = (.35rem + rem-calc(1))
+                padding-top: $ptop = 0 // (.35rem + rem-calc(1))
                 padding-bottom: $ptop
-                fontSize($topbar-button-font-size)
+                font_size($topbar-button-font-size)
                 if ($topbar-input-border-width) {
                     border-color: $topbar-input-border-color
                     border-width: $topbar-input-border-width
@@ -116,10 +116,10 @@ topbar-show-dropdown() {
 
             .btn,
             button {
-                padding-top: $ptop = (.35rem + rem-calc(1))
+                padding-top: $ptop = 0 //  (.35rem + rem-calc(1))
                 padding-bottom: $ptop
                 margin-bottom: 0
-                fontSize($topbar-button-font-size)
+                font_size($topbar-button-font-size)
                 border-color: darken($topbar-bg, 20%)
 
                 // Corrects a slight misalignment when put next to an input field
@@ -168,21 +168,25 @@ topbar-show-dropdown() {
                 input[type="text"],
                 input[type="search"] {
                     col(5/6, gutter:0)
-                    fontSize($topbar-site-search-font-size)
+                    font_size($topbar-site-search-font-size)
                     color: $topbar-site-search-font-color
                     text-transform: $topbar-site-search-text-transform
                 }
                 .btn,
                 button {
                     col(1/6, gutter:0)
-                    font-size: 0
-                    text-indent: -9999em
+                    // use svg background if browser is capable
+                    {$is-svg-support} & {
+                        font-size: 0
+                        text-indent: -9999em
+                        svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$gray-dark-1, $stroke-hover:$primary-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
+                    }
+
                     background-color: $input-bg-color
                     border-left: 1px solid darken($input-bg-color,10%)
                     &:hover {
                         background-color: darken($input-bg-color,10%)
                     }
-                    svg-background($file:'basic_magnifier.svg', $stroke:$gray-base, $stroke-hover:$primary-color, $stroke-width:$svg-stroke-width-tiny, $position-x:center)
                 }
             }
 
@@ -292,8 +296,8 @@ topbar-show-dropdown() {
                     color: $topbar-link-color
                     padding: 12px 0 12px 0
                     padding-{$default-float}: $topbar-link-padding
-                    font-family: $topbar-link-font-family
-                    fontSize($topbar-link-font-size)
+                    font_family($topbar-link-font-family)
+                    font_size($topbar-link-font-size)
                     font-weight: $topbar-link-weight
                     text-transform: $topbar-link-text-transform
                     
@@ -321,7 +325,7 @@ topbar-show-dropdown() {
                 }
 
             & > button {
-                font-size: $topbar-link-font-size
+                font_size($topbar-link-font-size)
                 padding-{$opposite-direction}: $topbar-link-padding
                 padding-{$default-float}: $topbar-link-padding
                 button-style($bg:$primary-color)
@@ -374,18 +378,22 @@ topbar-show-dropdown() {
 
             & > a {
                 if ($topbar-arrows){
-                    svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                    {$is-svg-support} & {
+                        // use svg for arrow
+                        svg-background($file:'arrows_down.svg', $shapes:all, $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                    }
+                    {$is-no-svg-support} & {
+                        // use css pseudo class for arrow
+                        &:after {
+                            css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
+                            margin-{$opposite-direction}: $topbar-link-padding
+                            margin-top: -($topbar-dropdown-toggle-size / 2) - 2
+                            position: absolute
+                            top: 50%
+                            {$opposite-direction}: 0
+                        }
+                    }
                 }
-                // &:after {
-                //     if ($topbar-arrows){
-                //         css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
-                //     }
-                //     margin-{$opposite-direction}: $topbar-link-padding
-                //     margin-top: -($topbar-dropdown-toggle-size / 2) - 2
-                //     position: absolute
-                //     top: 50%
-                //     {$opposite-direction}: 0
-                // }
             }
 
             &.moved {
@@ -483,7 +491,7 @@ topbar-show-dropdown() {
             input,
             button,
             .btn {
-                fontSize($topbar-button-font-size)
+                font_size($topbar-button-font-size)
                 position: relative
                 top: $topbar-button-top
                 height: $topbar-input-height
@@ -576,12 +584,16 @@ topbar-show-dropdown() {
 
                     & > a {
                         padding-{$opposite-direction}: rem-calc($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
-                        // &:after {
-                        //     css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
-                        //     margin-top: -($topbar-dropdown-toggle-size / 2)
-                        //     top: round($topbar-height / 2)
-                        // }
+                        {$is-svg-support} & {
+                            svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                        }
+                        {$is-no-svg-support} & {
+                            &:after {
+                                css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
+                                margin-top: -($topbar-dropdown-toggle-size / 2)
+                                top: round($topbar-height / 2)
+                            }
+                        }
                     }
 
                 }

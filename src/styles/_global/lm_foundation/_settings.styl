@@ -114,7 +114,9 @@ $font-family-sans-serif =           "Helvetica Neue", Helvetica, Roboto, Arial, 
 $font-family-serif =                Georgia, Cambria, "Times New Roman", Times, serif
 $font-family-monospace =            Consolas, "Menlo", "Liberation Mono", Courier, monospace
 $font-family-headings =             $font-family-sans-serif
-$font-family-buttons =              $font-family-sans-serif
+$font-family-custom =               $font-family-sans-serif
+$font-family-custom-fallback =      $font-family-sans-serif
+$font-custom-spacing =              1px
 
 // define default font weights
 $font-weight-normal =               normal
@@ -361,6 +363,20 @@ $microformat-abbr-padding =             rem-calc(0 1)
 $microformat-abbr-font-weight =         $font-weight-bold
 $microformat-abbr-font-decoration =     none
 
+// =========================================================================
+// f. Browser Capabilities
+// =========================================================================
+// Check if browser is capable of (requires modernizr):
+// fontface
+$is-fontface-support =                  unquote("/html.fontface")
+$is-no-fontface-support =               unquote("/html.no-fontface")
+// svg
+$is-svg-support =                       unquote("/html.svg")
+$is-no-svg-support =                    unquote("/html.no-svg")
+// rem
+$is-remunit-support =                   unquote("/html.cssremunit")
+$is-no-remunit-support =                unquote("/html.no-cssremunit")
+
 
 // =========================================================================
 // 01. Accordion
@@ -495,7 +511,7 @@ $button-display =                           inline-block
 $button-margin-bottom =                     rem-calc(20)
 
 // button text styles.
-$button-font-family =                       $font-family-buttons
+$button-font-family =                       $font-family-custom
 $button-font-color =                        $white
 $button-font-color-alt =                    $charcoal-1
 $button-font-tny =                          0.9rem // rem-calc(11)
@@ -927,7 +943,7 @@ $badge-active-bg =                          $badge-font-color
 // =========================================================================
 
 $ribbon-font-size =                         0.9rem
-$ribbon-font-family =                       $font-family-buttons
+$ribbon-font-family =                       $font-family-custom
 $ribbon-font-weight =                       $font-weight-bold
 $ribbon-font-color =                        $white
 $ribbon-bg-color =                          $gray-base
@@ -992,7 +1008,7 @@ $off-canvas-label-border-bottom =           none
 $off-canvas-label-margin =                  0
 $off-canvas-link-padding =                  rem-calc(10)
 $off-canvas-link-color =                    $white
-$off-canvas-link-font-family =              $font-family-buttons
+$off-canvas-link-font-family =              $font-family-custom
 $off-canvas-link-font-size =                0.9rem
 $off-canvas-link-font-weight =              $font-weight-bold
 $off-canvas-link-text-transform =           uppercase
@@ -1098,7 +1114,7 @@ $pagination-link-pad =                      rem-calc(4 10)
 $pagination-link-font-color =               $gray-dark-1
 $pagination-link-bg =                       none // rgba($black,0.1)
 $pagination-font-size =                     1rem
-$pagination-font-family =                   $font-family-buttons
+$pagination-font-family =                   $font-family-custom
 $pagination-link-boxshadow =                false // 0 1px 1px rgba($black,0.1)
 $pagination-link-border =                   rgba($black,0.1)
 $pagination-link-border-width =             0 1px 0 0
@@ -1269,7 +1285,7 @@ $range-slider-handle-cursor =               $cursor-pointer-value
 $range-slider-handle-box-shadow =           $global-ui-shadow
 
 $rang-slider-label-padding =                rem-calc(5 0)
-$rang-slider-label-font-family =            $font-family-buttons
+$rang-slider-label-font-family =            $font-family-custom
 $rang-slider-label-font-size =              0.9rem
 $rang-slider-label-font-weight =            $font-weight-normal
 $rang-slider-label-color =                  $body-font-color
@@ -1338,7 +1354,7 @@ $side-nav-link-padding =                    rem-calc(7 14)
 $side-nav-font-size =                       rem-calc(14)
 $side-nav-font-weight =                     $font-weight-normal
 $side-nav-font-weight-active =              $side-nav-font-weight
-$side-nav-font-family =                     $font-family-buttons
+$side-nav-font-family =                     $font-family-custom
 $side-nav-font-family-active =              $side-nav-font-family
 
 // heading styles.
@@ -1405,7 +1421,7 @@ $sub-nav-list-margin =                      rem-calc(-4 0 18)
 $sub-nav-list-padding-top =                 rem-calc(4)
 
 // the definition
-$sub-nav-font-family =                      $font-family-buttons
+$sub-nav-font-family =                      $font-family-custom
 $sub-nav-font-size =                        rem-calc(14)
 $sub-nav-font-color =                       $gray-dark-1
 $sub-nav-font-weight =                      $font-weight-normal
@@ -1535,7 +1551,7 @@ $tabs-navigation-active-font-color =        $primary-color
 $tabs-navigation-border-width =             2px
 $tabs-navigation-active-border-color =      $primary-color
 $tabs-navigation-font-size =                1rem
-$tabs-navigation-font-family =              $font-family-buttons
+$tabs-navigation-font-family =              $font-family-custom
 $tabs-navigation-font-weight =              $font-weight-bold
 $tabs-navigation-text-transform =           uppercase
 
@@ -1642,7 +1658,7 @@ $topbar-link-bg-color-hover =               darken($topbar-link-bg, $topbar-link
 $topbar-link-bg-hover =                     darken($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-active =                    $primary-color
 $topbar-link-bg-active-hover =              darken($primary-color, $topbar-link-hover-lightness)
-$topbar-link-font-family =                  $font-family-buttons
+$topbar-link-font-family =                  $font-family-custom
 $topbar-link-text-transform =               uppercase
 $topbar-link-padding =                      ($topbar-height / 3)
 $topbar-back-link-size =                    $h5-font-size
