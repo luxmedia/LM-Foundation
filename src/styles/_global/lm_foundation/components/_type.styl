@@ -110,7 +110,7 @@ subheader() {
 
         /* Default paragraph styles */
         p {
-            font-family: $paragraph-font-family
+            font_family($paragraph-font-family)
             font-weight: $paragraph-font-weight
             font_size($paragraph-font-size)
             line-height: $paragraph-line-height
@@ -130,7 +130,7 @@ subheader() {
 
         /* Default header styles */
         h1, h2, h3, h4, h5, h6 {
-            font-family: $header-font-family
+            font_family($header-font-family)
             font-weight: $header-font-weight
             font-style: $header-font-style
             color: $header-font-color
@@ -196,7 +196,7 @@ subheader() {
         }
 
         code {
-            font-family: $code-font-family
+            font_family($code-font-family)
             font-weight: $code-font-weight
             color: $code-color
             background-color: $code-background-color
@@ -214,7 +214,7 @@ subheader() {
             line-height: $list-line-height
             margin-bottom: $list-margin-bottom
             list-style-position: $list-style-position
-            font-family: $list-font-family
+            font_family($list-font-family)
         }
 
         ul {

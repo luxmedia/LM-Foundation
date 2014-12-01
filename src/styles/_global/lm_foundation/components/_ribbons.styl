@@ -12,8 +12,8 @@ ribbon-base() {
     position: absolute
     top: rem-calc(10)
     right: -($ribbon-backface-dimensions)
-    font-family: $ribbon-font-family
-    font-size: $ribbon-font-size
+    font_family($ribbon-font-family)
+    font_size($ribbon-font-size)
     font-weight: $ribbon-font-weight
     text-transform: $ribbon-text-transform
     text-align: right
@@ -26,7 +26,7 @@ ribbon-base() {
         content:""
         display: block
         position: absolute
-        top: (rem-calc($ribbon-line-height * $rem-base) + (2*$ribbon-padding-top) - rem-calc(1))
+        top: (rem-calc($ribbon-line-height * $rem-base-actual) + (2*$ribbon-padding-top) - rem-calc(1))
         right: 0
         width: 0
         height: 0
@@ -34,7 +34,7 @@ ribbon-base() {
         border-left-width: $ribbon-backface-dimensions
         border-bottom-width: $ribbon-backface-dimensions
         margin: 0
-        z-index: -1 // NOTE: Immediate parent container MUST have a positive z-index value (e.g. 1) to make negative z-index work!!!
+        z-index: -(1) // NOTE: Immediate parent container MUST have a positive z-index value (e.g. 1) to make negative z-index work!!!
     }
 
 }
@@ -62,7 +62,7 @@ ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = "norma
             width: 0
             height: 0
             border: 0px solid transparent
-            border-top-width: $border-height = floor((($ribbon-line-height * $rem-base) / 2) + pxify($ribbon-padding-top))
+            border-top-width: $border-height = floor((($ribbon-line-height * $rem-base-actual) / 2) + pxify($ribbon-padding-top))
             border-right-width: $ribbon-flag-dimensions
             margin: 0 0 0 (-(rem-calc($ribbon-flag-dimensions)))
             border-right-color: $bg

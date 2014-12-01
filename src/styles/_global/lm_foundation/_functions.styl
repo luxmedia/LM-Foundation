@@ -10,7 +10,7 @@ remify($value, $isPx = false) {
         return $value
     } else if ($value == 'hairline') {
         return '1px'
-    } else if (unit($value) == 'px' || $isPx) { // Assume that vaues gt 9 are pixe-values
+    } else if (unit($value) == 'px' || $isPx) {
         return unit($value/$rem-base, 'rem')
     } else if ((unit($value) == 0 || unit($value) == null) && ($isPx == false)) {
         return unit($value, 'rem')

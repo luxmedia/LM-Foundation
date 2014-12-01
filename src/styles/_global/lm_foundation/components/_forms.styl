@@ -52,7 +52,7 @@ form-element() {
     padding: ($form-spacing / 2)
     height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
     width: 100%
-    font-family: $input-font-family
+    font_family($input-font-family)
     font_size($input-font-size)
     font-weight: $input-font-weight
     color: $input-font-color
@@ -134,7 +134,7 @@ prefix-postfix-base() {
     border-style: $input-prefix-border-type
     border-width: $input-prefix-border-size
     overflow: $input-prefix-overflow
-    font-size: $form-label-font-size
+    font_size($form-label-font-size)
     height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
     line-height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
 }
@@ -264,7 +264,7 @@ form-error-message($bg = $input-error-message-bg-color) {
     padding: $input-error-message-padding
     margin-top: $input-error-message-top
     margin-bottom: $form-spacing
-    font-size: $input-error-message-font-size
+    font_size($input-error-message-font-size)
     font-weight: $input-error-message-font-weight
     font-style: $input-error-message-font-style
 
@@ -296,7 +296,7 @@ form-select()  {
     padding: ($form-spacing / 2)
     line-height: normal
     font_size($input-font-size)
-    font-family: $body-font-family
+    font_family($body-font-family)
     font-weight: $input-font-weight
     color: $input-font-color
     border-longhand($width:$input-border-width,$style:$input-border-style,$color:$input-border-color)
@@ -316,6 +316,15 @@ form-select()  {
         border-top-color: $edge = darken($fieldset-bg-color, 7%)
         border-left-color: $edge
         box-shadow: 1px 1px 1px $select-shadow-color-hover
+    }
+    if $input-include-glowing-effect {
+        block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color)
+    }
+    // Basic focus styles
+    &:focus {
+        background: $input-focus-bg-color
+        border-color: $input-focus-border-color
+        outline: none
     }
     // Disabled Styles
     &:disabled {
@@ -549,7 +558,7 @@ html5number($browser, $on = true) {
                 height: $input-checkbox-width
                 position: absolute
                 left: 0px
-                bottom: ((pxify($form-label-line-height) - $input-checkbox-width) / 2) 
+                top: ceil((pxify($form-label-line-height+$font-size-normalization) - $input-checkbox-width) / 2) 
                 // margin-right: ($w * 2)
                 background-color: $input-checkbox-bg
                 border: $input-checkbox-inner-padding solid $input-checkbox-bg // is actually our inner padding
@@ -651,7 +660,7 @@ html5number($browser, $on = true) {
                     margin: 0
                     text-transform: $form-label-small-transform
                     font-style: normal
-                    font-size: 0.75rem
+                    font_size(0.75rem)
                     display: inline
                 }
             }

@@ -26,8 +26,8 @@ pricing-table-title() {
     text-align: $price-title-align
     color: $price-title-color
     font-weight: $price-title-weight
-    font-size: $price-title-size
-    font-family: $price-title-font-family
+    font_size($price-title-size)
+    font_family($price-title-font-family)
 }
 
 // @mixins
@@ -39,8 +39,8 @@ pricing-table-price() {
     text-align: $price-money-align
     color: $price-money-color
     font-weight: $price-money-weight
-    font-size: $price-money-size
-    font-family: $price-money-font-family
+    font_size($price-money-size)
+    font_family($price-money-font-family)
 }
 
 // @mixins
@@ -51,7 +51,7 @@ pricing-table-description() {
     padding: $price-desc-padding
     text-align: $price-desc-align
     color: $price-desc-color
-    font-size: $price-desc-font-size
+    font_size($price-desc-font-size)
     font-weight: $price-desc-weight
     line-height: $price-desc-line-height
     border-bottom: $price-desc-bottom-border
@@ -65,7 +65,7 @@ pricing-table-bullet() {
     padding: $price-item-padding
     text-align: $price-item-align
     color: $price-item-color
-    font-size: $price-item-font-size
+    font_size($price-item-font-size)
     font-weight: $price-item-weight
     border-bottom: $price-item-bottom-border
 }

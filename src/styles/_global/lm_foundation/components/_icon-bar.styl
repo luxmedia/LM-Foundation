@@ -14,12 +14,12 @@
 icon-bar-base() {
 
     width: 100%
-    font-size: 0
+    font_size(0)
     display: inline-block
 
     & > * {
         text-align: center
-        font-size: $icon-bar-font-size
+        font_size($icon-bar-font-size)
         width: 25%
         margin: 0 auto
         display: block
@@ -38,7 +38,7 @@ icon-bar-base() {
         }
 
         i {
-            font-size: $icon-bar-icon-size
+            font_size($icon-bar-icon-size)
             vertical-align: middle
         }
 
@@ -111,7 +111,7 @@ icon-bar-base() {
 icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-size, $icon-size = $icon-bar-icon-size, $image-width = $icon-bar-image-width, $image-height = $icon-bar-image-height) {
 
     & > * {
-        font-size: $font-size
+        font_size($font-size)
         padding: $padding
 
         i,
@@ -124,7 +124,7 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
         }
 
         i {
-            font-size: $icon-size
+            font_size($icon-size)
         }
 
         img,

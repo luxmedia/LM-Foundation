@@ -24,7 +24,7 @@
             z-index: $zindex-joyride-tip
             top: 0
             {$default-float}: 2.5%
-            font-family: inherit
+            font_family(inherit)
             font-weight: $font-weight-normal
             width: 95%
         }
@@ -99,7 +99,7 @@
         }
         .joyride-tip-guide p {
             margin: rem-calc(0 0 18 0)
-            font-size: $joyride-tip-font-size
+            font_size($joyride-tip-font-size)
             line-height: 1.3
         }
 
@@ -124,7 +124,7 @@
             top: 10px
             color: $joyride-tip-close-color !important
             text-decoration: none
-            font-size: $joyride-tip-close-size
+            font_size($joyride-tip-close-size)
             font-weight: $joyride-tip-close-weight
             line-height: .5 !important
 

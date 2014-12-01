@@ -27,7 +27,7 @@ accordion-container() {
 accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordion-navigation-hover-bg-color, $active-bg = $accordion-navigation-active-bg-color, $padding = $accordion-navigation-padding, $active_class = 'active',  $font-color = $accordion-navigation-font-color, $font-size = $accordion-navigation-font-size, $font-family = $accordion-navigation-font-family ){
     display: block
     margin-bottom: 0 !important
-    if typeof($active_class) != "string" {
+    if (typeof($active_class) != "string") {
         warn( $active_class+" isn't a valid string. A valid string is needed to correctly be interpolated as a CSS class. CSS classes cannot start with a number or consist of only numbers. CSS will not be generated for the active state of this navigation component.")
     }
     else {
@@ -38,42 +38,39 @@ accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordio
     > a {
         background: $bg
         color: $font-color
-        if typeof($padding) != "number" {
+        if (typeof($padding) != "number") {
             warn($padding+" was read as "+typeof($padding))
-            if $accordion-navigation-padding != null {
+            if ($accordion-navigation-padding != null) {
                 warn($padding+" was read as a "+typeof($padding))
                 warn($padding+" isn't a valid number. $accordion-navigation-padding ("+$accordion-navigation-padding+") will be used instead.)")
-padding: $accordion-navigation-padding
-}
-else {
-    warn($padding+" isn't a valid number and $accordion-navigation-padding is missing. A value of `null` is returned to not output an invalid value for padding")
-    padding: null
-}
-}
-else {
-    padding: $padding
-}
-display: block
-font-family: $font-family
-if typeof($font-size) != number {
-    warn($font-size+" was read as a "+typeof($font-size))
-    if $accordion-navigation-font-size != null {
-        warn($font-size+" is not a valid number. The value of $accordion-navigation-font-size will be used instead ("+$accordion-navigation-font-size+").")
-        font-size: $accordion-navigation-font-size
-    }
-    else{
-        warn($font-size+" is not a valid number and the default value of $accordion-navigation-font-size is not defined. A value of `null` will be returned to not generate an invalid value for font-size.")
-        font-size: null
+                padding: $accordion-navigation-padding
+            }
+            else {
+                warn($padding+" isn't a valid number and $accordion-navigation-padding is missing. A value of `null` is returned to not output an invalid value for padding")
+                padding: null
+            }
+        } else {
+            padding: $padding
+        }
+        display: block
+        font_family($font-family)
+        if (typeof($font-size) != number) {
+            warn($font-size+" was read as a "+typeof($font-size))
+            if ($accordion-navigation-font-size != null) {
+                warn($font-size+" is not a valid number. The value of $accordion-navigation-font-size will be used instead ("+$accordion-navigation-font-size+").")
+                font-size: $accordion-navigation-font-size
+            } else {
+                warn($font-size+" is not a valid number and the default value of $accordion-navigation-font-size is not defined. A value of `null` will be returned to not generate an invalid value for font-size.")
+                font_size(null)
 
+            }
+        } else {
+            font_size($font-size)
+        }
+        &:hover {
+            background: $hover-bg
+        }
     }
-}
-else {
-    font-size: $font-size
-}
-&:hover {
-    background: $hover-bg
-}
-}
 }
 
 //  Mixin: accordion-content($bg, $padding, $active-class)
@@ -117,17 +114,19 @@ accordion-content($bg = $accordion-content-active-bg-color, $padding = $accordio
                 &.is-active > a {
                     background: $accordion-navigation-active-bg-color
                 }
-                > a {
+                & > a {
                     background: $accordion-navigation-bg-color
                     color: $accordion-navigation-font-color
                     padding: $accordion-navigation-padding
                     display: block
-                    font-family: $accordion-navigation-font-family
-                    font-size: $accordion-navigation-font-size
-                    &:hover { background: $accordion-navigation-hover-bg-color }
+                    font_family($accordion-navigation-font-family)
+                    font_size($accordion-navigation-font-size)
+                    &:hover {
+                        background: $accordion-navigation-hover-bg-color
+                    }
                 }
 
-                > .content {
+                & > .content {
                     display: none
                     padding: $accordion-content-padding
                     &.is-active {

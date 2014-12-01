@@ -110,17 +110,18 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
             background-image: svgurl($path-to-file) svg($properties)
         } else {
             background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
+            &:focus,
             &:hover {
                 background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))
             }
         }
-        background-repeat: $repeat
-        background-position: $position-x $position-y
     }
     if ($size) {
         $size = remify($size)
         background-size: ($size*$scale-x + $scale-uni) ($size*$scale-y + $scale-uni)
     }
+    background-position: $position-x $position-y
+    background-repeat: $repeat
 }
 
 
@@ -312,11 +313,19 @@ fontCondensed() {
 // Convert font-size and line-height to rem
 font_size(value) {
     // add PX (or original value) as backup
-    {$is-no-remunit-support} & {
-        font-size: pxify(value)
-    }
-    {$is-remunit-support} & {
-        font-size: remify(value)
+    if (value != 0 && value != null && value != inherit) {
+        if (unit(value) != 'px') {
+            {$is-no-remunit-support} & {
+                font-size: pxify(value + $font-size-normalization)
+            }
+            {$is-remunit-support} & {
+                font-size: remify(value + $font-size-normalization)
+            }
+        } else {
+            font-size: value
+        }
+    } else {
+        font-size: value
     }
 }
 // Handle fallback for non-fontface Browsers
@@ -408,8 +417,12 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
             box-sizing(border-box)
         }
 
-        html,
-        body {
+        *:focus {
+            outline: none
+            box-shadow: $focus-shadow
+        }
+
+        html {
             font-size: $base-font-size
         }
 
@@ -420,6 +433,7 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
             padding: 0
             margin: 0
             font_family($body-font-family)
+            font_size($body-font-size)
             font-weight: $body-font-weight
             font-style: $body-font-style
             line-height: $base-line-height // Set to $base-line-height to take on browser default of 150%

@@ -22,11 +22,11 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
     padding: $side-nav-padding
     list-style-type: $side-nav-list-type
     list-style-position: $side-nav-list-position
-    font-family: $side-nav-font-family
+    font_family($side-nav-font-family)
 
     li {
         margin: $side-nav-list-margin
-        font-size: $font-size
+        font_size($font-size)
         font-weight: $side-nav-font-weight
 
         a:not(.btn) {
@@ -44,7 +44,7 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
         &.is-active > a:first-child:not(.btn) {
             color: $side-nav-link-color-active
             font-weight: $side-nav-font-weight-active
-            font-family: $side-nav-font-family-active
+            font_family($side-nav-font-family-active)
         }
 
         &.divider {
@@ -57,7 +57,7 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
 
         &.heading {
             color: $side-nav-heading-color
-            font-size: $side-nav-heading-font-size
+            font_size($side-nav-heading-font-size)
             font-weight: $side-nav-heading-font-weight
             text-transform: $side-nav-heading-text-transform
         }

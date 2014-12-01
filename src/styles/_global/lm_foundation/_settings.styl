@@ -57,7 +57,9 @@
 $namespace =                        false
 
 // This is the default html and body font-size for the base rem value.
-$rem-base =                         14px
+// NOTE: We set it to a 10 base to get cleaner rem-calc values.
+// Later on we set the font-size with a custom mixin and normalization factor to avoid a too small font-size
+$rem-base =                         10px
 $rem-base-unitless =                strip-unit($rem-base)
 
 // Allows the use of rem-calc() or lower-bound() in your settings
@@ -70,7 +72,14 @@ $rem-base-unitless =                strip-unit($rem-base)
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
 $base-font-size =                   unit(percentage($rem-base / 16px),'%') // reduce base font size from 16px to 14px
+// this is the font size we like to achieve for the body and all its children
+$ref-font-size =                    1.4rem
+// this is just a dummy font size for the body. Within the font_size mixin we also add $font-size-normalization to it!!
+$body-font-size =                   1rem
 
+// Normlaiziation factor for all font sizes
+$font-size-normalization =          ($ref-font-size - $body-font-size)
+$rem-base-actual =                  $rem-base+unit($font-size-normalization*10,"px")
 
 // The $base-font-size is 100% while $base-line-height is 150%
 $base-line-height =                 140% // 150%
@@ -164,6 +173,9 @@ $body-font-style =                  normal
 // font-smoothing
 $font-smoothing =                   antialiased
 
+// focus shadow
+$focus-shadow =                     0 0 10px $primary-color
+
 // text direction settings
 $text-direction =                   ltr
 $opposite-direction =               right
@@ -188,8 +200,8 @@ $svg-stroke-width-medium =          4
 $svg-stroke-width-large =           3
 $svg-icons-base-size =              rem-calc(16) // base icon size
 $svg-scale-factor-uni =             0.2 // rem-based - is added to background-size value to make bg-icons a bit bigger
-$svg-scale-factor-x =               2 // we multiply the svg width with this factor to get a pseudo padding for better icon alignment
-$svg-scale-factor-y =               1 // we multiply the svg height with this factor to get a pseudo padding for better icon alignment
+$svg-scale-factor-x =               2 // multiply the svg width with this factor to get a pseudo padding for better icon alignment
+$svg-scale-factor-y =               1 // multiply the svg height with this factor to get a pseudo padding for better icon alignment
 
 // =========================================================================
 //== d. Breakpoints for media queries

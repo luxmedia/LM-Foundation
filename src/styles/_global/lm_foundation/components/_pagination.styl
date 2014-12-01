@@ -84,7 +84,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
         li {
             height: $pagination-li-height
             color: $pagination-li-font-color
-            font-size: $pagination-li-font-size
+            font_size($pagination-li-font-size)
             margin-{$default-float}: $pagination-li-margin
 
             a,
@@ -93,7 +93,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 padding: $pagination-link-pad
                 color: $pagination-link-font-color
                 background: $pagination-link-bg
-                font-family: $pagination-font-family
+                font_family($pagination-font-family)
                 font-weight: normal
                 font_size($pagination-font-size)
                 line-height: inherit

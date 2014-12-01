@@ -46,6 +46,13 @@ topbar-show-dropdown() {
         // Wrapped around .top-bar to make it stick to the top
         .top-bar__cont {
             background-color: $topbar-bg
+            @media $small-only {
+                .row .columns,
+                .row .column {
+                    width: 100%
+                    padding: 0 !important
+                }
+            }
 
             &--fixed {
                 width: 100%
@@ -74,6 +81,18 @@ topbar-show-dropdown() {
             }
         }
 
+        // Offcanvas menu
+        .tab-bar {
+            @media $medium-up {
+                display: none !important
+            }
+            @media $small-only {
+                display: block !important
+                float: left
+            }
+        }
+
+        // Main top nav section
         .top-bar {
             overflow: hidden
             height: $topbar-height
@@ -81,15 +100,16 @@ topbar-show-dropdown() {
             position: relative
             background-color: $topbar-bg
             margin-bottom: $topbar-margin-bottom
-
+            
+            @media $small-only {
+                .row {
+                    max-width: none
+                }
+            }
             // Topbar Global list Styles
             ul {
                 margin-bottom: 0
                 list-style: none
-            }
-
-            .row {
-                max-width: none
             }
 
             form,
@@ -133,24 +153,35 @@ topbar-show-dropdown() {
             .logo-wrap {
                 position: relative
                 margin: 0
+                @media $medium-up {
+                    col(2/12, gutter: 0)   
+                }
+                @media $small-only {
+                    col(1/3, gutter: 0)
+                }
             }
 
             .logo {
-                background-color: $topbar-logo-bg
                 height: $topbar-height
                 margin: 0
-                font-size: $rem-base
+                background-color: $topbar-logo-bg
+                font_size($ref-font-size)
 
                 h1, h2, h3, h4, p, span {
+                    display: block
                     line-height: $topbar-height
-                    font-size: $topbar-logo-font-size
+                    font_size($topbar-logo-font-size)
                     margin: 0
+                    text-align: center
                     a {
-                        font-weight: $topbar-logo-weight
-                        color: $topbar-link-color
-                        width: 75%
+                        // width: 75%
                         display: block
                         padding: 0 $topbar-link-padding
+                        @media $small-only {
+                            padding: 0
+                        }
+                        font-weight: $topbar-logo-weight
+                        color: $topbar-link-color
                         &:hover {
                             background-color: $topbar-logo-bg-hover
                             single-transition(background-color)
@@ -162,12 +193,22 @@ topbar-show-dropdown() {
             // search form in top-bar
             .site-search {
                 padding: $topbar-site-search-padding
-                @media $small-up {
-                    col(1/3, gutter:0)
+                @media $medium-up {
+                    col(4/12, gutter:0)
+                }
+                @media $small-only {
+                    col(2/3, gutter:0)
+                    padding-left: 0.6rem
+                    padding-right: 0.6rem
                 }
                 input[type="text"],
                 input[type="search"] {
-                    col(5/6, gutter:0)
+                    @media $medium-up {
+                        col(5/6, gutter:0)
+                    }
+                    @media $small-only {
+                        col(1/1, gutter:0)
+                    }
                     font_size($topbar-site-search-font-size)
                     color: $topbar-site-search-font-color
                     text-transform: $topbar-site-search-text-transform
@@ -175,15 +216,19 @@ topbar-show-dropdown() {
                 .btn,
                 button {
                     col(1/6, gutter:0)
+                    @media $small-only {
+                        display: none
+                    }
                     // use svg background if browser is capable
                     {$is-svg-support} & {
-                        font-size: 0
+                        font-size: 0!important
                         text-indent: -9999em
                         svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$gray-dark-1, $stroke-hover:$primary-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
                     }
 
                     background-color: $input-bg-color
                     border-left: 1px solid darken($input-bg-color,10%)
+                    &:focus,
                     &:hover {
                         background-color: darken($input-bg-color,10%)
                     }
@@ -199,7 +244,7 @@ topbar-show-dropdown() {
                 a {
                     color: $topbar-link-color
                     text-transform: $topbar-menu-link-transform
-                    font-size: $topbar-menu-link-font-size
+                    font_size($topbar-menu-link-font-size)
                     font-weight: $topbar-menu-link-weight
                     position: relative
                     display: block
@@ -276,7 +321,7 @@ topbar-show-dropdown() {
                 width: 100%
                 height: auto
                 display: block
-                font-size: $rem-base
+                font_size($ref-font-size)
                 margin: 0
             }
 
@@ -304,7 +349,7 @@ topbar-show-dropdown() {
                     single-transition(background-color)
 
                     &.btn {
-                        font-size: $topbar-link-font-size
+                        font_size($topbar-link-font-size)
                         padding-{$opposite-direction}: $topbar-link-padding
                         padding-{$default-float}: $topbar-link-padding
                         button-style($primary-color)
@@ -435,7 +480,7 @@ topbar-show-dropdown() {
                     // Back Button
                     margin-bottom: 0
                     margin-top: 0
-                    font-size: $topbar-back-link-size
+                    font_size($topbar-back-link-size)
                     a {
                         color: $topbar-link-color
                         // line-height: $topbar-height / 2
@@ -460,7 +505,7 @@ topbar-show-dropdown() {
                 text-transform: $topbar-dropdown-label-text-transform
                 color: $topbar-dropdown-label-color
                 font-weight: $topbar-dropdown-label-font-weight
-                font-size: $topbar-dropdown-label-font-size
+                font_size($topbar-dropdown-label-font-size)
             }
         }
     }
