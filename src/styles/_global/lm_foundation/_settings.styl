@@ -264,17 +264,17 @@ $header-text-rendering =            optimizeLegibility
 
 // header font sizes
 $h1-font-size =                     1.8rem // rem-calc(44)
-$h2-font-size =                     1.4 // rem-calc(37)
+$h2-font-size =                     1.4rem // rem-calc(37)
 $h3-font-size =                     1.2rem // rem-calc(27)
 $h4-font-size =                     1.1rem // rem-calc(23)
 $h5-font-size =                     1rem // rem-calc(18)
 $h6-font-size =                     1rem
 
 // header size reduction on small screens
-$h1-font-reduction =                rem-calc(10)
-$h2-font-reduction =                rem-calc(10)
-$h3-font-reduction =                rem-calc(5)
-$h4-font-reduction =                rem-calc(5)
+$h1-font-reduction =                0.2rem // rem-calc(10)
+$h2-font-reduction =                0.2rem // rem-calc(10)
+$h3-font-reduction =                0.1rem // rem-calc(5)
+$h4-font-reduction =                0.1rem // rem-calc(5)
 $h5-font-reduction =                0
 $h6-font-reduction =                0
 
@@ -1679,11 +1679,16 @@ $topbar-link-dropdown-padding =             20px
 $topbar-button-top =                        rem-calc(7)
 $topbar-button-font-size =                  1rem // rem-calc(14)
 $topbar-input-height =                      (rem-calc($topbar-height) - (2*$topbar-button-top))
+$topbar-button-search-width =               rem-calc(40)
+$topbar-button-search-border-left =         1px solid darken($input-bg-color,10%)
+$topbar-button-search-svg-color =           $gray-dark-1
+$topbar-button-search-svg-color-hover =     $primary-color
+$topbar-button-search-svg-stroke-width =    $svg-stroke-width-small
 $topbar-input-border-width =                false // 1px 0 0 1px
 $topbar-input-border-color =                darken($topbar-bg, 20%)
 $topbar-button-font-size =                  0.8rem
 
-$topbar-site-search-padding =               rem-calc(0 (3*7)) // 7 is based on $topbar-button-top
+$topbar-site-search-padding =               rem-calc(7 (3*7)) // 7 is based on $topbar-button-top
 $topbar-site-search-font-size =             1rem
 $topbar-site-search-font-color =            $black
 $topbar-site-search-text-transform =        lowercase

@@ -193,29 +193,32 @@ topbar-show-dropdown() {
             // search form in top-bar
             .site-search {
                 padding: $topbar-site-search-padding
-                @media $medium-up {
-                    col(4/12, gutter:0)
-                }
                 @media $small-only {
                     col(2/3, gutter:0)
                     padding-left: 0.6rem
                     padding-right: 0.6rem
                 }
+                @media $medium-up {
+                    col(6/12, gutter:0)
+                }
+                @media $large-up {
+                    col(4/12, gutter:0)
+                }
                 input[type="text"],
                 input[type="search"] {
-                    @media $medium-up {
-                        col(5/6, gutter:0)
-                    }
-                    @media $small-only {
-                        col(1/1, gutter:0)
-                    }
+                    top: auto
+                    width: 100%
+                    padding-right: ($topbar-button-search-width + rem-calc(6))
                     font_size($topbar-site-search-font-size)
                     color: $topbar-site-search-font-color
                     text-transform: $topbar-site-search-text-transform
                 }
                 .btn,
                 button {
-                    col(1/6, gutter:0)
+                    top: auto
+                    float: right
+                    width: $topbar-button-search-width
+                    margin-top: -($topbar-input-height) // move in line with search field
                     @media $small-only {
                         display: none
                     }
@@ -223,11 +226,11 @@ topbar-show-dropdown() {
                     {$is-svg-support} & {
                         font-size: 0!important
                         text-indent: -9999em
-                        svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$gray-dark-1, $stroke-hover:$primary-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
+                        svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
                     }
 
                     background-color: $input-bg-color
-                    border-left: 1px solid darken($input-bg-color,10%)
+                    border-left: $topbar-button-search-border-left
                     &:focus,
                     &:hover {
                         background-color: darken($input-bg-color,10%)
