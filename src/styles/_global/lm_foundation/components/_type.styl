@@ -131,9 +131,7 @@ subheader() {
         /* Default header styles */
         h1, h2, h3, h4, h5, h6 {
             font_family($header-font-family)
-            font-weight: $header-font-weight
             font-style: $header-font-style
-            color: $header-font-color
             text-rendering: $header-text-rendering
             margin-top: $header-top-margin
             margin-bottom: $header-bottom-margin
@@ -147,22 +145,37 @@ subheader() {
         }
 
         h1 {
+            font_family($h1-font-family)
             font_size($h1-font-size - $h1-font-reduction)
+            color: $h1-font-color
+            font-weight: $h1-font-weight
         }
         h2 {
+            font_family($h2-font-family)
             font_size($h2-font-size - $h2-font-reduction)
+            color: $h2-font-color
+            font-weight: $h2-font-weight
         }
         h3 {
+            font_family($h3-font-family)
             font_size($h3-font-size - $h3-font-reduction)
+            color: $h3-font-color
+            font-weight: $h3-font-weight
         }
         h4 {
             font_size($h4-font-size - $h4-font-reduction)
+            color: $h4-font-color
+            font-weight: $h4-font-weight
         }
         h5 {
             font_size($h5-font-size - $h5-font-reduction)
+            color: $h5-font-color
+            font-weight: $h5-font-weight
         }
         h6 {
             font_size($h6-font-size - $h6-font-reduction)
+            color: $h6-font-color
+            font-weight: $h6-font-weight
         }
 
         .subheader {
@@ -195,8 +208,12 @@ subheader() {
             line-height: inherit
         }
 
-        code {
+        code,
+        kbd,
+        pre,
+        samp {
             font_family($code-font-family)
+            font_size($code-font-size)
             font-weight: $code-font-weight
             color: $code-color
             background-color: $code-background-color

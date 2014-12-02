@@ -263,6 +263,11 @@ $header-top-margin =                .2rem
 $header-bottom-margin =             .5rem
 $header-text-rendering =            optimizeLegibility
 
+// header font families -  we may have different font families for higher level headings
+$h1-font-family =                   $font-family-headings
+$h2-font-family =                   $font-family-headings
+$h3-font-family =                   $font-family-headings
+
 // header font sizes
 $h1-font-size =                     1.8rem // rem-calc(44)
 $h2-font-size =                     1.4rem // rem-calc(37)
@@ -278,6 +283,22 @@ $h3-font-reduction =                0.1rem // rem-calc(5)
 $h4-font-reduction =                0.1rem // rem-calc(5)
 $h5-font-reduction =                0
 $h6-font-reduction =                0
+
+// header font colors
+$h1-font-color =                     $primary-color
+$h2-font-color =                     $header-font-color
+$h3-font-color =                     $header-font-color
+$h4-font-color =                     $header-font-color
+$h5-font-color =                     $header-font-color
+$h6-font-color =                     $header-font-color
+
+// header font weights
+$h1-font-weight =                    $header-font-weight
+$h2-font-weight =                    $header-font-weight
+$h3-font-weight =                    $header-font-weight
+$h4-font-weight =                    $header-font-weight
+$h5-font-weight =                    $header-font-weight
+$h6-font-weight =                    $header-font-weight
 
 // These control how subheaders are styled.
 $subheader-line-height =            1.2 // 1.4
@@ -309,6 +330,7 @@ $lead-line-height =                 1.6
 // style <code> tags
 $code-color =                       $charcoal-1
 $code-font-family =                 $font-family-monospace
+$code-font-size =                   0.9rem
 $code-font-weight =                 $font-weight-normal
 $code-background-color =            lighten($secondary-color, 70%)
 $code-border-size =                 1px

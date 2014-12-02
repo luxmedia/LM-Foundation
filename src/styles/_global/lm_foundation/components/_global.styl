@@ -84,7 +84,7 @@ border-longhand($width = 0, $style = solid, $color = transparent) {
 // SVG backgrounds based on "svg-stylus" plugin
 svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = "g", $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
     // possible svg shapes
-    // e.g. see: http://de.wikipedia.org/wiki/Scalable_Vector_Graphics
+    // If your svg files feature <g> you could use this instead of "all"
     // "g" is the svg group selector which inherits its styling to all children
     $svg-shapes-all = ("path" "circle" "ellipse" "rect" "line" "polyline" "polygon" "text")
 
