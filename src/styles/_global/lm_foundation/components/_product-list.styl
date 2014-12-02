@@ -2,412 +2,334 @@
 @require "_buttons"
 @require "_ribbons"
 
-$product-list-padding =                         rem-calc(20)
-$product-list-bg =                              $gray-light-2
-
-$product-list-item-padding =                    rem-calc(10)
-$product-grid-item-margin =                     0
-$product-list-item-margin =                     rem-calc(8 0)
-$product-list-item-bg =                         $white
-$product-list-item-bg-hover =                   $product-list-bg
-$product-list-item-border-width =               2px
-$product-list-item-border-style =               solid
-$product-list-item-border-color =               transparent
-$product-list-item-border-hover-color =         $primary-color
-$product-list-item-box-shadow-hover =           false // 0 0 10px rgba($black, 0.2)
-
-$product-list-img-bg =                          $white
-$product-list-img-padding =                     0
-$product-grid-img-margin =                      rem-calc(0 0 10 0)
-$product-list-img-margin =                      rem-calc(0 10 0 0)
-$product-grid-img-height =                      150px
-$product-list-img-height =                      120px
-$product-list-img-width =                       $product-list-img-height
-
-$product-list-title-font-family =               $font-family-custom
-$product-grid-title-font-size =                 0.9rem
-$product-list-title-font-size =                 1rem
-$product-list-title-color =                     $gray-darker-3
-$product-list-title-color-hover =               $primary-color
-$product-list-title-font-weight =               $font-weight-bold
-$product-list-title-line-height =               1.1
-$product-grid-title-height =                    rem-calc((2*$product-list-title-line-height*strip-unit($rem-base-actual)))
-$product-list-title-padding =                   0
-$product-list-title-margin =                    rem-calc(3 0)
-
-$product-list-manu-font-size =                  0.8rem // 0.9rem, if we do not use uppercase transform
-$product-list-manu-color =                      $gray-dark-1
-$product-grid-manu-font-weight =                $font-weight-normal
-$product-list-manu-font-weight =                $font-weight-normal
-$product-grid-manu-height =                     rem-calc(($product-list-title-line-height*strip-unit($rem-base-actual)))
-$product-grid-manu-text-transform =             uppercase
-$product-list-manu-text-transform =             $product-grid-manu-text-transform
-
-$product-list-desc-margin =                     0
-$product-list-desc-padding =                    rem-calc(10 0)
-$product-list-desc-font-family =                $body-font-family
-$product-list-desc-font-size =                  0.9rem
-$product-list-desc-line-height =                1.3
-$product-list-desc-color =                      $gray-dark-1
-$product-list-desc-color-hover =                $gray-darker-3
-
-$product-list-opts-line-height =                1.3
-$product-list-opts-font-family =                $body-font-family
-$product-list-opts-font-size =                  0.8rem
-$product-list-opts-font-weight =                $font-weight-normal
-$product-list-opts-color =                      $gray-medium-2
-$product-list-opts-label-border =               1px solid rgba($black, 0.15)
-$product-list-opts-label-bg =                   transparent
-$product-list-opts-label-color =                $gray-medium-2
-
-$product-list-price-line-height =               1.3
-$product-grid-pricebox-height =                 rem-calc(2*$product-list-price-line-height*strip-unit($rem-base-actual))
-$product-grid-pricebox-padding =                0
-$product-grid-pricebox-margin =                 rem-calc(3 0)
-$product-price-old-font-family =                $body-font-family
-$product-price-old-font-size =                  0.8rem
-$product-price-old-font-weight =                $font-weight-bold
-$product-price-old-color =                      $gray-darker-1
-$product-price-old-decoration =                 line-through
-$product-price-special-font-family =            $font-family-custom
-$product-price-special-font-size =              1.1rem
-$product-price-special-font-weight =            $font-weight-bold
-$product-price-special-color =                  $primary-color
-$product-price-special-decoration =             none
-$product-price-minimal-font-size =              $product-price-special-font-size
-$product-price-label-font-weight =              $font-weight-normal
-$product-price-label-font-size =                0.8rem // scale factor based on related price
-$product-price-label-text-transform =           uppercase
-$product-list-button-size =                     rem-calc(20) // needed for container height calculation. 20 = tiny button, 27 = small button
-$product-list-ribbon-offset-top =               ($product-list-item-padding + rem-calc(5))
-
-$product-grid-item-height = round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + (2*$product-list-title-margin[0]) + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]) + $product-list-button-size)
-
 
 // CSS CLASSES
 
-// Wrapper (ul)
-.productlist {
+if $include-html-productlist-classes {
+    // Wrapper (ul)
+    .productlist {
 
-    padding: $product-list-padding
-    background-color: $product-list-bg
-    clearfix()
-        
-    // List item (li)
-    .product {
-        position: relative
-        list-style-type: none
-        margin: 0
-        padding: $product-list-item-padding
-        background-color: $product-list-item-bg
-        if ($product-list-item-border) {
-            border-longhand($width:$product-list-item-border-width,$style:$product-list-item-border-style,$color:$product-list-item-border-color)
-        }
-        z-index: 1
+        padding: $product-list-padding
+        background-color: $product-list-bg
+        clearfix()
+            
+        // List item (li)
+        .product {
+            position: relative
+            list-style-type: none
+            margin: 0
+            padding: $product-list-item-padding
+            background-color: $product-list-item-bg
+            if ($product-list-item-border) {
+                border-longhand($width:$product-list-item-border-width,$style:$product-list-item-border-style,$color:$product-list-item-border-color)
+            }
+            z-index: 1
 
-        &__inner {
-            clearfix()
-        }
-        // Images (wrapper)
-        &__img {
-            display: block
-            background: $product-list-img-bg
-            padding: $product-list-img-padding
-            margin: $product-grid-img-margin
-            width: auto
-            height: $product-grid-img-height
-            text-align: center
+            &__inner {
+                clearfix()
+            }
+            // Images (wrapper)
+            &__img {
+                display: block
+                background: $product-list-img-bg
+                padding: $product-list-img-padding
+                margin: $product-grid-img-margin
+                width: auto
+                height: $product-grid-img-height
+                text-align: center
 
-            img {
+                img {
+                    padding: 0
+                    margin: 0
+                    border: none
+                }
+            }
+
+            // Product Manufacturer (optional)
+            &__manufacturer {
+                display: block
                 padding: 0
                 margin: 0
-                border: none
-            }
-        }
-
-        // Product Manufacturer (optional)
-        &__manufacturer {
-            display: block
-            padding: 0
-            margin: 0
-            line-height: $product-list-title-line-height
-            overflow: hidden
-            color: $product-list-manu-color
-            font_family($product-list-title-font-family)
-            font_size($product-list-manu-font-size)
-            font-weight: $product-grid-manu-font-weight
-            text-transform: $product-grid-manu-text-transform
-        }
-
-        // Product title (h3)
-        &__title {
-            display: block
-            margin: $product-list-title-margin
-            padding: $product-list-title-padding
-            line-height: $product-list-title-line-height
-            color: $product-list-title-color 
-            font_family($product-list-title-font-family)
-            font_size($product-grid-title-font-size)
-            font-weight: $product-list-title-font-weight
-            text-decoration: none
-            overflow: hidden
-        }
-        a:hover .product__title {
-            color: $product-list-title-color-hover
-            single-transition(color,$ease:ease)
-        }
-
-        &__shortdesc,
-        &__shortdesc p {
-            margin: $product-list-desc-margin
-            font_family($product-list-desc-font-family)
-            font_size($product-list-desc-font-size)
-            color: $product-list-desc-color
-            line-height: $product-list-desc-line-height
-        }
-
-        &__options {
-            text-transform: uppercase
-            line-height: $product-list-opts-line-height
-            font_family($product-list-opts-font-family)
-            font_size($product-list-opts-font-size)
-            font-weight: $product-list-opts-font-weight
-            color: $product-list-opts-color
-
-            .lbl {
-                margin-right: rem-calc(10)
-                if ($product-list-opts-label-border) {
-                    border: $product-list-opts-label-border
-                }
-                background-color: $product-list-opts-label-bg
-                color: $product-list-opts-label-color
-            }
-        }
-
-        // Prices
-        .price-box {
-            font_family($font-family-custom)
-            text-align: right
-
-            .price {
-                display: block
-                line-height: $product-list-price-line-height
-
-                &--special,
-                &--minimal {
-                    font_family($product-price-special-font-family)
-                    font_size($product-price-special-font-size)
-                    font-weight: $product-price-special-font-weight
-                    color: $product-price-special-color
-                    text-decoration: $product-price-special-decoration
-                }
-                &--old {
-                    font_family($product-price-old-font-family)
-                    font_size($product-price-old-font-size)
-                    font-weight: $product-price-old-font-weight
-                    color: $product-price-old-color
-                    text-decoration: $product-price-old-decoration
-                }
-
-                // Price labels (e.g. uvp, from)
-                &__label {
-                    margin-right: rem-calc(4)
-                    font_size($product-price-label-font-size) // Fallback font size
-                    font-weight: $product-price-label-font-weight
-                    text-transform: $product-price-label-text-transform
-                    &--uvp { }
-                    &--special,
-                    &--minimal { }
-                }
+                line-height: $product-list-title-line-height
+                overflow: hidden
+                color: $product-list-manu-color
+                font_family($product-list-title-font-family)
+                font_size($product-list-manu-font-size)
+                font-weight: $product-grid-manu-font-weight
+                text-transform: $product-grid-manu-text-transform
             }
 
-        }
-
-        // Buttons
-        .btn {
-            margin-bottom: 0
-            &__details {
-                font-size: 0
-                text-indent: -(9999em)
-                height: $product-list-button-size
-                svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$gray-dark-1, $stroke-hover:$white, $position-x:right)
-            }
-        }
-
-        .ribbon {
-            top: $product-list-ribbon-offset-top
-        }
-
-        // sorty ribbons if we have more than one ribbon
-        &--special.product--new {
-            .ribbon--primary,
-            .ribbon--special {
-                top: ($product-list-ribbon-offset-top + rem-calc(32))
-            }
-        }
-
-        &:hover {
-            background-color: $product-list-item-bg-hover
-            overflow: visible
-            border-color: $product-list-item-border-hover-color
-            if $product-list-item-box-shadow {
-                box-shadow: $product-list-item-box-shadow-hover
-            }
-            single-transition($speed:300ms)
-        
-            .product__shortdesc,
-            .product__shortdesc p {
-                color: $product-list-desc-color-hover
-                single-transition(color)
-            }
-        }
-
-    } // eof .product
-
-    // GRID VIEW (4)
-    &--grid {
-        .product {
-            height: $product-grid-item-height
-            margin: $product-list-item-margin
-            
-            @media $medium-up {
-                col(1/4, cycle:4)
-            }
-            @media $medium-only {
-                col(1/2, cycle:2)
-            }
-            @media $small-only {
-                span(1/1)
-                height: auto
-            }
-
-            &__manufacturer {
-                @media $medium-up {
-                    height: $product-grid-manu-height
-                }
-                @media $small-only {
-                    col(2/3)
-                }
-            }
+            // Product title (h3)
             &__title {
-                @media $medium-up {
-                    height: $product-grid-title-height
-                }
-                @media $small-only {
-                    col(2/3)
+                display: block
+                margin: $product-list-title-margin
+                padding: $product-list-title-padding
+                line-height: $product-list-title-line-height
+                color: $product-list-title-color 
+                font_family($product-list-title-font-family)
+                font_size($product-grid-title-font-size)
+                font-weight: $product-list-title-font-weight
+                text-decoration: none
+                overflow: hidden
+            }
+            a:hover .product__title {
+                color: $product-list-title-color-hover
+                single-transition(color,$ease:ease)
+            }
+
+            &__shortdesc,
+            &__shortdesc p {
+                margin: $product-list-desc-margin
+                font_family($product-list-desc-font-family)
+                font_size($product-list-desc-font-size)
+                color: $product-list-desc-color
+                line-height: $product-list-desc-line-height
+            }
+
+            &__options {
+                text-transform: uppercase
+                line-height: $product-list-opts-line-height
+                font_family($product-list-opts-font-family)
+                font_size($product-list-opts-font-size)
+                font-weight: $product-list-opts-font-weight
+                color: $product-list-opts-color
+
+                .lbl {
+                    margin-right: rem-calc(10)
+                    if ($product-list-opts-label-border) {
+                        border: $product-list-opts-label-border
+                    }
+                    background-color: $product-list-opts-label-bg
+                    color: $product-list-opts-label-color
                 }
             }
 
+            // Prices
             .price-box {
-                @media $medium-up {
-                    height: $product-grid-pricebox-height
+                font_family($font-family-custom)
+                text-align: right
+
+                .price {
+                    display: block
+                    line-height: $product-list-price-line-height
+
+                    &--special,
+                    &--minimal {
+                        font_family($product-price-special-font-family)
+                        font_size($product-price-special-font-size)
+                        font-weight: $product-price-special-font-weight
+                        color: $product-price-special-color
+                        text-decoration: $product-price-special-decoration
+                    }
+                    &--old {
+                        font_family($product-price-old-font-family)
+                        font_size($product-price-old-font-size)
+                        font-weight: $product-price-old-font-weight
+                        color: $product-price-old-color
+                        text-decoration: $product-price-old-decoration
+                    }
+
+                    // Price labels (e.g. uvp, from)
+                    &__label {
+                        margin-right: rem-calc(4)
+                        font_size($product-price-label-font-size) // Fallback font size
+                        font-weight: $product-price-label-font-weight
+                        text-transform: $product-price-label-text-transform
+                        &--uvp { }
+                        &--special,
+                        &--minimal { }
+                    }
                 }
-                @media $small-only {
-                    span(1/3)
-                    text-align: right
-                }
-                padding: $product-grid-pricebox-padding
-                margin: $product-grid-pricebox-margin
+
             }
 
+            // Buttons
             .btn {
-                expand()
+                margin-bottom: 0
+                &__details {
+                    font-size: 0
+                    text-indent: -(9999em)
+                    height: $product-list-button-size
+                    svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$gray-dark-1, $stroke-hover:$white, $position-x:right)
+                }
+            }
+
+            .ribbon {
+                top: $product-list-ribbon-offset-top
+            }
+
+            // sorty ribbons if we have more than one ribbon
+            &--special.product--new {
+                .ribbon--primary,
+                .ribbon--special {
+                    top: ($product-list-ribbon-offset-top + rem-calc(32))
+                }
+            }
+
+            &:hover {
+                background-color: $product-list-item-bg-hover
+                overflow: visible
+                border-color: $product-list-item-border-hover-color
+                if $product-list-item-box-shadow {
+                    box-shadow: $product-list-item-box-shadow-hover
+                }
+                single-transition($speed:300ms)
+            
+                .product__shortdesc,
+                .product__shortdesc p {
+                    color: $product-list-desc-color-hover
+                    single-transition(color)
+                }
+            }
+
+        } // eof .product
+
+        // GRID VIEW (4)
+        &--grid {
+            .product {
+                height: $product-grid-item-height
+                margin: $product-list-item-margin
+                
+                @media $medium-up {
+                    col(1/4, cycle:4)
+                }
+                @media $medium-only {
+                    col(1/2, cycle:2)
+                }
                 @media $small-only {
-                    clear: both
+                    span(1/1)
+                    height: auto
+                }
+
+                &__manufacturer {
+                    @media $medium-up {
+                        height: $product-grid-manu-height
+                    }
+                    @media $small-only {
+                        col(2/3)
+                    }
+                }
+                &__title {
+                    @media $medium-up {
+                        height: $product-grid-title-height
+                    }
+                    @media $small-only {
+                        col(2/3)
+                    }
+                }
+
+                .price-box {
+                    @media $medium-up {
+                        height: $product-grid-pricebox-height
+                    }
+                    @media $small-only {
+                        span(1/3)
+                        text-align: right
+                    }
+                    padding: $product-grid-pricebox-padding
+                    margin: $product-grid-pricebox-margin
+                }
+
+                .btn {
+                    expand()
+                    @media $small-only {
+                        clear: both
+                    }
                 }
             }
         }
+
+        // LIST VIEW
+        &--list {
+            .product {
+                clear: both
+                clearfix()
+
+                margin: $product-list-item-margin
+
+                &.first,
+                &:first-of-type,
+                &:first-child {
+                    margin-top: 0
+                }
+                &.last,
+                &:last-of-type,
+                &:last-child {
+                    margin-bottom: 0
+                }
+
+                // Wrapper for img, manufacturer, title and shortdesc
+                &__link {
+                    @media $medium-up {
+                        col(3/4,gutter:0)
+                    }
+                }
+
+                &__img {
+                    margin: $product-list-img-margin
+                    margin-left :0
+                    width: $product-list-img-width
+                    height: $product-list-img-height
+                    float: left
+                }
+                
+                &__manufacturer {
+                    display: block
+                    font-weight: $product-list-manu-font-weight
+                    text-transform: $product-list-manu-text-transform
+                }
+                &__title {
+                    display: block
+                    font_size($product-list-title-font-size)
+                }
+
+                &__shortdesc {
+                    display: block
+                    padding: $product-list-desc-padding
+                }
+
+                .price-box {
+                    @media $medium-up {
+                        col(1/4,gutter:0)
+                        margin-right: 0
+                        float: right
+                        text-align: right
+                    }
+                    @media $small-only {
+                        span(1/1)
+                        text-align: right
+                    }
+                }
+
+                .btn {
+
+                    text-align: center
+                    svg-background($file:false, $position-x:right)
+
+                    @media $medium-up {
+                        col(1/4,gutter:0)
+
+                        position: absolute
+                        margin-right: 0
+                        right: $product-list-item-padding
+                        bottom: $product-list-item-padding
+                    }
+                    // padding-right: rem-calc(20)
+                    @media $small-only {
+                        clear: both
+                        span(1/1)
+                    }
+                }
+                
+                // Align ribbons left
+                .ribbon {
+                    ribbon-left()
+                }
+
+            } // EOF - product
+        } // eof &--list
+
+
     }
 
-    // LIST VIEW
-    &--list {
-        .product {
-            clear: both
-            clearfix()
-
-            margin: $product-list-item-margin
-
-            &.first,
-            &:first-of-type,
-            &:first-child {
-                margin-top: 0
-            }
-            &.last,
-            &:last-of-type,
-            &:last-child {
-                margin-bottom: 0
-            }
-
-            // Wrapper for img, manufacturer, title and shortdesc
-            &__link {
-                @media $medium-up {
-                    col(3/4,gutter:0)
-                }
-            }
-
-            &__img {
-                margin: $product-list-img-margin
-                margin-left :0
-                width: $product-list-img-width
-                height: $product-list-img-height
-                float: left
-            }
-            
-            &__manufacturer {
-                display: block
-                font-weight: $product-list-manu-font-weight
-                text-transform: $product-list-manu-text-transform
-            }
-            &__title {
-                display: block
-                font_size($product-list-title-font-size)
-            }
-
-            &__shortdesc {
-                display: block
-                padding: $product-list-desc-padding
-            }
-
-            .price-box {
-                @media $medium-up {
-                    col(1/4,gutter:0)
-                    margin-right: 0
-                    float: right
-                    text-align: right
-                }
-                @media $small-only {
-                    span(1/1)
-                    text-align: right
-                }
-            }
-
-            .btn {
-
-                text-align: center
-                svg-background($file:false, $position-x:right)
-
-                @media $medium-up {
-                    col(1/4,gutter:0)
-
-                    position: absolute
-                    margin-right: 0
-                    right: $product-list-item-padding
-                    bottom: $product-list-item-padding
-                }
-                // padding-right: rem-calc(20)
-                @media $small-only {
-                    clear: both
-                    span(1/1)
-                }
-            }
-            
-            // Align ribbons left
-            .ribbon {
-                ribbon-left()
-            }
-
-        } // EOF - product
-    } // eof &--list
-
-
-}
+} // EOF - if $include-html-productlist-classes

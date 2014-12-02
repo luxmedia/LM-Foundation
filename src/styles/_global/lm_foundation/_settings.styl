@@ -35,6 +35,7 @@
 // 20. Pagination
 // 21. Panels
 // 22. Pricing Tables
+// 22.2 Product Listings
 // 23. Progress Bar
 // 24. Range Slider
 // 25. Reveal
@@ -1228,6 +1229,94 @@ $price-item-bottom-border =                 dotted 1px $gray-medium-1
 $price-cta-bg =                             $white
 $price-cta-align =                          center
 $price-cta-padding =                        rem-calc(20 20 0)
+
+
+// =========================================================================
+// 22.2 Product Listings
+// =========================================================================
+
+$include-html-productlist-classes =             $include-html-classes
+
+$product-list-padding =                         rem-calc(20)
+$product-list-bg =                              $gray-light-2
+
+$product-list-item-padding =                    rem-calc(10)
+$product-grid-item-margin =                     0
+$product-list-item-margin =                     rem-calc(8 0)
+$product-list-item-bg =                         $white
+$product-list-item-bg-hover =                   $product-list-bg
+$product-list-item-border-width =               2px
+$product-list-item-border-style =               solid
+$product-list-item-border-color =               transparent
+$product-list-item-border-hover-color =         $primary-color
+$product-list-item-box-shadow-hover =           false // 0 0 10px rgba($black, 0.2)
+
+$product-list-img-bg =                          $white
+$product-list-img-padding =                     0
+$product-grid-img-margin =                      rem-calc(0 0 10 0)
+$product-list-img-margin =                      rem-calc(0 10 0 0)
+$product-grid-img-height =                      150px
+$product-list-img-height =                      120px
+$product-list-img-width =                       $product-list-img-height
+
+$product-list-title-font-family =               $font-family-custom
+$product-grid-title-font-size =                 0.9rem
+$product-list-title-font-size =                 1rem
+$product-list-title-color =                     $gray-darker-3
+$product-list-title-color-hover =               $primary-color
+$product-list-title-font-weight =               $font-weight-bold
+$product-list-title-line-height =               1.1
+$product-grid-title-height =                    rem-calc((2*$product-list-title-line-height*strip-unit($rem-base-actual)))
+$product-list-title-padding =                   0
+$product-list-title-margin =                    rem-calc(3 0)
+
+$product-list-manu-font-size =                  0.8rem // 0.9rem, if we do not use uppercase transform
+$product-list-manu-color =                      $gray-dark-1
+$product-grid-manu-font-weight =                $font-weight-normal
+$product-list-manu-font-weight =                $font-weight-normal
+$product-grid-manu-height =                     rem-calc(($product-list-title-line-height*strip-unit($rem-base-actual)))
+$product-grid-manu-text-transform =             uppercase
+$product-list-manu-text-transform =             $product-grid-manu-text-transform
+
+$product-list-desc-margin =                     0
+$product-list-desc-padding =                    rem-calc(10 0)
+$product-list-desc-font-family =                $body-font-family
+$product-list-desc-font-size =                  0.9rem
+$product-list-desc-line-height =                1.3
+$product-list-desc-color =                      $gray-dark-1
+$product-list-desc-color-hover =                $gray-darker-3
+
+$product-list-opts-line-height =                1.3
+$product-list-opts-font-family =                $body-font-family
+$product-list-opts-font-size =                  0.8rem
+$product-list-opts-font-weight =                $font-weight-normal
+$product-list-opts-color =                      $gray-medium-2
+$product-list-opts-label-border =               1px solid rgba($black, 0.15)
+$product-list-opts-label-bg =                   transparent
+$product-list-opts-label-color =                $gray-medium-2
+
+$product-list-price-line-height =               1.3
+$product-grid-pricebox-height =                 rem-calc(2*$product-list-price-line-height*strip-unit($rem-base-actual))
+$product-grid-pricebox-padding =                0
+$product-grid-pricebox-margin =                 rem-calc(3 0)
+$product-price-old-font-family =                $body-font-family
+$product-price-old-font-size =                  0.8rem
+$product-price-old-font-weight =                $font-weight-bold
+$product-price-old-color =                      $gray-darker-1
+$product-price-old-decoration =                 line-through
+$product-price-special-font-family =            $font-family-custom
+$product-price-special-font-size =              1.1rem
+$product-price-special-font-weight =            $font-weight-bold
+$product-price-special-color =                  $primary-color
+$product-price-special-decoration =             none
+$product-price-minimal-font-size =              $product-price-special-font-size
+$product-price-label-font-weight =              $font-weight-normal
+$product-price-label-font-size =                0.8rem // scale factor based on related price
+$product-price-label-text-transform =           uppercase
+$product-list-button-size =                     rem-calc(20) // needed for container height calculation. 20 = tiny button, 27 = small button
+$product-list-ribbon-offset-top =               ($product-list-item-padding + rem-calc(5))
+
+$product-grid-item-height = round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + (2*$product-list-title-margin[0]) + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]) + $product-list-button-size)
 
 
 // =========================================================================
