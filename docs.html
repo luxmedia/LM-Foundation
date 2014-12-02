@@ -1039,19 +1039,17 @@
 <div class="row">
   <ul class="productlist productlist--grid">
     <li class="product" itemscope itemtype="http://schema.org/Product">
-      <div class="product__inner">
         <a class="product__link">
           <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
           <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
           <h3 itemprop="name" class="product__title">Product with special price</h3>
+          <button class="btn btn__details">Details</button>
+          <div class="price-box">
+            <span itemprop="price" class="price price--special">99,- &euro;</span>
+            <span class="price price--old"><span class="price__label price__label--uvp">UVP:&nbsp;</span>118,80 &euro;</span>
+          </div>
+          <div class="ribbon ribbon--primary">-20%</div>
         </a>
-        <div class="price-box">
-          <span itemprop="price" class="price price--special">99,- &euro;</span>
-          <span class="price price--old"><span class="price__label price__label--uvp">UVP:&nbsp;</span>118,80 &euro;</span>
-        </div>
-        <a class="btn btn--tiny btn--flat btn__details">Details</a>
-        <div class="ribbon ribbon--primary">-20%</div>
-      </div>
     </li>
 
     <li class="product" itemscope itemtype="http://schema.org/Product">
@@ -1059,11 +1057,11 @@
         <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
         <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
         <h3 itemprop="name" class="product__title">Longer product title which can be max 2 lines</h3>
+        <button class="btn btn__details">Details</button>
+        <div class="price-box">
+          <span itemprop="price" class="price price--special">299,- &euro;</span>
+        </div>
       </a>
-      <div class="price-box">
-        <span itemprop="price" class="price price--special">299,- &euro;</span>
-      </div>
-      <a class="btn btn--tiny btn--flat btn__details">Details</a>
     </li>
 
     <li class="product" itemscope itemtype="http://schema.org/Product">
@@ -1071,11 +1069,11 @@
         <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
         <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
         <h3 itemprop="name" class="product__title">Product with minimal price</h3>
+        <button class="btn btn__details">Details</button>
+        <div class="price-box">
+          <span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
+        </div>
       </a>
-      <div class="price-box">
-        <span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
-      </div>
-      <a class="btn btn--tiny btn--flat btn__details">Details</a>
     </li>
     
     <li class="product product--special product--new" itemscope itemtype="http://schema.org/Product">
@@ -1083,14 +1081,14 @@
         <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
         <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
         <h3 itemprop="name" class="product__title">New Product with special price</h3>
+        <button class="btn btn__details">Details</button>
+        <div class="price-box">
+          <span class="price price--special"><span class="price__label price__label--special">nur&nbsp;</span><span itemprop="price">159,- &euro;</span></span>
+          <span class="price price--old"><span class="price__label price__label--uvp">UVP&nbsp;</span>159,- &euro;</span>
+        </div>
+        <div class="ribbon ribbon--warning">Neu!</div>
+        <div class="ribbon ribbon--primary">-20%</div>
       </a>
-      <div class="price-box">
-        <span class="price price--special"><span class="price__label price__label--special">nur&nbsp;</span><span itemprop="price">159,- &euro;</span></span>
-        <span class="price price--old"><span class="price__label price__label--uvp">UVP&nbsp;</span>159,- &euro;</span>
-      </div>
-      <a class="btn btn--tiny btn--flat btn__details">Details</a>
-      <div class="ribbon ribbon--warning">Neu!</div>
-      <div class="ribbon ribbon--primary">-20%</div>
     </li>
 
   </ul>
@@ -1108,63 +1106,77 @@
 <div class="row">
   <ul class="productlist productlist--list">
     <li class="product" itemscope itemtype="http://schema.org/Product">
-      <div class="product__inner">
-        <a class="product__link">
+      <a class="product__link">
+        <div class="product__info">
           <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
           <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
           <h3 itemprop="name" class="product__title">Product with special price</h3>
           <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
-          <div class="product__options"><span class="lbl">Varianten:&nbsp;</span>AB, AC, XY, Z, ...</div>
-        </a>
+          <div class="product__options"><span class="lbl">Varianten:&nbsp;</span>
+            <ul>
+              <li>S</li>
+              <li>M</li>
+              <li>L</li>
+              <li>50mm</li>
+              <li>60mm</li>
+            </ul>
+          </div> 
+        </div>
         <div class="price-box">
           <span itemprop="price" class="price price--special">99,- &euro;</span>
           <span class="price price--old"><span class="price__label price__label--uvp">UVP:&nbsp;</span>118,80 &euro;</span>
         </div>
-        <a class="btn btn--tiny btn--flat btn__details">Details</a>
+        <button class="btn btn__details">Details</button>
         <div class="ribbon ribbon--primary">-20%</div>
-      </div>
+      </a>
     </li>
 
     <li class="product" itemscope itemtype="http://schema.org/Product">
       <a class="product__link">
-        <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-        <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
-        <h3 itemprop="name" class="product__title">Longer product title which can be max 2 lines</h3>
-        <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
+        <div class="product__info">
+          <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
+          <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
+          <h3 itemprop="name" class="product__title">Longer product title which can be max 2 lines</h3>
+          <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
+        </div>
+        <div class="price-box">
+          <span itemprop="price" class="price price--special">299,- &euro;</span>
+        </div>
+        <button class="btn btn__details">Details</button>
       </a>
-      <div class="price-box">
-        <span itemprop="price" class="price price--special">299,- &euro;</span>
-      </div>
-      <a class="btn btn--tiny btn--flat btn__details">Details</a>
     </li>
 
     <li class="product" itemscope itemtype="http://schema.org/Product">
       <a class="product__link">
-        <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-        <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
-        <h3 itemprop="name" class="product__title">Product with minimal price</h3>
-        <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
+        <div class="product__info">
+          <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
+          <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
+          <h3 itemprop="name" class="product__title">Product with minimal price</h3>
+          <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
+        </div>
+        <div class="price-box">
+          <span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
+        </div>
+        <button class="btn btn__details">Details</button>
       </a>
-      <div class="price-box">
-        <span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
-      </div>
-      <a class="btn btn--tiny btn--flat btn__details">Details</a>
     </li>
     
     <li class="product product--special product--new" itemscope itemtype="http://schema.org/Product">
       <a class="product__link">
-        <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-        <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
-        <h3 itemprop="name" class="product__title">New Product with special price</h3>
-        <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
+        <div class="product__info">
+          <span class="product__img"><img itemprop="image" src="" width="auto" height="100" /></span>
+          <span class="product__manufacturer" itemprop="brand">Manufacturer</span>
+          <h3 itemprop="name" class="product__title">New Product with special price</h3>
+          <div class="product__shortdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
+        </div>
+        <div class="price-box">
+          <span class="price price--special"><span class="price__label price__label--special">nur&nbsp;</span><span itemprop="price">159,- &euro;</span></span>
+          <span class="price price--old"><span class="price__label price__label--uvp">UVP&nbsp;</span>159,- &euro;</span>
+        </div>
+        <button class="btn btn__details">Details</button>
+        <div class="ribbon ribbon--warning">Neu!</div>
+        <div class="ribbon ribbon--primary">-20%</div>
       </a>
-      <div class="price-box">
-        <span class="price price--special"><span class="price__label price__label--special">nur&nbsp;</span><span itemprop="price">159,- &euro;</span></span>
-        <span class="price price--old"><span class="price__label price__label--uvp">UVP&nbsp;</span>159,- &euro;</span>
-      </div>
-      <a class="btn btn--tiny btn--flat btn__details">Details</a>
-      <div class="ribbon ribbon--warning">Neu!</div>
-      <div class="ribbon ribbon--primary">-20%</div>
     </li>
 
   </ul>

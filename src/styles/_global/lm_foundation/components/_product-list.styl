@@ -6,6 +6,7 @@
 // CSS CLASSES
 
 if $include-html-productlist-classes {
+    
     // Wrapper (ul)
     .productlist {
 
@@ -27,6 +28,18 @@ if $include-html-productlist-classes {
 
             &__inner {
                 clearfix()
+            }
+
+            &__link {
+                clearfix()
+                display: block
+
+                &:hover {
+                    .btn {
+                        background-color: $product-list-button-bg-hover
+                        svg-background($file:'arrows_right.svg', $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color-hover, $stroke-hover:$product-list-button-ico-color-hover)
+                    }
+                }
             }
             // Images (wrapper)
             &__img {
@@ -90,17 +103,36 @@ if $include-html-productlist-classes {
                 text-transform: uppercase
                 line-height: $product-list-opts-line-height
                 font_family($product-list-opts-font-family)
-                font_size($product-list-opts-font-size)
                 font-weight: $product-list-opts-font-weight
                 color: $product-list-opts-color
 
                 .lbl {
-                    margin-right: rem-calc(10)
+                    float: left
+                    margin: $product-list-opts-label-margin
+                    padding: $product-list-opts-label-padding
+                    line-height: $product-list-opts-line-height
                     if ($product-list-opts-label-border) {
                         border: $product-list-opts-label-border
                     }
                     background-color: $product-list-opts-label-bg
                     color: $product-list-opts-label-color
+                    font_size($product-list-opts-font-size)
+                }
+
+                ul {
+                    margin: 0
+                    list-style-type: none
+                    li {
+                        list-style-type: none
+                        display: inline-block
+                        padding: $product-list-opts-item-padding
+                        margin: $product-list-opts-item-margin
+                        background: $product-list-opts-item-bg
+                        if ($product-list-opts-item-border) {
+                            border: $product-list-opts-item-border
+                        }
+                        font_size($product-list-opts-font-size)
+                    }
                 }
             }
 
@@ -147,10 +179,9 @@ if $include-html-productlist-classes {
             .btn {
                 margin-bottom: 0
                 &__details {
-                    font-size: 0
-                    text-indent: -(9999em)
-                    height: $product-list-button-size
-                    svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$gray-dark-1, $stroke-hover:$white, $position-x:right)
+                    button-size($padding:$product-list-button-size)
+                    button-flat($font-color:$product-list-button-color)
+                    svg-background($file:'arrows_right.svg', $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
                 }
             }
 
@@ -189,6 +220,7 @@ if $include-html-productlist-classes {
             .product {
                 height: $product-grid-item-height
                 margin: $product-list-item-margin
+                padding: 0
                 
                 @media $medium-up {
                     col(1/4, cycle:4)
@@ -199,6 +231,10 @@ if $include-html-productlist-classes {
                 @media $small-only {
                     span(1/1)
                     height: auto
+                }
+
+                &__link {
+                    padding: $product-list-item-padding
                 }
 
                 &__manufacturer {
@@ -231,10 +267,11 @@ if $include-html-productlist-classes {
                 }
 
                 .btn {
-                    expand()
-                    @media $small-only {
-                        clear: both
-                    }
+                    font-size: 0
+                    text-indent: -(9999em)
+                    width: $product-grid-pricebox-height
+                    height: $product-grid-pricebox-height
+                    float: left
                 }
             }
         }
@@ -242,9 +279,9 @@ if $include-html-productlist-classes {
         // LIST VIEW
         &--list {
             .product {
-                clear: both
                 clearfix()
-
+                clear: both
+                padding: 0
                 margin: $product-list-item-margin
 
                 &.first,
@@ -258,8 +295,12 @@ if $include-html-productlist-classes {
                     margin-bottom: 0
                 }
 
-                // Wrapper for img, manufacturer, title and shortdesc
                 &__link {
+                    padding: $product-list-item-padding
+                }
+
+                // Wrapper for img, manufacturer, title and shortdesc
+                &__info {
                     @media $medium-up {
                         col(3/4,gutter:0)
                     }
@@ -307,12 +348,13 @@ if $include-html-productlist-classes {
                     svg-background($file:false, $position-x:right)
 
                     @media $medium-up {
-                        col(1/4,gutter:0)
-
+                        // col(1/4,gutter:0)
+                        padding-right: (2*$product-list-button-ico-size)
                         position: absolute
                         margin-right: 0
                         right: $product-list-item-padding
                         bottom: $product-list-item-padding
+                        color: $product-list-item-bg // hides text in normal state
                     }
                     // padding-right: rem-calc(20)
                     @media $small-only {
