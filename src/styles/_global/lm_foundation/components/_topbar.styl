@@ -21,30 +21,30 @@ topbar-show-dropdown() {
     position: absolute !important // Reset the position from static to absolute
 }
 
-// +exports("top-bar") {
+// +exports("topbar") {
 
-    if $include-html-top-bar-classes {
+    if $include-html-topbar-classes {
 
         // Used to provide media query values for javascript components.
-        // This class is generated despite the value of $include-html-top-bar-classes
+        // This class is generated despite the value of $include-html-topbar-classes
         // to ensure width calculations work correctly.
         meta.foundation-mq-topbar {
             font-family: ("/" + unquote($topbar-media-query) + "/")
             width: $topbar-breakpoint
         }
 
-        /* Wrapped around .top-bar to contain to grid width */
+        /* Wrapped around .topbar to contain to grid width */
         .contain-to-grid {
             width: 100%
             background-color: $topbar-bg
 
-            .top-bar {
+            .topbar {
                 margin-bottom: $topbar-margin-bottom
             }
         }
 
-        // Wrapped around .top-bar to make it stick to the top
-        .top-bar__cont {
+        // Wrapped around .topbar to make it stick to the top
+        .topbar__wrap {
             background-color: $topbar-bg
             @media $small-only {
                 .row .columns,
@@ -61,7 +61,7 @@ topbar-show-dropdown() {
                 top: 0
                 z-index: $zindex-topbar
 
-                &.expanded:not(.top-bar) {
+                &.expanded:not(.topbar) {
                     overflow-y: auto
                     height: auto
                     width: 100%
@@ -73,7 +73,7 @@ topbar-show-dropdown() {
                         z-index: $zindex-topbar
                     }
                     // Ensure you can scroll the menu on small screens
-                    .top-bar-section {
+                    .topbar-section {
                         z-index: ($zindex-topbar - 1)
                         margin-top: $topbar-height
                     }
@@ -93,7 +93,7 @@ topbar-show-dropdown() {
         }
 
         // Main top nav section
-        .top-bar {
+        .topbar {
             overflow: hidden
             height: $topbar-height
             line-height: $topbar-height
@@ -190,7 +190,7 @@ topbar-show-dropdown() {
                 }
             }
 
-            // search form in top-bar
+            // search form in topbar
             .site-search {
                 padding: $topbar-site-search-padding
                 @media $small-only {
@@ -290,7 +290,7 @@ topbar-show-dropdown() {
                 }
             }
 
-            // Change things up when the top-bar is expanded
+            // Change things up when the topbar is expanded
             &.expanded {
                 height: auto
                 background-color: transparent
@@ -313,7 +313,7 @@ topbar-show-dropdown() {
         }
 
         // Right and Left Navigation that stacked by default
-        .top-bar-section {
+        .topbar-section {
             {$default-float}: 0
             position: relative
             width: auto
@@ -444,7 +444,7 @@ topbar-show-dropdown() {
                 }
             }
 
-            &.moved {
+            &.is-moved {
                 position: static
                 & > .dropdown {
                     topbar-show-dropdown()
@@ -520,7 +520,7 @@ topbar-show-dropdown() {
 
     // Top Bar styles intended for screen sizes above the breakpoint.
     @media $topbar-media-query {
-        .top-bar {
+        .topbar {
             background-color: $topbar-bg
             clearfix()
             overflow: visible
@@ -553,13 +553,13 @@ topbar-show-dropdown() {
             }
         }
 
-        .contain-to-grid .top-bar {
+        .contain-to-grid .topbar {
             max-width: $row-width
             margin: 0 auto
             margin-bottom: $topbar-margin-bottom
         }
 
-        .top-bar-section {
+        .topbar-section {
             single-transition(none,0,0)
             {$default-float}: 0 !important
 
@@ -577,7 +577,7 @@ topbar-show-dropdown() {
             }
 
             li {
-                &.hover {
+                &.is-hover {
                     > a:not(.btn) {
                         if ($topbar-link-bg-hover) {
                             background-color: $topbar-link-bg-hover
@@ -646,15 +646,15 @@ topbar-show-dropdown() {
 
                 }
 
-                &.moved {
+                &.is-moved {
                     position: relative
                     & > .dropdown {
                         topbar-hide-dropdown()
                     }
                 }
 
-                &.hover,
-                &.not-click:hover {
+                &.is-hover,
+                &.is-hoveronly:hover {
                     & > .dropdown {
                         topbar-show-dropdown()
                     }
@@ -683,7 +683,7 @@ topbar-show-dropdown() {
             .dropdown {
                 {$default-float}: 0
                 top: auto
-                background-color: transparent
+                background-color: $topbar-dropdown-bg
                 min-width: 100%
 
                 li {
@@ -766,7 +766,7 @@ topbar-show-dropdown() {
 
         // Degrade gracefully when Javascript is disabled. Displays dropdown and changes
         // background & text color on hover.
-        .no-js .top-bar-section {
+        .no-js .topbar-section {
             ul li {
                 // Apply the hover link color when it has that class
                 &:hover > a {

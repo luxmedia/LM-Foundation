@@ -492,7 +492,7 @@ $crumb-border-color =                       darken($crumb-bg, $crumb-function-fa
 $crumb-radius =                             false // $global-radius
 
 // set various text styles for breadcrumbs.
-$crumb-font-size =                          0.8rem // rem-calc(11)
+$crumb-font-size =                          0.7rem // rem-calc(11)
 $crumb-font-weight =                        $font-weight-bold
 $crumb-font-weight-current =                $font-weight-normal
 $crumb-font-color =                         $primary-color
@@ -513,7 +513,7 @@ $crumb-slash =                              "/"
 $include-html-button-classes =              $include-html-classes
 
 // build padding for buttons.
-$button-tny =                               rem-calc(2) // rem-calc(10)
+$button-tny =                               rem-calc(2 4) // rem-calc(10)
 $button-sml =                               rem-calc(4) // rem-calc(14)
 $button-med =                               rem-calc(6) // rem-calc(16)
 $button-lrg =                               rem-calc(8) // rem-calc(18)
@@ -653,7 +653,7 @@ $f-dropdown-triangle-side-offset =          10px
 // styles for the list elements.
 $f-dropdown-list-style =                    none
 $f-dropdown-font-color =                    $gray-darker-2
-$f-dropdown-font-size =                     rem-calc(14)
+$f-dropdown-font-size =                     1rem // rem-calc(14)
 $f-dropdown-list-padding =                  rem-calc(5 10)
 $f-dropdown-line-height =                   rem-calc(18)
 $f-dropdown-list-hover-bg =                 $gray-light-3  
@@ -798,7 +798,7 @@ $input-number-spinners =                    true
 // style the error states for inputs and labels
 $input-error-message-padding =              rem-calc(6 9)
 $input-error-message-top =                  -1px
-$input-error-message-font-size =            rem-calc(12)
+$input-error-message-font-size =            0.85rem
 $input-error-message-font-weight =          $font-weight-normal
 $input-error-message-font-style =           italic
 $input-error-message-font-color =           $critical-font-color
@@ -1630,7 +1630,7 @@ $tooltip-box-shadow =                       1px 1px 10px rgba($black,0.5)
 // 34. Top Bar
 // =========================================================================
 
-$include-html-top-bar-classes =             $include-html-classes
+$include-html-topbar-classes =             $include-html-classes
 
 // Background color for the top bar
 $topbar-bg-color =                          $charcoal-1
@@ -1647,16 +1647,6 @@ $topbar-logo-bg =                           $primary-color
 $topbar-logo-bg-hover =                     darken($primary-color, 10%)
 
 $topbar-link-hover-lightness =              15% // -10% !default
-
-// Style the top bar dropdown elements
-$topbar-dropdown-bg =                       $charcoal-1
-$topbar-dropdown-link-color =               $white
-$topbar-dropdown-link-bg =                  $topbar-dropdown-bg
-$topbar-dropdown-link-bg-hover =            darken($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
-$topbar-dropdown-link-weight =              $font-weight-bold
-$topbar-dropdown-toggle-size =              5px
-$topbar-dropdown-toggle-color =             $white
-$topbar-dropdown-toggle-alpha =             0.4
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color =                        $white
@@ -1692,6 +1682,16 @@ $topbar-site-search-padding =               rem-calc(7 (3*7)) // 7 is based on $
 $topbar-site-search-font-size =             1rem
 $topbar-site-search-font-color =            $black
 $topbar-site-search-text-transform =        lowercase
+
+// Style the top bar dropdown elements
+$topbar-dropdown-bg =                       $topbar-link-bg-hover
+$topbar-dropdown-link-color =               $white
+$topbar-dropdown-link-bg =                  $topbar-dropdown-bg
+$topbar-dropdown-link-bg-hover =            darken($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
+$topbar-dropdown-link-weight =              $font-weight-bold
+$topbar-dropdown-toggle-size =              5px
+$topbar-dropdown-toggle-color =             $white
+$topbar-dropdown-toggle-alpha =             0.4
 
 $topbar-dropdown-label-color =              $gray-dark-3
 $topbar-dropdown-label-text-transform =     uppercase
