@@ -136,7 +136,7 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
 
 }
 
-icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-font-color-hover = $icon-bar-font-color-hover, $bar-hover-color = $icon-bar-hover-color, $bar-icon-color = $icon-bar-icon-color, $bar-icon-color-hover = $icon-bar-icon-color-hover, $bar-active-color = $icon-bar-active-color, $base-style = true) {
+icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-font-color-hover = $icon-bar-font-color-hover, $bar-hover-color = $icon-bar-hover-color, $bar-icon-color = $icon-bar-icon-color, $bar-icon-color-hover = $icon-bar-icon-color-hover, $bar-active-color = $icon-bar-active-color, $base-style = true, $disabled = false) {
 
     if $base-style {
 
@@ -166,6 +166,17 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
         }
     }
 
+    if $disabled {
+        .item.is-disabled {
+            opacity: $icon-bar-disabled-opacity
+            cursor: $icon-bar-disabled-cursor
+            >* {
+                opacity: $icon-bar-disabled-opacity
+                cursor: $icon-bar-disabled-cursor
+            }
+        }
+    }
+
 }
 
 // We use this to quickly create icon bars with a single mixin
@@ -176,11 +187,12 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
 // $bar-icon-color - maybe we could skip explaining them all? Okay this one does change icon color if you use an icon font
 // $bar-active-color - the color of an active / hover state
 // $base-style - Apply base styles? Default: true.
+// $disabled - Allow disabled icons? Default: false.
 
-icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-font-color-hover = $icon-bar-font-color-hover, $bar-hover-color = $icon-bar-hover-color, $bar-icon-color = $icon-bar-icon-color, $bar-icon-color-hover = $icon-bar-icon-color-hover, $bar-active-color = $icon-bar-active-color, $padding =  $icon-bar-item-padding, $font-size =  $icon-bar-font-size, $icon-size =  $icon-bar-icon-size, $image-width =  $icon-bar-image-width, $image-height =  $icon-bar-image-height, $base-style = true) {
+icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-font-color-hover = $icon-bar-font-color-hover, $bar-hover-color = $icon-bar-hover-color, $bar-icon-color = $icon-bar-icon-color, $bar-icon-color-hover = $icon-bar-icon-color-hover, $bar-active-color = $icon-bar-active-color, $padding = $icon-bar-item-padding, $font-size = $icon-bar-font-size, $icon-size = $icon-bar-icon-size, $image-width = $icon-bar-image-width, $image-height = $icon-bar-image-height, $base-style = true, $disabled = false) {
     icon-bar-base()
     icon-bar-size($padding, $font-size, $icon-size, $image-width, $image-height)
-    icon-bar-style($bar-bg, $bar-font-color, $bar-font-color-hover, $bar-hover-color, $bar-icon-color, $bar-icon-color-hover, $bar-active-color, $base-style)
+    icon-bar-style($bar-bg, $bar-font-color, $bar-font-color-hover, $bar-hover-color, $bar-icon-color, $bar-icon-color-hover, $bar-active-color, $base-style, $disabled)
 }
 
 

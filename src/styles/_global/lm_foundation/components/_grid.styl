@@ -194,6 +194,27 @@ grid-html-classes($size) {
     .columns.{$size}-uncentered.opposite {
         float: $opposite-direction
     }
+
+
+    .row {
+       &.{$size}--collapse {
+           > .column,
+           > .columns {
+            grid-column($collapse:true, $float:false)
+        }
+
+           .row {
+                margin-left:0
+                margin-right:0
+            }
+       }
+       &.{$size}--uncollapse {
+           > .column,
+           > .columns {
+               grid-column()
+           }
+       }
+    }
 }
 
 // +exports("grid") {
