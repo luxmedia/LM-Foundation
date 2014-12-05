@@ -60,7 +60,7 @@ button-base($style = true, $display = $button-display) {
 }
 
 // Flat Button style
-button-flat($font-color = $gray-base){
+button-flat($font-color = $gray-base, $bg-hover = $primary-color, $font-color-hover = $white){
     background-color: transparent
     border: none
     box-shadow: none
@@ -68,6 +68,8 @@ button-flat($font-color = $gray-base){
     &:hover,
     &:focus {
         // box-shadow: none
+        color: $font-color-hover
+        background-color: $bg-hover
     }
 
 }

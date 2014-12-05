@@ -21,358 +21,337 @@ topbar-show-dropdown() {
     position: absolute !important // Reset the position from static to absolute
 }
 
-// +exports("topbar") {
+if $include-html-topbar-classes {
 
-    if $include-html-topbar-classes {
+    // Used to provide media query values for javascript components.
+    // This class is generated despite the value of $include-html-topbar-classes
+    // to ensure width calculations work correctly.
+    meta.foundation-mq-topbar {
+        font-family: ("/" + unquote($topbar-media-query) + "/")
+        width: $topbar-breakpoint
+    }
 
-        // Used to provide media query values for javascript components.
-        // This class is generated despite the value of $include-html-topbar-classes
-        // to ensure width calculations work correctly.
-        meta.foundation-mq-topbar {
-            font-family: ("/" + unquote($topbar-media-query) + "/")
-            width: $topbar-breakpoint
-        }
+    /* Wrapped around .topbar to contain to grid width */
+    .contain-to-grid {
+        width: 100%
+        background-color: $topbar-bg
 
-        /* Wrapped around .topbar to contain to grid width */
-        .contain-to-grid {
-            width: 100%
-            background-color: $topbar-bg
-
-            .topbar {
-                margin-bottom: $topbar-margin-bottom
-            }
-        }
-
-        // Wrapped around .topbar to make it stick to the top
-        .topbar__wrap {
-            background-color: $topbar-bg
-            @media $small-only {
-                .row .columns,
-                .row .column {
-                    width: 100%
-                    padding: 0 !important
-                }
-            }
-
-            &--fixed {
-                width: 100%
-                {$default-float}: 0
-                position: fixed
-                top: 0
-                z-index: $zindex-topbar
-
-                &.expanded:not(.topbar) {
-                    overflow-y: auto
-                    height: auto
-                    width: 100%
-                    max-height: 100%
-
-                    .logo-wrap {
-                        position: fixed
-                        width: 100%
-                        z-index: $zindex-topbar
-                    }
-                    // Ensure you can scroll the menu on small screens
-                    .topbar-section {
-                        z-index: ($zindex-topbar - 1)
-                        margin-top: $topbar-height
-                    }
-                }
-            }
-        }
-
-        // Offcanvas menu
-        .tab-bar {
-            @media $medium-up {
-                display: none !important
-            }
-            @media $small-only {
-                display: block !important
-                float: left
-            }
-        }
-
-        // Main top nav section
         .topbar {
-            overflow: hidden
-            height: $topbar-height
-            line-height: $topbar-height
-            position: relative
-            background-color: $topbar-bg
             margin-bottom: $topbar-margin-bottom
-            
-            @media $small-only {
-                .row {
-                    max-width: none
-                }
-            }
-            // Topbar Global list Styles
-            ul {
-                margin-bottom: 0
-                list-style: none
-            }
+        }
+    }
 
-            form,
-            input {
-                margin-bottom: 0
-            }
+    // Wrapped around .topbar to make it stick to the top
+    .topbar__wrap {
+        background-color: $topbar-bg
 
-            input,
-            input[type="text"],
-            input[type="search"] { 
-                height: $topbar-input-height
-                padding-top: $ptop = 0 // (.35rem + rem-calc(1))
-                padding-bottom: $ptop
-                font_size($topbar-button-font-size)
-                if ($topbar-input-border-width) {
-                    border-color: $topbar-input-border-color
-                    border-width: $topbar-input-border-width
-                } else {
-                    border: none
-                }
-                box-shadow: none
-                box-sizing: border-box
-            }
+        &--fixed {
+            width: 100%
+            {$default-float}: 0
+            position: fixed
+            top: 0
+            z-index: $zindex-navbar-fixed
 
-            .btn,
-            button {
-                padding-top: $ptop = 0 //  (.35rem + rem-calc(1))
-                padding-bottom: $ptop
-                margin-bottom: 0
-                font_size($topbar-button-font-size)
-                border-color: darken($topbar-bg, 20%)
-
-                // Corrects a slight misalignment when put next to an input field
-                @media $small-only {
-                    position: relative
-                    top: -1px
-                }
-            }
-
-            // Title Area
-            .logo-wrap {
-                position: relative
-                margin: 0
-                @media $medium-up {
-                    col(2/12, gutter: 0)   
-                }
-                @media $small-only {
-                    col(1/3, gutter: 0)
-                }
-            }
-
-            .logo {
-                height: $topbar-height
-                margin: 0
-                background-color: $topbar-logo-bg
-                font_size($ref-font-size)
-
-                h1, h2, h3, h4, p, span {
-                    display: block
-                    line-height: $topbar-height
-                    font_size($topbar-logo-font-size)
-                    margin: 0
-                    text-align: center
-                    a {
-                        // width: 75%
-                        display: block
-                        padding: 0 $topbar-link-padding
-                        @media $small-only {
-                            padding: 0
-                        }
-                        font-weight: $topbar-logo-weight
-                        color: $topbar-link-color
-                        &:hover {
-                            background-color: $topbar-logo-bg-hover
-                            single-transition(background-color)
-                        }
-                    }
-                }
-            }
-
-            // search form in topbar
-            .site-search {
-                padding: $topbar-site-search-padding
-                @media $small-only {
-                    col(2/3, gutter:0)
-                    padding-left: 0.6rem
-                    padding-right: 0.6rem
-                }
-                @media $medium-up {
-                    col(6/12, gutter:0)
-                }
-                @media $large-up {
-                    col(4/12, gutter:0)
-                }
-                input[type="text"],
-                input[type="search"] {
-                    top: auto
-                    width: 100%
-                    padding-right: ($topbar-button-search-width + rem-calc(6))
-                    font_size($topbar-site-search-font-size)
-                    color: $topbar-site-search-font-color
-                    text-transform: $topbar-site-search-text-transform
-                }
-                .btn,
-                button {
-                    top: auto
-                    float: right
-                    width: $topbar-button-search-width
-                    margin-top: -($topbar-input-height) // move in line with search field
-                    @media $small-only {
-                        display: none
-                    }
-                    // use svg background if browser is capable
-                    {$is-svg-support} & {
-                        font-size: 0!important
-                        text-indent: -9999em
-                        svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
-                    }
-
-                    background-color: $input-bg-color
-                    border-left: $topbar-button-search-border-left
-                    &:focus,
-                    &:hover {
-                        background-color: darken($input-bg-color,10%)
-                    }
-                }
-            }
-
-            // Menu toggle button on small devices
-            .toggle-topbar {
-                position: absolute
-                {$opposite-direction}: 0
-                top: 0
-
-                a {
-                    color: $topbar-link-color
-                    text-transform: $topbar-menu-link-transform
-                    font_size($topbar-menu-link-font-size)
-                    font-weight: $topbar-menu-link-weight
-                    position: relative
-                    display: block
-                    padding: 0 $topbar-link-padding
-                    height: $topbar-height
-                    line-height: $topbar-height
-
-                }
-
-                // Adding the class "menu-icon" will add the 3-line icon people love and adore.
-                &.menu-icon {
-                    top: 50%
-                    margin-top: -16px
-
-                    a {
-                        if ($text-direction == rtl) {
-                            text-indent: -58px
-                        }
-                        height: 34px
-                        line-height: 33px
-                        padding: 0 ($topbar-link-padding + 25) 0 $topbar-link-padding
-                        color: $topbar-menu-link-color
-                        position: relative
-
-                        & {
-                            // @include hamburger icon
-                            //
-                            // We use this to create the icon with three lines aka the hamburger icon, the menu-icon or the navicon
-                            // $width - Width of hamburger icon
-                            // $left - If false, icon will be centered horizontally || explicitly set value in rem
-                            // $top - If false, icon will be centered vertically || explicitly set value in rem
-                            // $thickness - thickness of lines in hamburger icon, set value in px
-                            // $gap - spacing between the lines in hamburger icon, set value in px
-                            // $color - icon color
-                            // $hover-color - icon color during hover, here it isn't set b/c it would override $topbar-menu-icon-color-toggled
-                            // $offcanvas - Set to false of @include in topbar
-                            hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, "", false)
-                        }
-                    }
-                }
-            }
-
-            // Change things up when the topbar is expanded
-            &.expanded {
+            &.expanded:not(.topbar) {
+                overflow-y: auto
                 height: auto
-                background-color: transparent
+                width: 100%
+                max-height: 100%
 
                 .logo-wrap {
-                    background-color: $topbar-logo-bg
+                    position: fixed
+                    width: 100%
+                    z-index: $zindex-navbar-fixed
                 }
+                // Ensure you can scroll the menu on small screens
+                .topbar-section {
+                    z-index: ($zindex-topbar - 1)
+                    margin-top: $topbar-height
+                }
+            }
+        }
+    }
+    // EOF - .topbar__wrap
 
-                .toggle-topbar {
-                    a {
-                        color: $topbar-menu-link-color-toggled
-                        span::after {
-                            // Shh, don't tell, but box-shadows create the menu icon :)
-                            // Change the color of the bars when the menu is expanded, using given thickness from hamburger() above
-                            box-shadow: 0 0px 0 1px $topbar-menu-icon-color-toggled, 0 7px 0 1px $topbar-menu-icon-color-toggled, 0 14px 0 1px $topbar-menu-icon-color-toggled
-                        }
+    // Offcanvas menu
+    .tab-bar {
+        @media $medium-up {
+            display: none !important
+        }
+        @media $small-only {
+            display: block !important
+            float: left
+        }
+    }
+
+    // Main top nav section
+    .topbar {
+        overflow: hidden
+        height: $topbar-height
+        line-height: $topbar-height
+        position: relative
+        background-color: $topbar-bg
+        margin-bottom: $topbar-margin-bottom
+        
+        // Topbar Global list Styles
+        ul {
+            margin-bottom: 0
+            list-style: none
+        }
+
+        form,
+        input {
+            margin-bottom: 0
+        }
+
+        input,
+        input[type="text"],
+        input[type="search"] { 
+            height: $topbar-input-height
+            padding-top: $ptop = 0 // (.35rem + rem-calc(1))
+            padding-bottom: $ptop
+            font_size($topbar-button-font-size)
+            if ($topbar-input-border-width) {
+                border-color: $topbar-input-border-color
+                border-width: $topbar-input-border-width
+            } else {
+                border: none
+            }
+            box-shadow: none
+            box-sizing: border-box
+        }
+
+        .btn,
+        button {
+            padding-top: $ptop = 0 //  (.35rem + rem-calc(1))
+            padding-bottom: $ptop
+            margin-bottom: 0
+            font_size($topbar-button-font-size)
+            border-color: darken($topbar-bg, 20%)
+
+            // Corrects a slight misalignment when put next to an input field
+            @media $small-only {
+                position: relative
+                top: -1px
+            }
+        }
+
+        // Title Area
+        .logo-wrap {
+            position: relative
+            margin: 0
+            @media $medium-up {
+                col(2/12, gutter: 0)   
+            }
+            @media $small-only {
+                col(1/3, gutter: 0)
+            }
+        }
+
+        .logo {
+            height: $topbar-height
+            margin: 0
+            background-color: $topbar-logo-bg
+            font_size($ref-font-size)
+
+            h1, h2, h3, h4, p, span {
+                display: block
+                line-height: $topbar-height
+                font_size($topbar-logo-font-size)
+                margin: 0
+                text-align: center
+                a {
+                    // width: 75%
+                    display: block
+                    padding: 0 $topbar-link-padding
+                    @media $small-only {
+                        padding: 0
+                    }
+                    font-weight: $topbar-logo-weight
+                    color: $topbar-link-color
+                    &:hover {
+                        background-color: $topbar-logo-bg-hover
+                        single-transition(background-color)
                     }
                 }
             }
         }
 
-        // Right and Left Navigation that stacked by default
-        .topbar-section {
-            {$default-float}: 0
-            position: relative
-            width: auto
-            single-transition($default-float, $topbar-transition-speed)
-
-            ul {
-                padding: 0
-                width: 100%
-                height: auto
-                display: block
-                font_size($ref-font-size)
-                margin: 0
+        // search form in topbar
+        .site-search {
+            padding: $topbar-site-search-padding
+            @media $small-only {
+                col(2/3, gutter:0)
+                padding-left: 0.6rem
+                padding-right: 0.6rem
             }
-
-            .divider,
-            [role="separator"] {
-                border-top: $topbar-divider-border-top
-                clear: both
-                height: 1px
-                width: 100%
+            @media $medium-up {
+                col(6/12, gutter:0)
             }
-
-            ul li {
-                background-color: $topbar-dropdown-bg
-                & > a {
-                    display: block
-                    width: 100%
-                    color: $topbar-link-color
-                    padding: 12px 0 12px 0
-                    padding-{$default-float}: $topbar-link-padding
-                    font_family($topbar-link-font-family)
-                    font_size($topbar-link-font-size)
-                    font-weight: $topbar-link-weight
-                    text-transform: $topbar-link-text-transform
-                    
-                    single-transition(background-color)
-
-                    &.btn {
-                        font_size($topbar-link-font-size)
-                        padding-{$opposite-direction}: $topbar-link-padding
-                        padding-{$default-float}: $topbar-link-padding
-                        button-style($primary-color)
-                        &--secondary {
-                            button-style($bg:$secondary-color)
-                        }
-                        &--success {
-                            button-style($bg:$success-color)
-                        }
-                        &--warning {
-                            button-style($bg:$warning-color, $font-color:$warning-font-color)
-                        }
-                        &--alert {
-                            button-style($bg:$alert-color, $font-color:$critical-font-color)
-                        }
-                    }
-                    
+            @media $large-up {
+                col(4/12, gutter:0)
+            }
+            input[type="text"],
+            input[type="search"] {
+                top: auto
+                width: 100%
+                padding-right: ($topbar-button-search-width + rem-calc(6))
+                font_size($topbar-site-search-font-size)
+                color: $topbar-site-search-font-color
+                text-transform: $topbar-site-search-text-transform
+            }
+            .btn,
+            button {
+                top: auto
+                float: right
+                width: $topbar-button-search-width
+                margin-top: -($topbar-input-height) // move in line with search field
+                @media $small-only {
+                    display: none
+                }
+                // use svg background if browser is capable
+                {$is-svg-support} & {
+                    font-size: 0!important
+                    text-indent: -9999em
+                    svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
                 }
 
-            & > button {
+                background-color: $input-bg-color
+                border-left: $topbar-button-search-border-left
+                &:focus,
+                &:hover {
+                    background-color: darken($input-bg-color,10%)
+                }
+            }
+        }
+
+        // Menu toggle button on small devices
+        .toggle-topbar {
+            position: absolute
+            {$opposite-direction}: 0
+            top: 0
+
+            a {
+                color: $topbar-link-color
+                text-transform: $topbar-menu-link-transform
+                font_size($topbar-menu-link-font-size)
+                font-weight: $topbar-menu-link-weight
+                position: relative
+                display: block
+                padding: 0 $topbar-link-padding
+                height: $topbar-height
+                line-height: $topbar-height
+
+            }
+
+            // Adding the class "menu-icon" will add the 3-line icon people love and adore.
+            &.menu-icon {
+                top: 50%
+                margin-top: -16px
+
+                a {
+                    if ($text-direction == rtl) {
+                        text-indent: -58px
+                    }
+                    height: 34px
+                    line-height: 33px
+                    padding: 0 ($topbar-link-padding + 25) 0 $topbar-link-padding
+                    color: $topbar-menu-link-color
+                    position: relative
+
+                    & {
+                        // @include hamburger icon
+                        hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, "", false)
+                    }
+                }
+            }
+        }
+
+        // Change things up when the topbar is expanded
+        &.expanded {
+            height: auto
+            background-color: transparent
+
+            .logo-wrap {
+                background-color: $topbar-logo-bg
+            }
+
+            .toggle-topbar {
+                a {
+                    color: $topbar-menu-link-color-toggled
+                    span::after {
+                        // Shh, don't tell, but box-shadows create the menu icon :)
+                        // Change the color of the bars when the menu is expanded, using given thickness from hamburger() above
+                        box-shadow: 0 0px 0 1px $topbar-menu-icon-color-toggled, 0 7px 0 1px $topbar-menu-icon-color-toggled, 0 14px 0 1px $topbar-menu-icon-color-toggled
+                    }
+                }
+            }
+        }
+
+    }
+    // EOF - .topbar
+
+    // Right and Left Navigation that stacked by default
+    .topbar-section {
+        {$default-float}: 0
+        position: relative
+        width: auto
+        single-transition($default-float, $topbar-transition-speed)
+
+        ul {
+            padding: 0
+            width: 100%
+            height: auto
+            display: block
+            font_size($ref-font-size)
+            margin: 0
+        }
+
+        .divider,
+        [role="separator"] {
+            border-top: $topbar-divider-border-top
+            clear: both
+            height: 1px
+            width: 100%
+        }
+
+        ul li {
+            background-color: $topbar-dropdown-bg
+            & > a {
+                display: block
+                width: 100%
+                color: $topbar-link-color
+                padding: 12px 0 12px 0
+                padding-{$default-float}: $topbar-link-padding
+                font_family($topbar-link-font-family)
+                font_size($topbar-link-font-size)
+                font-weight: $topbar-link-weight
+                text-transform: $topbar-link-text-transform
+                
+                single-transition(background-color)
+
+                &.btn {
+                    font_size($topbar-link-font-size)
+                    padding-{$opposite-direction}: $topbar-link-padding
+                    padding-{$default-float}: $topbar-link-padding
+                    button-style($primary-color)
+                    &--secondary {
+                        button-style($bg:$secondary-color)
+                    }
+                    &--success {
+                        button-style($bg:$success-color)
+                    }
+                    &--warning {
+                        button-style($bg:$warning-color, $font-color:$warning-font-color)
+                    }
+                    &--alert {
+                        button-style($bg:$alert-color, $font-color:$critical-font-color)
+                    }
+                }
+                
+            }
+
+            > button {
                 font_size($topbar-link-font-size)
                 padding-{$opposite-direction}: $topbar-link-padding
                 padding-{$default-float}: $topbar-link-padding
@@ -393,15 +372,13 @@ topbar-show-dropdown() {
             }
 
             // Apply the hover link color when it has that class
-            &:hover:not(.has-form) > a {
-                
+            &:hover:not(.has-form) > a:not(.btn) {
                 if ($topbar-link-bg-hover) {
                     background-color: $topbar-link-bg-hover
                 } else {
                     background-color: $topbar-link-bg-color-hover
                 }
                 color: $topbar-link-color-hover
-
             }
 
             // Apply the active link color when it has that class
@@ -457,19 +434,20 @@ topbar-show-dropdown() {
         }
 
         // Styling elements inside of dropdowns
+        // 1st Level
         .dropdown {
             padding: 0
             position: absolute
             {$default-float}: 100%
             top: 0
-            z-index: 99
+            z-index: $zindex-dropdown
             topbar-hide-dropdown()
 
             li {
                 width: 100%
                 height: auto
 
-                a {
+                &:not(.has-form) a:not(.btn):not(.product__link) {
                     font-weight: $topbar-dropdown-link-weight
                     padding: 8px $topbar-link-padding
                     text-transform: uppercase
@@ -496,8 +474,8 @@ topbar-show-dropdown() {
                 &.has-form {
                     padding: 8px $topbar-link-padding
                 }
-                button,
-                .btn {
+                .btn,
+                button {
                     top: auto
                 }
             }
@@ -511,7 +489,7 @@ topbar-show-dropdown() {
                 font_size($topbar-dropdown-label-font-size)
             }
         }
-    }
+    }// EOF - .topbar-section
 
     .js-generated {
         display: block
@@ -520,6 +498,7 @@ topbar-show-dropdown() {
 
     // Top Bar styles intended for screen sizes above the breakpoint.
     @media $topbar-media-query {
+
         .topbar {
             background-color: $topbar-bg
             clearfix()
@@ -533,25 +512,29 @@ topbar-show-dropdown() {
                 float: $default-float
             }
             .logo h1 a {
+                display: block
                 width: auto
             }
-
-            input,
-            button,
-            .btn {
-                font_size($topbar-button-font-size)
-                position: relative
-                top: $topbar-button-top
-                height: $topbar-input-height
-                line-height: $topbar-input-height
-                padding-top: 0
-                padding-bottom: 0
+            
+            .topbar-section > ul > li {
+                > input,
+                > button,
+                > .btn {
+                    font_size($topbar-button-font-size)
+                    position: relative
+                    top: $topbar-button-top
+                    height: $topbar-input-height
+                    line-height: $topbar-input-height
+                    padding-top: 0
+                    padding-bottom: 0
+                }
             }
 
             &.expanded {
                 background-color: $topbar-bg
             }
         }
+        // EOF - .topbar
 
         .contain-to-grid .topbar {
             max-width: $row-width
@@ -613,23 +596,24 @@ topbar-show-dropdown() {
                         }
                     }
                 }
-                // Second Level
-                &:not(.has-form) li,
-                &.is-active:not(.has-form) li,
-                li {
-                    a,
+
+                // Second Level Links
+                li:not(.has-form),
+                &.is-active li:not(.has-form) {
+                    &:last-child {
+                        margin-bottom: 0.35rem
+                    }
                     a:not(.btn) {
                         line-height: 1.4rem
                         padding-bottom: 0.35rem
                         padding-top: 0.35rem
                     }
-                }                
-            }
+                }
+
+            } // EOF - li
 
             .has-dropdown {
-
                 if($topbar-arrows){
-
                     & > a {
                         padding-{$opposite-direction}: rem-calc($topbar-link-padding + $topbar-link-dropdown-padding) !important
                         {$is-svg-support} & {
@@ -643,7 +627,6 @@ topbar-show-dropdown() {
                             }
                         }
                     }
-
                 }
 
                 &.is-moved {
@@ -665,7 +648,7 @@ topbar-show-dropdown() {
 
                 .dropdown li.has-dropdown {
                     & > a {
-                        if ($topbar-dropdown-arrows){
+                        if ($topbar-dropdown-arrows) {
                             &:after {
                                 border: none
                                 content: "\00bb"
@@ -678,8 +661,9 @@ topbar-show-dropdown() {
                     }
                 }
 
-            }
+            } // EOF - .has-dropdown
 
+            // 1st Level Dropdowns
             .dropdown {
                 {$default-float}: 0
                 top: auto
@@ -687,18 +671,17 @@ topbar-show-dropdown() {
                 min-width: 100%
 
                 li {
-                    a {
-                        color: $topbar-dropdown-link-color
-                        line-height: $topbar-height
-                        white-space: nowrap
-                        padding: 12px $topbar-link-padding
-                        background-color: $topbar-dropdown-link-bg
-                    }
 
                     &:not(.has-form):not(.is-active) {
                         & > a:not(.btn) {
                             color: $topbar-dropdown-link-color
+                            line-height: rem-calc($topbar-height/2)
+                            white-space: nowrap
+                            padding: 8px $topbar-link-padding
                             background-color: $topbar-dropdown-link-bg
+                            &:hover {
+                                color: $topbar-dropdown-link-color-hover
+                            }
                         }
 
                         &:hover > a:not(.btn) {
@@ -717,7 +700,7 @@ topbar-show-dropdown() {
                         background-color: $topbar-dropdown-label-bg
                     }
 
-                    // Second Level Dropdowns
+                    // 2nd Level Dropdowns
                     .dropdown {
                         {$default-float}: 100%
                         top: 0
@@ -736,7 +719,7 @@ topbar-show-dropdown() {
             }
 
             .has-form {
-                background-color: $topbar-link-bg
+                background-color: $topbar-link-bg-hover
                 padding: 0 ($topbar-height / 3)
                 height: $topbar-height
             }
@@ -763,6 +746,7 @@ topbar-show-dropdown() {
                 }
             }
         }
+        // EOF - .topbar-section
 
         // Degrade gracefully when Javascript is disabled. Displays dropdown and changes
         // background & text color on hover.
@@ -797,6 +781,6 @@ topbar-show-dropdown() {
                 }
             }
         }
-    }
-    }
-// }
+
+    } // EOF - media topbar-media-query
+} // EOF - if $include-html-topbar-classes

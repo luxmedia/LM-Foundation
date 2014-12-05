@@ -25,7 +25,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
         position: relative
 
         // Styling for the split arrow clickable area
-        span {
+        span.toggler {
             display: block
             height: 100%
             position: absolute
@@ -54,8 +54,8 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
     // Control the border color for the span area of the split button
     if $span-border {
-        span {
-            border-{$default-float}-color: rgba(255,255,255,0.5)
+        span.toggler {
+            border-{$default-float}-color: $split-button-border-color
         }
     }
 
@@ -63,7 +63,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     if ($padding == tiny) {
         padding-{$opposite-direction}: $split-button-padding-tny
 
-        span {
+        span.toggler {
             width: $split-button-span-width-tny
             &:after {
                 border-top-style: solid
@@ -76,7 +76,8 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     // Style of the button and clickable area for small sizes
         padding-{$opposite-direction}: $split-button-padding-sml
 
-        span { width: $split-button-span-width-sml
+        span.toggler {
+            width: $split-button-span-width-sml
             &:after {
                 border-top-style: solid
                 border-width: $split-button-pip-size-sml
@@ -88,7 +89,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     // Style of the button and clickable area for default (medium) sizes
         padding-{$opposite-direction}: $split-button-padding-med
 
-        span {
+        span.toggler {
             width: $split-button-span-width-med
             &:after {
                 border-top-style: solid
@@ -101,7 +102,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     // Style of the button and clickable area for large sizes
         padding-{$opposite-direction}: $split-button-padding-lrg
 
-        span {
+        span.toggler {
             width: $split-button-span-width-lrg
             &:after {
                 border-top-style: solid
@@ -114,7 +115,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
     // Control the color of the triangle pip
     if $pip-color {
-        span:after {
+        span.toggler:after {
             border-color: $pip-color transparent transparent transparent
         }
     }
@@ -149,9 +150,9 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
                 padding-left: 2rem
             }
 
-            &--secondary {
-                split-button(false, $split-button-pip-color-alt, false, false)
-            }
+            // &--secondary {
+            //     split-button(false, $split-button-pip-color-alt, false, false)
+            // }
 
             &--radius span {
                 side-radius($opposite-direction, $global-radius)

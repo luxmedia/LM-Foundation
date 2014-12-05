@@ -144,11 +144,11 @@ if $include-html-productlist-classes {
                 .price {
                     display: block
                     line-height: $product-list-price-line-height
+                    font_family($product-price-special-font-family)
+                    font_size($product-price-special-font-size)
 
                     &--special,
                     &--minimal {
-                        font_family($product-price-special-font-family)
-                        font_size($product-price-special-font-size)
                         font-weight: $product-price-special-font-weight
                         color: $product-price-special-color
                         text-decoration: $product-price-special-decoration

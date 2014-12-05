@@ -1521,6 +1521,7 @@ $split-button-function-factor =             10%
 $split-button-pip-color =                   $white
 $split-button-pip-color-alt =               $charcoal-1
 $split-button-active-bg-tint =              rgba(0,0,0,0.1)
+$split-button-border-color =                rgba(255,255,255,0.5)
 
 // tiny split buttons
 $split-button-padding-tny =                 ($button-pip-tny * 10)
@@ -1815,6 +1816,7 @@ $topbar-site-search-text-transform =        lowercase
 // Style the top bar dropdown elements
 $topbar-dropdown-bg =                       $topbar-link-bg-hover
 $topbar-dropdown-link-color =               $white
+$topbar-dropdown-link-color-hover =         $primary-color
 $topbar-dropdown-link-bg =                  $topbar-dropdown-bg
 $topbar-dropdown-link-bg-hover =            darken($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
 $topbar-dropdown-link-weight =              $font-weight-bold
@@ -1822,15 +1824,15 @@ $topbar-dropdown-toggle-size =              5px
 $topbar-dropdown-toggle-color =             $white
 $topbar-dropdown-toggle-alpha =             0.4
 
-$topbar-dropdown-label-color =              $gray-dark-3
+$topbar-dropdown-label-color =              darken($topbar-link-bg-hover, 25%) // $gray-dark-3
 $topbar-dropdown-label-text-transform =     uppercase
 $topbar-dropdown-label-font-weight =        $font-weight-bold
 $topbar-dropdown-label-font-size =          0.8rem // rem-calc(10)
-$topbar-dropdown-label-bg =                 $charcoal-1
+$topbar-dropdown-label-bg =                 transparent // $charcoal-1
 
 // Top menu icon styles
 $topbar-menu-link-transform =               uppercase
-$topbar-menu-link-font-size =               rem-calc(13)
+$topbar-menu-link-font-size =               1rem
 $topbar-menu-link-weight =                  $font-weight-bold
 $topbar-menu-link-color =                   $white
 $topbar-menu-icon-color =                   $white
