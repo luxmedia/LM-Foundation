@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"propert",
+				"properties"
+			],
+			[
+				"backgro",
+				"background-color"
+			],
+			[
+				"pr",
+				"primary-color"
+			],
+			[
+				"body-",
+				"body-font-color"
+			],
+			[
+				"global",
+				"global-ui-shadow"
+			],
+			[
+				"body",
+				"body-font-color"
+			],
+			[
+				"cursor-",
+				"cursor-help-value"
+			],
+			[
+				"left",
+				"left-off-canvas-menu"
+			],
+			[
+				"font-family-",
+				"font-family-buttons"
+			],
+			[
+				"gray",
+				"gray-medium-1"
+			],
+			[
+				"gray-",
+				"gray-light-1"
+			],
+			[
+				"rem",
+				"rem-calc"
+			],
+			[
+				"up",
+				"uppercase"
+			],
+			[
 				"styl",
 				"stylesheet"
 			],
@@ -14,28 +66,40 @@
 			[
 				"link",
 				"link-color"
-			],
-			[
-				"gray",
-				"gray-light-1"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Gruntfile.js",
+			"file": "docs.html",
 			"settings":
 			{
-				"buffer_size": 6721,
+				"buffer_size": 67847,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/styles/custom/_settings.styl",
+			"file": "src/styles/_global/lm_foundation/_settings.styl",
 			"settings":
 			{
-				"buffer_size": 4698,
+				"buffer_size": 85035,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/styles/_global/lm_foundation/components/_global.styl",
+			"settings":
+			{
+				"buffer_size": 15144,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/styles/_global/lm_foundation/components/_type.styl",
+			"settings":
+			{
+				"buffer_size": 12967,
 				"line_ending": "Unix"
 			}
 		}
@@ -43,16 +107,32 @@
 	"build_system": "Packages/sublime-grunt-build/grunt.sublime-build",
 	"command_palette":
 	{
-		"height": 47.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"Install",
-				"Package Control: Install Package"
+				"Sty",
+				"Set Syntax: Stylus"
 			],
 			[
 				"Stylus",
 				"Set Syntax: Stylus"
+			],
+			[
+				"Java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Styl",
+				"Set Syntax: Stylus"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
 			],
 			[
 				"Sass",
@@ -63,7 +143,7 @@
 				"Set Syntax: Stylus"
 			]
 		],
-		"width": 467.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -80,108 +160,148 @@
 	},
 	"file_history":
 	[
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_grid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/Gruntfile.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_topbar.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_forms.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_dropdown.styl",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_dropdown-buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/_settings.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/index.html",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_labels.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_split-buttons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_pricing-tables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_product-list.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_side-nav.styl",
+		"/Users/volkerlux/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/_functions.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_icon-bar.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.accordion.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_grid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.abide.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.topbar.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/custom/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.dropdown.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm-foundation.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_top-bar.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_alerts.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_ribbons.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_accordion.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_block-grid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_breadcrumbs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_button-groups.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_clearing.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_docs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_flex-video.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_inline-lists.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_joyride.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_keystrokes.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_magellan.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_offcanvas.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_orbit.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_pagination.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_panels.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_progress-bars.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_range-slider.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_reveal.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_sub-nav.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_tables.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_tabs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_thumbs.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_toolbar.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_tooltips.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_type.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_switches.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/index_BAK.php",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/custom/oxid/_oxid.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/arrows_down.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/arrows_right.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/arrows_plus.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/basic_lock_open.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/basic_magnifier.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_visibility.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_global.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/package.json",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/node_modules/jeet/stylus/jeet/_grid.styl",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/styles.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/dist/svg/sprite.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/fb-like.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/svg/twitter.svg",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/vendor/modernizr.min.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.reveal.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/plugins/jquery.tabs.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/scripts.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/plugins/jquery.actual.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.tab.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.offcanvas.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/plugins/custom.functions.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.equalizer.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/jquery.tabs.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.tab_BAK.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.slider.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.alert.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.tooltip.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_badges.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/docs.html",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.clearing.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components/_alert-boxes.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/custom/oxid/section/_category_view.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/dist/css/styles.css",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Frameworks/foundation/scss/foundation/components/_visibility.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.joyride.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.orbit.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.magellan.js",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.interchange.js",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_type.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_top-bar.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_tooltips.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_toolbar.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_thumbs.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_tabs.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_tables.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_switches.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_sub-nav.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_split-buttons.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_side-nav.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_reveal.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_range-slider.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_progress-bars.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_pricing-tables.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_panels.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_pagination.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_orbit.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/_settings.styl",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_offcanvas.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_labels.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_keystrokes.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_icon-bar.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_grid.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_global.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_forms.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_dropdown.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_dropdown-buttons.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_buttons.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_button-groups.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/Frameworks/foundation/scss/foundation/components/_block-grid.scss",
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/index.html",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/dist/styles/styles.css",
 		"/Volumes/LM-HDD-PORTABLE-02/Ressources/Coding/foundation-5.4.7/index.html",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm-foundation.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/custom/_settings.styl",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm-foundation/components/_global.styl",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/custom/_settings.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/styles.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/custom/scripts.js",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/_global/lm-foundation.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/global/lm-foundation/_settings.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/global/foundation.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/_settings.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/global/foundation/_settings.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_type.styl",
-		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_switches.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_visibility.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_top-bar.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_tooltips.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_thumbs.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_tabs.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_tables.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_sub-nav.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_split-buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_side-nav.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_reveal.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_range-slider.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_progress-bars.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_pricing-tables.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_panels.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_pagination.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_orbit.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_offcanvas.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_magellan.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_labels.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_keystrokes.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_joyride.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_inline-lists.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_icon-bar.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_grid.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_global.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_forms.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_flex-video.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_dropdown.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_dropdown-buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_clearing.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_button-groups.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_block-grid.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_breadcrumbs.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_alert-boxes.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/components/_accordion.styl",
-		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
-		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/foundation/_functions.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/styl/normalize.styl",
-		"/Users/volker/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/dist/styles/styles.css",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_fonts.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/section/_product_view.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/section/_category_view.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/Gruntfile.js",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_functions.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/base.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/mixins.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/variables.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/fonts.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_base.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_variables.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_normalize.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/styles/global/_reset.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/styles.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_variables.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/dist/css/styles.css",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_mixins.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_base.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/global/_buttons.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_widgets.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_account.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_product_view.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_category_view.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/KUNDEN/CYCLE-BASAR/MARKETING/WEB/WEBSHOP/WORK/HTML/cycle-basar.de - 2015/out/cb2015/src/source/css/section/_blocks.styl",
-		"/Users/volkerlux/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styl/styles.styl"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 0.0,
 		"where_history":
 		[
+			"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js",
+			"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles,/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components,<open files>",
+			"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles,/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/_global/lm_foundation/components",
+			"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles",
 			"<open files>",
 			""
 		]
@@ -191,134 +311,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"grid-column",
-			"$include-html-classes",
-			"lm-foundation",
-			"_offcanvas",
-			"'",
-			"global/",
-			"foundation",
-			"global/",
-			"section",
-			"convert",
-			"text-base-color",
-			"base-font-size",
-			"dir_font'",
-			"bp_tablet",
-			"$header-font-family",
-			"@media",
-			"$medium-up",
-			"@media $screen ",
-			"@media ",
-			"@media",
-			"'",
-			"{",
-			"}",
-			"'{",
-			"\"{",
-			" =",
-			"@media",
-			"	",
-			"\"",
-			"brand-warning",
-			"body-bg",
-			"@media",
-			"clone",
-			"value",
-			",",
-			"_return",
-			"types ",
-			"brand-primary",
-			"gray-light-",
-			"gray-dark-",
-			"brand-primary",
-			"$$",
-			"gray-light-",
-			"gray-dark",
-			"dir_img",
-			"content-bg",
-			"brand-primary",
-			"font-family-base",
-			"definition-list-",
-			"radius",
-			"font-size",
-			"padding-horizontal",
-			"padding-vertical",
-			"line-height-computed",
-			")",
-			"(",
-			")",
-			"(",
-			"i",
-			",",
-			"antialiased()",
-			" !default",
-			" !default;",
-			"include-html-classes",
-			"link-color",
-			"link-color ",
-			"link-color",
-			"link-decoration",
-			"paragraph-",
-			"anchor-font-color",
-			"primary-color",
-			"optimizeLegibility",
-			"small-font-color",
-			"small-font-size",
-			"h6-font-reduction",
-			"h5-font-reduction",
-			"h4-font-reduction",
-			"h3-font-reduction",
-			"h2-font-reduction",
-			"h1-font-reduction",
-			"h6-font-size",
-			"h5-font-size",
-			"h4-font-size",
-			"h3-font-size",
-			"h2-font-size",
-			"h1-font-size",
-			"#",
-			"$",
-			"#",
-			"body-font-color",
-			"$",
-			" !default;",
-			"nth($align-class-names, $i)",
-			"  ",
-			"$",
-			":",
-			"@mixin ",
-			"@",
-			"$",
-			"#",
-			"$",
-			"#",
-			"$",
-			"$types",
-			"$return",
-			"strip-unit",
-			"$",
-			"$screen",
-			"antialiased",
-			"clearFix",
-			":",
-			"#",
-			":",
-			"box-sizing",
-			"@else",
-			"@if",
-			"@mixin ",
-			"function ",
-			"@",
-			"btn-default-border",
-			"basicButton",
-			".button-size",
-			";",
-			".button-variant",
-			"@",
-			";",
-			":",
-			"@"
+			"svg",
+			"badge",
+			"breadcrumbs",
+			"+",
+			"color",
+			"size",
+			"<a class=\"btn btn__details\">Details</a>",
+			"$gray-dark-1",
+			" btn--flat",
+			" btn--small",
+			"$product-list-button-size",
+			"btn--tiny",
+			"22.",
+			"$topbar-dropdown-link-bg",
+			"$topbar-dropdown-bg",
+			"dropdown",
+			".dropdown",
+			"$topbar-dropdown-bg",
+			"moved",
+			"'moved'",
+			"li.moved",
+			"moved",
+			"hover",
+			"li.hover",
+			"'hover'",
+			".not-click",
+			"not-click",
+			".hover",
+			"hover",
+			"is-not-click",
+			"not-click",
+			"settings.topbar_namespace+\" .\"+",
+			"topbar.parent()",
+			"fixed_class",
+			"topbar_parent",
+			"topbar_namespace",
+			"f-topbar-fixed",
+			"top-bar",
+			"fixed",
+			"form-error-message(",
+			"form-error-message()",
+			"$product-list-opts-bg-color",
+			"$form-label-line-height",
+			"$rem-base",
+			"$rem-base-unitless",
+			"$actual-rem-base",
+			"$rem-base",
+			"font-size:",
+			"font-family:",
+			"font-size:",
+			"font-family:",
+			"font-size:",
+			"$icon-size",
+			"font-size:",
+			"font-family:",
+			"font-size:",
+			"font-family:",
+			"font-size:",
+			"font-family:",
+			"font-family",
+			"font-size:",
+			"$rem-base",
+			"font-size:",
+			"correction",
+			"alert",
+			"select",
+			"$small-up",
+			"cycle",
+			"svg",
+			"font-family(",
+			"font-size(",
+			"fontSize(",
+			"font-family: ",
+			"font-family:",
+			"fontFamily",
+			"$font-family-buttons",
+			"$shapes = all",
+			"svg",
+			"$base-font-size-unitless",
+			"$rem-base",
+			"top-bar",
+			"tob-bar",
+			"rem-calc(",
+			"7px",
+			"title-area",
+			".name",
+			"top-bar",
+			"            <li class=\"divider\"></li>",
+			"$opp",
+			"svg-background",
+			"svg-",
+			"svg",
+			",\n",
+			"svg-background",
+			"top:",
+			"22.5px",
+			"\\00bb",
+			"background",
+			"none",
+			"background:",
+			"svg",
+			"2",
+			"$font-family-body",
+			"$product-list-manu-font-weight",
+			"$product-list-title-font-size",
+			"$product-list-img-height",
+			"$product-list-img-margin",
+			"$product-list-title-height",
+			"$product-list-manu-height",
+			"$product-list-pricebox-margin",
+			"$product-list-pricebox-padding",
+			"$product-list-pricebox-height",
+			"$product-list-item-height",
+			"active",
+			"h3 class=\"",
+			"h3",
+			"img src=\"\"",
+			"img",
+			"product__manufacturer",
+			"itemtype=\"http://schema.org/Product\"",
+			"(\"../../../",
+			"grunt-contrib-stylus",
+			"arrow-right",
+			"arrows-right",
+			"svg-arrows-right",
+			"btn--small",
+			"old",
+			"$topbar-link-padding"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -326,6 +446,35 @@
 		"regex": false,
 		"replace_history":
 		[
+			"topbar",
+			"font_family(",
+			"font_size(",
+			"font-size(",
+			"$font-family-custom",
+			"is-active",
+			"$charcoal-2",
+			"$charcoal-1",
+			"$gray-darker-3",
+			"$gray-darker-2",
+			"$gray-darker-3",
+			"$gray-darker-1",
+			"$gray-dark-3",
+			"$gray-dark-2",
+			"$gray-dark-1",
+			"$gray-base",
+			"$gray-medium-2",
+			"$gray-medium-1",
+			"$gray-light-3",
+			"$gray-light-2",
+			"$gray-light-1",
+			"$gray-lighter-3",
+			"$gray-lighter-2",
+			"$gray-lighter-1",
+			"$gray-light-1",
+			"$gray-lighter-3",
+			"$gray-lighter-2",
+			"$gray-lighter-1",
+			"$gray-light-1",
 			"$",
 			"clearfix",
 			"btnBase",
@@ -352,60 +501,479 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Gruntfile.js",
+					"file": "docs.html",
 					"settings":
 					{
-						"buffer_size": 6721,
+						"buffer_size": 67847,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								168,
-								168
+								14492,
+								14492
 							]
 						],
 						"settings":
 						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
 							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
 							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 47.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/styles/custom/_settings.styl",
+					"file": "src/styles/_global/lm_foundation/_settings.styl",
 					"settings":
 					{
-						"buffer_size": 4698,
+						"buffer_size": 85035,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2817,
-								2817
+								54615,
+								54626
 							]
 						],
 						"settings":
 						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
 							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
 							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
 							"synced": false,
-							"syntax": "Packages/Stylus/Stylus.tmLanguage"
+							"syntax": "Packages/Stylus/editors/Stylus.tmbundle/Syntaxes/Stylus.tmLanguage",
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1040.0,
+						"translation.y": 18932.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/styles/_global/lm_foundation/components/_global.styl",
+					"settings":
+					{
+						"buffer_size": 15144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1807,
+								1821
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Stylus-BEM/editors/Stylus.tmbundle/Syntaxes/Stylus.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 850.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/styles/_global/lm_foundation/components/_type.styl",
+					"settings":
+					{
+						"buffer_size": 12967,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1044,
+								1044
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Stylus-BEM/editors/Stylus.tmbundle/Syntaxes/Stylus.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -477,6 +1045,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 344.0,
+	"side_bar_width": 343.0,
 	"status_bar_visible": true
 }

@@ -77,12 +77,13 @@ pagination-current-item($has-anchor = true) {
 pagination($center = false, $base-style = true, $use-default-classes = true) {
 
     if $base-style {
-        display: block
+        display: inline-block
         min-height: $pagination-height
+        margin: 0
         margin-{$default-float}: $pagination-margin
 
         li {
-            height: $pagination-li-height
+            line-height: $pagination-li-height
             color: $pagination-li-font-color
             font_size($pagination-li-font-size)
             margin-{$default-float}: $pagination-li-margin
@@ -151,6 +152,24 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 &.is-current {
                     pagination-current-item()
                 }
+            }
+            
+            {$is-svg-support} & {
+                &.pagination__prev a,
+                &.pagination__next a {
+                    font_size(0)
+                    text-indent: -(9999em)
+                    width: rem-calc(30)
+                    height: $pagination-li-height
+                    padding: $pagination-link-pad
+                }
+                &.pagination__prev a {
+                    svg-background($file:'arrows_left.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:center)
+                }
+                &.pagination__next a {
+                    svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:center)
+                }
+                
             }
             
         }

@@ -103,5 +103,51 @@ pricing-table-cta() {
             }
         }
 
+        // Price-Boxes
+        .price-box {
+            font_family($font-family-custom)
+            text-align: right
+
+            .price {
+                display: block
+                line-height: $product-list-price-line-height
+                font_family($product-price-special-font-family)
+                font_size($product-price-special-font-size)
+                font-weight: $product-price-special-font-weight
+
+                &--total {
+                    color: $product-price-special-color
+                }
+                &--special,
+                &--minimal {
+                    color: $product-price-special-color
+                    text-decoration: $product-price-special-decoration
+                }
+                &--old,
+                &--base {
+                    font_family($product-price-old-font-family)
+                    font_size($product-price-old-font-size)
+                    font-weight: $product-price-old-font-weight
+                    color: $product-price-old-color
+                    text-decoration: $product-price-old-decoration
+                }
+                &--base {
+                    font_size(($product-price-old-font-size - 0.1))
+                }
+
+                // Price labels (e.g. uvp, from)
+                &__label {
+                    margin-right: rem-calc(4)
+                    font_size($product-price-label-font-size) // Fallback font size
+                    font-weight: $product-price-label-font-weight
+                    text-transform: $product-price-label-text-transform
+                    &--uvp { }
+                    &--special,
+                    &--minimal { }
+                }
+            }
+
+        }
+
     }
 // }

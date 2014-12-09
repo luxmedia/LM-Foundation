@@ -123,16 +123,16 @@ if $include-html-topbar-classes {
 
         .btn,
         button {
-            padding-top: $ptop = 0 //  (.35rem + rem-calc(1))
-            padding-bottom: $ptop
+            //padding-top: $ptop = 0 //  (.35rem + rem-calc(1))
+            //padding-bottom: $ptop
             margin-bottom: 0
-            font_size($topbar-button-font-size)
-            border-color: darken($topbar-bg, 20%)
+            //font_size($topbar-button-font-size)
+            //border-color: darken($topbar-bg, 20%)
 
             // Corrects a slight misalignment when put next to an input field
             @media $small-only {
                 position: relative
-                top: -1px
+                //top: -1px
             }
         }
 
@@ -303,7 +303,7 @@ if $include-html-topbar-classes {
             width: 100%
             height: auto
             display: block
-            font_size($ref-font-size)
+            //font_size($ref-font-size)
             margin: 0
         }
 
@@ -315,7 +315,7 @@ if $include-html-topbar-classes {
             width: 100%
         }
 
-        ul li {
+        > ul > li {
             background-color: $topbar-dropdown-bg
             & > a {
                 display: block
@@ -331,10 +331,11 @@ if $include-html-topbar-classes {
                 single-transition(background-color)
 
                 &.btn {
-                    font_size($topbar-link-font-size)
                     padding-{$opposite-direction}: $topbar-link-padding
                     padding-{$default-float}: $topbar-link-padding
+                    font_size($topbar-link-font-size)
                     button-style($primary-color)
+                    
                     &--secondary {
                         button-style($bg:$secondary-color)
                     }
@@ -352,9 +353,9 @@ if $include-html-topbar-classes {
             }
 
             > button {
-                font_size($topbar-link-font-size)
                 padding-{$opposite-direction}: $topbar-link-padding
                 padding-{$default-float}: $topbar-link-padding
+                font_size($topbar-link-font-size)
                 button-style($bg:$primary-color)
 
                 &.btn--secondary {
@@ -434,7 +435,7 @@ if $include-html-topbar-classes {
         }
 
         // Styling elements inside of dropdowns
-        // 1st Level
+        // 2nd Level
         .dropdown {
             padding: 0
             position: absolute
@@ -449,7 +450,7 @@ if $include-html-topbar-classes {
 
                 &:not(.has-form) a:not(.btn):not(.product__link) {
                     font-weight: $topbar-dropdown-link-weight
-                    padding: 8px $topbar-link-padding
+                    padding: rem-calc(6 $topbar-link-padding)
                     text-transform: uppercase
                     &.parent-link {
                         font-weight: $topbar-link-weight
@@ -472,7 +473,7 @@ if $include-html-topbar-classes {
                     }
                 }
                 &.has-form {
-                    padding: 8px $topbar-link-padding
+                    padding: rem-calc(8 $topbar-link-padding)
                 }
                 .btn,
                 button {
@@ -481,8 +482,8 @@ if $include-html-topbar-classes {
             }
 
             label {
-                padding: 8px $topbar-link-padding 2px
-                margin-bottom: 0
+                //padding: 8px $topbar-link-padding 2px
+                //margin-bottom: 0
                 text-transform: $topbar-dropdown-label-text-transform
                 color: $topbar-dropdown-label-color
                 font-weight: $topbar-dropdown-label-font-weight
@@ -546,20 +547,21 @@ if $include-html-topbar-classes {
             single-transition(none,0,0)
             {$default-float}: 0 !important
 
-            ul {
+            > ul {
                 width: auto
                 height: auto !important
                 display: inline
 
-                li {
+                > li {
                     float: $default-float
                     .js-generated {
                         display: none
                     }
                 }
             }
-
-            li {
+            
+            // FIRST LEVEL
+            > ul > li {
                 &.is-hover {
                     > a:not(.btn) {
                         if ($topbar-link-bg-hover) {
@@ -571,7 +573,7 @@ if $include-html-topbar-classes {
                     }
                 }
                 &:not(.has-form) {
-                    a:not(.btn) {
+                    > a:not(.btn) {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
                         background-color: $topbar-link-bg
@@ -582,10 +584,13 @@ if $include-html-topbar-classes {
                                 background-color: $topbar-link-bg-color-hover
                             }
                         }
+                        .lbl--badge {
+                            margin-{$default-float}: rem-calc(4)
+                        }
                     }
                 }
                 &.is-active:not(.has-form) {
-                    a:not(.btn) {
+                    > a:not(.btn) {
                         padding: 0 $topbar-link-padding
                         line-height: $topbar-height
                         color: $topbar-link-color-active
@@ -597,9 +602,10 @@ if $include-html-topbar-classes {
                     }
                 }
 
-                // Second Level Links
-                li:not(.has-form),
-                &.is-active li:not(.has-form) {
+                // Second Level = Dropdown
+                li,
+                &.is-active li {
+                    // give last item a little bottom space
                     &:last-child {
                         margin-bottom: 0.35rem
                     }
@@ -663,7 +669,7 @@ if $include-html-topbar-classes {
 
             } // EOF - .has-dropdown
 
-            // 1st Level Dropdowns
+            // 2nd Level = Dropdowns
             .dropdown {
                 {$default-float}: 0
                 top: auto
@@ -672,18 +678,29 @@ if $include-html-topbar-classes {
 
                 li {
 
+                    &:not(.has-form) {
+                        & > a:not(.btn) {
+                            display: block
+                            padding: rem-calc(6 $topbar-link-padding)
+                            line-height: rem-calc(($topbar-height / 2))
+                            font_family($topbar-link-font-family)
+                            font_size($topbar-link-font-size)
+                            white-space: nowrap
+                            
+                            .lbl--badge {
+                                margin-{$default-float}: rem-calc(4)
+                            }
+                        }
+
+                    }
                     &:not(.has-form):not(.is-active) {
                         & > a:not(.btn) {
-                            color: $topbar-dropdown-link-color
-                            line-height: rem-calc($topbar-height/2)
-                            white-space: nowrap
-                            padding: 8px $topbar-link-padding
-                            background-color: $topbar-dropdown-link-bg
+                        color: $topbar-dropdown-link-color
+                        background-color: $topbar-dropdown-link-bg
                             &:hover {
                                 color: $topbar-dropdown-link-color-hover
                             }
                         }
-
                         &:hover > a:not(.btn) {
                             color: $topbar-dropdown-link-color-hover
                             
@@ -706,6 +723,7 @@ if $include-html-topbar-classes {
                         top: 0
                     }
                 }
+
             }
 
             & > ul > .divider,

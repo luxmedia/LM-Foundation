@@ -342,6 +342,80 @@ form-select()  {
     }
 }
 
+form-checkbox-base() {
+    visibility: hidden
+    opacity: 0
+    position: absolute
+
+    & + label {
+        position: relative
+        display: inline-block
+        margin-{$default-float}: $form-spacing * .5
+        margin-{$opposite-direction}: $form-spacing
+        margin-bottom: ($form-spacing * .5) // 0
+        padding-bottom: 0
+        padding-left: ($input-checkbox-width * 1.5)
+        font-weight: $form-label-ui-font-weight
+        font_size($input-font-size)
+        text-transform: none
+        vertical-align: baseline
+        cursor: pointer
+        &::-moz-selection,
+        &::selection {
+            background: transparent
+        }
+        &:before {
+            display: inline-block
+            width: $input-checkbox-width
+            height: $input-checkbox-width
+            position: absolute
+            left: 0px
+            top: ceil((pxify($form-label-line-height+$font-size-normalization) - $input-checkbox-width) / 2) 
+            // margin-right: ($w * 2)
+            content: ""
+            single-transition(all)
+        }
+    }
+
+    &:checked + label {
+        &:before {
+            text-align: center
+        }
+    }
+}
+
+form-checkbox-style($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hover, $bg-checked = $input-checkbox-bg-checked, $border-color = $input-checkbox-border-color, $border-color-hover = $input-checkbox-border-color-hover, $border-color-checked = $input-checkbox-border-color-checked, $font-color = $input-font-color) {
+
+    & + label {
+        color: $font-color
+        &:before {
+            background-color: $bg // checkmark-rectangle fill
+            border: $input-checkbox-inner-padding solid $bg // is actually our inner padding and bg fill
+            border-top-color: darken($bg, 6%) // bg fill shade
+            box-shadow: 0 0 0 $input-checkbox-border-width $border-color // is actually our border
+        }
+        &:hover {
+            color: (dark($font-color) ? darken($font-color, 10%) : lighten($font-color, 10%))
+            &:before {
+                background-color: $bg-hover // hover: checkmark-rectangle fill
+                box-shadow: 0 0 0 $input-checkbox-border-width $border-color-hover // hover: border
+            }
+        }
+    }
+
+    &:checked + label {
+        &:before {
+            background-color: $bg-checked // checked: checkmark-rectangle fill
+            border-color: (dark($bg-checked) ? $bg : $gray-darker-1) // checked: bg fill
+            border-top-color: (dark($bg-checked) ? darken($bg, 10%) : darken($gray-darker-1,10%)) // checked: bg fill shade
+            box-shadow: 0 0 0 $input-checkbox-border-width $border-color-checked // checked: border
+        }
+        &:hover::before {
+            background-color: $bg-checked
+        }
+    }
+}
+
 // We use this mixin to turn on/off HTML5 number spinners
 html5number($browser, $on = true) {
     if ($on==false) {
@@ -528,67 +602,16 @@ html5number($browser, $on = true) {
 
         input[type="checkbox"],
         input[type="radio"] {
-            visibility: hidden
-            opacity: 0
-            position: absolute
-        }
-
-        input[type="checkbox"] + label,
-        input[type="radio"] + label {
-            position: relative
-            display: inline-block
-            margin-{$default-float}: $form-spacing * .5
-            margin-{$opposite-direction}: $form-spacing
-            margin-bottom: ($form-spacing * .5) // 0
-            padding-bottom: 0
-            padding-left: ($input-checkbox-width * 1.5)
-            font-weight: $form-label-ui-font-weight
-            font_size($input-font-size)
-            text-transform: none
-            color: $input-font-color
-            vertical-align: baseline
-            cursor: pointer
-            &::-moz-selection,
-            &::selection {
-                background: transparent
-            }
-            &:before {
-                display: inline-block
-                width: $input-checkbox-width
-                height: $input-checkbox-width
-                position: absolute
-                left: 0px
-                top: ceil((pxify($form-label-line-height+$font-size-normalization) - $input-checkbox-width) / 2) 
-                // margin-right: ($w * 2)
-                background-color: $input-checkbox-bg
-                border: $input-checkbox-inner-padding solid $input-checkbox-bg // is actually our inner padding
-                border-top-color: darken($input-checkbox-bg, 6%)
-                content: ""
-                box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color // is actually our border
-                single-transition(all)
-            }
-            &:hover {
-                color: darken($input-font-color, 10%)
-                &:before {
-                    background-color: $input-checkbox-bg-hover
-                    box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color-hover 
-                }
-            }
+            form-checkbox-base()
+            form-checkbox-style()
         }
         input[type="radio"] + label:before {
             radius(1000px)
         }
-        input[type="radio"]:checked + label,
-        input[type="checkbox"]:checked + label {
-            &:before {
-                background-color: $input-checkbox-bg-checked
-                border-top-color: $input-checkbox-bg, 10%
-                box-shadow: 0 0 0 $input-checkbox-border-width $input-checkbox-border-color-checked
-                text-align: center
-            }
-            &:hover::before {
-                background-color: $input-checkbox-bg-checked
-            }
+        input[type="checkbox"].checkbox--inverted,
+        input[type="radio"].radio--inverted {
+            form-checkbox-base()
+            form-checkbox-style($bg:rgba($black,0.25), $bg-hover:rgba($white,0.25), $bg-checked:$white, $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
         }
 
         /* Normalize file input width */

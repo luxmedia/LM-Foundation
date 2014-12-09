@@ -33,17 +33,23 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
             top: 0
             border-{$default-float}: solid 1px
 
-            // Building the triangle pip indicator
-            &:after {
-                position: absolute
-                content: ""
-                width: 0
-                height: 0
-                display: block
-                border-style: inset
-                top: 50%
+            {$is-svg-support} & {
+                // use svg for arrow
+                svg-background($file:'arrows_down.svg', $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
+            }
+            {$is-no-svg-support} & {
+                // Building the triangle pip indicator
+                &:after {
+                    position: absolute
+                    content: ""
+                    width: 0
+                    height: 0
+                    display: block
+                    border-style: inset
+                    top: 50%
 
-                {$default-float}: 50%
+                    {$default-float}: 50%
+                }
             }
 
             &:active {
@@ -65,11 +71,17 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
         span.toggler {
             width: $split-button-span-width-tny
-            &:after {
-                border-top-style: solid
-                border-width: $split-button-pip-size-tny
-                top: 48%
-                margin-{$default-float}: $split-button-pip-default-float-tny
+            {$is-svg-support} & {
+                // use svg for arrow
+                svg-background($file:'arrows_down.svg', $size:rem-calc(16), $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-tiny, $position-x:center)
+            }
+            {$is-no-svg-support} & {
+                &:after {
+                    border-top-style: solid
+                    border-width: $split-button-pip-size-tny
+                    top: 48%
+                    margin-{$default-float}: $split-button-pip-default-float-tny
+                }
             }
         }
     } else if ($padding == small) {
@@ -78,11 +90,13 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
         span.toggler {
             width: $split-button-span-width-sml
-            &:after {
-                border-top-style: solid
-                border-width: $split-button-pip-size-sml
-                top: 48%
-                margin-{$default-float}: $split-button-pip-default-float-sml
+            {$is-no-svg-support} & {
+                &:after {
+                    border-top-style: solid
+                    border-width: $split-button-pip-size-sml
+                    top: 48%
+                    margin-{$default-float}: $split-button-pip-default-float-sml
+                }
             }
         }
     } else if ($padding == medium) {
@@ -91,11 +105,13 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
         span.toggler {
             width: $split-button-span-width-med
-            &:after {
-                border-top-style: solid
-                border-width: $split-button-pip-size-med
-                top: 48%
-                margin-{$default-float}: $split-button-pip-default-float-med
+            {$is-no-svg-support} & {
+                &:after {
+                    border-top-style: solid
+                    border-width: $split-button-pip-size-med
+                    top: 48%
+                    margin-{$default-float}: $split-button-pip-default-float-med
+                }
             }
         }
     } else if ($padding == large) {
@@ -104,19 +120,27 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
         span.toggler {
             width: $split-button-span-width-lrg
-            &:after {
-                border-top-style: solid
-                border-width: $split-button-pip-size-lrg
-                top: 48%
-                margin-{$default-float}: $split-button-pip-default-float-lrg
+            {$is-svg-support} & {
+                // use svg for arrow
+                svg-background($file:'arrows_down.svg', $size:rem-calc(20), $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-medium, $position-x:center)
+            }
+            {$is-no-svg-support} & {
+                &:after {
+                    border-top-style: solid
+                    border-width: $split-button-pip-size-lrg
+                    top: 48%
+                    margin-{$default-float}: $split-button-pip-default-float-lrg
+                }
             }
         }
     }
 
     // Control the color of the triangle pip
     if $pip-color {
-        span.toggler:after {
-            border-color: $pip-color transparent transparent transparent
+        {$is-no-svg-support} & {
+            span.toggler:after {
+                border-color: $pip-color transparent transparent transparent
+            }
         }
     }
 }

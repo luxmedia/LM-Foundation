@@ -100,6 +100,9 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
                 label-style(false, $radius:1000px)
             }
 
+            &--inverted {
+                label-style($bg:transparent, $font-color:$gray-base)
+            }
             &--success {
                 label-style($success-color)
             }

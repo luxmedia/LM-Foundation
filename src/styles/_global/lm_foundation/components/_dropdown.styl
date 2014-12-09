@@ -158,24 +158,37 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
 
 dropdown-style() {
     font_size($f-dropdown-font-size)
-    cursor: $cursor-pointer-value
-
+    
     line-height: $f-dropdown-line-height
     margin: 0
+    cursor: $cursor-pointer-value
 
     &:hover,
     &:focus {
-        background: $f-dropdown-list-hover-bg
+        background-color: $f-dropdown-list-hover-bg
+        > a,
+        > a:hover {
+            color: $f-dropdown-font-color-hover
+        }
     }
 
     &--radius {
         radius($f-dropdown-radius)
     }
 
-    a {
+    > a {
         display: block
         padding: $f-dropdown-list-padding
         color: $f-dropdown-font-color
+        font_family($f-dropdown-font-family)
+        font-weight: $f-dropdown-font-weight
+        text-transform: uppercase
+        
+        &.is-active,
+        &.is-selected {
+            cursor: $cursor-default-value
+            color: $f-dropdown-font-color-active
+        }
     }
 }
 
@@ -199,7 +212,7 @@ dropdown-style() {
             }
             // max-width: none
 
-            li {
+            > li {
                 dropdown-style()
             }
 

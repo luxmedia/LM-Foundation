@@ -45,12 +45,15 @@ button-base($style = true, $display = $button-display) {
         // SVGs inside buttons
         background-position: right center
         background-repeat: no-repeat
-        svg {
-            position: relative
-            width: $w = (rem-calc(strip-unit($base-line-height/100) * $rem-base) + $button-svg-padding)
-            height: $h = ($w - $button-svg-padding - 0.1)
-            top: ($h/4)
-            margin-right: -($w)
+        
+        label {
+            display: inline-block
+            margin: 0 rem-calc(5) 0 0
+            padding: 0
+            text-transform: uppercase
+        }    
+        label + span:not(.lbl) {
+            font_size($label-font-sizing)
         }
 
     }
@@ -70,6 +73,20 @@ button-flat($font-color = $gray-base, $bg-hover = $primary-color, $font-color-ho
         // box-shadow: none
         color: $font-color-hover
         background-color: $bg-hover
+        label {
+            color: $font-color-hover
+            opacity: 0.7
+        }
+    }
+    
+    &.btn--dropdown {
+        {$is-svg-support} & {
+            svg-background($file:'arrows_down.svg', $shapes:all, $stroke:darken($font-color,25%), $stroke-hover:$font-color-hover, $stroke-width:$svg-stroke-width-small)
+        }
+    }
+    
+    label {
+        color: darken($font-color,25%)
     }
 
 }
