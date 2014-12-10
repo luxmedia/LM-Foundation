@@ -243,7 +243,7 @@
     var actualMarginWidth = (window.outerWidth - actualBodyWidth) / 2;
     var actualBoundary = actualBodyWidth;
     
-    if (!this.hasClass('mega')) {
+    if (!this.hasClass('f-dropdown--mega')) {
       //miss top
       if (t.offset().top <= this.outerHeight()) {
         p.missTop = true;

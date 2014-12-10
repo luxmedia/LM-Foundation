@@ -95,9 +95,10 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 color: $pagination-link-font-color
                 background: $pagination-link-bg
                 font_family($pagination-font-family)
-                font-weight: normal
                 font_size($pagination-font-size)
+                font-weight: normal
                 line-height: inherit
+                text-transform: uppercase
                 if $pagination-link-border {
                     border:1px solid $pagination-link-border
                     border-width: $pagination-link-border-width
@@ -154,20 +155,32 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 }
             }
             
+            // Icons for previous and next links
             {$is-svg-support} & {
+                &.is-icononly {
+                    a {
+                        font_size(0)
+                        text-indent: -(9999em)
+                    }
+                    &.pagination__prev {
+                        padding-right: 0
+                    }
+                    &.pagination__next {
+                        padding-left: 0
+                    }
+                }
                 &.pagination__prev a,
                 &.pagination__next a {
-                    font_size(0)
-                    text-indent: -(9999em)
-                    width: rem-calc(30)
                     height: $pagination-li-height
                     padding: $pagination-link-pad
                 }
                 &.pagination__prev a {
-                    svg-background($file:'arrows_left.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:center)
+                    padding-left: rem-calc(30)
+                    svg-background($file:'arrows_left.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:left)
                 }
                 &.pagination__next a {
-                    svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:center)
+                    padding-right: rem-calc(30)
+                    svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:right)
                 }
                 
             }
