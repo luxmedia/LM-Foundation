@@ -57,6 +57,12 @@ module.exports = function(grunt) {
             js_dist_file: '<%= globalConfig.dest %>/js/scripts.min.js',
             // stylus source file(s)
             styl_src: ['<%= globalConfig.src %>/styles/*.styl'],
+            // styl_src_files: [
+            //     '<%= globalConfig.src %>/styles/_global/normalize.styl',
+            //     '<%= globalConfig.src %>/styles/_global/lm_foundation/_settings.styl',
+            //     '<%= globalConfig.src %>/styles/custom/_settings.styl',
+            //     '<%= globalConfig.src %>/styles/_global/lm_foundation/lm-foundation.styl'
+            // ],
             styl_src_files: 'styles/styles.styl',
             // css distribution folder and file
             css_dist_folder: '<%= globalConfig.dest %>/css',
@@ -94,6 +100,9 @@ module.exports = function(grunt) {
                     ext: '.css',
                     flatten: true
                 }]
+                // files: {
+                //     '<%= lm_foundation.css_dist_file %>': '<%= lm_foundation.styl_src_files %>'
+                // }
             }
         },
 
@@ -232,7 +241,7 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: '<%= globalConfig.src  %>',
                         // src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
-                        src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade' ],
+                        src: [ '**/*', '!**/*.styl', '!**/*.coffee', '!**/*.jade', '!**/*.svg' ],
                         dest: '<%= globalConfig.dest %>',
                         flatten: false,
                         filter: 'isFile'
