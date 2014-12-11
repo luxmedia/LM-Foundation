@@ -82,7 +82,7 @@ border-longhand($width = 0, $style = solid, $color = transparent) {
 // @mixins
 //
 // SVG backgrounds based on "svg-stylus" plugin
-svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = "g", $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
+svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
     // possible svg shapes
     // If your svg files feature <g> you could use this instead of "all"
     // "g" is the svg group selector which inherits its styling to all children
@@ -377,9 +377,17 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         font-family: "/" + unquote($small-up) + "/"
         width: lower-bound($small-range)
     }
+    meta.foundation-mq-small-only {
+        font-family: "/" + unquote($small-only) + "/"
+        width: lower-bound($small-range)
+    }
 
     meta.foundation-mq-medium {
         font-family: "/" + unquote($medium-up) + "/"
+        width: lower-bound($medium-range)
+    }
+    meta.foundation-mq-medium-only {
+        font-family: "/" + unquote($medium-only) + "/"
         width: lower-bound($medium-range)
     }
 
@@ -387,9 +395,17 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         font-family: "/" + unquote($large-up) + "/"
         width: lower-bound($large-range)
     }
+    meta.foundation-mq-large-only {
+        font-family: "/" + unquote($large-only) + "/"
+        width: lower-bound($large-range)
+    }
 
     meta.foundation-mq-xlarge {
         font-family: "/" + unquote($xlarge-up) + "/"
+        width: lower-bound($xlarge-range)
+    }
+    meta.foundation-mq-xlarge-only {
+        font-family: "/" + unquote($xlarge-only) + "/"
         width: lower-bound($xlarge-range)
     }
 

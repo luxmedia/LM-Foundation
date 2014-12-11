@@ -110,54 +110,12 @@ visibility-loop() {
 }
 
 
-if ($include-html-visibility-classes != false) {
++exports("visibility") {
+    if ($include-html-visibility-classes) {
 
-    visibility-loop()
+        visibility-loop()
 
-    /* Orientation targeting */
-    .show-for-landscape,
-    .hide-for-portrait {
-        display: inherit !important
-    }
-    .hide-for-landscape,
-    .show-for-portrait {
-        display: none !important
-    }
-
-    /* Specific visibility for tables */
-    table {
-        &.hide-for-landscape,
-        &.show-for-portrait {
-            display: table !important
-        }
-    }
-    thead {
-        &.hide-for-landscape,
-        &.show-for-portrait {
-            display: table-header-group !important
-        }
-    }
-    tbody {
-        &.hide-for-landscape,
-        &.show-for-portrait {
-            display: table-row-group !important
-        }
-    }
-    tr {
-        &.hide-for-landscape,
-        &.show-for-portrait {
-            display: table-row !important
-        }
-    }
-    td,
-    th {
-        &.hide-for-landscape,
-        &.show-for-portrait {
-            display: table-cell !important
-        }
-    }
-
-    @media $landscape {
+        /* Orientation targeting */
         .show-for-landscape,
         .hide-for-portrait {
             display: inherit !important
@@ -169,163 +127,207 @@ if ($include-html-visibility-classes != false) {
 
         /* Specific visibility for tables */
         table {
-            &.show-for-landscape,
-            &.hide-for-portrait {
+            &.hide-for-landscape,
+            &.show-for-portrait {
                 display: table !important
             }
         }
         thead {
-            &.show-for-landscape,
-            &.hide-for-portrait {
+            &.hide-for-landscape,
+            &.show-for-portrait {
                 display: table-header-group !important
             }
         }
         tbody {
-            &.show-for-landscape,
-            &.hide-for-portrait {
+            &.hide-for-landscape,
+            &.show-for-portrait {
                 display: table-row-group !important
             }
         }
         tr {
-            &.show-for-landscape,
-            &.hide-for-portrait {
+            &.hide-for-landscape,
+            &.show-for-portrait {
                 display: table-row !important
             }
         }
         td,
         th {
-            &.show-for-landscape,
-            &.hide-for-portrait {
+            &.hide-for-landscape,
+            &.show-for-portrait {
                 display: table-cell !important
             }
         }
-    }
 
-    @media $portrait {
-        .show-for-portrait,
-        .hide-for-landscape {
+        @media $landscape {
+            .show-for-landscape,
+            .hide-for-portrait {
+                display: inherit !important
+            }
+            .hide-for-landscape,
+            .show-for-portrait {
+                display: none !important
+            }
+
+            /* Specific visibility for tables */
+            table {
+                &.show-for-landscape,
+                &.hide-for-portrait {
+                    display: table !important
+                }
+            }
+            thead {
+                &.show-for-landscape,
+                &.hide-for-portrait {
+                    display: table-header-group !important
+                }
+            }
+            tbody {
+                &.show-for-landscape,
+                &.hide-for-portrait {
+                    display: table-row-group !important
+                }
+            }
+            tr {
+                &.show-for-landscape,
+                &.hide-for-portrait {
+                    display: table-row !important
+                }
+            }
+            td,
+            th {
+                &.show-for-landscape,
+                &.hide-for-portrait {
+                    display: table-cell !important
+                }
+            }
+        }
+
+        @media $portrait {
+            .show-for-portrait,
+            .hide-for-landscape {
+                display: inherit !important
+            }
+            .hide-for-portrait,
+            .show-for-landscape {
+                display: none !important
+            }
+
+            /* Specific visibility for tables */
+            table {
+                &.show-for-portrait,
+                &.hide-for-landscape {
+                    display: table !important
+                }
+            }
+            thead {
+                &.show-for-portrait,
+                &.hide-for-landscape {
+                    display: table-header-group !important
+                }
+            }
+            tbody {
+                &.show-for-portrait,
+                &.hide-for-landscape {
+                    display: table-row-group !important
+                }
+            }
+            tr {
+                &.show-for-portrait,
+                &.hide-for-landscape {
+                    display: table-row !important
+                }
+            }
+            td,
+            th {
+                &.show-for-portrait,
+                &.hide-for-landscape {
+                    display: table-cell !important
+                }
+            }
+        }
+
+        /* Touch-enabled device targeting */
+        .show-for-touch {
+            display: none !important
+        }
+        .hide-for-touch {
             display: inherit !important
         }
-        .hide-for-portrait,
-        .show-for-landscape {
+        .touch .show-for-touch {
+            display: inherit !important
+        }
+        .touch .hide-for-touch {
             display: none !important
         }
 
         /* Specific visibility for tables */
-        table {
-            &.show-for-portrait,
-            &.hide-for-landscape {
-                display: table !important
-            }
-        }
-        thead {
-            &.show-for-portrait,
-            &.hide-for-landscape {
-                display: table-header-group !important
-            }
-        }
-        tbody {
-            &.show-for-portrait,
-            &.hide-for-landscape {
-                display: table-row-group !important
-            }
-        }
-        tr {
-            &.show-for-portrait,
-            &.hide-for-landscape {
-                display: table-row !important
-            }
-        }
-        td,
-        th {
-            &.show-for-portrait,
-            &.hide-for-landscape {
-                display: table-cell !important
-            }
-        }
-    }
-
-    /* Touch-enabled device targeting */
-    .show-for-touch {
-        display: none !important
-    }
-    .hide-for-touch {
-        display: inherit !important
-    }
-    .touch .show-for-touch {
-        display: inherit !important
-    }
-    .touch .hide-for-touch {
-        display: none !important
-    }
-
-    /* Specific visibility for tables */
-    table.hide-for-touch {
-        display: table !important
-    }
-    .touch table.show-for-touch {
-        display: table !important
-    }
-    thead.hide-for-touch {
-        display: table-header-group !important
-    }
-    .touch thead.show-for-touch {
-        display: table-header-group !important
-    }
-    tbody.hide-for-touch {
-        display: table-row-group !important
-    }
-    .touch tbody.show-for-touch {
-        display: table-row-group !important
-    }
-    tr.hide-for-touch {
-        display: table-row !important
-    }
-    .touch tr.show-for-touch {
-        display: table-row !important
-    }
-    td.hide-for-touch {
-        display: table-cell !important
-    }
-    .touch td.show-for-touch {
-        display: table-cell !important
-    }
-    th.hide-for-touch {
-        display: table-cell !important
-    }
-    .touch th.show-for-touch {
-        display: table-cell !important
-    }
-
-
-    /* Print visibility */
-    @media print {
-        .show-for-print {
-            display: block
-        }
-        .hide-for-print {
-            display: none
-        }
-
-        table.show-for-print {
+        table.hide-for-touch {
             display: table !important
         }
-        thead.show-for-print {
+        .touch table.show-for-touch {
+            display: table !important
+        }
+        thead.hide-for-touch {
             display: table-header-group !important
         }
-        tbody.show-for-print {
+        .touch thead.show-for-touch {
+            display: table-header-group !important
+        }
+        tbody.hide-for-touch {
             display: table-row-group !important
         }
-        tr.show-for-print {
+        .touch tbody.show-for-touch {
+            display: table-row-group !important
+        }
+        tr.hide-for-touch {
             display: table-row !important
         }
-        td.show-for-print {
+        .touch tr.show-for-touch {
+            display: table-row !important
+        }
+        td.hide-for-touch {
             display: table-cell !important
         }
-        th.show-for-print {
+        .touch td.show-for-touch {
             display: table-cell !important
+        }
+        th.hide-for-touch {
+            display: table-cell !important
+        }
+        .touch th.show-for-touch {
+            display: table-cell !important
+        }
+
+
+        /* Print visibility */
+        @media print {
+            .show-for-print {
+                display: block
+            }
+            .hide-for-print {
+                display: none
+            }
+
+            table.show-for-print {
+                display: table !important
+            }
+            thead.show-for-print {
+                display: table-header-group !important
+            }
+            tbody.show-for-print {
+                display: table-row-group !important
+            }
+            tr.show-for-print {
+                display: table-row !important
+            }
+            td.show-for-print {
+                display: table-cell !important
+            }
+            th.show-for-print {
+                display: table-cell !important
+            }
+
         }
 
     }
-
 }

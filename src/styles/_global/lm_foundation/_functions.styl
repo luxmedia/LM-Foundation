@@ -63,16 +63,20 @@ percentage($value){
 
 // IMPORT ONCE
 // We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
-// $modules = () !default
-// exports($name) {
-//     $module_index = index($modules, $name)
-//     if (($module_index == null) || ($module_index == false)) {
-//         push($modules, $name)
-//         //content: 'code'
-//     }
-//     // Reference: http://learnboost.github.io/stylus/docs/mixins.html
-//     //{block}
-// }
+$modules = ()
+exports($name) {
+    //$module_index = index($modules, $name)
+    $module_index = false
+    for $m_index, $i in $modules {
+        if ($name == $m_index) $module_index = true
+    }
+    if (($module_index == null) || ($module_index == false)) {
+        push($modules, $name)
+        //content: 'code'
+        // Reference: http://learnboost.github.io/stylus/docs/mixins.html#block-mixins
+        {block}
+    }
+}
 
 // Based on Foundation by ZURB
 // foundation.zurb.com

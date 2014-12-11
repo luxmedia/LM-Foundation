@@ -22,9 +22,13 @@
 
   header_helpers([
     'foundation-mq-small',
+    'foundation-mq-small-only',
     'foundation-mq-medium',
+    'foundation-mq-medium-only',
     'foundation-mq-large',
+    'foundation-mq-large-only',
     'foundation-mq-xlarge',
+    'foundation-mq-xlarge-only',
     'foundation-mq-xxlarge',
     'foundation-data-attribute-namespace']);
 
@@ -98,7 +102,6 @@
     var self = this,
         should_bind_events = !S(this).data(this.attr_name(true));
 
-
     if (S(this.scope).is('[' + this.attr_name() +']')) {
       S(this.scope).data(this.attr_name(true) + '-init', $.extend({}, this.settings, (options || method), this.data_options(S(this.scope))));
 
@@ -125,19 +128,19 @@
 
   var single_image_loaded = function (image, callback) {
     function loaded () {
-        callback(image[0]);
+      callback(image[0]);
     }
 
     function bindLoad () {
-        this.one('load', loaded);
+      this.one('load', loaded);
 
-        if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
-            var src = this.attr( 'src' ),
-                param = src.match( /\?/ ) ? '&' : '?';
+      if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+        var src = this.attr( 'src' ),
+            param = src.match( /\?/ ) ? '&' : '?';
 
-            param += 'random=' + (new Date()).getTime();
-            this.attr('src', src + param);
-        }
+        param += 'random=' + (new Date()).getTime();
+        this.attr('src', src + param);
+      }
     }
 
     if (!image.attr('src')) {
@@ -281,17 +284,21 @@
     version : '{{VERSION}}',
 
     media_queries : {
-        small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-        medium : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-        large : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-        xlarge: S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
-        xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
+      'small'       : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'small-only'  : S('.foundation-mq-small-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'medium'      : S('.foundation-mq-medium').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'medium-only' : S('.foundation-mq-medium-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'large'       : S('.foundation-mq-large').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'large-only'  : S('.foundation-mq-large-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'xlarge'      : S('.foundation-mq-xlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'xlarge-only' : S('.foundation-mq-xlarge-only').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
+      'xxlarge'     : S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
     },
 
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
     global: {
-        namespace: undefined
+      namespace: undefined
     },
 
     init : function (scope, libraries, method, options, response) {
@@ -337,15 +344,15 @@
 
         if (args && args.hasOwnProperty(lib)) {
             if (typeof this.libs[lib].settings !== 'undefined') {
-                $.extend(true, this.libs[lib].settings, args[lib]);
+              $.extend(true, this.libs[lib].settings, args[lib]);
             }
             else if (typeof this.libs[lib].defaults !== 'undefined') {
-                $.extend(true, this.libs[lib].defaults, args[lib]);
+              $.extend(true, this.libs[lib].defaults, args[lib]);
             }
           return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
 
-        args = args instanceof Array ? args : new Array(args);    // PATCH: added this line
+        args = args instanceof Array ? args : new Array(args);
         return this.libs[lib].init.apply(this.libs[lib], args);
       }
 
@@ -544,8 +551,8 @@
       //    Class (String): Class name for the generated <meta> tag
       register_media : function (media, media_class) {
         if(Foundation.media_queries[media] === undefined) {
-            $('head').append('<meta class="' + media_class + '"/>');
-            Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
+          $('head').append('<meta class="' + media_class + '"/>');
+          Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
         }
       },
 
@@ -609,6 +616,64 @@
         this.prefix = this.prefix || [(this.name || 'F'), (+new Date).toString(36)].join('-');
 
         return this.prefix + (this.fidx++).toString(36);
+      },
+
+      // Description:
+      //    Helper for window.matchMedia
+      //
+      // Arguments:
+      //    mq (String): Media query
+      //
+      // Returns:
+      //    (Boolean): Whether the media query passes or not
+      match : function (mq) {
+        return window.matchMedia(mq).matches;
+      },
+
+      // Description:
+      //    Helpers for checking Foundation default media queries with JS
+      //
+      // Returns:
+      //    (Boolean): Whether the media query passes or not
+
+      is_small_up : function () {
+        return this.match(Foundation.media_queries.small);
+      },
+
+      is_medium_up : function () {
+        return this.match(Foundation.media_queries.medium);
+      },
+
+      is_large_up : function () {
+        return this.match(Foundation.media_queries.large);
+      },
+
+      is_xlarge_up : function () {
+        return this.match(Foundation.media_queries.xlarge);
+      },
+
+      is_xxlarge_up : function () {
+        return this.match(Foundation.media_queries.xxlarge);
+      },
+
+      is_small_only : function () {
+        return !this.is_medium_up() && !this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_medium_only : function () {
+        return this.is_medium_up() && !this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_large_only : function () {
+        return this.is_medium_up() && this.is_large_up() && !this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_xlarge_only : function () {
+        return this.is_medium_up() && this.is_large_up() && this.is_xlarge_up() && !this.is_xxlarge_up();
+      },
+
+      is_xxlarge_only : function () {
+        return this.is_medium_up() && this.is_large_up() && this.is_xlarge_up() && this.is_xxlarge_up();
       }
     }
   };

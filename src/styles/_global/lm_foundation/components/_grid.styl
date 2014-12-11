@@ -197,23 +197,23 @@ grid-html-classes($size) {
 
 
     .row {
-       &.{$size}--collapse {
-           > .column,
-           > .columns {
-            grid-column($collapse:true, $float:false)
-        }
+        &.{$size}--collapse {
+            > .column,
+            > .columns {
+                grid-column($collapse:true, $float:false)
+            }
 
-           .row {
+            .row {
                 margin-left:0
                 margin-right:0
             }
-       }
-       &.{$size}--uncollapse {
-           > .column,
-           > .columns {
+        }
+        &.{$size}--uncollapse {
+            > .column,
+            > .columns {
                grid-column()
-           }
-       }
+            }
+        }
     }
 }
 
