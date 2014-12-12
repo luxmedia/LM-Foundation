@@ -1,5 +1,7 @@
 {
-  "qualified-headings": true,
+  "qualified-headings": false,
   "unique-headings": true,
-  "known-properties": false
+  "known-properties": false,
+  "adjoining-classes": false,
+  "box-model": false
 }

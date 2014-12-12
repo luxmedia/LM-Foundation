@@ -29,10 +29,9 @@ grid-row($behavior = false) {
     // use @include grid-row(nest) to include a nested row
     if ($behavior == nest) {
         width: auto
+        margin: 0
         margin-{$default-float}: -($column-gutter/2)
         margin-{$opposite-direction}: -($column-gutter/2)
-        margin-top: 0
-        margin-bottom: 0
         max-width: none
     } else if ($behavior == collapse) {
         // use @include grid-row(collapse) to collapsed a container row margins

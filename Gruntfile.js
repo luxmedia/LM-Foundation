@@ -103,12 +103,18 @@ module.exports = function(grunt) {
         },
 
         // Add Browser vendor prefixes
+        // https://github.com/nDmitry/grunt-autoprefixer
         autoprefixer: {
             build: {
-                expand: true,
-                cwd: '<%= globalConfig.dest %>',
-                src: [ '**/*.css' ],
-                dest: '<%= globalConfig.dest %>'
+                options: {
+                    browsers: ['> 5%', 'last 2 versions', 'ie 8', 'ie 9']
+                },
+                multiple_files: {
+                    expand: true,
+                    cwd: '<%= globalConfig.dest %>',
+                    src: [ '**/*.css' ],
+                    dest: '<%= globalConfig.dest %>'
+                }
             }
         },
 
@@ -355,6 +361,7 @@ module.exports = function(grunt) {
         'default',
         'Watches the project for changes, automatically builds them and runs a server.',
         // [ 'build', 'connect', 'watch' ]
+        // Turn On/Off csslint for debugging css
         [ 'build', 'connect', 'csslint' ]
     );
 

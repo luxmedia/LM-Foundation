@@ -500,13 +500,10 @@ html5number($browser, $on = true) {
         /* We use this to get basic styling on all basic form elements */
         {unquote(join(', ', text-inputs(all, 'input')))} {
             -webkit-appearance: none
-            -webkit-border-radius: 0px
+            -webkit-border-radius: 0
             form-element()
             if ($input-include-glowing-effect == false) {
                 single-transition(all, 0.15s, linear)
-            }
-            &--radius {
-                radius($input-border-radius)
             }
         }
         textarea {
@@ -569,7 +566,7 @@ html5number($browser, $on = true) {
 
         input[type="submit"] {
             -webkit-appearance: none
-            -webkit-border-radius: 0px
+            -webkit-border-radius: 0
             antialiased()
         }
 

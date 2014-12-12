@@ -19,7 +19,7 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
     left: -(9999px)
     list-style: $f-dropdown-list-style
     margin-{$default-float}: 0
-    outline: none
+    // outline: none // should be used in :focus only
 
     & > *:first-child {
         margin-top: 0
@@ -166,6 +166,7 @@ dropdown-style() {
     &:hover,
     &:focus {
         background-color: $f-dropdown-list-hover-bg
+        outline: none
         > a,
         > a:hover {
             color: $f-dropdown-font-color-hover

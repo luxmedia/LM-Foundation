@@ -68,7 +68,9 @@ alert-close() {
     {$opposite-direction}: $alert-close-position
     color: $alert-close-color
     opacity: $alert-close-opacity
-    background: $alert-close-background
+    if $alert-close-background {
+        background: $alert-close-background
+    }
     &:hover,
     &:focus {
         opacity: $alert-close-opacity-hover
