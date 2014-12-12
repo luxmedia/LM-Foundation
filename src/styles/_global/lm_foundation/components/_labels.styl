@@ -45,7 +45,7 @@ label-size($padding = $label-padding, $text-size = $label-font-sizing) {
 // We use this mixin to add label styles.
 // $bg - Default: $primary-color (found in settings file)
 // $radius - Default: false, Options: true, sets radius to $global-radius (found in settings file)
-label-style($bg = $gray-base, $radius = false, $font-color = $label-font-color ) {
+label-style($bg = $gray-base, $radius = false, $font-color = $label-font-color, $border-color = false ) {
 
     // We control which background color comes through
     if $bg {
@@ -63,6 +63,11 @@ label-style($bg = $gray-base, $radius = false, $font-color = $label-font-color )
         radius($label-radius)
     } else if $radius {
         radius($radius)
+    }
+
+    // add border or not
+    if $border-color{
+        border: 1px solid $border-color
     }
 
 }
@@ -100,9 +105,6 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
                 label-style(false, $radius:1000px)
             }
 
-            &--inverted {
-                label-style($bg:transparent, $font-color:$gray-base)
-            }
             &--success {
                 label-style($success-color)
             }
@@ -117,6 +119,11 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
             }
             &--warning {
                 label-style($bg:$warning-color, $font-color:$warning-font-color)
+            }
+            
+            // inverted Label (transparent bg, but border)
+            &--inverted {
+                label-style($bg:transparent, $font-color:$gray-base, $border-color: $gray-base)
             }
 
             // Badges

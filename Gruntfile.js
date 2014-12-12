@@ -80,16 +80,12 @@ module.exports = function(grunt) {
         },
 
         // Compile stylus files
+        // https://github.com/gruntjs/grunt-contrib-stylus
         stylus: {
             build: {
                 options: {
                     linenos: true,
                     compress: false,
-                    urlfunc: {
-                        name: 'url',
-                        paths: [__dirname + '/<%= globalConfig.src  %>'],
-                        limit: 1000000
-                    },
                     use: [require('svg-stylus')]
                 },
                 files: [{
@@ -125,7 +121,33 @@ module.exports = function(grunt) {
             }
         },
 
-        // SVG-Store - https://github.com/FWeinb/grunt-svgstore
+        // CSS Linter
+        // https://github.com/gruntjs/grunt-contrib-csslint
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc',
+                formatters: [
+                    {id: 'junit-xml', dest: 'report/csslint_junit.xml'},
+                    {id: 'csslint-xml', dest: 'report/csslint.xml'}
+                ]
+            },
+            strict: {
+                options: {
+                    import: 2
+                },
+                src: ['<%= lm_foundation.css_dist_file %>']
+            },
+            lax: {
+                options: {
+                    import: false
+                },
+                src: ['<%= lm_foundation.css_dist_file %>']
+            }
+        },
+
+        // SVG-Store
+        // https://github.com/FWeinb/grunt-svgstore
+        // 2014-12-12 - DEPRECATED, we use "svgstylus" instead !!!
         svgstore: {
             build: {
                 options: {
@@ -141,6 +163,8 @@ module.exports = function(grunt) {
             }
         },
 
+        // Converts svgs to inline base64 encoded svgs
+        // https://github.com/walle89/svg-stylus
         svgstylus: {
             build: {
                 src: [ 'build' ]
@@ -292,7 +316,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-svgstore');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
+    // grunt.loadNpmTasks('grunt-svgstore');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jade');
@@ -313,11 +338,11 @@ module.exports = function(grunt) {
         [ 'coffee', 'concat', 'uglify', 'clean:scripts' ]
     );
 
-    grunt.registerTask(
-        'svgs',
-        'Merges the SVGs into single sprite file.',
-        [ 'svgstore' ]
-    );
+    // grunt.registerTask(
+    //     'svgs',
+    //     'Merges the SVGs into single sprite file.',
+    //     [ 'svgstore' ]
+    // );
 
     grunt.registerTask(
         'build',
@@ -330,7 +355,7 @@ module.exports = function(grunt) {
         'default',
         'Watches the project for changes, automatically builds them and runs a server.',
         // [ 'build', 'connect', 'watch' ]
-        [ 'build', 'connect' ]
+        [ 'build', 'connect', 'csslint' ]
     );
 
 };
