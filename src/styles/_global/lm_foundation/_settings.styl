@@ -1459,8 +1459,8 @@ $reveal-box-shadow =                        0 5px 50px rgba($black,.3)
 
 // style the reveal close button
 $reveal-close-font-size =                   rem-calc(40)
-$reveal-close-top =                         rem-calc(8)
-$reveal-close-side =                        rem-calc(11)
+$reveal-close-top =                         rem-calc(10)
+$reveal-close-side =                        rem-calc(22)
 $reveal-close-color =                       $gray-base
 $reveal-close-weight =                      $font-weight-bold
 
@@ -1774,7 +1774,7 @@ $topbar-bg-color =                          $charcoal-1
 $topbar-bg =                                $topbar-bg-color
 
 // Height and margin
-$topbar-height =                            45px
+$topbar-height =                            rem-calc(45)
 $topbar-margin-bottom =                     0
 
 // Controlling the styles for the title in the top bar
@@ -1801,11 +1801,11 @@ $topbar-link-font-family =                  $font-family-custom
 $topbar-link-text-transform =               uppercase
 $topbar-link-padding =                      ($topbar-height / 3)
 $topbar-back-link-size =                    $h5-font-size
-$topbar-link-dropdown-padding =             20px
+$topbar-link-dropdown-padding =             rem-calc(20)
 
 $topbar-button-top =                        rem-calc(7)
 $topbar-button-font-size =                  1rem // rem-calc(14)
-$topbar-input-height =                      (rem-calc($topbar-height) - (2*$topbar-button-top))
+$topbar-input-height =                      ($topbar-height - (2*$topbar-button-top))
 $topbar-button-search-width =               rem-calc(40)
 $topbar-button-search-border-left =         1px solid darken($input-bg-color,10%)
 $topbar-button-search-svg-color =           $gray-dark-1

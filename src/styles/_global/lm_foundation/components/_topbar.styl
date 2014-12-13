@@ -108,7 +108,7 @@ if $include-html-topbar-classes {
         input[type="text"],
         input[type="search"] { 
             height: $topbar-input-height
-            padding-top: $ptop = 0 // (.35rem + rem-calc(1))
+            padding-top: $ptop = .35rem // 0 // (.35rem + rem-calc(1))
             padding-bottom: $ptop
             font_size($topbar-button-font-size)
             if ($topbar-input-border-width) {
@@ -282,7 +282,7 @@ if $include-html-topbar-classes {
                     span::after {
                         // Shh, don't tell, but box-shadows create the menu icon :)
                         // Change the color of the bars when the menu is expanded, using given thickness from hamburger() above
-                        box-shadow: 0 0px 0 1px $topbar-menu-icon-color-toggled, 0 7px 0 1px $topbar-menu-icon-color-toggled, 0 14px 0 1px $topbar-menu-icon-color-toggled
+                        box-shadow: 0 0 0 1px $topbar-menu-icon-color-toggled, 0 7px 0 1px $topbar-menu-icon-color-toggled, 0 14px 0 1px $topbar-menu-icon-color-toggled
                     }
                 }
             }

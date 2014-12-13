@@ -134,9 +134,11 @@ tab-bar-section() {
     height: $tabbar-height
     top: 0
     @media $medium-up {
-        &.left,
-        &.right {
+        &.left {
             text-align: left
+        }
+        &.right {
+            text-align: right
         }
     }
 
@@ -469,14 +471,18 @@ icon-double-arrows($position){
 if $include-html-off-canvas-classes {
     .left-submenu {
         off-canvas-submenu($position: left)
-        &.move-right {
+        &.move-right,
+        &.offcanvas-overlap-right,
+        &.offcanvas-overlap {
             translate-3d(0%,0,0)
         }
     }
 
     .right-submenu {
         off-canvas-submenu($position: right)
-        &.move-left {
+        &.move-left,
+        &.offcanvas-overlap-left,
+        &.offcanvas-overlap {
             translate-3d(0%,0,0)
         }
     }
