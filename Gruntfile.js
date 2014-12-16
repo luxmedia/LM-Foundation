@@ -333,14 +333,14 @@ module.exports = function(grunt) {
     // define the tasks
     grunt.registerTask(
         'stylesheets',
-        'Compiles the stylesheets.',
+        'Compiles, concatenates and minifies the stylesheets.',
         [ 'stylus', 'autoprefixer', 'cssmin', 'clean:stylesheets' ]
         // [ 'stylus', 'autoprefixer', 'clean:stylesheets' ]
     );
 
     grunt.registerTask(
         'scripts',
-        'Compiles the JavaScript files.',
+        'Compiles and concatenates the JavaScript files.',
         [ 'coffee', 'concat', 'uglify', 'clean:scripts' ]
     );
 
@@ -352,7 +352,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask(
         'build',
-        'Compiles all of the assets and copies the files to the build directory.',
+        'Compiles all of the assets and copies the files to the distribution directory.',
         // [ 'clean:build', 'copy', 'stylesheets', 'scripts', 'svgstore', 'jade', 'cleanempty' ]
         [ 'clean:build', 'copy', 'stylesheets', 'scripts', 'cleanempty' ]
     );
@@ -360,9 +360,13 @@ module.exports = function(grunt) {
     grunt.registerTask(
         'default',
         'Watches the project for changes, automatically builds them and runs a server.',
-        // [ 'build', 'connect', 'watch' ]
         // Turn On/Off csslint for debugging css
-        [ 'build', 'connect', 'csslint' ]
+        [
+            'build',
+            'connect',
+            //'watch',
+            //'csslint'
+        ]
     );
 
 };
