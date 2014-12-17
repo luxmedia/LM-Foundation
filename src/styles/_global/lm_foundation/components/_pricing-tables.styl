@@ -123,8 +123,7 @@ pricing-table-cta() {
                     color: $product-price-special-color
                     text-decoration: $product-price-special-decoration
                 }
-                &--old,
-                &--base {
+                &--old {
                     font_family($product-price-old-font-family)
                     font_size($product-price-old-font-size)
                     font-weight: $product-price-old-font-weight
@@ -132,7 +131,10 @@ pricing-table-cta() {
                     text-decoration: $product-price-old-decoration
                 }
                 &--base {
+                    font_family($product-price-old-font-family)
                     font_size(($product-price-old-font-size - 0.1))
+                    font-weight: $product-price-old-font-weight
+                    color: $product-price-old-color
                 }
 
                 // Price labels (e.g. uvp, from)
