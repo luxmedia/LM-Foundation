@@ -26,7 +26,6 @@ button-base($style = true, $display = $button-display) {
         text-decoration: none
         text-align: $button-font-align
         text-transform: $button-text-transform
-        letter-spacing: $button-letter-spacing
         
         if $button-shadow {
             box-shadow: $button-shadow
@@ -309,7 +308,7 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
                 button-flat()
             }
 
-            &.is-disabled,
+            &.btn--disabled,
             &[disabled] {
                 button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color)
                 
