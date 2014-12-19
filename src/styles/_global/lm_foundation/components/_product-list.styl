@@ -61,7 +61,7 @@ if $include-html-productlist-classes {
             }
 
             // Product Manufacturer (optional)
-            &__manufacturer {
+            &__brand {
                 display: block
                 padding: 0
                 margin: 0
@@ -87,7 +87,7 @@ if $include-html-productlist-classes {
                 text-decoration: none
                 overflow: hidden
             }
-            a:hover .product__title {
+            a:hover .prd__title {
                 color: $product-list-title-color-hover
                 single-transition(color,$ease:ease)
             }
@@ -181,7 +181,7 @@ if $include-html-productlist-classes {
 
         } // eof .product
 
-        // GRID VIEW (4)
+        // GRID VIEW
         &--grid {
             .prd {
                 //height: $product-grid-item-height
@@ -214,6 +214,7 @@ if $include-html-productlist-classes {
                     }
                 }
                 &__title {
+                    margin: $product-grid-title-margin
                     @media $medium-up {
                         height: $product-grid-title-height
                     }
@@ -223,6 +224,13 @@ if $include-html-productlist-classes {
                     @media $small-only {
                         col(2/3)
                     } 
+                }
+                &__sdesc {
+                    padding: $product-grid-desc-padding
+                    font_size($product-grid-desc-font-size)
+                    @media $medium-up {
+                        height: $product-grid-desc-height
+                    }
                 }
 
                 .price-box {

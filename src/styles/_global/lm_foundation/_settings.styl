@@ -1302,6 +1302,7 @@ $product-list-title-line-height =               1.1
 $product-grid-title-height =                    rem-calc((3*$product-list-title-line-height*strip-unit($rem-base-actual)))
 $product-list-title-padding =                   0
 $product-list-title-margin =                    rem-calc(0 0 10 0)
+$product-grid-title-margin =                    rem-calc(0 0 2 0)
 
 $product-list-manu-font-size =                  0.8rem // 0.9rem, if we do not use uppercase transform
 $product-list-manu-color =                      $gray-dark-1
@@ -1313,10 +1314,13 @@ $product-list-manu-text-transform =             $product-grid-manu-text-transfor
 
 $product-list-desc-margin =                     0
 $product-list-desc-padding =                    rem-calc(0 0 20 0)
+$product-grid-desc-padding =                    rem-calc(0 0 5 0)
 $product-list-desc-font-family =                $body-font-family
 $product-list-desc-font-size =                  0.9rem
+$product-grid-desc-font-size =                  0.8rem
 $product-list-desc-line-height =                1.3
-$product-list-desc-color =                      $gray-dark-1
+$product-grid-desc-height =                     rem-calc((3*$product-list-desc-line-height*strip-unit($rem-base-actual)))
+$product-list-desc-color =                      $gray-dark-2
 $product-list-desc-color-hover =                $gray-darker-3
 
 $product-list-opts-line-height =                1.3
@@ -1365,7 +1369,7 @@ $product-list-button-ico-color-hover =          $white
 $product-list-ribbon-offset-top =               ($product-list-item-padding + rem-calc(5))
 
 // $product-grid-item-height = round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + (2*$product-list-title-margin[0]) + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]) + $product-list-button-pseudo-size)
-$product-grid-item-height = round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + $product-list-title-margin[0] + $product-list-title-margin[3] + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]))
+$product-grid-item-height = round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + $product-grid-title-margin[0] + $product-grid-title-margin[2] + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]))
 
 
 // =========================================================================
