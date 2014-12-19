@@ -2,6 +2,59 @@
 @require "_buttons"
 @require "_ribbons"
 
+// @mixins
+prd-opts() {
+    text-transform: uppercase
+    line-height: $product-list-opts-line-height
+    font_family($product-list-opts-font-family)
+    font-weight: $product-list-opts-font-weight
+    color: $product-list-opts-color
+
+    .lbl {
+        float: none // left
+        margin: $product-list-opts-label-margin
+        padding: $product-list-opts-label-padding
+        line-height: $product-list-opts-line-height
+        if ($product-list-opts-label-border) {
+            border: $product-list-opts-label-border
+        }
+        background-color: $product-list-opts-label-bg
+        color: $product-list-opts-label-color
+        font_size($product-list-opts-font-size)
+    }
+
+    ul {
+        margin: 0
+        list-style-type: none
+        li {
+            list-style-type: none
+            display: inline-block
+            padding: $product-list-opts-item-padding
+            margin: $product-list-opts-item-margin
+            background: $product-list-opts-item-bg
+            if ($product-list-opts-item-border) {
+                border: $product-list-opts-item-border
+            }
+            font_size($product-list-opts-font-size)
+            
+            &:first-child {
+                margin-left: 0
+            }
+            &.is-disabled {
+                opacity: 0.5
+            }
+            &.is-selected {
+                border-color: $primary-color
+                background-color: $white
+            }
+            a {
+                display: inline-block
+                padding: $product-list-opts-item-padding
+            }
+        }
+    }
+}
+
 
 // CSS CLASSES
 
@@ -99,46 +152,6 @@ if $include-html-productlist-classes {
                 font_size($product-list-desc-font-size)
                 color: $product-list-desc-color
                 line-height: $product-list-desc-line-height
-            }
-
-            &__opts {
-                text-transform: uppercase
-                line-height: $product-list-opts-line-height
-                font_family($product-list-opts-font-family)
-                font-weight: $product-list-opts-font-weight
-                color: $product-list-opts-color
-
-                .lbl {
-                    float: none // left
-                    margin: $product-list-opts-label-margin
-                    padding: $product-list-opts-label-padding
-                    line-height: $product-list-opts-line-height
-                    if ($product-list-opts-label-border) {
-                        border: $product-list-opts-label-border
-                    }
-                    background-color: $product-list-opts-label-bg
-                    color: $product-list-opts-label-color
-                    font_size($product-list-opts-font-size)
-                }
-
-                ul {
-                    margin: 0
-                    list-style-type: none
-                    li {
-                        list-style-type: none
-                        display: inline-block
-                        padding: $product-list-opts-item-padding
-                        margin: $product-list-opts-item-margin
-                        background: $product-list-opts-item-bg
-                        if ($product-list-opts-item-border) {
-                            border: $product-list-opts-item-border
-                        }
-                        font_size($product-list-opts-font-size)
-                        &:first-child {
-                            margin-left: 0
-                        }
-                    }
-                }
             }
 
             // Buttons
@@ -352,6 +365,10 @@ if $include-html-productlist-classes {
         } // eof &--list
 
 
+    }
+
+    .prd__opts {
+        prd-opts()
     }
 
 } // EOF - if $include-html-productlist-classes

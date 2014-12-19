@@ -77,7 +77,14 @@ button-flat($font-color = $gray-base, $bg-hover = $primary-color, $font-color-ho
             opacity: 0.7
         }
     }
-    
+
+    &.is-disabled,
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+        background-color: transparent
+    }
+
     &.btn--dropdown {
         {$is-svg-support} & {
             svg-background($file:'arrows_down.svg', $shapes:all, $stroke:darken($font-color,25%), $stroke-hover:$font-color-hover, $stroke-width:$svg-stroke-width-small)
@@ -308,7 +315,7 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
                 button-flat()
             }
 
-            &.btn--disabled,
+            &.is-disabled,
             &[disabled] {
                 button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color)
                 
