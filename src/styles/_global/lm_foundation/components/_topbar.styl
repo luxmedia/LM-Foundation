@@ -413,7 +413,7 @@ if $include-html-topbar-classes {
                         &:after {
                             css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
                             margin-{$opposite-direction}: $topbar-link-padding
-                            margin-top: -($topbar-dropdown-toggle-size / 2) - 2
+                            margin-top: -(($topbar-dropdown-toggle-size / 2) - 2)
                             position: absolute
                             top: 50%
                             {$opposite-direction}: 0
@@ -448,9 +448,9 @@ if $include-html-topbar-classes {
                 width: 100%
                 height: auto
 
-                &:not(.has-form) a:not(.btn):not(.product__link) {
+                &:not(.has-form) a:not(.btn):not(.prd__link) {
                     font-weight: $topbar-dropdown-link-weight
-                    padding: rem-calc(6 $topbar-link-padding)
+                    padding: rem-calc(6) $topbar-link-padding
                     text-transform: uppercase
                     &.parent-link {
                         font-weight: $topbar-link-weight
@@ -473,7 +473,7 @@ if $include-html-topbar-classes {
                     }
                 }
                 &.has-form {
-                    padding: rem-calc(8 $topbar-link-padding)
+                    padding: rem-calc(8) $topbar-link-padding
                 }
                 .btn,
                 button {
@@ -621,7 +621,7 @@ if $include-html-topbar-classes {
             .has-dropdown {
                 if($topbar-arrows){
                     & > a {
-                        padding-{$opposite-direction}: rem-calc($topbar-link-padding + $topbar-link-dropdown-padding) !important
+                        padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
                         {$is-svg-support} & {
                             svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
                         }
@@ -681,8 +681,8 @@ if $include-html-topbar-classes {
                     &:not(.has-form) {
                         & > a:not(.btn) {
                             display: block
-                            padding: rem-calc(6 $topbar-link-padding)
-                            line-height: rem-calc(($topbar-height / 2))
+                            padding: rem-calc(6) $topbar-link-padding
+                            line-height: ($topbar-height / 2)
                             font_family($topbar-link-font-family)
                             font_size($topbar-link-font-size)
                             white-space: nowrap

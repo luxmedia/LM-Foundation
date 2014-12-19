@@ -49,7 +49,7 @@
                     background-color: $tabs-navigation-active-bg-color
                     color: $tabs-navigation-active-font-color
                     border-top-color: $tabs-navigation-active-border-color
-                    border-bottom-color: $white
+                    border-bottom-color: $tabs-navigation-active-bg-color
                 }
             }
             &--radius {
@@ -89,6 +89,9 @@
                 float: $default-float
                 padding: $tabs-content-padding 0
                 width: 100%
+                if $tabs-content-bg {
+                    background: $tabs-content-bg
+                }
                 &.is-active {
                     display: block
                     float: none

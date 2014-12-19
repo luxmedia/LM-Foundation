@@ -8,7 +8,7 @@
 if $include-html-productlist-classes {
     
     // Wrapper (ul)
-    .productlist {
+    .prdlist {
 
         padding: $product-list-padding
         margin: 0
@@ -16,7 +16,7 @@ if $include-html-productlist-classes {
         clearfix()
             
         // List item (li)
-        .product {
+        .prd {
             position: relative
             list-style-type: none
             margin: 0
@@ -92,8 +92,8 @@ if $include-html-productlist-classes {
                 single-transition(color,$ease:ease)
             }
 
-            &__shortdesc,
-            &__shortdesc p {
+            &__sdesc,
+            &__sdesc p {
                 margin: $product-list-desc-margin
                 font_family($product-list-desc-font-family)
                 font_size($product-list-desc-font-size)
@@ -101,7 +101,7 @@ if $include-html-productlist-classes {
                 line-height: $product-list-desc-line-height
             }
 
-            &__options {
+            &__opts {
                 text-transform: uppercase
                 line-height: $product-list-opts-line-height
                 font_family($product-list-opts-font-family)
@@ -156,7 +156,7 @@ if $include-html-productlist-classes {
             }
 
             // sorty ribbons if we have more than one ribbon
-            &--special.product--new {
+            &--special.prd--new {
                 .ribbon--primary,
                 .ribbon--special {
                     top: ($product-list-ribbon-offset-top + rem-calc(32))
@@ -172,8 +172,8 @@ if $include-html-productlist-classes {
                 }
                 single-transition($speed:300ms)
             
-                .product__shortdesc,
-                .product__shortdesc p {
+                .prd__sdesc,
+                .prd__sdesc p {
                     color: $product-list-desc-color-hover
                     single-transition(color)
                 }
@@ -183,41 +183,46 @@ if $include-html-productlist-classes {
 
         // GRID VIEW (4)
         &--grid {
-            .product {
+            .prd {
                 //height: $product-grid-item-height
                 margin: $product-list-item-margin
                 padding: 0
                 
-                @media $medium-up {
-                    col(1/3, cycle:3)
-                }
-                @media $medium-only {
+                @media $small-up {
                     col(1/2, cycle:2)
+                }
+                @media $medium-up {
+                    col(1/3, uncycle:2, cycle:3)
                 }
                 @media $small-only {
                     span(1/1)
-                    //height: auto
                 }
 
                 &__link {
                     padding: $product-grid-item-padding
                 }
 
-                &__manufacturer {
+                &__img {
+                    @media $small-only {
+                        col(1/3)
+                    }
+                }
+
+                &__brand {
                     @media $medium-up {
                         height: $product-grid-manu-height
-                    }
-                    @media $small-only {
-                        col(2/3)
                     }
                 }
                 &__title {
                     @media $medium-up {
                         height: $product-grid-title-height
                     }
+                }
+                &__brand,
+                &__title {
                     @media $small-only {
                         col(2/3)
-                    }
+                    } 
                 }
 
                 .price-box {
@@ -244,10 +249,10 @@ if $include-html-productlist-classes {
 
         // LIST VIEW
         &--line {
-            .product {
+            .prd {
                 clearfix()
                 clear: both
-                padding: $product-list-item-padding
+                padding: 0
                 margin: $product-list-item-margin
 
                 &.first,
@@ -262,13 +267,13 @@ if $include-html-productlist-classes {
                 }
 
                 &__link {
-                    padding: 0
+                    padding: $product-list-item-padding
                 }
 
                 // Wrapper for img, manufacturer, title and shortdesc
                 &__info {
                     @media $medium-up {
-                        col(3/4,gutter:0)
+                        col(3/4, gutter:0)
                     }
                 }
 
@@ -281,7 +286,7 @@ if $include-html-productlist-classes {
                     float: left
                 }
                 
-                &__manufacturer {
+                &__brand {
                     display: block
                     font-weight: $product-list-manu-font-weight
                     text-transform: $product-list-manu-text-transform
@@ -291,14 +296,14 @@ if $include-html-productlist-classes {
                     font_size($product-list-title-font-size)
                 }
 
-                &__shortdesc {
+                &__sdesc {
                     display: block
                     padding: $product-list-desc-padding
                 }
 
                 .price-box {
                     @media $medium-up {
-                        col(1/4,gutter:0)
+                        col(1/4, gutter:0)
                         margin-right: 0
                         float: right
                         text-align: right

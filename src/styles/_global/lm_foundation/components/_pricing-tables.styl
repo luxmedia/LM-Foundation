@@ -105,7 +105,6 @@ pricing-table-cta() {
 
         // Price-Boxes
         .price-box {
-            font_family($font-family-custom)
             text-align: right
 
             .price {
@@ -114,13 +113,13 @@ pricing-table-cta() {
                 font_family($product-price-special-font-family)
                 font_size($product-price-special-font-size)
                 font-weight: $product-price-special-font-weight
+                color: $product-price-special-color
 
                 &--total {
-                    color: $product-price-special-color
+                    //color: $product-price-special-color
                 }
                 &--special,
                 &--minimal {
-                    color: $product-price-special-color
                     text-decoration: $product-price-special-decoration
                 }
                 &--old {
