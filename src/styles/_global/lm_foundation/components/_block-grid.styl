@@ -95,24 +95,24 @@ block-grid-html-classes($size,$include-spacing) {
 
         if $block-grid-media-queries {
             @media $small-up {
-                block-grid-html-classes($size:small,$include-spacing:false)
+                block-grid-html-classes($size:sml,$include-spacing:false)
             }
 
             @media $medium-up {
-                block-grid-html-classes($size:medium,$include-spacing:false)
+                block-grid-html-classes($size:med,$include-spacing:false)
             }
 
             @media $large-up {
-                block-grid-html-classes($size:large,$include-spacing:false)
+                block-grid-html-classes($size:lrg,$include-spacing:false)
             }
 
             if $include-xl-html-block-grid-classes {
                 @media $xlarge-up {
-                   block-grid-html-classes($size:xlarge,$include-spacing:false)
+                   block-grid-html-classes($size:xlrg,$include-spacing:false)
                 }
 
                 @media $xxlarge-up {
-                    block-grid-html-classes($size:xxlarge,$include-spacing:false)
+                    block-grid-html-classes($size:xxlrg,$include-spacing:false)
                 }
             }
         }

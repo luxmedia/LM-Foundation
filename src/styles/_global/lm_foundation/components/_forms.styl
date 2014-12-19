@@ -16,8 +16,7 @@ form-row-base() {
     .row {
         margin: 0 ((-($form-spacing)) / 2)
 
-        .column,
-        .columns {
+        .col {
             padding: 0 ($form-spacing / 2)
         }
 
@@ -25,8 +24,7 @@ form-row-base() {
         &.collapse {
             margin: 0
 
-            .column,
-            .columns {
+            .col {
                 padding: 0
             }
             input {
@@ -35,10 +33,8 @@ form-row-base() {
 
         }
     }
-    input.column,
-    input.columns,
-    textarea.column,
-    textarea.columns {
+    input.col,
+    textarea.col {
         padding-{$default-float}: ($form-spacing / 2)
     }
 }

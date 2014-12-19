@@ -147,7 +147,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             }
 
             if $use-default-classes {
-                &.is-unavailable {
+                &.is-disabled {
                     pagination-unavailable-item()
                 }
                 &.is-current {
@@ -162,23 +162,23 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                         font_size(0)
                         text-indent: -(9999em)
                     }
-                    &.pagination__prev {
+                    &.pager__prev {
                         padding-right: 0
                     }
-                    &.pagination__next {
+                    &.pager__next {
                         padding-left: 0
                     }
                 }
-                &.pagination__prev a,
-                &.pagination__next a {
+                &.pager__prev a,
+                &.pager__next a {
                     height: $pagination-li-height
                     padding: $pagination-link-pad
                 }
-                &.pagination__prev a {
+                &.pager__prev a {
                     padding-left: rem-calc(30)
                     svg-background($file:'arrows_left.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:left)
                 }
-                &.pagination__next a {
+                &.pager__next a {
                     padding-right: rem-calc(30)
                     svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:right)
                 }
@@ -202,15 +202,15 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
 
 // +exports("pagination") {
     if $include-pagination-classes {
-        ul.pagination {
+        ul.pager {
             pagination()
         }
 
         /* Pagination centred wrapper */
-        .pagination-centered {
+        .pager-centered {
             pagination-container(true)
 
-            ul.pagination {
+            ul.pager {
                 pagination(true, false)
             }
         }
