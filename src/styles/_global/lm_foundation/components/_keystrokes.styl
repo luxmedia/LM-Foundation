@@ -4,6 +4,29 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-keystroke-classes ?=           $include-html-classes
+
+// text styles.
+$keystroke-font ?=                           $font-family-monospace
+$keystroke-font-size ?=                      inherit
+$keystroke-font-color ?=                     $charcoal-2
+$keystroke-font-color-alt ?=                 $white
+$keystroke-function-factor ?=                10% // -7%
+
+// keystroke padding.
+$keystroke-padding ?=                        rem-calc(2 4 0)
+
+// background and border styles.
+$keystroke-bg ?=                             darken($white, $keystroke-function-factor)
+$keystroke-border-style ?=                   solid
+$keystroke-border-width ?=                   1px
+$keystroke-border-color ?=                   darken($keystroke-bg, $keystroke-function-factor)
+$keystroke-radius ?=                         $global-radius
+
 
 //
 // @mixins

@@ -4,6 +4,78 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-pricing-classes ?=             $include-html-classes
+
+// the border color
+$price-table-border ?=                       solid 1px $gray-medium-1
+
+// the bottom margin of the pricing table
+$price-table-margin-bottom ?=                rem-calc(20)
+
+// the title styles
+$price-title-bg ?=                           $charcoal-1
+$price-title-padding ?=                      rem-calc(15 20)
+$price-title-align ?=                        center
+$price-title-color ?=                        $gray-light-3
+$price-title-weight ?=                       $font-weight-normal
+$price-title-size ?=                         rem-calc(16)
+$price-title-font-family ?=                  $body-font-family
+
+// the price styles
+$price-money-bg ?=                           $gray-lighter-3  
+$price-money-padding ?=                      rem-calc(15 20)
+$price-money-align ?=                        center
+$price-money-color ?=                        $charcoal-1
+$price-money-weight ?=                       $font-weight-normal
+$price-money-size ?=                         rem-calc(32)
+$price-money-font-family ?=                  $font-family-headings
+
+// the description styles
+$price-bg ?=                                 $white
+$price-desc-color ?=                         $gray-dark-3
+$price-desc-padding ?=                       rem-calc(15)
+$price-desc-align ?=                         center
+$price-desc-font-size ?=                     rem-calc(12)
+$price-desc-weight ?=                        $font-weight-normal
+$price-desc-line-height ?=                   1.4
+$price-desc-bottom-border ?=                 dotted 1px $gray-medium-1
+
+// the list item styles
+$price-item-color ?=                         $charcoal-1
+$price-item-padding ?=                       rem-calc(15)
+$price-item-align ?=                         center
+$price-item-font-size ?=                     rem-calc(14)
+$price-item-weight ?=                        $font-weight-normal
+$price-item-bottom-border ?=                 dotted 1px $gray-medium-1
+
+// the CTA area styles
+$price-cta-bg ?=                             $white
+$price-cta-align ?=                          center
+$price-cta-padding ?=                        rem-calc(20 20 0)
+
+// Specific prices
+$price-line-height ?=                       1.3
+$price-old-font-family ?=                   $font-family-custom
+$price-old-font-size ?=                     0.8rem
+$price-old-font-weight ?=                   $font-weight-bold
+$price-old-color ?=                         $gray-darker-2
+$price-old-decoration ?=                    line-through
+$price-base-font-family ?=                  $body-font-family
+$price-base-font-weight ?=                  $font-weight-normal
+$price-special-font-family ?=               $font-family-custom
+$price-special-font-size ?=                 1.5rem
+$price-special-font-weight ?=               $font-weight-bold
+$price-special-color ?=                     $primary-color
+$price-special-decoration ?=                none
+$price-minimal-font-size ?=                 $price-special-font-size
+$price-label-font-weight ?=                 $font-weight-normal
+$price-label-font-size ?=                   0.8rem // scale factor based on related price
+$price-label-text-transform ?=              uppercase
+
 // @mixins
 //
 // create the container element for the pricing tables
@@ -109,47 +181,45 @@ pricing-table-cta() {
 
             .price {
                 display: block
-                line-height: $product-list-price-line-height
-                font_family($product-price-special-font-family)
-                font_size($product-price-special-font-size)
-                font-weight: $product-price-special-font-weight
-                color: $product-price-special-color
+                line-height: $price-line-height
+                font_family($price-special-font-family)
+                font_size($price-special-font-size)
+                font-weight: $price-special-font-weight
+                color: $price-special-color
 
                 &--total {
-                    //color: $product-price-special-color
+                    //color: $price-special-color
                 }
                 &--special,
                 &--minimal {
-                    text-decoration: $product-price-special-decoration
+                    text-decoration: $price-special-decoration
                 }
                 &--old {
-                    //font_family($product-price-old-font-family)
-                    font_size($product-price-old-font-size)
-                    font-weight: $product-price-old-font-weight
-                    color: $product-price-old-color
-                    text-decoration: $product-price-old-decoration
+                    //font_family($price-old-font-family)
+                    font_size($price-old-font-size)
+                    font-weight: $price-old-font-weight
+                    color: $price-old-color
+                    text-decoration: $price-old-decoration
                 }
                 &--base {
-                    font_family($product-price-base-font-family)
-                    font_size(($product-price-old-font-size - 0.1))
-                    font-weight: $product-price-base-font-weight
-                    color: $product-price-old-color
+                    font_family($price-base-font-family)
+                    font_size(($price-old-font-size - 0.1))
+                    font-weight: $price-base-font-weight
+                    color: $price-old-color
                     letter-spacing: 0
                 }
 
                 // Price labels (e.g. uvp, from)
                 &__label {
                     margin-right: rem-calc(4)
-                    font_size($product-price-label-font-size) // Fallback font size
-                    font-weight: $product-price-label-font-weight
-                    text-transform: $product-price-label-text-transform
+                    font_size($price-label-font-size) // Fallback font size
+                    font-weight: $price-label-font-weight
+                    text-transform: $price-label-text-transform
                     &--uvp { }
                     &--special,
                     &--minimal { }
                 }
             }
-
         }
-
     }
 // }

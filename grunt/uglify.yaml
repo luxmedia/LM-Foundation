@@ -1,0 +1,21 @@
+# minifies, concatenates and uglifies .js files
+# https://github.com/gruntjs/grunt-contrib-uglify
+options:
+  mangle: false
+  preserveComments: 'some'
+
+vendor:
+  src: '<%= lm_foundation.js_dist_folder %>/vendor.js'
+  # src: ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lm_foundation.js %>', 'doc/assets/js/docs.js']
+  dest: '<%= lm_foundation.js_dist_folder %>/vendor.min.js'
+foundation:
+  src: '<%= lm_foundation.js_dist_folder %>/foundation.js'
+  dest: '<%= lm_foundation.js_dist_folder %>/foundation.min.js'
+
+plugins:
+  src: '<%= lm_foundation.js_dist_folder %>/plugins.js'
+  dest: '<%= lm_foundation.js_dist_folder %>/plugins.min.js'
+
+custom:
+  src: '<%= lm_foundation.js_dist_folder %>/scripts.js'
+  dest: '<%= lm_foundation.js_dist_file %>'

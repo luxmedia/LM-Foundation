@@ -2,7 +2,29 @@
 
 @require "_global"
 
-/*================== MIXINS =========================*/
+//
+// @variables
+//
+
+$ribbon-font-size ?=                         0.9rem
+$ribbon-font-family ?=                       $font-family-custom
+$ribbon-font-weight ?=                       $font-weight-bold
+$ribbon-font-color ?=                        $white
+$ribbon-bg-color ?=                          $gray-base
+$ribbon-text-transform ?=                    uppercase
+$ribbon-padding-top ?=                       rem-calc(5)
+$ribbon-padding-left ?=                      rem-calc(7)
+$ribbon-line-height ?=                       1
+$ribbon-backface-dimensions ?=               6px
+$ribbon-flag-dimensions ?=                   6px
+$ribbon-flag-padding ?=                      ($ribbon-padding-left - rem-calc($ribbon-flag-dimensions/2))
+$ribbon-box-shadow ?=                        -1px 2px 10px rgba($black,0.1) // -5px 5px 10px rgba(0,0,0,0.1)
+$ribbon-box-shadow-left ?=                   1px 2px 10px rgba($black,0.1) // -5px 5px 10px rgba(0,0,0,0.1)
+
+
+//
+// @mixins
+//
 
 
 ribbon-base() {

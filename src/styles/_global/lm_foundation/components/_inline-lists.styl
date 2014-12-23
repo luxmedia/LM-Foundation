@@ -4,6 +4,30 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-inline-list-classes ?=         $include-html-classes
+
+// the margins and padding of the inline list.
+$inline-list-top-margin ?=                   0
+$inline-list-opposite-margin ?=              0
+$inline-list-bottom-margin ?=                rem-calc(17)
+$inline-list-default-float-margin ?=         -(rem-calc(22))
+$inline-list-default-float-list-margin ?=    rem-calc(22)
+
+$inline-list-padding ?=                      0
+
+// the overflow of the inline list.
+$inline-list-overflow ?=                     hidden
+
+// the list items
+$inline-list-display ?=                      block
+
+// any elements within list items
+$inline-list-children-display ?=             block
+
 
 //
 // @mixins

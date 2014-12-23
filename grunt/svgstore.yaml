@@ -1,0 +1,12 @@
+# SVG-Store
+# https://github.com/FWeinb/grunt-svgstore
+# 2014-12-12 - DEPRECATED, we use "svgstylus" instead !!!
+options:
+  prefix: 'svg-'
+  cleanup: false
+  svg:
+    style: 'dislay:none;'
+
+dist:
+  src: '<%= lm_foundation.svg_src %>'
+  dest: '<%= lm_foundation.svg_dist_file %>'

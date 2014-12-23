@@ -1,0 +1,10 @@
+# compile jade template files
+compile:
+  options:
+    data:
+  dist:
+    expand: true
+    cwd: '<%= globalConfig.src  %>'
+    src: 'jade/*.jade'
+    dest: '<%= globalConfig.dest %>'
+    ext: '.html'

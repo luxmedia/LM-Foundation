@@ -4,6 +4,23 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-accordion-classes ?=           $include-html-classes
+
+$accordion-navigation-padding ?=             rem-calc(16)
+$accordion-navigation-bg-color ?=            $gray-light-2  
+$accordion-navigation-hover-bg-color ?=      darken($accordion-navigation-bg-color, 5%)
+$accordion-navigation-active-bg-color ?=     darken($accordion-navigation-bg-color, 3%)
+$accordion-navigation-font-color ?=          $charcoal-2
+$accordion-navigation-font-size ?=           rem-calc(16)
+$accordion-navigation-font-family ?=         $body-font-family
+
+$accordion-content-padding ?=                ($column-gutter / 2)
+$accordion-content-active-bg-color ?=        $white
+
 
 //  Mixin: accordion-container()
 //  Decription: Responsible for the container component of accordions, generating styles relating to a margin of zero and a clearfix

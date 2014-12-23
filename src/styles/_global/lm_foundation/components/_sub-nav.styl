@@ -5,9 +5,40 @@
 @require "_global"
 
 //
-// @mixins
+// @variables
 //
 
+$include-html-nav-classes ?=                 $include-html-classes
+
+// margin and padding
+$sub-nav-list-margin ?=                      rem-calc(-4 0 18)
+$sub-nav-list-padding-top ?=                 rem-calc(4)
+
+// the definition
+$sub-nav-font-family ?=                      $font-family-custom
+$sub-nav-font-size ?=                        rem-calc(14)
+$sub-nav-font-color ?=                       $gray-dark-1
+$sub-nav-font-weight ?=                      $font-weight-normal
+$sub-nav-text-decoration ?=                  none
+$sub-nav-padding ?=                          rem-calc(3 16)
+$sub-nav-border-radius ?=                    $global-radius
+$sub-nav-font-color-hover ?=                 darken($sub-nav-font-color, 25%)
+
+// the active item styles
+$sub-nav-active-font-weight ?=               $font-weight-normal
+$sub-nav-active-bg ?=                        $primary-color
+$sub-nav-active-bg-hover ?=                  darken($sub-nav-active-bg, 14%)
+$sub-nav-active-color ?=                     $white
+$sub-nav-active-padding ?=                   $sub-nav-padding
+$sub-nav-active-cursor ?=                    default
+
+$sub-nav-item-divider ?=                     ""
+$sub-nav-item-divider-margin ?=              rem-calc(12)
+
+
+//
+// @mixins
+//
 
 // Create a sub-nav item
 //

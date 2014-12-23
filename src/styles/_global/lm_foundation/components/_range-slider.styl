@@ -4,6 +4,54 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-range-slider-classes ?=        $include-html-classes
+
+// These variables define the slider bar styles
+$range-slider-bar-width ?=                   100%
+$range-slider-bar-height ?=                  rem-calc(6)
+
+$range-slider-bar-border-width ?=            1px
+$range-slider-bar-border-style ?=            solid
+$range-slider-bar-border-color ?=            $gray-medium-1
+$range-slider-radius ?=                      $global-radius
+$range-slider-round ?=                       $global-rounded
+$range-slider-bar-bg-color ?=                $gray-light-1
+$range-slider-active-segment-bg-color ?=     darken($primary-color, 20%)
+$range-slider-bar-active-border-color ?=     $white
+$range-slider-disabled-opacity ?=            0.5
+$range-slider-disabled-cursor ?=             $cursor-disabled-value
+
+// Vertical bar styles
+$range-slider-vertical-bar-width ?=          $range-slider-bar-height
+$range-slider-vertical-bar-height ?=         rem-calc(200)
+
+// These variables define the slider handle styles
+$range-slider-handle-width ?=                ($range-slider-bar-height * 3)
+$range-slider-handle-height ?=               ($range-slider-bar-height * 2)
+$range-slider-handle-position-top ?=         ((($range-slider-handle-height - $range-slider-bar-height) / 2) + rem-calc($range-slider-bar-border-width))
+$range-slider-handle-position-left ?=        ((($range-slider-handle-width - $range-slider-bar-height) / 2) + rem-calc($range-slider-bar-border-width))
+$range-slider-handle-bg-color ?=             $primary-color
+$range-slider-handle-border-width ?=         0 1px 1px 0
+$range-slider-handle-border-style ?=         solid
+$range-slider-handle-border-color ?=         darken($range-slider-handle-bg-color, 10%)
+$range-slider-handle-radius ?=               $global-radius
+$range-slider-handle-round ?=                $global-rounded
+$range-slider-handle-bg-hover-color ?=       darken($primary-color, 12%)
+$range-slider-handle-border-color-hover ?=   darken($range-slider-handle-bg-hover-color, 10%)
+$range-slider-handle-cursor ?=               $cursor-pointer-value
+$range-slider-handle-box-shadow ?=           $global-ui-shadow
+
+$rang-slider-label-padding ?=                rem-calc(5 0)
+$rang-slider-label-font-family ?=            $font-family-custom
+$rang-slider-label-font-size ?=              0.9rem
+$rang-slider-label-font-weight ?=            $font-weight-normal
+$rang-slider-label-color ?=                  $body-font-color
+$rang-slider-label-bg-color ?=               $white
+
 
 //
 // @mixins
@@ -35,7 +83,7 @@ range-slider-bar-style($bg = true, $radius = false, $round = false, $disabled = 
         radius($range-slider-round)
     }
     if ($disabled == true) {
-        cursor: $cursor-default-value
+        cursor: $range-slider-disabled-cursor
         opacity: $range-slider-disabled-opacity
     }
 }

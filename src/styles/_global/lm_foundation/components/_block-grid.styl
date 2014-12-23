@@ -4,9 +4,25 @@
 
 @require "_global"
 
+//
+// @Variables
+//
+
+$include-html-block-grid-classes ?=          $include-html-classes
+$include-xl-html-block-grid-classes ?=       false
+
+// the maximum number of block grid elements per row
+$block-grid-elements ?=                      12
+$block-grid-default-spacing ?=               rem-calc(20)
+$align-block-grid-to-grid ?=                 false
+
 if $align-block-grid-to-grid {
     $block-grid-default-spacing = $column-gutter
 }
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries ?=                 true
+
 
 //
 // Block Grid Mixins

@@ -4,6 +4,34 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-label-classes ?=               $include-html-classes
+
+// style the labels
+$label-padding ?=                            rem-calc(5 8)
+$label-radius ?=                             $global-radius
+
+// style the label text
+$label-font-sizing ?=                        0.75
+$label-font-weight ?=                        $font-weight-bold
+$label-text-transform ?=                     uppercase
+$label-font-color ?=                         $charcoal-1
+$label-font-color-alt ?=                     $white
+$label-font-family ?=                        $font-family-headings
+
+$badge-padding ?=                            rem-calc(3 5)
+$badge-radius ?=                             $global-radius
+$badge-font-sizing ?=                        0.75
+$badge-font-weight ?=                        $font-weight-bold
+$badge-font-color ?=                         $white
+$badge-font-color-alt ?=                     $charcoal-1
+$badge-hover-color ?=                        $badge-font-color
+$badge-active-color ?=                       $charcoal-1
+$badge-active-bg ?=                          $badge-font-color
+
 
 //
 // @mixins
@@ -157,52 +185,6 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
             .nav-pills > li > a > & {
                 margin-left: rem-calc(3)
             }
-
-            // Quick fix for badges in buttons
-            .btn & {
-                label-style($bg:$white,$font-color:$button-bg-color)
-                top: -(rem-calc(2px))
-                line-height: 0.8
-            }
-            .btn--secondary & {
-                label-style($bg:$gray-base)
-            }
-            .btn--secondary:hover & {
-                background-color: darken($gray-base, $button-function-factor)
-                // color: darken($button-font-color-alt, $button-function-factor)
-            }
-            .btn--success & {
-                label-style($bg:$white,$font-color:$success-color)
-            }
-            .btn--success:hover & {
-                color: darken($success-color, $button-function-factor)
-            }
-            .btn--info & {
-                label-style($bg:$white,$font-color:$info-color)
-            }
-            .btn--info:hover & {
-                color: darken($info-color, $button-function-factor)
-            }
-            .btn--warning & {
-                label-style($bg:$warning-font-color,$font-color:$warning-color)
-            }
-            .btn--warning:hover & {
-                background-color: darken($warning-font-color, $button-function-factor)
-                color: darken($warning-color, $button-function-factor)
-            }
-            .btn--alert & {
-                label-style($bg:$critical-font-color,$font-color:$alert-color)
-            }
-            .btn--alert:hover & {
-                background-color: darken($critical-font-color, $button-function-factor)
-                color: darken($alert-color, $button-function-factor)
-            }
-
-            .btn--small & {
-                top: 0
-                padding: rem-calc(1 5 1)
-            }
-
         }
     }
 // }

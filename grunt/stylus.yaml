@@ -1,0 +1,17 @@
+# Compile stylus files
+# https://github.com/gruntjs/grunt-contrib-stylus
+options:
+  linenos: true
+  compress: false
+  # use: [require('svg-stylus')]
+
+build:
+  expand: true
+  cwd: '<%= globalConfig.src  %>'
+  src: '<%= lm_foundation.styl_src_files %>'
+  dest: '<%= lm_foundation.css_dist_folder %>'
+  ext: '.css'
+  flatten: true
+# dist:
+  # src: '<%= lm_foundation.styl_src_files %>'
+  # dest: '<%= lm_foundation.css_dist_file %>'

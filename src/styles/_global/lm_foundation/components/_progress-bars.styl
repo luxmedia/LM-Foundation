@@ -4,7 +4,34 @@
 
 @require "_global"
 
+//
+// @variables
+//
 
+$include-html-media-classes ?=              $include-html-classes
+
+// set the progress bar height
+$progress-bar-height ?=                     rem-calc(25)
+$progress-bar-color ?=                      $gray-lighter-3
+
+// the border styles
+$progress-bar-border-color ?=               darken($white, 20%)
+$progress-bar-border-size ?=                1px
+$progress-bar-border-style ?=               solid
+$progress-bar-border-radius ?=              $global-radius
+
+// the margin & padding
+$progress-bar-pad ?=                        rem-calc(2)
+$progress-bar-margin-bottom ?=              rem-calc(10)
+
+// set the meter colors
+$progress-meter-color ?=                    $primary-color
+$progress-meter-secondary-color ?=          $secondary-color
+$progress-meter-success-color ?=            $success-color
+$progress-meter-alert-color ?=              $alert-color
+
+
+//
 // @mixins
 //
 // We use this to set up the progress bar container

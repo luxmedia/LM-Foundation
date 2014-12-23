@@ -1,0 +1,13 @@
+# Copy files to dist directory
+dist:
+  expand: true
+  cwd: '<%= globalConfig.src %>'
+  src:
+    - '**/*'
+    - '!**/*.styl'
+    - '!**/*.coffee'
+    - '!**/*.jade'
+    - '!**/*.svg'
+  dest: '<%= globalConfig.dest %>'
+  flatten: false
+  filter: 'isFile'

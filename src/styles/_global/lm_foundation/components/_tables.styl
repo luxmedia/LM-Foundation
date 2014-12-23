@@ -4,6 +4,54 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-table-classes ?=               $include-html-classes
+
+// These control the background color for the table and even rows
+$table-bg ?=                                 $white
+$table-even-row-bg ?=                        $gray-light-1
+
+// These control the table cell border style
+$table-border-style ?=                       solid
+$table-border-size ?=                        1px
+$table-border-color ?=                       $gray-medium-1
+
+// These control the table head styles
+$table-head-bg ?=                            $table-bg
+$table-head-font-size ?=                     0.8rem // rem-calc(14)
+$table-head-font-color ?=                    $gray-dark-1
+$table-head-font-weight ?=                   $font-weight-bold
+$table-head-padding ?=                       rem-calc(8 10)
+$table-head-text-transform ?=                uppercase
+$table-head-border ?=                        1px solid $table-border-color
+
+// These control the table foot styles
+$table-foot-bg ?=                            $table-head-bg
+$table-foot-font-size ?=                     $table-head-font-size
+$table-foot-font-color ?=                    $table-head-font-color
+$table-foot-font-weight ?=                   $table-head-font-weight
+$table-foot-padding ?=                       $table-head-padding
+
+// These control the caption
+$table-caption-bg ?=                         transparent
+$table-caption-font-color ?=                 $table-head-font-color
+$table-caption-font-size ?=                  0.9rem // rem-calc(16)
+$table-caption-font-weight ?=                bold
+
+// These control the row padding and font styles
+$table-row-padding ?=                        rem-calc(8 10)
+$table-row-font-size ?=                      0.9rem // rem-calc(14)
+$table-row-font-color ?=                     $charcoal-2
+$table-line-height ?=                        rem-calc(16) // rem-calc(18)
+
+// These are for controlling the layout, display and margin of tables
+$table-layout ?=                             auto
+$table-display ?=                            table-cell
+$table-margin-bottom ?=                      rem-calc(20)
+
 
 
 //

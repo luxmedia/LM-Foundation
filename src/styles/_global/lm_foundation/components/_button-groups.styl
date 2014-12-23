@@ -5,6 +5,15 @@
 @require "_global"
 @require "_buttons"
 
+//
+// @Variables
+//
+
+$include-html-button-classes ?=              $include-html-classes
+
+// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
+$button-bar-margin-opposite ?=               rem-calc(10)
+$button-group-border-width ?=                0 1px 1px 0
 
 //
 // Button Group Mixins
@@ -68,6 +77,9 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
             border-left-width: 0
             margin:0
             display: block
+        }
+        > button {
+            width: 100%
         }
 
         &:first-child {

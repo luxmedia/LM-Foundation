@@ -4,6 +4,61 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-dropdown-classes ?=            $include-html-classes
+
+// controls height and width styles.
+$f-dropdown-max-width ?=                     200px
+$f-dropdown-height ?=                        auto
+$f-dropdown-max-height ?=                    none
+
+// Used for bottom position
+$f-dropdown-margin-top ?=                    2px
+
+// Used for right position
+$f-dropdown-margin-left ?=                   $f-dropdown-margin-top
+
+// Used for left position
+$f-dropdown-margin-right ?=                  $f-dropdown-margin-top
+
+// Used for top position
+$f-dropdown-margin-bottom ?=                 $f-dropdown-margin-top
+
+// the background color
+$f-dropdown-bg ?=                            $white
+
+// set the border styles for dropdowns.
+$f-dropdown-border-style ?=                  solid
+$f-dropdown-border-width ?=                  1px
+$f-dropdown-border-color ?=                  darken($white, 20%)
+
+// style the triangle pip.
+$f-dropdown-triangle-size ?=                 6px
+$f-dropdown-triangle-color ?=                $white
+$f-dropdown-triangle-side-offset ?=          10px
+
+// styles for the list elements.
+$f-dropdown-list-style ?=                    none
+$f-dropdown-font-color ?=                    $gray-darker-2
+$f-dropdown-font-family ?=                   $font-family-custom
+$f-dropdown-font-weight ?=                   $font-weight-bold
+$f-dropdown-font-color-hover ?=              $primary-color
+$f-dropdown-font-color-active ?=             $primary-color
+$f-dropdown-font-size ?=                     1rem // rem-calc(14)
+$f-dropdown-list-padding ?=                  rem-calc(5 10)
+$f-dropdown-line-height ?=                   rem-calc(18)
+$f-dropdown-list-hover-bg ?=                 $gray-light-1  
+$dropdown-mobile-default-float ?=            0
+
+// the styles for when the dropdown has custom content.
+$f-dropdown-content-padding ?=               rem-calc(20)
+
+// Default radius for dropdown.
+$f-dropdown-radius ?=                        $global-radius
+
 
 //
 // @mixins

@@ -1,8 +1,105 @@
 @require "_global"
 @require "_buttons"
 @require "_ribbons"
+@require "_pricing-tables"
 
+//
+// @variables
+//
+
+$include-html-productlist-classes ?=             $include-html-classes
+
+$product-list-padding ?=                         rem-calc(20)
+$product-list-bg ?=                              $gray-lighter-3
+
+$product-list-item-padding ?=                    rem-calc(10)
+$product-grid-item-padding ?=                    rem-calc(0 10 10 10)
+$product-list-item-margin ?=                     rem-calc(8 0)
+$product-grid-item-margin ?=                     0
+$product-list-item-bg ?=                         $white
+$product-list-item-bg-hover ?=                   transparent
+$product-list-item-border-width ?=               2px
+$product-list-item-border-style ?=               solid
+$product-list-item-border-color ?=               transparent
+$product-list-item-border-hover-color ?=         transparent
+$product-list-item-box-shadow-hover ?=           false // 0 0 10px rgba($black, 0.2)
+
+$product-list-img-bg ?=                          $white
+$product-list-img-padding ?=                     rem-calc(5 10)
+$product-grid-img-margin ?=                      rem-calc(0 0 10 0)
+$product-list-img-margin ?=                      rem-calc(0 15 0 0)
+$product-grid-img-height ?=                      120px
+$product-list-img-height ?=                      120px
+$product-list-img-width ?=                       $product-list-img-height
+
+$product-list-title-font-family ?=               $font-family-custom
+$product-grid-title-font-size ?=                 0.9rem
+$product-list-title-font-size ?=                 1rem
+$product-list-title-color ?=                     $gray-darker-3
+$product-list-title-color-hover ?=               $primary-color
+$product-list-title-font-weight ?=               $font-weight-bold
+$product-list-title-line-height ?=               1.1
+$product-grid-title-height ?=                    rem-calc((3*$product-list-title-line-height*strip-unit($rem-base-actual)))
+$product-list-title-padding ?=                   0
+$product-list-title-margin ?=                    rem-calc(0 0 10 0)
+$product-grid-title-margin ?=                    rem-calc(0 0 2 0)
+
+$product-list-manu-font-size ?=                  0.8rem // 0.9rem, if we do not use uppercase transform
+$product-list-manu-color ?=                      $gray-dark-1
+$product-grid-manu-font-weight ?=                $font-weight-normal
+$product-list-manu-font-weight ?=                $font-weight-normal
+$product-grid-manu-height ?=                     rem-calc(($product-list-title-line-height*strip-unit($rem-base-actual)))
+$product-grid-manu-text-transform ?=             uppercase
+$product-list-manu-text-transform ?=             $product-grid-manu-text-transform
+
+$product-list-desc-margin ?=                     0
+$product-list-desc-padding ?=                    rem-calc(0 0 20 0)
+$product-grid-desc-padding ?=                    rem-calc(0 0 5 0)
+$product-list-desc-font-family ?=                $body-font-family
+$product-list-desc-font-size ?=                  0.9rem
+$product-grid-desc-font-size ?=                  0.8rem
+$product-list-desc-line-height ?=                1.3
+$product-grid-desc-height ?=                     rem-calc((3*$product-list-desc-line-height*strip-unit($rem-base-actual)))
+$product-list-desc-color ?=                      $gray-dark-2
+$product-list-desc-color-hover ?=                $gray-darker-3
+
+$product-list-opts-line-height ?=                1.3
+$product-list-opts-font-family ?=                $body-font-family
+$product-list-opts-font-size ?=                  0.75rem
+$product-list-opts-font-weight ?=                $font-weight-normal
+$product-list-opts-color ?=                      $gray-darker-3
+$product-list-opts-item-padding ?=               rem-calc(2 6)
+$product-list-opts-item-margin ?=                rem-calc(0 2 5 2)    
+$product-list-opts-item-bg ?=                    $white
+$product-list-opts-item-border ?=                1px solid rgba($black, 0.15)
+$product-list-opts-label-padding ?=              rem-calc(2 0)
+$product-list-opts-label-margin ?=               rem-calc(0 10 5 0)
+$product-list-opts-label-border ?=               false // 1px solid rgba($black, 0.15)
+$product-list-opts-label-bg ?=                   transparent
+$product-list-opts-label-color ?=                $gray-darker-1
+
+$product-grid-pricebox-height ?=                 rem-calc(2*$price-line-height*strip-unit($rem-base-actual))
+$product-grid-pricebox-padding ?=                0
+$product-grid-pricebox-margin ?=                 rem-calc(3 0)
+$product-list-button-size ?=                     $button-sml
+$product-list-button-pseudo-size ?=              rem-calc(20) // needed for container height calculation. 20 = tiny button, 27 = small button
+$product-list-button-bg-hover ?=                 $primary-color
+$product-list-button-color ?=                    $gray-dark-1
+$product-list-button-ico-size ?=                 rem-calc(18)
+$product-list-button-ico-color ?=                $product-list-button-color
+$product-list-button-ico-color-hover ?=          $white
+
+$product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
+
+$product-grid-item-height ?= round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + $product-grid-title-margin[0] + $product-grid-title-margin[2] + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]))
+
+
+
+//
 // @mixins
+//
+// Mixins for product listings pages e.g. categories in ecommerce
+
 prd-opts() {
     text-transform: uppercase
     line-height: $product-list-opts-line-height

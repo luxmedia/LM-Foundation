@@ -4,6 +4,38 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-tooltip-classes ?=             $include-html-classes
+
+$has-tip-border-bottom ?=                    dotted 1px $gray-medium-2
+$has-tip-font-weight ?=                      inherit // $font-weight-bold
+$has-tip-font-color ?=                       $body-font-color
+$has-tip-font-color-hover ?=                 $primary-color
+$has-tip-border-bottom-hover ?=              dotted 1px $has-tip-font-color-hover
+$has-tip-cursor-type ?=                      $cursor-help-value
+
+$tooltip-padding ?=                          rem-calc(12)
+$tooltip-bg ?=                               $white
+$tooltip-font-size ?=                        1rem // rem-calc(14)
+$tooltip-font-weight ?=                      $font-weight-normal
+$tooltip-font-color ?=                       $body-font-color
+$tooltip-line-height ?=                      1.3
+$tooltip-close-font-size ?=                  rem-calc(10)
+$tooltip-close-font-weight ?=                $font-weight-normal
+$tooltip-close-font-color ?=                 $gray-dark-3
+$tooltip-font-size-sml ?=                    1rem // rem-calc(14)
+$tooltip-radius ?=                           $global-radius
+$tooltip-rounded ?=                          $global-rounded
+$tooltip-pip-size ?=                         10px
+$tooltip-max-width ?=                        300px
+$tooltip-border-width ?=                     2px
+$tooltip-border-color ?=                     $gray-base
+$tooltip-border-color-highlight ?=           $primary-color
+$tooltip-box-shadow ?=                       1px 1px 10px rgba($black,0.5)
+
 
 // +exports("tooltip") {
     if $include-html-tooltip-classes {
@@ -117,9 +149,7 @@
                         margin-top: -($tooltip-pip-size)
                     }
                 }
-
             }
         }
-
     }
 // }

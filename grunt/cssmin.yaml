@@ -1,0 +1,4 @@
+# CSS minifaction
+dist:
+  src: '<%= lm_foundation.css_dist_folder %>/*.css'
+  dest: '<%= lm_foundation.css_dist_file_min %>'

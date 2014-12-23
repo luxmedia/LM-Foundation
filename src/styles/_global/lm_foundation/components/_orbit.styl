@@ -4,6 +4,49 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-orbit-classes ?=               $include-html-classes
+
+// the caption styles
+$orbit-container-bg ?=                       none
+$orbit-caption-bg ?=                         rgba(51,51,51, 0.8)
+$orbit-caption-font-color ?=                 $white
+$orbit-caption-font-size ?=                  rem-calc(14)
+$orbit-caption-position ?=                   "bottom" // Supported values ?= "bottom", "under"
+$orbit-caption-padding ?=                    rem-calc(10 14)
+$orbit-caption-height ?=                     auto
+
+// the left/right nav styles
+$orbit-nav-bg ?=                             transparent
+$orbit-nav-bg-hover ?=                       rgba(0,0,0,0.3)
+$orbit-nav-arrow-color ?=                    $white
+$orbit-nav-arrow-color-hover ?=              $white
+
+// the timer styles
+$orbit-timer-bg ?=                           rgba(255,255,255,0.3)
+$orbit-timer-show-progress-bar ?=            true
+
+// the bullet nav styles
+$orbit-bullet-nav-color ?=                   $gray-medium-2
+$orbit-bullet-nav-color-active ?=            $gray-dark-1
+$orbit-bullet-radius ?=                      rem-calc(9)
+
+// controls the style of slide numbers
+$orbit-slide-number-bg ?=                    rgba(0,0,0,0)
+$orbit-slide-number-font-color ?=            $white
+$orbit-slide-number-padding ?=               rem-calc(5)
+
+// Graceful Loading Wrapper and preloader
+$wrapper-class ?=                            "slideshow-wrapper"
+$preloader-class ?=                          "preloader"
+
+// Hide controls on small
+$orbit-nav-hide-for-small ?=                 true
+$orbit-bullet-hide-for-small ?=              true
+$orbit-timer-hide-for-small ?=               true
 
 
 // +exports("orbit") {

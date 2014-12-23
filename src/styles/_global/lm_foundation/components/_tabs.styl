@@ -5,16 +5,48 @@
 @require "_global"
 @require "_grid"
 
+//
+// @variables
+//
+
+$include-html-tabs-classes ?=                   $include-html-classes
+
+$tabs-navigation-padding ?=                     rem-calc(5)
+$tabs-navigation-bg-color ?=                    $gray-light-2
+$tabs-navigation-active-bg-color ?=             $white
+$tabs-navigation-hover-bg-color ?=              darken($tabs-navigation-bg-color, 6%)
+$tabs-navigation-font-color ?=                  $gray-dark-2
+$tabs-navigation-hover-font-color ?=            $charcoal-1
+$tabs-navigation-active-font-color ?=           $primary-color
+$tabs-navigation-border-width ?=                2px
+$tabs-navigation-active-border-color ?=         $primary-color
+$tabs-navigation-font-size ?=                   1rem
+$tabs-navigation-font-family ?=                 $font-family-custom
+$tabs-navigation-font-weight ?=                 $font-weight-bold
+$tabs-navigation-text-transform ?=              uppercase
+
+$tabs-content-margin-bottom ?=                  rem-calc(24)
+$tabs-content-padding ?=                        ($column-gutter/2)
+$tabs-content-bg ?=                             $tabs-navigation-active-bg-color
+$tabs-content-border-width ?=                   0 0 2px 0
+$tabs-content-border-color ?=                   $gray-medium-1
+
+$tabs-vertical-navigation-margin-bottom ?=      1.25rem
+
+$tabs-container-class ?=                        '.tabs'
+$tabs-list-class ?=                             '.tabs-list'
+$tabs-content-class ?=                          '.tabs-content'
+
 
 // +exports("tab") {
     if $include-html-tabs-classes {
         
-        .tabs-list {
+        {$tabs-list-class} {
             border-bottom: $tabs-navigation-border-width solid $tabs-content-border-color
             overflow: visible
         }
-        .tabs,
-        .tabs-list {
+        {$tabs-container-class},
+        {$tabs-list-class} {
             clearfix()
             margin-bottom: 0 !important
             margin-left: 0
@@ -77,7 +109,7 @@
             }
         }
 
-        .tabs-content {
+        {$tabs-content-class} {
             clearfix()
             margin-bottom: $tabs-content-margin-bottom
             width: 100%
@@ -109,8 +141,8 @@
         }
         @media $medium-up {
             
-            .tabs,
-            .tabs-list {
+            {$tabs-container-class},
+            {$tabs-list-class} {
                 &--vertical {
                     width: 20%
                     max-width: 20%
@@ -118,7 +150,7 @@
                     margin: 0 0 $tabs-vertical-navigation-margin-bottom
                 }
             }
-            .tabs-content {
+            {$tabs-content-class} {
                 &--vertical {
                     width: 80%
                     max-width: 80%
@@ -129,7 +161,7 @@
             }
         }
         .no-js {
-            .tabs-content > .content {
+            {$tabs-content-class} > .content {
                 display: block
                 float: none
             }

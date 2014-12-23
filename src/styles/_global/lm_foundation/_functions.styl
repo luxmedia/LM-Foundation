@@ -1,3 +1,37 @@
+//
+// @variables
+//
+
+// This is the default html and body font-size for the base rem value.
+// NOTE: We set it to a 10 base to get cleaner rem-calc values.
+// Later on we set the font-size with a custom mixin and normalization factor to avoid a too small font-size
+$rem-base ?=                        10px
+$rem-base-unitless ?=               strip-unit($rem-base)
+
+
+percentage($value){
+    if $value {
+        return unit(($value * 100),"%")
+    }
+}
+
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+// for compatibility with browser-based text zoom or user-set defaults.
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+// If you want your base font-size to be different and not have it affect the grid breakpoints,
+// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
+$base-font-size ?=                   unit(percentage($rem-base / 16px),'%') // reduce base font size from 16px to 14px
+// this is the font size we like to achieve for the body and all its children
+$ref-font-size ?=                    1.4rem
+// this is just a dummy font size for the body. Within the font_size mixin we also add $font-size-normalization to it!!
+$body-font-size ?=                   1rem
+
+// Normlaiziation factor for all font sizes
+$font-size-normalization ?=          ($ref-font-size - $body-font-size)
+$rem-base-actual ?=                  $rem-base+unit($font-size-normalization*10,"px")
+
+
 // =========================================================================
 // CUSTOM LUXMEDIA FUNCTIONS
 // =========================================================================
@@ -48,11 +82,6 @@ scale-color($color, $mod = 0) {
 
 }
 
-percentage($value){
-    if $value {
-        return unit(($value * 100),"%")
-    }
-}
 // =========================================================================
 // EOF - CUSTOM LUXMEDIA FUNCTIONS
 // =========================================================================

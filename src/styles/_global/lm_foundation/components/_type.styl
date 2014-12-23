@@ -4,11 +4,166 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-type-classes ?=        $include-html-classes
+
+// header font styles
+$header-font-family ?=               $font-family-headings
+$header-font-weight ?=               $font-weight-bold
+$header-font-style ?=                normal
+$header-font-color ?=                $gray-dark-1
+$header-line-height ?=               1.2 // 1.4
+$header-top-margin ?=                .2rem
+$header-bottom-margin ?=             .5rem
+$header-text-rendering ?=            optimizeLegibility
+
+// header font families -  we may have different font families for higher level headings
+$h1-font-family ?=                   $font-family-headings
+$h2-font-family ?=                   $font-family-headings
+$h3-font-family ?=                   $font-family-headings
+
+// header font sizes
+$h1-font-size ?=                     1.8rem // rem-calc(44)
+$h2-font-size ?=                     1.4rem // rem-calc(37)
+$h3-font-size ?=                     1.2rem // rem-calc(27)
+$h4-font-size ?=                     1.1rem // rem-calc(23)
+$h5-font-size ?=                     1rem // rem-calc(18)
+$h6-font-size ?=                     1rem
+
+// header size reduction on small screens
+$h1-font-reduction ?=                0.2rem // rem-calc(10)
+$h2-font-reduction ?=                0.2rem // rem-calc(10)
+$h3-font-reduction ?=                0.1rem // rem-calc(5)
+$h4-font-reduction ?=                0.1rem // rem-calc(5)
+$h5-font-reduction ?=                0
+$h6-font-reduction ?=                0
+
+// header font colors
+$h1-font-color ?=                     $primary-color
+$h2-font-color ?=                     $header-font-color
+$h3-font-color ?=                     $header-font-color
+$h4-font-color ?=                     $header-font-color
+$h5-font-color ?=                     $header-font-color
+$h6-font-color ?=                     $header-font-color
+
+// header font weights
+$h1-font-weight ?=                    $header-font-weight
+$h2-font-weight ?=                    $header-font-weight
+$h3-font-weight ?=                    $header-font-weight
+$h4-font-weight ?=                    $header-font-weight
+$h5-font-weight ?=                    $header-font-weight
+$h6-font-weight ?=                    $header-font-weight
+
+// These control how subheaders are styled.
+$subheader-line-height ?=            1.2 // 1.4
+$subheader-font-color ?=             lighten($header-font-color, 35%)
+$subheader-font-weight ?=            $font-weight-normal
+$subheader-top-margin ?=             .2rem
+$subheader-bottom-margin ?=          .5rem
+
+
+// A general <small> styling
+$small-font-size ?=                  0.8rem // 60%
+$small-font-color ?=                 lighten($header-font-color, 35%)
+
+// style paragraphs
+$paragraph-font-family ?=            inherit
+$paragraph-font-weight ?=            $font-weight-normal
+$paragraph-font-size ?=              1rem
+$paragraph-line-height ?=            1.4 // 1.6
+$paragraph-margin-bottom ?=          rem-calc(20)
+$paragraph-aside-font-size ?=        rem-calc(14)
+$paragraph-aside-line-height ?=      1.35
+$paragraph-aside-font-style ?=       italic
+$paragraph-text-rendering ?=         optimizeLegibility
+
+// lead font sizes
+$lead-font-size ?=                   ($paragraph-font-size + rem-calc(3.5))
+$lead-line-height ?=                 1.6
+
+// style <code> tags
+$code-color ?=                       $charcoal-1
+$code-font-family ?=                 $font-family-monospace
+$code-font-size ?=                   0.9rem
+$code-font-weight ?=                 $font-weight-normal
+$code-background-color ?=            lighten($secondary-color, 70%)
+$code-border-size ?=                 1px
+$code-border-style ?=                solid
+$code-border-color ?=                darken($code-background-color, 10%)
+$code-padding ?=                     rem-calc(2) rem-calc(5) rem-calc(1)
+
+// style anchors
+$anchor-text-decoration ?=           none
+$anchor-text-decoration-hover ?=     none
+$anchor-font-color ?=                $primary-color
+$anchor-font-color-hover ?=          darken($anchor-font-color, 15%)
+
+// style the <hr> element
+$hr-border-width ?=                  1px
+$hr-border-style ?=                  solid
+$hr-border-color ?=                  $gray-medium-1
+$hr-margin ?=                        rem-calc(20)
+
+// style lists
+$list-font-family ?=                     $paragraph-font-family
+$list-font-size ?=                       $paragraph-font-size
+$list-line-height ?=                     $paragraph-line-height
+$list-margin-bottom ?=                   $paragraph-margin-bottom
+$list-style-position ?=                  outside
+$list-side-margin ?=                     1.1rem
+$list-ordered-side-margin ?=             1.4rem
+$list-side-margin-no-bullet ?=           0
+$list-nested-margin ?=                   rem-calc(20)
+$definition-list-header-weight ?=        $font-weight-bold
+$definition-list-header-margin-bottom ?= .3rem
+$definition-list-margin-bottom ?=        rem-calc(12)
+
+// style blockquotes
+$blockquote-font-color ?=                lighten($header-font-color, 35%)
+$blockquote-padding ?=                   rem-calc(9 20 0 19)
+$blockquote-border ?=                    1px solid $gray-medium-1
+$blockquote-cite-font-size ?=            rem-calc(13)
+$blockquote-cite-font-color ?=           lighten($header-font-color, 23%)
+$blockquote-cite-link-color ?=           $blockquote-cite-font-color
+
+// Acronym styles
+$acronym-underline ?=                    1px dotted $gray-medium-1
+
+// padding and margin
+$microformat-padding ?=                  rem-calc(10 12)
+$microformat-margin ?=                   rem-calc(0 0 20 0)
+
+// the border styles
+$microformat-border-width ?=             1px
+$microformat-border-style ?=             solid
+$microformat-border-color ?=             $gray-medium-1
+
+// full name font styles
+$microformat-fullname-font-weight ?=     $font-weight-bold
+$microformat-fullname-font-size ?=       rem-calc(15)
+
+// the summary font styles
+$microformat-summary-font-weight ?=      $font-weight-bold
+
+// abbr padding
+$microformat-abbr-padding ?=             rem-calc(0 1)
+
+// abbr font styles
+$microformat-abbr-font-weight ?=         $font-weight-bold
+$microformat-abbr-font-decoration ?=     none
+
 // Text alignment class names
 $align-class-names = (small-only small medium-only medium large-only large xlarge-only xlarge xxlarge-only xxlarge)
 
 // Text alignment breakpoints
 $align-class-breakpoints = $small-only, $small-up, $medium-only, $medium-up, $large-only, $large-up, $xlarge-only, $xlarge-up, $xxlarge-only, $xxlarge-up
+
+//
+// @mixins
+//
 
 // Generates text align and justify classes
 align-classes() {

@@ -5,6 +5,44 @@
 @require "_global"
 @require "_grid"
 
+//
+// @variables
+//
+
+$include-html-reveal-classes ?=              $include-html-classes
+
+// the style of the reveal overlay.
+$reveal-overlay-bg ?=                        rgba($white, .25)
+$reveal-overlay-bg-old ?=                    $gray-base
+
+// the style of the modal itself.
+$reveal-modal-bg ?=                          $white
+$reveal-position-top ?=                      rem-calc(100)
+$reveal-default-width ?=                     80%
+$reveal-max-width ?=                         $row-width
+$reveal-modal-padding ?=                     rem-calc(20)
+$reveal-box-shadow ?=                        0 5px 50px rgba($black,.3)
+
+// style the reveal close button
+$reveal-close-font-size ?=                   rem-calc(40)
+$reveal-close-top ?=                         rem-calc(10)
+$reveal-close-side ?=                        rem-calc(22)
+$reveal-close-color ?=                       $gray-base
+$reveal-close-weight ?=                      $font-weight-bold
+
+// set the default radius used throughout the core.
+$reveal-radius ?=                            0
+$reveal-round ?=                             $global-rounded
+
+// the modal border
+$reveal-border-style ?=                      solid
+$reveal-border-width ?=                      2px
+$reveal-border-color ?=                      $gray-medium-1
+$reveal-border-highlight-color ?=            $primary-color
+
+$reveal-modal-class ?=                       "reveal-modal"
+$close-reveal-modal-class ?=                 "close-reveal-modal"
+
 
 //
 // @mixins
@@ -13,6 +51,7 @@
 // We use this to create the reveal background overlay styles
 reveal-bg( $include-z-index-value = true ) {
     position: fixed
+    // position: absolute; // allows modal background to extend beyond window position
     top: 0
     bottom: 0
     left: 0

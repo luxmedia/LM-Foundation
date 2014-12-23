@@ -4,6 +4,39 @@
 
 @require "_global"
 
+//
+// @Variables
+//
+
+$include-html-nav-classes ?=                 $include-html-classes
+
+// set the background color for the breadcrumb container.
+$crumb-bg ?=                                 lighten($secondary-color, 55%)
+
+// set the padding around the breadcrumbs.
+$crumb-padding ?=                            rem-calc(9 14)
+$crumb-side-padding ?=                       rem-calc(6) // rem-calc(12)
+
+// border styles.
+$crumb-function-factor ?=                    10% // -10%
+$crumb-border-size ?=                        false // 1px
+$crumb-border-style ?=                       solid
+$crumb-border-color ?=                       darken($crumb-bg, $crumb-function-factor)
+$crumb-radius ?=                             false // $global-radius
+
+// set various text styles for breadcrumbs.
+$crumb-font-size ?=                          0.7rem // rem-calc(11)
+$crumb-font-weight ?=                        $font-weight-bold
+$crumb-font-weight-current ?=                $font-weight-normal
+$crumb-font-color ?=                         $primary-color
+$crumb-font-color-current ?=                 $gray-base
+$crumb-font-color-unavailable ?=             $gray-medium-2
+$crumb-font-transform ?=                     uppercase
+$crumb-link-decor ?=                         none // underline
+
+// the slash between breadcrumbs
+$crumb-slash-color ?=                        $gray-base
+$crumb-slash ?=                              "/"
 
 //
 // Breadcrumb Mixins
@@ -77,7 +110,7 @@ crumbs() {
         a:focus {
             text-decoration: none
             color: $crumb-font-color-unavailable
-            cursor: $cursor-default-value
+            cursor: $cursor-disabled-value
         }
     }
 

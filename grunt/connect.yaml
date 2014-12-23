@@ -1,0 +1,6 @@
+# connect to local server
+server:
+  options:
+    port: 4000
+    base: '<%= globalConfig.dest %>'
+    hostname: '*'

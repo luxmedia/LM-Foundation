@@ -4,6 +4,49 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-pagination-classes ?=               $include-html-classes
+
+// the pagination container
+$pagination-height ?=                        rem-calc(24)
+$pagination-margin ?=                        -(rem-calc(5))
+
+// set the list-item properties
+$pagination-li-float ?=                      $default-float
+$pagination-li-height ?=                     rem-calc(24)
+$pagination-li-font-color ?=                 $charcoal-2
+$pagination-li-font-size ?=                  1rem // rem-calc(14)
+$pagination-li-margin ?=                     0 // rem-calc(1)
+
+// We use these for the pagination anchor links
+$pagination-link-pad ?=                      rem-calc(4 10)
+$pagination-link-font-color ?=               $gray-dark-1
+$pagination-link-bg ?=                       none // rgba($black,0.1)
+$pagination-font-size ?=                     1rem
+$pagination-font-family ?=                   $font-family-custom
+$pagination-link-boxshadow ?=                false // 0 1px 1px rgba($black,0.1)
+$pagination-link-border ?=                   rgba($black,0.1)
+$pagination-link-border-width ?=             0 1px 0 0
+$pagination-link-active-bg ?=                $primary-color
+$pagination-link-hover-color ?=              $white
+$pagination-link-hover-boxshadow ?=          false // 1px 1px 1px rgba($black,0.25)
+$pagination-link-hover-border ?=             $white // rgba(0,0,0,0.1)
+
+// We use these for disabled anchor links
+$pagination-link-unavailable-cursor ?=       $cursor-disabled-value
+$pagination-link-unavailable-font-color ?=   $gray-medium-1
+$pagination-link-unavailable-bg-active ?=    none
+
+// We use these for currently selected anchor links
+$pagination-link-current-background ?=       $primary-color
+$pagination-link-current-font-color ?=       $white
+$pagination-link-current-font-weight ?=      $font-weight-bold
+$pagination-link-current-cursor ?=           $cursor-default-value
+$pagination-link-current-active-bg ?=        $primary-color
+
 
 // @mixins
 //

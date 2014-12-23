@@ -3,6 +3,71 @@
 // Licensed under MIT Open Source
 
 @require "_global"
+@require "_labels"
+
+//
+// @Variables
+//
+
+$include-html-button-classes ?=              $include-html-classes
+
+// build padding for buttons.
+$button-tny ?=                               rem-calc(2 4) // rem-calc(10)
+$button-sml ?=                               rem-calc(4) // rem-calc(14)
+$button-med ?=                               rem-calc(6) // rem-calc(16)
+$button-lrg ?=                               rem-calc(8) // rem-calc(18)
+
+// the display property.
+$button-display ?=                           inline-block
+$button-margin-bottom ?=                     rem-calc(20)
+
+// button text styles.
+$button-font-family ?=                       $font-family-custom
+$button-font-color ?=                        $white
+$button-font-color-alt ?=                    $charcoal-1
+$button-font-tny ?=                          0.9rem // rem-calc(11)
+$button-font-sml ?=                          1rem // rem-calc(13)
+$button-font-med ?=                          1.1rem // rem-calc(16)
+$button-font-lrg ?=                          1.2rem // rem-calc(20)
+$button-font-weight ?=                       $font-weight-bold
+$button-font-align ?=                        center
+$button-text-transform ?=                    uppercase
+$button-letter-spacing ?=                    0
+
+// various hover effects.
+$button-function-factor ?=                   15% // darken amount
+
+// button border and hover styles.
+$button-border-width ?=                      0 1px 1px 0
+$button-border-style ?=                      solid
+$button-bg-color ?=                          $primary-color
+$button-bg-hover ?=                          darken($button-bg-color, 20%)
+$button-border-color ?=                      rgba($black,0.1)
+$button-border-hover-color ?=                rgba($black,0.1)
+$button-shadow ?=                            $global-ui-shadow
+$button-hover-shadow ?=                      false // 1px 1px 1px rgba($black,0.25)
+
+$secondary-button-bg-hover ?=                darken($secondary-color, $button-function-factor)
+$secondary-button-border-color ?=            darken($secondary-button-bg-hover,5%) // $secondary-button-bg-hover
+$success-button-bg-hover ?=                  darken($success-color, $button-function-factor)
+$success-button-border-color ?=              darken($success-button-bg-hover,5%) // $success-button-bg-hover
+$info-button-bg-hover ?=                     darken($info-color, $button-function-factor)
+$info-button-border-color ?=                 darken($info-button-bg-hover,5%) // $info-button-bg-hover
+$alert-button-bg-hover ?=                    darken($alert-color, $button-function-factor)
+$alert-button-border-color ?=                darken($alert-button-bg-hover, 5%) // $alert-button-bg-hover
+$warning-button-bg-hover ?=                  darken($warning-color, $button-function-factor)
+$warning-button-border-color ?=              darken($warning-button-bg-hover,5%) // $warning-button-bg-hover
+
+// set the default radius used throughout the core.
+$button-radius ?=                            $global-radius
+$button-round ?=                             $global-rounded
+
+// set default opacity and cursor for disabled buttons.
+$button-disabled-opacity ?=                  0.7
+$button-disabled-cursor ?=                   $cursor-disabled-value
+
+$button-svg-padding ?=                       0.6rem
+$button-svg-scale-correction ?=              0.2rem // is added to background-size value to make bg-icons a bit bigger
 
 
 //
@@ -265,21 +330,67 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
             antialiased()
             
             single-transition(background-color)
+            
+            
+            // Inner Labels
+            .lbl {
+                label-style($bg:$white,$font-color:$button-bg-color)
+                top: -(rem-calc(2))
+                line-height: 0.8
+            }
 
             &.btn--secondary {
                 button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
+                
+                // inner labels
+                .lbl {
+                    label-style($bg:$gray-base)
+                }
+                &:hover .lbl {
+                    background-color: darken($gray-base, $button-function-factor)
+                }
             }
             &.btn--success {
                 button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
+                
+                //inner label
+                .lbl & {
+                    label-style($bg:$white,$font-color:$success-color)
+                }
+                &:hover .lbl {
+                    color: darken($success-color, $button-function-factor)
+                }
             }
             &.btn--info {
                 button-style($bg:$info-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
+                
+                .lbl {
+                    label-style($bg:$white,$font-color:$info-color)
+                }
+                &:hover .lbl {
+                    color: darken($info-color, $button-function-factor)
+                }
             }            
             &.btn--warning {
                 button-style($bg:$warning-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color, $font-color:$warning-font-color)
+                
+                .lbl {
+                    label-style($bg:$warning-font-color,$font-color:$warning-color)
+                }
+                &:hover .lbl {
+                    background-color: darken($warning-font-color, $button-function-factor)
+                    color: darken($warning-color, $button-function-factor)
+                }
             }
             &.btn--alert {
                 button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color)
+                .lbl {
+                    label-style($bg:$critical-font-color,$font-color:$alert-color)
+                }
+                &:hover .lbl {
+                    background-color: darken($critical-font-color, $button-function-factor)
+                    color: darken($alert-color, $button-function-factor)
+                }
             }
 
             &.btn--large {
@@ -287,6 +398,11 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
             }
             &.btn--small {
                 button-size($padding:$button-sml)
+                
+                .lbl {
+                    top: 0
+                    padding: rem-calc(1 5 1)
+                }
             }
             &.btn--tiny {
                 button-size($padding:$button-tny)
@@ -335,7 +451,6 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
                     button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color) 
                 }
             }
-
         }
 
         //firefox 2px fix

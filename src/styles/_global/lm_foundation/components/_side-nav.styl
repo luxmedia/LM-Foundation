@@ -4,11 +4,48 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-nav-classes ?=                 $include-html-classes
+
+// padding.
+$side-nav-padding ?=                         rem-calc(14 0)
+
+// list styles.
+$side-nav-list-type ?=                       none
+$side-nav-list-position ?=                   outside
+$side-nav-list-margin ?=                     rem-calc(0 0 7 0)
+
+// link styles.
+$side-nav-link-color ?=                      $primary-color
+$side-nav-link-color-active ?=               lighten($side-nav-link-color, 30%)
+$side-nav-link-color-hover ?=                lighten($side-nav-link-color, 30%)
+$side-nav-link-bg-hover ?=                   rgba($black, 0.05)
+$side-nav-link-margin ?=                     0
+$side-nav-link-padding ?=                    rem-calc(7 14)
+$side-nav-font-size ?=                       rem-calc(14)
+$side-nav-font-weight ?=                     $font-weight-normal
+$side-nav-font-weight-active ?=              $side-nav-font-weight
+$side-nav-font-family ?=                     $font-family-custom
+$side-nav-font-family-active ?=              $side-nav-font-family
+
+// heading styles.
+$side-nav-heading-color ?=                   $side-nav-link-color
+$side-nav-heading-font-size ?=               $side-nav-font-size
+$side-nav-heading-font-weight ?=             $font-weight-bold
+$side-nav-heading-text-transform ?=          uppercase
+
+// border styles
+$side-nav-divider-size ?=                    1px
+$side-nav-divider-style ?=                   solid
+$side-nav-divider-color ?=                   darken($white, 10%)
+
 
 //
 // @mixins
 //
-
 
 // We use this to style the side-nav
 //

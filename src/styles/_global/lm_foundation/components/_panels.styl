@@ -5,6 +5,34 @@
 @require "_global"
 
 //
+// @variables
+//
+
+$include-html-panel-classes ?=               $include-html-classes
+
+// the background and border styles
+$panel-bg ?=                                 darken($white, 5%)
+$panel-border-style ?=                       solid
+$panel-border-size ?=                        1px
+
+// We use this % to control how much we darken things on hover
+$panel-function-factor ?=                    11% // -11%
+$panel-border-color ?=                       darken($panel-bg, $panel-function-factor)
+
+// set default inner padding and bottom margin
+$panel-margin-bottom ?=                      rem-calc(20)
+$panel-padding ?=                            rem-calc(20)
+
+// set default font colors
+$panel-font-color ?=                         $charcoal-1
+$panel-font-color-alt ?=                     $white
+
+$panel-header-adjust ?=                      true
+$callout-panel-link-color ?=                 $primary-color
+$callout-panel-link-color-hover ?=           darken($callout-panel-link-color, $panel-function-factor)
+
+
+//
 // @mixins
 //
 // We use this mixin to create panels.

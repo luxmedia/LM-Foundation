@@ -4,9 +4,56 @@
 
 @require "_global"
 
+//
+// @variables
+//
+
+$include-html-alert-classes ?=               $include-html-classes
+
+// alert padding.
+$alert-padding-top ?=                        rem-calc(14)
+$alert-padding-default-float ?=              $alert-padding-top
+$alert-padding-opposite-direction ?=         ($alert-padding-top + rem-calc(10))
+$alert-padding-bottom ?=                     $alert-padding-top
+$alert-padding ?=                            ($alert-padding-top $alert-padding-opposite-direction $alert-padding-bottom $alert-padding-default-float)
+
+// text style.
+$alert-font-weight ?=                        $font-weight-normal
+$alert-font-size ?=                          1.2rem
+$alert-font-color ?=                         $white
+$alert-font-color-alt ?=                     darken($secondary-color, 66%)
+$alert-font-color-warning ?=                 $warning-font-color
+$alert-font-color-critical ?=                $critical-font-color
+
+// close hover effect.
+$alert-function-factor ?=                    14% // -14%
+
+// border styles.
+$alert-border-style ?=                       solid
+$alert-border-width ?=                       (2px 2px 2px 10px) // (1px 1px 1px 5px)
+$alert-border-color ?=                       darken($primary-color, $alert-function-factor)
+$alert-bottom-margin ?=                      rem-calc(20)
+
+// style the close buttons
+$alert-close-color ?=                        $charcoal-1
+$alert-close-background ?=                   false
+$alert-close-top ?=                          50%
+$alert-close-position ?=                     rem-calc(4)
+$alert-close-font-size ?=                    rem-calc(22)
+$alert-close-opacity ?=                      0.3
+$alert-close-opacity-hover ?=                0.5
+$alert-close-padding ?=                      9px 6px 4px
+$alert-close-background ?=                   inherit
+
+// border radius
+$alert-radius ?=                             $global-radius
+
+$alert-transition-speed ?=                   300ms
+$alert-transition-ease ?=                    ease-out
+
 
 //
-// Message Mixins // was: alert-boxes
+// @mixins
 //
 
 // We use this mixin to create a default alert base.

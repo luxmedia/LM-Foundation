@@ -1,7 +1,26 @@
 // Checkout Progress Indicator Bar
 // based on: http://codepen.io/whqet/pen/EJgwb?editors=110
 
+//
+// @variables
+//
+
+$checkout-progress-font-family ?=            $font-family-custom
+$checkout-progress-bar-height ?=             rem-calc(2)
+$checkout-progress-bar-animation ?=          2s // false
+$checkout-progress-step-font-size ?=         1.6rem
+$checkout-progress-step-width ?=             rem-calc(42)
+$checkout-progress-step-height ?=            $checkout-progress-step-width
+$checkout-progress-label-margin-top ?=       rem-calc(8)
+$checkout-progress-label-height ?=           rem-calc(20)
+$checkout-progress-margin ?=                 rem-calc(20)
+
+
+//
 // @mixins
+//
+// Mixins for checkout progress bar
+
 hidden-progress() {
     background-color: $white
 }

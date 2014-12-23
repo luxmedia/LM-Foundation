@@ -1,0 +1,19 @@
+# optional: concatenate foundation.js files before uglify
+vendor:
+  src: '<%= lm_foundation.js_src_vendor %>'
+  dest: '<%= lm_foundation.js_dist_folder %>/vendor.js'
+
+foundation:
+  # make shure to load foundation.js before its components !!!
+  src:
+    - '<%= lm_foundation.js_src_fndtn %>'
+    - '<%= lm_foundation.js_src_fndtn_components %>'
+  dest: '<%= lm_foundation.js_dist_folder %>/foundation.js'
+
+plugins:
+  src: '<%= lm_foundation.js_src_plugins %>'
+  dest: '<%= lm_foundation.js_dist_folder %>/plugins.js'
+
+custom:
+  src: '<%= lm_foundation.js_src_custom %>'
+  dest: '<%= lm_foundation.js_dist_folder %>/scripts.js'
