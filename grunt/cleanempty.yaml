@@ -2,4 +2,4 @@
 options:
   files: true
   folders: true
-src: '<%= globalConfig.dest %>/**/*'
+src: '<%= base_conf.dest %>/**/*'

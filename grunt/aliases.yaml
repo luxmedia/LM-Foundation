@@ -19,7 +19,7 @@ scripts:
 build:
   description: 'Compiles all of the assets and copies the files to the distribution directory.'
   tasks:
-    - 'clean:build'
+    - 'clean:dist'
     - 'copy'
     - 'stylesheets'
     - 'scripts'

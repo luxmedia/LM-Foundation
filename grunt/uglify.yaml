@@ -1,21 +1,27 @@
 # minifies, concatenates and uglifies .js files
 # https://github.com/gruntjs/grunt-contrib-uglify
 options:
-  mangle: false
+  mangle: false # except: ['jQuery']
   preserveComments: 'some'
 
 vendor:
-  src: '<%= lm_foundation.js_dist_folder %>/vendor.js'
-  # src: ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lm_foundation.js %>', 'doc/assets/js/docs.js']
-  dest: '<%= lm_foundation.js_dist_folder %>/vendor.min.js'
+  src: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_vendor %>.js'
+  # src: ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lm_conf.js %>', 'doc/assets/js/docs.js']
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_vendor %>.min.js'
+
 foundation:
-  src: '<%= lm_foundation.js_dist_folder %>/foundation.js'
-  dest: '<%= lm_foundation.js_dist_folder %>/foundation.min.js'
+  src: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_fndtn %>.js'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_fndtn %>.min.js'
 
 plugins:
-  src: '<%= lm_foundation.js_dist_folder %>/plugins.js'
-  dest: '<%= lm_foundation.js_dist_folder %>/plugins.min.js'
+  src: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_plugins %>.js'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_plugins %>.min.js'
 
 custom:
-  src: '<%= lm_foundation.js_dist_folder %>/scripts.js'
-  dest: '<%= lm_foundation.js_dist_file %>'
+  src: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_custom %>.js'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_custom %>.min.js'
+
+iefallback:
+  # ie8 fallback scripts for html5, media-query and rem support
+  src: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_iefallback %>.js'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_iefallback %>.min.js'

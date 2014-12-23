@@ -4,7 +4,7 @@ compile:
     data:
   dist:
     expand: true
-    cwd: '<%= globalConfig.src  %>'
+    cwd: '<%= base_conf.src  %>'
     src: 'jade/*.jade'
-    dest: '<%= globalConfig.dest %>'
+    dest: '<%= base_conf.dest %>'
     ext: '.html'

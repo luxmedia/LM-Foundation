@@ -1,7 +1,7 @@
 # compile coffeescript
-build:
+dist:
   expand: true
-  cwd: '<%= globalConfig.src  %>'
+  cwd: '<%= base_conf.src  %>'
   src: '**/*.coffee'
-  dest: '<%= globalConfig.dest %>'
+  dest: '<%= base_conf.dest %>'
   ext: '.js'

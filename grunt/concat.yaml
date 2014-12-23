@@ -1,19 +1,26 @@
-# optional: concatenate foundation.js files before uglify
+# vendor script like modernizr.js
 vendor:
-  src: '<%= lm_foundation.js_src_vendor %>'
-  dest: '<%= lm_foundation.js_dist_folder %>/vendor.js'
+  src: '<%= lm_conf.js_src_vendor %>'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_vendor %>.js'
 
+# make shure to load foundation.js before its components !!!
 foundation:
-  # make shure to load foundation.js before its components !!!
   src:
-    - '<%= lm_foundation.js_src_fndtn %>'
-    - '<%= lm_foundation.js_src_fndtn_components %>'
-  dest: '<%= lm_foundation.js_dist_folder %>/foundation.js'
+    - '<%= lm_conf.js_src_fndtn %>'
+    - '<%= lm_conf.js_src_fndtn_components %>'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_fndtn %>.js'
 
+# custom js plugins
 plugins:
-  src: '<%= lm_foundation.js_src_plugins %>'
-  dest: '<%= lm_foundation.js_dist_folder %>/plugins.js'
+  src: '<%= lm_conf.js_src_plugins %>'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_plugins %>.js'
 
+# custom js scripts
 custom:
-  src: '<%= lm_foundation.js_src_custom %>'
-  dest: '<%= lm_foundation.js_dist_folder %>/scripts.js'
+  src: '<%= lm_conf.js_src_custom %>'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_custom %>.js'
+
+# ie8 fallback scripts for html5, media-query and rem support
+iefallback:
+  src: '<%= lm_conf.js_src_ie8 %>'
+  dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_iefallback %>.js'

@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
 
     // Global Variables
-    var globalConfig = {
+    var base_conf = {
+        nodejs: 'node_modules',
         src: 'src',
         dest: 'dist',
         distCss: 'styles',
@@ -15,60 +16,69 @@ module.exports = function(grunt) {
 
     // CUSTOM VARIABLES
     // define our source and destination folders
-    var lm_foundation = {
+    var lm_conf = {
         stylus_plugins: ['svg-stylus'],
-        js_src_vendor: ['<%= globalConfig.src %>/js/vendor/*.js'],
+        // vednor js
+        js_src_vendor: ['<%= base_conf.src %>/js/vendor/all/*.js'],
+        // ie8 fallback js
+        js_src_ie8: ['<%= base_conf.src %>/js/vendor/ie/*.js'],
         // javascript source files
-        // make shure to load foundation.js before its components (see concat) !!!
-        js_src_fndtn: ['<%= globalConfig.src %>/js/foundation/foundation.js'],
-        // javascript components to include
+        // make sure to load foundation.js before its components (see concat task) !!!
+        js_src_fndtn: ['<%= base_conf.src %>/js/foundation/foundation.js'],
+
+        // DEFINE: FOUNDATION JS PLUGINS TO LOAD
         js_src_fndtn_components: [
-            '<%= globalConfig.src %>/js/foundation/foundation.abide.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.accordion.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.alerts.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.clearing.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.dropdown.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.equalizer.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.interchange.js',
-            // '<%= globalConfig.src %>/js/foundation/foundation.joyride.js',
-            // '<%= globalConfig.src %>/js/foundation/foundation.magellan.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.offcanvas.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.orbit.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.reveal.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.slider.js',
-            // '<%= globalConfig.src %>/js/foundation/foundation.tab.js', // we use accessibleTabs instead!
-            '<%= globalConfig.src %>/js/foundation/foundation.tooltip.js',
-            '<%= globalConfig.src %>/js/foundation/foundation.topbar.js'
+            '<%= base_conf.src %>/js/foundation/foundation.abide.js',
+            '<%= base_conf.src %>/js/foundation/foundation.accordion.js',
+            '<%= base_conf.src %>/js/foundation/foundation.alerts.js',
+            '<%= base_conf.src %>/js/foundation/foundation.clearing.js',
+            '<%= base_conf.src %>/js/foundation/foundation.dropdown.js',
+            '<%= base_conf.src %>/js/foundation/foundation.equalizer.js',
+            '<%= base_conf.src %>/js/foundation/foundation.interchange.js',
+            // '<%= base_conf.src %>/js/foundation/foundation.joyride.js',
+            // '<%= base_conf.src %>/js/foundation/foundation.magellan.js',
+            '<%= base_conf.src %>/js/foundation/foundation.offcanvas.js',
+            '<%= base_conf.src %>/js/foundation/foundation.orbit.js',
+            '<%= base_conf.src %>/js/foundation/foundation.reveal.js',
+            '<%= base_conf.src %>/js/foundation/foundation.slider.js',
+            // '<%= base_conf.src %>/js/foundation/foundation.tab.js', // we use accessibleTabs instead!
+            '<%= base_conf.src %>/js/foundation/foundation.tooltip.js',
+            '<%= base_conf.src %>/js/foundation/foundation.topbar.js'
         ],
+        // DEFINE: CUSTOM JS PLUGINS TO LOAD
         js_src_plugins: [
-            '<%= globalConfig.src %>/js/custom/plugins/custom.functions.js',
-            '<%= globalConfig.src %>/js/custom/plugins/jquery.actual.js',
-            '<%= globalConfig.src %>/js/custom/plugins/jquery.tabs.js'
+            '<%= base_conf.src %>/js/custom/plugins/custom.functions.js',
+            '<%= base_conf.src %>/js/custom/plugins/jquery.actual.js',
+            '<%= base_conf.src %>/js/custom/plugins/jquery.tabs.js'
         ],
-        js_src_custom: ['<%= globalConfig.src %>/js/custom/*.js'],
+        js_src_custom: ['<%= base_conf.src %>/js/custom/*.js'],
         // js distribution folder and file
-        js_dist_folder: ['<%= globalConfig.dest %>/js'],
-        js_dist_file: '<%= globalConfig.dest %>/js/scripts.min.js',
+        js_dist_folder: ['<%= base_conf.dest %>/js'],
+        js_dist_file_vendor: 'vendor',
+        js_dist_file_fndtn: 'foundation',
+        js_dist_file_plugins: 'plugins',
+        js_dist_file_custom: 'scripts',
+        js_dist_file_iefallback: 'ie8',
         // stylus source file(s)
-        styl_src: ['<%= globalConfig.src %>/styles/*.styl'],
+        styl_src: ['<%= base_conf.src %>/styles/*.styl'],
         // styl_src_files: [
-        //     '<%= globalConfig.src %>/styles/_global/normalize.styl',
-        //     '<%= globalConfig.src %>/styles/_global/lm_foundation/_settings.styl',
-        //     '<%= globalConfig.src %>/styles/custom/_settings.styl',
-        //     '<%= globalConfig.src %>/styles/_global/lm_foundation/lm-foundation.styl'
+        //     '<%= base_conf.src %>/styles/_global/normalize.styl',
+        //     '<%= base_conf.src %>/styles/_global/lm_foundation/_settings.styl',
+        //     '<%= base_conf.src %>/styles/custom/_settings.styl',
+        //     '<%= base_conf.src %>/styles/_global/lm_foundation/lm-foundation.styl'
         // ],
         styl_src_files: 'styles/styles.styl',
         // css distribution folder and file
-        css_dist_folder: '<%= globalConfig.dest %>/css',
-        css_dist_file: '<%= globalConfig.dest %>/css/styles.css',
-        css_dist_file_min: '<%= globalConfig.dest %>/css/styles.min.css',
+        css_dist_folder: '<%= base_conf.dest %>/css',
+        css_dist_file: '<%= base_conf.dest %>/css/styles.css',
+        css_dist_file_min: '<%= base_conf.dest %>/css/styles.min.css',
         // svg source folder
-        svg_src: ['<%= globalConfig.src %>/svg/*.svg'],
+        svg_src: ['<%= base_conf.src %>/svg/*.svg'],
         // svg distribution sprite file
-        svg_dist_file: '<%= globalConfig.dest %>/svg/sprite.svg',
+        svg_dist_file: '<%= base_conf.dest %>/svg/sprite.svg',
         // excludes for "copy" to avoid duplication
-        do_not_copy: ['!<%= globalConfig.src  %>/**/*.styl', '!<%= globalConfig.src  %>/**/*.coffee', '!<%= globalConfig.src  %>/**/*.jade'],
-        // avoid cleaning out this files
+        do_not_copy: ['!<%= base_conf.src %>/**/*.styl', '!<%= base_conf.src %>/**/*.coffee', '!<%= base_conf.src %>/**/*.jade'],
+        // avoid cleaning out this files (minified distribution versions)
         do_not_clean_js: ['!**/*.min.js'],
         do_not_clean_css: []
     };
@@ -84,17 +94,17 @@ module.exports = function(grunt) {
         // auto grunt.initConfig
         init: true,
 
-        // data passed into config.  Can use with <%= test %>
+        // data passed into config. Can use with <%= test %>
         data: {
             test: false,
-            globalConfig: globalConfig,
-            lm_foundation: lm_foundation
+            base_conf: base_conf,
+            lm_conf: lm_conf
         },
 
         // pass variables to modules and tasks
         // config: {
-        //     globalConfig: globalConfig,
-        //     lm_foundation: lm_foundation
+        //     base_conf: base_conf,
+        //     lm_conf: lm_conf
         // }
 
         // can optionally pass options to load-grunt-tasks.

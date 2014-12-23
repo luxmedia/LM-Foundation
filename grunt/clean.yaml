@@ -1,15 +1,15 @@
 # clean dist directory from old files
-build:
+dist:
   src:
-    - '<%= globalConfig.dest %>'
+    - '<%= base_conf.dest %>'
 
 stylesheets:
   src:
-    - '<%= lm_foundation.css_dist_folder %>/**/*.css'
-    - '!<%= lm_foundation.css_dist_file %>'
-    - '!<%= lm_foundation.css_dist_file_min %>'
+    - '<%= lm_conf.css_dist_folder %>/**/*.css'
+    - '!<%= lm_conf.css_dist_file %>'
+    - '!<%= lm_conf.css_dist_file_min %>'
 
 scripts:
   src:
-    - '<%= lm_foundation.js_dist_folder %>/**/*.js'
-    - '<%= lm_foundation.do_not_clean_js %>'
+    - '<%= lm_conf.js_dist_folder %>/**/*.js'
+    - '<%= lm_conf.do_not_clean_js %>'

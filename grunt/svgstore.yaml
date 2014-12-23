@@ -8,5 +8,5 @@ options:
     style: 'dislay:none;'
 
 dist:
-  src: '<%= lm_foundation.svg_src %>'
-  dest: '<%= lm_foundation.svg_dist_file %>'
+  src: '<%= lm_conf.svg_src %>'
+  dest: '<%= lm_conf.svg_dist_file %>'

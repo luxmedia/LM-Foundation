@@ -495,12 +495,7 @@ font_size(value) {
     // add PX (or original value) as backup
     if (value != 0 && value != null && value != inherit) {
         if (unit(value) != 'px') {
-            {$is-no-remunit-support} & {
-                font-size: pxify(value + $font-size-normalization)
-            }
-            {$is-remunit-support} & {
-                font-size: remify(value + $font-size-normalization)
-            }
+            font-size: remify(value + $font-size-normalization)
         } else {
             font-size: value
         }
