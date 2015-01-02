@@ -84,13 +84,13 @@ $input-number-spinners ?=                    true
 // style the error states for inputs and labels
 $input-error-message-padding ?=              rem-calc(2 5)
 $input-error-message-top ?=                  -1px
-$input-error-message-font-size ?=            0.85rem
+$input-error-message-font-size ?=            0.8rem
 $input-error-message-font-weight ?=          $font-weight-bold
 $input-error-message-font-style ?=           normal
 $input-error-message-font-transform ?=       uppercase
-$input-error-message-font-color ?=           $white
+$input-error-message-font-color ?=           $critical-font-color
 $input-error-message-bg-color ?=             $critical-font-color
-$input-error-message-font-color-alt ?=       $alert-color
+$input-error-message-font-color-alt ?=       $white
 
 // style the glowing effect of inputs when focused
 $glowing-effect-fade-time ?=                 0.45s
@@ -325,7 +325,7 @@ fieldset() {
 // $color - Default: $alert-color (found in settings file)
 form-error-color($color = $alert-color) {
     border-color: $color
-    background-color: lightness($color, 90%)
+    background-color: lightness($color, 94%)
 
     // Go back to normal on focus
     &:focus {
@@ -361,9 +361,9 @@ form-error-message($bg = $input-error-message-bg-color) {
 
     background: $bg
     if (light($bg) || $bg == yellow) {
-        color: $input-error-message-font-color-alt
-    } else {
         color: $input-error-message-font-color
+    } else {
+        color: $input-error-message-font-color-alt
     }
 }
 
