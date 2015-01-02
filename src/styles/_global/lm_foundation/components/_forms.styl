@@ -43,6 +43,7 @@ $form-label-font-color-hover ?=              $input-font-color-hover
 $form-label-small-transform ?=               capitalize
 $form-label-bottom-margin ?=                 0
 $form-label-bottom-padding ?=                rem-calc(4)
+$form-label-required-font-color ?=           $primary-color
 
 $input-checkbox-width ?=                     14px
 $input-checkbox-bg ?=                        $white
@@ -81,14 +82,15 @@ $input-prefix-font-color-alt ?=              $white
 $input-number-spinners ?=                    true
 
 // style the error states for inputs and labels
-$input-error-message-padding ?=              rem-calc(6 9)
+$input-error-message-padding ?=              rem-calc(2 5)
 $input-error-message-top ?=                  -1px
 $input-error-message-font-size ?=            0.85rem
-$input-error-message-font-weight ?=          $font-weight-normal
-$input-error-message-font-style ?=           italic
-$input-error-message-font-color ?=           $critical-font-color
-$input-error-message-bg-color ?=             $alert-color
-$input-error-message-font-color-alt ?=       $critical-font-color
+$input-error-message-font-weight ?=          $font-weight-bold
+$input-error-message-font-style ?=           normal
+$input-error-message-font-transform ?=       uppercase
+$input-error-message-font-color ?=           $white
+$input-error-message-bg-color ?=             $critical-font-color
+$input-error-message-font-color-alt ?=       $alert-color
 
 // style the glowing effect of inputs when focused
 $glowing-effect-fade-time ?=                 0.45s
@@ -323,7 +325,7 @@ fieldset() {
 // $color - Default: $alert-color (found in settings file)
 form-error-color($color = $alert-color) {
     border-color: $color
-    background-color: rgba($color, 0.1)
+    background-color: lightness($color, 90%)
 
     // Go back to normal on focus
     &:focus {
@@ -345,8 +347,8 @@ form-label-error-color($color = $alert-color) {
 // We use this mixin to create error message styles
 // $bg - Default: $alert-color (Found in settings file)
 form-error-message($bg = $input-error-message-bg-color) {
-    // Load critical alert style
-    alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
+
+    // alert-style($bg: $alert-color, $font-color: $alert-font-color-critical, $border-color:$alert-color)
 
     display: block
     padding: $input-error-message-padding
@@ -355,14 +357,14 @@ form-error-message($bg = $input-error-message-bg-color) {
     font_size($input-error-message-font-size)
     font-weight: $input-error-message-font-weight
     font-style: $input-error-message-font-style
+    text-transform: $input-error-message-font-transform
 
-    // background: $bg
-    // if (light($bg) || $bg == yellow) {
-    //     color: $input-error-message-font-color
-    // } else {
-    //     color: $input-error-message-font-color-alt
-    // }
-
+    background: $bg
+    if (light($bg) || $bg == yellow) {
+        color: $input-error-message-font-color-alt
+    } else {
+        color: $input-error-message-font-color
+    }
 }
 
 // We use this mixin to style select elements
@@ -537,10 +539,11 @@ html5number($browser, $on = true) {
             &.inline {
                 form-label(inline,false)
             }
-            /* Styles for required inputs */
-            small {
+            // Styles for required inputs
+            > em,
+            > small {
                 text-transform: $form-label-small-transform
-                color: lighten($form-label-font-color, 15%)
+                color: $form-label-required-font-color
             }
         }
 

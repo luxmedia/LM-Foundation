@@ -22,6 +22,10 @@ $label-font-color ?=                         $charcoal-1
 $label-font-color-alt ?=                     $white
 $label-font-family ?=                        $font-family-headings
 
+$label-inverted-font-color ?=               $gray-dark-1
+$label-inverted-bg ?=                       $white
+$label-inverted-border ?=                   $gray-light-1
+
 $badge-padding ?=                            rem-calc(3 5)
 $badge-radius ?=                             $global-radius
 $badge-font-sizing ?=                        0.75
@@ -151,7 +155,7 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
             
             // inverted Label (transparent bg, but border)
             &--inverted {
-                label-style($bg:transparent, $font-color:$gray-base, $border-color: $gray-base)
+                label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-border)
             }
 
             // Badges

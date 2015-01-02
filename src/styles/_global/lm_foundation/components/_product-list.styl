@@ -68,7 +68,7 @@ $product-list-opts-font-family ?=                $body-font-family
 $product-list-opts-font-size ?=                  0.75rem
 $product-list-opts-font-weight ?=                $font-weight-normal
 $product-list-opts-color ?=                      $gray-darker-3
-$product-list-opts-item-padding ?=               rem-calc(2 6)
+$product-list-opts-item-padding ?=               rem-calc(2 10)
 $product-list-opts-item-margin ?=                rem-calc(0 2 5 2)    
 $product-list-opts-item-bg ?=                    $white
 $product-list-opts-item-border ?=                1px solid rgba($black, 0.15)
@@ -134,6 +134,10 @@ prd-opts() {
             }
             font_size($product-list-opts-font-size)
             
+            &:hover {
+                border-color: $primary-color
+            }
+            
             &:first-child {
                 margin-left: 0
             }
@@ -141,8 +145,12 @@ prd-opts() {
                 opacity: 0.5
             }
             &.is-selected {
-                border-color: $primary-color
-                background-color: $white
+                border-color: transparent
+                background-color: $primary-color
+                a, a:hover {
+                    color: $white
+                    cursor: $cursor-default-value
+                }
             }
             a {
                 color: $product-list-opts-color

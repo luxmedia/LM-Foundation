@@ -11,12 +11,12 @@
 $include-pagination-classes ?=               $include-html-classes
 
 // the pagination container
-$pagination-height ?=                        rem-calc(24)
+$pagination-height ?=                        rem-calc(20)
 $pagination-margin ?=                        -(rem-calc(5))
 
 // set the list-item properties
 $pagination-li-float ?=                      $default-float
-$pagination-li-height ?=                     rem-calc(24)
+$pagination-li-height ?=                     rem-calc(20)
 $pagination-li-font-color ?=                 $charcoal-2
 $pagination-li-font-size ?=                  1rem // rem-calc(14)
 $pagination-li-margin ?=                     0 // rem-calc(1)
@@ -212,11 +212,11 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                         padding-left: 0
                     }
                 }
-                &.pager__prev a,
-                &.pager__next a {
-                    height: $pagination-li-height
-                    padding: $pagination-link-pad
-                }
+                // &.pager__prev a,
+                // &.pager__next a {
+                //     height: $pagination-li-height
+                //     padding: $pagination-link-pad
+                // }
                 &.pager__prev a {
                     padding-left: rem-calc(30)
                     svg-background($file:'arrows_left.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:left)
