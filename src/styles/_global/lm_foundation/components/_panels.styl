@@ -11,12 +11,12 @@
 $include-html-panel-classes ?=               $include-html-classes
 
 // the background and border styles
-$panel-bg ?=                                 darken($white, 5%)
+$panel-bg ?=                                 $gray-lighter-3
 $panel-border-style ?=                       solid
 $panel-border-size ?=                        1px
 
 // We use this % to control how much we darken things on hover
-$panel-function-factor ?=                    11% // -11%
+$panel-function-factor ?=                    10% // -11%
 $panel-border-color ?=                       darken($panel-bg, $panel-function-factor)
 
 // set default inner padding and bottom margin
@@ -50,11 +50,7 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
         padding: $padding
 
         background: $bg
-        if light($bg) {
-            color: $panel-font-color
-        } else {
-            color: $panel-font-color-alt
-        }
+        color: (light($bg) ? $panel-font-color : $panel-font-color-alt)
 
         // Respect the padding, fool.
         &>:first-child {
@@ -80,6 +76,7 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
             h1,h2,h3,h4,h5,h6 {
                 line-height: 1
                 margin-bottom: (rem-calc(20) / 2)
+
                 &.subheader {
                     line-height: 1.4
                 }
@@ -96,7 +93,9 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
             panel()
 
             &--callout {
-                panel(scale-color($primary-color, $lightness: 94%))
+                
+                panel(lightness($primary-color, 94%))
+
                 a:not(.btn) {
                     color: $callout-panel-link-color
 

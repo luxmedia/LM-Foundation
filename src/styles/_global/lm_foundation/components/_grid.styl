@@ -80,7 +80,7 @@ grid-row($behavior = false) {
 // $pull - # of columns to pull. Default: false.
 // $collapse - Get rid of gutter padding on column? Default: false.
 // $float - Should this float? Default: true. Options: true, false, left, right.
-grid-column( $columns = false, $last-column = false, $center = false, $offset = false, $push = false, $pull = false, $collapse = false, $float = true, $position = false) {
+grid-column( $columns = false, $last-column = false, $center = false, $offset = false, $push = false, $pull = false, $collapse = false, $collapse-side = false, $float = true, $position = false) {
 
     // If positioned for default .column, include relative position
     // push and pull require position set
@@ -136,6 +136,16 @@ grid-column( $columns = false, $last-column = false, $center = false, $offset = 
     
     if $offset {
         margin-{$default-float}: grid-calc($offset, $total-columns) !important
+    }
+
+    // Remove first and last column edge padding
+    if $collapse-side {
+        &:first-child {
+            padding-left: 0
+        }
+        &:last-child {
+            padding-right: 0
+        }
     }
 
 }
@@ -226,7 +236,9 @@ grid-html-classes($size) {
         .row {
             grid-row()
 
-            &.collapse {
+            &.collapse,
+            &--collapse {
+                // collapse all columns
                 > .col {
                     grid-column($collapse:true, $float:false)
                 }
@@ -234,6 +246,17 @@ grid-html-classes($size) {
                     margin-left:0
                     margin-right:0
                 }
+                // collapse only side columns
+                &--side {
+                    > .col {
+                        grid-column($collapse-side:true)
+                    }
+                    .row {
+                        margin-left:0
+                        margin-right:0
+                    }
+                }
+
             }
 
             .row {
