@@ -15,7 +15,7 @@ $product-list-bg ?=                              $gray-lighter-3
 $product-list-item-padding ?=                    rem-calc(10)
 $product-grid-item-padding ?=                    rem-calc(0 10 10 10)
 $product-list-item-margin ?=                     rem-calc(8 0)
-$product-grid-item-margin ?=                     0
+$product-grid-item-margin ?=                     rem-calc(16)
 $product-list-item-bg ?=                         $white
 $product-list-item-bg-hover ?=                   transparent
 $product-list-item-border-width ?=               2px
@@ -55,16 +55,17 @@ $product-list-manu-text-transform ?=             $product-grid-manu-text-transfo
 $product-list-desc-margin ?=                     0
 $product-list-desc-padding ?=                    rem-calc(0 0 20 0)
 $product-grid-desc-padding ?=                    rem-calc(0 0 5 0)
-$product-list-desc-font-family ?=                $body-font-family
+$product-list-desc-font-family ?=                $font-family-custom
 $product-list-desc-font-size ?=                  0.9rem
 $product-grid-desc-font-size ?=                  0.8rem
-$product-list-desc-line-height ?=                1.3
-$product-grid-desc-height ?=                     rem-calc((3*$product-list-desc-line-height*strip-unit($rem-base-actual)))
-$product-list-desc-color ?=                      $gray-dark-2
+$product-list-desc-line-height ?=                1.2
+$product-list-desc-row-count ?=                  3
+$product-grid-desc-height ?=                     rem-calc(($product-list-desc-row-count * $product-list-desc-line-height * strip-unit($rem-base-actual)))
+$product-list-desc-color ?=                      $gray-dark-3
 $product-list-desc-color-hover ?=                $gray-darker-3
 
 $product-list-opts-line-height ?=                1.3
-$product-list-opts-font-family ?=                $body-font-family
+$product-list-opts-font-family ?=                $font-family-custom
 $product-list-opts-font-size ?=                  0.75rem
 $product-list-opts-font-weight ?=                $font-weight-normal
 $product-list-opts-color ?=                      $gray-darker-3
@@ -171,11 +172,11 @@ if $include-html-productlist-classes {
     
     // Wrapper (ul)
     .prdlist {
-
+        clearfix()
         padding: $product-list-padding
         margin: 0
         background-color: $product-list-bg
-        clearfix()
+        
             
         // List item (li)
         .prd {
@@ -190,11 +191,11 @@ if $include-html-productlist-classes {
             z-index: 1
 
             &__inner {
-                clearfix()
+                // clearfix()
             }
 
             &__link {
-                clearfix()
+                // clearfix()
                 display: block
 
                 &:hover {
@@ -316,6 +317,9 @@ if $include-html-productlist-classes {
                 @media $medium-up {
                     col(1/3, uncycle:2, cycle:3)
                 }
+                @media $large-up {
+                    col(1/4, uncycle:3, cycle:4)
+                }
                 @media $small-only {
                     span(1/1)
                 }
@@ -332,13 +336,14 @@ if $include-html-productlist-classes {
 
                 &__brand {
                     @media $medium-up {
-                        height: $product-grid-manu-height
+                        height: ($product-grid-manu-height - 0.1rem)
                     }
                 }
                 &__title {
                     margin: $product-grid-title-margin
                     @media $medium-up {
-                        height: $product-grid-title-height
+                        height: ($product-grid-title-height - 0.1rem)
+                        overflow: hidden
                     }
                 }
                 &__brand,
@@ -351,7 +356,8 @@ if $include-html-productlist-classes {
                     padding: $product-grid-desc-padding
                     font_size($product-grid-desc-font-size)
                     @media $medium-up {
-                        height: $product-grid-desc-height
+                        height: ($product-grid-desc-height - 0.1rem)
+                        overflow: hidden
                     }
                 }
 
@@ -380,7 +386,6 @@ if $include-html-productlist-classes {
         // LIST VIEW
         &--line {
             .prd {
-                clearfix()
                 clear: both
                 padding: 0
                 margin: $product-list-item-margin
@@ -476,6 +481,7 @@ if $include-html-productlist-classes {
 
     }
 
+    // PRODUCT VARIANTS/OPTIONS
     .prd__opts {
         prd-opts()
     }

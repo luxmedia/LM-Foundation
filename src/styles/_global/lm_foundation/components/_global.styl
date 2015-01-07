@@ -273,6 +273,19 @@ blur-filter($radius = $global-blur-radius) {
     }
 }
 
+filter-grayscale($value = 100%, $reset = false) {
+    if $value {        
+        filter: grayscale($value)
+        -webkit-filter: grayscale($value)
+        -moz-filter: grayscale($value)
+        -ms-filter: grayscale($value)
+        -o-filter: grayscale($value)
+        if $reset {
+            filter: none
+        }
+    }
+}
+
 // @mixins
 //
 // Border parameters
@@ -672,6 +685,9 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         .clearfix {
             clearfix()
         }
+        .clear {
+            clear: both
+        }
 
         .no-break {
             white-space: no-break
@@ -716,6 +732,9 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         .is-blurred {
             single-transition(filter,$speed:500ms, $ease:ease)
             blur-filter()
+        }
+        .is-grayscale {
+            filter-grayscale()
         }
 
         // Get rid of gap under images by making them display: inline-block; by default

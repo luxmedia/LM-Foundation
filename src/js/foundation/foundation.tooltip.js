@@ -214,15 +214,15 @@
         }
         objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
         tip.removeClass('tip-override');
-        if (classes && classes.indexOf('tip-top') > -1) {
+        if (classes && classes.indexOf('tip--top') > -1) {
           if (Foundation.rtl) nub.addClass('rtl');
           objPos(tip, (target.offset().top - tip.outerHeight()), 'auto', 'auto', left)
             .removeClass('tip-override');
-        } else if (classes && classes.indexOf('tip-left') > -1) {
+        } else if (classes && classes.indexOf('tip--left') > -1) {
           objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left - tip.outerWidth() - nubHeight))
             .removeClass('tip-override');
           nub.removeClass('rtl');
-        } else if (classes && classes.indexOf('tip-right') > -1) {
+        } else if (classes && classes.indexOf('tip--right') > -1) {
           objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left + target.outerWidth() + nubHeight))
             .removeClass('tip-override');
           nub.removeClass('rtl');
@@ -239,7 +239,7 @@
 
     inheritable_classes : function ($target) {
       var settings = $.extend({}, this.settings, this.data_options($target)),
-          inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'radius', 'round'].concat(settings.additional_inheritable_classes),
+          inheritables = ['tip--top', 'tip--left', 'tip--bottom', 'tip--right', 'radius', 'round'].concat(settings.additional_inheritable_classes),
           classes = $target.attr('class'),
           filtered = classes ? $.map(classes.split(' '), function (el, i) {
             if ($.inArray(el, inheritables) !== -1) {
