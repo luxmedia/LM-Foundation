@@ -294,7 +294,7 @@ border-longhand($width = 0, $style = solid, $color = transparent) {
 }
 
 // SVG backgrounds based on "svg-stylus" plugin
-svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = none, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
+svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = false, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
     // possible svg shapes
     // If your svg files feature <g> you could use this instead of "all"
     // "g" is the svg group selector which inherits its styling to all children
@@ -322,18 +322,29 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
             background-image: svgurl($path-to-file) svg($properties)
         } else {
             background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
-            &:focus,
-            &:hover {
-                background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))
+            // Additional Styling for Hover State
+            if $stroke-hover {
+                &:focus,
+                &:hover {
+                    background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))
+                }
             }
         }
     }
-    if ($size) {
+    // sizing parameter
+    if ($size != false) {
         $size = remify($size)
         background-size: ($size*$scale-x + $scale-uni) ($size*$scale-y + $scale-uni)
     }
-    background-position: $position-x $position-y
-    background-repeat: $repeat
+    // position parameter
+    if ($position-x != false) {
+        background-position: $position-x $position-y
+    }
+    // repeat parameter
+    if ($repeat != false) {
+        background-repeat: $repeat
+    }
+
 }
 
 

@@ -12,7 +12,7 @@
 $include-html-button-classes ?=              $include-html-classes
 
 // build padding for buttons.
-$button-tny ?=                               rem-calc(2 4) // rem-calc(10)
+$button-tny ?=                               rem-calc(3) // rem-calc(10)
 $button-sml ?=                               rem-calc(4) // rem-calc(14)
 $button-med ?=                               rem-calc(6) // rem-calc(16)
 $button-lrg ?=                               rem-calc(8) // rem-calc(18)
@@ -25,8 +25,8 @@ $button-margin-bottom ?=                     rem-calc(20)
 $button-font-family ?=                       $font-family-custom
 $button-font-color ?=                        $white
 $button-font-color-alt ?=                    $charcoal-1
-$button-font-tny ?=                          0.9rem // rem-calc(11)
-$button-font-sml ?=                          1rem // rem-calc(13)
+$button-font-tny ?=                          0.8rem // rem-calc(11)
+$button-font-sml ?=                          0.9rem // rem-calc(13)
 $button-font-med ?=                          1.1rem // rem-calc(16)
 $button-font-lrg ?=                          1.2rem // rem-calc(20)
 $button-font-weight ?=                       $font-weight-bold
@@ -393,10 +393,10 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
                 }
             }
 
-            &.btn--large {
+            &.btn--lrg {
                 button-size($padding:$button-lrg)
             }
-            &.btn--small {
+            &.btn--sml {
                 button-size($padding:$button-sml)
                 
                 .lbl {
@@ -404,7 +404,7 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
                     padding: rem-calc(1 5 1)
                 }
             }
-            &.btn--tiny {
+            &.btn--tny {
                 button-size($padding:$button-tny)
             }
             &.btn--expand {

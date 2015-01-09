@@ -153,9 +153,12 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
                 label-style($bg:$warning-color, $font-color:$warning-font-color)
             }
             
-            // inverted Label (transparent bg, but border)
+            // inverted and flat Label
             &--inverted {
                 label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-border)
+            }
+            &--flat {
+                label-style($bg:transparent, $font-color:$label-inverted-font-color)
             }
 
             // Badges

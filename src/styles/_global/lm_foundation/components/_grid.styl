@@ -270,6 +270,13 @@ grid-html-classes($size) {
 
         .col {
             grid-column($columns:$total-columns)
+            
+            &.first {
+                padding-{$default-float}: 0
+            }
+            &.last {
+                padding-{$opposite-direction}: 0
+            }
         }
 
         [class*="col"] + [class*="col"]:last-child {
