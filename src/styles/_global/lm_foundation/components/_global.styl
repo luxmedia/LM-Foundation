@@ -332,16 +332,16 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
         }
     }
     // sizing parameter
-    if ($size != false) {
+    if $size {
         $size = remify($size)
         background-size: ($size*$scale-x + $scale-uni) ($size*$scale-y + $scale-uni)
     }
     // position parameter
-    if ($position-x != false) {
+    if $position-x {
         background-position: $position-x $position-y
     }
     // repeat parameter
-    if ($repeat != false) {
+    if $repeat {
         background-repeat: $repeat
     }
 

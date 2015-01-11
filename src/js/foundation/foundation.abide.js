@@ -241,7 +241,7 @@
 
     valid_checkbox : function(el, required) {
       var el = this.S(el),
-          valid = (el.is(':checked') || !required);
+          valid = (el.is(':checked') || !required || el.get(0).getAttribute('disabled'));
 
       if (valid) {
         el.removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
@@ -257,10 +257,22 @@
           group = this.S(el).closest('[data-' + this.attr_name(true) + ']').find("[name='"+name+"']"),
           count = group.length,
           valid = false;
+          disabled = false;
 
       // Has to count up to make sure the focus gets applied to the top error
       for (var i=0; i < count; i++) {
-        if (group[i].checked) valid = true;
+        if( group[i].getAttribute('disabled') ){
+          disabled=true;
+          valid=true;
+        } else {
+          if (group[i].checked){
+            valid = true;
+          } else {
+            if( disabled ){
+              valid = false;
+            }
+          }
+        }
       }
 
       // Has to count up to make sure the focus gets applied to the top error

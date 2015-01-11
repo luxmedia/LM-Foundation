@@ -85,6 +85,10 @@
         .on('click.fndtn.dropdown', function (e) {
           var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
 
+          if (e.target !== document && !$.contains(document.documentElement, e.target)) {
+            return;
+          }
+          
           if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
             return;
           }

@@ -182,31 +182,31 @@ reveal-close($color = $reveal-close-color) {
             reveal-modal-style($bg:$reveal-modal-bg, $padding:$reveal-modal-padding, $border:true, $box-shadow:true, $radius:false, $top-offset:$reveal-position-top)
             reveal-modal-style($padding:($reveal-modal-padding * 1.5))
 
-            &.{$reveal-modal-class}--radius {
+            &--radius {
                 reveal-modal-style($radius:true)
             }
-            &.{$reveal-modal-class}--round  {
+            &--round  {
                 reveal-modal-style($radius:$reveal-round)
             }
-            &.{$reveal-modal-class}--collapse {
+            &--collapse {
                 reveal-modal-style($padding:0)
             }
-            &.{$reveal-modal-class}--tiny  {
+            &--tny  {
                 reveal-modal-base(false, 40%)
             }
-            &.{$reveal-modal-class}--small {
+            &--sml {
                 reveal-modal-base(false, 50%)
             }
-            &.{$reveal-modal-class}--medium  {
+            &--med  {
                 reveal-modal-base(false, 60%)
             }
-            &.{$reveal-modal-class}--large {
+            &--lrg {
                 reveal-modal-base(false, 70%)
             }
-            &.{$reveal-modal-class}--xlarge {
+            &--xlrg {
                 reveal-modal-base(false, 95%)
             }
-            &.{$reveal-modal-class}--full {
+            &--full {
                 reveal-modal-base(false, 100vw)
                 top:0
                 left:0
@@ -219,29 +219,6 @@ reveal-close($color = $reveal-close-color) {
 
             .{$close-reveal-modal-class} {
                 reveal-close()
-            }
-        }
-
-        dialog {
-            @extend .{$reveal-modal-class}
-            display: none
-
-            &::backdrop,
-            & + .backdrop {
-                reveal-bg(false)
-            }
-
-            &[open]{
-                display: block
-            }
-        }
-
-        // Reveal Print Styles: It should be invisible, adds no value being printed.
-        @media print {
-            dialog,
-            .{$reveal-modal-class} { 
-                display: none
-                background: $white !important
             }
         }
     }

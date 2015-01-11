@@ -89,6 +89,7 @@ $topbar-menu-link-color ?=                   $white
 $topbar-menu-icon-color ?=                   $white
 $topbar-menu-link-color-toggled ?=           $gray-dark-2
 $topbar-menu-icon-color-toggled ?=           $gray-dark-2
+$topbar-menu-icon-position ?=                $opposite-direction // Change to $default-float for a left menu icon
 
 // Transitions and breakpoint styles
 $topbar-transition-speed ?=                  300ms
@@ -256,6 +257,9 @@ if $include-html-topbar-classes {
             margin: 0
             background-color: $topbar-logo-bg
             font_size($ref-font-size)
+            if ($topbar-menu-icon-position == $default-float) {
+              float: $opposite-direction
+            }
 
             h1, h2, h3, h4, p, span {
                 display: block
@@ -331,7 +335,7 @@ if $include-html-topbar-classes {
         // Menu toggle button on small devices
         .toggle-topbar {
             position: absolute
-            {$opposite-direction}: 0
+            {$topbar-menu-icon-position}: 0
             top: 0
 
             a {

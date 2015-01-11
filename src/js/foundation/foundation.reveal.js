@@ -67,11 +67,9 @@
 
       S(document)
         .on('click.fndtn.reveal', this.close_targets(), function (e) {
-
           e.preventDefault();
-
           if (!self.locked) {
-            var settings = S('[' + self.attr_name() + '].open').data(self.attr_name(true) + '-init') || self.settings,
+            var settings = S('[' + self.attr_name() + '].is-opened').data(self.attr_name(true) + '-init') || self.settings,
                 bg_clicked = S(e.target)[0] === S('.' + settings.bg_class)[0];
 
             if (bg_clicked) {
@@ -83,7 +81,7 @@
             }
 
             self.locked = true;
-            self.close.call(self, bg_clicked ? S('[' + self.attr_name() + '].open') : S(this).closest('[' + self.attr_name() + ']'));
+            self.close.call(self, bg_clicked ? S('[' + self.attr_name() + '].is-opened') : S(this).closest('[' + self.attr_name() + ']'));
           }
         });
 
@@ -116,7 +114,7 @@
 
       // PATCH #1: fixing multiple keyup event trigger from single key press
       self.S('body').off('keyup.fndtn.reveal').on('keyup.fndtn.reveal', function ( event ) {
-        var open_modal = self.S('[' + self.attr_name() + '].open'),
+        var open_modal = self.S('[' + self.attr_name() + '].is-opened'),
             settings = open_modal.data(self.attr_name(true) + '-init') || self.settings ;
         // PATCH #2: making sure that the close event can be called only while unlocked,
         //           so that multiple keyup.fndtn.reveal events don't prevent clean closing of the reveal window.
@@ -156,12 +154,12 @@
       settings = settings || this.settings;
 
 
-      if (modal.hasClass('open') && target.attr('data-reveal-id') == modal.attr('id')) {
+      if (modal.hasClass('is-opened') && target.attr('data-reveal-id') == modal.attr('id')) {
         return self.close(modal);
       }
 
-      if (!modal.hasClass('open')) {
-        var open_modal = self.S('[' + self.attr_name() + '].open');
+      if (!modal.hasClass('is-opened')) {
+        var open_modal = self.S('[' + self.attr_name() + '].is-opened');
 
         if (typeof modal.data('css-top') === 'undefined') {
           modal.data('css-top', parseInt(modal.css('top'), 10))
@@ -169,7 +167,8 @@
         }
 
         this.key_up_on(modal);    // PATCH #3: turning on key up capture only when a reveal window is open
-        modal.trigger('open').trigger('open.fndtn.reveal');
+
+        modal.on('open.fndtn.reveal').trigger('open.fndtn.reveal');
 
         if (open_modal.length < 1) {
           this.toggle_bg(modal, true);
@@ -216,7 +215,7 @@
 
     close : function (modal) {
       var modal = modal && modal.length ? modal : this.S(this.scope),
-          open_modals = this.S('[' + this.attr_name() + '].open'),
+          open_modals = this.S('[' + this.attr_name() + '].is-opened'),
           settings = modal.data(this.attr_name(true) + '-init') || this.settings;
 
       if (open_modals.length > 0) {
@@ -298,7 +297,7 @@
                 this.locked = false;
                 el.trigger('opened').trigger('opened.fndtn.reveal');
               }.bind(this))
-              .addClass('open');
+              .addClass('is-opened');
           }.bind(this), settings.animation_speed / 2);
         }
 
@@ -313,11 +312,11 @@
                 this.locked = false;
                 el.trigger('opened').trigger('opened.fndtn.reveal');
               }.bind(this))
-              .addClass('open');
+              .addClass('is-opened');
           }.bind(this), settings.animation_speed / 2);
         }
 
-        return el.css(css).show().css({opacity: 1}).addClass('open').trigger('opened').trigger('opened.fndtn.reveal');
+        return el.css(css).show().css({opacity: 1}).addClass('is-opened').trigger('opened').trigger('opened.fndtn.reveal');
       }
 
       var settings = this.settings;
@@ -355,7 +354,7 @@
                 this.locked = false;
                 el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
               }.bind(this))
-              .removeClass('open');
+              .removeClass('is-opened');
           }.bind(this), settings.animation_speed / 2);
         }
 
@@ -368,11 +367,11 @@
                 this.locked = false;
                 el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
               }.bind(this))
-              .removeClass('open');
+              .removeClass('is-opened');
           }.bind(this), settings.animation_speed / 2);
         }
 
-        return el.hide().css(css).removeClass('open').trigger('closed').trigger('closed.fndtn.reveal');
+        return el.hide().css(css).removeClass('is-opened').trigger('closed').trigger('closed.fndtn.reveal');
       }
 
       var settings = this.settings;
