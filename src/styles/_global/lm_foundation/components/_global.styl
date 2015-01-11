@@ -307,7 +307,7 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
     $svg-params-normal-state = ()
     $svg-params-hover-state = ()
 
-    if ($file) {
+    if $file {
         $path-to-file = ($path+'/'+$file)
         // set styles (normal and hover) for all possible shapes
         for $shape in $shapes {
