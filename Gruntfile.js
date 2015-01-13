@@ -35,6 +35,7 @@ module.exports = function(grunt) {
             '<%= base_conf.src %>/js/foundation/foundation.dropdown.js',
             '<%= base_conf.src %>/js/foundation/foundation.equalizer.js',
             '<%= base_conf.src %>/js/foundation/foundation.interchange.js',
+            '<%= base_conf.src %>/js/foundation/foundation.loading.js',
             // '<%= base_conf.src %>/js/foundation/foundation.joyride.js',
             // '<%= base_conf.src %>/js/foundation/foundation.magellan.js',
             '<%= base_conf.src %>/js/foundation/foundation.offcanvas.js',

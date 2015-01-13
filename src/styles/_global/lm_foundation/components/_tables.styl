@@ -64,6 +64,15 @@ table() {
     border: $table-border-style $table-border-size $table-border-color
     table-layout: $table-layout
 
+    &.tbl--flat {
+        border: none
+        margin-bottom: 0
+    }
+
+    &.tbl--full {
+        width: 100%
+    }
+
     caption {
         background: $table-caption-bg
         color: $table-caption-font-color

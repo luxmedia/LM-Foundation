@@ -70,14 +70,21 @@ $product-list-opts-font-size ?=                  0.75rem
 $product-list-opts-font-weight ?=                $font-weight-normal
 $product-list-opts-color ?=                      $gray-darker-3
 $product-list-opts-item-padding ?=               rem-calc(2 10)
-$product-list-opts-item-margin ?=                rem-calc(0 2 5 2)    
+$product-list-opts-item-margin ?=                rem-calc(0 4 4 0)
 $product-list-opts-item-bg ?=                    $white
+$product-list-opts-item-selected-bg ?=           $gray-dark-3
 $product-list-opts-item-border ?=                1px solid rgba($black, 0.15)
+$product-list-opts-item-border-hover ?=          $gray-dark-1
 $product-list-opts-label-padding ?=              rem-calc(2 0)
 $product-list-opts-label-margin ?=               rem-calc(0 10 5 0)
 $product-list-opts-label-border ?=               false // 1px solid rgba($black, 0.15)
 $product-list-opts-label-bg ?=                   transparent
 $product-list-opts-label-color ?=                $gray-darker-1
+
+$product-list-opts-link-color ?=                 $charcoal-1
+$product-list-opts-link-font-size ?=             0.8rem
+$product-list-opts-link-color-hover ?=           $charcoal-2
+$product-list-opts-link-bg-hover ?=              $gray-light-3
 
 $product-grid-pricebox-height ?=                 rem-calc(2*$price-line-height*strip-unit($rem-base-actual))
 $product-grid-pricebox-padding ?=                0
@@ -91,8 +98,6 @@ $product-list-button-ico-color ?=                $product-list-button-color
 $product-list-button-ico-color-hover ?=          $white
 
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
-
-$product-grid-item-height ?= round((2*$product-list-padding) + $product-grid-img-margin[0] + $product-grid-img-margin[3] + $product-list-img-padding + rem-calc($product-grid-img-height) + $product-grid-manu-height + $product-grid-title-height + $product-grid-title-margin[0] + $product-grid-title-margin[2] + $product-grid-pricebox-height + (2*$product-grid-pricebox-margin[0]))
 
 
 
@@ -136,7 +141,7 @@ prd-opts() {
             font_size($product-list-opts-font-size)
             
             &:hover {
-                border-color: $primary-color
+                border-color: $product-list-opts-item-border-hover
             }
             
             &:first-child {
@@ -147,18 +152,23 @@ prd-opts() {
             }
             &.is-selected {
                 border-color: transparent
-                background-color: $primary-color
+                background-color: $product-list-opts-item-selected-bg
                 a, a:hover {
                     color: $white
                     cursor: $cursor-default-value
                 }
             }
             a {
-                color: $product-list-opts-color
                 display: inline-block
                 padding: $product-list-opts-item-padding
+                font_size($product-list-opts-link-font-size)
+                color: $product-list-opts-link-color
+
                 &:hover {
-                    color: $primary-color
+                    if $product-list-opts-link-bg-hover {
+                        background: $product-list-opts-link-bg-hover
+                    }
+                    color: $product-list-opts-link-color-hover
                 }
             }
         }
@@ -307,7 +317,6 @@ if $include-html-productlist-classes {
         // GRID VIEW
         &--grid {
             .prd {
-                //height: $product-grid-item-height
                 margin: $product-list-item-margin
                 padding: 0
                 

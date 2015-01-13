@@ -1,0 +1,165 @@
+// LOADING OVERLAYS
+
+@require "_global"
+
+//
+// @variables
+//
+$include-html-loading-classes ?=        $include-html-classes
+
+$loading-min-height ?=                  rem-calc(100)
+$loading-bg-opaque ?=                   $gray-base
+$loading-bg-alpha ?=                    rgba($gray-base, 0.8)
+$loading-bg-radial-inner ?=             rgba($gray-medium-1, 0.85)
+$loading-bg-radial-outer ?=             rgba($gray-dark-1, 0.5)
+$loading-image-size ?=                  rem-calc(48)
+$loading-imageurl ?=                    image-url("loading.png")
+
+$loading-distort-perspective ?=         600px
+$loading-anim-duration ?=               1s
+
+//
+// @mixins
+//
+
+//
+// @css classes
+//
+if $include-html-loading-classes {
+    
+    .loading {
+        display: none
+        width: 100%
+        min-height: $loading-min-height
+        position: fixed
+        left: 0
+        top: 0
+        color: $gray-base
+        font_size(2rem)
+        text-align: center
+        z-index: $zindex-modal
+
+        background: $loading-bg-opaque
+        background: $loading-bg-alpha
+        background: -moz-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%, $loading-bg-radial-outer 100%);
+        background: -webkit-gradient(radial, center center, 0, center center, 100%, color-stop(0%,$loading-bg-radial-inner), color-stop(100%,$loading-bg-radial-outer));
+        background: -webkit-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
+        background: -o-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
+        background: -ms-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
+        background: radial-gradient(ellipse at center, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
+
+        .container {
+            width: $loading-image-size
+            height: $loading-image-size
+            position: absolute
+            top: 50%
+            left: 50%
+            margin: -(2*$loading-image-size) 0 0 -($loading-image-size/2);
+            -webkit-perspective: $loading-distort-perspective
+            -moz-perspective: $loading-distort-perspective
+            -o-perspective: $loading-distort-perspective
+            perspective: $loading-distort-perspective
+
+            .box {
+                background: transparent $loading-imageurl no-repeat center center
+                position: relative
+                width: 100%
+                height: 100%
+
+                animation: loadinganim $loading-anim-duration linear infinite
+            }
+        }
+
+        // INLINE OVERAYS
+        &--inline {
+            display: block
+            position: relative
+            
+            .container {
+                margin-top: -($loading-image-size/2+rem-calc(6))!important
+            }
+        }
+    }
+
+    // ANIMATION
+    @-webkit-keyframes loadinganim {
+        0% {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg)
+            transform: rotateY(0deg)
+        }
+        50% {
+            -webkit-transform: rotateY(90deg)
+            -moz-transform: rotateY(90deg)
+            -o-transform: rotateY(90deg)
+            transform: rotateY(90deg)
+         }
+        100% {
+            -webkit-transform: rotateY(180deg)
+            -moz-transform: rotateY(180deg)
+            -o-transform: rotateY(180deg)
+            transform: rotateY(180deg)
+        }
+    }
+    @-moz-keyframes loadinganim {
+        0% {
+            -webkit-transform: rotateY(0deg)
+            -moz-transform: rotateY(0deg)
+            -o-transform: rotateY(0deg)
+            transform: rotateY(0deg)
+        }
+        50% {
+            -webkit-transform: rotateY(90deg)
+            -moz-transform: rotateY(90deg)
+            -o-transform: rotateY(90deg)
+            transform: rotateY(90deg)
+         }
+        100% {
+            -webkit-transform: rotateY(180deg)
+            -moz-transform: rotateY(180deg)
+            -o-transform: rotateY(180deg)
+            transform: rotateY(180deg)
+        }
+    }
+    @-o-keyframes loadinganim {
+        0% {
+            -webkit-transform: rotateY(0deg)
+            -moz-transform: rotateY(0deg)
+            -o-transform: rotateY(0deg)
+            transform: rotateY(0deg)
+        }
+        50% {
+            -webkit-transform: rotateY(90deg)
+            -moz-transform: rotateY(90deg)
+            -o-transform: rotateY(90deg)
+            transform: rotateY(90deg)
+         }
+        100% {
+            -webkit-transform: rotateY(180deg)
+            -moz-transform: rotateY(180deg)
+            -o-transform: rotateY(180deg)
+            transform: rotateY(180deg)
+        }
+    }
+    @keyframes loadinganim {
+        0% {
+            -webkit-transform: rotateY(0deg)
+            -moz-transform: rotateY(0deg)
+            -o-transform: rotateY(0deg)
+            transform: rotateY(0deg)
+        }
+        50% {
+            -webkit-transform: rotateY(90deg)
+            -moz-transform: rotateY(90deg)
+            -o-transform: rotateY(90deg)
+            transform: rotateY(90deg)
+         }
+        100% {
+            -webkit-transform: rotateY(180deg)
+            -moz-transform: rotateY(180deg)
+            -o-transform: rotateY(180deg)
+            transform: rotateY(180deg)
+        }
+    }
+}

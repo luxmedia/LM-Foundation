@@ -248,11 +248,11 @@ side-radius($side, $radius = $global-radius) {
 // control whether or not we have inset shadows edges.
 // $active - Default: true, Options: false
 inset-shadow($active = true) {
-    box-shadow: $shiny-edge-size $shiny-edge-color inset;
+    box-shadow: $shiny-edge-size $shiny-edge-color inset
 
-    if $active { 
+    if $active {
         &:active {
-            box-shadow: $shiny-edge-size $shiny-edge-active-color inset; 
+            box-shadow: $shiny-edge-size $shiny-edge-active-color inset
         }
     }
 }
@@ -263,6 +263,10 @@ expand() {
     padding-left: 0
     padding-right: 0
     width: 100%
+    
+    table& {
+        display: table
+    }
 }
 
 // CSS Blur filter
@@ -274,7 +278,7 @@ blur-filter($radius = $global-blur-radius) {
 
 // CSS grayscale filter
 filter-grayscale($value = 100%, $reset = false) {
-    if $value {        
+    if $value {
         filter: grayscale($value)
         -webkit-filter: grayscale($value)
         -moz-filter: grayscale($value)
@@ -441,7 +445,7 @@ hamburger($width, $left, $top, $thickness, $gap, $color, $hover-color, $offcanva
 
 // clear floats
 clearfix() {
-    &:before, 
+    &:before,
     &:after {
         content: " ";
         display: table
@@ -462,11 +466,11 @@ antialiased() {
 // $fade-time - Default: 300ms
 // $glowing-effect-color - Default: fade-out($primary-color, .25)
 block-glowing-effect($selector = focus, $fade-time = 300ms, $glowing-effect-color = fade-out($primary-color, .25)) {
-    transition: box-shadow $fade-time, border-color $fade-time ease-in-out;
+    transition: box-shadow $fade-time, border-color $fade-time ease-in-out
 
     &:{$selector} {
-        box-shadow: 0 0 5px $glowing-effect-color;
-        border-color: $glowing-effect-color;
+        box-shadow: 0 0 5px $glowing-effect-color
+        border-color: $glowing-effect-color
     }
 }
 
@@ -724,10 +728,10 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         }
 
         .no-break {
-            white-space: no-break
+            white-space: nowrap !important
         }
         .break {
-            white-space: normal
+            white-space: normal !important
         }
 
         .block {
