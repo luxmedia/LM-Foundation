@@ -86,7 +86,7 @@ $black ?=                            #111111
 
 // We use these as default colors throughout
 $primary-color ?=                    #d94343 // #008CBA
-$secondary-color ?=                  #e7e7e7
+$secondary-color =                   lightness($gray-base,50%)
 $info-color ?=                       #62a7d9 // #a0d3e8
 $success-color ?=                    #4fc497 // #43AC6A
 $warning-color ?=                    #ffcd45 // #f08a24
@@ -322,12 +322,12 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
         }
 
         // set background image
-        if ($properties) {
+        if $properties {
             background-image: svgurl($path-to-file) svg($properties)
         } else {
             background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
             // Additional Styling for Hover State
-            if $stroke-hover {
+            if ($stroke-hover && $stroke-hover != $stroke) {
                 &:focus,
                 &:hover {
                     background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))

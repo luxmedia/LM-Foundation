@@ -74,7 +74,8 @@ $product-list-opts-item-margin ?=                rem-calc(0 4 4 0)
 $product-list-opts-item-bg ?=                    $white
 $product-list-opts-item-selected-bg ?=           $gray-dark-3
 $product-list-opts-item-border ?=                1px solid rgba($black, 0.15)
-$product-list-opts-item-border-hover ?=          $gray-dark-1
+$product-list-opts-item-border-width ?=          0 1px 1px 0
+$product-list-opts-item-border-hover ?=          rgba($black, 0.15)
 $product-list-opts-label-padding ?=              rem-calc(2 0)
 $product-list-opts-label-margin ?=               rem-calc(0 10 5 0)
 $product-list-opts-label-border ?=               false // 1px solid rgba($black, 0.15)
@@ -99,6 +100,8 @@ $product-list-button-ico-color-hover ?=          $white
 
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
 
+$product-grid-sml-font-size ?=                   0.8rem
+$product-grid-sml-img-height ?=                  rem-calc(50)
 
 
 //
@@ -137,11 +140,14 @@ prd-opts() {
             background: $product-list-opts-item-bg
             if ($product-list-opts-item-border) {
                 border: $product-list-opts-item-border
+                border-width: $product-list-opts-item-border-width
             }
             font_size($product-list-opts-font-size)
             
-            &:hover {
-                border-color: $product-list-opts-item-border-hover
+            if $product-list-opts-item-border-hover {
+                &:hover {
+                    border-color: $product-list-opts-item-border-hover
+                }
             }
             
             &:first-child {
@@ -152,8 +158,9 @@ prd-opts() {
             }
             &.is-selected {
                 border-color: transparent
-                background-color: $product-list-opts-item-selected-bg
+
                 a, a:hover {
+                    background-color: $product-list-opts-item-selected-bg
                     color: $white
                     cursor: $cursor-default-value
                 }
@@ -223,6 +230,7 @@ if $include-html-productlist-classes {
                 margin: $product-grid-img-margin
                 width: auto
                 height: $product-grid-img-height
+                line-height: $product-grid-img-height
                 text-align: center
 
                 img {
@@ -258,6 +266,7 @@ if $include-html-productlist-classes {
                 font_size($product-grid-title-font-size)
                 font-weight: $product-list-title-font-weight
                 text-decoration: none
+                text-transform: uppercase
                 overflow: hidden
             }
             a:hover .prd__title {
@@ -388,6 +397,27 @@ if $include-html-productlist-classes {
                     width: $product-grid-pricebox-height
                     height: $product-grid-pricebox-height
                     float: left
+                }
+            }
+
+            // SMALLER GRID VIEW (e.g. in MINICARTS, PROMO-BOXES a.so.)
+            &--sml {
+                .prd {
+                    &__title,
+                    &__sdesc,
+                    &__brand,
+                    .price-box {
+                        height: auto
+                        font_size($product-grid-sml-font-size)
+                    }
+                    &__img {
+                        height: $product-grid-sml-img-height
+                        line-height: $product-grid-sml-img-height
+                    }
+                    .price,
+                    .price--special {
+                        font_size(inherit)
+                    }
                 }
             }
         }
