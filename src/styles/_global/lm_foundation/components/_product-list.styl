@@ -39,7 +39,8 @@ $product-list-title-color ?=                     $gray-darker-3
 $product-list-title-color-hover ?=               $primary-color
 $product-list-title-font-weight ?=               $font-weight-bold
 $product-list-title-line-height ?=               1.1
-$product-grid-title-height ?=                    rem-calc((3*$product-list-title-line-height*strip-unit($rem-base-actual)))
+$product-grid-title-row-count ?=                3
+$product-grid-title-height ?=                   (normalize_rem($product-grid-title-font-size)*$product-grid-title-row-count*$product-list-title-line-height)
 $product-list-title-padding ?=                   0
 $product-list-title-margin ?=                    rem-calc(0 0 10 0)
 $product-grid-title-margin ?=                    rem-calc(0 0 2 0)
@@ -48,19 +49,20 @@ $product-list-manu-font-size ?=                  0.8rem // 0.9rem, if we do not 
 $product-list-manu-color ?=                      $gray-dark-1
 $product-grid-manu-font-weight ?=                $font-weight-normal
 $product-list-manu-font-weight ?=                $font-weight-normal
-$product-grid-manu-height ?=                     rem-calc(($product-list-title-line-height*strip-unit($rem-base-actual)))
+$product-grid-manu-height ?=                    (normalize_rem($product-list-manu-font-size)*$product-list-title-line-height)
 $product-grid-manu-text-transform ?=             uppercase
 $product-list-manu-text-transform ?=             $product-grid-manu-text-transform
 
-$product-list-desc-margin ?=                     0
-$product-list-desc-padding ?=                    rem-calc(0 0 20 0)
-$product-grid-desc-padding ?=                    rem-calc(0 0 5 0)
+$product-list-desc-margin ?=                     rem-calc(0 0 20 0)
+$product-grid-desc-margin ?=                     rem-calc(0 0 5 0)
+$product-list-desc-padding ?=                    0
+$product-grid-desc-padding ?=                    0
 $product-list-desc-font-family ?=                $font-family-custom
 $product-list-desc-font-size ?=                  0.9rem
 $product-grid-desc-font-size ?=                  0.8rem
-$product-list-desc-line-height ?=                1.2
-$product-list-desc-row-count ?=                  3
-$product-grid-desc-height ?=                     rem-calc(($product-list-desc-row-count * $product-list-desc-line-height * strip-unit($rem-base-actual)))
+$product-list-desc-line-height ?=                $product-list-title-line-height
+$product-grid-desc-row-count ?=                  4
+$product-grid-desc-height ?=                    (normalize_rem($product-grid-desc-font-size)*$product-list-desc-line-height*$product-grid-desc-row-count)
 $product-list-desc-color ?=                      $gray-dark-3
 $product-list-desc-color-hover ?=                $gray-darker-3
 
@@ -87,7 +89,7 @@ $product-list-opts-link-font-size ?=             0.8rem
 $product-list-opts-link-color-hover ?=           $charcoal-2
 $product-list-opts-link-bg-hover ?=              $gray-light-3
 
-$product-grid-pricebox-height ?=                 rem-calc(2*$price-line-height*strip-unit($rem-base-actual))
+$product-grid-pricebox-height ?=                 ((normalize_rem($price-special-font-size)*$price-line-height)+(normalize_rem($price-old-font-size)*$price-line-height))
 $product-grid-pricebox-padding ?=                0
 $product-grid-pricebox-margin ?=                 rem-calc(3 0)
 $product-list-button-size ?=                     $button-sml
@@ -138,17 +140,8 @@ prd-opts() {
             padding: $product-list-opts-item-padding
             margin: $product-list-opts-item-margin
             background: $product-list-opts-item-bg
-            if ($product-list-opts-item-border) {
-                border: $product-list-opts-item-border
-                border-width: $product-list-opts-item-border-width
-            }
+
             font_size($product-list-opts-font-size)
-            
-            if $product-list-opts-item-border-hover {
-                &:hover {
-                    border-color: $product-list-opts-item-border-hover
-                }
-            }
             
             &:first-child {
                 margin-left: 0
@@ -156,10 +149,9 @@ prd-opts() {
             &.is-disabled {
                 opacity: 0.5
             }
-            &.is-selected {
-                border-color: transparent
-
+            &.is-selected {      
                 a, a:hover {
+                    border-color: transparent
                     background-color: $product-list-opts-item-selected-bg
                     color: $white
                     cursor: $cursor-default-value
@@ -170,7 +162,10 @@ prd-opts() {
                 padding: $product-list-opts-item-padding
                 font_size($product-list-opts-link-font-size)
                 color: $product-list-opts-link-color
-
+                if ($product-list-opts-item-border) {
+                    border: $product-list-opts-item-border
+                    border-width: $product-list-opts-item-border-width
+                }
                 &:hover {
                     if $product-list-opts-link-bg-hover {
                         background: $product-list-opts-link-bg-hover
@@ -179,6 +174,10 @@ prd-opts() {
                 }
             }
         }
+    }
+    // simple option info list without links inside
+    .lst--plain li {
+        border-{$opposite-direction}: $product-list-opts-item-border
     }
 }
 
@@ -277,6 +276,7 @@ if $include-html-productlist-classes {
             &__sdesc,
             &__sdesc p {
                 margin: $product-list-desc-margin
+                padding: $product-list-desc-padding
                 font_family($product-list-desc-font-family)
                 font_size($product-list-desc-font-size)
                 color: $product-list-desc-color
@@ -371,6 +371,7 @@ if $include-html-productlist-classes {
                     } 
                 }
                 &__sdesc {
+                    margin: $product-grid-desc-margin
                     padding: $product-grid-desc-padding
                     font_size($product-grid-desc-font-size)
                     @media $medium-up {
@@ -471,8 +472,7 @@ if $include-html-productlist-classes {
                 }
 
                 &__sdesc {
-                    display: block
-                    padding: $product-list-desc-padding
+                    // display: block
                 }
 
                 .price-box {

@@ -27,9 +27,9 @@ $ref-font-size ?=                    1.4rem
 // this is just a dummy font size for the body. Within the font_size mixin we also add $font-size-normalization to it!!
 $body-font-size ?=                   1rem
 
-// Normlaiziation factor for all font sizes
+// Normalization factor for all font sizes
 $font-size-normalization ?=          ($ref-font-size - $body-font-size)
-$rem-base-actual ?=                  $rem-base+unit($font-size-normalization*10,"px")
+$rem-base-actual ?=                  ($rem-base + unit($font-size-normalization*10,"px"))
 
 
 // =========================================================================
@@ -65,6 +65,12 @@ pxify($value) {
         return round(unit($value*$rem-base, 'px'))
     } else {
         return unit($value, unit($value))
+    }
+}
+// Normalize rem-size value accoridng to font size rem-base
+normalize_rem(value) {
+    if (unit(value) != 'px') {
+        return (value+$font-size-normalization)
     }
 }
 

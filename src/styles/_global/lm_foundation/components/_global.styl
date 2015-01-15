@@ -173,13 +173,15 @@ $large ?=                            $large-up
 
 // We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
 // https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
-$cursor-auto-value ?=                auto
-$cursor-crosshair-value ?=           crosshair
-$cursor-default-value ?=             default
-$cursor-disabled-value ?=            not-allowed
-$cursor-pointer-value ?=             pointer
-$cursor-help-value ?=                help
-$cursor-text-value ?=                text
+$cursor-auto-value ?=               auto
+$cursor-crosshair-value ?=          crosshair
+$cursor-default-value ?=            default
+$cursor-disabled-value ?=           not-allowed
+$cursor-pointer-value ?=            pointer
+$cursor-help-value ?=               help
+$cursor-text-value ?=               text
+$cursor-zoom-in-value ?=            zoom-in
+$cursor-zoom-out-value ?=           zoom-out
 $cursor-grab-value ?=               grab
 $cursor-grabbing-value ?=           grabbing
 
@@ -521,7 +523,7 @@ font_size(value) {
     // add PX (or original value) as backup
     if (value != 0 && value != null && value != inherit) {
         if (unit(value) != 'px') {
-            font-size: remify(value + $font-size-normalization)
+            font-size: remify(normalize_rem(value))
         } else {
             font-size: value
         }
