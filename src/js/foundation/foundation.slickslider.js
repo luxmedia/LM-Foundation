@@ -422,10 +422,17 @@
 
         if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
 
-            dotString = '<ul class="' + _.options.dotsClass + '">';
+            dotString = '<ul class="' + _.options.dotsClass + ' clear cf">';
 
             for (i = 0; i <= _.getDotCount(); i += 1) {
-                dotString += '<li>' + _.options.customPaging.call(this, _, i) + '</li>';
+                // LUXMEDIA MOD
+                // Switch between normal an block dots
+                if (_.options.dotsClass == 'slick__dots--block') {
+                    dotString += '<li style="width:'+((100/(_.getDotCount()+1)))+'%">' + _.options.customPaging.call(this, _, i) + '</li>';
+                } else {
+                    dotString += '<li>' + _.options.customPaging.call(this, _, i) + '</li>';
+                }
+                // EOF - LUXMEDIA MOD
             }
 
             dotString += '</ul>';

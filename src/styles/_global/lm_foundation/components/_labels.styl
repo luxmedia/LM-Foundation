@@ -15,12 +15,17 @@ $label-padding ?=                            rem-calc(5 8)
 $label-radius ?=                             $global-radius
 
 // style the label text
-$label-font-sizing ?=                        0.75
+$label-font-sizing ?=                        0.75rem
 $label-font-weight ?=                        $font-weight-bold
 $label-text-transform ?=                     uppercase
 $label-font-color ?=                         $charcoal-1
 $label-font-color-alt ?=                     $white
 $label-font-family ?=                        $font-family-headings
+
+$label-font-size-med ?=                     1rem
+$label-font-size-lrg ?=                     1.2rem
+$label-font-size-xlrg ?=                    1.6rem
+$label-font-size-xxlrg ?=                   2.2rem
 
 $label-inverted-font-color ?=               $gray-dark-1
 $label-inverted-bg ?=                       $white
@@ -28,7 +33,7 @@ $label-inverted-border ?=                   $gray-light-1
 
 $badge-padding ?=                            rem-calc(3 5)
 $badge-radius ?=                             $global-radius
-$badge-font-sizing ?=                        0.75
+$badge-font-sizing ?=                        0.75rem
 $badge-font-weight ?=                        $font-weight-bold
 $badge-font-color ?=                         $white
 $badge-font-color-alt ?=                     $charcoal-1
@@ -49,7 +54,7 @@ label-base() {
     line-height: 1
     font-weight: $label-font-weight
     font_family($label-font-family)
-    text-align: center
+    text-align: $default-float
     text-decoration: none
     if ($label-text-transform != false) {
         text-transform: $label-text-transform
@@ -159,6 +164,25 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
             }
             &--flat {
                 label-style($bg:transparent, $font-color:$label-inverted-font-color)
+            }
+            &--primary.lbl--flat {
+                color: $primary-color
+            }
+
+            // Different sizes
+            &--med {
+                label-size(false, $label-font-size-med)
+            }
+            &--lrg {
+                label-size(false, $label-font-size-lrg)
+            }
+            &--xlrg {
+                label-size(false, $label-font-size-xlrg)
+                font-weight: $font-weight-normal
+            }
+            &--xxlrg {
+                label-size(false, $label-font-size-xxlrg)
+                font-weight: $font-weight-normal
             }
 
             // Badges

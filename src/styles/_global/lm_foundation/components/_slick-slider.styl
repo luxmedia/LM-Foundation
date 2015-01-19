@@ -13,10 +13,13 @@ $include-html-slickslider-classes ?= $include-html-classes
 $slick-font-path ?=                 "./fonts/"
 $slick-font-family ?=               "slick"
 $slick-loader-path ?=               "./"
-$slick-arrow-color ?=               $white
-$slick-dot-color ?=                 $black
+$slick-arrow-color ?=               $gray-base
+$slick-arrow-color-hover ?=         $primary-color
+$slick-dot-color ?=                 $charcoal-2
+$slick-dot-color-alt ?=             $gray-base
 $slick-dot-color-active ?=          $primary-color
 $slick-dot-color-hover ?=           $slick-dot-color
+$slick-dot-color-hover-alt ?=       $white
 $slick-prev-character ?=            '\2190'
 $slick-next-character ?=            '\2192'
 $slick-dot-character ?=             '\2022'
@@ -27,10 +30,13 @@ $slick-opacity-not-active ?=        .25
 $slick-opacity-active ?=            1
 
 $slick-nav-button-size ?=           rem-calc(34)
-$slick-margin-bottom ?=             rem-calc(30)
+$slick-dot-margin-bottom ?=         rem-calc(30)
 $slick-dot-sensitive-size ?=        rem-calc(20)
+$slick-dot-sensitive-size-block ?=  rem-calc(10)
 $slick-dot-margin ?=                rem-calc(0 5)
 $slick-dot-padding ?=               rem-calc(5)
+
+$slick-dot-blockstyle ?=            false
 
 $slick-cursor-drag ?=               $cursor-grab-value
 $slick-cursor-dragging ?=           $cursor-grabbing-value
@@ -167,7 +173,7 @@ if $include-html-slickslider-classes {
             }
         }
 
-        /* Icons */
+        // Icons
         if ($slick-font-family == "slick") {
             @font-face {
                 font-family:"slick"
@@ -181,8 +187,7 @@ if $include-html-slickslider-classes {
             }
         }
 
-        /* Arrows */
-
+        // Arrows
         &__prev,
         &__next {
             position: absolute
@@ -214,98 +219,142 @@ if $include-html-slickslider-classes {
         &__prev {
             {$default-float}: -($slick-nav-button-size+rem-calc(5))
 
-            svg-background($file:'arrows_'+$default-float+'.svg', $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$gray-base, $stroke-hover:$white, $scale-x:1, $position-x:center)
+            svg-background($file:'arrows_'+$default-float+'.svg', $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
         &__next {
             {$opposite-direction}: -($slick-nav-button-size+rem-calc(5))
 
-            svg-background($file:'arrows_'+$opposite-direction+'.svg', $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$gray-base, $stroke-hover:$white, $scale-x:1, $position-x:center)
+            svg-background($file:'arrows_'+$opposite-direction+'.svg', $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
 
-        /* Dots */
-
-        &__slider {
-            margin-bottom: $slick-margin-bottom
-        }
-
-        &__dots {
-            position: absolute
-            bottom: -(($slick-dot-sensitive-size*2)+rem-calc(5))
-            list-style: none
-            display: block
-            text-align: center
-            padding: 0
-            width: 100%
-
-            li {
+        // Dots
+        if $slick-dot-blockstyle {
+            // Squaretype fullwidth "block-dots"
+            &__dots--block {
                 position: relative
-                display: inline-block
-                height: $slick-dot-sensitive-size
-                width: $slick-dot-sensitive-size
-                margin: $slick-dot-margin
+                display: block
+                width: 100%
+                margin: 0 0 $slick-dot-margin-bottom 0
                 padding: 0
-                cursor: pointer
-                radius(1000px)
+                list-style: none
 
-                button {
-                    margin: 0
-                    padding: $slick-dot-padding
+                li {
                     display: block
-                    height: $slick-dot-sensitive-size
-                    width: $slick-dot-sensitive-size
-                    line-height: 0
-                    font-size: 0
-                    background: transparent
-                    color: transparent
-                    border: none
-                    box-shadow: none
-                    outline: none
-                    cursor($cursor-pointer-value)
+                    float: left
+                    height: $slick-dot-sensitive-size-block
 
-                    radius(1000px)
-
-                    &:hover,
-                    &:focus {
-                        outline: none
+                    button {
+                        display: block
+                        width: 100%
+                        height: $slick-dot-sensitive-size-block
+                        margin: 0
+                        padding: 0
+                        font-size: 0
+                        background: $slick-dot-color-alt
                         border: none
                         box-shadow: none
+                        outline: none
+                        cursor($cursor-pointer-value)
+                    }
+
+                    &:nth-child(even) button {
+                        background: ($slick-dot-color-alt != $white ) ? lighten($slick-dot-color-alt,20%) : $slick-dot-color-alt
+                    }
+                    &:hover button {
+                        background: $slick-dot-color-hover-alt
+                    }
+                    &:nth-child(even):hover button {
+                        background: ($slick-dot-color-hover-alt != $white ) ? lighten($slick-dot-color-hover-alt,20%) : $slick-dot-color-hover-alt
+                    }
+                    &.is-active button,
+                    &.is-active:hover button {
+                        background: $slick-dot-color-active
+                        cursor($cursor-default-value)
+                    }
+                }
+            }
+        } else {
+            // Single Dots
+            &__dots {
+                // position: absolute
+                // bottom: -(($slick-dot-sensitive-size*2)+rem-calc(5))
+                position: relative
+                display: block
+                width: 100%
+                margin: 0 0 $slick-margin-bottom 0
+                padding: 0
+                list-style: none
+                text-align: center
+
+                li {
+                    position: relative
+                    display: inline-block
+                    height: $slick-dot-sensitive-size
+                    width: $slick-dot-sensitive-size
+                    margin: $slick-dot-margin
+                    padding: 0
+                    cursor: pointer
+                    radius(1000px)
+
+                    button {
+                        margin: 0
+                        padding: $slick-dot-padding
+                        display: block
+                        height: $slick-dot-sensitive-size
+                        width: $slick-dot-sensitive-size
+                        line-height: 0
+                        font-size: 0
+                        background: transparent
+                        color: transparent
+                        border: none
+                        box-shadow: none
+                        outline: none
+                        cursor($cursor-pointer-value)
+
+                        radius(1000px)
+
+                        &:hover,
+                        &:focus {
+                            outline: none
+                            border: none
+                            box-shadow: none
+
+                            &:before {
+                                color: $slick-dot-color-hover
+                                opacity: $slick-opacity-on-hover
+                            }
+                        }
 
                         &:before {
-                            color: $slick-dot-color-hover
-                            opacity: $slick-opacity-on-hover
+                            position: absolute
+                            top: 50%
+                            left: 50%
+                            width: $slick-dot-size
+                            height: $slick-dot-size
+                            line-height: $slick-dot-size
+                            margin: (-($slick-dot-size/2)) 0 0 (-($slick-dot-size/2))
+                            content: $slick-dot-character
+                            font-family: $slick-font-family
+                            font-size: $slick-dot-size
+                            text-align: center
+                            background-color: $slick-dot-color
+                            opacity: $slick-opacity-not-active
+                            
+                            antialiased()
+                            
+                            radius(1000px)
                         }
                     }
 
-                    &:before {
-                        position: absolute
-                        top: 50%
-                        left: 50%
-                        width: $slick-dot-size
-                        height: $slick-dot-size
-                        line-height: $slick-dot-size
-                        margin: (-($slick-dot-size/2)) 0 0 (-($slick-dot-size/2))
-                        content: $slick-dot-character
-                        font-family: $slick-font-family
-                        font-size: $slick-dot-size
-                        text-align: center
-                        background-color: $slick-dot-color
-                        opacity: $slick-opacity-not-active
-                        
-                        antialiased()
-                        
-                        radius(1000px)
+                    &.is-active button:before,
+                    &.is-active button:before:hover {
+                        background-color: $slick-dot-color-active
+                        color: $slick-dot-color-active
+                        opacity: $slick-opacity-active
+                        cursor($cursor-default-value)
                     }
-
-                }
-
-                &.is-active button:before,
-                &.is-active button:before:hover {
-                    background-color: $slick-dot-color-active
-                    color: $slick-dot-color-active
-                    opacity: $slick-opacity-active
                 }
             }
         }
-        
     }
 }
