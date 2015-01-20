@@ -57,8 +57,12 @@ NOTE:
 - All style overrides can be done in ```"_global/lm-foundation/_settings.styl"```. The outcommented code segments could be outdated! So look in the corresponding .styl files first, for the actual available variables. New or custom settings and variables can be defined in ```"custom/_settings.styl"```. Inside of the `"custom"` directory you can also implement your own .styl files for your projects.
 
 - I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best coding environment for me using widescreen displays.
-- 
+
 - The jeet.gs grid framework is integrated as a support for situations, where the foundation grid framework will not work flawlessly, e.g. in the _productlisting.styl!
+
+Namespace:
+-----------
+- I shortened the Namespace of some calsses a bit. So .button is .btn and the grid classes are -sml, -med, -lrg, -xlrg, -xxlrg instead of the longhands -small, -medium a.so. Every bit of saved code matters!
 
 Deprecated and unused Components:
 -----------
