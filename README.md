@@ -1,15 +1,14 @@
 LM-Foundation
 =============
 
-Custom ZURB-Foundation Framework Fork. Converted Framework SCSS to Stylus. Simplified Structure.
+Custom ZURB-Foundation Framework Fork. Created to provide a stylus-based version of Foundation with a simplified and clean code structure.
 
 =============
 
-This project is a manual conversion of ZURBs Foundation Framework-Syntax from SASS/SCSS to Stylus. So we can use NodeJS.
-It is a reduced Version of Foundation with just the .styl files and .js.
+This project is a conversion of ZURBs Foundation Framework-Syntax from `SASS/SCSS` to `Stylus`. So we can use `NodeJS`. We try to keep all changes manually in sync with ZURB-Foundation!
 
 - We use `Grunt` as Buildsystem.
-- The Syntax is based on BEM-Syntax (https://bem.info/method/definitions/), but not in a strict way.
+- The Syntax is based on `BEM-Syntax` (https://bem.info/method/definitions/), but not in a strict way.
 
 Dependencies
 ------------
