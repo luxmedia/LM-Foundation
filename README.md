@@ -43,7 +43,7 @@ npm install grunt-contrib-uglify
 npm install grunt-contrib-watch
 npm install svg-stylus
 ```
-or let the package.json do all the work for you and type inside of your local project directory the following command:
+or let the `package.json` do all the work for you. First switch using the `console` to your local project directory and after that run the following command:
 ```
 npm install
 ```
