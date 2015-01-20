@@ -616,32 +616,32 @@
 
 <div class="row">
   <div class="col lrg-12">
+    <div data-alert class="alert alert--secondary alert--expand">
+      Alerts can have two styles defined in the _alerts.styl. A light and an intense coloring.
+      <a href="#" class="alert__close">&times;</a>
+    </div>
+  </div>
+  <div class="col lrg-12">
+    <div data-alert class="alert alert--success alert--expand">
+      This is an expanded success alert.
+      <a href="#" class="alert__close">&times;</a>
+    </div>
+  </div>
+  <div class="col lrg-12">
+    <div data-alert class="alert alert--info alert--expand">
+      This is an expanded info alert.
+      <a href="#" class="alert__close">&times;</a>
+    </div>
+  </div>
+  <div class="col lrg-12">
     <div data-alert class="alert alert--warning alert--expand">
-      This is a expanded warning alert.
+      This is an expanded warning alert.
       <a href="#" class="alert__close">&times;</a>
     </div>
   </div>
   <div class="col lrg-12">
-    <div data-alert class="alert alert--success-soft alert--expand">
-      This is a soft expanded success alert.
-      <a href="#" class="alert__close">&times;</a>
-    </div>
-  </div>
-  <div class="col lrg-12">
-    <div data-alert class="alert alert--info-soft alert--expand">
-      This is a soft expanded info alert.
-      <a href="#" class="alert__close">&times;</a>
-    </div>
-  </div>
-  <div class="col lrg-12">
-    <div data-alert class="alert alert--warning-soft alert--expand">
-      This is a soft expanded warning alert.
-      <a href="#" class="alert__close">&times;</a>
-    </div>
-  </div>
-  <div class="col lrg-12">
-    <div data-alert class="alert alert--critical-soft alert--expand">
-      This is a soft expanded critical alert.
+    <div data-alert class="alert alert--critical alert--expand">
+      This is an expanded critical alert.
       <a href="#" class="alert__close">&times;</a>
     </div>
   </div>
@@ -952,6 +952,14 @@
     <span class="lbl lbl--success">Success Label</span>
     <span class="lbl lbl--warning">Warning Label</span>
     <span class="lbl lbl--round lbl--alert">Round Alert Label</span>
+    <span class="lbl lbl--inverted">Inverted Label (white BG)</span>
+    <span class="lbl lbl--flat">Flat Label </span>
+  </div>
+  <div class="sml-12 col">
+    <span class="lbl lbl--med">Label - Medium</span>
+    <span class="lbl lbl--lrg">Label - Large</span>
+    <span class="lbl lbl--xlrg">Label - XLarge</span>
+    <span class="lbl lbl--flat lbl--primary lbl--xxlrg">Flat Primary Label - XXLarge</span>
   </div>
 </div>
 <hr>
@@ -970,6 +978,7 @@
 <hr>
 <div class="row">
   <div class="sml-12 col">
+    <h3>Badges inside of buttons</h3>
     <button class="btn" type="button">
       Default
       <span class="lbl lbl--badge">25</span>
@@ -1105,14 +1114,14 @@
 <hr>
 
 <!--================================= 
-  Product Grid (4)
+  Product List
   ==================================-->
 
 <h2>Product List</h2>
 
 <div class="row">
   <ul class="prdlist prdlist--line">
-    <li class="prd" itemscope itemtype="http://schema.org/Product">
+    <li class="prd cf" itemscope itemtype="http://schema.org/Product">
       <a class="prd__link">
         <div class="prd__info">
           <span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
@@ -1138,7 +1147,7 @@
       </a>
     </li>
 
-    <li class="prd" itemscope itemtype="http://schema.org/Product">
+    <li class="prd cf" itemscope itemtype="http://schema.org/Product">
       <a class="prd__link">
         <div class="prd__info">
           <span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
@@ -1153,7 +1162,7 @@
       </a>
     </li>
 
-    <li class="prd" itemscope itemtype="http://schema.org/Product">
+    <li class="prd cf" itemscope itemtype="http://schema.org/Product">
       <a class="prd__link">
         <div class="prd__info">
           <span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
@@ -1168,7 +1177,7 @@
       </a>
     </li>
     
-    <li class="prd prd--special prd--new" itemscope itemtype="http://schema.org/Product">
+    <li class="prd prd--special prd--new cf" itemscope itemtype="http://schema.org/Product">
       <a class="prd__link">
         <div class="prd__info">
           <span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
@@ -1198,7 +1207,7 @@
 
 <h2>Checkout Progress Bar</h2>
 
-<div class="checkout-wrap clearfix">
+<div class="checkout-wrap cf">
   <ul class="checkout-bar checkout-bar__four">
     <li class="is-visited"><a href="">Warenkorb</a></li>
     <li class="is-visited"><a href="">Adresse</a></li>
@@ -1219,7 +1228,17 @@
   <div class="col lrg-4">
     <pre>
       <code>
-  &lt;span data-tooltip aria-haspopup=&quot;true&quot; class=&quot;has-tip&quot; title=&quot;Tooltips are awesome, you should totally use them!&quot;&gt;extended information&lt;/span&gt;
+        &lt;div class="demo-slider"&gt;
+          &lt;div&gt;your content 1&lt;/div&gt;
+          &lt;div&gt;your content 2&lt;/div&gt;
+          &lt;div&gt;your content 3&lt;/div&gt;
+          &lt;div&gt;your content 4&lt;/div&gt;
+          &lt;div&gt;your content 5&lt;/div&gt;
+          &lt;div&gt;your content 6&lt;/div&gt;
+          &lt;div&gt;your content 7&lt;/div&gt;
+          &lt;div&gt;your content 8&lt;/div&gt;
+          &lt;div&gt;your content 9&lt;/div&gt;
+        &lt;/div&gt;
       </code>
     </pre>
   </div>
@@ -1362,157 +1381,7 @@
 
 <hr>
 
-<h2>Trending Forum Topics</h2>
 
-<div class="row">
-  <div class="med-12 col" data-forum-posts>
-
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="med-12 col"><a href="/forum">See all topics &rarr;</a>
-  </div>
-</div>
-
-
-
-
-
-
-
-            </div>
-          </div>
-          <section id="courses-banner-large">
-  <div class="row">
-    <div class="lrg-5 med-5 col banner-image">
-      <img src="http://foundation.zurb.com/assets/img/responsive-banner-main.svg" alt="responsive design">
-    </div>
-    <div class="lrg-7 med-7 col banner-info">
-      <h3>Get a running start with Foundation</h3>
-      <p>Learn the fundamentals of the world's most advanced responsive framework in our <strong>Intro to Foundation class.</strong> You'll learn from the creators themselves on how to use Foundation and jumpstart your next project. <a href="http://zurb.com/university/courses" class="inline-hide">Learn more about classes »</a></p>
-      <a href="http://zurb.com/university/foundation-intro?utm_source=Foundation%20Docs&utm_medium=Large%20Banner&utm_campaign=Intro%20to%20Foundation" class="button">Learn More</a>
-      <a href="http://zurb.com/university/courses" class="learn-more hide-for-med-up">Learn more about classes »</a>
-    </div>
-  </div>
-</section>
-          <div id="newsletter">
-  <div class="row">
-    <div class="med-8 col">
-      <h5>Stay on top of what&rsquo;s happening in <a href="http://zurb.com/responsive">responsive design</a>.</h5>
-      <p>Sign up to receive monthly Responsive Reading highlights. <a href="http://zurb.com/responsive/reading">Read Last Month's Edition &raquo;</a></p>
-    </div>
-    <div class="med-4 col">
-      <form method="post" action="http://zurb.com/responsive/subscribe">
-        <div class="row collapse">
-          <div class="sml-8 med-8 col">
-            <input type="text" name="email" placeholder="signup@example.com">
-          </div>
-          <div class="sml-4 med-4 col">
-            <input type="submit" href="#" class="postfix small button expand" value="Sign Up">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-<div class="zurb-footer-top bg-fblue">
-  <div class="row property">
-    <div class="med-4 col">
-      <div class="property-info">
-        <h3>Foundation</h3>
-        <p>Foundation is made by <a href="http://zurb.com">ZURB, a product design</a> company in Campbell, California. We've put more than 15 years of experience building web products, services and websites into this framework.
-        </p>
-      </div>
-    </div>
-
-    <div class="med-8 col">
-      <div class="row collapse">
-        <div class="med-4 col">
-          <div class="learn-links">
-            <h4 class="hide-for-small">Want more?</h4>
-            <ul>
-              <li><a href="http://foundation.zurb.com/business/services.html">Foundation Business</a></li>
-              <li><a href="http://zurb.com/responsive">Responsive</a></li>
-              <li><a href="http://zurb.com/apps">Design Apps</a></li>
-              <li><a href="http://foundation.zurb.com/learn/training.html">Foundation Training</a></li>
-            </ul>
-          </div>
-        </div>
-          <div class="med-4 col">
-            <div class="support-links">
-              <h4 class="hide-for-small">Talk to us</h4>
-              <p>Tweet us at <br> <a href="https://twitter.com/foundationzurb">@foundationzurb</a></p>
-              <p>Email us at <br> <a href="/cdn-cgi/l/email-protection#dbbdb4aeb5bfbaafb2b4b59ba1aea9b9f5b8b4b6"><span class="__cf_email__" data-cfemail="07616872696366736e6869477d7275652964686a">[email&nbsp;protected]</span><script type="text/javascript">
-/* <![CDATA[ */
-(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
-/* ]]> */
-</script></a><br> or check our <a href="../support/support.html">support page</a></p>
-            </div>
-          </div>
-        <div class="med-4 col">
-          <div class="connect-links">
-            <h4 class="hide-for-small">Stay in touch</h4>
-            <p>Keep up with the latest on Foundation. Find us on <a href="https://github.com/zurb/foundation">Github</a>.</p>
-            <a href="http://zurb.com/news" class="small button">Stay Connected</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row global">
-    <div class="med-3 sml-6 col">
-      <a href="http://zurb.com/studios" class="footer-link-block services">
-        <span class="title">Studios</span>
-        <span>Helping more than 200 startups succeed since 1998.</span>
-      </a>
-    </div>
-    <div class="med-3 sml-6 col">
-      <a href="http://foundation.zurb.com/" class="footer-link-block foundation">
-        <span class="title">Foundation</span>
-        <span>The most advanced front-end framework in the world.</span>
-      </a>
-    </div>
-    <div class="med-3 sml-6 col">
-      <a href="http://zurb.com/apps" class="footer-link-block apps">
-        <span class="title">Design Apps</span>
-        <span>Prototype, iterate and collect feedback on your products.</span>
-      </a>
-    </div>
-    <div class="med-3 sml-6 col">
-      <a href="http://zurb.com/university" class="footer-link-block expo">
-        <span class="title">University</span>
-        <span>Ideas, thoughts and design resources shared with you.</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="zurb-footer-bottom">
-  <div class="row">
-    <div class="med-4 med-4 push-8 col">
-      <ul class="home-social">
-          <li><a href="http://www.twitter.com/ZURB" class="twitter"></a></li>
-          <li><a href="http://www.facebook.com/ZURB" class="facebook"></a></li>
-          <li><a href="http://zurb.com/contact" class="mail"></a></li>
-        </ul>
-     </div>
-     <div class="med-8 med-8 pull-4 col">
-        <a href="http://www.zurb.com" class="zurb-logo regular"></a>
-        <ul class="zurb-links">
-          <li><a href="http://zurb.com/about">About</a></li>
-          <li><a href="http://zurb.com/blog">Blog</a></li>
-          <li><a href="http://zurb.com/news">News<span class="show-for-med-up"> &amp; Events</span></a></li>
-          <li><a href="http://zurb.com/contact">Contact</a></li>
-          <li><a href="http://zurb.com/sitemap">Sitemap</a></li>
-       </ul>
-       <p class="copyright">&copy; 1998&dash;2014 ZURB, Inc. All rights reserved.</p>
-    </div>
-  </div>
-</div>
 
         </section>
 

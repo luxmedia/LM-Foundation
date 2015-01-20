@@ -84,14 +84,20 @@
         })
         .on('click.fndtn.dropdown', function (e) {
           var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
+          var links  = parent.find('a');
+
+          if (links.length > 0 && parent.attr('aria-autoclose') !== "false") {
+              self.close.call(self, S('[' + self.attr_name() + '-content]'));
+          }
 
           if (e.target !== document && !$.contains(document.documentElement, e.target)) {
             return;
           }
-          
+
           if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
             return;
           }
+
           if (!(S(e.target).data('revealId')) &&
             (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') ||
               $.contains(parent.first()[0], e.target)))) {

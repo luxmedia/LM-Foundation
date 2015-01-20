@@ -17,7 +17,7 @@ $product-grid-item-padding ?=                    rem-calc(0 10 10 10)
 $product-list-item-margin ?=                     rem-calc(8 0)
 $product-grid-item-margin ?=                     rem-calc(16)
 $product-list-item-bg ?=                         $white
-$product-list-item-bg-hover ?=                   transparent
+$product-list-item-bg-hover ?=                   darken($product-list-bg,10%) // transparent
 $product-list-item-border-width ?=               2px
 $product-list-item-border-style ?=               solid
 $product-list-item-border-color ?=               transparent
@@ -39,7 +39,7 @@ $product-list-title-color ?=                     $gray-darker-3
 $product-list-title-color-hover ?=               $primary-color
 $product-list-title-font-weight ?=               $font-weight-bold
 $product-list-title-line-height ?=               1.1
-$product-grid-title-row-count ?=                3
+$product-grid-title-row-count ?=                3 // <- how many lines should be visible?
 $product-grid-title-height ?=                   (normalize_rem($product-grid-title-font-size)*$product-grid-title-row-count*$product-list-title-line-height)
 $product-list-title-padding ?=                   0
 $product-list-title-margin ?=                    rem-calc(0 0 10 0)
@@ -61,7 +61,7 @@ $product-list-desc-font-family ?=                $font-family-custom
 $product-list-desc-font-size ?=                  0.9rem
 $product-grid-desc-font-size ?=                  0.8rem
 $product-list-desc-line-height ?=                $product-list-title-line-height
-$product-grid-desc-row-count ?=                  4
+$product-grid-desc-row-count ?=                  4 // <- how many lines should be visible?
 $product-grid-desc-height ?=                    (normalize_rem($product-grid-desc-font-size)*$product-list-desc-line-height*$product-grid-desc-row-count)
 $product-list-desc-color ?=                      $gray-dark-3
 $product-list-desc-color-hover ?=                $gray-darker-3
@@ -181,8 +181,9 @@ prd-opts() {
     }
 }
 
-
-// CSS CLASSES
+//
+// @styles
+//
 
 if $include-html-productlist-classes {
     
