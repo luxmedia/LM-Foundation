@@ -14,6 +14,7 @@ Dependencies
 ------------
 - NodeJS
 - Grunt
+- Yaml
 - Stylus
 - Jeet.gs
 - jQuery
