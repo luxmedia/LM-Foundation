@@ -8,7 +8,8 @@ Custom ZURB-Foundation Framework Fork. Converted Framework SCSS to Stylus. Simpl
 This project is a manual conversion of ZURBs Foundation Framework-Syntax from SASS/SCSS to Stylus. So we can use NodeJS.
 It is a reduced Version of Foundation with just the .styl files and .js.
 
-We use `Grunt` as Buildsystem.
+- We use `Grunt` as Buildsystem.
+- The Syntax is based on BEM-Syntax (https://bem.info/method/definitions/), but not in a strict way.
 
 Dependencies
 ------------
