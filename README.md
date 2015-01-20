@@ -22,7 +22,8 @@ Dependencies
 Installation
 ------------
 
-Install NodeJS
+1. Install NodeJS using the Installer binary available from http://nodejs.org/
+2. Install packages:
 ```
 cd ~/Project
 npm install jeet
@@ -41,16 +42,24 @@ npm install grunt-contrib-uglify
 npm install grunt-contrib-watch
 npm install svg-stylus
 ```
+or let the package.json do alle the work for you in the local project directory:
+```
+npm install
+```
+maybe a `sudo` is required in some environments (e.g. Mac os)
 
 NOTE:
 -----------
 - The Project is in alpha state and for internal use only!
 
-- The module.export() function of foundation is not implemented yet. Instead we make a simple linear import of all .styl files in ```"lm-foundation.styl"```. To avoid duplicate code i converted the ```@import``` rules inside the ```"components/*.styl"``` to ```@require```. This should avoid redundant loading.
+- The module.export() function of foundation is not implemented yet. Instead we make a simple linear import of all .styl files in ```"lm-foundation.styl"```. To avoid duplicate code i converted the ```@import``` rules inside the ```"components/*.styl"``` to ```@require```. This avoids redundant loading.
 
-- I also removed the predefined !default variables from the ```"components/*.styl"``` files. Alle default values are stored in ```"_global/lm-foundation/_settings.styl"```. Overrides can be done in ```"custom/_settings.styl"```.
+- All style overrides can be done in ```"_global/lm-foundation/_settings.styl"```. The outcommented code segments could be outdated! So look in the corresponding .styl files first, for the actual available variables. New or custom settings and variables can be defined in ```"custom/_settings.styl"```. Inside of the `"custom"` directory you can also implement your own .styl files for your projects.
 
-- I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best coding environment for me using large displays.
+- I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best coding environment for me using widescreen displays.
 
-- We do not use foundation's tabs library. Instead we use accessibleTabs which provide a better readable HTML-Markup.
+Deprecated and unused Components:
+-----------
+- Foundation Tabs: We use "accessible Tabs" instead
+- Foundation Orbit: We use "Slick Slider" instead
 
