@@ -2,6 +2,7 @@ LM-Foundation
 =============
 
 Custom ZURB-Foundation Framework Fork. Created to provide a stylus-based version of Foundation with a simplified and clean code structure.
+Currently based on Foundation 5.x
 
 =============
 
