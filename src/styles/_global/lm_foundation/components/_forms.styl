@@ -19,7 +19,7 @@ $form-spacing ?=                             rem-calc(16)
 $input-font-family ?=                        inherit
 $input-font-color ?=                         $charcoal-1
 $input-font-color-hover ?=                   $black
-$input-font-size ?=                          1rem
+$input-font-size ?=                          fontsize(1rem)
 $input-font-weight ?=                        $font-weight-normal
 $input-bg-color ?=                           $white
 $input-focus-bg-color ?=                     darken($white, 2%)
@@ -34,13 +34,14 @@ $input-box-shadow ?=                         inset 0 1px 2px rgba(0,0,0,0.1)
 $input-include-glowing-effect ?=             false
 
 $form-label-pointer ?=                       pointer
-$form-label-font-size ?=                     0.8rem
+$form-label-font-size ?=                     fontsize(0.8rem)
 $form-label-font-weight ?=                   $font-weight-bold
 $form-label-ui-font-weight ?=                $font-weight-normal
 $form-label-line-height ?=                   1.5
 $form-label-font-color ?=                    $gray-dark-1
 $form-label-font-color-hover ?=              $input-font-color-hover
 $form-label-small-transform ?=               capitalize
+$form-label-small-font-size ?=               fontsize(0.75rem)
 $form-label-bottom-margin ?=                 0
 $form-label-bottom-padding ?=                rem-calc(4)
 $form-label-required-font-color ?=           $primary-color
@@ -67,7 +68,7 @@ $fieldset-margin ?=                          rem-calc(18 0)
 $legend-bg ?=                                $white
 $legend-font-color ?=                        $gray-medium-2
 $legend-font-family ?=                       $font-family-custom
-$legend-font-size ?=                         0.9rem
+$legend-font-size ?=                         fontsize(0.9rem)
 $legend-font-weight ?=                       $font-weight-bold
 $legend-text-transform ?=                    uppercase
 $legend-padding ?=                           rem-calc(0 5)
@@ -87,7 +88,7 @@ $input-number-spinners ?=                    true
 // style the error states for inputs and labels
 $input-error-message-padding ?=              rem-calc(2 5)
 $input-error-message-top ?=                  -1px
-$input-error-message-font-size ?=            0.8rem
+$input-error-message-font-size ?=            fontsize(0.8rem)
 $input-error-message-font-weight ?=          $font-weight-bold
 $input-error-message-font-style ?=           normal
 $input-error-message-font-transform ?=       uppercase
@@ -145,10 +146,10 @@ form-element() {
     display: block
     margin: 0 0 $form-spacing 0
     padding: ($form-spacing / 2)
-    height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
+    height: ($input-font-size + $form-spacing - rem-calc(1))
     width: 100%
     font_family($input-font-family)
-    font_size($input-font-size)
+    font-size: $input-font-size
     font-weight: $input-font-weight
     color: $input-font-color
     background-color: $input-bg-color
@@ -165,7 +166,7 @@ form-element() {
     }
     // Basic focus styles
     &:focus {
-        background: $input-focus-bg-color
+        background-color: $input-focus-bg-color
         border-color: $input-focus-border-color
         outline: none
     }
@@ -194,7 +195,7 @@ form-label($alignment = false, $base-style = true) {
 
     // Control whether or not the base styles come through.
     if $base-style {
-        font_size($form-label-font-size)
+        font-size: $form-label-font-size
         color: $form-label-font-color
         cursor: $form-label-pointer
         display: block
@@ -229,9 +230,9 @@ prefix-postfix-base() {
     border-style: $input-prefix-border-type
     border-width: $input-prefix-border-size
     overflow: $input-prefix-overflow
-    font_size($form-label-font-size)
-    height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
-    line-height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
+    font-size: $form-label-font-size
+    height: ($input-font-size + $form-spacing - rem-calc(1))
+    line-height: ($input-font-size + $form-spacing - rem-calc(1))
 }
 
 // @MIXIN
@@ -317,7 +318,7 @@ fieldset() {
         margin: 0
         margin-{$default-float}: -(rem-calc(3))
         font_family($legend-font-family)
-        font_size($legend-font-size)
+        font-size: $legend-font-size
         font-weight: $legend-font-weight
         text-transform: $legend-text-transform
         color: $legend-font-color
@@ -335,7 +336,7 @@ form-error-color($color = $alert-color) {
 
     // Go back to normal on focus
     &:focus {
-        background: $input-focus-bg-color
+        background-color: $input-focus-bg-color
         border-color: $input-focus-border-color
     }
 }
@@ -360,7 +361,7 @@ form-error-message($bg = $input-error-message-bg-color) {
     padding: $input-error-message-padding
     margin-top: $input-error-message-top
     margin-bottom: $form-spacing
-    font_size($input-error-message-font-size)
+    font-size: $input-error-message-font-size
     font-weight: $input-error-message-font-weight
     font-style: $input-error-message-font-style
     text-transform: $input-error-message-font-transform
@@ -383,15 +384,11 @@ form-select()  {
         display: none
     }
 
-    // The custom arrow have some fake horizontal padding so we can align it
-    // from the right side of the element without relying on CSS3
-    // background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+')
-
-    svg-background($file:'arrows_down.svg', $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
+    svg-background($file:'arrows_down.svg', $shapes:'polyline', $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
 
     padding: ($form-spacing / 2)
     line-height: normal
-    font_size($input-font-size)
+    font-size: $input-font-size
     font_family($body-font-family)
     font-weight: $input-font-weight
     color: $input-font-color
@@ -409,7 +406,7 @@ form-select()  {
         background-color: $select-hover-bg-color
         border-bottom-color: $input-focus-border-color
         border-right-color: $input-focus-border-color
-        border-top-color: $edge = darken($fieldset-bg-color, 7%)
+        border-top-color: $edge = darken($fieldset-bg-color, 8%)
         border-left-color: $edge
         box-shadow: 1px 1px 1px $select-shadow-color-hover
     }
@@ -418,7 +415,7 @@ form-select()  {
     }
     // Basic focus styles
     &:focus {
-        background: $input-focus-bg-color
+        background-color: $input-focus-bg-color
         border-color: $input-focus-border-color
         outline: none
     }
@@ -446,13 +443,13 @@ form-checkbox-base() {
     & + label {
         position: relative
         display: inline-block
-        margin-{$default-float}: $form-spacing * .5
+        margin-{$default-float}: ($form-spacing * .5)
         margin-{$opposite-direction}: $form-spacing
         margin-bottom: ($form-spacing * .5) // 0
         padding-bottom: 0
         padding-left: ($input-checkbox-width * 1.5)
         font-weight: $form-label-ui-font-weight
-        font_size($input-font-size)
+        font-size: $input-font-size
         text-transform: none
         vertical-align: baseline
         cursor: pointer
@@ -705,7 +702,7 @@ html5number($browser, $on = true) {
         input[type="checkbox"].checkbox--inverted,
         input[type="radio"].radio--inverted {
             form-checkbox-base()
-            form-checkbox-style($bg:rgba($black,0.25), $bg-hover:rgba($white,0.25), $bg-checked:$white, $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
+            form-checkbox-style($bg:rgba($black,0.25), $bg-hover:rgba($white,0.25), $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
         }
 
         /* Normalize file input width */
@@ -777,7 +774,7 @@ html5number($browser, $on = true) {
                     margin: 0
                     text-transform: $form-label-small-transform
                     font-style: normal
-                    font_size(0.75rem)
+                    font-size: $form-label-small-font-size
                     display: inline
                 }
             }

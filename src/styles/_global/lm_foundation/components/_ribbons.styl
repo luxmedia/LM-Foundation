@@ -6,7 +6,7 @@
 // @variables
 //
 
-$ribbon-font-size ?=                         0.9rem
+$ribbon-font-size ?=                         fontsize(0.9rem)
 $ribbon-font-family ?=                       $font-family-custom
 $ribbon-font-weight ?=                       $font-weight-bold
 $ribbon-font-color ?=                        $white
@@ -35,7 +35,7 @@ ribbon-base() {
     top: rem-calc(10)
     right: -($ribbon-backface-dimensions)
     font_family($ribbon-font-family)
-    font_size($ribbon-font-size)
+    font-size: $ribbon-font-size
     font-weight: $ribbon-font-weight
     text-transform: $ribbon-text-transform
     text-align: right

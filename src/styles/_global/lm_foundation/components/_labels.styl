@@ -15,17 +15,17 @@ $label-padding ?=                            rem-calc(5 8)
 $label-radius ?=                             $global-radius
 
 // style the label text
-$label-font-sizing ?=                        0.75rem
+$label-font-sizing ?=                        fontsize(0.75rem)
 $label-font-weight ?=                        $font-weight-bold
 $label-text-transform ?=                     uppercase
 $label-font-color ?=                         $charcoal-1
 $label-font-color-alt ?=                     $white
 $label-font-family ?=                        $font-family-headings
 
-$label-font-size-med ?=                     1rem
-$label-font-size-lrg ?=                     1.2rem
-$label-font-size-xlrg ?=                    1.6rem
-$label-font-size-xxlrg ?=                   2.2rem
+$label-font-size-med ?=                     fontsize(1rem)
+$label-font-size-lrg ?=                     fontsize(1.2rem)
+$label-font-size-xlrg ?=                    fontsize(1.6rem)
+$label-font-size-xxlrg ?=                   fontsize(2.2rem)
 
 $label-inverted-font-color ?=               $gray-dark-1
 $label-inverted-bg ?=                       $white
@@ -33,7 +33,7 @@ $label-inverted-border ?=                   $gray-light-1
 
 $badge-padding ?=                            rem-calc(3 5)
 $badge-radius ?=                             $global-radius
-$badge-font-sizing ?=                        0.75rem
+$badge-font-sizing ?=                        fontsize(0.75rem)
 $badge-font-weight ?=                        $font-weight-bold
 $badge-font-color ?=                         $white
 $badge-font-color-alt ?=                     $charcoal-1
@@ -73,7 +73,7 @@ label-size($padding = $label-padding, $text-size = $label-font-sizing) {
         padding: $padding
     }
     if $text-size {
-        font_size($text-size)
+        font-size: $text-size
     }
 }
 

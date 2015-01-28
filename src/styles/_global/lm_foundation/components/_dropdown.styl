@@ -47,7 +47,7 @@ $f-dropdown-font-family ?=                   $font-family-custom
 $f-dropdown-font-weight ?=                   $font-weight-bold
 $f-dropdown-font-color-hover ?=              $primary-color
 $f-dropdown-font-color-active ?=             $primary-color
-$f-dropdown-font-size ?=                     1rem // rem-calc(14)
+$f-dropdown-font-size ?=                     fontsize(1rem)
 $f-dropdown-list-padding ?=                  rem-calc(5 10)
 $f-dropdown-line-height ?=                   rem-calc(18)
 $f-dropdown-list-hover-bg ?=                 $gray-light-1  
@@ -89,7 +89,7 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
         height: $f-dropdown-height
         background: $f-dropdown-bg
         border: $f-dropdown-border-style $f-dropdown-border-width $f-dropdown-border-color
-        font_size($f-dropdown-font-size)
+        font-size: $f-dropdown-font-size
         z-index: $zindex-dropdown
     } else if ($content == content) {
         padding: $f-dropdown-content-padding
@@ -98,7 +98,7 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
         max-height: $f-dropdown-max-height
         background: $f-dropdown-bg
         border: $f-dropdown-border-style $f-dropdown-border-width $f-dropdown-border-color
-        font_size($f-dropdown-font-size)
+        font-size: $f-dropdown-font-size
         z-index: $zindex-dropdown
     }
 
@@ -212,7 +212,7 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
 // We use this to style the list elements or content inside the dropdown.
 
 dropdown-style() {
-    font_size($f-dropdown-font-size)
+    font-size: $f-dropdown-font-size
     
     line-height: $f-dropdown-line-height
     margin: 0

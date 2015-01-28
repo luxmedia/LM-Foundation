@@ -18,14 +18,14 @@ $pagination-margin ?=                        -(rem-calc(5))
 $pagination-li-float ?=                      $default-float
 $pagination-li-height ?=                     rem-calc(20)
 $pagination-li-font-color ?=                 $gray-dark-1
-$pagination-li-font-size ?=                  1rem // rem-calc(14)
+$pagination-li-font-size ?=                  fontsize(1rem)
 $pagination-li-margin ?=                     0 // rem-calc(1)
 
 // We use these for the pagination anchor links
 $pagination-link-pad ?=                      rem-calc(0 10)
 $pagination-link-font-color ?=               $pagination-li-font-color
 $pagination-link-bg ?=                       none // rgba($black,0.1)
-$pagination-font-size ?=                     1rem
+$pagination-font-size ?=                     fontsize(1rem)
 $pagination-font-family ?=                   $font-family-custom
 $pagination-link-boxshadow ?=                false // 0 1px 1px rgba($black,0.1)
 $pagination-link-border ?=                   rgba($black,0.1)
@@ -128,7 +128,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
         li {
             line-height: $pagination-li-height
             color: $pagination-li-font-color
-            font_size($pagination-li-font-size)
+            font-size: $pagination-li-font-size
             margin-{$default-float}: $pagination-li-margin
 
             a,
@@ -138,7 +138,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 color: $pagination-link-font-color
                 background: $pagination-link-bg
                 font_family($pagination-font-family)
-                font_size($pagination-font-size)
+                font-size: $pagination-font-size
                 font-weight: normal
                 line-height: inherit
                 text-transform: uppercase
@@ -202,7 +202,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             {$is-svg-support} & {
                 &.is-icononly {
                     a {
-                        font_size(0)
+                        font-size: 0
                         text-indent: -(9999em)
                     }
                     &.pager__prev {

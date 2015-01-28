@@ -8,7 +8,7 @@
 $checkout-progress-font-family ?=            $font-family-custom
 $checkout-progress-bar-height ?=             rem-calc(2)
 $checkout-progress-bar-animation ?=          2s // false
-$checkout-progress-step-font-size ?=         1.6rem
+$checkout-progress-step-font-size ?=         fontsize(1.6rem)
 $checkout-progress-step-width ?=             rem-calc(42)
 $checkout-progress-step-height ?=            $checkout-progress-step-width
 $checkout-progress-label-margin-top ?=       rem-calc(8)
@@ -73,14 +73,14 @@ active-progress() {
         display: block
         padding: rem-calc(14 20 14 80)
         color: $gray-base
-        font_size($checkout-progress-step-font-size)
+        font-size: $checkout-progress-step-font-size
         font-weight: $font-weight-normal
 
         // Step Label
         span,
         a {
             color: $gray-base
-            font_size(0.8rem)
+            font-size: fontsize(0.8rem)
             font-weight: $font-weight-bold
             text-decoration: none
             text-transform: uppercase
@@ -98,7 +98,7 @@ active-progress() {
             line-height: $w
             background-color: $white
             color: $gray-base
-            font_size($checkout-progress-step-font-size)
+            font-size: $checkout-progress-step-font-size
             font-weight: $font-weight-normal
             text-align: center
             border: 2px solid $gray-base

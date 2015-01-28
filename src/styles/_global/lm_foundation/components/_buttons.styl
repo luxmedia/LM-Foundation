@@ -25,10 +25,10 @@ $button-margin-bottom ?=                     rem-calc(20)
 $button-font-family ?=                       $font-family-custom
 $button-font-color ?=                        $white
 $button-font-color-alt ?=                    $charcoal-1
-$button-font-tny ?=                          0.8rem
-$button-font-sml ?=                          0.9rem
-$button-font-med ?=                          1.1rem
-$button-font-lrg ?=                          1.2rem
+$button-font-tny ?=                          fontsize(0.8rem)
+$button-font-sml ?=                          fontsize(0.9rem)
+$button-font-med ?=                          fontsize(1.1rem)
+$button-font-lrg ?=                          fontsize(1.2rem)
 $button-font-weight ?=                       $font-weight-bold
 $button-font-align ?=                        center
 $button-text-transform ?=                    uppercase
@@ -66,8 +66,8 @@ $button-round ?=                             $global-rounded
 $button-disabled-opacity ?=                  0.7
 $button-disabled-cursor ?=                   $cursor-disabled-value
 
-$button-svg-padding ?=                       0.6rem
-$button-svg-scale-correction ?=              0.2rem // is added to background-size value to make bg-icons a bit bigger
+$button-svg-padding ?=                       remify(0.6rem)
+$button-svg-scale-correction ?=              remify(0.2rem) // is added to background-size value to make bg-icons a bit bigger
 
 
 //
@@ -117,7 +117,7 @@ button-base($style = true, $display = $button-display) {
             text-transform: uppercase
         }    
         label + span:not(.lbl) {
-            font_size($label-font-sizing)
+            font-size: $label-font-sizing
         }
 
     }
@@ -181,16 +181,16 @@ button-size($padding = $button-med, $full-width = false) {
 
         // We control the font-size based on mixin input.
         if ($padding == $button-med) {
-            font_size($button-font-med)
+            font-size: $button-font-med
             svg-background($size:$button-font-med)
         } else if ($padding == $button-tny) {
-            font_size($button-font-tny)
+            font-size: $button-font-tny
             svg-background($size:$button-font-tny)
         } else if ($padding == $button-sml) {
-            font_size($button-font-sml)
+            font-size: $button-font-sml
             svg-background($size:$button-font-sml)
         } else if ($padding == $button-lrg) {
-            font_size($button-font-lrg)
+            font-size: $button-font-lrg
             svg-background($size:$button-font-lrg)
 
         }

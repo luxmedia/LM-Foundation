@@ -47,7 +47,7 @@ $range-slider-handle-box-shadow ?=           $global-ui-shadow
 
 $rang-slider-label-padding ?=                rem-calc(5 0)
 $rang-slider-label-font-family ?=            $font-family-custom
-$rang-slider-label-font-size ?=              0.9rem
+$rang-slider-label-font-size ?=              fontsize(0.9rem)
 $rang-slider-label-font-weight ?=            $font-weight-normal
 $rang-slider-label-color ?=                  $body-font-color
 $rang-slider-label-bg-color ?=               $white
@@ -146,7 +146,7 @@ range-slider-label-base() {
     padding: $rang-slider-label-padding
     line-height: $range-slider-handle-height
     font_family($rang-slider-label-font-family)
-    font_size($rang-slider-label-font-size)
+    font-size: $rang-slider-label-font-size
     font-weight: $rang-slider-label-font-weight
     color: $rang-slider-label-color
     background-color: $rang-slider-label-bg-color
@@ -209,7 +209,7 @@ range-slider-label-base() {
         .rs-label {
             range-slider-label-base()
 
-            $--end {
+            &--end {
 
             }
         }

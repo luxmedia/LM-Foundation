@@ -16,8 +16,8 @@ $header-font-weight ?=               $font-weight-bold
 $header-font-style ?=                normal
 $header-font-color ?=                $gray-dark-1
 $header-line-height ?=               1.2 // 1.4
-$header-top-margin ?=                .2rem
-$header-bottom-margin ?=             .5rem
+$header-top-margin ?=                remify(.2rem)
+$header-bottom-margin ?=             remify(.5rem)
 $header-text-rendering ?=            optimizeLegibility
 
 // header font families -  we may have different font families for higher level headings
@@ -26,18 +26,18 @@ $h2-font-family ?=                   $font-family-headings
 $h3-font-family ?=                   $font-family-headings
 
 // header font sizes
-$h1-font-size ?=                     1.8rem // rem-calc(44)
-$h2-font-size ?=                     1.4rem // rem-calc(37)
-$h3-font-size ?=                     1.2rem // rem-calc(27)
-$h4-font-size ?=                     1.1rem // rem-calc(23)
-$h5-font-size ?=                     1rem // rem-calc(18)
-$h6-font-size ?=                     1rem
+$h1-font-size ?=                     fontsize(1.8rem)
+$h2-font-size ?=                     fontsize(1.4rem)
+$h3-font-size ?=                     fontsize(1.2rem )
+$h4-font-size ?=                     fontsize(1.1rem)
+$h5-font-size ?=                     fontsize(1rem)
+$h6-font-size ?=                     fontsize(1rem)
 
 // header size reduction on small screens
-$h1-font-reduction ?=                0.2rem // rem-calc(10)
-$h2-font-reduction ?=                0.2rem // rem-calc(10)
-$h3-font-reduction ?=                0.1rem // rem-calc(5)
-$h4-font-reduction ?=                0.1rem // rem-calc(5)
+$h1-font-reduction ?=                remify(0.2rem)
+$h2-font-reduction ?=                remify(0.2rem)
+$h3-font-reduction ?=                remify(0.1rem)
+$h4-font-reduction ?=                remify(0.1rem)
 $h5-font-reduction ?=                0
 $h6-font-reduction ?=                0
 
@@ -61,18 +61,18 @@ $h6-font-weight ?=                    $header-font-weight
 $subheader-line-height ?=            1.2 // 1.4
 $subheader-font-color ?=             lighten($header-font-color, 35%)
 $subheader-font-weight ?=            $font-weight-normal
-$subheader-top-margin ?=             .2rem
-$subheader-bottom-margin ?=          .5rem
+$subheader-top-margin ?=             remify(.2rem)
+$subheader-bottom-margin ?=          remify(.5rem)
 
 
 // A general <small> styling
-$small-font-size ?=                  0.8rem // 60%
+$small-font-size ?=                  fontsize(0.8rem)
 $small-font-color ?=                 lighten($header-font-color, 35%)
 
 // style paragraphs
 $paragraph-font-family ?=            inherit
 $paragraph-font-weight ?=            $font-weight-normal
-$paragraph-font-size ?=              1rem
+$paragraph-font-size ?=              fontsize(1rem)
 $paragraph-line-height ?=            1.4 // 1.6
 $paragraph-margin-bottom ?=          rem-calc(20)
 $paragraph-aside-font-size ?=        rem-calc(14)
@@ -87,7 +87,7 @@ $lead-line-height ?=                 1.6
 // style <code> tags
 $code-color ?=                       $charcoal-1
 $code-font-family ?=                 $font-family-monospace
-$code-font-size ?=                   0.9rem
+$code-font-size ?=                   fontsize(0.9rem)
 $code-font-weight ?=                 $font-weight-normal
 $code-background-color ?=            lighten($secondary-color, 70%)
 $code-border-size ?=                 1px
@@ -204,7 +204,7 @@ align-classes() {
 
 // These will throw a deprecation warning if used within a media query.
 lead() {
-    font_size($lead-font-size)
+    font-size: $lead-font-size
     line-height: $lead-line-height
 }
 
@@ -269,7 +269,7 @@ subheader() {
         p {
             font_family($paragraph-font-family)
             font-weight: $paragraph-font-weight
-            font_size($paragraph-font-size)
+            font-size: $paragraph-font-size
             line-height: $paragraph-line-height
             margin-bottom: $paragraph-margin-bottom
             text-rendering: $paragraph-text-rendering
@@ -279,7 +279,7 @@ subheader() {
             }
 
             & aside {
-                font_size($paragraph-aside-font-size)
+                font-size: $paragraph-aside-font-size
                 line-height: $paragraph-aside-line-height
                 font-style: $paragraph-aside-font-style
             }
@@ -295,7 +295,7 @@ subheader() {
             line-height: $header-line-height
 
             small {
-                font_size($small-font-size)
+                font-size: $small-font-size
                 color: $small-font-color
                 line-height: 0
             }
@@ -303,34 +303,34 @@ subheader() {
 
         h1 {
             font_family($h1-font-family)
-            font_size($h1-font-size - $h1-font-reduction)
+            font-size: $h1-font-size - $h1-font-reduction
             color: $h1-font-color
             font-weight: $h1-font-weight
         }
         h2 {
             font_family($h2-font-family)
-            font_size($h2-font-size - $h2-font-reduction)
+            font-size: $h2-font-size - $h2-font-reduction
             color: $h2-font-color
             font-weight: $h2-font-weight
         }
         h3 {
             font_family($h3-font-family)
-            font_size($h3-font-size - $h3-font-reduction)
+            font-size: $h3-font-size - $h3-font-reduction
             color: $h3-font-color
             font-weight: $h3-font-weight
         }
         h4 {
-            font_size($h4-font-size - $h4-font-reduction)
+            font-size: $h4-font-size - $h4-font-reduction
             color: $h4-font-color
             font-weight: $h4-font-weight
         }
         h5 {
-            font_size($h5-font-size - $h5-font-reduction)
+            font-size: $h5-font-size - $h5-font-reduction
             color: $h5-font-color
             font-weight: $h5-font-weight
         }
         h6 {
-            font_size($h6-font-size - $h6-font-reduction)
+            font-size: $h6-font-size - $h6-font-reduction
             color: $h6-font-color
             font-weight: $h6-font-weight
         }
@@ -359,7 +359,7 @@ subheader() {
         }
 
         small {
-            font_size($small-font-size)
+            font-size: $small-font-size
             line-height: inherit
         }
 
@@ -368,7 +368,7 @@ subheader() {
         pre,
         samp {
             font_family($code-font-family)
-            font_size($code-font-size)
+            font-size: $code-font-size
             font-weight: $code-font-weight
             color: $code-color
             background-color: $code-background-color
@@ -382,7 +382,7 @@ subheader() {
         ul,
         ol,
         dl {
-            font_size($list-font-size)
+            font-size: $list-font-size
             line-height: $list-line-height
             margin-bottom: $list-margin-bottom
             list-style-position: $list-style-position
@@ -465,7 +465,7 @@ subheader() {
         abbr,
         acronym {
             text-transform: uppercase
-            font_size(90%)
+            font-size: 90%
             color: $body-font-color
             cursor: $cursor-help-value
         }
@@ -484,7 +484,7 @@ subheader() {
 
             cite {
                 display: block
-                font_size($blockquote-cite-font-size)
+                font-size: $blockquote-cite-font-size
                 color: $blockquote-cite-font-color
                 &:before {
                     content: "\2014 \0020"
@@ -515,7 +515,7 @@ subheader() {
             }
             .fn {
                 font-weight: $microformat-fullname-font-weight
-                font_size($microformat-fullname-font-size)
+                font-size: $microformat-fullname-font-size
             }
         }
 
@@ -539,22 +539,22 @@ subheader() {
                 line-height: $header-line-height
             }
             h1 {
-                font_size($h1-font-size)
+                font-size: $h1-font-size
             }
             h2 {
-                font_size($h2-font-size)
+                font-size: $h2-font-size
             }
             h3 {
-                font_size($h3-font-size)
+                font-size: $h3-font-size
             }
             h4 {
-                font_size($h4-font-size)
+                font-size: $h4-font-size
             }
             h5 {
-                font_size($h5-font-size)
+                font-size: $h5-font-size
             }
             h6 {
-                font_size($h6-font-size)
+                font-size: $h6-font-size
             }
         }
 

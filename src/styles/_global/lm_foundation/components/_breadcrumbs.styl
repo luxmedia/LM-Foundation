@@ -25,7 +25,8 @@ $crumb-border-color ?=                       darken($crumb-bg, $crumb-function-f
 $crumb-radius ?=                             false // $global-radius
 
 // set various text styles for breadcrumbs.
-$crumb-font-size ?=                          0.7rem // rem-calc(11)
+$crumb-font-size ?=                          fontsize(0.7rem)
+$crumb-line-height ?=                        1
 $crumb-font-weight ?=                        $font-weight-bold
 $crumb-font-weight-current ?=                $font-weight-normal
 $crumb-font-color ?=                         $primary-color
@@ -64,8 +65,8 @@ crumbs() {
     // A normal state will make the links look and act like clickable breadcrumbs.
     margin: 0
     float: $default-float
-    font_size($crumb-font-size)
-    line-height: $crumb-font-size
+    font-size: $crumb-font-size
+    line-height: $crumb-line-height
     text-transform: $crumb-font-transform
     color: $crumb-font-color
 

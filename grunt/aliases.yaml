@@ -1,8 +1,8 @@
 stylesheets:
   description: 'Compiles, concatenates and minifies the stylesheets.'
   tasks:
-    - 'stylus'
-    - 'autoprefixer'
+    - 'stylus' #autopprefixer plugin is included here via 'use'-option!
+    # - 'autoprefixer'
     - 'cssmin'
     - 'clean:stylesheets'
 scripts:

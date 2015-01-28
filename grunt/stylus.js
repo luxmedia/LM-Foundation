@@ -1,22 +1,47 @@
 module.exports = {
     // Compile stylus files
     // https://github.com/gruntjs/grunt-contrib-stylus
-    stylus: {
+    dist: {
         options: {
             linenos: true,
             compress: false,
-            use: [require('svg-stylus')]
+            use: [
+                function () {
+                    return require('autoprefixer-stylus')({
+                        browsers: ('> 1%','ie 9')
+                    });
+                },
+                require('svg-stylus')
+            ]
         },
-        files: [{
-            expand: true,
-            cwd: '<%= base_conf.src  %>',
-            src: '<%= lm_conf.styl_src_files %>',
-            dest: '<%= lm_conf.css_dist_folder %>',
-            ext: '.css',
-            flatten: true
-        }]
-        // files: {
-        //     '<%= lm_conf.css_dist_file %>': '<%= lm_conf.styl_src_files %>'
-        // }
+        // files: [{
+        //     expand: true,
+        //     cwd: '<%= base_conf.src  %>',
+        //     src: '<%= lm_conf.styl_src_files %>',
+        //     dest: '<%= lm_conf.css_dist_folder %>',
+        //     ext: '.css',
+        //     flatten: true
+        // }]
+        files: {
+            '<%= lm_conf.css_dist_file %>.css': '<%= lm_conf.styl_src_file %>'
+        }
+    },
+    iefallback: {
+        options: {
+            paths: ['<%= base_conf.src %>'],
+            linenos: true,
+            compress: false,
+            use: [
+                function () {
+                    return require('autoprefixer-stylus')({
+                        browsers: ('ie 8')
+                    });
+                }
+            ],
+            import: ['<%= lm_conf.styl_src_ie8flag %>']
+        },
+        files: {
+            '<%= lm_conf.css_dist_file_ie8 %>.css': '<%= lm_conf.styl_src_file %>'
+        }
     }
 }

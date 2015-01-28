@@ -19,14 +19,14 @@ $has-tip-cursor-type ?=                      $cursor-help-value
 
 $tooltip-padding ?=                          rem-calc(12)
 $tooltip-bg ?=                               $white
-$tooltip-font-size ?=                        1rem // rem-calc(14)
+$tooltip-font-size ?=                        fontsize(1rem)
 $tooltip-font-weight ?=                      $font-weight-normal
 $tooltip-font-color ?=                       $body-font-color
 $tooltip-line-height ?=                      1.3
 $tooltip-close-font-size ?=                  rem-calc(10)
 $tooltip-close-font-weight ?=                $font-weight-normal
 $tooltip-close-font-color ?=                 $gray-dark-3
-$tooltip-font-size-sml ?=                    1rem // rem-calc(14)
+$tooltip-font-size-sml ?=                    fontsize(1rem)
 $tooltip-radius ?=                           $global-radius
 $tooltip-rounded ?=                          $global-rounded
 $tooltip-pip-size ?=                         10px
@@ -64,7 +64,7 @@ $tooltip-box-shadow ?=                       1px 1px 10px rgba($black,0.5)
             position: absolute
             z-index: $zindex-tooltip
             font-weight: $tooltip-font-weight
-            font_size( $tooltip-font-size)
+            font-size: $tooltip-font-size
             line-height: $tooltip-line-height
             padding: $tooltip-padding
             max-width: $tooltip-max-width
@@ -99,7 +99,7 @@ $tooltip-box-shadow ?=                       1px 1px 10px rgba($black,0.5)
             &--round {
                 radius($tooltip-rounded)
                 & > .nub {
-                    left: 2rem
+                    left: remify(2rem)
                 }
             }
 
@@ -111,7 +111,7 @@ $tooltip-box-shadow ?=                       1px 1px 10px rgba($black,0.5)
 
         .tap-to-close {
             display: block
-            font_size( $tooltip-close-font-size)
+            font-size: $tooltip-close-font-size
             color: $tooltip-close-font-color
             font-weight: $tooltip-close-font-weight
         }

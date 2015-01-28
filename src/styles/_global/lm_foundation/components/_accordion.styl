@@ -15,7 +15,7 @@ $accordion-navigation-bg-color ?=            $gray-light-2
 $accordion-navigation-hover-bg-color ?=      darken($accordion-navigation-bg-color, 5%)
 $accordion-navigation-active-bg-color ?=     darken($accordion-navigation-bg-color, 3%)
 $accordion-navigation-font-color ?=          $charcoal-2
-$accordion-navigation-font-size ?=           rem-calc(16)
+$accordion-navigation-font-size ?=           fontsize(1.2rem)
 $accordion-navigation-font-family ?=         $body-font-family
 
 $accordion-content-padding ?=                ($column-gutter / 2)
@@ -78,11 +78,11 @@ accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordio
                 font-size: $accordion-navigation-font-size
             } else {
                 warn($font-size+" is not a valid number and the default value of $accordion-navigation-font-size is not defined. A value of `null` will be returned to not generate an invalid value for font-size.")
-                font_size(null)
+                font-size: null
 
             }
         } else {
-            font_size($font-size)
+            font-size: $font-size
         }
         &:hover {
             background: $hover-bg
@@ -137,7 +137,7 @@ accordion-content($bg = $accordion-content-active-bg-color, $padding = $accordio
                     padding: $accordion-navigation-padding
                     display: block
                     font_family($accordion-navigation-font-family)
-                    font_size($accordion-navigation-font-size)
+                    font-size: $accordion-navigation-font-size
                     &:hover {
                         background: $accordion-navigation-hover-bg-color
                     }

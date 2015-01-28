@@ -3,8 +3,7 @@
 autoprefixer:
   options:
     browsers:
-      - '> 5%'
-      - 'last 2 versions'
+      - 'last 5 versions'
       - 'ie 8'
       - 'ie 9'
   multiple_files:

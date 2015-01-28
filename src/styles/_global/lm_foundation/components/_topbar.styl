@@ -23,7 +23,7 @@ $topbar-margin-bottom ?=                     0
 
 // Controlling the styles for the title in the top bar
 $topbar-logo-weight ?=                       $font-weight-normal
-$topbar-logo-font-size ?=                    1rem // rem-calc(17)
+$topbar-logo-font-size ?=                    fontsize(1rem)
 $topbar-logo-bg ?=                           $primary-color
 $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
 
@@ -35,7 +35,7 @@ $topbar-link-color-hover ?=                  $white
 $topbar-link-color-active ?=                 $white
 $topbar-link-color-active-hover ?=           $white
 $topbar-link-weight ?=                       $font-weight-bold
-$topbar-link-font-size ?=                    0.8rem // rem-calc(13)
+$topbar-link-font-size ?=                    fontsize(0.8rem)
 $topbar-link-bg ?=                           $topbar-bg
 $topbar-link-bg-hover ?=                     darken($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-color-hover ?=               darken($topbar-link-bg, $topbar-link-hover-lightness)
@@ -44,11 +44,11 @@ $topbar-link-bg-active-hover ?=              darken($primary-color, $topbar-link
 $topbar-link-font-family ?=                  $font-family-custom
 $topbar-link-text-transform ?=               uppercase
 $topbar-link-padding ?=                      ($topbar-height / 3)
-$topbar-back-link-size ?=                    1.3rem
+$topbar-back-link-size ?=                    fontsize(1.3rem)
 $topbar-link-dropdown-padding ?=             rem-calc(20)
 
 $topbar-button-top ?=                        rem-calc(7)
-$topbar-button-font-size ?=                  1rem // rem-calc(14)
+$topbar-button-font-size ?=                  fontsize(1rem)
 $topbar-input-height ?=                      ($topbar-height - (2*$topbar-button-top))
 $topbar-button-search-width ?=               rem-calc(40)
 $topbar-button-search-border-left ?=         1px solid darken($input-bg-color,10%)
@@ -57,10 +57,10 @@ $topbar-button-search-svg-color-hover ?=     $primary-color
 $topbar-button-search-svg-stroke-width ?=    $svg-stroke-width-small
 $topbar-input-border-width ?=                false // 1px 0 0 1px
 $topbar-input-border-color ?=                darken($topbar-bg, 20%)
-$topbar-button-font-size ?=                  0.8rem
+$topbar-button-font-size ?=                  fontsize(0.8rem)
 
 $topbar-site-search-padding ?=               rem-calc(7 (3*7)) // 7 is based on $topbar-button-top
-$topbar-site-search-font-size ?=             1rem
+$topbar-site-search-font-size ?=             fontsize(1rem)
 $topbar-site-search-font-color ?=            $black
 $topbar-site-search-text-transform ?=        lowercase
 
@@ -78,12 +78,12 @@ $topbar-dropdown-toggle-alpha ?=             0.4
 $topbar-dropdown-label-color ?=              darken($topbar-link-bg-hover, 25%) // $gray-dark-3
 $topbar-dropdown-label-text-transform ?=     uppercase
 $topbar-dropdown-label-font-weight ?=        $font-weight-bold
-$topbar-dropdown-label-font-size ?=          0.8rem // rem-calc(10)
+$topbar-dropdown-label-font-size ?=          fontsize(0.8rem)
 $topbar-dropdown-label-bg ?=                 transparent // $charcoal-1
 
 // Top menu icon styles
 $topbar-menu-link-transform ?=               uppercase
-$topbar-menu-link-font-size ?=               1rem
+$topbar-menu-link-font-size ?=               fontsize(1rem)
 $topbar-menu-link-weight ?=                  $font-weight-bold
 $topbar-menu-link-color ?=                   $white
 $topbar-menu-icon-color ?=                   $white
@@ -212,9 +212,9 @@ if $include-html-topbar-classes {
         input[type="text"],
         input[type="search"] { 
             height: $topbar-input-height
-            padding-top: $ptop = .35rem // 0 // (.35rem + rem-calc(1))
+            padding-top: $ptop = remify(.35rem) // 0 // (.35rem + rem-calc(1))
             padding-bottom: $ptop
-            font_size($topbar-button-font-size)
+            font-size: $topbar-button-font-size
             if ($topbar-input-border-width) {
                 border-color: $topbar-input-border-color
                 border-width: $topbar-input-border-width
@@ -230,7 +230,7 @@ if $include-html-topbar-classes {
             //padding-top: $ptop = 0 //  (.35rem + rem-calc(1))
             //padding-bottom: $ptop
             margin-bottom: 0
-            //font_size($topbar-button-font-size)
+            //font-size:$topbar-button-font-size
             //border-color: darken($topbar-bg, 20%)
 
             // Corrects a slight misalignment when put next to an input field
@@ -256,7 +256,7 @@ if $include-html-topbar-classes {
             height: $topbar-height
             margin: 0
             background-color: $topbar-logo-bg
-            font_size($ref-font-size)
+            font-size: $topbar-logo-font-size
             if ($topbar-menu-icon-position == $default-float) {
               float: $opposite-direction
             }
@@ -264,7 +264,7 @@ if $include-html-topbar-classes {
             h1, h2, h3, h4, p, span {
                 display: block
                 line-height: $topbar-height
-                font_size($topbar-logo-font-size)
+                font-size: $topbar-logo-font-size
                 margin: 0
                 text-align: center
                 a {
@@ -289,8 +289,8 @@ if $include-html-topbar-classes {
             padding: $topbar-site-search-padding
             @media $small-only {
                 col(2/3, gutter:0)
-                padding-left: 0.6rem
-                padding-right: 0.6rem
+                padding-left: remify(0.6rem)
+                padding-right: remify(0.6rem)
             }
             @media $medium-up {
                 col(6/12, gutter:0)
@@ -303,7 +303,7 @@ if $include-html-topbar-classes {
                 top: auto
                 width: 100%
                 padding-right: ($topbar-button-search-width + rem-calc(6))
-                font_size($topbar-site-search-font-size)
+                font-size:$topbar-site-search-font-size
                 color: $topbar-site-search-font-color
                 text-transform: $topbar-site-search-text-transform
             }
@@ -320,7 +320,7 @@ if $include-html-topbar-classes {
                 {$is-svg-support} & {
                     font-size: 0!important
                     text-indent: -9999em
-                    svg-background($file:'basic_magnifier.svg', $shapes:all, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
+                    svg-background($file:'basic_magnifier.svg', $shapes:('circle' 'line' 'rect'), $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
                 }
 
                 background-color: $input-bg-color
@@ -341,7 +341,7 @@ if $include-html-topbar-classes {
             a {
                 color: $topbar-link-color
                 text-transform: $topbar-menu-link-transform
-                font_size($topbar-menu-link-font-size)
+                font-size:$topbar-menu-link-font-size
                 font-weight: $topbar-menu-link-weight
                 position: relative
                 display: block
@@ -410,7 +410,7 @@ if $include-html-topbar-classes {
             width: 100%
             height: auto
             display: block
-            //font_size($ref-font-size)
+            //font-size:$ref-font-size
             margin: 0
         }
 
@@ -431,7 +431,7 @@ if $include-html-topbar-classes {
                 padding: rem-calc(12 0)
                 padding-{$default-float}: $topbar-link-padding
                 font_family($topbar-link-font-family)
-                font_size($topbar-link-font-size)
+                font-size:$topbar-link-font-size
                 font-weight: $topbar-link-weight
                 text-transform: $topbar-link-text-transform
                 
@@ -440,7 +440,7 @@ if $include-html-topbar-classes {
                 &.btn {
                     padding-{$opposite-direction}: $topbar-link-padding
                     padding-{$default-float}: $topbar-link-padding
-                    font_size($topbar-link-font-size)
+                    font-size:$topbar-link-font-size
                     button-style($primary-color)
                     
                     &--secondary {
@@ -462,7 +462,7 @@ if $include-html-topbar-classes {
             > button {
                 padding-{$opposite-direction}: $topbar-link-padding
                 padding-{$default-float}: $topbar-link-padding
-                font_size($topbar-link-font-size)
+                font-size:$topbar-link-font-size
                 button-style($bg:$primary-color)
 
                 &.btn--secondary {
@@ -513,7 +513,7 @@ if $include-html-topbar-classes {
                 if ($topbar-arrows){
                     {$is-svg-support} & {
                         // use svg for arrow
-                        svg-background($file:'arrows_down.svg', $shapes:all, $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
                     }
                     {$is-no-svg-support} & {
                         // use css pseudo class for arrow
@@ -569,7 +569,7 @@ if $include-html-topbar-classes {
                     // Back Button
                     margin-bottom: 0
                     margin-top: 0
-                    font_size($topbar-back-link-size)
+                    font-size:$topbar-back-link-size
                     a {
                         color: $topbar-link-color
                         // line-height: $topbar-height / 2
@@ -594,7 +594,7 @@ if $include-html-topbar-classes {
                 text-transform: $topbar-dropdown-label-text-transform
                 color: $topbar-dropdown-label-color
                 font-weight: $topbar-dropdown-label-font-weight
-                font_size($topbar-dropdown-label-font-size)
+                font-size:$topbar-dropdown-label-font-size
             }
         }
     }// EOF - .topbar-section
@@ -628,7 +628,7 @@ if $include-html-topbar-classes {
                 > input,
                 > button,
                 > .btn {
-                    font_size($topbar-button-font-size)
+                    font-size:$topbar-button-font-size
                     position: relative
                     top: $topbar-button-top
                     height: $topbar-input-height
@@ -714,12 +714,12 @@ if $include-html-topbar-classes {
                 &.is-active li {
                     // give last item a little bottom space
                     &:last-child {
-                        margin-bottom: 0.35rem
+                        margin-bottom: remify(0.35rem)
                     }
                     a:not(.btn) {
-                        line-height: 1.4rem
-                        padding-bottom: 0.35rem
-                        padding-top: 0.35rem
+                        line-height: remify(1.4rem)
+                        padding-bottom: remify(0.35rem)
+                        padding-top: remify(0.35rem)
                     }
                 }
 
@@ -730,7 +730,7 @@ if $include-html-topbar-classes {
                     & > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
                         {$is-svg-support} & {
-                            svg-background($file:'arrows_down.svg', $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                            svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
                         }
                         {$is-no-svg-support} & {
                             &:after {
@@ -765,8 +765,8 @@ if $include-html-topbar-classes {
                             &:after {
                                 border: none
                                 content: "\00bb"
-                                top: 1rem
-                                margin-top: -1px
+                                top: remify(1rem)
+                                margin-top: -(1px)
                                 {$opposite-direction}: 5px
                                 line-height: 1.2
                             }
@@ -791,7 +791,7 @@ if $include-html-topbar-classes {
                             padding: rem-calc(6) $topbar-link-padding
                             line-height: ($topbar-height / 2)
                             font_family($topbar-link-font-family)
-                            font_size($topbar-link-font-size)
+                            font-size:$topbar-link-font-size
                             white-space: nowrap
                             
                             .lbl--badge {

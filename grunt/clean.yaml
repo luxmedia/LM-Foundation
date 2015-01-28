@@ -6,8 +6,10 @@ dist:
 stylesheets:
   src:
     - '<%= lm_conf.css_dist_folder %>/**/*.css'
-    - '!<%= lm_conf.css_dist_file %>'
-    - '!<%= lm_conf.css_dist_file_min %>'
+    - '!<%= lm_conf.css_dist_file %>.css'
+    - '!<%= lm_conf.css_dist_file %>.min.css'
+    - '!<%= lm_conf.css_dist_file_ie8 %>.css'
+    - '!<%= lm_conf.css_dist_file_ie8 %>.min.css'
 
 scripts:
   src:

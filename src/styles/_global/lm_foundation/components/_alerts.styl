@@ -20,7 +20,7 @@ $alert-padding ?=                            ($alert-padding-top $alert-padding-
 
 // text style.
 $alert-font-weight ?=                        $font-weight-normal
-$alert-font-size ?=                          1.2rem
+$alert-font-size ?=                          fontsize(1.2rem)
 $alert-font-color ?=                         $white
 $alert-font-color-alt ?=                     darken($secondary-color, 66%)
 $alert-font-color-warning ?=                 $warning-font-color
@@ -40,7 +40,7 @@ $alert-close-color ?=                        $charcoal-1
 $alert-close-background ?=                   false
 $alert-close-top ?=                          50%
 $alert-close-position ?=                     rem-calc(4)
-$alert-close-font-size ?=                    rem-calc(22)
+$alert-close-font-size ?=                    fontsize(2rem)
 $alert-close-opacity ?=                      0.3
 $alert-close-opacity-hover ?=                0.5
 $alert-close-padding ?=                      rem-calc(15 10)
@@ -71,7 +71,7 @@ alert-base() {
 
 alert-size($padding = $alert-padding, $font-size = $alert-font-size, $full-width = false) {
     padding: $alert-padding
-    font_size($alert-font-size)
+    font-size: $alert-font-size
 
     if $full-width {
         // padding-right: 0
@@ -126,14 +126,14 @@ alert-style($bg = $primary-color, $font-color = $alert-font-color, $border-color
 
 // We use this to create the close button.
 alert-close() {
-    font_size($alert-close-font-size)
+    font-size: $alert-close-font-size
     padding: $alert-close-padding
     line-height: 0
     position: absolute
     top: $alert-close-top
     margin-top: -($alert-close-padding[0]+($alert-close-font-size/2))
     {$opposite-direction}: $alert-close-position
-    color: $alert-close-color
+    // color: $alert-close-color
     opacity: $alert-close-opacity
     if $alert-close-background {
         background: $alert-close-background

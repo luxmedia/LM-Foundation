@@ -13,15 +13,15 @@ $include-html-icon-bar-classes ?=            $include-html-classes
 $icon-bar-bg ?=                              $charcoal-1
 $icon-bar-font-color ?=                      $white
 $icon-bar-font-color-hover ?=                $icon-bar-font-color
-$icon-bar-font-size ?=                       1rem
+$icon-bar-font-size ?=                       fontsize(1rem)
 $icon-bar-hover-color ?=                     $primary-color
 $icon-bar-icon-color ?=                      $white
 $icon-bar-icon-color-hover ?=                $icon-bar-icon-color
-$icon-bar-icon-size ?=                       1.875rem
-$icon-bar-image-width ?=                     1.875rem
-$icon-bar-image-height ?=                    1.875rem
+$icon-bar-icon-size ?=                       remify(1.875rem)
+$icon-bar-image-width ?=                     remify(1.875rem)
+$icon-bar-image-height ?=                    remify(1.875rem)
 $icon-bar-active-color ?=                    $primary-color
-$icon-bar-item-padding ?=                    1.25rem
+$icon-bar-item-padding ?=                    remify(1.25rem)
 
 // set default opacity and cursor for disabled icons.
 $icon-bar-disabled-opacity ?=                0.7
@@ -37,12 +37,12 @@ $icon-bar-disabled-cursor ?=                 $cursor-disabled-value
 icon-bar-base() {
 
     width: 100%
-    font_size(0)
+    font-size: 0
     display: inline-block
 
     & > * {
         text-align: center
-        font_size($icon-bar-font-size)
+        font-size: $icon-bar-font-size
         width: 25%
         margin: 0 auto
         display: block
@@ -56,12 +56,12 @@ icon-bar-base() {
             margin: 0 auto
 
             & + label {
-                margin-top: .0625rem
+                margin-top: remify(.0625rem)
             }
         }
 
         i {
-            font_size($icon-bar-icon-size)
+            font-size: $icon-bar-icon-size
             vertical-align: middle
         }
 
@@ -75,7 +75,7 @@ icon-bar-base() {
     &--label-right > * {
 
         i, img, svg {
-            margin: 0 .0625rem 0 0
+            margin: 0 remify(.0625rem) 0 0
             display: inline-block
 
             & + label {
@@ -134,7 +134,7 @@ icon-bar-base() {
 icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-size, $icon-size = $icon-bar-icon-size, $image-width = $icon-bar-image-width, $image-height = $icon-bar-image-height) {
 
     & > * {
-        font_size($font-size)
+        font-size: $font-size
         padding: $padding
 
         i,
@@ -142,12 +142,12 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
         svg {
 
             & + label {
-                margin-top: .0625rem
+                margin-top: remify(.0625rem)
             }
         }
 
         i {
-            font_size($icon-size)
+            font-size: $icon-size
         }
 
         img,

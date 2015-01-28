@@ -20,11 +20,11 @@ $switch-hover-color ?=                       $primary-color
 $switch-active-color ?=                      $charcoal-1
 
 // the switch heights for our default classes
-$switch-height-tny ?=                        1.5rem
-$switch-height-sml ?=                        1.75rem
-$switch-height-med ?=                        2rem
-$switch-height-lrg ?=                        2.5rem
-$switch-bottom-margin ?=                     1.5rem
+$switch-height-tny ?=                        remify(1.5rem)
+$switch-height-sml ?=                        remify(1.75rem)
+$switch-height-med ?=                        remify(2rem)
+$switch-height-lrg ?=                        remify(2.5rem)
+$switch-bottom-margin ?=                     remify(1.5rem)
 
 // default font sizes for our classes.
 $switch-font-size-tny ?=                     11px
@@ -105,10 +105,10 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
         display: block
         background: $switch-paddle-bg
         position: absolute
-        top: .25rem
-        left: .25rem
-        width: ($switch-height-med - 0.5rem)
-        height: ($switch-height-med - 0.5rem)
+        top: remify(.25rem)
+        left: remify(.25rem)
+        width: ($switch-height-med - remify(0.5rem))
+        height: ($switch-height-med - remify(0.5rem))
 
         transition: left $transition-speed $transition-ease
 
@@ -120,7 +120,7 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
     }
 
     input:checked + label:after {
-        left: ($switch-height-med + 0.25rem)
+        left: ($switch-height-med + remify(0.25rem))
     }
 }
 
@@ -137,12 +137,12 @@ switch-size($height = $switch-height-med) {
     }
 
     label:after {
-        width: ($height - 0.5rem)
-        height: ($height - 0.5rem)
+        width: ($height - remify(0.5rem))
+        height: ($height - remify(0.5rem))
     }
 
     input:checked + label:after {
-        left: ($height + 0.25rem)
+        left: ($height + remify(0.25rem))
     }
 
 }
@@ -174,10 +174,10 @@ switch-style($paddle-bg = $switch-paddle-bg, $radius = false, $base-style = true
     // Setting up the radius for switches
     if ($radius == true) {
         label {
-            border-radius: 2rem
+            border-radius: remify(2rem)
         }
         label:after {
-            border-radius: 2rem
+            border-radius: remify(2rem)
         }
     } else if $radius {
         label {
@@ -239,10 +239,10 @@ switch($transition-speed = $switch-paddle-transition-speed, $transition-ease = $
             &.round {
                 radius(1000px)
                 label {
-                    radius(2rem)
+                    radius(remify(2rem))
                 }
                 label:after {
-                    radius(2rem)
+                    radius(remify(2rem))
                 }
             }
 

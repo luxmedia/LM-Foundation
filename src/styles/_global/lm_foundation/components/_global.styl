@@ -278,6 +278,10 @@ blur-filter($radius = $global-blur-radius) {
     }
 }
 
+
+// =========================================================================
+// COLOR MIXINS
+// =========================================================================
 // CSS grayscale filter
 filter-grayscale($value = 100%, $reset = false) {
     if $value {
@@ -289,6 +293,29 @@ filter-grayscale($value = 100%, $reset = false) {
         if $reset {
             filter: none
         }
+    }
+}
+
+// Return color with alpha-channel and an opaque fallback
+color_alpha($property, $color = $black, $opacity = false, $bg = $white) {
+    if ($opacity && $opacity != 1) {
+        /.ie8 & {
+            {$property}: blend(rgba($color,$opacity), $bg); // ie8 only
+        }
+        /.rgba & {
+            {$property}: rgba($color, $opacity); // modern browsers
+        }
+    } else {
+        {$property}: rgb($maincolor);
+    }
+}
+
+// Return rgb-color-value
+color_rgb(value) {
+    if (value && value != none && value != transparent) {
+        return rgb(value)
+    } else {
+        return value
     }
 }
 
@@ -317,10 +344,12 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
         $path-to-file = ($path+'/'+$file)
         // set styles (normal and hover) for all possible shapes
         for $shape in $shapes {
-            $params-normal = ($shape+" fill "+$fill+", "+$shape+" stroke "+$stroke+", "+$shape+" stroke-width "+$stroke-width)
-            $params-hover = ($shape+" fill "+$fill-hover+", "+$shape+" stroke "+$stroke-hover+", "+$shape+" stroke-width "+$stroke-width)
+            $params-normal = ($shape+" fill "+color_rgb($fill)+", "+$shape+" stroke "+color_rgb($stroke)+", "+$shape+" stroke-width "+$stroke-width)
             push($svg-params-normal-state, $params-normal)
-            push($svg-params-hover-state, $params-hover)
+            if $stroke-hover {
+                $params-hover = ($shape+" fill "+color_rgb($fill-hover)+", "+$shape+" stroke "+color_rgb($stroke-hover)+", "+$shape+" stroke-width "+$stroke-width)
+                push($svg-params-hover-state, $params-hover)
+            }
         }
 
         // set background image
@@ -517,20 +546,25 @@ if ($text-direction == ltr) {
 // FONT MIXINS
 // =========================================================================
 
-
-// Convert font-size and line-height to rem
-font_size(value) {
-    // add PX (or original value) as backup
+// Return normalized (based on rem-base) font size value
+fontsize(value) {
     if (value != 0 && value != null && value != inherit) {
         if (unit(value) != 'px') {
-            font-size: remify(normalize_rem(value))
+            return remify(normalize_rem(value))
         } else {
-            font-size: value
+            return value
         }
     } else {
-        font-size: value
+        return value
     }
 }
+
+// Convert font-size to rem
+// @DEPRECATED - We use fontsize() instead
+font_size(value) {
+    font-size: fontsize(value)
+}
+
 // Handle fallback for non-fontface Browsers
 font_family($family = $body-font-family, $spacing = $font-custom-spacing) {
 
@@ -581,15 +615,6 @@ font-url($url = "", $fontbase = $dir_font) {
 }
 
 
-// =========================================================================
-// COLOR MIXINS
-// =========================================================================
-colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
-    {$property}: blend(rgba($maincolor,$opacity), $mix);
-    {$property}: rgba($maincolor, $opacity);
-}
-
-
 
 // =========================================================================
 // @CSS classes
@@ -607,43 +632,43 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
     }
 
     meta.foundation-mq-small {
-        font-family: "/" + unquote($small-up) + "/"
+        font-family: ("/" + unquote($small-up) + "/")
         width: lower-bound($small-range)
     }
     meta.foundation-mq-small-only {
-        font-family: "/" + unquote($small-only) + "/"
+        font-family: ("/" + unquote($small-only) + "/")
         width: lower-bound($small-range)
     }
 
     meta.foundation-mq-medium {
-        font-family: "/" + unquote($medium-up) + "/"
+        font-family: ("/" + unquote($medium-up) + "/")
         width: lower-bound($medium-range)
     }
     meta.foundation-mq-medium-only {
-        font-family: "/" + unquote($medium-only) + "/"
+        font-family: ("/" + unquote($medium-only) + "/")
         width: lower-bound($medium-range)
     }
 
     meta.foundation-mq-large {
-        font-family: "/" + unquote($large-up) + "/"
+        font-family: ("/" + unquote($large-up) + "/")
         width: lower-bound($large-range)
     }
     meta.foundation-mq-large-only {
-        font-family: "/" + unquote($large-only) + "/"
+        font-family: ("/" + unquote($large-only) + "/")
         width: lower-bound($large-range)
     }
 
     meta.foundation-mq-xlarge {
-        font-family: "/" + unquote($xlarge-up) + "/"
+        font-family: ("/" + unquote($xlarge-up) + "/")
         width: lower-bound($xlarge-range)
     }
     meta.foundation-mq-xlarge-only {
-        font-family: "/" + unquote($xlarge-only) + "/"
+        font-family: ("/" + unquote($xlarge-only) + "/")
         width: lower-bound($xlarge-range)
     }
 
     meta.foundation-mq-xxlarge {
-        font-family: "/" + unquote($xxlarge-up) + "/"
+        font-family: ("/" + unquote($xxlarge-up) + "/")
         width: lower-bound($xxlarge-range)
     }
 
@@ -682,7 +707,7 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
             padding: 0
             margin: 0
             font_family($body-font-family)
-            font_size($body-font-size)
+            font-size: fontsize($body-font-size)
             font-weight: $body-font-weight
             font-style: $body-font-style
             line-height: $base-line-height // Set to $base-line-height to take on browser default of 150%
@@ -750,7 +775,7 @@ colorAlpha($property, $maincolor = black, $opacity = 0.75, $mix = white) {
         // Hide visually and from screen readers
         .is-hidden,
         .hide {
-            display: none
+            display: none !important
         }
 
         // Hide visually and from screen readers, but maintain layout

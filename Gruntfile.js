@@ -69,11 +69,13 @@ module.exports = function(grunt) {
         //     '<%= base_conf.src %>/styles/custom/_settings.styl',
         //     '<%= base_conf.src %>/styles/_global/lm_foundation/lm-foundation.styl'
         // ],
+        styl_src_file: '<%= base_conf.src %>/styles/styles.styl',
         styl_src_files: 'styles/styles.styl',
+        styl_src_ie8flag: 'styles/ie8-flag.styl',
         // css distribution folder and file
         css_dist_folder: '<%= base_conf.dest %>/css',
-        css_dist_file: '<%= base_conf.dest %>/css/styles.css',
-        css_dist_file_min: '<%= base_conf.dest %>/css/styles.min.css',
+        css_dist_file: '<%= base_conf.dest %>/css/styles',
+        css_dist_file_ie8: '<%= base_conf.dest %>/css/ie8',
         // svg source folder
         svg_src: ['<%= base_conf.src %>/svg/*.svg'],
         // svg distribution sprite file

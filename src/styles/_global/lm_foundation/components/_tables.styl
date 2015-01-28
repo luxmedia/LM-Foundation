@@ -22,7 +22,7 @@ $table-border-color ?=                       $gray-medium-1
 
 // These control the table head styles
 $table-head-bg ?=                            $table-bg
-$table-head-font-size ?=                     0.8rem
+$table-head-font-size ?=                     fontsize(0.8rem)
 $table-head-font-color ?=                    $gray-dark-1
 $table-head-font-weight ?=                   $font-weight-bold
 $table-head-padding ?=                       rem-calc(8 10)
@@ -31,7 +31,7 @@ $table-head-border ?=                        1px solid $table-border-color
 
 // These control the row padding and font styles
 $table-row-padding ?=                        rem-calc(8 10)
-$table-row-font-size ?=                      0.9rem
+$table-row-font-size ?=                      fontsize(0.9rem)
 $table-row-font-color ?=                     $charcoal-1
 $table-line-height ?=                        rem-calc(16)
 
@@ -46,7 +46,7 @@ $table-foot-text-transform ?=                uppercase
 // These control the caption
 $table-caption-bg ?=                         transparent
 $table-caption-font-color ?=                 $table-head-font-color
-$table-caption-font-size ?=                  0.9rem
+$table-caption-font-size ?=                  fontsize(0.9rem)
 $table-caption-font-weight ?=                bold
 
 // These are for controlling the layout, display and margin of tables
@@ -78,7 +78,7 @@ table() {
     caption {
         background: $table-caption-bg
         color: $table-caption-font-color
-        font_size($table-caption-font-size)
+        font-size: $table-caption-font-size
         font-weight: $table-caption-font-weight
     }
 
@@ -89,7 +89,7 @@ table() {
             th,
             td {
                 padding: $table-head-padding
-                font_size($table-head-font-size)
+                font-size: $table-head-font-size
                 font-weight: $table-head-font-weight
                 text-transform: $table-head-text-transform
                 color: $table-head-font-color
@@ -105,7 +105,7 @@ table() {
             th,
             td {
                 padding: $table-foot-padding
-                font_size($table-foot-font-size)
+                font-size: $table-foot-font-size
                 font-weight: $table-foot-font-weight
                 color: $table-foot-font-color
                 text-transform: $table-foot-text-transform
@@ -120,7 +120,7 @@ table() {
         th,
         td {
             padding: $table-row-padding
-            font_size($table-row-font-size)
+            font-size: $table-row-font-size
             color: $table-row-font-color
             text-align: $default-float
         }

@@ -3,11 +3,16 @@
 //
 
 // This is the default html and body font-size for the base rem value.
-// NOTE: We set it to a 10 base to get cleaner rem-calc values.
-// Later on we set the font-size with a custom mixin and normalization factor to avoid a too small font-size
+// NOTE: We set it to a 10px base to get cleaner rem-calc values.
+// Later on we set the font-size with a custom mixin and normalization factor to get our final font size
 $rem-base ?=                        10px
 $rem-base-unitless ?=               strip-unit($rem-base)
 
+// Marker for ie8 fallback styles
+// NOTE: This marker is used for creation of the ie8 fallback css file
+// this marker is set to "true" in the _ie8-flag.styl file, which we import in the stylus grunt task.
+// So we can create a different dist file for ie8
+$ie8 ?=                             false
 
 percentage($value){
     if $value {
@@ -19,9 +24,10 @@ percentage($value){
 // for compatibility with browser-based text zoom or user-set defaults.
 
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+$browser-default-font-size ?=        16px
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size ?=                   unit(percentage($rem-base / 16px),'%') // reduce base font size from 16px to 14px
+$base-font-size ?=                   unit(percentage($rem-base / $browser-default-font-size),'%') // reduce base font size from 16px to 14px
 // this is the font size we like to achieve for the body and all its children
 $ref-font-size ?=                    1.4rem
 // this is just a dummy font size for the body. Within the font_size mixin we also add $font-size-normalization to it!!
@@ -38,22 +44,32 @@ $rem-base-actual ?=                  ($rem-base + unit($font-size-normalization*
 
 // REM CALCULATIONS
 
-// Convert unit to rems if unit is in pixels.
-remify($value, $isPx = false) {
-    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
-        return $value
-    } else if ($value == 'hairline') {
-        return '1px'
-    } else if (unit($value) == 'px' || $isPx) {
-        return unit($value/$rem-base, 'rem')
-    } else if ((unit($value) == 0 || unit($value) == null) && ($isPx == false)) {
-        return unit($value, 'rem')
-    } else {
-        return unit($value, unit($value))
+// Normalize rem-size value according to rem-base font-size
+normalize_rem(value) {
+    if (unit(value) != 'px') {
+        return (value+$font-size-normalization)
     }
 }
 
 // Convert unit to rems if unit is in pixels.
+remify($value, $isPx = false) {
+    if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
+        $val = $value
+    } else if ($value == 'hairline') {
+        $val = '1px'
+    } else if (unit($value) == 'px' || $isPx) {
+        $val = (!$ie8 ? unit($value/$rem-base, 'rem') : unit($value, 'px'))
+    } else if ((unit($value) == 0 || unit($value) == null) && ($isPx == false)) {
+        $val = (!$ie8 ? unit($value, 'rem') : round(unit($value, 'px')))
+    } else if (unit($value) == 'rem') {
+        $val = (!$ie8 ? unit($value, 'rem') : round(unit($value*$rem-base, 'px')))
+    } else {
+        $val = unit($value, unit($value))
+    }
+    return $val
+}
+
+// Convert unit to pixels if unit is in rem.
 pxify($value) {
     if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
         return $value
@@ -65,12 +81,6 @@ pxify($value) {
         return round(unit($value*$rem-base, 'px'))
     } else {
         return unit($value, unit($value))
-    }
-}
-// Normalize rem-size value accoridng to font size rem-base
-normalize_rem(value) {
-    if (unit(value) != 'px') {
-        return (value+$font-size-normalization)
     }
 }
 
@@ -92,35 +102,9 @@ scale-color($color, $mod = 0) {
 // EOF - CUSTOM LUXMEDIA FUNCTIONS
 // =========================================================================
 
-// Foundation by ZURB
-// foundation.zurb.com
-// Licensed under MIT Open Source
-
-// IMPORT ONCE
-// We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
-// $modules = ()
-// exports($name) {
-//     //$module_index = index($modules, $name)
-//     $module_index = false
-//     for $m_index, $m in $modules {
-//         if ($name == $m_index) {
-//             $module_index = true
-//         }
-//     }
-//     if (($module_index == null) || ($module_index == false)) {
-//         push($modules, $name)
-//         //content: 'code'
-//         // Reference: http://learnboost.github.io/stylus/docs/mixins.html#block-mixins
-//         {block}
-//     }
-// }
-
-// Based on Foundation by ZURB
-// foundation.zurb.com
-// Licensed under MIT Open Source
 
 /* ========================================================================= */
-// RANGES
+// RANGES IN ARRAYS
 /* ========================================================================= */
 // We use these functions to define ranges for various things, like media queries.
 lower-bound($range){
@@ -192,16 +176,6 @@ data($attr) {
 // REM CALCULATIONS
 /* ========================================================================= */
 
-// CONVERT REM
-// @Deprecated - we use remify() instead
-convert-to-rem($value, $base-value = $rem-base)  {
-    $val = (strip-unit($value) / strip-unit($base-value) * 1rem)
-    if ($val == 0rem) {
-        // Turn 0rem into 0
-        $val = 0
-    }
-    return $val
-}
 
 // REM CALC
 
@@ -226,13 +200,11 @@ rem-calc($values, $base-value = $rem-base) {
     $max = length($values)
 
     if ($max == 1) {
-        // return convert-to-rem($values[0], $base-value)
         return remify($values[0],true)
     }
 
     $remValues = ()
     for $i in 0..$max {
-        // push($remValues, convert-to-rem($values[$i], $base-value))
         push($remValues, remify($values[$i],true))
     }
     return $remValues

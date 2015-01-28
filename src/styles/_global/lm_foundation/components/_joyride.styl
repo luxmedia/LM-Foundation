@@ -20,7 +20,7 @@ $joyride-tip-position-offset ?=              22px
 
 // Here, we're setting the tip font styles
 $joyride-tip-font-color ?=                   $white
-$joyride-tip-font-size ?=                    rem-calc(14)
+$joyride-tip-font-size ?=                    fontsize(1rem)
 $joyride-tip-header-weight ?=                $font-weight-bold
 
 // This changes the nub size
@@ -134,7 +134,7 @@ $joyride-screenfill ?=                       rgba($black,0.5)
         }
         .joyride-tip-guide p {
             margin: rem-calc(0 0 18 0)
-            font_size($joyride-tip-font-size)
+            font-size: $joyride-tip-font-size
             line-height: 1.3
         }
 
@@ -159,7 +159,7 @@ $joyride-screenfill ?=                       rgba($black,0.5)
             top: 10px
             color: $joyride-tip-close-color !important
             text-decoration: none
-            font_size($joyride-tip-close-size)
+            font-size: $joyride-tip-close-size
             font-weight: $joyride-tip-close-weight
             line-height: .5 !important
 

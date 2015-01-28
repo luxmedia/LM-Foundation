@@ -20,7 +20,7 @@ $tabs-navigation-hover-font-color ?=            $charcoal-1
 $tabs-navigation-active-font-color ?=           $primary-color
 $tabs-navigation-border-width ?=                2px
 $tabs-navigation-active-border-color ?=         $primary-color
-$tabs-navigation-font-size ?=                   1rem
+$tabs-navigation-font-size ?=                   fontsize(1rem)
 $tabs-navigation-font-family ?=                 $font-family-custom
 $tabs-navigation-font-weight ?=                 $font-weight-bold
 $tabs-navigation-text-transform ?=              uppercase
@@ -31,7 +31,7 @@ $tabs-content-bg ?=                             $tabs-navigation-active-bg-color
 $tabs-content-border-width ?=                   0 0 2px 0
 $tabs-content-border-color ?=                   $gray-medium-1
 
-$tabs-vertical-navigation-margin-bottom ?=      1.25rem
+$tabs-vertical-navigation-margin-bottom ?=      remify(1.25rem)
 
 $tabs-container-class ?=                        '.tabs'
 $tabs-list-class ?=                             '.tabs-list'
@@ -65,7 +65,7 @@ $tabs-content-class ?=                          '.tabs-content'
                     color: $tabs-navigation-font-color
                     padding: $tabs-navigation-padding ($tabs-navigation-padding * 2.5)
                     font_family($tabs-navigation-font-family)
-                    font_size($tabs-navigation-font-size)
+                    font-size: $tabs-navigation-font-size
                     font-weight: $tabs-navigation-font-weight
                     text-transform: $tabs-navigation-text-transform
                     border-style: solid
@@ -156,7 +156,7 @@ $tabs-content-class ?=                          '.tabs-content'
                     max-width: 80%
                     float: $default-float
                     margin-{$default-float}: -1px
-                    padding-{$default-float}: 1rem
+                    padding-{$default-float}: remify(1rem)
                 }
             }
         }
