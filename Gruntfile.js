@@ -76,9 +76,11 @@ module.exports = function(grunt) {
         css_dist_folder: '<%= base_conf.dest %>/css',
         css_dist_file: '<%= base_conf.dest %>/css/styles',
         css_dist_file_ie8: '<%= base_conf.dest %>/css/ie8',
-        // svg source folder
-        svg_src: ['<%= base_conf.src %>/svg/*.svg'],
-        // svg distribution sprite file
+        // svg source folder/files
+        svg_src: ['<%= base_conf.src %>/svg'],
+        svg_src_files: ['<%= base_conf.src %>/svg/*.svg'],
+        // svg distribution folder/files
+        svg_dist: ['<%= base_conf.dest %>/svg'],
         svg_dist_file: '<%= base_conf.dest %>/svg/sprite.svg',
         // excludes for "copy" to avoid duplication
         do_not_copy: ['!<%= base_conf.src %>/**/*.styl', '!<%= base_conf.src %>/**/*.coffee', '!<%= base_conf.src %>/**/*.jade'],

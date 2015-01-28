@@ -1,0 +1,15 @@
+# SVGMIN
+# https://github.com/sindresorhus/grunt-svgmin
+options:
+  plugins:
+    -
+      removeViewBox: false
+    -
+      removeUselessStrokeAndFill: false
+dist:
+  expand: true
+  cwd: '<%= base_conf.src %>/svg'
+  src:
+    - '*.svg'
+  dest: '<%= base_conf.dest %>/svg/min'
+  ext: '.colors-light-medium-dark-primary.svg'

@@ -12,10 +12,11 @@ scripts:
     - 'concat'
     - 'uglify'
     - 'clean:scripts'
-# svgs:
-#   - descirption: 'Merges the SVGs into single sprite file.'
-#   - tasks:
-#     - 'svgstore'
+svgs:
+  descirption: 'Minify SVGs. Create color variants. Create distribution icon files.'
+  tasks:
+    - 'svgmin'
+    - 'grunticon'
 build:
   description: 'Compiles all of the assets and copies the files to the distribution directory.'
   tasks:
@@ -23,7 +24,7 @@ build:
     - 'copy'
     - 'stylesheets'
     - 'scripts'
-    # - 'svgstore'
+    # - 'svgs'
     # - 'jade'
     - 'cleanempty'
 default:
