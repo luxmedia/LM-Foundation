@@ -1,6 +1,9 @@
+// Compile stylus files
+// https://github.com/gruntjs/grunt-contrib-stylus
+
 module.exports = {
-    // Compile stylus files
-    // https://github.com/gruntjs/grunt-contrib-stylus
+
+    // Create css for common modern browsers
     dist: {
         options: {
             linenos: true,
@@ -26,6 +29,7 @@ module.exports = {
             '<%= lm_conf.css_dist_file %>.css': '<%= lm_conf.styl_src_file %>'
         }
     },
+    // Create css for ie8 only
     iefallback: {
         options: {
             paths: ['<%= base_conf.src %>'],
