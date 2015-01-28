@@ -42,6 +42,7 @@ npm install grunt-contrib-stylus
 npm install grunt-contrib-uglify
 npm install grunt-contrib-watch
 npm install svg-stylus
+npm install autoprefixer-stylus
 ```
 or let the `package.json` do all the work for you. First switch using the `console` to your local project directory and after that run the following command:
 ```
@@ -60,6 +61,7 @@ NOTE:
 - I changed the indentation to 4 spaces instead of 2 spaces. This settings proved to be the best coding environment for me using widescreen displays.
 
 - The jeet.gs grid framework is integrated as a support for situations, where the foundation grid framework will not work flawlessly, e.g. in the _productlisting.styl!
+- There is an Internet Explorer 8 Fallback functionality implemented! Simply use the `$ie8` stylus variable (`true` for ie) which can be used in every .styl for conditional stylings only for ie8. The Grunt build system compiles two different files: a "normal" `styles.css` and an `ie8.css`.
 
 Namespace:
 -----------
