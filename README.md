@@ -44,7 +44,7 @@ npm install grunt-contrib-watch
 npm install svg-stylus
 npm install autoprefixer-stylus
 ```
-or let the `package.json` do all the work for you. First switch using the `console` to your local project directory and after that run the following command:
+or let the `package.json` do all the work for you. Switch to your local project directory using the `console` (terminal.app) and run the following command:
 ```
 npm install
 ```
@@ -65,7 +65,7 @@ NOTE:
 
 Namespace:
 -----------
-- I shortened the Namespace of some calsses a bit. So .button is .btn and the grid classes are -sml, -med, -lrg, -xlrg, -xxlrg instead of the longhands -small, -medium a.so. Every bit of saved code matters!
+- I shortened the Namespace of some classes a bit. So .button is .btn and the grid classes are -sml, -med, -lrg, -xlrg, -xxlrg instead of the longhands -small, -medium a.so. Every bit of saved code matters!
 
 Deprecated and unused Components:
 -----------
