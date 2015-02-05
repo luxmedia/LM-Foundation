@@ -5,6 +5,8 @@
 // @variables
 //
 
+$include-html-checkout-progress-classes =              com_css.CHECKOUTPROGRESS
+
 $checkout-progress-font-family ?=            $font-family-custom
 $checkout-progress-bar-height ?=             rem-calc(2)
 $checkout-progress-bar-animation ?=          2s // false
@@ -55,249 +57,253 @@ active-progress() {
     }
 }
 
+//
+// @styles
+//
 
-// CSS
+if $include-html-checkout-progress-classes {
 
-.checkout-wrap {
-    position: relative
-    margin: rem-calc(20) auto
-    color: $gray-darker-2
-    font-family: $checkout-progress-font-family
-}
-
-.checkout-bar {
-    margin: rem-calc(0 20)
-
-    li {
+    .checkout-wrap {
         position: relative
-        display: block
-        padding: rem-calc(14 20 14 80)
-        color: $gray-base
-        font-size: $checkout-progress-step-font-size
-        font-weight: $font-weight-normal
+        margin: rem-calc(20) auto
+        color: $gray-darker-2
+        font-family: $checkout-progress-font-family
+    }
 
-        // Step Label
-        span,
-        a {
-            color: $gray-base
-            font-size: fontsize(0.8rem)
-            font-weight: $font-weight-bold
-            text-decoration: none
-            text-transform: uppercase
-            &:hover {
-                cursor: $cursor-default-value
-            }
-        }
+    .checkout-bar {
+        margin: rem-calc(0 20)
 
-        &:before {
-            position: absolute
-            left: rem-calc(20)
-            top: rem-calc(4)
-            width: $w = rem-calc(35)
-            height: $w
-            line-height: $w
-            background-color: $white
+        li {
+            position: relative
+            display: block
+            padding: rem-calc(14 20 14 80)
             color: $gray-base
             font-size: $checkout-progress-step-font-size
             font-weight: $font-weight-normal
-            text-align: center
-            border: 2px solid $gray-base
-            box-shadow: 0 0 0 2px $white // simualte white gap to progress bar
-            border-radius: 50%
-            z-index: 999
 
-        }
-
-        &.is-active {
-            color: $info-color
-            &:before {
-                background-color: $info-color
-                border-color: $info-color
-                color: $white
-                z-index: 999
-            }
-            a {
-                color: $info-color
-                &:hover {
-                    color: darken($info-color,25%)
-                    cursor: $cursor-pointer-value
-                }
-            }
-        }
-        &.is-visited {
-            color: $success-color
-            z-index: 999
-            &:before {
-                background-color: $success-color
-                {$is-svg-support} & {
-                    svg-background($file:'arrows_check.svg', $size:($checkout-progress-step-height - rem-calc(10)), $stroke:$white, $stroke-width:$svg-stroke-width-large, $position-x:center)
-                    content: "" !important
-                }
-                border-color: $success-color
-                box-shadow: none
-                color: $white
-                z-index: 999
-            }
-            a {
-                color: $success-color
-                &:hover {
-                    color: darken($success-color,25%)
-                    cursor: $cursor-pointer-value
-                }
-            }
-        }
-        &:nth-child(1) {
-            &:before {
-                content: "1"
-            }
-        }
-        &:nth-child(2) {
-            &:before {
-                content: "2"
-            }
-        }
-        &:nth-child(3) {
-            &:before {
-                content: "3"
-            }
-        }
-        &:nth-child(4) {
-            &:before {
-                content: "4"
-            }
-        }
-        &:nth-child(5) {
-            &:before {
-                content: "5"
-            }
-        }
-        &:nth-child(6) {
-            &:before {
-                content: "6"
-            }
-        }
-    }
-
-} // EOF - ul.checkout-bar
-
-
-@media $small-up {
-    .checkout-wrap {
-        margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
-    }
-    .checkout-bar li.is-active:after {
-        active-progress()
-
-        content: ""
-        position: absolute
-        left: 50%
-        top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
-        width: 100%
-        height: $checkout-progress-bar-height
-        z-index: 0
-
-        if $checkout-progress-bar-animation {
-            -webkit-animation: progressbar_animation $checkout-progress-bar-animation 0
-        }
-    }
-    .checkout-bar {
-        next-progress()
-
-        position: absolute
-        width: 100%
-        height: $checkout-progress-bar-height
-        margin: 0 auto
-        padding: 0
-        border-radius: $checkout-progress-bar-height
-
-        // Left end of progress bar stripe
-        &:before {
-            success-progress()
-
-            position: absolute
-            left: 0
-            width: (percentage((1/4)) / 2) // 10%
-            height: $checkout-progress-bar-height
-            border-radius: $checkout-progress-bar-height
-            content: " "
-        }
-
-        li {
-            float: left
-            display: inline-block
-            width: percentage((1/5)) // default width for five steps
-            margin: ($checkout-progress-step-height/2) 0 0 0
-            padding: 0
-            text-align: center
-
-            // This is our Step umber Circle
-            &:before {
-                
-                position: absolute
-                left: 50%
-                top: -($checkout-progress-step-height + ($checkout-progress-bar-height/2))
-                width: $checkout-progress-step-width
-                height: $checkout-progress-step-height
-                margin-left: -($checkout-progress-step-width/2)
-                line-height: ($checkout-progress-step-height - rem-calc(4))
-                z-index: 99
-            }
-
-            &.is-visited {
-                background: none
-
-                &:after {
-                    success-progress()
-
-                    content: ""
-                    position: absolute
-                    left: 50%
-                    top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
-                    width: 100%
-                    height: $checkout-progress-bar-height
-                    z-index: 99
-                }
-            }
-
+            // Step Label
             span,
             a {
-                position: relative
-                top: -($checkout-progress-step-height) // move label closer to number
+                color: $gray-base
+                font-size: fontsize(0.8rem)
+                font-weight: $font-weight-bold
+                text-decoration: none
+                text-transform: uppercase
+                &:hover {
+                    cursor: $cursor-default-value
+                }
+            }
+
+            &:before {
+                position: absolute
+                left: rem-calc(20)
+                top: rem-calc(4)
+                width: $w = rem-calc(35)
+                height: $w
+                line-height: $w
+                background-color: $white
+                color: $gray-base
+                font-size: $checkout-progress-step-font-size
+                font-weight: $font-weight-normal
+                text-align: center
+                border: 2px solid $gray-base
+                box-shadow: 0 0 0 2px $white // simualte white gap to progress bar
+                border-radius: 50%
+                z-index: 999
+
+            }
+
+            &.is-active {
+                color: $info-color
+                &:before {
+                    background-color: $info-color
+                    border-color: $info-color
+                    color: $white
+                    z-index: 999
+                }
+                a {
+                    color: $info-color
+                    &:hover {
+                        color: darken($info-color,25%)
+                        cursor: $cursor-pointer-value
+                    }
+                }
+            }
+            &.is-visited {
+                color: $success-color
+                z-index: 999
+                &:before {
+                    background-color: $success-color
+                    {$is-svg-support} & {
+                        svg-background($file:'arrows_check.svg', $size:($checkout-progress-step-height - rem-calc(10)), $stroke:$white, $stroke-width:$svg-stroke-width-large, $position-x:center)
+                        content: "" !important
+                    }
+                    border-color: $success-color
+                    box-shadow: none
+                    color: $white
+                    z-index: 999
+                }
+                a {
+                    color: $success-color
+                    &:hover {
+                        color: darken($success-color,25%)
+                        cursor: $cursor-pointer-value
+                    }
+                }
+            }
+            &:nth-child(1) {
+                &:before {
+                    content: "1"
+                }
+            }
+            &:nth-child(2) {
+                &:before {
+                    content: "2"
+                }
+            }
+            &:nth-child(3) {
+                &:before {
+                    content: "3"
+                }
+            }
+            &:nth-child(4) {
+                &:before {
+                    content: "4"
+                }
+            }
+            &:nth-child(5) {
+                &:before {
+                    content: "5"
+                }
+            }
+            &:nth-child(6) {
+                &:before {
+                    content: "6"
+                }
+            }
+        }
+
+    } // EOF - ul.checkout-bar
+
+
+    @media $small-up {
+        .checkout-wrap {
+            margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
+        }
+        .checkout-bar li.is-active:after {
+            active-progress()
+
+            content: ""
+            position: absolute
+            left: 50%
+            top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
+            width: 100%
+            height: $checkout-progress-bar-height
+            z-index: 0
+
+            if $checkout-progress-bar-animation {
+                -webkit-animation: progressbar_animation $checkout-progress-bar-animation 0
+            }
+        }
+        .checkout-bar {
+            next-progress()
+
+            position: absolute
+            width: 100%
+            height: $checkout-progress-bar-height
+            margin: 0 auto
+            padding: 0
+            border-radius: $checkout-progress-bar-height
+
+            // Left end of progress bar stripe
+            &:before {
+                success-progress()
+
+                position: absolute
+                left: 0
+                width: (percentage((1/4)) / 2) // 10%
+                height: $checkout-progress-bar-height
+                border-radius: $checkout-progress-bar-height
+                content: " "
+            }
+
+            li {
+                float: left
                 display: inline-block
-                padding-top: ($checkout-progress-label-margin-top + $checkout-progress-step-height)
-                line-height: 1
-                z-index: 1001 //move link above li:before to make it a nice block link
-            }
-        } // li
+                width: percentage((1/5)) // default width for five steps
+                margin: ($checkout-progress-step-height/2) 0 0 0
+                padding: 0
+                text-align: center
 
-        // handle different step counts
-        &__four {
-            $stepwidth = percentage((1/4))
-            &:before {
-                width: ($stepwidth/2)
-            }
-            li {
-                width: $stepwidth
-            }
-        }
-        &__five {
-            $stepwidth = percentage((1/5))
-            &:before {
-                width: ($stepwidth/2)
-            }
-            li {
-                width: $stepwidth
-            }
-        }
-        &__six {
-            $stepwidth = percentage((1/6))
-            &:before {
-                width: ($stepwidth/2)
-            }
-            li {
-                width: $stepwidth
-            }
-        }
+                // This is our Step umber Circle
+                &:before {
+                    
+                    position: absolute
+                    left: 50%
+                    top: -($checkout-progress-step-height + ($checkout-progress-bar-height/2))
+                    width: $checkout-progress-step-width
+                    height: $checkout-progress-step-height
+                    margin-left: -($checkout-progress-step-width/2)
+                    line-height: ($checkout-progress-step-height - rem-calc(4))
+                    z-index: 99
+                }
 
-    } // EOF - .checkout-bar
-} // EOF - @media $small-up
+                &.is-visited {
+                    background: none
+
+                    &:after {
+                        success-progress()
+
+                        content: ""
+                        position: absolute
+                        left: 50%
+                        top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
+                        width: 100%
+                        height: $checkout-progress-bar-height
+                        z-index: 99
+                    }
+                }
+
+                span,
+                a {
+                    position: relative
+                    top: -($checkout-progress-step-height) // move label closer to number
+                    display: inline-block
+                    padding-top: ($checkout-progress-label-margin-top + $checkout-progress-step-height)
+                    line-height: 1
+                    z-index: 1001 //move link above li:before to make it a nice block link
+                }
+            } // li
+
+            // handle different step counts
+            &__four {
+                $stepwidth = percentage((1/4))
+                &:before {
+                    width: ($stepwidth/2)
+                }
+                li {
+                    width: $stepwidth
+                }
+            }
+            &__five {
+                $stepwidth = percentage((1/5))
+                &:before {
+                    width: ($stepwidth/2)
+                }
+                li {
+                    width: $stepwidth
+                }
+            }
+            &__six {
+                $stepwidth = percentage((1/6))
+                &:before {
+                    width: ($stepwidth/2)
+                }
+                li {
+                    width: $stepwidth
+                }
+            }
+
+        } // EOF - .checkout-bar
+    } // EOF - @media $small-up
+}

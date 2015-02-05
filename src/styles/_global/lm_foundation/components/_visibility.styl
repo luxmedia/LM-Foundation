@@ -8,10 +8,10 @@
 // @variables
 //
 
-$include-html-visibility-classes ?=          $include-html-classes
-$include-accessibility-classes ?=            true
-$include-table-visibility-classes ?=         true
-$include-legacy-visibility-classes ?=        false // true
+$include-html-visibility-classes =          com_css.VISIBILITY
+$include-accessibility-classes ?=            $include-html-visibility-classes
+$include-table-visibility-classes ?=         $include-html-visibility-classes
+// $include-legacy-visibility-classes ?=        false // DEPRECATED
 
 
 //
@@ -122,13 +122,58 @@ visibility-loop() {
     }
 }
 
+//
+// @styles
+//
 
-// +exports("visibility") {
-    if ($include-html-visibility-classes) {
+if $include-html-visibility-classes {
 
-        visibility-loop()
+    visibility-loop()
 
-        /* Orientation targeting */
+    /* Orientation targeting */
+    .show-for-landscape,
+    .hide-for-portrait {
+        display: inherit !important
+    }
+    .hide-for-landscape,
+    .show-for-portrait {
+        display: none !important
+    }
+
+    /* Specific visibility for tables */
+    table {
+        &.hide-for-landscape,
+        &.show-for-portrait {
+            display: table !important
+        }
+    }
+    thead {
+        &.hide-for-landscape,
+        &.show-for-portrait {
+            display: table-header-group !important
+        }
+    }
+    tbody {
+        &.hide-for-landscape,
+        &.show-for-portrait {
+            display: table-row-group !important
+        }
+    }
+    tr {
+        &.hide-for-landscape,
+        &.show-for-portrait {
+            display: table-row !important
+        }
+    }
+    td,
+    th {
+        &.hide-for-landscape,
+        &.show-for-portrait {
+            display: table-cell !important
+        }
+    }
+
+    @media $landscape {
         .show-for-landscape,
         .hide-for-portrait {
             display: inherit !important
@@ -140,180 +185,152 @@ visibility-loop() {
 
         /* Specific visibility for tables */
         table {
-            &.hide-for-landscape,
-            &.show-for-portrait {
+            &.show-for-landscape,
+            &.hide-for-portrait {
                 display: table !important
             }
         }
         thead {
-            &.hide-for-landscape,
-            &.show-for-portrait {
+            &.show-for-landscape,
+            &.hide-for-portrait {
                 display: table-header-group !important
             }
         }
         tbody {
-            &.hide-for-landscape,
-            &.show-for-portrait {
+            &.show-for-landscape,
+            &.hide-for-portrait {
                 display: table-row-group !important
             }
         }
         tr {
-            &.hide-for-landscape,
-            &.show-for-portrait {
+            &.show-for-landscape,
+            &.hide-for-portrait {
                 display: table-row !important
             }
         }
         td,
         th {
-            &.hide-for-landscape,
-            &.show-for-portrait {
+            &.show-for-landscape,
+            &.hide-for-portrait {
                 display: table-cell !important
             }
         }
+    }
 
-        @media $landscape {
-            .show-for-landscape,
-            .hide-for-portrait {
-                display: inherit !important
-            }
-            .hide-for-landscape,
-            .show-for-portrait {
-                display: none !important
-            }
-
-            /* Specific visibility for tables */
-            table {
-                &.show-for-landscape,
-                &.hide-for-portrait {
-                    display: table !important
-                }
-            }
-            thead {
-                &.show-for-landscape,
-                &.hide-for-portrait {
-                    display: table-header-group !important
-                }
-            }
-            tbody {
-                &.show-for-landscape,
-                &.hide-for-portrait {
-                    display: table-row-group !important
-                }
-            }
-            tr {
-                &.show-for-landscape,
-                &.hide-for-portrait {
-                    display: table-row !important
-                }
-            }
-            td,
-            th {
-                &.show-for-landscape,
-                &.hide-for-portrait {
-                    display: table-cell !important
-                }
-            }
-        }
-
-        @media $portrait {
-            .show-for-portrait,
-            .hide-for-landscape {
-                display: inherit !important
-            }
-            .hide-for-portrait,
-            .show-for-landscape {
-                display: none !important
-            }
-
-            /* Specific visibility for tables */
-            table {
-                &.show-for-portrait,
-                &.hide-for-landscape {
-                    display: table !important
-                }
-            }
-            thead {
-                &.show-for-portrait,
-                &.hide-for-landscape {
-                    display: table-header-group !important
-                }
-            }
-            tbody {
-                &.show-for-portrait,
-                &.hide-for-landscape {
-                    display: table-row-group !important
-                }
-            }
-            tr {
-                &.show-for-portrait,
-                &.hide-for-landscape {
-                    display: table-row !important
-                }
-            }
-            td,
-            th {
-                &.show-for-portrait,
-                &.hide-for-landscape {
-                    display: table-cell !important
-                }
-            }
-        }
-
-        /* Touch-enabled device targeting */
-        .show-for-touch {
-            display: none !important
-        }
-        .hide-for-touch {
+    @media $portrait {
+        .show-for-portrait,
+        .hide-for-landscape {
             display: inherit !important
         }
-        .touch .show-for-touch {
-            display: inherit !important
-        }
-        .touch .hide-for-touch {
+        .hide-for-portrait,
+        .show-for-landscape {
             display: none !important
         }
 
         /* Specific visibility for tables */
-        table.hide-for-touch {
-            display: table !important
+        table {
+            &.show-for-portrait,
+            &.hide-for-landscape {
+                display: table !important
+            }
         }
-        .touch table.show-for-touch {
-            display: table !important
+        thead {
+            &.show-for-portrait,
+            &.hide-for-landscape {
+                display: table-header-group !important
+            }
         }
-        thead.hide-for-touch {
-            display: table-header-group !important
+        tbody {
+            &.show-for-portrait,
+            &.hide-for-landscape {
+                display: table-row-group !important
+            }
         }
-        .touch thead.show-for-touch {
-            display: table-header-group !important
+        tr {
+            &.show-for-portrait,
+            &.hide-for-landscape {
+                display: table-row !important
+            }
         }
-        tbody.hide-for-touch {
-            display: table-row-group !important
+        td,
+        th {
+            &.show-for-portrait,
+            &.hide-for-landscape {
+                display: table-cell !important
+            }
         }
-        .touch tbody.show-for-touch {
-            display: table-row-group !important
-        }
-        tr.hide-for-touch {
-            display: table-row !important
-        }
-        .touch tr.show-for-touch {
-            display: table-row !important
-        }
-        td.hide-for-touch {
-            display: table-cell !important
-        }
-        .touch td.show-for-touch {
-            display: table-cell !important
-        }
-        th.hide-for-touch {
-            display: table-cell !important
-        }
-        .touch th.show-for-touch {
-            display: table-cell !important
-        }
+    }
 
+    /* Touch-enabled device targeting */
+    .show-for-touch {
+        display: none !important
+    }
+    .hide-for-touch {
+        display: inherit !important
+    }
+    .touch .show-for-touch {
+        display: inherit !important
+    }
+    .touch .hide-for-touch {
+        display: none !important
+    }
 
-        /* Print visibility */
+    /* Specific visibility for tables */
+    table.hide-for-touch {
+        display: table !important
+    }
+    .touch table.show-for-touch {
+        display: table !important
+    }
+    thead.hide-for-touch {
+        display: table-header-group !important
+    }
+    .touch thead.show-for-touch {
+        display: table-header-group !important
+    }
+    tbody.hide-for-touch {
+        display: table-row-group !important
+    }
+    .touch tbody.show-for-touch {
+        display: table-row-group !important
+    }
+    tr.hide-for-touch {
+        display: table-row !important
+    }
+    .touch tr.show-for-touch {
+        display: table-row !important
+    }
+    td.hide-for-touch {
+        display: table-cell !important
+    }
+    .touch td.show-for-touch {
+        display: table-cell !important
+    }
+    th.hide-for-touch {
+        display: table-cell !important
+    }
+    .touch th.show-for-touch {
+        display: table-cell !important
+    }
+
+    // Only include these styles if you want them.
+    if $include-print-styles {
+        /*
+        * Print styles.
+        *
+        * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+        * Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+        */
+        .print-only {
+            display: none !important
+        }
         @media print {
+            * {
+                background: transparent !important
+                color: black !important /* Black prints faster: h5bp.com/s */
+                box-shadow: none !important
+                text-shadow: none !important
+            }
             .show-for-print {
                 display: block
             }
@@ -340,7 +357,101 @@ visibility-loop() {
                 display: table-cell !important
             }
 
+            a,
+            a:visited {
+                text-decoration: underlin
+            }
+            a[href]:after {
+                content: " (" attr(href) ")"
+            }
+
+            abbr[title]:after {
+                content: " (" attr(title) ")"
+            }
+
+            // Don't show links for images, or javascript/internal links
+            .ir a:after,
+            a[href^="javascript:"]:after,
+            a[href^="#"]:after {
+                content: ""
+            }
+
+            pre,
+            blockquote {
+                border: 1px solid $gray-base
+                page-break-inside: avoid
+            }
+
+            thead {
+                display: table-header-group /* h5bp.com/t */
+            }
+
+            tr,
+            img {
+                page-break-inside: avoid
+            }
+
+            img {
+                max-width: 100% !important
+            }
+
+            @page {
+                margin: 0.5cm
+            }
+
+            p,
+            h2,
+            h3 {
+              orphans: 3
+              widows: 3
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid
+            }
+
+            .hide-on-print {
+                display: none !important
+            }
+            .print-only {
+                display: block !important
+            }
+            .hide-for-print {
+                display: none !important
+            }
+            .show-for-print {
+                display: inherit !important
+            }
+        }
+    }
+
+    /* Print visibility */
+    @media print {
+        .show-for-print {
+            display: block
+        }
+        .hide-for-print {
+            display: none
         }
 
+        table.show-for-print {
+            display: table !important
+        }
+        thead.show-for-print {
+            display: table-header-group !important
+        }
+        tbody.show-for-print {
+            display: table-row-group !important
+        }
+        tr.show-for-print {
+            display: table-row !important
+        }
+        td.show-for-print {
+            display: table-cell !important
+        }
+        th.show-for-print {
+            display: table-cell !important
+        }
     }
-// }
+}

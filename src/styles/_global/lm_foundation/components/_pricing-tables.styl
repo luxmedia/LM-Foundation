@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-pricing-classes ?=             $include-html-classes
+$include-html-pricing-classes =             com_css.PRICINGTABLES
 
 // the border color
 $price-table-border ?=                       solid 1px $gray-medium-1
@@ -151,76 +151,78 @@ pricing-table-cta() {
     padding: $price-cta-padding
 }
 
-// +exports("pricing-table") {
-    if $include-html-pricing-classes {
+//
+// @styles
+//
 
-        /* Pricing Tables */
-        .pricing-table {
-            pricing-table-container()
+if $include-html-pricing-classes {
 
-            .title {
-                pricing-table-title()
-            }
-            .price {
-                pricing-table-price()
-            }
-            .description {
-                pricing-table-description()
-            }
-            .bullet-item {
-                pricing-table-bullet()
-            }
-            .cta-button {
-                pricing-table-cta()
-            }
+    /* Pricing Tables */
+    .pricing-table {
+        pricing-table-container()
+
+        .title {
+            pricing-table-title()
         }
+        .price {
+            pricing-table-price()
+        }
+        .description {
+            pricing-table-description()
+        }
+        .bullet-item {
+            pricing-table-bullet()
+        }
+        .cta-button {
+            pricing-table-cta()
+        }
+    }
 
-        // Price-Boxes
-        .price-box {
-            text-align: right
+    // Price-Boxes
+    .price-box {
+        text-align: right
 
-            .price {
-                display: block
-                line-height: $price-line-height
-                font_family($price-special-font-family)
-                font-size: $price-special-font-size
-                font-weight: $price-special-font-weight
-                color: $price-special-color
-                margin: 0
+        .price {
+            display: block
+            line-height: $price-line-height
+            font_family($price-special-font-family)
+            font-size: $price-special-font-size
+            font-weight: $price-special-font-weight
+            color: $price-special-color
+            margin: 0
 
-                &--total {
-                    //color: $price-special-color
-                }
+            &--total {
+                //color: $price-special-color
+            }
+            &--special,
+            &--minimal {
+                text-decoration: $price-special-decoration
+            }
+            &--old {
+                //font_family($price-old-font-family)
+                font-size: $price-old-font-size
+                font-weight: $price-old-font-weight
+                color: $price-old-color
+                text-decoration: $price-old-decoration
+            }
+            &--base {
+                font_family($price-base-font-family)
+                font-size: ($price-old-font-size - 0.1)
+                font-weight: $price-base-font-weight
+                color: $price-old-color
+                letter-spacing: 0
+            }
+
+            // Price labels (e.g. uvp, from)
+            &__label {
+                margin-right: rem-calc(4)
+                font-size: $price-label-font-size // Fallback font size
+                font-weight: $price-label-font-weight
+                text-transform: $price-label-text-transform
+                &--uvp { }
                 &--special,
-                &--minimal {
-                    text-decoration: $price-special-decoration
-                }
-                &--old {
-                    //font_family($price-old-font-family)
-                    font-size: $price-old-font-size
-                    font-weight: $price-old-font-weight
-                    color: $price-old-color
-                    text-decoration: $price-old-decoration
-                }
-                &--base {
-                    font_family($price-base-font-family)
-                    font-size: ($price-old-font-size - 0.1)
-                    font-weight: $price-base-font-weight
-                    color: $price-old-color
-                    letter-spacing: 0
-                }
-
-                // Price labels (e.g. uvp, from)
-                &__label {
-                    margin-right: rem-calc(4)
-                    font-size: $price-label-font-size // Fallback font size
-                    font-weight: $price-label-font-weight
-                    text-transform: $price-label-text-transform
-                    &--uvp { }
-                    &--special,
-                    &--minimal { }
-                }
+                &--minimal { }
             }
         }
     }
-// }
+}

@@ -9,7 +9,7 @@
 // @Variables
 //
 
-$include-html-button-classes ?=              $include-html-classes
+$include-html-button-classes =              com_css.BUTTONS
 
 // build padding for buttons.
 $button-tny ?=                               rem-calc(3)
@@ -215,14 +215,14 @@ button-size($padding = $button-med, $full-width = false) {
 
 // @MIXIN
 //
-// we use this mixin to create the button hover and border colors
+// Button hover and border colors
 
 // @MIXIN
 //
-// We use this mixin to add button color styles
+// Button color styles
 //
 // $bg - Background color. We can set $bg:false for a transparent background. Default: $primary-color.
-// $radius - If true, set to button radius which is $global-radius || explicitly set radius amount in px (ex. $radius:10px). Default: true
+// $radius - If true, set to button radius which is $button-radius || explicitly set radius amount in px (ex. $radius:10px). Default: true
 // $disabled - We can set $disabled:true to create a disabled transparent button. Default: false
 // $bg-hover - Button Hover Background Color. Default: $button-bg-hover
 // $border-color - Button Border Color. Default: $button-border-color
@@ -317,163 +317,164 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
 
 
 
-// +exports("button") {
-    if $include-html-button-classes {
+//
+// @styles
+//
+if $include-html-button-classes {
 
-        // Default styles for .btn and buttons applied outside of media query
-        button,
-        .btn {
-            button-base()
-            button-size()
-            button-style()
+    // Default styles for .btn and buttons applied outside of media query
+    button,
+    .btn {
+        button-base()
+        button-size()
+        button-style()
 
-            antialiased()
-            
-            single-transition(background-color)
+        antialiased()
+        
+        single-transition(background-color)
+    }
+
+    .btn {
+        // Inner Labels
+        .lbl {
+            label-style($bg:$white,$font-color:$button-bg-color)
+            top: -(rem-calc(2))
+            line-height: 0.8
         }
 
-        .btn {
-            // Inner Labels
+        &--secondary {
+            button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
+            
+            // inner labels
             .lbl {
-                label-style($bg:$white,$font-color:$button-bg-color)
-                top: -(rem-calc(2))
-                line-height: 0.8
-            }
-
-            &--secondary {
-                button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
-                
-                // inner labels
-                .lbl {
-                    if (lightness($secondary-color) > 70%) {
-                        label-style($bg:$gray-base)
-                    } else {
-                        label-style($bg:$white,$font-color:$secondary-color)
-                    }
-                }
-                &:hover .lbl {
-                    if (lightness($secondary-color) > 70%) {
-                        background-color: darken($gray-base, $button-function-factor)
-                    } else {
-                        color: darken($secondary-color, $button-function-factor)
-                    }
+                if (lightness($secondary-color) > 70%) {
+                    label-style($bg:$gray-base)
+                } else {
+                    label-style($bg:$white,$font-color:$secondary-color)
                 }
             }
-            &--success {
-                button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
-                
-                //inner label
-                .lbl & {
-                    label-style($bg:$white,$font-color:$success-color)
-                }
-                &:hover .lbl {
-                    color: darken($success-color, $button-function-factor)
+            &:hover .lbl {
+                if (lightness($secondary-color) > 70%) {
+                    background-color: darken($gray-base, $button-function-factor)
+                } else {
+                    color: darken($secondary-color, $button-function-factor)
                 }
             }
-            &--info {
-                button-style($bg:$info-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
-                
-                .lbl {
-                    label-style($bg:$white,$font-color:$info-color)
-                }
-                &:hover .lbl {
-                    color: darken($info-color, $button-function-factor)
-                }
-            }            
-            &--warning {
-                button-style($bg:$warning-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color, $font-color:$warning-font-color)
-                
-                .lbl {
-                    label-style($bg:$warning-font-color,$font-color:$warning-color)
-                }
-                &:hover .lbl {
-                    background-color: darken($warning-font-color, $button-function-factor)
-                    color: darken($warning-color, $button-function-factor)
-                }
-            }
-            &--alert {
-                button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color)
-                .lbl {
-                    label-style($bg:$critical-font-color,$font-color:$alert-color)
-                }
-                &:hover .lbl {
-                    background-color: darken($critical-font-color, $button-function-factor)
-                    color: darken($alert-color, $button-function-factor)
-                }
-            }
-
-            &--lrg {
-                button-size($padding:$button-lrg)
-            }
-            &--sml {
-                button-size($padding:$button-sml)
-                
-                .lbl {
-                    top: 0
-                    padding: rem-calc(1 5 1)
-                }
-            }
-            &--tny {
-                button-size($padding:$button-tny)
-            }
-            &--expand {
-                button-size($padding:null,$full-width:true)
-            }
-
-            &--left-align {
-                text-align: left;
-                text-indent: $button-med
-            }
-            &--right-align {
-                text-align: right;
-                padding-right: $button-med
-            }
+        }
+        &--success {
+            button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
             
-            &--radius {
-                button-style($bg:false, $radius:true)
+            //inner label
+            .lbl & {
+                label-style($bg:$white,$font-color:$success-color)
             }
-            &--round {
-                button-style($bg:false, $radius:$button-round)
+            &:hover .lbl {
+                color: darken($success-color, $button-function-factor)
             }
-
-            &--flat {
-                button-flat()
+        }
+        &--info {
+            button-style($bg:$info-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
+            
+            .lbl {
+                label-style($bg:$white,$font-color:$info-color)
             }
-
-            &.is-disabled,
-            &[disabled] {
-                button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color)
-                
-                &.btn--secondary { 
-                    button-style($bg:$secondary-color, $disabled:true, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
-                }
-                &.btn--success { 
-                    button-style($bg:$success-color, $disabled:true, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
-                }
-                &.btn--info { 
-                    button-style($bg:$info-color, $disabled:true, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
-                }
-                &.btn--warning { 
-                    button-style($bg:$warning-color, $disabled:true, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color)
-                }
-                &.btn--alert {
-                    button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color) 
-                }
+            &:hover .lbl {
+                color: darken($info-color, $button-function-factor)
+            }
+        }            
+        &--warning {
+            button-style($bg:$warning-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color, $font-color:$warning-font-color)
+            
+            .lbl {
+                label-style($bg:$warning-font-color,$font-color:$warning-color)
+            }
+            &:hover .lbl {
+                background-color: darken($warning-font-color, $button-function-factor)
+                color: darken($warning-color, $button-function-factor)
+            }
+        }
+        &--alert {
+            button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color)
+            .lbl {
+                label-style($bg:$critical-font-color,$font-color:$alert-color)
+            }
+            &:hover .lbl {
+                background-color: darken($critical-font-color, $button-function-factor)
+                color: darken($alert-color, $button-function-factor)
             }
         }
 
-        //firefox 2px fix
-        button::-moz-focus-inner {
-            border:0
-            padding:0
+        &--lrg {
+            button-size($padding:$button-lrg)
+        }
+        &--sml {
+            button-size($padding:$button-sml)
+            
+            .lbl {
+                top: 0
+                padding: rem-calc(1 5 1)
+            }
+        }
+        &--tny {
+            button-size($padding:$button-tny)
+        }
+        &--exp {
+            button-size($padding:null,$full-width:true)
         }
 
-        @media $medium-up {
-            button,
-            .btn {
-                button-base($style:false, $display:inline-block)
-                button-size($padding:false, $full-width:false)
+        &--txtleft {
+            text-align: left;
+            text-indent: $button-med
+        }
+        &--txtright {
+            text-align: right;
+            padding-right: $button-med
+        }
+        
+        &--rad {
+            button-style($bg:false, $radius:true)
+        }
+        &--rnd {
+            button-style($bg:false, $radius:$button-round)
+        }
+
+        &--flat {
+            button-flat()
+        }
+
+        &.is-disabled,
+        &[disabled] {
+            button-style($bg:$button-bg-color, $disabled:true, $bg-hover:$button-bg-hover, $border-color:$button-border-color)
+            
+            &.btn--secondary { 
+                button-style($bg:$secondary-color, $disabled:true, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
+            }
+            &.btn--success { 
+                button-style($bg:$success-color, $disabled:true, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
+            }
+            &.btn--info { 
+                button-style($bg:$info-color, $disabled:true, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
+            }
+            &.btn--warning { 
+                button-style($bg:$warning-color, $disabled:true, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color)
+            }
+            &.btn--alert {
+                button-style($bg:$alert-color, $disabled:true, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color) 
             }
         }
     }
-// }
+
+    //firefox 2px fix
+    button::-moz-focus-inner {
+        border:0
+        padding:0
+    }
+
+    @media $medium-up {
+        button,
+        .btn {
+            button-base($style:false, $display:inline-block)
+            button-size($padding:false, $full-width:false)
+        }
+    }
+}

@@ -9,7 +9,7 @@
 // @Variables
 //
 
-$include-html-button-classes ?=              $include-html-classes
+$include-html-button-classes =              com_css.BUTTONGROUPS
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
 $button-bar-margin-opposite ?=               rem-calc(10)
@@ -167,6 +167,12 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
         .btn-group {
             button-group-container()
 
+            for $i in 2..8 {
+                &.even-{$i} li {
+                    button-group-style($even:$i, $float:null)
+                }
+            }
+
             & > li {
                 button-group-style()
             }
@@ -178,7 +184,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &--stack-for-small {
+            &--stack-for-sml {
                 & > li {
                     button-group-style($orientation:horizontal)
                     @media $small-only {
@@ -193,7 +199,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
             &--radius.btn-group--stack > * {
                 button-group-style($radius:$button-radius, $float:null, $orientation:vertical)
             }
-            &--radius.btn-group--stack-for-small > * {
+            &--radius.btn-group--stack-for-sml > * {
                 @media $medium-up {
                     button-group-style($radius:$button-radius, $orientation:horizontal)
                 }
@@ -208,7 +214,7 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
             &--round.btn-group--stack > * {
                 button-group-style($radius:$button-med, $float:null, $orientation:vertical)
             }
-            &--round.btn-group--stack-for-small > * {
+            &--round.btn-group--stack-for-sml > * {
                 @media $medium-up {
                     button-group-style($radius:$button-round, $orientation:horizontal)
                 }
@@ -217,11 +223,6 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            for $i in 2..8 {
-                &.even-{$i} li {
-                    button-group-style($even:$i, $float:null)
-                }
-            }
         }
 
         .btn-bar {

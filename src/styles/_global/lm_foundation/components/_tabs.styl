@@ -9,7 +9,7 @@
 // @variables
 //
 
-$include-html-tabs-classes ?=                   $include-html-classes
+$include-html-tabs-classes =                   com_js.TAB
 
 $tabs-navigation-padding ?=                     rem-calc(5)
 $tabs-navigation-bg-color ?=                    $gray-light-2
@@ -38,133 +38,136 @@ $tabs-list-class ?=                             '.tabs-list'
 $tabs-content-class ?=                          '.tabs-content'
 
 
-// +exports("tab") {
-    if $include-html-tabs-classes {
-        
-        {$tabs-list-class} {
-            border-bottom: $tabs-navigation-border-width solid $tabs-content-border-color
-            overflow: visible
-        }
-        {$tabs-container-class},
-        {$tabs-list-class} {
-            clearfix()
-            margin-bottom: 0 !important
-            margin-left: 0
+//
+// @styles
+//
+if $include-html-tabs-classes {
+    
+    {$tabs-list-class} {
+        border-bottom: $tabs-navigation-border-width solid $tabs-content-border-color
+        overflow: visible
+    }
+    {$tabs-container-class},
+    {$tabs-list-class} {
+        clearfix()
+        margin-bottom: 0 !important
+        margin-left: 0
 
+        dd,
+        .tab-title {
+            position: relative
+            margin-bottom: -($tabs-navigation-border-width) !important
+            margin-right: 1px
+            list-style: none
+            float: $default-float
+            & > a {
+                display: block
+                background-color: $tabs-navigation-bg-color
+                color: $tabs-navigation-font-color
+                padding: $tabs-navigation-padding ($tabs-navigation-padding * 2.5)
+                font_family($tabs-navigation-font-family)
+                font-size: $tabs-navigation-font-size
+                font-weight: $tabs-navigation-font-weight
+                text-transform: $tabs-navigation-text-transform
+                border-style: solid
+                border-color: transparent
+                border-width: $tabs-navigation-border-width 0
+                border-bottom-color: $tabs-content-border-color
+                &:hover {
+                    background-color: $tabs-navigation-hover-bg-color
+                    color: $tabs-navigation-hover-font-color
+                }
+                &:focus{
+                    outline: none
+                }
+            }
+            &.is-active a {
+                background-color: $tabs-navigation-active-bg-color
+                color: $tabs-navigation-active-font-color
+                border-top-color: $tabs-navigation-active-border-color
+                border-bottom-color: $tabs-navigation-active-bg-color
+            }
+        }
+        &--radius {
+            dd:first-child,
+            .tab:first-child {
+                a {
+                    side-radius($default-float, $global-radius)
+                }
+            }
+            dd:last-child,
+            .tab:last-child {
+                a {
+                    side-radius($opposite-direction, $global-radius)
+                }
+            }
+        }
+        &--vert {
             dd,
             .tab-title {
-                position: relative
-                margin-bottom: -($tabs-navigation-border-width) !important
-                margin-right: 1px
-                list-style: none
-                float: $default-float
-                & > a {
-                    outline: none
-                    display: block
-                    background-color: $tabs-navigation-bg-color
-                    color: $tabs-navigation-font-color
-                    padding: $tabs-navigation-padding ($tabs-navigation-padding * 2.5)
-                    font_family($tabs-navigation-font-family)
-                    font-size: $tabs-navigation-font-size
-                    font-weight: $tabs-navigation-font-weight
-                    text-transform: $tabs-navigation-text-transform
-                    border-style: solid
-                    border-color: transparent
-                    border-width: $tabs-navigation-border-width 0
-                    border-bottom-color: $tabs-content-border-color
-                    &:hover {
-                        background-color: $tabs-navigation-hover-bg-color
-                        color: $tabs-navigation-hover-font-color
-                    }
-                }
-                &.is-active a {
-                    background-color: $tabs-navigation-active-bg-color
-                    color: $tabs-navigation-active-font-color
-                    border-top-color: $tabs-navigation-active-border-color
-                    border-bottom-color: $tabs-navigation-active-bg-color
-                }
-            }
-            &--radius {
-                dd:first-child,
-                .tab:first-child {
-                    a {
-                        side-radius($default-float, $global-radius)
-                    }
-                }
-                dd:last-child,
-                .tab:last-child {
-                    a {
-                        side-radius($opposite-direction, $global-radius)
-                    }
-                }
-            }
-            &--vertical {
-                dd,
-                .tab-title {
-                    position: inherit
-                    float: none
-                    display: block
-                    top: auto
-                }
-            }
-        }
-
-        {$tabs-content-class} {
-            clearfix()
-            margin-bottom: $tabs-content-margin-bottom
-            width: 100%
-            border-style: solid
-            border-color: $tabs-content-border-color
-            border-width: $tabs-content-border-width
-            & > .content {
-                display: none
-                float: $default-float
-                padding: $tabs-content-padding 0
-                width: 100%
-                if $tabs-content-bg {
-                    background: $tabs-content-bg
-                }
-                &.is-active {
-                    display: block
-                    float: none
-                }
-                &.contained {
-                    padding: $tabs-content-padding
-                }
-            }
-            &--vertical {
-                display: block
-                > .content {
-                    padding: 0 $tabs-content-padding
-                }
-            }
-        }
-        @media $medium-up {
-            
-            {$tabs-container-class},
-            {$tabs-list-class} {
-                &--vertical {
-                    width: 20%
-                    max-width: 20%
-                    float: $default-float
-                    margin: 0 0 $tabs-vertical-navigation-margin-bottom
-                }
-            }
-            {$tabs-content-class} {
-                &--vertical {
-                    width: 80%
-                    max-width: 80%
-                    float: $default-float
-                    margin-{$default-float}: -1px
-                    padding-{$default-float}: remify(1rem)
-                }
-            }
-        }
-        .no-js {
-            {$tabs-content-class} > .content {
-                display: block
+                position: inherit
                 float: none
+                display: block
+                top: auto
             }
         }
     }
-// }
+
+    {$tabs-content-class} {
+        clearfix()
+        margin-bottom: $tabs-content-margin-bottom
+        width: 100%
+        border-style: solid
+        border-color: $tabs-content-border-color
+        border-width: $tabs-content-border-width
+        & > .content {
+            display: none
+            float: $default-float
+            padding: $tabs-content-padding 0
+            width: 100%
+            if $tabs-content-bg {
+                background: $tabs-content-bg
+            }
+            &.is-active {
+                display: block
+                float: none
+            }
+            &.contained {
+                padding: $tabs-content-padding
+            }
+        }
+        &--vert {
+            display: block
+            > .content {
+                padding: 0 $tabs-content-padding
+            }
+        }
+    }
+    @media $medium-up {
+        
+        {$tabs-container-class},
+        {$tabs-list-class} {
+            &--vert {
+                width: 20%
+                max-width: 20%
+                float: $default-float
+                margin: 0 0 $tabs-vertical-navigation-margin-bottom
+            }
+        }
+        {$tabs-content-class} {
+            &--vert {
+                width: 80%
+                max-width: 80%
+                float: $default-float
+                margin-{$default-float}: -1px
+                padding-{$default-float}: remify(1rem)
+            }
+        }
+    }
+    .no-js {
+        {$tabs-content-class} > .content {
+            display: block
+            float: none
+        }
+    }
+}

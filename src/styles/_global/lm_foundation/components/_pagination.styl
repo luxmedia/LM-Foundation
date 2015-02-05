@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-pagination-classes ?=               $include-html-classes
+$include-pagination-classes =               com_css.PAGINATION
 
 // the pagination container
 $pagination-height ?=                        rem-calc(20)
@@ -243,19 +243,21 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
     }
 }
 
-// +exports("pagination") {
-    if $include-pagination-classes {
+//
+// @styles
+//
+
+if $include-pagination-classes {
+    ul.pager {
+        pagination()
+    }
+
+    /* Pagination centred wrapper */
+    .pager-centered {
+        pagination-container(true)
+
         ul.pager {
-            pagination()
-        }
-
-        /* Pagination centred wrapper */
-        .pager-centered {
-            pagination-container(true)
-
-            ul.pager {
-                pagination(true, false)
-            }
+            pagination(true, false)
         }
     }
-// }
+}

@@ -10,7 +10,7 @@
 // @variables
 //
 
-$include-html-button-classes ?=              $include-html-classes
+$include-html-split-button-classes =         com_css.SPLITBUTTONS
 
 // different shared styles for Split Buttons
 $split-button-function-factor ?=             10%
@@ -185,56 +185,58 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     }
 }
 
-// +exports("split-button") {
-    if $include-html-button-classes {
+//
+// @styles
+//
 
-        .btn--split {
-            split-button()
+if $include-html-split-button-classes {
 
-            &--secondary {
-                split-button(false, $split-button-pip-color, $secondary-color, false)
-            }
-            &--alert {
-                split-button(false, false, $alert-color, false)
-            }
-            &--success {
-                split-button(false, false, $success-color, false)
-            }
+    .btn--split {
+        split-button()
 
-            &--tiny {
-                split-button(tiny, false, false, false)
-            }
-            &--small {
-                split-button(small, false, false, false)
-            }
-            &--large {
-                split-button(large, false, false, false)
-            }
-            &--expand {
-                padding-left: remify(2rem)
-            }
-
-            // &--secondary {
-            //     split-button(false, $split-button-pip-color-alt, false, false)
-            // }
-
-            &--radius span {
-                side-radius($opposite-direction, $global-radius)
-            }
-            &--round span {
-                side-radius($opposite-direction, 1000px)
-            }
-            &--nopip{
-                span:before,
-                span:after {
-                    border-style:none
-                }
-                span { padding-top:$split-button-pip-top-med; }
-                &.btn--tiny { span { padding-top: $split-button-pip-top-tny; } }
-                &.btn--small { span { padding-top: $split-button-pip-top-sml; } }
-                &.btn--large { span { padding-top: $split-button-pip-top-lrg; } }
-            }
+        &--secondary {
+            split-button(false, $split-button-pip-color, $secondary-color, false)
+        }
+        &--alert {
+            split-button(false, false, $alert-color, false)
+        }
+        &--success {
+            split-button(false, false, $success-color, false)
         }
 
+        &--tny {
+            split-button(tiny, false, false, false)
+        }
+        &--sml {
+            split-button(small, false, false, false)
+        }
+        &--lrg {
+            split-button(large, false, false, false)
+        }
+        &--exp {
+            padding-left: remify(2rem)
+        }
+
+        // &--secondary {
+        //     split-button(false, $split-button-pip-color-alt, false, false)
+        // }
+
+        &--rad span {
+            side-radius($opposite-direction, $global-radius)
+        }
+        &--rnd span {
+            side-radius($opposite-direction, 1000px)
+        }
+        &--nopip {
+            span:before,
+            span:after {
+                border-style:none
+            }
+            span { padding-top:$split-button-pip-top-med; }
+            &.btn--tny { span { padding-top: $split-button-pip-top-tny; } }
+            &.btn--sml { span { padding-top: $split-button-pip-top-sml; } }
+            &.btn--lrg { span { padding-top: $split-button-pip-top-lrg; } }
+        }
     }
-// }
+
+}

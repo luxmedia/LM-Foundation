@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-media-classes ?=               $include-html-classes
+$include-html-media-flexvideo-classes =               com_css.FLEXVIDEO
 
 // video container padding and margins
 $flex-video-padding-top ?=                   rem-calc(25)
@@ -50,10 +50,12 @@ flex-video-container() {
     }
 }
 
-// +exports("flex-video") {
-    if $include-html-media-classes {
-        .flex-video {
-            flex-video-container()
-        }
+//
+// @styles
+//
+
+if $include-html-media-flexvideo-classes {
+    .flex-video {
+        flex-video-container()
     }
-// }
+}

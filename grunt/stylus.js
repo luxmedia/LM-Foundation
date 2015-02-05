@@ -48,4 +48,4 @@ module.exports = {
             '<%= lm_conf.css_dist_file_ie8 %>.css': '<%= lm_conf.styl_src_file %>'
         }
     }
-}
+};

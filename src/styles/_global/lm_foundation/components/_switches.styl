@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-form-classes ?=                $include-html-classes
+$include-html-form-switches-classes =        com_js.SWITCHES
 
 // Controlling border styles and background colors for the switch container
 $switch-border-color ?=                      $gray-dark-1
@@ -205,47 +205,50 @@ switch($transition-speed = $switch-paddle-transition-speed, $transition-ease = $
     switch-style($paddle-bg, $radius, $base-style)
 }
 
-// +exports("switch") {
-    if $include-html-form-classes {
-        .switch {
-            switch()
 
-            // Large radio switches
-            &.large {
-                switch-size($switch-height-lrg)
-            }
+//
+// @styles
+//
 
-            // Small radio switches
-            &.small {
-                switch-size($switch-height-sml)
-            }
+if $include-html-form-switches-classes {
+    .switch {
+        switch()
 
-            // Tiny radio switches
-            &.tiny {
-                switch-size($switch-height-tny)
-            }
-
-            // Add a radius to the switch
-            &.radius {
-                label {
-                    radius(4px)
-                }
-                label:after {
-                    radius(3px)
-                }
-            }
-
-            // Make the switch completely round, like a pill
-            &.round {
-                radius(1000px)
-                label {
-                    radius(remify(2rem))
-                }
-                label:after {
-                    radius(remify(2rem))
-                }
-            }
-
+        // Large radio switches
+        &.large {
+            switch-size($switch-height-lrg)
         }
+
+        // Small radio switches
+        &.small {
+            switch-size($switch-height-sml)
+        }
+
+        // Tiny radio switches
+        &.tiny {
+            switch-size($switch-height-tny)
+        }
+
+        // Add a radius to the switch
+        &.radius {
+            label {
+                radius(4px)
+            }
+            label:after {
+                radius(3px)
+            }
+        }
+
+        // Make the switch completely round, like a pill
+        &.round {
+            radius(1000px)
+            label {
+                radius(remify(2rem))
+            }
+            label:after {
+                radius(remify(2rem))
+            }
+        }
+
     }
-// }
+}

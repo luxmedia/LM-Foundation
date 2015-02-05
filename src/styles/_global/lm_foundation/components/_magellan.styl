@@ -8,31 +8,29 @@
 // @variables
 //
 
-$include-html-magellan-classes ?=            $include-html-classes
+$include-html-magellan-classes =            com_js.MAGELLAN
 
 $magellan-bg ?=                              $white
 $magellan-padding ?=                         10px
 
 
-// +exports("magellan") {
-    if $include-html-magellan-classes {
+if $include-html-magellan-classes {
 
-        {data('magellan-expedition')}, {data('magellan-expedition-clone')} {
-            background: $magellan-bg
-            z-index: 50
-            min-width: 100%
-            padding: $magellan-padding
+    {data('magellan-expedition')}, {data('magellan-expedition-clone')} {
+        background: $magellan-bg
+        z-index: 50
+        min-width: 100%
+        padding: $magellan-padding
 
-            .sub-nav {
+        .sub-nav {
+            margin-bottom: 0
+            dd {
                 margin-bottom: 0
-                dd {
-                    margin-bottom: 0
-                }
-                a {
-                    line-height: 1.8em
-                }
+            }
+            a {
+                line-height: 1.8em
             }
         }
-
     }
-// }
+
+}

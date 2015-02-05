@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-range-slider-classes ?=        $include-html-classes
+$include-html-range-slider-classes =        com_js.SLIDER
 
 // These variables define the slider bar styles
 $range-slider-bar-width ?=                   100%
@@ -58,10 +58,7 @@ $rang-slider-label-bg-color ?=               $white
 //
 
 range-slider-bar-base($vertical = false) {
-    display: block
     position: relative
-    width: $range-slider-bar-width
-    height: $range-slider-bar-height
     border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-border-color
     margin: rem-calc(20 0)
     -ms-touch-action: none
@@ -70,6 +67,10 @@ range-slider-bar-base($vertical = false) {
         display: inline-block
         width: $range-slider-vertical-bar-width
         height: $range-slider-vertical-bar-height
+    } else {
+        display: block;
+        width: $range-slider-bar-width;
+        height: $range-slider-bar-height;
     }
 }
 range-slider-bar-style($bg = true, $radius = false, $round = false, $disabled = false) {
@@ -153,65 +154,68 @@ range-slider-label-base() {
     border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-border-color
 
 }
-// CSS Generation
-// +exports("range-slider-bar") {
-    if $include-html-range-slider-classes {
-        .range-slider {
-            range-slider-bar-base()
-            range-slider-bar-style($bg:true, $radius:false)
-            &--vertical {
-                range-slider-bar-base($vertical: true)
-                .range-slider-handle {
-                    margin-top: 0
-                    margin-{$default-float}: -($range-slider-handle-position-left)
-                    // margin-{$default-float}: -($range-slider-handle-width / 4)
-                    position: absolute
-                    bottom: -($range-slider-vertical-bar-height - $range-slider-handle-width)
-                }
-                .range-slider-active-segment {
-                    width: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
-                    height: auto
-                    bottom: 0
-                }
+
+//
+// @styles
+//
+if $include-html-range-slider-classes {
+    .rangeslider {
+        range-slider-bar-base()
+        range-slider-bar-style($bg:true, $radius:false)
+        &--vert {
+            range-slider-bar-base($vertical: true)
+            .rangeslider__handle {
+                margin-top: 0
+                margin-{$default-float}: -($range-slider-handle-position-left)
+                // margin-{$default-float}: -($range-slider-handle-width / 4)
+                position: absolute
+                bottom: -($range-slider-vertical-bar-height - $range-slider-handle-width)
             }
-            &--radius {
-                range-slider-bar-style($radius:true)
-                .range-slider-handle {
-                    range-slider-handle-style($radius: true)
-                }
-            }
-            &--round {
-                range-slider-bar-style($round:true)
-                .range-slider-handle {
-                    range-slider-handle-style($round: true)
-                }
-            }
-            &.is-disabled,
-            &[disabled] {
-                range-slider-bar-style($disabled:true)
-                .range-slider-handle {
-                    range-slider-handle-style($disabled: true)
-                }
+            .rangeslider__act-seg {
+                width: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
+                height: auto
+                bottom: 0
             }
         }
-        .range-slider-active-segment {
-            display: inline-block
-            position: absolute
-            height: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
-            background: $range-slider-active-segment-bg-color
-            border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-active-border-color
+        &--rad {
+            range-slider-bar-style($radius:true)
+            .rangeslider__handle {
+                range-slider-handle-style($radius: true)
+            }
         }
-        .range-slider-handle {
-            range-slider-handle-base()
-            range-slider-handle-style($bg:true, $radius: false)
+        &--rnd {
+            range-slider-bar-style($round:true)
+            .rangeslider__handle {
+                range-slider-handle-style($round: true)
+            }
         }
-
-        .rs-label {
-            range-slider-label-base()
-
-            &--end {
-
+        &.is-disabled,
+        &[disabled] {
+            range-slider-bar-style($disabled:true)
+            .rangeslider__handle {
+                range-slider-handle-style($disabled: true)
             }
         }
     }
-// }
+
+    .rangeslider__act-seg {
+        display: inline-block
+        position: absolute
+        height: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
+        background: $range-slider-active-segment-bg-color
+        border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-active-border-color
+    }
+    
+    .rangeslider__handle {
+        range-slider-handle-base()
+        range-slider-handle-style($bg:true, $radius: false)
+    }
+
+    .rs-label {
+        range-slider-label-base()
+
+        &--end {
+
+        }
+    }
+}

@@ -5,79 +5,92 @@
 
 @require "_global"
 
-.toolbar {
-    background: $charcoal-1
-    width: 100%
-    font-size: 0
-    display: inline-block
+//
+// @variables
+//
 
-    &--label-bottom .tab .tab-content {
-        i,
-        img {
-            margin-bottom: 10px
+$include-html-toolbar-classes =             com_css.TOOLBAR
+
+
+//
+// @styles
+//
+
+if $include-html-toolbar-classes  {
+    .toolbar {
+        background: $charcoal-1
+        width: 100%
+        font-size: 0
+        display: inline-block
+
+        &--label-bottom .tab .tab-content {
+            i,
+            img {
+                margin-bottom: 10px
+            }
         }
-    }
 
-    &--label-right .tab .tab-content {
-        i,
-        img {
-            margin-right: 10px
-            display: inline-block
+        &--label-right .tab .tab-content {
+            i,
+            img {
+                margin-right: 10px
+                display: inline-block
+            }
+            label {
+                display: inline-block
+            }
         }
-        label {
-            display: inline-block
+
+        &--vert.toolbar--label-right .tab .tab-content {
+            text-align: left
         }
-    }
 
-    &--vertical.toolbar--label-right .tab .tab-content {
-        text-align: left
-    }
-
-    &--vertical {
-        height: 100%
-        width: auto
-
-        .tab {
+        &--vert {
+            height: 100%
             width: auto
-            margin: auto
-            float: none
-        }
-    }
-    
-    .tab {
-        text-align: center
-        width: 25%
-        margin: 0 auto
-        display: block
-        padding: 20px
-        float: left
 
-        &:hover {
-            background: rgba($white, 0.1)
+            .tab {
+                width: auto
+                margin: auto
+                float: none
+            }
         }
-    }
-}       
         
-.toolbar .tab-content {
-    font-size: 16px
-    text-align: center
+        .tab {
+            text-align: center
+            width: 25%
+            margin: 0 auto
+            display: block
+            padding: 20px
+            float: left
 
-    label {
-        color: $gray-medium-2
-    }
+            &:hover {
+                background: rgba($white, 0.1)
+            }
+        }
+    }       
+            
+    .toolbar .tab-content {
+        font-size: 16px
+        text-align: center
 
-    i {
-        font-size: 30px
-        display: block
-        margin: 0 auto
-        color: $gray-medium-2
-        vertical-align: middle
-    }
+        label {
+            color: $gray-medium-2
+        }
 
-    img {
-        width: 30px
-        height: 30px
-        display: block
-        margin: 0 auto
+        i {
+            font-size: 30px
+            display: block
+            margin: 0 auto
+            color: $gray-medium-2
+            vertical-align: middle
+        }
+
+        img {
+            width: 30px
+            height: 30px
+            display: block
+            margin: 0 auto
+        }
     }
 }

@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-inline-list-classes ?=         $include-html-classes
+$include-html-inline-list-classes =         com_css.INLINELIST
 
 // the margins and padding of the inline list.
 $inline-list-top-margin ?=                   0
@@ -52,10 +52,11 @@ inline-list() {
     }
 }
 
-// +exports("inline-list") {
-    if $include-html-inline-list-classes {
-        .inline-list {
-            inline-list()
-        }
+//
+// @styles
+//
+if $include-html-inline-list-classes {
+    .inline-list {
+        inline-list()
     }
-// }
+}

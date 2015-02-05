@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-panel-classes ?=               $include-html-classes
+$include-html-panel-classes =               com_css.PANELS
 
 // the background and border styles
 $panel-bg ?=                                 $gray-lighter-3
@@ -30,6 +30,7 @@ $panel-font-color-alt ?=                     $white
 $panel-header-adjust ?=                      true
 $callout-panel-link-color ?=                 $primary-color
 $callout-panel-link-color-hover ?=           darken($callout-panel-link-color, $panel-function-factor)
+$callout-panel-bg ?=                        lightness($primary-color, 94%)
 
 
 //
@@ -85,37 +86,38 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
     }
 }
 
-// +exports("panel") {
-    if $include-html-panel-classes {
+//
+// @styles
+//
+if $include-html-panel-classes {
 
-        /* Panels */
-        .panel { 
-            panel()
+    /* Panels */
+    .panel { 
+        panel()
 
-            &--callout {
-                
-                panel(lightness($primary-color, 94%))
+        &--callout {
+            
+            panel($callout-panel-bg)
 
-                a:not(.btn) {
-                    color: $callout-panel-link-color
+            a:not(.btn) {
+                color: $callout-panel-link-color
 
-                    &:hover,
-                    &:focus {
-                        color: $callout-panel-link-color-hover
-                    }
+                &:hover,
+                &:focus {
+                    color: $callout-panel-link-color-hover
                 }
             }
+        }
 
-            &--flat {
-                border: none
-                margin: 0
-            }
+        &--flat {
+            border: none
+            margin: 0
+        }
 
-            &--radius {
-                radius()
-            }
-
+        &--radius {
+            radius()
         }
 
     }
-// }
+
+}

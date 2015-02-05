@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-table-classes ?=               $include-html-classes
+$include-html-table-classes =               com_css.TABLES
 
 // These control the background color for the table and even rows
 $table-bg ?=                                 $white
@@ -163,10 +163,11 @@ table() {
     }
 
 
-// +exports("table") {
-    if $include-html-table-classes {
-        table {
-            table()
-        }
+//
+// @styles
+//
+if $include-html-table-classes {
+    table {
+        table()
     }
-// }
+}

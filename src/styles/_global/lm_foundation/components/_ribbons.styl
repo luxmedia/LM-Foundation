@@ -6,6 +6,8 @@
 // @variables
 //
 
+$include-html-ribbon-classes =              com_css.RIBBONS
+
 $ribbon-font-size ?=                         fontsize(0.9rem)
 $ribbon-font-family ?=                       $font-family-custom
 $ribbon-font-weight ?=                       $font-weight-bold
@@ -110,67 +112,67 @@ ribbon-left() {
 }
 
 
-/*================== HTML CLASSES ===================*/
+if $include-html-ribbon-classes {
 
-.ribbon {
-    // load base ribbon styles
-    ribbon-base()
-    ribbon-style()
-
-    // ribbon with tip
-    &--flag {
+    .ribbon {
+        // load base ribbon styles
         ribbon-base()
-        ribbon-style($type:"flag")
-    }
+        ribbon-style()
 
-    // colored ribbons
-    &--primary {
-        ribbon-style($color: $white, $bg:$primary-color )
-    }
-    &--success {
-        ribbon-style($color: $white, $bg:$success-color )
-    }
-    &--info {
-        ribbon-style($color: $white, $bg:$info-color )
-    }
-    &--warning {
-        ribbon-style($color: $warning-font-color, $bg:$warning-color )
-    }
-    &--alert {
-        ribbon-style($color: $critical-font-color, $bg:$alert-color )
-    }
-    // colored flag ribbons
-    &--flag.ribbon--primary {
-        ribbon-style($color: $white, $bg:$primary-color, $type:"flag")
-    }
-    &--flag.ribbon--success {
-        ribbon-style($color: $white, $bg:$success-color, $type:"flag")
-    }
-    &--flag.ribbon--info {
-        ribbon-style($color: $white, $bg:$info-color, $type:"flag")
-    }
-    &--flag.ribbon--warning {
-        ribbon-style($color: $warning-font-color, $bg:$warning-color, $type:"flag")
-    }
-    &--flag.ribbon--alert {
-        ribbon-style($color: $critical-font-color, $bg:$alert-color, $type:"flag")
-    }
+        // ribbon with tip
+        &--flag {
+            ribbon-base()
+            ribbon-style($type:"flag")
+        }
 
-    // Left ribbon
-    &--left {
-        ribbon-left()
-    }
-    // left flag ribbon
-    &--left.ribbon--flag {
-        padding-left: $ribbon-padding-left
-        padding-right: (strip-unit($ribbon-flag-padding) > 0) ? $ribbon-flag-padding : 0
-        &:before {
-            left: auto
-            right: 0
-            border-right-width: 0
-            border-left-width: $ribbon-flag-dimensions
-            margin: 0 (-(rem-calc($ribbon-flag-dimensions))) 0 0
+        // colored ribbons
+        &--primary {
+            ribbon-style($color: $white, $bg:$primary-color )
+        }
+        &--success {
+            ribbon-style($color: $white, $bg:$success-color )
+        }
+        &--info {
+            ribbon-style($color: $white, $bg:$info-color )
+        }
+        &--warning {
+            ribbon-style($color: $warning-font-color, $bg:$warning-color )
+        }
+        &--alert {
+            ribbon-style($color: $critical-font-color, $bg:$alert-color )
+        }
+        // colored flag ribbons
+        &--flag.ribbon--primary {
+            ribbon-style($color: $white, $bg:$primary-color, $type:"flag")
+        }
+        &--flag.ribbon--success {
+            ribbon-style($color: $white, $bg:$success-color, $type:"flag")
+        }
+        &--flag.ribbon--info {
+            ribbon-style($color: $white, $bg:$info-color, $type:"flag")
+        }
+        &--flag.ribbon--warning {
+            ribbon-style($color: $warning-font-color, $bg:$warning-color, $type:"flag")
+        }
+        &--flag.ribbon--alert {
+            ribbon-style($color: $critical-font-color, $bg:$alert-color, $type:"flag")
+        }
+
+        // Left ribbon
+        &--left {
+            ribbon-left()
+        }
+        // left flag ribbon
+        &--left.ribbon--flag {
+            padding-left: $ribbon-padding-left
+            padding-right: (strip-unit($ribbon-flag-padding) > 0) ? $ribbon-flag-padding : 0
+            &:before {
+                left: auto
+                right: 0
+                border-right-width: 0
+                border-left-width: $ribbon-flag-dimensions
+                margin: 0 (-(rem-calc($ribbon-flag-dimensions))) 0 0
+            }
         }
     }
-
 }

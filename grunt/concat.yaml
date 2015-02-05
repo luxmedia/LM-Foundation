@@ -6,7 +6,7 @@ vendor:
 # make shure to load foundation.js before its components !!!
 foundation:
   src:
-    - '<%= lm_conf.js_src_fndtn %>'
+    # - '<%= lm_conf.js_src_fndtn %>'
     - '<%= lm_conf.js_src_fndtn_components %>'
   dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_fndtn %>.js'
 

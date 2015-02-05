@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-grid-classes ?=        $include-html-classes
+$include-html-grid-classes =        com_css.GRID
 $include-xl-html-grid-classes ?=     false
 
 $row-width ?=                        rem-calc(1000)
@@ -231,95 +231,97 @@ grid-html-classes($size) {
     }
 }
 
-// +exports("grid") {
-    if $include-html-grid-classes {
-        .row {
-            grid-row()
+//
+// @styles
+//
 
-            &.collapse,
-            &--collapse {
-                // collapse all columns
+if $include-html-grid-classes {
+    .row {
+        grid-row()
+
+        &.collapse,
+        &--collapse {
+            // collapse all columns
+            > .col {
+                grid-column($collapse:true, $float:false)
+            }
+            .row {
+                margin-left: 0
+                margin-right: 0
+            }
+            // collapse only side columns
+            &--side {
                 > .col {
-                    grid-column($collapse:true, $float:false)
+                    grid-column($collapse-side:true)
                 }
                 .row {
                     margin-left: 0
                     margin-right: 0
                 }
-                // collapse only side columns
-                &--side {
-                    > .col {
-                        grid-column($collapse-side:true)
-                    }
-                    .row {
-                        margin-left: 0
-                        margin-right: 0
-                    }
-                }
-
             }
 
-            .row {
-                grid-row($behavior:nest)
-                &.collapse,
-                &--collapse {
-                    grid-row($behavior:nest-collapse)
-                }
-            }
         }
 
-        .col {
-            grid-column($columns:$total-columns)
-            
-            &.first {
-                padding-{$default-float}: 0
-            }
-            &.last {
-                padding-{$opposite-direction}: 0
-            }
-        }
-
-        [class*="col"] + [class*="col"]:last-child {
-            float: $last-child-float
-        }
-        [class*="col"] + [class*="col"].end {
-            float: $default-float
-        }
-
-        @media $small-up {
-            grid-html-classes($size:sml)
-        }
-
-        @media $medium-up {
-            grid-html-classes($size:med)
-            // Old push and pull classes
-            for $i in 0..($total-columns - 1) {
-                .push-{$i} {
-                    grid-column($push:$i, $collapse:null, $float:false)
-                }
-                .pull-{$i} {
-                    grid-column($pull:$i, $collapse:null, $float:false)
-                }
-            }
-        }
-        @media $large-up {
-            grid-html-classes(lrg)
-            for $i in 0..($total-columns - 1) {
-                .push-{$i} {
-                    grid-column($push:$i, $collapse:null, $float:false)
-                }
-                .pull-{$i} {
-                    grid-column($pull:$i, $collapse:null, $float:false)
-                }
+        .row {
+            grid-row($behavior:nest)
+            &.collapse,
+            &--collapse {
+                grid-row($behavior:nest-collapse)
             }
         }
     }
-    if $include-xl-html-grid-classes {
-        @media $xlarge-up {
-            grid-html-classes(xlrg)
+
+    .col {
+        grid-column($columns:$total-columns)
+        
+        &.first {
+            padding-{$default-float}: 0
         }
-        @media $xxlarge-up {
-            grid-html-classes(xxlrg)
+        &.last {
+            padding-{$opposite-direction}: 0
         }
     }
-// }
+
+    [class*="col"] + [class*="col"]:last-child {
+        float: $last-child-float
+    }
+    [class*="col"] + [class*="col"].end {
+        float: $default-float
+    }
+
+    @media $small-up {
+        grid-html-classes($size:sml)
+    }
+
+    @media $medium-up {
+        grid-html-classes($size:med)
+        // Old push and pull classes
+        for $i in 0..($total-columns - 1) {
+            .push-{$i} {
+                grid-column($push:$i, $collapse:null, $float:false)
+            }
+            .pull-{$i} {
+                grid-column($pull:$i, $collapse:null, $float:false)
+            }
+        }
+    }
+    @media $large-up {
+        grid-html-classes(lrg)
+        for $i in 0..($total-columns - 1) {
+            .push-{$i} {
+                grid-column($push:$i, $collapse:null, $float:false)
+            }
+            .pull-{$i} {
+                grid-column($pull:$i, $collapse:null, $float:false)
+            }
+        }
+    }
+}
+if $include-xl-html-grid-classes {
+    @media $xlarge-up {
+        grid-html-classes(xlrg)
+    }
+    @media $xxlarge-up {
+        grid-html-classes(xxlrg)
+    }
+}

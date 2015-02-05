@@ -1,11 +1,16 @@
 // Helper css stylings for docs.html ONLY!!!
 // Disable in production environments!
 
-// dummy for docs.html
-.ribbons__cont .col .item {
-    width:100%
-    height:50px
-    position: relative
-    background: #efefef
-    z-index: 1
+$include-html-docs-classes =            com_css.DOCS
+
+if $include-html-docs-classes {
+	
+	// dummy for docs.html
+	.ribbons__cont .col .item {
+	    width:100%
+	    height:50px
+	    position: relative
+	    background: #efefef
+	    z-index: 1
+	}
 }

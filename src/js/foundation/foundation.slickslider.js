@@ -76,7 +76,7 @@
                 respondTo: 'window',
                 responsive: null,
                 rtl: false,
-                slide: 'div',
+                slide: '',
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 speed: 500,
@@ -390,32 +390,20 @@
         var _ = this;
 
         if (_.options.infinite === false) {
-
             if (_.direction === 1) {
-
                 if ((_.currentSlide + 1) === _.slideCount -
                     1) {
                     _.direction = 0;
                 }
-
                 _.slideHandler(_.currentSlide + _.options.slidesToScroll);
-
             } else {
-
                 if ((_.currentSlide - 1 === 0)) {
-
                     _.direction = 1;
-
                 }
-
                 _.slideHandler(_.currentSlide - _.options.slidesToScroll);
-
             }
-
         } else {
-
             _.slideHandler(_.currentSlide + _.options.slidesToScroll);
-
         }
 
     };
@@ -470,11 +458,8 @@
             _.$dots = $(dotString).appendTo(
                 _.options.appendDots);
 
-            _.$dots.find('li').first().addClass(
-                'is-active');
-
+            _.$dots.find('li').first().addClass('is-active').attr('aria-hidden', 'false');
         }
-
     };
 
     Slick.prototype.buildOut = function() {
@@ -729,7 +714,7 @@
 
     };
 
-    Slick.prototype.fadeSlide = function(oldSlide, slideIndex, callback) {
+    Slick.prototype.fadeSlide = function(slideIndex, callback) {
 
         var _ = this;
 
@@ -743,29 +728,19 @@
                 opacity: 1
             }, _.options.speed, _.options.easing, callback);
 
-            _.$slides.eq(oldSlide).animate({
-                opacity: 0
-            }, _.options.speed, _.options.easing);
-
         } else {
 
             _.applyTransition(slideIndex);
-            _.applyTransition(oldSlide);
 
             _.$slides.eq(slideIndex).css({
                 opacity: 1,
                 zIndex: 1000
             });
 
-            _.$slides.eq(oldSlide).css({
-                opacity: 0
-            });
-
             if (callback) {
                 setTimeout(function() {
 
                     _.disableTransition(slideIndex);
-                    _.disableTransition(oldSlide);
 
                     callback.call();
                 }, _.options.speed);
@@ -1467,7 +1442,7 @@
             var trackWidth = 0;
             _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
             _.$slideTrack.children('.'+nmspc+'__slide').each(function(){
-                trackWidth += Math.ceil($(this).outerWidth(true));
+                trackWidth += _.listWidth;
             });
             _.$slideTrack.width(Math.ceil(trackWidth) + 1);
         } else {
@@ -1614,7 +1589,7 @@
         var _ = this,
             centerOffset, allSlides, indexOffset, remainder;
 
-        _.$slider.find('.'+nmspc+'__slide').removeClass('is-active').removeClass(nmspc+'--center');
+        _.$slider.find('.'+nmspc+'__slide').removeClass('is-active').attr('aria-hidden', 'true').removeClass(nmspc+'--center');
         allSlides = _.$slider.find('.'+nmspc+'__slide');
 
         if (_.options.centerMode === true) {
@@ -1624,10 +1599,10 @@
             if(_.options.infinite === true) {
 
                 if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
-                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('is-active');
+                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('is-active').attr('aria-hidden', 'false');
                 } else {
                     indexOffset = _.options.slidesToShow + index;
-                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('is-active');
+                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('is-active').attr('aria-hidden', 'false');
                 }
 
                 if (index === 0) {
@@ -1643,16 +1618,16 @@
         } else {
 
             if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
-                _.$slides.slice(index, index + _.options.slidesToShow).addClass('is-active');
+                _.$slides.slice(index, index + _.options.slidesToShow).addClass('is-active').attr('aria-hidden', 'false');
             } else if ( allSlides.length <= _.options.slidesToShow ) {
-                allSlides.addClass('is-active');
+                allSlides.addClass('is-active').attr('aria-hidden', 'false');
             } else {
                 remainder = _.slideCount%_.options.slidesToShow;
                 indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
                 if(_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
-                    allSlides.slice(indexOffset-(_.options.slidesToShow-remainder), indexOffset + remainder).addClass('is-active');
+                    allSlides.slice(indexOffset-(_.options.slidesToShow-remainder), indexOffset + remainder).addClass('is-active').attr('aria-hidden', 'false');
                 } else {
-                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('is-active');
+                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('is-active').attr('aria-hidden', 'false');
                 }
             }
 
@@ -1715,8 +1690,8 @@
         if(!index) index = 0;
 
         if(_.slideCount <= _.options.slidesToShow){
-            _.$slider.find('.'+nmspc+'__slide').removeClass('is-active');
-            _.$slides.eq(index).addClass('is-active');
+            _.$slider.find('.'+nmspc+'__slide').removeClass('is-active').attr('aria-hidden', 'true');
+            _.$slides.eq(index).addClass('is-active').attr('aria-hidden', 'false');
             if(_.options.centerMode === true) {
                 _.$slider.find('.'+nmspc+'__slide').removeClass(nmspc+'--center');
                 _.$slides.eq(index).addClass(nmspc+'--center');
@@ -2050,7 +2025,6 @@
         _.touchObject.startY = _.touchObject.curY = touches !== undefined ? touches.pageY : event.clientY;
 
         _.dragging = true;
-
     };
 
     Slick.prototype.unfilterSlides = Slick.prototype.slickUnfilter = function() {
@@ -2066,9 +2040,7 @@
             _.$slidesCache.appendTo(_.$slideTrack);
 
             _.reinit();
-
         }
-
     };
 
     Slick.prototype.unload = function() {
@@ -2086,7 +2058,7 @@
             _.$nextArrow.remove();
         }
         _.$slides.removeClass(
-            nmspc+'__slide is-active is-visible').css('width', '');
+            nmspc+'__slide is-active is-visible').attr('aria-hidden', 'true').css('width', '');
 
     };
 
@@ -2127,8 +2099,8 @@
 
         if (_.$dots !== null) {
 
-            _.$dots.find('li').removeClass('is-active');
-            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('is-active');
+            _.$dots.find('li').removeClass('is-active').attr('aria-hidden', 'true');
+            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('is-active').attr('aria-hidden', 'false');
 
         }
 

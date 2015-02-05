@@ -10,7 +10,7 @@
 // @variables
 //
 
-$include-html-form-classes ?=                $include-html-classes
+$include-html-form-classes =                com_css.FORMS
 
 // set the base for lots of form spacing and positioning styles
 $form-spacing ?=                             rem-calc(16)
@@ -78,7 +78,7 @@ $input-prefix-bg ?=                          darken($white, 5%)
 $input-prefix-border-color ?=                darken($white, 20%)
 $input-prefix-border-size ?=                 1px
 $input-prefix-border-type ?=                 solid
-$input-prefix-overflow ?=                    hidden
+$input-prefix-overflow ?=                    visible // hidden
 $input-prefix-font-color ?=                  $charcoal-1
 $input-prefix-font-color-alt ?=              $white
 
@@ -521,276 +521,286 @@ html5number($browser, $on = true) {
     }
 }
 
-// +exports("form") {
-    if $include-html-form-classes {
-        /* Standard Forms */
-        form {
-            margin: 0 0 $form-spacing
-        }
+//
+// @styles
+//
 
-        /* Using forms within rows, we need to set some defaults */
-        form .row {
-            form-row-base()
-        }
+if $include-html-form-classes {
+    // Standard Forms
+    form {
+        margin: 0 0 $form-spacing
+    }
 
-        /* Label Styles */
-        label {
-            form-label()
-            &.right {
-                form-label(right,false)
+    // Using forms within rows, we need to set some defaults
+    form .row {
+        form-row-base()
+    }
+
+    // Label Styles
+    label {
+        form-label()
+        &.right {
+            form-label(right,false)
+        }
+        &.inline {
+            form-label(inline,false)
+        }
+        // Styles for required inputs
+        > em,
+        > small {
+            text-transform: $form-label-small-transform
+            color: $form-label-required-font-color
+        }
+    }
+
+    // Attach elements to the beginning or end of an input
+    .prefix,
+    .postfix {
+        prefix-postfix-base() 
+    }
+
+    // Adjust padding, alignment and radius if pre/post element is a button
+    .postfix.btn {
+        button-size(false,false)
+        postfix(false, false, true)
+    }
+    .prefix.btn {
+        button-size(false,false)
+        prefix(false, false, true)
+    }
+
+    .prefix.btn--rad {
+        radius(0)
+        side-radius($default-float, $button-radius)
+    }
+    .postfix.btn--rad {
+        radius(0)
+        side-radius($opposite-direction, $button-radius)
+    }
+    .prefix.btn--rnd {
+        radius(0)
+        side-radius($default-float, $button-round)
+    }
+    .postfix.btn--rnd {
+        radius(0)
+        side-radius($opposite-direction, $button-round)
+    }
+
+    // Separate prefix and postfix styles when on span or label so buttons keep their own
+    span.prefix,
+    label.prefix {
+        prefix()
+    }
+    span.postfix,
+    label.postfix {
+        postfix()
+    }
+
+    // We use this to get basic styling on all basic form elements
+    {unquote(join(', ', text-inputs(all, 'input')))} {
+        -webkit-appearance: none
+        -webkit-border-radius: 0
+        form-element()
+        if ($input-include-glowing-effect == false) {
+            single-transition(all, 0.15s, linear)
+        }
+    }
+    textarea {
+        form-element()
+        height: auto
+    }
+
+    form {
+        .row {
+            .prefix--rad.row.collapse {
+                input,
+                textarea,
+                select,
+                button {
+                    radius(0)
+                    side-radius($opposite-direction, $button-radius)
+                }
+                .prefix {
+                    radius(0)
+                    side-radius($default-float, $button-radius)
+                }
             }
-            &.inline {
-                form-label(inline,false)
+            .postfix--rad.row.collapse {
+                input,
+                textarea,
+                select,
+                button {
+                    radius(0)
+                    side-radius($default-float, $button-radius)
+                }
+                .postfix {
+                    radius(0)
+                    side-radius($opposite-direction, $button-radius)
+                }
             }
-            // Styles for required inputs
-            > em,
-            > small {
-                text-transform: $form-label-small-transform
-                color: $form-label-required-font-color
+            .prefix--rnd.row.collapse {
+                input,
+                textarea,
+                select,
+                button {
+                    radius(0)
+                    side-radius($opposite-direction, $button-round)
+                }
+                .prefix {
+                    radius(0)
+                    side-radius($default-float, $button-round)
+                }
             }
-        }
-
-        /* Attach elements to the beginning or end of an input */
-        .prefix,
-        .postfix {
-            prefix-postfix-base() 
-        }
-
-        /* Adjust padding, alignment and radius if pre/post element is a button */
-        .postfix.btn {
-            button-size(false,false)
-            postfix(false, false, true)
-        }
-        .prefix.btn {
-            button-size(false,false)
-            prefix(false, false, true)
-        }
-
-        .prefix.btn.btn--radius {
-            radius(0)
-            side-radius($default-float, $button-radius)
-        }
-        .postfix.btn.btn--radius {
-            radius(0)
-            side-radius($opposite-direction, $button-radius)
-        }
-        .prefix.btn.btn--round {
-            radius(0)
-            side-radius($default-float, $button-round)
-        }
-        .postfix.btn.btn--round {
-            radius(0)
-            side-radius($opposite-direction, $button-round)
-        }
-
-        /* Separate prefix and postfix styles when on span or label so buttons keep their own */
-        span.prefix,
-        label.prefix {
-            prefix()
-        }
-        span.postfix,
-        label.postfix {
-            postfix()
-        }
-
-        /* We use this to get basic styling on all basic form elements */
-        {unquote(join(', ', text-inputs(all, 'input')))} {
-            -webkit-appearance: none
-            -webkit-border-radius: 0
-            form-element()
-            if ($input-include-glowing-effect == false) {
-                single-transition(all, 0.15s, linear)
+            .postfix--rnd.row.collapse {
+                input,
+                textarea,
+                select,
+                button {
+                    radius(0)
+                    side-radius($default-float, $button-round)
+                }
+                .postfix {
+                    radius(0)
+                    side-radius($opposite-direction, $button-round)
+                }
             }
         }
-        textarea {
-            form-element()
+    }
+
+    input[type="submit"] {
+        -webkit-appearance: none
+        -webkit-border-radius: 0
+        antialiased()
+    }
+
+    // Respect enforced amount of rows for textarea
+    textarea[rows] {
+        height: auto
+    }
+
+    // Not allow resize out of parent
+    textarea {
+        max-width: 100%
+    }
+
+    // Add height value for select elements to match text input height
+    select {
+        form-select()
+        height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
+        antialiased()
+        
+        &[multiple] {
             height: auto
         }
+    }
 
-        form {
-            .row {
-                .prefix--radius.row.collapse {
-                    input,
-                    textarea,
-                    select {
-                        radius(0)
-                        side-radius($opposite-direction, $button-radius)
-                    }
-                    .prefix {
-                        radius(0)
-                        side-radius($default-float, $button-radius)
-                    }
-                }
-                .postfix--radius.row.collapse {
-                    input,
-                    textarea,
-                    select {
-                        radius(0)
-                        side-radius($default-float, $button-radius)
-                    }
-                    .postfix {
-                        radius(0)
-                        side-radius($opposite-direction, $button-radius)
-                    }
-                }
-                .prefix--round.row.collapse {
-                    input,
-                    textarea,
-                    select {
-                        radius(0)
-                        side-radius($opposite-direction, $button-round)
-                    }
-                    .prefix {
-                        radius(0)
-                        side-radius($default-float, $button-round)
-                    }
-                }
-                .postfix--round.row.collapse {
-                    input,
-                    textarea,
-                    select {
-                        radius(0)
-                        side-radius($default-float, $button-round)
-                    }
-                    .postfix {
-                        radius(0)
-                        side-radius($opposite-direction, $button-round)
-                    }
-                }
-            }
-        }
+    // Adjust margin for form elements below
+    input[type="file"],
+    input[type="checkbox"],
+    input[type="radio"],
+    select {
+        margin: 0 0 $form-spacing 0
+    }
 
-        input[type="submit"] {
-            -webkit-appearance: none
-            -webkit-border-radius: 0
-            antialiased()
-        }
+    input[type="checkbox"],
+    input[type="radio"] {
+        form-checkbox-base()
+        form-checkbox-style()
+    }
+    input[type="radio"] + label:before {
+        radius(1000px)
+    }
+    input[type="checkbox"].checkbox--inverted,
+    input[type="radio"].radio--inverted {
+        form-checkbox-base()
+        form-checkbox-style($bg:rgba($black,0.25), $bg-hover:rgba($white,0.25), $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
+    }
 
-        /* Respect enforced amount of rows for textarea */
-        textarea[rows] {
-            height: auto
-        }
+    // Normalize file input width
+    input[type="file"] {
+        width:100%
+    }
 
-        /* Not allow resize out of parent */
-        textarea {
-            max-width: 100%
-        }
+    // HTML5 Number spinners settings
+    input[type=number] {
+        html5number(moz, $input-number-spinners)
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        html5number(webkit, $input-number-spinners)
+    }
 
-        /* Add height value for select elements to match text input height */
-        select {
-            form-select()
-            height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
-            antialiased()
-        }
+    // We add basic fieldset styling
+    fieldset {
+        fieldset()
+    }
 
-        /* Adjust margin for form elements below */
-        input[type="file"],
-        input[type="checkbox"],
-        input[type="radio"],
-        select {
-            margin: 0 0 $form-spacing 0
-        }
+    // Error Handling
 
-        input[type="checkbox"],
-        input[type="radio"] {
-            form-checkbox-base()
-            form-checkbox-style()
-        }
-        input[type="radio"] + label:before {
-            radius(1000px)
-        }
-        input[type="checkbox"].checkbox--inverted,
-        input[type="radio"].radio--inverted {
-            form-checkbox-base()
-            form-checkbox-style($bg:rgba($black,0.25), $bg-hover:rgba($white,0.25), $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
-        }
-
-        /* Normalize file input width */
-        input[type="file"] {
-            width:100%
-        }
-
-        /* HTML5 Number spinners settings */
-        input[type=number] {
-            html5number(moz, $input-number-spinners)
-        }
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            html5number(webkit, $input-number-spinners)
-        }
-
-        /* We add basic fieldset styling */
-        fieldset {
-            fieldset()
-        }
-
-        /* Error Handling */
-
-        {data('abide')} {
-            .error small.error,
-            .error span.error,
-            span.error,
-            small.error {
-                form-error-message()
-            }
-            span.error,
-            small.error {
-                display: none
-            }
-        }
-
+    {data('abide')} {
+        .error small.error,
+        .error span.error,
         span.error,
         small.error {
             form-error-message()
         }
-
-        .error {
-            input,
-            textarea,
-            select {
-                form-error-color($input-error-message-bg-color)
-                margin-bottom: 0
-            }
-
-            input[type="checkbox"],
-            input[type="radio"] {
-                margin-bottom: $form-spacing
-            }
-
-            label,
-            label.error {
-                form-label-error-color($input-error-message-font-color)
-            }
-
-            small.error {
-                form-error-message()
-            }
-
-            & > label {
-                & > small {
-                    color: lighten($form-label-font-color, 15%)
-                    background: transparent
-                    padding: 0
-                    margin: 0
-                    text-transform: $form-label-small-transform
-                    font-style: normal
-                    font-size: $form-label-small-font-size
-                    display: inline
-                }
-            }
-
-            span.error-message {
-                display: block
-            }
-        }
-
-        input.error,
-        textarea.error,
-        select.error {
-            margin-bottom: 0
-        }
-        label.error {
-            form-label-error-color()
+        span.error,
+        small.error {
+            display: none
         }
     }
-// }
+
+    span.error,
+    small.error {
+        form-error-message()
+    }
+
+    .error {
+        input,
+        textarea,
+        select {
+            form-error-color($input-error-message-bg-color)
+            margin-bottom: 0
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-bottom: $form-spacing
+        }
+
+        label,
+        label.error {
+            form-label-error-color($input-error-message-font-color)
+        }
+
+        small.error {
+            form-error-message()
+        }
+
+        & > label {
+            & > small {
+                color: lighten($form-label-font-color, 15%)
+                background: transparent
+                padding: 0
+                margin: 0
+                text-transform: $form-label-small-transform
+                font-style: normal
+                font-size: $form-label-small-font-size
+                display: inline
+            }
+        }
+
+        span.error-message {
+            display: block
+        }
+    }
+
+    input.error,
+    textarea.error,
+    select.error {
+        margin-bottom: 0
+    }
+    label.error {
+        form-label-error-color()
+    }
+}

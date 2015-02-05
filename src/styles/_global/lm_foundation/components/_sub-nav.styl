@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-nav-classes ?=                 $include-html-classes
+$include-html-sub-nav-classes =              com_css.SUBNAV
 
 // margin and padding
 $sub-nav-list-margin ?=                      rem-calc(-4 0 18)
@@ -61,7 +61,6 @@ sub-nav($font-color = $sub-nav-font-color, $font-size = $sub-nav-font-size, $act
     dd,
     li {
         float: $default-float
-        display: inline
         margin-{$default-float}: rem-calc(16)
         margin-bottom: 0
         font_family($sub-nav-font-family)
@@ -105,10 +104,12 @@ sub-nav($font-color = $sub-nav-font-color, $font-size = $sub-nav-font-size, $act
     }
 }
 
-// +exports("sub-nav") {
-    if $include-html-nav-classes {
-        .sub-nav {
-            sub-nav()
-        }
+//
+// @styles
+//
+
+if $include-html-sub-nav-classes {
+    .sub-nav {
+        sub-nav()
     }
-// }
+}

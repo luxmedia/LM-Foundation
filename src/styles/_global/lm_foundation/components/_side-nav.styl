@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-nav-classes ?=                 $include-html-classes
+$include-html-side-nav-classes =             com_css.SIDENAV
 
 // padding.
 $side-nav-padding ?=                         rem-calc(14 0)
@@ -101,10 +101,12 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
     }
 }
 
-// +exports("side-nav") {
-    if $include-html-nav-classes {
-        .side-nav {
-            side-nav()
-        }
+
+//
+// @styles
+//
+if $include-html-side-nav-classes {
+    .side-nav {
+        side-nav()
     }
-// }
+}

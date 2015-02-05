@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-alert-classes ?=               $include-html-classes
+$include-html-alert-classes =               com_js.ALERT
 $include-html-alert-alt-classes ?=           false
 
 // alert padding.
@@ -43,7 +43,7 @@ $alert-close-position ?=                     rem-calc(4)
 $alert-close-font-size ?=                    fontsize(2rem)
 $alert-close-opacity ?=                      0.3
 $alert-close-opacity-hover ?=                0.5
-$alert-close-padding ?=                      rem-calc(15 10)
+$alert-close-padding ?=                      rem-calc(0 10 10)
 $alert-close-background ?=                   inherit
 
 $alert-bg-icosize ?=                        rem-calc(24)
@@ -128,7 +128,7 @@ alert-style($bg = $primary-color, $font-color = $alert-font-color, $border-color
 alert-close() {
     font-size: $alert-close-font-size
     padding: $alert-close-padding
-    line-height: 0
+    line-height: .9
     position: absolute
     top: $alert-close-top
     margin-top: -($alert-close-padding[0]+($alert-close-font-size/2))

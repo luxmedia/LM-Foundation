@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-media-classes ?=              $include-html-classes
+$include-html-media-classes =              com_css.PROGRESSBARS
 
 // set the progress bar height
 $progress-bar-height ?=                     rem-calc(25)
@@ -53,42 +53,44 @@ progress-meter($bg = $progress-meter-color) {
 }
 
 
-// +exports("progress-bar") {
-    if $include-html-media-classes {
+//
+// @styles
+//
 
-        /* Progress Bar */
-        .progress {
-            progress-container()
+if $include-html-media-classes {
 
-            // Meter
+    /* Progress Bar */
+    .progress {
+        progress-container()
+
+        // Meter
+        .meter {
+            progress-meter()
+        }
+        &--secondary .meter {
+            progress-meter($bg:$progress-meter-secondary-color)
+        }
+        &--success .meter {
+            progress-meter($bg:$progress-meter-success-color)
+        }
+        &--alert .meter {
+            progress-meter($bg:$progress-meter-alert-color)
+        }
+
+        &--radius {
+            radius($progress-bar-border-radius)
             .meter {
-                progress-meter()
+                radius(($progress-bar-border-radius - 1))
             }
-            &--secondary .meter {
-                progress-meter($bg:$progress-meter-secondary-color)
-            }
-            &--success .meter {
-                progress-meter($bg:$progress-meter-success-color)
-            }
-            &--alert .meter {
-                progress-meter($bg:$progress-meter-alert-color)
-            }
+        }
 
-            &--radius {
-                radius($progress-bar-border-radius)
-                .meter {
-                    radius(($progress-bar-border-radius - 1))
-                }
+        &--round {
+            radius(1000px)
+            .meter {
+                radius(999px)
             }
-
-            &--round {
-                radius(1000px)
-                .meter {
-                    radius(999px)
-                }
-            }
-
         }
 
     }
-// }
+
+}

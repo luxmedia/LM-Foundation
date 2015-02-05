@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-keystroke-classes ?=           $include-html-classes
+$include-html-keystroke-classes =           com_css.KEYSTROKES
 
 // text styles.
 $keystroke-font ?=                           $font-family-monospace
@@ -53,12 +53,14 @@ keystroke($bg = $keystroke-bg) {
     padding: $keystroke-padding
 }
 
-// +exports("keystroke") {
-    if $include-html-keystroke-classes  {
-        .keystroke,
-        kbd {
-            keystroke()
-            radius($keystroke-radius)
-        }
+//
+// @styles
+//
+
+if $include-html-keystroke-classes  {
+    .keystroke,
+    kbd {
+        keystroke()
+        radius($keystroke-radius)
     }
-// }
+}

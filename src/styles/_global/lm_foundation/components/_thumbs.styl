@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-media-classes ?=               $include-html-classes
+$include-html-media-thumbs-classes =         com_css.THUMBS
 
 // border styles
 $thumb-border-style ?=                       solid
@@ -45,17 +45,18 @@ thumb($border-width = $thumb-border-width, $box-shadow = $thumb-box-shadow, $box
 }
 
 
-// +exports("thumb") {
-    if $include-html-media-classes {
+//
+// @styles
+//
+if $include-html-media-thumbs-classes {
 
-        /* Image Thumbnails */
-        .th {
-            thumb()
-            single-transition(all,$thumb-transition-speed,ease-out)
+    /* Image Thumbnails */
+    .th {
+        thumb()
+        single-transition(all,$thumb-transition-speed,ease-out)
 
-            &--radius {
-                radius($thumb-radius)
-            }
+        &--radius {
+            radius($thumb-radius)
         }
     }
-// }
+}

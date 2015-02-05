@@ -11,7 +11,7 @@
 // @variables
 //
 
-$include-html-topbar-classes ?=             $include-html-classes
+$include-html-topbar-classes =               com_js.TOPBAR
 
 // Background color for the top bar
 $topbar-bg-color ?=                          $charcoal-1
@@ -124,6 +124,11 @@ topbar-show-dropdown() {
     element-invisible-off()
     position: absolute !important // Reset the position from static to absolute
 }
+
+
+//
+// @styles
+//
 
 if $include-html-topbar-classes {
 
@@ -619,7 +624,9 @@ if $include-html-topbar-classes {
             .logo-wrap {
                 float: $default-float
             }
-            .logo h1 a {
+            .logo h1 a,
+            .logo h2 a,
+            .logo h3 a {
                 display: block
                 width: auto
             }

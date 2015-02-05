@@ -8,7 +8,7 @@
 // @variables
 //
 
-$include-html-label-classes ?=               $include-html-classes
+$include-html-label-classes =               com_css.LABELS
 
 // style the labels
 $label-padding ?=                            rem-calc(5 8)
@@ -122,100 +122,102 @@ label($padding = $label-padding, $text-size = $label-font-sizing, $bg = $primary
     label-style($bg, $radius)
 }
 
-// +exports("label") {
-    if $include-html-label-classes {
-        .lbl {
-            label-base()
-            label-size()
-            label-style()
+//
+// @styles
+//
 
-            // Empty badges collapse automatically (not available in IE8)
-            &:empty {
-                display: none
-            }
+if $include-html-label-classes {
+    .lbl {
+        label-base()
+        label-size()
+        label-style()
 
-            // Label Variants
-            &--radius {
-                label-style(false, true)
-            }
-            &--round {
-                label-style(false, $radius:1000px)
-            }
+        // Empty badges collapse automatically (not available in IE8)
+        &:empty {
+            display: none
+        }
 
-            &--success {
-                label-style($success-color)
-            }
-            &--primary {
-                label-style($primary-color)
-            }
-            &--info {
-                label-style($info-color)
-            }
-            &--alert {
-                label-style($bg:$alert-color, $font-color:$critical-font-color)
-            }
-            &--warning {
-                label-style($bg:$warning-color, $font-color:$warning-font-color)
-            }
-            
-            // inverted and flat Label
-            &--inverted {
-                label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-border)
-            }
-            &--flat {
-                label-style($bg:transparent, $font-color:$label-inverted-font-color)
-            }
-            &--primary.lbl--flat {
-                color: $primary-color
-            }
+        // Label Variants
+        &--radius {
+            label-style(false, true)
+        }
+        &--round {
+            label-style(false, $radius:1000px)
+        }
 
-            // Different sizes
-            &--med {
-                label-size(false, $label-font-size-med)
-            }
-            &--lrg {
-                label-size(false, $label-font-size-lrg)
-            }
-            &--xlrg {
-                label-size(false, $label-font-size-xlrg)
-                font-weight: $font-weight-normal
-            }
-            &--xxlrg {
-                label-size(false, $label-font-size-xxlrg)
-                font-weight: $font-weight-normal
-            }
+        &--success {
+            label-style($success-color)
+        }
+        &--primary {
+            label-style($primary-color)
+        }
+        &--info {
+            label-style($info-color)
+        }
+        &--alert {
+            label-style($bg:$alert-color, $font-color:$critical-font-color)
+        }
+        &--warning {
+            label-style($bg:$warning-color, $font-color:$warning-font-color)
+        }
+        
+        // inverted and flat Label
+        &--inverted {
+            label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-border)
+        }
+        &--flat {
+            label-style($bg:transparent, $font-color:$label-inverted-font-color)
+        }
+        &--primary.lbl--flat {
+            color: $primary-color
+        }
 
-            // Badges
-            &--badge {
-                label-size($padding:$badge-padding)
-                label-style(false, $radius:1000px)
-            }
+        // Different sizes
+        &--med {
+            label-size(false, $label-font-size-med)
+        }
+        &--lrg {
+            label-size(false, $label-font-size-lrg)
+        }
+        &--xlrg {
+            label-size(false, $label-font-size-xlrg)
+            font-weight: $font-weight-normal
+        }
+        &--xxlrg {
+            label-size(false, $label-font-size-xxlrg)
+            font-weight: $font-weight-normal
+        }
 
-            // Hover state, but only for links
-            a& {
-                &:hover,
-                &:focus {
-                  color: $badge-hover-color
-                  text-decoration: none
-                  cursor: pointer
-                }
-            }
+        // Badges
+        &--badge {
+            label-size($padding:$badge-padding)
+            label-style(false, $radius:1000px)
+        }
 
-            // Account for badges in navs
-            .list-group-item.active > &,
-            .nav-pills > .active > a > & {
-                color: $badge-active-color
-                background-color: $badge-active-bg
-            }
-            .list-group-item > & {
-                float: right
-            }
-            .list-group-item > & + & {
-                margin-right: rem-calc(5)
-            }
-            .nav-pills > li > a > & {
-                margin-left: rem-calc(3)
+        // Hover state, but only for links
+        a& {
+            &:hover,
+            &:focus {
+              color: $badge-hover-color
+              text-decoration: none
+              cursor: pointer
             }
         }
+
+        // Account for badges in navs
+        .list-group-item.active > &,
+        .nav-pills > .active > a > & {
+            color: $badge-active-color
+            background-color: $badge-active-bg
+        }
+        .list-group-item > & {
+            float: right
+        }
+        .list-group-item > & + & {
+            margin-right: rem-calc(5)
+        }
+        .nav-pills > li > a > & {
+            margin-left: rem-calc(3)
+        }
     }
-// }
+}

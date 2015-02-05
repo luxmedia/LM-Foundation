@@ -8,7 +8,7 @@
 // @Variables
 //
 
-$include-html-nav-classes ?=                 $include-html-classes
+$include-html-nav-breadcrumb-classes =                 com_css.BREADCRUMBS
 
 // set the background color for the breadcrumb container.
 $crumb-bg ?=                                 lighten($secondary-color, 55%)
@@ -129,23 +129,25 @@ crumbs() {
     }
 }
 
-// +exports("breadcrumbs") {
-    if $include-html-nav-classes {
-        .breadcrumbs {
-            crumb-container()
-            if($crumb-radius) {
-                radius($crumb-radius)
-            }
+//
+// @styles
+//
 
-            // & > * {
-            & > li {
-                crumbs()
-            }
+if $include-html-nav-breadcrumb-classes {
+    .breadcrumbs {
+        crumb-container()
+        if($crumb-radius) {
+            radius($crumb-radius)
+        }
+
+        // & > * {
+        & > li {
+            crumbs()
         }
     }
-// }
 
-/* Accessibility - hides the forward slash */
-[aria-label="breadcrumbs"] [aria-hidden="true"]:after {
-    content: "/"
+    // Accessibility - hides the forward slash
+    [aria-label="breadcrumbs"] [aria-hidden="true"]:after {
+        content: "/"
+    }
 }

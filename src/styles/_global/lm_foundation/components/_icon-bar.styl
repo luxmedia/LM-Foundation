@@ -9,7 +9,7 @@
 //
 
 // style the icon-bar and items
-$include-html-icon-bar-classes ?=            $include-html-classes
+$include-html-icon-bar-classes =            com_css.ICONBAR
 $icon-bar-bg ?=                              $charcoal-1
 $icon-bar-font-color ?=                      $white
 $icon-bar-font-color-hover ?=                $icon-bar-font-color
@@ -72,7 +72,7 @@ icon-bar-base() {
         }
     }
 
-    &--label-right > * {
+    &--lbl--right > * {
 
         i, img, svg {
             margin: 0 remify(.0625rem) 0 0
@@ -88,12 +88,12 @@ icon-bar-base() {
         }
     }
 
-    &--vertical.icon-bar--label-right > * {
+    &--vert.iconbar--lbl--right > * {
         text-align: left
     }
 
-    &--vertical, 
-    &--small-vertical{
+    &--vert, 
+    &--sml--vert{
         height: 100%
         width: auto
 
@@ -104,7 +104,7 @@ icon-bar-base() {
         }
     }
 
-    &--medium-vertical {
+    &--med--vert {
         @media $medium-up {
             height: 100%
             width: auto
@@ -116,7 +116,7 @@ icon-bar-base() {
             }
         }
     }
-    &--large-vertical {
+    &--lrg--vert {
         @media $large-up {
             height: 100%
             width: auto
@@ -193,6 +193,7 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
         .item.is-disabled {
             opacity: $icon-bar-disabled-opacity
             cursor: $icon-bar-disabled-cursor
+            pointer-events: none
             >* {
                 opacity: $icon-bar-disabled-opacity
                 cursor: $icon-bar-disabled-cursor
@@ -212,116 +213,118 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
 // $base-style - Apply base styles? Default: true.
 // $disabled - Allow disabled icons? Default: false.
 
-icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-font-color-hover = $icon-bar-font-color-hover, $bar-hover-color = $icon-bar-hover-color, $bar-icon-color = $icon-bar-icon-color, $bar-icon-color-hover = $icon-bar-icon-color-hover, $bar-active-color = $icon-bar-active-color, $padding = $icon-bar-item-padding, $font-size = $icon-bar-font-size, $icon-size = $icon-bar-icon-size, $image-width = $icon-bar-image-width, $image-height = $icon-bar-image-height, $base-style = true, $disabled = false) {
+icon-bar($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $bar-font-color-hover = $icon-bar-font-color-hover, $bar-hover-color = $icon-bar-hover-color, $bar-icon-color = $icon-bar-icon-color, $bar-icon-color-hover = $icon-bar-icon-color-hover, $bar-active-color = $icon-bar-active-color, $padding = $icon-bar-item-padding, $font-size = $icon-bar-font-size, $icon-size = $icon-bar-icon-size, $image-width = $icon-bar-image-width, $image-height = $icon-bar-image-height, $base-style = true, $disabled = true) {
     icon-bar-base()
     icon-bar-size($padding, $font-size, $icon-size, $image-width, $image-height)
     icon-bar-style($bar-bg, $bar-font-color, $bar-font-color-hover, $bar-hover-color, $bar-icon-color, $bar-icon-color-hover, $bar-active-color, $base-style, $disabled)
 }
 
 
-// +exports("icon-bar") {
-    if $include-html-icon-bar-classes {
-        // toolbar styles
-        .icon-bar {
-            
-            icon-bar()
-            
-            // Counts
-            &--two-up {
-                .item {
-                    width: 50%
-                }
-                &.icon-bar--vertical .item, 
-                &.icon-bar--small-vertical .item {
+//
+// @styles
+//
+
+if $include-html-icon-bar-classes {
+    // toolbar styles
+    .iconbar {
+        
+        icon-bar()
+        
+        // Counts
+        &--two-up {
+            .item {
+                width: 50%
+            }
+            &.iconbar--vert .item, 
+            &.iconbar--sml--vert .item {
+                width: auto
+            }
+            &.iconbar--med--vert .item {
+                @media $medium-up {
                     width: auto
-                }
-                &.icon-bar--medium-vertical .item {
-                    @media $medium-up {
-                        width: auto
-                    }
-                }
-                &.icon-bar--large-vertical .item {
-                    @media $large-up {
-                        width: auto
-                    }
                 }
             }
-            &--three-up {
-                .item {
-                    width: 33.3333%
-                }
-                &.icon-bar--vertical .item, 
-                &.icon-bar--small-vertical .item {
+            &.iconbar--lrg--vert .item {
+                @media $large-up {
                     width: auto
-                }
-                &.icon-bar--medium-vertical .item {
-                    @media $medium-up {
-                        width: auto
-                    }
-                }
-                &.icon-bar--large-vertical .item {
-                    @media $large-up {
-                        width: auto
-                    }
                 }
             }
-            &--four-up {
-                .item {
-                    width: 25%
-                }
-                &.icon-bar--vertical .item, 
-                &.icon-bar--small-vertical .item {
+        }
+        &--three-up {
+            .item {
+                width: 33.3333%
+            }
+            &.iconbar--vert .item, 
+            &.iconbar--sml--vert .item {
+                width: auto
+            }
+            &.iconbar--med--vert .item {
+                @media $medium-up {
                     width: auto
-                }
-                &.icon-bar--medium-vertical .item {
-                    @media $medium-up {
-                        width: auto
-                    }
-                }
-                &.icon-bar--large-vertical .item {
-                    @media $large-up {
-                        width: auto
-                    }
                 }
             }
-            &--five-up {
-                .item {
-                    width: 20%
-                }
-                &.icon-bar--vertical .item, 
-                &.icon-bar--small-vertical .item {
+            &.iconbar--lrg--vert .item {
+                @media $large-up {
                     width: auto
-                }
-                &.icon-bar--medium-vertical .item {
-                    @media $medium-up {
-                        width: auto
-                    }
-                }
-                &.icon-bar--large-vertical .item {
-                    @media $large-up {
-                        width: auto
-                    }
                 }
             }
-            &--six-up {
-                .item {
-                    width: 16.66667%
-                }
-                &.icon-bar--vertical .item, 
-                &.icon-bar--small-vertical .item {
+        }
+        &--four-up {
+            .item {
+                width: 25%
+            }
+            &.iconbar--vert .item, 
+            &.iconbar--sml--vert .item {
+                width: auto
+            }
+            &.iconbar--med--vert .item {
+                @media $medium-up {
                     width: auto
                 }
-                &.icon-bar--medium-vertical .item {
-                    @media $medium-up {
-                        width: auto
-                    }
+            }
+            &.iconbar--lrg--vert .item {
+                @media $large-up {
+                    width: auto
                 }
-                &.icon-bar--large-vertical .item {
-                    @media $large-up {
-                        width: auto
-                    }
+            }
+        }
+        &--five-up {
+            .item {
+                width: 20%
+            }
+            &.iconbar--vert .item, 
+            &.iconbar--sml--vert .item {
+                width: auto
+            }
+            &.iconbar--med--vert .item {
+                @media $medium-up {
+                    width: auto
+                }
+            }
+            &.iconbar--lrg--vert .item {
+                @media $large-up {
+                    width: auto
+                }
+            }
+        }
+        &--six-up {
+            .item {
+                width: 16.66667%
+            }
+            &.iconbar--vert .item, 
+            &.iconbar--sml--vert .item {
+                width: auto
+            }
+            &.iconbar--med--vert .item {
+                @media $medium-up {
+                    width: auto
+                }
+            }
+            &.iconbar--lrg--vert .item {
+                @media $large-up {
+                    width: auto
                 }
             }
         }
     }
-// }
+}

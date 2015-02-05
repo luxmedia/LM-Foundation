@@ -14,6 +14,21 @@ module.exports = function(grunt) {
         distSvgFile: 'sprite.svg'
     };
 
+    // GET THE FRAMEWORK (FOUNDATION) COMPONENTS TO BE LOADED
+    var comp_json = grunt.file.readJSON('src/components-js.json');
+
+    // first element in array MUST be the foundation.js base script!
+    var lm_components = ['<%= base_conf.src %>/js/foundation/foundation.js'];
+
+    // Build the components array
+    // IMPORTANT NOTE: Naming of foundation.xxx.js and objects in "components-js.json" MUST match (but case-insensitive)!!!
+    for ( var key in comp_json ) {
+        if (comp_json[key] == true) {
+            var fname = key;
+            lm_components.push('<%= base_conf.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
+        }
+    }
+
     // CUSTOM VARIABLES
     // define our source and destination folders
     var lm_conf = {
@@ -22,36 +37,15 @@ module.exports = function(grunt) {
         js_src_vendor: ['<%= base_conf.src %>/js/vendor/all/*.js'],
         // ie8 fallback js
         js_src_ie8: ['<%= base_conf.src %>/js/vendor/ie/*.js'],
-        // javascript source files
-        // make sure to load foundation.js before its components (see concat task) !!!
-        js_src_fndtn: ['<%= base_conf.src %>/js/foundation/foundation.js'],
+        // foundation js source files
+        // make sure to load foundation.js before its components (see JSON routine above) !!!
+        js_src_fndtn_components: lm_components,
 
-        // DEFINE: FOUNDATION JS PLUGINS TO LOAD
-        js_src_fndtn_components: [
-            '<%= base_conf.src %>/js/foundation/foundation.abide.js',
-            '<%= base_conf.src %>/js/foundation/foundation.accordion.js',
-            '<%= base_conf.src %>/js/foundation/foundation.alerts.js',
-            '<%= base_conf.src %>/js/foundation/foundation.clearing.js',
-            '<%= base_conf.src %>/js/foundation/foundation.dropdown.js',
-            '<%= base_conf.src %>/js/foundation/foundation.equalizer.js',
-            '<%= base_conf.src %>/js/foundation/foundation.interchange.js',
-            '<%= base_conf.src %>/js/foundation/foundation.loading.js',
-            // '<%= base_conf.src %>/js/foundation/foundation.joyride.js',
-            // '<%= base_conf.src %>/js/foundation/foundation.magellan.js',
-            '<%= base_conf.src %>/js/foundation/foundation.offcanvas.js',
-            // '<%= base_conf.src %>/js/foundation/foundation.orbit.js',
-            '<%= base_conf.src %>/js/foundation/foundation.slickslider.js', // not really a foundation component, but included here
-            '<%= base_conf.src %>/js/foundation/foundation.reveal.js',
-            '<%= base_conf.src %>/js/foundation/foundation.slider.js',
-            // '<%= base_conf.src %>/js/foundation/foundation.tab.js', // we use accessibleTabs instead!
-            '<%= base_conf.src %>/js/foundation/foundation.tooltip.js',
-            '<%= base_conf.src %>/js/foundation/foundation.topbar.js'
-        ],
         // DEFINE: CUSTOM JS PLUGINS TO LOAD
         js_src_plugins: [
             '<%= base_conf.src %>/js/custom/plugins/custom.functions.js',
             '<%= base_conf.src %>/js/custom/plugins/jquery.actual.js',
-            '<%= base_conf.src %>/js/custom/plugins/jquery.tabs.js'
+            // '<%= base_conf.src %>/js/custom/plugins/jquery.tabs.js' // Moved to foundation.tabs.js
         ],
         js_src_custom: ['<%= base_conf.src %>/js/custom/*.js'],
         // js distribution folder and file
