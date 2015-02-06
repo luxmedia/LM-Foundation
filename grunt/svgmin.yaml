@@ -12,4 +12,4 @@ dist:
   src:
     - '*.svg'
   dest: '<%= base_conf.dest %>/svg/min'
-  ext: '.colors-light-medium-dark-primary.svg'
+  ext: '<%= lm_conf.svg_colors_ext %>' # '.colors-light-medium-dark-primary.svg'

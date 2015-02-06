@@ -22,11 +22,11 @@ $include-html-global-classes ?=      com_css.GLOBAL
 // Folder
 // =========================================================================
 
-$base-http ?=                       'http://www.your-domain.com'
+$base-http ?=                       base_paths.httpurl
 
-$base-path-src ?=                    './src'
+$base-path-src ?=                    ('./' + base_paths.src)
 $base-path-svg ?=                    $base-path-src+'/svg'
-$base-path-dist ?=                   './dist'
+$base-path-dist ?=                   ('./' + base_paths.dist)
 
 $relative-paths ?=                   true
 
@@ -64,7 +64,9 @@ $font-custom-spacing ?=              1px
 $font-weight-normal ?=               normal
 $font-weight-bold ?=                 bold
 
-$white ?=                            #FFFFFF
+$gray-base ?=                        base_colors.medium
+
+$white ?=                            base_colors.light
 $gray-lighter-1 ?=                   #FAFAFA
 $gray-lighter-2 ?=                   #F9F9F9
 $gray-lighter-3 ?=                   #F6F6F6
@@ -73,7 +75,6 @@ $gray-light-2 ?=                     #EFEFEF
 $gray-light-3 ?=                     #EEEEEE
 $gray-medium-1 ?=                    #DDDDDD
 $gray-medium-2 ?=                    #CCCCCC
-$gray-base ?=                        #AAAAAA
 $gray-dark-1 ?=                      #999999
 $gray-dark-2 ?=                      #888888
 $gray-dark-3 ?=                      #777777
@@ -82,11 +83,14 @@ $gray-darker-2 ?=                    #555555
 $gray-darker-3 ?=                    #444444
 $charcoal-1 ?=                       #333333
 $charcoal-2 ?=                       #222222
-$black ?=                            #111111
+$black ?=                            base_colors.dark
 
 // We use these as default colors throughout
-$primary-color ?=                    #d94343 // #008CBA
-$secondary-color =                   lightness($gray-base,50%)
+$primary-color ?=                    base_colors.primary
+$primary-2-color ?=                  base_colors.secondary
+
+$secondary-color ?=                  lightness($gray-base,50%)
+
 $info-color ?=                       #62a7d9 // #a0d3e8
 $success-color ?=                    #4fc497 // #43AC6A
 $warning-color ?=                    #ffcd45 // #f08a24

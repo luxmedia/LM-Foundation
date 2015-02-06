@@ -3,13 +3,7 @@
 # makes SVG icons into a CSS file
 options:
   cssprefix: '.ico-'
-  colors:
-    light: '#fff'
-    medium: '#AAAAAA'
-    dark: '#111111'
-    primary: '#d94343'
-    # info: '#62a7d9'
-    # success: '#4fc497'
+  colors: '<%= lm_conf.svg_colors_arr %>'
 dist:
   expand: true
   cwd: '<%= base_conf.dest %>/svg/min'

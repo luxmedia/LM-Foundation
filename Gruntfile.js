@@ -8,6 +8,10 @@ module.exports = function(grunt) {
     if (grunt.file.isFile('src/json/base__paths.json')) {
         var base__paths = grunt.file.readJSON('src/json/base__paths.json', {encoding:"utf-8"});
     }
+    // BASE COLOR VARIABELS (used for svg and png variant generation)
+    if (grunt.file.isFile('src/json/base__colors.json')) {
+        var base__colors = grunt.file.readJSON('src/json/base__colors.json', {encoding:"utf-8"});
+    }
     // GET THE FRAMEWORK (FOUNDATION) COMPONENTS TO BE LOADED
     if (grunt.file.isFile('src/json/fndtn__com__js.json')) {
         var fndtn__com = grunt.file.readJSON('src/json/fndtn__com__js.json');
@@ -38,7 +42,16 @@ module.exports = function(grunt) {
             fndtn__src__com.push('<%= base_conf.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
         }
     }
-    // 2. BUILD JQUERY PLUGINS ARRAY
+    // 2. BUILD COLORS STRING (Depending on "svgmin" syntax for "ext")
+    var svg_color_str = '.colors';
+    // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jquery__plugins.json" MUST match (but case-insensitive)!!!
+    for ( var key in base__colors ) {
+        var fname = key
+        svg_color_str += '-' + fname.toLowerCase();
+    }
+    svg_color_str += '.svg';
+
+    // 3. BUILD JQUERY PLUGINS ARRAY
     var js_src_jquery_plugins = [];
     // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jquery__plugins.json" MUST match (but case-insensitive)!!!
     for ( var key in jquery__plugins ) {
@@ -47,7 +60,7 @@ module.exports = function(grunt) {
             js_src_jquery_plugins.push('<%= base_conf.src %>/js/custom/plugins/jquery.' + fname.toLowerCase() + '.js');
         }
     }
-    // 3. BUILD CUSTOM SCRIPTS ARRAY
+    // 4. BUILD CUSTOM SCRIPTS ARRAY
     var js_src_scripts = [];
     // IMPORTANT NOTE: Naming of custom.xxx.js and objects in "custom__js.json" MUST match (but case-insensitive)!!!
     for ( var key in custom__js ) {
@@ -86,6 +99,8 @@ module.exports = function(grunt) {
         // svg source folder/files
         svg_src: ['<%= base_conf.src %>/svg'],
         svg_src_files: ['<%= base_conf.src %>/svg/*.svg'],
+        svg_colors_arr: base__colors,
+        svg_colors_ext: svg_color_str,
         // --- DESTINATION ---
         // js distribution folder and file
         js_dist_folder: '<%= base_conf.dest %>/js',

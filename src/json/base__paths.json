@@ -2,6 +2,7 @@
     "nodejs" : "node_modules",
     "src" : "src",
     "dest" : "dist",
+    "httpurl" : "http.yourdomain.com",
     "js_dist_file_vendor" : "vendor",
     "js_dist_file_fndtn" : "fndtn",
     "js_dist_file_plugins" : "plugins",
