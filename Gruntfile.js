@@ -1,78 +1,103 @@
 module.exports = function(grunt) {
 
+    // JSON CONSTRUCTOR
+    // ===============================================
+    // Get json configuration files
+
+    // BASE PATH AND FILES VARIABLES
+    if (grunt.file.isFile('src/json/base__paths.json')) {
+        var base__paths = grunt.file.readJSON('src/json/base__paths.json', {encoding:"utf-8"});
+    }
+    // GET THE FRAMEWORK (FOUNDATION) COMPONENTS TO BE LOADED
+    if (grunt.file.isFile('src/json/fndtn__com__js.json')) {
+        var fndtn__com = grunt.file.readJSON('src/json/fndtn__com__js.json');
+    }
+    // CUSTOM JQUERY PLUGINS
+    if (grunt.file.isFile('src/json/cust__jquery__plugins.json')) {
+        var jquery__plugins = grunt.file.readJSON('src/json/cust__jquery__plugins.json');
+    }
+    // CUSTOM JQUERY PLUGINS
+    if (grunt.file.isFile('src/json/cust__js.json')) {
+        var custom__js = grunt.file.readJSON('src/json/cust__js.json');
+    }
+
     // Global Variables
     var base_conf = {
-        nodejs: 'node_modules',
-        src: 'src',
-        dest: 'dist',
-        distCss: 'styles',
-        distJs: 'js',
-        distSvg: 'svg',
-        distCssFile: 'styles.css',
-        distCssUnprefixedFile: 'styles-unprefixed.css',
-        distJsFile: 'script.min.js',
-        distSvgFile: 'sprite.svg'
+        nodejs: base__paths.nodejs,
+        src: base__paths.src,
+        dest: base__paths.dest
     };
 
-    // GET THE FRAMEWORK (FOUNDATION) COMPONENTS TO BE LOADED
-    var comp_json = grunt.file.readJSON('src/components-js.json');
-
+    // 1. BUILD FOUNDATION COMPONENTS ARRAY
     // first element in array MUST be the foundation.js base script!
-    var lm_components = ['<%= base_conf.src %>/js/foundation/foundation.js'];
-
-    // Build the components array
+    var fndtn__src__com = ['<%= base_conf.src %>/js/foundation/foundation.js'];
     // IMPORTANT NOTE: Naming of foundation.xxx.js and objects in "components-js.json" MUST match (but case-insensitive)!!!
-    for ( var key in comp_json ) {
-        if (comp_json[key] == true) {
+    for ( var key in fndtn__com ) {
+        if (fndtn__com[key] == true) {
             var fname = key;
-            lm_components.push('<%= base_conf.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
+            fndtn__src__com.push('<%= base_conf.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
+        }
+    }
+    // 2. BUILD JQUERY PLUGINS ARRAY
+    var js_src_jquery_plugins = [];
+    // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jquery__plugins.json" MUST match (but case-insensitive)!!!
+    for ( var key in jquery__plugins ) {
+        if (jquery__plugins[key] == true) {
+            var fname = key;
+            js_src_jquery_plugins.push('<%= base_conf.src %>/js/custom/plugins/jquery.' + fname.toLowerCase() + '.js');
+        }
+    }
+    // 3. BUILD CUSTOM SCRIPTS ARRAY
+    var js_src_scripts = [];
+    // IMPORTANT NOTE: Naming of custom.xxx.js and objects in "custom__js.json" MUST match (but case-insensitive)!!!
+    for ( var key in custom__js ) {
+        if (custom__js[key] == true) {
+            var fname = key;
+            js_src_scripts.push('<%= base_conf.src %>/js/custom/custom.' + fname.toLowerCase() + '.js');
         }
     }
 
-    // CUSTOM VARIABLES
+    // ===============================================
+    // EOF - JSON CONSTRUCTOR
+
+
+    // ASSIGN CUSTOM VARIABLES
+    // ===============================================
     // define our source and destination folders
     var lm_conf = {
+        // --- SOURCE ---
         stylus_plugins: ['svg-stylus'],
         // vednor js
-        js_src_vendor: ['<%= base_conf.src %>/js/vendor/all/*.js'],
+        js_src_vendor: ['<%= base_conf.src %>/js/vendor/common/*.js'],
         // ie8 fallback js
         js_src_ie8: ['<%= base_conf.src %>/js/vendor/ie/*.js'],
         // foundation js source files
         // make sure to load foundation.js before its components (see JSON routine above) !!!
-        js_src_fndtn_components: lm_components,
-
-        // DEFINE: CUSTOM JS PLUGINS TO LOAD
-        js_src_plugins: [
-            '<%= base_conf.src %>/js/custom/plugins/custom.functions.js',
-            '<%= base_conf.src %>/js/custom/plugins/jquery.actual.js',
-            // '<%= base_conf.src %>/js/custom/plugins/jquery.tabs.js' // Moved to foundation.tabs.js
-        ],
-        js_src_custom: ['<%= base_conf.src %>/js/custom/*.js'],
-        // js distribution folder and file
-        js_dist_folder: ['<%= base_conf.dest %>/js'],
-        js_dist_file_vendor: 'vendor',
-        js_dist_file_fndtn: 'foundation',
-        js_dist_file_plugins: 'plugins',
-        js_dist_file_custom: 'scripts',
-        js_dist_file_iefallback: 'ie8',
+        js_src_fndtn_com: fndtn__src__com,
+        // Custom jquery plugins
+        js_src_plugins: js_src_jquery_plugins,
+        // custom javascripts
+        js_src_custom: js_src_scripts,
         // stylus source file(s)
         styl_src: ['<%= base_conf.src %>/styles/*.styl'],
-        // styl_src_files: [
-        //     '<%= base_conf.src %>/styles/_global/normalize.styl',
-        //     '<%= base_conf.src %>/styles/_global/lm_foundation/_settings.styl',
-        //     '<%= base_conf.src %>/styles/custom/_settings.styl',
-        //     '<%= base_conf.src %>/styles/_global/lm_foundation/lm-foundation.styl'
-        // ],
         styl_src_file: '<%= base_conf.src %>/styles/styles.styl',
         styl_src_files: 'styles/styles.styl',
         styl_src_ie8flag: 'styles/ie8-flag.styl',
+        // svg source folder/files
+        svg_src: ['<%= base_conf.src %>/svg'],
+        svg_src_files: ['<%= base_conf.src %>/svg/*.svg'],
+        // --- DESTINATION ---
+        // js distribution folder and file
+        js_dist_folder: '<%= base_conf.dest %>/js',
+        js_dist_file_vendor: base__paths.js_dist_file_vendor,
+        js_dist_file_fndtn: base__paths.js_dist_file_fndtn,
+        js_dist_file_plugins: base__paths.js_dist_file_plugins,
+        js_dist_file_custom: base__paths.js_dist_file_custom,
+        js_dist_file_iefallback: base__paths.js_dist_file_iefallback,
         // css distribution folder and file
         css_dist_folder: '<%= base_conf.dest %>/css',
         css_dist_file: '<%= base_conf.dest %>/css/styles',
         css_dist_file_ie8: '<%= base_conf.dest %>/css/ie8',
-        // svg source folder/files
-        svg_src: ['<%= base_conf.src %>/svg'],
-        svg_src_files: ['<%= base_conf.src %>/svg/*.svg'],
         // svg distribution folder/files
         svg_dist: ['<%= base_conf.dest %>/svg'],
         svg_dist_file: '<%= base_conf.dest %>/svg/sprite.svg',
@@ -82,9 +107,12 @@ module.exports = function(grunt) {
         do_not_clean_js: ['!**/*.min.js'],
         do_not_clean_css: []
     };
-    // EOF - CUSTOMV VARS
+    // ===============================================
+    // EOF - ASSIGN CUSTOM VARIABLES
 
-    // LOAD GRUNT CONFIG
+
+    // LOAD GRUNT CONFIG AND TASKS
+    // ===============================================
     var path = require('path');
 
     require('load-grunt-config')(grunt, {
@@ -121,6 +149,7 @@ module.exports = function(grunt) {
         //allows to manipulate the config object before it gets merged with the data object
         // preMerge: function(config, data) {}
     });
-
+    // ===============================================
+    // EOF - LOAD GRUNT CONFIG AND TASKS
 
 };

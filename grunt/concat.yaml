@@ -7,7 +7,7 @@ vendor:
 foundation:
   src:
     # - '<%= lm_conf.js_src_fndtn %>'
-    - '<%= lm_conf.js_src_fndtn_components %>'
+    - '<%= lm_conf.js_src_fndtn_com %>'
   dest: '<%= lm_conf.js_dist_folder %>/<%= lm_conf.js_dist_file_fndtn %>.js'
 
 # custom js plugins

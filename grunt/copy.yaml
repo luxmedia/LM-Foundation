@@ -11,6 +11,7 @@ dist:
         - '!**/*.jade'
         - '!**/*.svg'
         - '!**/*.json'
+        - '!json'
       dest: '<%= base_conf.dest %>'
       flatten: false
       filter: 'isFile'

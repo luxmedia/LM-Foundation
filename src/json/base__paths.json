@@ -1,0 +1,10 @@
+{
+    "nodejs" : "node_modules",
+    "src" : "src",
+    "dest" : "dist",
+    "js_dist_file_vendor" : "vendor",
+    "js_dist_file_fndtn" : "fndtn",
+    "js_dist_file_plugins" : "plugins",
+    "js_dist_file_custom" : "custom",
+    "js_dist_file_iefallback" : "ie8"
+}
