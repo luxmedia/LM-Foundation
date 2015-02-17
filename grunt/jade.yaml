@@ -4,7 +4,7 @@ compile:
     data:
   dist:
     expand: true
-    cwd: '<%= base_conf.src  %>'
+    cwd: '<%= base_paths.src  %>'
     src: 'jade/*.jade'
-    dest: '<%= base_conf.dest %>'
+    dest: '<%= base_paths.dest %>'
     ext: '.html'

@@ -19,7 +19,7 @@ module.exports = {
         },
         // files: [{
         //     expand: true,
-        //     cwd: '<%= base_conf.src  %>',
+        //     cwd: '<%= base_paths.src  %>',
         //     src: '<%= lm_conf.styl_src_files %>',
         //     dest: '<%= lm_conf.css_dist_folder %>',
         //     ext: '.css',
@@ -32,7 +32,7 @@ module.exports = {
     // Create css for ie8 only
     iefallback: {
         options: {
-            paths: ['<%= base_conf.src %>'],
+            paths: ['<%= base_paths.src %>'],
             linenos: true,
             compress: false,
             use: [

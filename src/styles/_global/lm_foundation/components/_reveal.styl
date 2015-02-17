@@ -81,7 +81,7 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
         border-radius: $border-radius
         {$default-float}: 0
 
-        @media $small-only {
+        +mediaquery($small-only) {
             min-height: 100vh
         }
 
@@ -101,7 +101,7 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
     }
 
     if $width {
-        @media $medium-up {
+        +mediaquery($medium-up) {
             width: $width
             max-width: $max-width
             left: 0
@@ -144,13 +144,12 @@ reveal-modal-style($bg = false, $padding = false, $border = false, $border-style
     // We can control how much radius is used on the modal
     if ($radius == true) {
         radius($reveal-radius)
-    }
-    else if $radius {
+    } else if $radius {
         radius($radius)
     }
 
     if $top-offset {
-        @media $medium-up {
+        +mediaquery($medium-up) {
             top: $top-offset
         }
     }
@@ -191,7 +190,7 @@ if $include-html-reveal-classes {
         &--rnd  {
             reveal-modal-style($radius:$reveal-round)
         }
-        &--cllps {
+        &--collapse {
             reveal-modal-style($padding:0)
         }
         &--tny  {

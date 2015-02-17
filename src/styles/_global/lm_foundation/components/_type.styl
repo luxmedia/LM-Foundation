@@ -14,8 +14,8 @@ $include-html-type-classes =        com_css.TYPE
 $header-font-family ?=               $font-family-headings
 $header-font-weight ?=               $font-weight-bold
 $header-font-style ?=                normal
-$header-font-color ?=                $gray-dark-1
-$header-line-height ?=               1.2 // 1.4
+$header-font-color ?=                $charcoal-1
+$header-line-height ?=               1.2
 $header-top-margin ?=                remify(.2rem)
 $header-bottom-margin ?=             remify(.5rem)
 $header-text-rendering ?=            optimizeLegibility
@@ -26,12 +26,12 @@ $h2-font-family ?=                   $font-family-headings
 $h3-font-family ?=                   $font-family-headings
 
 // header font sizes
-$h1-font-size ?=                     fontsize(1.8rem)
-$h2-font-size ?=                     fontsize(1.4rem)
+$h1-font-size ?=                     fontsize(2rem)
+$h2-font-size ?=                     fontsize(1.6rem)
 $h3-font-size ?=                     fontsize(1.2rem )
-$h4-font-size ?=                     fontsize(1.1rem)
-$h5-font-size ?=                     fontsize(1rem)
-$h6-font-size ?=                     fontsize(1rem)
+$h4-font-size ?=                     fontsize(1rem)
+$h5-font-size ?=                     fontsize(0.9rem)
+$h6-font-size ?=                     fontsize(0.8rem)
 
 // header size reduction on small screens
 $h1-font-reduction ?=                remify(0.2rem)
@@ -43,15 +43,15 @@ $h6-font-reduction ?=                0
 
 // header font colors
 $h1-font-color ?=                     $primary-color
-$h2-font-color ?=                     $header-font-color
+$h2-font-color ?=                     $gray-dark-2
 $h3-font-color ?=                     $header-font-color
 $h4-font-color ?=                     $header-font-color
 $h5-font-color ?=                     $header-font-color
 $h6-font-color ?=                     $header-font-color
 
 // header font weights
-$h1-font-weight ?=                    $header-font-weight
-$h2-font-weight ?=                    $header-font-weight
+$h1-font-weight ?=                    $font-weight-normal
+$h2-font-weight ?=                    $font-weight-normal
 $h3-font-weight ?=                    $header-font-weight
 $h4-font-weight ?=                    $header-font-weight
 $h5-font-weight ?=                    $header-font-weight
@@ -59,7 +59,7 @@ $h6-font-weight ?=                    $header-font-weight
 
 // These control how subheaders are styled.
 $subheader-line-height ?=            1.2 // 1.4
-$subheader-font-color ?=             lighten($header-font-color, 35%)
+$subheader-font-color ?=             $gray-dark-2
 $subheader-font-weight ?=            $font-weight-normal
 $subheader-top-margin ?=             remify(.2rem)
 $subheader-bottom-margin ?=          remify(.5rem)
@@ -535,7 +535,7 @@ if $include-html-type-classes {
         }
     }
 
-    @media $medium-up {
+    +mediaquery($medium-up) {
         h1,h2,h3,h4,h5,h6 {
             line-height: $header-line-height
         }

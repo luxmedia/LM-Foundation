@@ -1,7 +1,7 @@
 # clean dist directory from old files
 dist:
   src:
-    - '<%= base_conf.dest %>'
+    - '<%= base_paths.dest %>'
 
 stylesheets:
   src:

@@ -3,7 +3,7 @@ dist:
   files:
     -
       expand: true
-      cwd: '<%= base_conf.src %>'
+      cwd: '<%= base_paths.src %>'
       src:
         - '**/*'
         - '!**/*.styl'
@@ -12,6 +12,6 @@ dist:
         - '!**/*.svg'
         - '!**/*.json'
         - '!json'
-      dest: '<%= base_conf.dest %>'
+      dest: '<%= base_paths.dest %>'
       flatten: false
       filter: 'isFile'

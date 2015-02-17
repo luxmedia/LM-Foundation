@@ -110,24 +110,24 @@ block-grid-html-classes($size,$include-spacing) {
         }
 
         if $block-grid-media-queries {
-            @media $small-up {
+            +mediaquery($small-up) {
                 block-grid-html-classes($size:sml,$include-spacing:false)
             }
 
-            @media $medium-up {
+            +mediaquery($medium-up) {
                 block-grid-html-classes($size:med,$include-spacing:false)
             }
 
-            @media $large-up {
+            +mediaquery($large-up) {
                 block-grid-html-classes($size:lrg,$include-spacing:false)
             }
 
             if $include-xl-html-block-grid-classes {
-                @media $xlarge-up {
+                +mediaquery($xlarge-up) {
                    block-grid-html-classes($size:xlrg,$include-spacing:false)
                 }
 
-                @media $xxlarge-up {
+                +mediaquery($xxlarge-up) {
                     block-grid-html-classes($size:xxlrg,$include-spacing:false)
                 }
             }

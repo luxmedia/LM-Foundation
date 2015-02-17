@@ -1,5 +1,9 @@
-.fndtn-templates > .row { padding-top:10px; padding-bottom:10px; }
-span.html { float:right;}
+.fndtn-templates .template-wrap {margin-bottom: 2rem;}
+span.html {float:right;}
+.codebit {height: 450px;}
+textarea {min-height: 5rem; margin-bottom: 15px;}
+.topbar {margin-bottom: 2rem;}
+.topbar li.search input[type="search"] {top:0.7rem;}
 @media only screen and (max-width: 767px) {
   .fndtn-templates.add-ons div > div > a .template .row .col, .fndtn-templates.add-ons div > div > a .template .row .col {
     padding: 0 15px; }
@@ -67,6 +71,11 @@ span.f-temp.label {
 
 .fndtn-templates div > div > a.selected + p {
   color: #222222; }
+
+.gs-example .row { border: 1px solid #c6c6c6; margin: 0.3rem !important; }
+.gs-example .col { padding-left: inherit; padding-right: inherit; border: 3px solid #fff; background: #eee; }
+.gs-example p { padding: 10px; margin-bottom: 0; text-align: center; }
+.gs-example .border-none { border-right: none !important; }
 
 .fndtn-templates .display {
   background-color: #dddddd;
@@ -173,14 +182,6 @@ label.toggle-layer em {
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
   height: 2.15em; }
 
-.githubissues a.commit {
-  position: static; }
-
-.commit h4 {
-  margin-top: 10px; }
-
-p.commit {
-  margin-top: 5px; }
 
 .center-img {
   height: 8rem;
@@ -297,7 +298,6 @@ textarea.even {
   margin-bottom: 5px; }
 
 .class-box .class-date {
-  font-family: "Proxima Nova Condensed", "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   color: #999999;
   font-weight: 600;
   font-size: 15px;

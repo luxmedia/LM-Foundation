@@ -10,8 +10,6 @@
 
 $include-html-slickslider-classes = com_js.SLICKSLIDER
 
-$slick-font-path ?=                 "./fonts/"
-$slick-font-family ?=               "slick"
 $slick-loader-path ?=               "./"
 $slick-arrow-color ?=               $gray-base
 $slick-arrow-color-hover ?=         $primary-color
@@ -54,13 +52,6 @@ slick-image-url($url) {
     }
 }
 
-slick-font-url($url) {
-    if font-url is defined {
-        return font-url($url)
-    } else {
-        return unquote("url("+$slick-font-path + $url+")")
-    }
-}
 
 
 //
@@ -170,20 +161,6 @@ if $include-html-slickslider-classes {
                 display: block
                 height: auto
                 border: 1px solid transparent
-            }
-        }
-
-        // Icons
-        if ($slick-font-family == "slick") {
-            @font-face {
-                font-family:"slick"
-                src: slick-font-url("slick.eot")
-                src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"),
-                      slick-font-url("slick.woff") format("woff"),
-                      slick-font-url("slick.ttf") format("truetype"),
-                      slick-font-url("slick.svg#slick") format("svg")
-                font-weight: normal
-                font-style: normal
             }
         }
 

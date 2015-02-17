@@ -8,8 +8,8 @@ options:
       removeUselessStrokeAndFill: false
 dist:
   expand: true
-  cwd: '<%= base_conf.src %>/svg'
+  cwd: '<%= base_paths.src %>/svg'
   src:
     - '*.svg'
-  dest: '<%= base_conf.dest %>/svg/min'
+  dest: '<%= base_paths.dest %>/svg/min'
   ext: '<%= lm_conf.svg_colors_ext %>' # '.colors-light-medium-dark-primary.svg'

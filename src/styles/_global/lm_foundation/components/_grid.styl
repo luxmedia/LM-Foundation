@@ -239,8 +239,8 @@ if $include-html-grid-classes {
     .row {
         grid-row()
 
-        &.collapse,
-        &--collapse {
+        &--collapse,
+        &--cllps {
             // collapse all columns
             > .col {
                 grid-column($collapse:true, $float:false)
@@ -264,8 +264,8 @@ if $include-html-grid-classes {
 
         .row {
             grid-row($behavior:nest)
-            &.collapse,
-            &--collapse {
+            &--collapse,
+            &--cllps {
                 grid-row($behavior:nest-collapse)
             }
         }
@@ -289,11 +289,11 @@ if $include-html-grid-classes {
         float: $default-float
     }
 
-    @media $small-up {
+    +mediaquery($small-up) {
         grid-html-classes($size:sml)
     }
 
-    @media $medium-up {
+    +mediaquery($medium-up) {
         grid-html-classes($size:med)
         // Old push and pull classes
         for $i in 0..($total-columns - 1) {
@@ -305,7 +305,7 @@ if $include-html-grid-classes {
             }
         }
     }
-    @media $large-up {
+    +mediaquery($large-up) {
         grid-html-classes(lrg)
         for $i in 0..($total-columns - 1) {
             .push-{$i} {
@@ -318,10 +318,10 @@ if $include-html-grid-classes {
     }
 }
 if $include-xl-html-grid-classes {
-    @media $xlarge-up {
+    +mediaquery($xlarge-up) {
         grid-html-classes(xlrg)
     }
-    @media $xxlarge-up {
+    +mediaquery($xxlarge-up) {
         grid-html-classes(xxlrg)
     }
 }

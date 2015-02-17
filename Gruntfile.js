@@ -5,8 +5,8 @@ module.exports = function(grunt) {
     // Get json configuration files
 
     // BASE PATH AND FILES VARIABLES
-    if (grunt.file.isFile('src/json/base__paths.json')) {
-        var base__paths = grunt.file.readJSON('src/json/base__paths.json', {encoding:"utf-8"});
+    if (grunt.file.isFile('src/json/base__params.json')) {
+        var base__params = grunt.file.readJSON('src/json/base__params.json', {encoding:"utf-8"});
     }
     // BASE COLOR VARIABELS (used for svg and png variant generation)
     if (grunt.file.isFile('src/json/base__colors.json')) {
@@ -26,20 +26,20 @@ module.exports = function(grunt) {
     }
 
     // Global Variables
-    var base_conf = {
-        nodejs: base__paths.nodejs,
-        src: base__paths.src,
-        dest: base__paths.dest
+    var base_paths = {
+        nodejs: base__params.nodejs,
+        src: base__params.src,
+        dest: base__params.dest
     };
 
     // 1. BUILD FOUNDATION COMPONENTS ARRAY
     // first element in array MUST be the foundation.js base script!
-    var fndtn__src__com = ['<%= base_conf.src %>/js/foundation/foundation.js'];
+    var fndtn__src__com = ['<%= base_paths.src %>/js/foundation/foundation.js'];
     // IMPORTANT NOTE: Naming of foundation.xxx.js and objects in "components-js.json" MUST match (but case-insensitive)!!!
     for ( var key in fndtn__com ) {
         if (fndtn__com[key] == true) {
             var fname = key;
-            fndtn__src__com.push('<%= base_conf.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
+            fndtn__src__com.push('<%= base_paths.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
         }
     }
     // 2. BUILD COLORS STRING (Depending on "svgmin" syntax for "ext")
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
     for ( var key in jquery__plugins ) {
         if (jquery__plugins[key] == true) {
             var fname = key;
-            js_src_jquery_plugins.push('<%= base_conf.src %>/js/custom/plugins/jquery.' + fname.toLowerCase() + '.js');
+            js_src_jquery_plugins.push('<%= base_paths.src %>/js/custom/plugins/jquery.' + fname.toLowerCase() + '.js');
         }
     }
     // 4. BUILD CUSTOM SCRIPTS ARRAY
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
     for ( var key in custom__js ) {
         if (custom__js[key] == true) {
             var fname = key;
-            js_src_scripts.push('<%= base_conf.src %>/js/custom/custom.' + fname.toLowerCase() + '.js');
+            js_src_scripts.push('<%= base_paths.src %>/js/custom/custom.' + fname.toLowerCase() + '.js');
         }
     }
 
@@ -81,9 +81,9 @@ module.exports = function(grunt) {
         // --- SOURCE ---
         stylus_plugins: ['svg-stylus'],
         // vednor js
-        js_src_vendor: ['<%= base_conf.src %>/js/vendor/common/*.js'],
+        js_src_vendor: ['<%= base_paths.src %>/js/vendor/common/*.js'],
         // ie8 fallback js
-        js_src_ie8: ['<%= base_conf.src %>/js/vendor/ie/*.js'],
+        js_src_ie8: ['<%= base_paths.src %>/js/vendor/ie/*.js'],
         // foundation js source files
         // make sure to load foundation.js before its components (see JSON routine above) !!!
         js_src_fndtn_com: fndtn__src__com,
@@ -92,32 +92,35 @@ module.exports = function(grunt) {
         // custom javascripts
         js_src_custom: js_src_scripts,
         // stylus source file(s)
-        styl_src: ['<%= base_conf.src %>/styles/*.styl'],
-        styl_src_file: '<%= base_conf.src %>/styles/styles.styl',
+        styl_src: ['<%= base_paths.src %>/styles/*.styl'],
+        styl_src_file: '<%= base_paths.src %>/styles/styles.styl',
         styl_src_files: 'styles/styles.styl',
         styl_src_ie8flag: 'styles/ie8-flag.styl',
         // svg source folder/files
-        svg_src: ['<%= base_conf.src %>/svg'],
-        svg_src_files: ['<%= base_conf.src %>/svg/*.svg'],
+        svg_src: ['<%= base_paths.src %>/svg'],
+        svg_src_files: ['<%= base_paths.src %>/svg/*.svg'],
         svg_colors_arr: base__colors,
         svg_colors_ext: svg_color_str,
+        // Default png-widths for grunticon
+        png_width: base__params.default_png_width,
+        png_height: base__params.default_png_height,
         // --- DESTINATION ---
         // js distribution folder and file
-        js_dist_folder: '<%= base_conf.dest %>/js',
-        js_dist_file_vendor: base__paths.js_dist_file_vendor,
-        js_dist_file_fndtn: base__paths.js_dist_file_fndtn,
-        js_dist_file_plugins: base__paths.js_dist_file_plugins,
-        js_dist_file_custom: base__paths.js_dist_file_custom,
-        js_dist_file_iefallback: base__paths.js_dist_file_iefallback,
+        js_dist_folder: '<%= base_paths.dest %>/js',
+        js_dist_file_vendor: base__params.js_dist_file_vendor,
+        js_dist_file_fndtn: base__params.js_dist_file_fndtn,
+        js_dist_file_plugins: base__params.js_dist_file_plugins,
+        js_dist_file_custom: base__params.js_dist_file_custom,
+        js_dist_file_iefallback: base__params.js_dist_file_iefallback,
         // css distribution folder and file
-        css_dist_folder: '<%= base_conf.dest %>/css',
-        css_dist_file: '<%= base_conf.dest %>/css/styles',
-        css_dist_file_ie8: '<%= base_conf.dest %>/css/ie8',
+        css_dist_folder: '<%= base_paths.dest %>/css',
+        css_dist_file: '<%= base_paths.dest %>/css/styles',
+        css_dist_file_ie8: '<%= base_paths.dest %>/css/ie8',
         // svg distribution folder/files
-        svg_dist: ['<%= base_conf.dest %>/svg'],
-        svg_dist_file: '<%= base_conf.dest %>/svg/sprite.svg',
+        svg_dist: ['<%= base_paths.dest %>/svg'],
+        svg_dist_file: '<%= base_paths.dest %>/svg/sprite.svg',
         // excludes for "copy" to avoid duplication
-        do_not_copy: ['!<%= base_conf.src %>/**/*.styl', '!<%= base_conf.src %>/**/*.coffee', '!<%= base_conf.src %>/**/*.jade'],
+        do_not_copy: ['!<%= base_paths.src %>/**/*.styl', '!<%= base_paths.src %>/**/*.coffee', '!<%= base_paths.src %>/**/*.jade'],
         // avoid cleaning out this files (minified distribution versions)
         do_not_clean_js: ['!**/*.min.js'],
         do_not_clean_css: []
@@ -140,13 +143,13 @@ module.exports = function(grunt) {
         // data passed into config. Can use with <%= test %>
         data: {
             test: false,
-            base_conf: base_conf,
+            base_paths: base_paths,
             lm_conf: lm_conf
         },
 
         // pass variables to modules and tasks
         // config: {
-        //     base_conf: base_conf,
+        //     base_paths: base_paths,
         //     lm_conf: lm_conf
         // }
 

@@ -1,7 +1,7 @@
 # compile coffeescript
 dist:
   expand: true
-  cwd: '<%= base_conf.src  %>'
+  cwd: '<%= base_paths.src  %>'
   src: '**/*.coffee'
-  dest: '<%= base_conf.dest %>'
+  dest: '<%= base_paths.dest %>'
   ext: '.js'

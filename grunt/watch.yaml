@@ -1,15 +1,15 @@
 # main watch tasks
 stylesheets:
-  files: '<%= base_conf.src  %>/<%= base_conf.distCss %>/*.styl'
+  files: '<%= base_paths.src  %>/<%= base_paths.distCss %>/*.styl'
   tasks: 'stylesheets'
 
 coffee:
-  files: '<%= base_conf.src  %>/**/*.coffee'
+  files: '<%= base_paths.src  %>/**/*.coffee'
   tasks: 'coffee'
 
 scripts:
   files: 
-    - '<%= base_conf.src  %>/js/**/*.js'
+    - '<%= base_paths.src  %>/js/**/*.js'
     - '<%= lm_conf.js_dist_folder %>/*.js'
   tasks: 'scripts'
 
@@ -18,11 +18,11 @@ svgs:
   tasks: 'svgs'
 
 jade:
-  files: '<%= base_conf.src  %>/jade/*.jade'
+  files: '<%= base_paths.src  %>/jade/*.jade'
   tasks: 'jade'
 
 copy:
   files:
-    - '<%= base_conf.src  %>/**'
+    - '<%= base_paths.src  %>/**'
     - '<%= lm_conf.do_not_copy %>'
   tasks: 'copy'

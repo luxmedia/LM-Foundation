@@ -186,7 +186,7 @@ if $include-html-checkout-progress-classes {
     } // EOF - ul.checkout-bar
 
 
-    @media $small-up {
+    +mediaquery($small-up) {
         .checkout-wrap {
             margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
         }
@@ -305,5 +305,5 @@ if $include-html-checkout-progress-classes {
             }
 
         } // EOF - .checkout-bar
-    } // EOF - @media $small-up
+    } // EOF - +mediaquery($small-up)
 }

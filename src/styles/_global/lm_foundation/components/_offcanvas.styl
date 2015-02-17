@@ -216,7 +216,7 @@ tab-bar-section() {
     text-align: center
     height: $tabbar-height
     top: 0
-    @media $medium-up {
+    +mediaquery($medium-up) {
         &.left {
             text-align: left
         }
@@ -304,7 +304,7 @@ back-link() {
 
     -webkit-tap-highlight-color: rgba(0,0,0,0)
 
-    @media $medium-up {
+    +mediaquery($medium-up) {
         &:hover {
             if ($off-canvas-overlay-background) {
                 background-color: $off-canvas-overlay-background-hover

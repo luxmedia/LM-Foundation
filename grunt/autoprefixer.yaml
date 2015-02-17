@@ -8,6 +8,6 @@ autoprefixer:
       - 'ie 9'
   multiple_files:
       expand: true
-      cwd: '<%= base_conf.dest %>'
+      cwd: '<%= base_paths.dest %>'
       src: '**/*.css'
-      dest: '<%= base_conf.dest %>'
+      dest: '<%= base_paths.dest %>'

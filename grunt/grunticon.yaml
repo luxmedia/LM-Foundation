@@ -4,9 +4,11 @@
 options:
   cssprefix: '.ico-'
   colors: '<%= lm_conf.svg_colors_arr %>'
+  defaultWidth: '<%= lm_conf.png_width %>'
+  defaultHeight: '<%= lm_conf.png_height %>'
 dist:
   expand: true
-  cwd: '<%= base_conf.dest %>/svg/min'
+  cwd: '<%= base_paths.dest %>/svg/min'
   src:
     - '*.svg'
-  dest: '<%= base_conf.dest %>/svg/out'
+  dest: '<%= base_paths.dest %>/svg/out'

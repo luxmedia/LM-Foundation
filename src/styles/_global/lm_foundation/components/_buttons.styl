@@ -49,6 +49,8 @@ $button-hover-shadow ?=                      false // 1px 1px 1px rgba($black,0.
 
 $secondary-button-bg-hover ?=                darken($secondary-color, $button-function-factor)
 $secondary-button-border-color ?=            darken($secondary-button-bg-hover,5%)
+$neutral-button-bg-hover ?=                  darken($neutral-color, $button-function-factor)
+$neutral-button-border-color ?=              darken($neutral-button-bg-hover,5%)
 $success-button-bg-hover ?=                  darken($success-color, $button-function-factor)
 $success-button-border-color ?=              darken($success-button-bg-hover,5%)
 $info-button-bg-hover ?=                     darken($info-color, $button-function-factor)
@@ -361,6 +363,25 @@ if $include-html-button-classes {
                 }
             }
         }
+        &--neutral {
+            button-style($bg:$neutral-color, $bg-hover:$neutral-button-bg-hover, $border-color:$neutral-button-border-color)
+            
+            // inner labels
+            .lbl {
+                if (lightness($neutral-color) > 70%) {
+                    label-style($bg:lightness($neutral-color,50%))
+                } else {
+                    label-style($bg:$white,$font-color:$neutral-color)
+                }
+            }
+            &:hover .lbl {
+                if (lightness($neutral-color) > 70%) {
+                    background-color: darken($neutral-color, $button-function-factor)
+                } else {
+                    color: darken($neutral-color, $button-function-factor)
+                }
+            }
+        }
         &--success {
             button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
             
@@ -470,7 +491,7 @@ if $include-html-button-classes {
         padding:0
     }
 
-    @media $medium-up {
+    +mediaquery($medium-up) {
         button,
         .btn {
             button-base($style:false, $display:inline-block)

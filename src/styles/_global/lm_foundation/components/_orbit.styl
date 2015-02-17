@@ -370,7 +370,7 @@ if $include-html-orbit-classes {
     }
 
 
-    @media $medium-up {
+    +mediaquery($medium-up) {
 
         .touch {
             .orbit-container {
@@ -387,7 +387,7 @@ if $include-html-orbit-classes {
 
     }
 
-    @media $small-only {
+    +mediaquery($small-only) {
         .orbit-stack-on-small {
             .orbit-slides-container {
                 height: auto !important

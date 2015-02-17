@@ -164,22 +164,28 @@ alert($bg = $primary-color, $radius = false) {
                 alert-close()
             }
 
-            &--radius {
+            &--rad {
                 radius($alert-radius)
             }
-            &--round {
+            &--rnd {
                 radius($global-rounded)
             }
 
-            &--expand {
+            &--exp {
                 alert-size($full-width: true)
             }
 
             // DEFAULT ALERT STYLE - light soft bg, colored typo
             &--success {
-                alert-style($bg: lighten($success-color, 80%), $font-color: darken($success-color, 40%), $border-color: $success-color)
+                alert-style($bg: lightness($success-color, 90%), $font-color: lightness($success-color, 30%), $border-color: lightness($success-color, 75%))
                 {$is-svg-support} & {
                     svg-background($file:'arrows_circle_check.svg', $shapes:('polyline' 'circle'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$success-color, $stroke-hover:false, $position-x:$default-float)
+                }
+            }
+            &--neutral {
+                alert-style($bg: lightness($neutral-color, 90%), $font-color: lightness($neutral-color, 30%), $border-color: lightness($neutral-color, 75%))
+                {$is-svg-support} & {
+                    svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $position-x:$default-float)
                 }
             }
             &--secondary {
@@ -189,13 +195,13 @@ alert($bg = $primary-color, $radius = false) {
                 }
             }
             &--info {
-                alert-style($bg: lighten($info-color, 80%), $font-color: darken($info-color, 40%), $border-color: $info-color)
+                alert-style($bg: lightness($info-color, 90%), $font-color: lightness($info-color, 30%), $border-color: lightness($info-color, 75%))
                 {$is-svg-support} & {
                     svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$info-color, $stroke-hover:false, $position-x:$default-float)
                 }
             }            
             &--warning {
-                alert-style($bg: lighten($warning-color, 80%), $font-color: $alert-font-color-warning, $border-color: $warning-color)
+                alert-style($bg: lightness($warning-color, 90%), $font-color: $alert-font-color-warning, $border-color: lightness($warning-color, 75%))
                 {$is-svg-support} & {
                     svg-background($file:'arrows_exclamation.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$warning-color, $stroke-hover:false, $position-x:$default-float)
                 }
