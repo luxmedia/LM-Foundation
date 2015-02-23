@@ -41,12 +41,12 @@ inline-list() {
     list-style: none
     overflow: $inline-list-overflow
 
-    & > li {
+    > li {
         list-style: none
         float: $default-float
         margin-{$default-float}: $inline-list-default-float-list-margin
         display: $inline-list-display
-        & > * {
+        > * {
             display: $inline-list-children-display
         }
     }
@@ -56,6 +56,7 @@ inline-list() {
 // @styles
 //
 if $include-html-inline-list-classes {
+    .list--inline,
     .inline-list {
         inline-list()
     }

@@ -208,9 +208,12 @@
 
     css : function (dropdown, target) {
       var left_offset = Math.max((target.width() - dropdown.width()) / 2, 8),
-          settings = target.data(this.attr_name(true) + '-init') || this.settings;
+          settings = target.data(this.attr_name(true) + '-init') || this.settings,
+          parentOverflow = dropdown.parent().css('overflow-y') || dropdown.parent().css('overflow');
 
       this.clear_idx();
+
+
 
       if (this.small()) {
         var p = this.dirs.bottom.call(dropdown, target, settings);
@@ -220,6 +223,17 @@
           width : '95%',
           'max-width' : 'none',
           top : p.top
+        });
+
+        dropdown.css(Foundation.rtl ? 'right' : 'left', left_offset);
+
+      } else if (parentOverflow !== 'visible') {
+      // detect if dropdown is in an overflow container
+        var offset = target[0].offsetTop + target[0].offsetHeight;
+
+        dropdown.attr('style', '').css({
+          position : 'absolute',
+          top : offset
         });
 
         dropdown.css(Foundation.rtl ? 'right' : 'left', left_offset);
@@ -262,16 +276,16 @@
         if (document.getElementsByClassName('row')[0]) {
           actualBodyWidth = document.getElementsByClassName('row')[0].clientWidth;
         } else {
-          actualBodyWidth = window.outerWidth;
+          actualBodyWidth = window.innerWidth;
         }
-        var actualMarginWidth = (window.outerWidth - actualBodyWidth) / 2;
+        var actualMarginWidth = (window.innerWidth - actualBodyWidth) / 2;
         var actualBoundary = actualBodyWidth;
         
         if (!this.hasClass('f-dropdown--mega')) {
           //miss top
           if (t.offset().top <= this.outerHeight()) {
             p.missTop = true;
-            actualBoundary = window.outerWidth - actualMarginWidth;
+            actualBoundary = window.innerWidth - actualMarginWidth;
             p.leftRightFlag = true;
           }
           

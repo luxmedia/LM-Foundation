@@ -432,7 +432,7 @@ if $include-html-topbar-classes {
 
         > ul > li {
             background-color: $topbar-dropdown-bg
-            & > a {
+            > a {
                 display: block
                 width: 100%
                 color: $topbar-link-color
@@ -517,7 +517,7 @@ if $include-html-topbar-classes {
         .has-dropdown {
             position: relative
 
-            & > a {
+            > a {
                 if ($topbar-arrows){
                     {$is-svg-support} & {
                         // use svg for arrow
@@ -539,11 +539,11 @@ if $include-html-topbar-classes {
 
             &.is-moved {
                 position: static
-                & > .dropdown {
+                > .dropdown {
                     topbar-show-dropdown()
                     width: 100%
                 }
-                & > a:after {
+                > a:after {
                     display: none
                 }
             }
@@ -737,7 +737,7 @@ if $include-html-topbar-classes {
 
             .has-dropdown {
                 if($topbar-arrows){
-                    & > a {
+                    > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
                         {$is-svg-support} & {
                             svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
@@ -754,14 +754,14 @@ if $include-html-topbar-classes {
 
                 &.is-moved {
                     position: relative
-                    & > .dropdown {
+                    > .dropdown {
                         topbar-hide-dropdown()
                     }
                 }
 
                 &.is-hover,
                 &.is-hoveronly:hover {
-                    & > .dropdown {
+                    > .dropdown {
                         topbar-show-dropdown()
                     }
                 }
@@ -770,7 +770,7 @@ if $include-html-topbar-classes {
                 }
 
                 .dropdown li.has-dropdown {
-                    & > a {
+                    > a {
                         if ($topbar-dropdown-arrows) {
                             &:after {
                                 border: none
@@ -796,7 +796,7 @@ if $include-html-topbar-classes {
                 li {
 
                     &:not(.has-form) {
-                        & > a:not(.btn) {
+                        > a:not(.btn) {
                             display: block
                             padding: rem-calc(6) $topbar-link-padding
                             line-height: ($topbar-height / 2)
@@ -811,7 +811,7 @@ if $include-html-topbar-classes {
 
                     }
                     &:not(.has-form):not(.is-active) {
-                        & > a:not(.btn) {
+                        > a:not(.btn) {
                         color: $topbar-dropdown-link-color
                         background-color: $topbar-dropdown-link-bg
                             &:hover {
@@ -843,8 +843,8 @@ if $include-html-topbar-classes {
 
             }
 
-            & > ul > .divider,
-            & > ul > [role="separator"] {
+            > ul > .divider,
+            > ul > [role="separator"] {
                 border-bottom: none
                 border-top: none
                 border-{$opposite-direction}: $topbar-divider-border-bottom
@@ -907,7 +907,7 @@ if $include-html-topbar-classes {
 
             .has-dropdown {
                 &:hover {
-                    & > .dropdown {
+                    > .dropdown {
                         topbar-show-dropdown()
                     }
                 }

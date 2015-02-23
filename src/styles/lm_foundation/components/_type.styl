@@ -30,14 +30,14 @@ $h1-font-size ?=                     fontsize(2rem)
 $h2-font-size ?=                     fontsize(1.6rem)
 $h3-font-size ?=                     fontsize(1.2rem )
 $h4-font-size ?=                     fontsize(1rem)
-$h5-font-size ?=                     fontsize(0.9rem)
-$h6-font-size ?=                     fontsize(0.8rem)
+$h5-font-size ?=                     fontsize(.9rem)
+$h6-font-size ?=                     fontsize(.8rem)
 
 // header size reduction on small screens
-$h1-font-reduction ?=                remify(0.2rem)
-$h2-font-reduction ?=                remify(0.2rem)
-$h3-font-reduction ?=                remify(0.1rem)
-$h4-font-reduction ?=                remify(0.1rem)
+$h1-font-reduction ?=                remify(.2rem)
+$h2-font-reduction ?=                remify(.2rem)
+$h3-font-reduction ?=                remify(.1rem)
+$h4-font-reduction ?=                remify(.1rem)
 $h5-font-reduction ?=                0
 $h6-font-reduction ?=                0
 
@@ -66,7 +66,7 @@ $subheader-bottom-margin ?=          remify(.5rem)
 
 
 // A general <small> styling
-$small-font-size ?=                  fontsize(0.8rem)
+$small-font-size ?=                  fontsize(.8rem)
 $small-font-color ?=                 lighten($header-font-color, 35%)
 
 // style paragraphs
@@ -87,7 +87,7 @@ $lead-line-height ?=                 1.6
 // style <code> tags
 $code-color ?=                       $charcoal-1
 $code-font-family ?=                 $font-family-monospace
-$code-font-size ?=                   fontsize(0.9rem)
+$code-font-size ?=                   fontsize(.9rem)
 $code-font-weight ?=                 $font-weight-normal
 $code-background-color ?=            lighten($secondary-color, 70%)
 $code-border-size ?=                 1px
@@ -244,8 +244,8 @@ if $include-html-type-classes {
     blockquote,
     th,
     td {
-        margin:0
-        padding:0
+        margin: 0
+        padding: 0
     }
 
     /* Default Link Styles */
@@ -305,34 +305,34 @@ if $include-html-type-classes {
 
     h1 {
         font_family($h1-font-family)
-        font-size: $h1-font-size - $h1-font-reduction
+        font-size: ($h1-font-size - $h1-font-reduction)
         color: $h1-font-color
         font-weight: $h1-font-weight
     }
     h2 {
         font_family($h2-font-family)
-        font-size: $h2-font-size - $h2-font-reduction
+        font-size: ($h2-font-size - $h2-font-reduction)
         color: $h2-font-color
         font-weight: $h2-font-weight
     }
     h3 {
         font_family($h3-font-family)
-        font-size: $h3-font-size - $h3-font-reduction
+        font-size: ($h3-font-size - $h3-font-reduction)
         color: $h3-font-color
         font-weight: $h3-font-weight
     }
     h4 {
-        font-size: $h4-font-size - $h4-font-reduction
+        font-size: ($h4-font-size - $h4-font-reduction)
         color: $h4-font-color
         font-weight: $h4-font-weight
     }
     h5 {
-        font-size: $h5-font-size - $h5-font-reduction
+        font-size: ($h5-font-size - $h5-font-reduction)
         color: $h5-font-color
         font-weight: $h5-font-weight
     }
     h6 {
-        font-size: $h6-font-size - $h6-font-reduction
+        font-size: ($h6-font-size - $h6-font-reduction)
         color: $h6-font-color
         font-weight: $h6-font-weight
     }
@@ -536,7 +536,7 @@ if $include-html-type-classes {
     }
 
     +mediaquery($medium-up) {
-        h1,h2,h3,h4,h5,h6 {
+        h1, h2, h3, h4, h5, h6 {
             line-height: $header-line-height
         }
         h1 {
@@ -558,5 +558,4 @@ if $include-html-type-classes {
             font-size: $h6-font-size
         }
     }
-
 } // EOF - if $include-html-type-classes

@@ -54,10 +54,10 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
         color: (light($bg) ? $panel-font-color : $panel-font-color-alt)
 
         // Respect the padding, fool.
-        &>:first-child {
+        > :first-child {
             margin-top: 0
         }
-        &>:last-child {
+        > :last-child {
             margin-bottom: 0
         }
 

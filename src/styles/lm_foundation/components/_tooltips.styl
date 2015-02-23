@@ -79,7 +79,7 @@ if $include-html-tooltip-classes {
         border-top-color: $tooltip-border-color-highlight
         box-shadow: $tooltip-box-shadow
 
-        & > .nub {
+        > .nub {
             display: block
             {$default-float}: $tooltip-pip-size
             position: absolute
@@ -101,7 +101,7 @@ if $include-html-tooltip-classes {
         }
         &--round {
             radius($tooltip-rounded)
-            & > .nub {
+            > .nub {
                 left: remify(2rem)
             }
         }
@@ -119,9 +119,9 @@ if $include-html-tooltip-classes {
         font-weight: $tooltip-close-font-weight
     }
 
-    @media $small {
+    +mediaquery($small) {
         .tooltip {
-            & > .nub {
+            > .nub {
                 border-color: transparent transparent $tooltip-border-color-highlight transparent
                 top: -($tooltip-pip-size * 2)
             }
@@ -144,7 +144,7 @@ if $include-html-tooltip-classes {
 
                 &--left {
                     border-color: $tooltip-border-color $tooltip-border-color-highlight $tooltip-border-color $tooltip-border-color
-                    & > .nub {
+                    > .nub {
                         border-color: transparent transparent transparent $tooltip-border-color-highlight
                         right: -($tooltip-pip-size * 2)
                         left: auto
@@ -154,7 +154,7 @@ if $include-html-tooltip-classes {
                 }
                 &--right {
                     border-color: $tooltip-border-color $tooltip-border-color $tooltip-border-color $tooltip-border-color-highlight
-                    & > .nub {
+                    > .nub {
                         border-color: transparent $tooltip-border-color-highlight transparent transparent
                         right: auto
                         left: -($tooltip-pip-size * 2)

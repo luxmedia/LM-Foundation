@@ -321,7 +321,7 @@ filter-grayscale($value = 100%, $reset = false) {
 color_alpha($property, $color = $black, $opacity = false, $bg = $white) {
     if ($opacity && $opacity != 1) {
         /.ie8 & {
-            {$property}: blend(rgba($color,$opacity), $bg); // ie8 only
+            {$property}: blend(rgba($color, $opacity), $bg); // ie8 only
         }
         /.rgba & {
             {$property}: rgba($color, $opacity); // modern browsers
@@ -565,7 +565,7 @@ block-glowing-effect($selector = focus, $fade-time = 300ms, $glowing-effect-colo
 // $horizontal: Default: 0
 // $vertical: Default: 0
 translate2d($horizontal = 0, $vertical = 0) {
-    transform: translate($horizontal,$vertical)
+    transform: translate($horizontal, $vertical)
 }
 
 // Makes an element visually hidden, but accessible.
@@ -677,206 +677,203 @@ font-url($url = "", $fontbase = $dir_font) {
 // =========================================================================
 
 
-// +exports("global") {
+// Meta styles are included in all builds, as they are a dependancy of the Javascript.
+// Used to provide media query values for javascript components.
+// Forward slash placed around everything to convince PhantomJS to read the value.
 
-    // Meta styles are included in all builds, as they are a dependancy of the Javascript.
-    // Used to provide media query values for javascript components.
-    // Forward slash placed around everything to convince PhantomJS to read the value.
+meta.foundation-version {
+    font-family: "/{{VERSION}}/"
+}
 
-    meta.foundation-version {
-        font-family: "/{{VERSION}}/"
+meta.foundation-mq-small {
+    font-family: ("/" + unquote($small-up) + "/")
+    width: lower-bound($small-range)
+}
+meta.foundation-mq-small-only {
+    font-family: ("/" + unquote($small-only) + "/")
+    width: lower-bound($small-range)
+}
+
+meta.foundation-mq-medium {
+    font-family: ("/" + unquote($medium-up) + "/")
+    width: lower-bound($medium-range)
+}
+meta.foundation-mq-medium-only {
+    font-family: ("/" + unquote($medium-only) + "/")
+    width: lower-bound($medium-range)
+}
+
+meta.foundation-mq-large {
+    font-family: ("/" + unquote($large-up) + "/")
+    width: lower-bound($large-range)
+}
+meta.foundation-mq-large-only {
+    font-family: ("/" + unquote($large-only) + "/")
+    width: lower-bound($large-range)
+}
+
+meta.foundation-mq-xlarge {
+    font-family: ("/" + unquote($xlarge-up) + "/")
+    width: lower-bound($xlarge-range)
+}
+meta.foundation-mq-xlarge-only {
+    font-family: ("/" + unquote($xlarge-only) + "/")
+    width: lower-bound($xlarge-range)
+}
+
+meta.foundation-mq-xxlarge {
+    font-family: ("/" + unquote($xxlarge-up) + "/")
+    width: lower-bound($xxlarge-range)
+}
+
+meta.foundation-data-attribute-namespace {
+    font-family: $namespace
+}
+
+if $include-html-global-classes {
+
+    // Must be 100% for off canvas to work
+    html,
+    body {
+        height: 100%
     }
 
-    meta.foundation-mq-small {
-        font-family: ("/" + unquote($small-up) + "/")
-        width: lower-bound($small-range)
-    }
-    meta.foundation-mq-small-only {
-        font-family: ("/" + unquote($small-only) + "/")
-        width: lower-bound($small-range)
+    // Set box-sizing globally to handle padding and border widths
+    *,
+    *:before,
+    *:after {
+        box-sizing(border-box)
     }
 
-    meta.foundation-mq-medium {
-        font-family: ("/" + unquote($medium-up) + "/")
-        width: lower-bound($medium-range)
-    }
-    meta.foundation-mq-medium-only {
-        font-family: ("/" + unquote($medium-only) + "/")
-        width: lower-bound($medium-range)
+    *:focus {
+        outline: none
+        box-shadow: $focus-shadow
     }
 
-    meta.foundation-mq-large {
-        font-family: ("/" + unquote($large-up) + "/")
-        width: lower-bound($large-range)
-    }
-    meta.foundation-mq-large-only {
-        font-family: ("/" + unquote($large-only) + "/")
-        width: lower-bound($large-range)
+    html {
+        font-size: $base-font-size
     }
 
-    meta.foundation-mq-xlarge {
-        font-family: ("/" + unquote($xlarge-up) + "/")
-        width: lower-bound($xlarge-range)
-    }
-    meta.foundation-mq-xlarge-only {
-        font-family: ("/" + unquote($xlarge-only) + "/")
-        width: lower-bound($xlarge-range)
-    }
-
-    meta.foundation-mq-xxlarge {
-        font-family: ("/" + unquote($xxlarge-up) + "/")
-        width: lower-bound($xxlarge-range)
-    }
-
-    meta.foundation-data-attribute-namespace {
-        font-family: $namespace
+    // Default body styles
+    body {
+        background: $body-bg
+        color: $body-font-color
+        padding: 0
+        margin: 0
+        font_family($body-font-family)
+        font-size: fontsize($body-font-size)
+        font-weight: $body-font-weight
+        font-style: $body-font-style
+        line-height: $base-line-height // Set to $base-line-height to take on browser default of 150%
+        position: relative
+        cursor: $cursor-auto-value
+        antialiased()
     }
 
-    if $include-html-global-classes {
+    a:hover {
+        cursor: $cursor-pointer-value
+    }
 
-        // Must be 100% for off canvas to work
-        html,
-        body {
-            height: 100%
-        }
+    // Grid Defaults to get images and embeds to work properly
+    img {
+        max-width: 100%
+        height: auto
+    }
 
-        // Set box-sizing globally to handle padding and border widths
-        *,
-        *:before,
-        *:after {
-            box-sizing(border-box)
-        }
+    img {
+        -ms-interpolation-mode: bicubic
+    }
 
-        *:focus {
-            outline: none
-            box-shadow: $focus-shadow
-        }
-
-        html {
-            font-size: $base-font-size
-        }
-
-        // Default body styles
-        body {
-            background: $body-bg
-            color: $body-font-color
-            padding: 0
-            margin: 0
-            font_family($body-font-family)
-            font-size: fontsize($body-font-size)
-            font-weight: $body-font-weight
-            font-style: $body-font-style
-            line-height: $base-line-height // Set to $base-line-height to take on browser default of 150%
-            position: relative
-            cursor: $cursor-auto-value
-            antialiased()
-        }
-
-        a:hover {
-            cursor: $cursor-pointer-value
-        }
-
-        // Grid Defaults to get images and embeds to work properly
-        img {
-            max-width: 100%
-            height: auto
-        }
-
-        img {
-            -ms-interpolation-mode: bicubic
-        }
-
-        #map_canvas,
-        .map_canvas {
-            img,
-            embed,
-            object {
-                max-width: none !important
-            }
-        }
-
-        // Miscellaneous useful HTML classes
-        .left {
-            float: left !important
-        }
-        .right {
-            float: right !important
-        }
-        .cf,
-        .clearfix {
-            clearfix()
-        }
-        .clear {
-            clear: both
-        }
-
-        .no-break {
-            white-space: nowrap !important
-        }
-        .break {
-            white-space: normal !important
-        }
-
-        .block {
-            display: block
-        }
-        .expand {
-            expand()
-        }
-
-        .radius {
-            radius($global-radius)
-        }
-
-        // Hide visually and from screen readers
-        .is-hidden,
-        .hide {
-            display: none !important
-        }
-
-        // Hide visually and from screen readers, but maintain layout
-        .is-invisible,
-        .invisible {
-            visibility: hidden
-        }
-
-        // Font smoothing
-        // Antialiased font smoothing works best for light text on a dark background.
-        // Apply to single elements instead of globally to body.
-        // Note this only applies to webkit-based desktop browsers and Firefox 25 (and later) on the Mac.
-        .antialiased {
-            antialiased()
-        }
-
-        // Blurred out elements or bgs
-        .is-blurred {
-            single-transition(filter,$speed:500ms, $ease:ease)
-            blur-filter()
-        }
-        .is-grayscale {
-            filter-grayscale()
-        }
-
-        // Get rid of gap under images by making them display: inline-block; by default
-        img {
-            display: inline-block
-            vertical-align: middle
-        }
-
-        //
-        // Global resets for forms
-        //
-
-        // Make sure textarea takes on height automatically
-        textarea {
-            height: auto;
-            min-height: 50px;
-            resize: vertical
-        }
-
-        // Make select elements 100% width by default
-        select {
-            width: 100%
+    #map_canvas,
+    .map_canvas {
+        img,
+        embed,
+        object {
+            max-width: none !important
         }
     }
-// }
+
+    // Miscellaneous useful HTML classes
+    .left {
+        float: left !important
+    }
+    .right {
+        float: right !important
+    }
+    .cf,
+    .clearfix {
+        clearfix()
+    }
+    .clear {
+        clear: both
+    }
+
+    .no-break {
+        white-space: nowrap !important
+    }
+    .break {
+        white-space: normal !important
+    }
+
+    .block {
+        display: block
+    }
+    .expand {
+        expand()
+    }
+
+    .radius {
+        radius($global-radius)
+    }
+
+    // Hide visually and from screen readers
+    .is-hidden,
+    .hide {
+        display: none !important
+    }
+
+    // Hide visually and from screen readers, but maintain layout
+    .is-invisible,
+    .invisible {
+        visibility: hidden
+    }
+
+    // Font smoothing
+    // Antialiased font smoothing works best for light text on a dark background.
+    // Apply to single elements instead of globally to body.
+    // Note this only applies to webkit-based desktop browsers and Firefox 25 (and later) on the Mac.
+    .antialiased {
+        antialiased()
+    }
+
+    // Blurred out elements or bgs
+    .is-blurred {
+        single-transition(filter, $speed:500ms, $ease:ease)
+        blur-filter()
+    }
+    .is-grayscale {
+        filter-grayscale()
+    }
+
+    // Get rid of gap under images by making them display: inline-block; by default
+    img {
+        display: inline-block
+        vertical-align: middle
+    }
+
+    //
+    // Global resets for forms
+    //
+
+    // Make sure textarea takes on height automatically
+    textarea {
+        height: auto;
+        min-height: 50px;
+        resize: vertical
+    }
+
+    // Make select elements 100% width by default
+    select {
+        width: 100%
+    }
+}

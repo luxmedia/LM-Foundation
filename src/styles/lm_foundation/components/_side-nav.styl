@@ -53,7 +53,7 @@ $side-nav-divider-color ?=                   darken($white, 10%)
 // $font-size - Font size of nav items. Default: $side-nav-font-size.
 // $link-color - Color of navigation links. Default: $side-nav-link-color.
 // $link-color-hover - Color of navigation links when hovered. Default: $side-nav-link-color-hover.
-side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-size, $link-color = $side-nav-link-color, $link-color-hover = $side-nav-link-color-hover, $link-bg-hover = $side-nav-link-bg-hover) {
+side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-size, $link-color = $side-nav-link-color, $link-color-hover = $side-nav-link-color-hover, $link-color-active = $side-nav-link-color-active, $link-bg-hover = $side-nav-link-bg-hover) {
     display: block
     margin: 0
     padding: $side-nav-padding
@@ -75,6 +75,9 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
             &:focus {
                 background: $link-bg-hover
                 color: $link-color-hover
+            }
+            &:active {
+                color: $link-color-active
             }
         }
 

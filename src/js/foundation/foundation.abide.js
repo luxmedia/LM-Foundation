@@ -66,6 +66,7 @@
           form = self.S(scope).attr('novalidate', 'novalidate'),
           settings = form.data(this.attr_name(true) + '-init') || {};
 
+
       this.invalid_attr = this.add_namespace('data-invalid');
 
       form
@@ -242,7 +243,6 @@
         }
         validations.push(el_validations[0]);
       }
-      validations = [validations.every(function (valid) {return valid;})];
       return validations;
     },
 
@@ -335,6 +335,14 @@
       }
 
       return valid;
+    },
+
+    reflow : function(scope, options) {
+      var self = this,
+          form = self.S('[' + this.attr_name() + ']').attr('novalidate', 'novalidate');
+          self.S(form).each(function (idx, el) {
+            self.events(el);
+          });
     }
   };
 }(jQuery, window, window.document));

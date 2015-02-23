@@ -602,7 +602,12 @@ if $include-html-form-classes {
         -webkit-border-radius: 0
         form-element()
         if ($input-include-glowing-effect == false) {
-            single-transition(all, 0.15s, linear)
+            // single-transition(all, 0.15s, linear)
+            -webkit-transition: border-color 0.15s linear, background 0.15s linear
+            -moz-transition: border-color 0.15s linear, background 0.15s linear
+            -ms-transition: border-color 0.15s linear, background 0.15s linear
+            -o-transition: border-color 0.15s linear, background 0.15s linear
+            transition: border-color 0.15s linear, background 0.15s linear
         }
     }
     textarea {
@@ -777,8 +782,8 @@ if $include-html-form-classes {
             form-error-message()
         }
 
-        & > label {
-            & > small {
+        > label {
+            > small {
                 color: lighten($form-label-font-color, 15%)
                 background: transparent
                 padding: 0

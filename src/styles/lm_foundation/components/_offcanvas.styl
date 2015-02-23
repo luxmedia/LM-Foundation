@@ -33,6 +33,7 @@ $tabbar-header-margin ?=                     0
 $off-canvas-width ?=                         rem-calc(250)
 $off-canvas-bg ?=                            $tabbar-bg
 $off-canvas-bg-hover ?=                      ((lightness($off-canvas-bg) > 65%) ? darken($off-canvas-bg, 30%) : lighten($off-canvas-bg, 20%))
+$off-canvas-bg-active ?=                     ((lightness($off-canvas-bg) > 65%) ? darken($off-canvas-bg, 30%) : lighten($off-canvas-bg, 20%))
 
 // Off Canvas Menu List Variables
 $off-canvas-label-padding ?=                 rem-calc(5 15)
@@ -274,6 +275,9 @@ off-canvas-list() {
             &:hover {
                 background: $off-canvas-bg-hover
             }
+            &:active {
+                background: $off-canvas-bg-active
+            }
         }
     }
 }
@@ -407,7 +411,7 @@ if $include-html-off-canvas-classes {
     .move-left {
         > .inner-wrap {
             translate-3d(-($off-canvas-width),0,0)
-            & > section[class*="main"] {
+            > section[class*="main"] {
                 padding-right: rem-calc(10)
             }
         }

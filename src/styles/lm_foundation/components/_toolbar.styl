@@ -11,6 +11,10 @@
 
 $include-html-toolbar-classes =             com_css.TOOLBAR
 
+$toolbar-bg ?=                              $charcoal-1
+$toolbar-tab-bg-hover ?=                    rgba($white, .1)
+$toolbar-label-color ?=                     $gray-medium-2
+$toolbar-i-color ?=                         $gray-medium-2
 
 //
 // @styles
@@ -18,7 +22,7 @@ $include-html-toolbar-classes =             com_css.TOOLBAR
 
 if $include-html-toolbar-classes  {
     .toolbar {
-        background: $charcoal-1
+        background: $toolbar-bg
         width: 100%
         font-size: 0
         display: inline-block
@@ -65,7 +69,7 @@ if $include-html-toolbar-classes  {
             float: left
 
             &:hover {
-                background: rgba($white, 0.1)
+                background: $toolbar-tab-bg-hover
             }
         }
     }       
@@ -75,14 +79,14 @@ if $include-html-toolbar-classes  {
         text-align: center
 
         label {
-            color: $gray-medium-2
+            color: $toolbar-label-color
         }
 
         i {
             font-size: 30px
             display: block
             margin: 0 auto
-            color: $gray-medium-2
+            color: $toolbar-i-color
             vertical-align: middle
         }
 

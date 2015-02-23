@@ -40,7 +40,7 @@ icon-bar-base() {
     font-size: 0
     display: inline-block
 
-    & > * {
+    > * {
         text-align: center
         font-size: $icon-bar-font-size
         width: 25%
@@ -133,7 +133,7 @@ icon-bar-base() {
 // We use this mixin to create the size styles for icon bars.
 icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-size, $icon-size = $icon-bar-icon-size, $image-width = $icon-bar-image-width, $image-height = $icon-bar-image-height) {
 
-    & > * {
+    > * {
         font-size: $font-size
         padding: $padding
 
@@ -165,7 +165,7 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
 
         background: $bar-bg
 
-        & > * {
+        > * {
             label {
                 color: $bar-font-color
             }
@@ -175,7 +175,7 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
             }
         }
 
-        & > a:hover {
+        > a:hover {
 
             background: $bar-hover-color
 
@@ -194,7 +194,7 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
             opacity: $icon-bar-disabled-opacity
             cursor: $icon-bar-disabled-cursor
             pointer-events: none
-            >* {
+            > * {
                 opacity: $icon-bar-disabled-opacity
                 cursor: $icon-bar-disabled-cursor
             }

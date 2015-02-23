@@ -76,10 +76,16 @@ dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-m
     margin-{$default-float}: 0
     // outline: none // should be used in :focus only
 
-    & > *:first-child {
+    display: none
+
+    &.is-open {
+      display: block
+    }
+
+    > *:first-child {
         margin-top: 0
     }
-    & > *:last-child {
+    > *:last-child {
         margin-bottom: 0
     }
 
@@ -248,57 +254,57 @@ dropdown-style() {
     }
 }
 
-// +exports("dropdown") {
-    if $include-html-dropdown-classes {
+//
+// @styles
+//
+if $include-html-dropdown-classes {
 
-        /* Foundation Dropdowns */
-        .f-dropdown {
-            dropdown-container(list, bottom)
+    /* Foundation Dropdowns */
+    .f-dropdown {
+        dropdown-container(list, bottom)
 
-            &.drop--{$opposite-direction} {
-                dropdown-container(list, $default-float)
-            }
-
-            &.drop--{$default-float} {
-                dropdown-container(list, $opposite-direction)
-            }
-
-            &.drop--top {
-                dropdown-container(list, top)
-            }
-            // max-width: none
-
-            > li {
-                dropdown-style()
-            }
-
-            // You can also put custom content in these dropdowns
-            &.content {
-                dropdown-container(content, $triangle:false)
-            }
-
-            // Sizes
-            &--tiny    {
-                max-width: 200px
-            }
-            &--small   {
-                max-width: 300px
-            }
-            &--medium  {
-                max-width: 500px
-            }
-            &--large   {
-                max-width: 800px
-            }
-            &--mega    {
-                width: 100%!important
-                max-width: 100%!important
-
-                &.is-open{
-                    left: 0!important
-                }
-            }
+        &.drop--{$opposite-direction} {
+            dropdown-container(list, $default-float)
         }
 
+        &.drop--{$default-float} {
+            dropdown-container(list, $opposite-direction)
+        }
+
+        &.drop--top {
+            dropdown-container(list, top)
+        }
+        // max-width: none
+
+        > li {
+            dropdown-style()
+        }
+
+        // You can also put custom content in these dropdowns
+        &.content {
+            dropdown-container(content, $triangle:false)
+        }
+
+        // Sizes
+        &--tiny    {
+            max-width: 200px
+        }
+        &--small   {
+            max-width: 300px
+        }
+        &--medium  {
+            max-width: 500px
+        }
+        &--large   {
+            max-width: 800px
+        }
+        &--mega    {
+            width: 100%!important
+            max-width: 100%!important
+
+            &.is-open{
+                left: 0!important
+            }
+        }
     }
-// }
+}

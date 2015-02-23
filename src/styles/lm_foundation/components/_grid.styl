@@ -170,13 +170,13 @@ grid-html-classes($size) {
 
     for $i in 1..$total-columns {
         .{$size}-{$i} {            
-            grid-column($columns:$i,$collapse:null,$float:false)
+            grid-column($columns:$i, $collapse:null, $float:false)
         }
     }
 
     for $i in 0..($total-columns - 1) {
         .{$size}-offset-{$i} {
-            grid-column($offset:$i, $collapse:null,$float:false)
+            grid-column($offset:$i, $collapse:null, $float:false)
         }
     }
     .{$size}-reset-order {

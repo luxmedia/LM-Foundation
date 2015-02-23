@@ -62,17 +62,20 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
     border: none
     position: relative
     outline: 0
+    margin-bottom: $switch-bottom-margin
+    -webkit-user-select: none
+    -moz-user-select: none
     user-select: none
 
     // Default label styles for type and transition
     label {
         display: block
-        margin-bottom: $switch-height-med / 2
+        margin-bottom: ($switch-height-med / 2)
         position: relative
         color: transparent
         background: $switch-bg
         text-indent: 100%
-        width: $switch-height-med * 2
+        width: ($switch-height-med * 2)
         height: $switch-height-med
         cursor: pointer
 
@@ -215,22 +218,22 @@ if $include-html-form-switches-classes {
         switch()
 
         // Large radio switches
-        &.large {
+        &--lrg {
             switch-size($switch-height-lrg)
         }
 
         // Small radio switches
-        &.small {
+        &--sml {
             switch-size($switch-height-sml)
         }
 
         // Tiny radio switches
-        &.tiny {
+        &--tny {
             switch-size($switch-height-tny)
         }
 
         // Add a radius to the switch
-        &.radius {
+        &--rad {
             label {
                 radius(4px)
             }
@@ -240,7 +243,7 @@ if $include-html-form-switches-classes {
         }
 
         // Make the switch completely round, like a pill
-        &.round {
+        &--rnd {
             radius(1000px)
             label {
                 radius(remify(2rem))
@@ -249,6 +252,5 @@ if $include-html-form-switches-classes {
                 radius(remify(2rem))
             }
         }
-
     }
 }

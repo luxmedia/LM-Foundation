@@ -173,7 +173,7 @@ if $include-html-visibility-classes {
         }
     }
 
-    @media $landscape {
+    +mediaquery($landscape) {
         .show-for-landscape,
         .hide-for-portrait {
             display: inherit !important
@@ -217,7 +217,7 @@ if $include-html-visibility-classes {
         }
     }
 
-    @media $portrait {
+    +mediaquery($portrait) {
         .show-for-portrait,
         .hide-for-landscape {
             display: inherit !important
