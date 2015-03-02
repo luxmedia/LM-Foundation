@@ -4,6 +4,8 @@ module.exports = function(grunt) {
     // ===============================================
     // Get json configuration files
 
+    var jsonpath = 'src/json';
+
     // BASE PATH AND FILES VARIABLES
     if (grunt.file.isFile('src/json/base__params.json')) {
         var base__params = grunt.file.readJSON('src/json/base__params.json', {encoding:"utf-8"});
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
     if (grunt.file.isFile('src/json/cust__jquery__plugins.json')) {
         var jquery__plugins = grunt.file.readJSON('src/json/cust__jquery__plugins.json');
     }
-    // CUSTOM JQUERY PLUGINS
+    // CUSTOM SCRIPTS
     if (grunt.file.isFile('src/json/cust__js.json')) {
         var custom__js = grunt.file.readJSON('src/json/cust__js.json');
     }
