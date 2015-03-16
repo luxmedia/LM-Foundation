@@ -16,7 +16,7 @@ $ie8 ?=                             false
 
 percentage($value){
     if $value {
-        return unit(($value * 100),"%")
+        return unit(($value * 100),'%')
     }
 }
 
@@ -35,7 +35,7 @@ $body-font-size ?=                   1rem
 
 // Normalization factor for all font sizes
 $font-size-normalization ?=          ($ref-font-size - $body-font-size)
-$rem-base-actual ?=                  ($rem-base + unit($font-size-normalization*10,"px"))
+$rem-base-actual ?=                  ($rem-base + unit($font-size-normalization*10,'px'))
 
 
 // =========================================================================
@@ -89,7 +89,7 @@ pxify($value) {
 /* ========================================================================= */
 // TODO: Negative values like -15% in settings not working !!!!
 scale-color($color, $mod = 0) {
-    $value = unit($mod,"") // strip unit from value
+    $value = unit($mod,'') // strip unit from value
     if ($mod < 0) {
         return darken($color, unit($value,'%'))
     } else {
@@ -137,17 +137,17 @@ strip-unit($num) {
 /* ========================================================================= */
 // TEXT INPUT TYPES
 /* ========================================================================= */
-text-inputs( $types = all, $selector = "input" ) {
+text-inputs( $types = all, $selector = 'input' ) {
     $return = ()
-    $all-text-input-types = ("text" "search" "password" "date" "datetime" "datetime-local" "month" "week" "email" "number" "tel" "time" "url" "color" "textarea")
+    $all-text-input-types = ('text' 'search' 'password' 'date' 'datetime' 'datetime-local' 'month' 'week' 'email' 'number' 'tel' 'time' 'url' 'color' 'textarea')
 
     if ($types == all) {
         $types = $all-text-input-types
     }
 
     for $type in $types {
-        if ($type == "textarea") {
-            if ($selector == "input") {
+        if ($type == 'textarea') {
+            if ($selector == 'input') {
               push($return, unquote($type))
             } else {
                 $_sel = $type + $selector

@@ -12,10 +12,7 @@
 					<h2>What is Foundation?</h2>
 					<h2 class="subheader">Foundation is the most advanced, responsive front-end framework in the world. The framework is mobile friendly and ready for you to customize it any way you want to use it.</h2>
 					<div class="row whatis">
-						<div class="lrg-7 col">
-							<img data-interchange="[assets/img/images/responsive-medium.svg, (default)], [assets/img/images/responsive.svg, (large)]">
-						</div>
-						<div class="lrg-5 col">
+						<div class="lrg-12 col">
 							<p>Millions of designers and engineers use Foundation as part of their workflows. It was the first framework to introduce the concepts of responsive design, semantics, mobile first and partials. It&#39;s also compatibile with most browsers and devices. Foundation is the professional choice for designers and engineers.</p> 
 						</div>
 					</div>
@@ -32,19 +29,21 @@
 		</div>
 	</div>
 
+	<hr>
+
 	<!--================================= 
 	Grid
 	==================================-->
 
 	<section class="grid-example">
 		<div class="row">
-			<div class="lrg-6 col">
+			<div class="lrg-5 col">
 				<h3 class="button-title">The Grid</h3>
 				<p>Our grid works on almost any device and has support for nesting, source ordering, offsets and device presentation. Frankly, it&#39;s a little too easy. In no time, you&#39;ll be creating complex layouts like this.</p> 
 				<p>Need a head start on some of your designs or some extra inspiration to see the full potential of a responsive front-end framework?</p>
-				<span class="html"><a href="#" data-reveal-id="grid__modal">HTML</a></span>
+				<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="grid__modal">HTML</a></span>
 			</div>
-			<div class="lrg-6 col">
+			<div class="lrg-7 col">
 				<?php include("grid.php") ?>
 			</div>
 		</div>
@@ -66,12 +65,12 @@
 	==================================-->
 
 	<div class="row">
-		<div class="lrg-6 col">
-			<h3 class="button-title">Buttons</h3>
+		<div class="lrg-5 col">
+			<h3 class="button-title">Buttons (JS)</h3>
 			<p>Clicking on stuff is awesome, so hook up your users with buttons to do stuff. There are some lightweight button styles for size, presentation, and color to make customizing your own button as easy as adding a class.</p>
-			<span class="html"><a href="#" data-reveal-id="modal__btn">HTML</a></span>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__btn">HTML</a></span>
 		</div>
-		<div class="lrg-6 col">
+		<div class="lrg-7 col">
 			<?php include("buttons.php") ?>
 		</div>
 	</div>
@@ -91,18 +90,18 @@
 	==================================-->
 
 	<div class="row">
-		<div class="lrg-6 col">
-			<h3 class="button-title">Navigation</h3>
+		<div class="lrg-5 col">
+			<h3 class="button-title">Navigation (JS)</h3>
 			<p>People have to get around. Navigation styles in Foundation include: a robust top bar with dropdowns; button; search bars; a cool icon bar; a bitchin&#39; off-canvas implementation; and a bunch of other navigational constructs.</p>
-			<span class="html"><a href="#" data-reveal-id="modal__navigation">HTML</a></span>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__navigation">HTML</a></span>
 		</div>
-		<div class="lrg-6 col">
+		<div class="lrg-7 col">
 			<?php include("navigation.php") ?>
 		</div>
 	</div>
 
 	<div id="modal__navigation" class="reveal-modal lrg" data-reveal="">
-		<h3>Topbar Example</h3>
+		<h3>Navigation Example</h3>
 		<textarea class="codebit">       
 			<?php echo htmlentities(include("navigation.php"), ENT_QUOTES) ?>
 		</textarea>
@@ -116,126 +115,78 @@
 	==================================-->
 	<section class="pagination-example">
 		<div class="row">
-			<div class="col lrg-6">
+			<div class="col lrg-5">
 				<h3>Pagination</h3>
 				<p>For use on pages with huge amounts of items. Like shop category pages.</p>
+				<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__pager">HTML</a></span>
 			</div>
-			<div class="col lrg-6">
-				<br> 
-				<ul class="pager">
-					<li class="arrow is-disabled"><a href="">&laquo;</a></li>
-					<li class="is-current"><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li class="is-disabled"><a href="">&hellip;</a></li>
-					<li><a href="">12</a></li>
-					<li><a href="">13</a></li>
-					<li class="arrow"><a href="">&raquo;</a></li>
-				</ul>
+			<div class="col lrg-7">
+				<?php include("pager.php") ?>
 			</div>
 		</div>
 	</section>
+
+	<div id="modal__pager" class="reveal-modal lrg" data-reveal="">
+		<h3>Pager Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("pager.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
+	</div>
 
 	<hr class="dashed">
 
 <!--================================= 
 	Plugins
 	==================================-->
-<section class="plugins-example">
-	<div class="row">
-		<div class="lrg-6 col">
-			<h3 class="button-title">Plugins</h3>
-			<p>We&#39;ve included a ton of JavaScript plugins written just for Foundation: pop-up modals (Reveal); add a required validation for forms (Abide); create content tabs; alerts; and tons more.</p>
-		</div>
-		<div class="lrg-6 col">
-			<section class="gs-modal">
-				<a href="#" data-reveal-id="firstModal" class="btn">Click me to Reveal a Modal</a>
-				<div id="firstModal" class="reveal-modal" data-reveal>
-					<h2>This is a modal.</h2>
-					<p>Reveal makes these very easy to summon and dismiss. The close button is simply an anchor with a unicode character icon and a class of <code>close-reveal-modal</code>. Clicking anywhere outside the modal will also dismiss it.</p>
-					<p>Finally, if your modal summons another Reveal modal, the plugin will handle that for you gracefully.</p>
-					<p><a href="#" data-reveal-id="secondModal" class="btn btn--secondary">Second Modal...</a></p>
-					<a class="close-reveal-modal">&#215;</a>
-				</div>
-				<div id="secondModal" class="reveal-modal" data-reveal>
-					<h2>This is a second modal.</h2>
-					<p>See? It just slides into place after the other first modal. Very handy when you need subsequent dialogs, or when a modal option impacts or requires another decision.</p>
-					<a class="close-reveal-modal">&#215;</a>
-				</div>
-			</section>
-			
-			<h4>Abide</h4>
-			<form data-abide>
-				<div class="name-field">
-					<label>Today&#39;s date&nbsp; <small>required</small>
-						<input type="text" placeholder="Type in text to this form to test the validation" pattern="month_day_year">
-					</label>
-					<small class="error">If you didn&#39;t put in a date in the format &#39;mm/dd/yyyy,&#39;&#39; this error should appear.</small>
-				</div>
-			</form>
 
+	<section class="plugins-example">
+		<div class="row">
+			<div class="lrg-5 col">
+				<h3 class="button-title">Plugins (JS)</h3>
+				<p>We&#39;ve included a ton of JavaScript plugins written just for Foundation: pop-up modals (Reveal); add a required validation for forms (Abide); create content tabs; alerts; and tons more.</p>
+				<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__plugins">HTML</a></span>
+			</div>
+			<div class="lrg-7 col">
+				<?php include("plugins.php") ?>
+			</div>
 		</div>
+	</section>
+
+	<div id="modal__plugins" class="reveal-modal lrg" data-reveal="">
+		<h3>Plugins Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("plugins.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
-</section>
 
-<hr>
+	<hr>
 
 <!--================================= 
 	Accessible Tabs
 	==================================-->
 
-	<h3>Accessible Tabs</h3>
+	<h3>Accessible Tabs (JS)</h3>
 	<div class="row">
 
-		<div class="col lrg-6">
-			<pre>
-				<code class="language-html"><div class="code-container">
-					&lt;div class=&quot;tabs&quot;&gt;
-					&lt;h2&gt;Tab 1&lt;/h2&gt;
-					&lt;div class=&quot;content&quot;&gt;
-					&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam malesuada   suscipit pede. Nullam ipsum lacus, varius vel, nonummy in, consequat ut, neque.   &lt;/p&gt;
-					&lt;h3&gt;Lorem ipsum&lt;/h3&gt;
-					&lt;p&gt;Nullam malesuada suscipit pede. Nullam ipsum lacus, varius vel, nonummy in, consequat ut, neque.   Vivamus viverra. Duis dolor arcu, lacinia sit amet, sollicitudin sed, aliquet   vel, quam. Pellentesque molestie laoreet tortor. Aenean quam. Pellentesque magna   metus, venenatis sit amet, congue nec, dictum in, est. Aliquam nibh. &lt;/p&gt;
-					&lt;/div&gt;
-					&lt;h2&gt;Tab 2&lt;/h2&gt;
-					&lt;div class=&quot;content&quot;&gt;
-					&lt;p&gt;Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. &lt;/p&gt;
-					&lt;p&gt;Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque&lt;/p&gt;
-					&lt;/div&gt;
-					&lt;h2&gt;Tab 3&lt;/h2&gt;
-					&lt;div class=&quot;content&quot;&gt;
-					&lt;p&gt;Here could be your content&lt;/p&gt;
-					&lt;/div&gt;
-					&lt;/div&gt;
-				</div></code>
-
-			</pre>
-
-
+		<div class="col lrg-5">
+			<p> Instead of foundations origin tabs plugin we use the jquery plugin "accessible tabs". This ensures an accessible and sequential html structure of tab heading and tabcontent if javascript is disabled.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__tabs">HTML</a></span>
 		</div>
 
-		<div class="col lrg-6">
-			<div class="tabs">
-				<h2>Tab 1</h2>
-				<div class="content">
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam malesuada   suscipit pede. Nullam ipsum lacus, varius vel, nonummy in, consequat ut, neque.   </p>
-					<h3>Lorem ipsum</h3>
-					<p>Nullam malesuada suscipit pede. Nullam ipsum lacus, varius vel, nonummy in, consequat ut, neque.   Vivamus viverra. Duis dolor arcu, lacinia sit amet, sollicitudin sed, aliquet   vel, quam. Pellentesque molestie laoreet tortor. Aenean quam. Pellentesque magna   metus, venenatis sit amet, congue nec, dictum in, est. Aliquam nibh. </p>
-				</div>
-				<h2>Tab 2</h2>
-				<div class="content">
-					<p>Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. </p>
-					<p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque</p>
-				</div>
-				<h2>Tab 3</h2>
-				<div class="content">
-					<p>Here could be your content</p>
-				</div>
-			</div>
-
+		<div class="col lrg-7">
+			<?php include("tabs.php") ?>
 		</div>
 
+	</div>
+
+	<div id="modal__tabs" class="reveal-modal lrg" data-reveal="">
+		<h3>Tabs Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("tabs.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -244,38 +195,26 @@
 	Alerts
 	==================================-->
 
+	<h3>Alerts</h3>
 	<div class="row">
-		<div class="col lrg-12">
-			<div data-alert class="alert alert--secondary alert--expand">
-				Alerts can have two styles defined in the _alerts.styl. A light and an intense coloring.
-				<a href="#" class="alert__close">&times;</a>
-			</div>
-		</div>
-		<div class="col lrg-12">
-			<div data-alert class="alert alert--success alert--expand">
-				This is an expanded success alert.
-				<a href="#" class="alert__close">&times;</a>
-			</div>
-		</div>
-		<div class="col lrg-12">
-			<div data-alert class="alert alert--info alert--expand">
-				This is an expanded info alert.
-				<a href="#" class="alert__close">&times;</a>
-			</div>
-		</div>
-		<div class="col lrg-12">
-			<div data-alert class="alert alert--warning alert--expand">
-				This is an expanded warning alert.
-				<a href="#" class="alert__close">&times;</a>
-			</div>
-		</div>
-		<div class="col lrg-12">
-			<div data-alert class="alert alert--critical alert--expand">
-				This is an expanded critical alert.
-				<a href="#" class="alert__close">&times;</a>
-			</div>
+
+		<div class="col lrg-5">
+			<p>Alert messages. The alerts.styl provides an opaque and a soft version of alerts. Most common ist the soft variant, which is used here. The BG Icons of the alert states are SVG-based, of course.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__alerts">HTML</a></span>
 		</div>
 
+		<div class="col lrg-7">
+			<?php include("alerts.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__alerts" class="reveal-modal lrg" data-reveal="">
+		<h3>Alerts Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("alerts.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -284,14 +223,26 @@
 	Breadcrumbs
 	==================================-->
 
+	<h3>Breadcrumbs</h3>
 	<div class="row">
-		<h2>Breadcrumbs</h2>
-		<ul class="breadcrumbs">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Features</a></li>
-			<li class="is-unavailable"><a href="#">Gene Splicing</a></li>
-			<li class="is-current"><a href="#">Cloning</a></li>
-		</ul>
+
+		<div class="col lrg-5">
+			<p>Breadcrumbs navigation.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__breadcrumbs">HTML</a></span>
+		</div>
+
+		<div class="col lrg-7">
+			<?php include("breadcrumbs.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__breadcrumbs" class="reveal-modal lrg" data-reveal="">
+		<h3>Breadcrumbs Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("breadcrumbs.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -300,270 +251,112 @@
 	Thumbnails
 	==================================-->
 
+	<h3>Thumbnails</h3>
 	<div class="row">
-		<h2>Thumbnails</h2>
-		<div class="lrg-6 col">
-			<h4>HTML</h4>
-			<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"th"</span> <span class="attribute">role</span>=<span class="value">"button"</span> <span class="attribute">aria-label</span>=<span class="value">"Thumbnail"</span> <span class="attribute">href</span>=<span class="value">"../assets/img/examples/space.jpg"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">img</span> <span class="attribute">aria-hidden</span>=<span class="value">true</span> <span class="attribute">src</span>=<span class="value">"../assets/img/examples/space-th-sm.jpg"</span>/&gt;</span>
-				<span class="tag">&lt;/<span class="title">a</span>&gt;</span></div></code></pre>
 
-			</div>
-			<div class="lrg-6 col">
-				<h4>Rendered HTML</h4>
-				<a class="th" role="button" aria-label="Thumbnail" href="../assets/img/examples/space.jpg">
-					<img aria-hidden="true" src="../assets/img/examples/space-th-sm.jpg">
-				</a>
-			</div>
+		<div class="col lrg-5">
+			<p>Nice image thumbnails.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__thumbs">HTML</a></span>
 		</div>
 
-		<hr>
+		<div class="col lrg-7">
+			<?php include("thumbs.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__thumbs" class="reveal-modal lrg" data-reveal="">
+		<h3>Thumbnails Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("thumbs.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
+	</div>
+
+	<hr>
 
 <!--================================= 
 	Forms
 	==================================-->
 
-	<h2>Forms</h2>
-	<p>This is an example form we've created that is laid out using the grid:</p>
+	<h3>Forms</h3>
 	<div class="row">
-		<div class="lrg-6 col">
-			<h4>HTML</h4>
 
-			<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">form</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-12 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Input Label
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">placeholder</span>=<span class="value">"lrg-12.col"</span> /&gt;</span>
-				<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-4 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Input Label
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">placeholder</span>=<span class="value">"lrg-4.col"</span> /&gt;</span>
-				<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-4 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Input Label
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">placeholder</span>=<span class="value">"lrg-4.col"</span> /&gt;</span>
-				<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-4 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row row--cllps"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Input Label<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"sml-9 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">placeholder</span>=<span class="value">"sml-9.col"</span> /&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"sml-3 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"postfix"</span>&gt;</span>.com<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-12 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Select Box
-				<span class="tag">&lt;<span class="title">select</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"husker"</span>&gt;</span>Husker<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"starbuck"</span>&gt;</span>Starbuck<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"hotdog"</span>&gt;</span>Hot Dog<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"apollo"</span>&gt;</span>Apollo<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">select</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-6 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Choose Your Favorite<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"pokemon"</span> <span class="attribute">value</span>=<span class="value">"Red"</span> <span class="attribute">id</span>=<span class="value">"pokemonRed"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"pokemonRed"</span>&gt;</span>Red<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"pokemon"</span> <span class="attribute">value</span>=<span class="value">"Blue"</span> <span class="attribute">id</span>=<span class="value">"pokemonBlue"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"pokemonBlue"</span>&gt;</span>Blue<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-6 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Check these out<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"checkbox1"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"checkbox1"</span>&gt;</span>Checkbox 1<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"checkbox2"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>&gt;</span><span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"checkbox2"</span>&gt;</span>Checkbox 2<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"lrg-12 col"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span>&gt;</span>Textarea Label
-				<span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">placeholder</span>=<span class="value">"sml-12.col"</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">form</span>&gt;</span></div></code></pre>
-
-			</div>
-
-			<div class="lrg-6 col">
-				<h4>Rendered HTML</h4>
-
-				<form>
-					<fieldset>
-						<legend>Fieldset Legend</legend>
-						<div class="row">
-							<div class="lrg-12 col">
-								<label>Input Label
-									<input type="text" placeholder="lrg-12.col" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
-								</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="lrg-4 col">
-								<label>Input Label
-									<input type="text" placeholder="lrg-4.col">
-								</label>
-							</div>
-							<div class="lrg-4 col">
-								<label>Input Label
-									<input type="text" placeholder="lrg-4.col">
-								</label>
-							</div>
-							<div class="lrg-4 col">
-								<div class="row row--cllps">
-									<label>Input Label</label>
-									<div class="sml-9 col">
-										<input type="text" placeholder="sml-9.col">
-									</div>
-									<div class="sml-3 col">
-										<span class="postfix">.com</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="lrg-12 col">
-								<label>Select Box
-									<select>
-										<option value="husker">Husker</option>
-										<option value="starbuck">Starbucks</option>
-										<option value="hotdog">Hot Dog</option>
-										<option value="apollo">Apollo</option>
-									</select>
-								</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="lrg-12 col">
-								<label>Select Box Disabled
-									<select disabled="disabled">
-										<option value="husker">Husker</option>
-										<option value="starbuck">Starbucks</option>
-										<option value="hotdog">Hot Dog</option>
-										<option value="apollo">Apollo</option>
-									</select>
-								</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="lrg-6 col">
-								<label>Choose Your Favorite</label>
-								<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
-								<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
-							</div>
-							<div class="lrg-6 col">
-								<label>Check These Out</label>
-								<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-								<input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="lrg-12 col">
-								<label>Textarea Label
-									<textarea placeholder="sml-12.col"></textarea>
-								</label>
-							</div>
-						</div>
-					</fieldset>
-				</form>
-			</div>
+		<div class="col lrg-5">
+			<p>Form with different components. CSS only styled.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__forms">HTML</a></span>
 		</div>
 
-		<hr>
+		<div class="col lrg-7">
+			<?php include("forms.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__forms" class="reveal-modal lrg" data-reveal="">
+		<h3>Forms Example</h3>
+		<textarea class="codebit">       
+			<?php //echo htmlentities(include("forms.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
+	</div>
+
+	<hr>
 
 <!--================================= 
 	Switches
 	==================================-->
 
-	<h2>Switches (JS)</h2>
+	<h3>Switches (JS)</h3>
 	<div class="row">
-		<div class="lrg-6 col">
-			<h4>HTML</h4>
-			<pre><code class="language-html"><div class="code-container"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"switch"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"exampleCheckboxSwitch"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleCheckboxSwitch"</span>&gt;</span><span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span> 
 
-				<span class="comment">&lt;!-- Using radio buttons – each switch turns off the other two --&gt;</span>
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"switch small"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"exampleRadioSwitch1"</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">checked</span> <span class="attribute">name</span>=<span class="value">"testGroup"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleRadioSwitch1"</span>&gt;</span><span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span> 
-
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"switch radius"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"exampleRadioSwitch2"</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"testGroup"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleRadioSwitch2"</span>&gt;</span><span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span> 
-
-				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"switch round large"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"exampleRadioSwitch3"</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"testGroup"</span>&gt;</span>
-				<span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleRadioSwitch3"</span>&gt;</span><span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></code></pre>
-
-			</div>
-			<div class="lrg-6 col">
-				<h4>Rendered Checkbox HTML</h4>
-				<div class="switch">
-					<input id="exampleCheckboxSwitch" type="checkbox">
-					<label for="exampleCheckboxSwitch"></label>
-				</div> 
-
-				<h4>Rendered Radio HTML</h4>
-
-				<div class="switch switch--small">
-					<input id="exampleRadioSwitch1" type="radio" checked="" name="testGroup">
-					<label for="exampleRadioSwitch1"></label>
-				</div> 
-
-				<div class="switch switch--radius">
-					<input id="exampleRadioSwitch2" type="radio" name="testGroup">
-					<label for="exampleRadioSwitch2"></label>
-				</div> 
-
-				<div class="switch switch--round switch--large">
-					<input id="exampleRadioSwitch3" type="radio" name="testGroup">
-					<label for="exampleRadioSwitch3"></label>
-				</div>
-			</div>
+		<div class="col lrg-5">
+			<p>Switches using css pseudo-classes and JS</p>
+			<div class="alert alert--warning">TODO: Avoid conflict with normal checkbox/radio style!! </div>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__switches">HTML</a></span>
 		</div>
 
-		<hr>
+		<div class="col lrg-7">
+			<?php include("switches.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__switches" class="reveal-modal lrg" data-reveal="">
+		<h3>Switches Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("switches.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
+	</div>
+
+	<hr>
 
 <!--================================= 
 	Range Slider
 	==================================-->
 
-	<h2>Range Slider</h2>
-
+	<h3>Range Slider (JS)</h3>
 	<div class="row">
-		<div class="col lrg-6">
-			<div class="sml-10 med-11 col">
-				<div class="rangeslider" data-slider data-options="display_selector: #sliderOutput3;">
-					<span class="rangeslider__handle" role="slider" tabindex="0"></span>
-					<span class="rangeslider__act-seg"></span>
-				</div>
-			</div>
-			<div class="sml-2 med-1 col">
-				<span class="rs-label rs-label--end" id="sliderOutput3"></span>
-			</div>
+
+		<div class="col lrg-5">
+			<p>Range Slider (JS)</p>
+			<div class="alert alert--warning">TODO: Style and position output boxes correctly!! </div>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__rangeslider">HTML</a></span>
 		</div>
-		<div class="col lrg-6">
-			<div class="rangeslider rangeslider--vert" data-slider data-options="vertical: true;">
-				<span class="rangeslider__handle" role="slider" tabindex="0"></span>
-				<span class="rangeslider__act-seg"></span>
-				<input type="hidden">
-			</div>    
+
+		<div class="col lrg-7">
+			<?php include("rangeslider.php") ?>
 		</div>
+
+	</div>
+
+	<div id="modal__rangeslider" class="reveal-modal lrg" data-reveal="">
+		<h3>Range Slider Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("rangeslider.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -572,64 +365,26 @@
 	Labels and Badges
 	==================================-->
 
-	<h2>Labels &amp; Badges</h2>
+	<h3>Labels &amp; Badges</h3>
+	<div class="row">
 
-	<div class="row">
-		<div class="sml-12 col">
-			<span class="lbl">Regular Label</span>
-			<span class="lbl lbl--radius lbl--primary">Radius Primary Label</span>
-			<span class="lbl lbl--info">Info Label</span>  
-			<span class="lbl lbl--success">Success Label</span>
-			<span class="lbl lbl--warning">Warning Label</span>
-			<span class="lbl lbl--round lbl--alert">Round Alert Label</span>
-			<span class="lbl lbl--inverted">Inverted Label (white BG)</span>
-			<span class="lbl lbl--flat">Flat Label </span>
+		<div class="col lrg-5">
+			<p>Various Label styles. Can be usid standalone or inside of buttons.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__labels">HTML</a></span>
 		</div>
-		<div class="sml-12 col">
-			<span class="lbl lbl--med">Label - Medium</span>
-			<span class="lbl lbl--lrg">Label - Large</span>
-			<span class="lbl lbl--xlrg">Label - XLarge</span>
-			<span class="lbl lbl--flat lbl--primary lbl--xxlrg">Flat Primary Label - XXLarge</span>
+
+		<div class="col lrg-7">
+			<?php include("labels.php") ?>
 		</div>
+
 	</div>
-	<hr>
-	<div class="row">
-		<div class="sml-12 col">
-			Default badge
-			<span class="lbl lbl--badge">01</span>
-			Primary badge
-			<span class="lbl lbl--badge lbl--primary">01</span>
-			Success badge
-			<span class="lbl lbl--badge lbl--success">01</span>
-			Info badge
-			<span class="lbl lbl--badge lbl--info">01</span>
-		</div>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="sml-12 col">
-			<h3>Badges inside of buttons</h3>
-			<button class="btn" type="button">
-				Default
-				<span class="lbl lbl--badge">25</span>
-			</button>
-			<button class="btn btn--secondary" type="button">
-				Secondary
-				<span class="lbl lbl--badge">25</span>
-			</button>
-			<button class="btn btn--info" type="button">
-				Info
-				<span class="lbl lbl--badge">25</span>
-			</button>
-			<button class="btn btn--warning" type="button">
-				Warning
-				<span class="lbl lbl--badge">25</span>
-			</button>
-			<button class="btn btn--alert" type="button">
-				Alert
-				<span class="lbl lbl--badge">25</span>
-			</button>    
-		</div>
+
+	<div id="modal__labels" class="reveal-modal lrg" data-reveal="">
+		<h3>Labels &amp; Badges Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("labels.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -638,253 +393,147 @@
 	Ribbons
 	==================================-->
 
-	<h2>Ribbons</h2>
+	<h3>Ribbons</h3>
+	<div class="row">
 
-	<div class="row ribbons__cont">
-		<div class="sml-2 col">
-			<div class="item">
-				<div class="ribbon--flag">Ribbon--flag</div>
-			</div>
-		</div>
-		<div class="sml-2 col">
-			<div class="item">
-				<div class="ribbon ribbon--primary">-20%</div>
-			</div>
-		</div>
-		<div class="sml-2 col">
-			<div class="item">
-				<div class="ribbon ribbon--info ribbon--left">Ribbon--Left</div>
-			</div>
-		</div>
-		<div class="sml-2 col">
-			<div class="item">
-				<div class="ribbon ribbon--flag ribbon--left ribbon--success">Success</div>
-			</div>
-		</div>
-		<div class="sml-2 col">
-			<div class="item">
-				<div class="ribbon ribbon--warning">Neu! (warning)</div>
-			</div>
-		</div>
-		<div class="sml-2 col">
-			<div class="item">
-				<div class="ribbon ribbon--alert">Alert</div>
-			</div>
+		<div class="col lrg-5">
+			<p>This component is new and not included in the original foundation fork. Especially in online-stores ribbons are oftern used and very helpful.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__ribbons">HTML</a></span>
 		</div>
 
+		<div class="col lrg-7">
+			<?php include("ribbons.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__ribbons" class="reveal-modal lrg" data-reveal="">
+		<h3>Ribbons Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("ribbons.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
 
 <!--================================= 
-	Product Grid (4)
+	Product Grid
 	==================================-->
 
-	<h2>Product Grid (4)</h2>
-
+	<h3>Products Grid</h3>
 	<div class="row">
-		<ul class="prdlist prdlist--grid">
-			<li class="prd" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-					<span class="prd__brand" itemprop="brand">brand</span>
-					<h3 itemprop="name" class="prd__title">Product with special price</h3>
-					<button class="btn btn__details">Details</button>
-					<div class="price-box">
-						<span itemprop="price" class="price price--special">99,- &euro;</span>
-						<span class="price price--old"><span class="price__label price__label--uvp">UVP:&nbsp;</span>118,80 &euro;</span>
-					</div>
-					<div class="ribbon ribbon--primary">-20%</div>
-				</a>
-			</li>
 
-			<li class="prd" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-					<span class="prd__brand" itemprop="brand">brand</span>
-					<h3 itemprop="name" class="prd__title">Longer product title which can be max 2 lines</h3>
-					<button class="btn btn__details">Details</button>
-					<div class="price-box">
-						<span itemprop="price" class="price price--special">299,- &euro;</span>
-					</div>
-				</a>
-			</li>
+		<div class="col lrg-3">
+			<p>This component is new and not included in the original foundation fork.</p>
+			<p>The productlist.styl provides two styles for product listings: Grid and List. The columns of the products-grid are controlled using jeet.gs due to its flexibility.</p>
+			<p>THe Markup includes microdate and rich snippets for google according to schema.org.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__products-grid">HTML</a></span>
+		</div>
 
-			<li class="prd" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-					<span class="prd__brand" itemprop="brand">brand</span>
-					<h3 itemprop="name" class="prd__title">Product with minimal price</h3>
-					<button class="btn btn__details">Details</button>
-					<div class="price-box">
-						<span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
-					</div>
-				</a>
-			</li>
-
-			<li class="prd prd--special prd--new" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-					<span class="prd__brand" itemprop="brand">brand</span>
-					<h3 itemprop="name" class="prd__title">New Product with special price</h3>
-					<button class="btn btn__details">Details</button>
-					<div class="price-box">
-						<span class="price price--special"><span class="price__label price__label--special">nur&nbsp;</span><span itemprop="price">159,- &euro;</span></span>
-						<span class="price price--old"><span class="price__label price__label--uvp">UVP&nbsp;</span>159,- &euro;</span>
-					</div>
-					<div class="ribbon ribbon--warning">Neu!</div>
-					<div class="ribbon ribbon--primary">-20%</div>
-				</a>
-			</li>
-
-		</ul>
+		<div class="col lrg-9">
+			<?php include("products-grid.php") ?>
+		</div>
 
 	</div>
 
+	<div id="modal__products-grid" class="reveal-modal lrg" data-reveal="">
+		<h3>Products Grid Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("products-grid.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
+	</div>
+
 	<hr>
+
 
 <!--================================= 
 	Product List
 	==================================-->
 
-	<h2>Product List</h2>
-
+	<h3>Products List</h3>
 	<div class="row">
-		<ul class="prdlist prdlist--line">
-			<li class="prd cf" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<div class="prd__info">
-						<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-						<span class="prd__brand" itemprop="brand">brand</span>
-						<h3 itemprop="name" class="prd__title">Product with special price</h3>
-						<div class="prd__sdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
-						<div class="prd__opts"><span class="lbl">Varianten:&nbsp;</span>
-							<ul>
-								<li>S</li>
-								<li>M</li>
-								<li>L</li>
-								<li>50mm</li>
-								<li>60mm</li>
-							</ul>
-						</div> 
-					</div>
-					<div class="price-box">
-						<span itemprop="price" class="price price--special">99,- &euro;</span>
-						<span class="price price--old"><span class="price__label price__label--uvp">UVP:&nbsp;</span>118,80 &euro;</span>
-					</div>
-					<button class="btn btn__details">Details</button>
-					<div class="ribbon ribbon--primary">-20%</div>
-				</a>
-			</li>
 
-			<li class="prd cf" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<div class="prd__info">
-						<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-						<span class="prd__brand" itemprop="brand">brand</span>
-						<h3 itemprop="name" class="prd__title">Longer product title which can be max 2 lines</h3>
-						<div class="prd__sdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
-					</div>
-					<div class="price-box">
-						<span itemprop="price" class="price price--special">299,- &euro;</span>
-					</div>
-					<button class="btn btn__details">Details</button>
-				</a>
-			</li>
+		<div class="col lrg-3">
+			<p>Product list for a more detailed view. E.g. including product attributes.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__products-list">HTML</a></span>
+		</div>
 
-			<li class="prd cf" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<div class="prd__info">
-						<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-						<span class="prd__brand" itemprop="brand">brand</span>
-						<h3 itemprop="name" class="prd__title">Product with minimal price</h3>
-						<div class="prd__sdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
-					</div>
-					<div class="price-box">
-						<span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
-					</div>
-					<button class="btn btn__details">Details</button>
-				</a>
-			</li>
+		<div class="col lrg-9">
+			<?php include("products-list.php") ?>
+		</div>
 
-			<li class="prd prd--special prd--new cf" itemscope itemtype="http://schema.org/Product">
-				<a class="prd__link">
-					<div class="prd__info">
-						<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
-						<span class="prd__brand" itemprop="brand">brand</span>
-						<h3 itemprop="name" class="prd__title">New Product with special price</h3>
-						<div class="prd__sdesc" itemprop="description"><p>This is a short description about the products key feautres and benefits without beeing too long. Just a brief overview.</p></div>
-					</div>
-					<div class="price-box">
-						<span class="price price--special"><span class="price__label price__label--special">nur&nbsp;</span><span itemprop="price">159,- &euro;</span></span>
-						<span class="price price--old"><span class="price__label price__label--uvp">UVP&nbsp;</span>159,- &euro;</span>
-					</div>
-					<button class="btn btn__details">Details</button>
-					<div class="ribbon ribbon--warning">Neu!</div>
-					<div class="ribbon ribbon--primary">-20%</div>
-				</a>
-			</li>
+	</div>
 
-		</ul>
-
+	<div id="modal__products-list" class="reveal-modal lrg" data-reveal="">
+		<h3>Products List Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("products-list.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
 
 <!--================================= 
-	Checkout Out Progress Bar
+	Checkout Progress Bar
 	==================================-->
 
-	<h2>Checkout Progress Bar</h2>
+	<h3>Checkout Progress Bar</h3>
+	<div class="row">
 
-	<div class="checkout-wrap cf">
-		<ul class="checkout-bar checkout-bar__four">
-			<li class="is-visited"><a href="">Warenkorb</a></li>
-			<li class="is-visited"><a href="">Adresse</a></li>
-			<li class="is-active"><a href="">Zahlart</a></li>
-			<li><a href="">Übersicht</a></li>
-		</ul>
+		<div class="col lrg-3">
+			<p>A component for checkout progress indication.</p>
+			<p>CSS only! It's amazing what pseudo classes can do, isn't it?</p>
+			<p>Minimum amount of items is: 4</p>
+			<p>Maximum amount of items is: 6</p>
+			<p>Use "__four", "__five" or "__six" classes for the checkout-progress wrapper to control the item layout</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__checkout-progress">HTML</a></span>
+		</div>
+
+		<div class="col lrg-9">
+			<?php include("checkout-progress.php") ?>
+		</div>
+
 	</div>
 
+	<div id="modal__checkout-progress" class="reveal-modal lrg" data-reveal="">
+		<h3>Checkout Progress Bar Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("checkout-progress.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
+	</div>
 
 	<hr>
+
 
 <!--================================= 
 	Slick Slider
 	==================================-->
 
-	<h2>Slick Slider</h2>
+	<h3>Slick-Slider (JS)</h3>
 	<div class="row">
-		<div class="col lrg-4">
-			<pre>
-				<code>
-					&lt;div class="demo-slider"&gt;
-					&lt;div&gt;your content 1&lt;/div&gt;
-					&lt;div&gt;your content 2&lt;/div&gt;
-					&lt;div&gt;your content 3&lt;/div&gt;
-					&lt;div&gt;your content 4&lt;/div&gt;
-					&lt;div&gt;your content 5&lt;/div&gt;
-					&lt;div&gt;your content 6&lt;/div&gt;
-					&lt;div&gt;your content 7&lt;/div&gt;
-					&lt;div&gt;your content 8&lt;/div&gt;
-					&lt;div&gt;your content 9&lt;/div&gt;
-					&lt;/div&gt;
-				</code>
-			</pre>
+
+		<div class="col lrg-5">
+			<p>This component is new and not included in the original foundation fork. The deprecated Orbit function is used there instead.</p>
+			<p>But we use on of the best responsive sliders based on jquery: "slick-slider"</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__slick-slider">HTML</a></span>
 		</div>
-		<div class="col lrg-8">
-			<div class="demo-slider">
-				<div>your content 1</div>
-				<div>your content 2</div>
-				<div>your content 3</div>
-				<div>your content 4</div>
-				<div>your content 5</div>
-				<div>your content 6</div>
-				<div>your content 7</div>
-				<div>your content 8</div>
-				<div>your content 9</div>
-			</div>
+
+		<div class="col lrg-7">
+			<?php include("slick-slider.php") ?>
 		</div>
+
+	</div>
+
+	<div id="modal__slick-slider" class="reveal-modal lrg" data-reveal="">
+		<h3>Slick-Slider Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("slick-slider.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -893,18 +542,26 @@
 	Tooltips
 	==================================-->
 
-	<h2>Tooltips</h2>
+	<h3>Tooltips (JS)</h3>
 	<div class="row">
-		<div class="col lrg-6">
-			<pre>
-				<code>
-					&lt;span data-tooltip aria-haspopup=&quot;true&quot; class=&quot;has-tip&quot; title=&quot;Tooltips are awesome, you should totally use them!&quot;&gt;extended information&lt;/span&gt;
-				</code>
-			</pre>
+
+		<div class="col lrg-5">
+			<p>Tooltips. Can be placed at top, left, right and bottom.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__tooltips">HTML</a></span>
 		</div>
-		<div class="col lrg-6">
-			<span data-tooltip aria-haspopup="true" class="has-tip" title="Tooltips are awesome, you should totally use them!">extended information</span>
+
+		<div class="col lrg-7">
+			<?php include("tooltips.php") ?>
 		</div>
+
+	</div>
+
+	<div id="modal__tooltips" class="reveal-modal lrg" data-reveal="">
+		<h3>Tooltips Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("tooltips.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
@@ -913,44 +570,29 @@
 	Tables
 	==================================-->
 
-	<h2>Tables</h2>
+	<h3>Tables</h3>
 	<div class="row">
-		<div class="sml-12 col">
-			<table>
-				<thead>
-					<tr>
-						<th width="200">Table Header</th>
-						<th>Table Header</th>
-						<th width="150">Table Header</th>
-						<th width="150">Table Header</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Content Goes Here</td>
-						<td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-						<td>Content Goes Here</td>
-						<td>Content Goes Here</td>
-					</tr>
-					<tr>
-						<td>Content Goes Here</td>
-						<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-						<td>Content Goes Here</td>
-						<td>Content Goes Here</td>
-					</tr>
-					<tr>
-						<td>Content Goes Here</td>
-						<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-						<td>Content Goes Here</td>
-						<td>Content Goes Here</td>
-					</tr>
-				</tbody>
-			</table>
+
+		<div class="col lrg-2">
+			<p>Tables. Some basic stylings for tables.</p>
+			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__tables">HTML</a></span>
 		</div>
+
+		<div class="col lrg-10">
+			<?php include("tables.php") ?>
+		</div>
+
+	</div>
+
+	<div id="modal__tables" class="reveal-modal lrg" data-reveal="">
+		<h3>Tables Example</h3>
+		<textarea class="codebit">       
+			<?php echo htmlentities(include("tables.php"), ENT_QUOTES) ?>
+		</textarea>
+		<a class="close-reveal-modal">×</a>
 	</div>
 
 	<hr>
-
 
 
 </section>

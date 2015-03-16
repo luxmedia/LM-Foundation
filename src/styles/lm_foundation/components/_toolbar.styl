@@ -3,7 +3,7 @@
 // Licensed under MIT Open Source
 // toolbar styles
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -23,9 +23,9 @@ $toolbar-i-color ?=                         $gray-medium-2
 if $include-html-toolbar-classes  {
     .toolbar {
         background: $toolbar-bg
-        width: 100%
-        font-size: 0
         display: inline-block
+        font-size: 0
+        width: 100%
 
         &--label-bottom .tab .tab-content {
             i,
@@ -54,19 +54,19 @@ if $include-html-toolbar-classes  {
             width: auto
 
             .tab {
-                width: auto
-                margin: auto
                 float: none
+                margin: auto
+                width: auto
             }
         }
         
         .tab {
+            display: block
+            float: left
+            margin: 0 auto
+            padding: 20px
             text-align: center
             width: 25%
-            margin: 0 auto
-            display: block
-            padding: 20px
-            float: left
 
             &:hover {
                 background: $toolbar-tab-bg-hover
@@ -83,18 +83,18 @@ if $include-html-toolbar-classes  {
         }
 
         i {
-            font-size: 30px
-            display: block
-            margin: 0 auto
             color: $toolbar-i-color
+            display: block
+            font-size: 30px
+            margin: 0 auto
             vertical-align: middle
         }
 
         img {
-            width: 30px
-            height: 30px
             display: block
+            height: 30px
             margin: 0 auto
+            width: 30px
         }
     }
 }

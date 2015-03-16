@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -362,18 +362,18 @@ if $include-html-visibility-classes {
                 text-decoration: underlin
             }
             a[href]:after {
-                content: " (" attr(href) ")"
+                content: ' (' attr(href) ')'
             }
 
             abbr[title]:after {
-                content: " (" attr(title) ")"
+                content: ' (' attr(title) ')'
             }
 
             // Don't show links for images, or javascript/internal links
             .ir a:after,
             a[href^="javascript:"]:after,
             a[href^="#"]:after {
-                content: ""
+                content: ''
             }
 
             pre,

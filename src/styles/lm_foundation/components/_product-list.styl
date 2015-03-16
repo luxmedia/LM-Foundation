@@ -1,7 +1,7 @@
-@require "_global"
-@require "_buttons"
-@require "_ribbons"
-@require "_pricing-tables"
+@require '_global'
+@require '_buttons'
+@require '_ribbons'
+@require '_pricing-tables'
 
 //
 // @variables
@@ -112,60 +112,63 @@ $product-grid-sml-img-height ?=                  rem-calc(50)
 // Mixins for product listings pages e.g. categories in ecommerce
 
 prd-opts() {
-    text-transform: uppercase
-    line-height: $product-list-opts-line-height
-    font_family($product-list-opts-font-family)
-    font-weight: $product-list-opts-font-weight
     color: $product-list-opts-color
+    font-weight: $product-list-opts-font-weight
+    font_family($product-list-opts-font-family)
+    line-height: $product-list-opts-line-height
+    text-transform: uppercase
 
     .lbl {
-        float: none // left
-        margin: $product-list-opts-label-margin
-        padding: $product-list-opts-label-padding
-        line-height: $product-list-opts-line-height
+        background-color: $product-list-opts-label-bg
         if ($product-list-opts-label-border) {
             border: $product-list-opts-label-border
         }
-        background-color: $product-list-opts-label-bg
         color: $product-list-opts-label-color
+        float: none // left
         font-size: $product-list-opts-font-size
+        line-height: $product-list-opts-line-height
+        margin: $product-list-opts-label-margin
+        padding: $product-list-opts-label-padding
     }
 
     ul {
-        margin: 0
         list-style-type: none
-        li {
-            list-style-type: none
-            display: inline-block
-            padding: $product-list-opts-item-padding
-            margin: $product-list-opts-item-margin
-            background: $product-list-opts-item-bg
+        margin: 0
 
+        li {
+            background: $product-list-opts-item-bg
+            display: inline-block
             font-size: $product-list-opts-font-size
+            list-style-type: none
+            margin: $product-list-opts-item-margin
+            padding: $product-list-opts-item-padding
             
             &:first-child {
                 margin-left: 0
             }
+
             &.is-disabled {
                 opacity: 0.5
             }
+
             &.is-selected {      
                 a, a:hover {
-                    border-color: transparent
                     background-color: $product-list-opts-item-selected-bg
+                    border-color: transparent
                     color: $white
                     cursor: $cursor-default-value
                 }
             }
             a {
-                display: inline-block
-                padding: $product-list-opts-item-padding
-                font-size: $product-list-opts-link-font-size
-                color: $product-list-opts-link-color
                 if ($product-list-opts-item-border) {
                     border: $product-list-opts-item-border
                     border-width: $product-list-opts-item-border-width
                 }
+                color: $product-list-opts-link-color
+                display: inline-block
+                font-size: $product-list-opts-link-font-size
+                padding: $product-list-opts-item-padding
+
                 &:hover {
                     if $product-list-opts-link-bg-hover {
                         background: $product-list-opts-link-bg-hover
@@ -197,14 +200,14 @@ if $include-html-productlist-classes {
             
         // List item (li)
         .prd {
-            position: relative
-            list-style-type: none
-            margin: 0
-            padding: $product-list-item-padding
             background-color: $product-list-item-bg
             if ($product-list-item-border) {
                 border-longhand($width:$product-list-item-border-width,$style:$product-list-item-border-style,$color:$product-list-item-border-color)
             }
+            list-style-type: none
+            margin: 0
+            padding: $product-list-item-padding
+            position: relative
             z-index: 1
 
             &__inner {
@@ -218,56 +221,56 @@ if $include-html-productlist-classes {
                 &:hover {
                     .btn {
                         background-color: $product-list-button-bg-hover
-                        svg-background($file:'arrows_right.svg', $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color-hover, $stroke-hover:$product-list-button-ico-color-hover)
+                        svg-background($file:'arrows_right.svg', $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color-hover, $stroke-hover:$product-list-button-ico-color-hover)
                     }
                 }
             }
             // Images (wrapper)
             &__img {
-                display: block
                 background: $product-list-img-bg
-                padding: $product-list-img-padding
-                margin: $product-grid-img-margin
-                width: auto
+                display: block
                 height: $product-grid-img-height
                 line-height: $product-grid-img-height
+                margin: $product-grid-img-margin
+                padding: $product-list-img-padding
                 text-align: center
+                width: auto
 
                 img {
-                    padding: 0
+                    border: none
                     margin: 0
                     max-height: 100%
-                    border: none
+                    padding: 0
                 }
             }
 
             // Product Manufacturer (optional)
             &__brand {
-                display: block
-                padding: 0
-                margin: 0
-                line-height: $product-list-title-line-height
-                overflow: hidden
                 color: $product-list-manu-color
-                font_family($product-list-title-font-family)
+                display: block
                 font-size: $product-list-manu-font-size
                 font-weight: $product-grid-manu-font-weight
+                font_family($product-list-title-font-family)
+                line-height: $product-list-title-line-height
+                margin: 0
+                overflow: hidden
+                padding: 0
                 text-transform: $product-grid-manu-text-transform
             }
 
             // Product title (h3)
             &__title {
-                display: block
-                margin: $product-list-title-margin
-                padding: $product-list-title-padding
-                line-height: $product-list-title-line-height
                 color: $product-list-title-color 
-                font_family($product-list-title-font-family)
+                display: block
                 font-size: $product-grid-title-font-size
                 font-weight: $product-list-title-font-weight
+                font_family($product-list-title-font-family)
+                line-height: $product-list-title-line-height
+                margin: $product-list-title-margin
+                overflow: hidden
+                padding: $product-list-title-padding
                 text-decoration: none
                 text-transform: uppercase
-                overflow: hidden
             }
             a:hover .prd__title {
                 color: $product-list-title-color-hover
@@ -276,21 +279,22 @@ if $include-html-productlist-classes {
 
             &__sdesc,
             &__sdesc p {
+                color: $product-list-desc-color
+                font-size: $product-list-desc-font-size
+                font_family($product-list-desc-font-family)
+                line-height: $product-list-desc-line-height
                 margin: $product-list-desc-margin
                 padding: $product-list-desc-padding
-                font_family($product-list-desc-font-family)
-                font-size: $product-list-desc-font-size
-                color: $product-list-desc-color
-                line-height: $product-list-desc-line-height
             }
 
             // Buttons
             .btn {
                 margin-bottom: 0
+
                 &__details {
                     button-size($padding:$product-list-button-size)
                     button-flat($font-color:$product-list-button-color)
-                    svg-background($file:'arrows_right.svg', $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
+                    svg-background($file:'arrows_right.svg', $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
                 }
             }
 
@@ -308,11 +312,12 @@ if $include-html-productlist-classes {
 
             &:hover {
                 background-color: $product-list-item-bg-hover
-                overflow: visible
                 border-color: $product-list-item-border-hover-color
                 if $product-list-item-box-shadow {
                     box-shadow: $product-list-item-box-shadow-hover
                 }
+                overflow: visible
+
                 single-transition($speed:300ms)
             
                 .prd__sdesc,
@@ -373,9 +378,10 @@ if $include-html-productlist-classes {
                     } 
                 }
                 &__sdesc {
+                    font-size: $product-grid-desc-font-size
                     margin: $product-grid-desc-margin
                     padding: $product-grid-desc-padding
-                    font-size: $product-grid-desc-font-size
+
                     +mediaquery($medium-up) {
                         height: ($product-grid-desc-height - remify(0.1rem))
                         overflow: hidden
@@ -390,16 +396,16 @@ if $include-html-productlist-classes {
                         span(1/3)
                         text-align: right
                     }
-                    padding: $product-grid-pricebox-padding
                     margin: $product-grid-pricebox-margin
+                    padding: $product-grid-pricebox-padding
                 }
 
                 .btn {
+                    float: left
                     font-size: 0
+                    height: $product-grid-pricebox-height
                     text-indent: -(9999em)
                     width: $product-grid-pricebox-height
-                    height: $product-grid-pricebox-height
-                    float: left
                 }
             }
 
@@ -429,8 +435,8 @@ if $include-html-productlist-classes {
         &--line {
             .prd {
                 clear: both
-                padding: 0
                 margin: $product-list-item-margin
+                padding: 0
 
                 &.first,
                 &:first-of-type,
@@ -455,12 +461,12 @@ if $include-html-productlist-classes {
                 }
 
                 &__img {
-                    margin: $product-list-img-margin
-                    margin-left :0
-                    width: $product-list-img-width
+                    float: left
                     height: $product-list-img-height
                     line-height: ($product-list-img-height - 10px)
-                    float: left
+                    margin: $product-list-img-margin
+                    margin-left: 0
+                    width: $product-list-img-width
                 }
                 
                 &__brand {
@@ -480,8 +486,8 @@ if $include-html-productlist-classes {
                 .price-box {
                     +mediaquery($medium-up) {
                         col(1/4, gutter:0)
-                        margin-right: 0
                         float: right
+                        margin-right: 0
                         text-align: right
                     }
                     +mediaquery($small-only) {
@@ -497,12 +503,12 @@ if $include-html-productlist-classes {
 
                     +mediaquery($medium-up) {
                         // col(1/4,gutter:0)
-                        padding-right: (2*$product-list-button-ico-size)
-                        position: absolute
-                        margin-right: 0
-                        right: $product-list-item-padding
                         bottom: $product-list-item-padding
                         color: $product-list-item-bg // hides text in normal state
+                        margin-right: 0
+                        padding-right: (2*$product-list-button-ico-size)
+                        position: absolute
+                        right: $product-list-item-padding
                     }
                     // padding-right: rem-calc(20)
                     +mediaquery($small-only) {

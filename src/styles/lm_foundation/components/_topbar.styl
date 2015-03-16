@@ -2,10 +2,10 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
-@require "_grid"
-@require "_buttons"
-@require "_forms"
+@require '_global'
+@require '_grid'
+@require '_buttons'
+@require '_forms'
 
 //
 // @variables
@@ -103,7 +103,7 @@ $topbar-divider-border-bottom ?=             solid 1px lighten($topbar-bg-color,
 $topbar-divider-border-top ?=                solid 1px darken($topbar-bg-color, 50%)
 
 // Sticky Class
-$topbar-sticky-class ?=                      ".sticky"
+$topbar-sticky-class ?=                      '.sticky'
 $topbar-arrows ?=                            true //Set false to remove the triangle icon from the menu item
 $topbar-dropdown-arrows ?=                   true //Set false to remove the \00bb >> text from dropdown subnavigation li// 
 
@@ -134,7 +134,7 @@ topbar-show-dropdown() {
 // This class is generated despite the value of $include-html-topbar-classes
 // to ensure width calculations work correctly.
 meta.foundation-mq-topbar {
-    font-family: ("/" + unquote($topbar-media-query) + "/")
+    font-family: ('/' + unquote($topbar-media-query) + '/')
     width: $topbar-breakpoint
 }
 
@@ -142,8 +142,8 @@ if $include-html-topbar-classes {
 
     /* Wrapped around .topbar to contain to grid width */
     .contain-to-grid {
-        width: 100%
         background-color: $topbar-bg
+        width: 100%
 
         .topbar {
             margin-bottom: $topbar-margin-bottom
@@ -214,8 +214,8 @@ if $include-html-topbar-classes {
         }
 
         input,
-        input[type="text"],
-        input[type="search"] { 
+        input[type='text'],
+        input[type='search'] { 
             position: relative
             height: $topbar-input-height
             padding-top: $ptop = remify(.35rem) // 0 // (.35rem + rem-calc(1))
@@ -376,7 +376,7 @@ if $include-html-topbar-classes {
 
                     & {
                         // @include hamburger icon
-                        hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, "", false)
+                        hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, '', false)
                     }
                 }
             }
@@ -408,18 +408,18 @@ if $include-html-topbar-classes {
 
     // Right and Left Navigation that stacked by default
     .topbar-section {
-        {$default-float}: 0
         position: relative
         width: auto
+        {$default-float}: 0
         single-transition($default-float, $topbar-transition-speed)
 
         ul {
+            //font-size:$ref-font-size
+            display: block
+            height: auto
+            margin: 0
             padding: 0
             width: 100%
-            height: auto
-            display: block
-            //font-size:$ref-font-size
-            margin: 0
         }
 
         .divider,
@@ -433,26 +433,29 @@ if $include-html-topbar-classes {
         > ul > li {
             background-color: $topbar-dropdown-bg
             > a {
-                display: block
-                width: 100%
                 color: $topbar-link-color
-                padding: rem-calc(12 0)
-                padding-{$default-float}: $topbar-link-padding
-                font_family($topbar-link-font-family)
+                display: block
                 font-size:$topbar-link-font-size
                 font-weight: $topbar-link-weight
+                font_family($topbar-link-font-family)
+                padding-{$default-float}: $topbar-link-padding
+                padding: rem-calc(12 0)
                 text-transform: $topbar-link-text-transform
+                width: 100%
                 
                 single-transition(background-color)
 
                 &.btn {
-                    padding-{$opposite-direction}: $topbar-link-padding
-                    padding-{$default-float}: $topbar-link-padding
                     font-size:$topbar-link-font-size
+                    padding-{$default-float}: $topbar-link-padding
+                    padding-{$opposite-direction}: $topbar-link-padding
                     button-style($primary-color)
                     
                     &--secondary {
                         button-style($bg:$secondary-color)
+                    }
+                    &--info {
+                        button-style($bg:$info-color)
                     }
                     &--success {
                         button-style($bg:$success-color)
@@ -468,13 +471,16 @@ if $include-html-topbar-classes {
             }
 
             > button {
-                padding-{$opposite-direction}: $topbar-link-padding
-                padding-{$default-float}: $topbar-link-padding
                 font-size:$topbar-link-font-size
+                padding-{$default-float}: $topbar-link-padding
+                padding-{$opposite-direction}: $topbar-link-padding
                 button-style($bg:$primary-color)
 
                 &.btn--secondary {
                     button-style($bg:$secondary-color)
+                }
+                &.btn--info {
+                    button-style($bg:$info-color)
                 }
                 &.btn--success {
                     button-style($bg:$success-color)
@@ -519,21 +525,21 @@ if $include-html-topbar-classes {
 
             > a {
                 if ($topbar-arrows){
-                    {$is-svg-support} & {
-                        // use svg for arrow
-                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
-                    }
-                    {$is-no-svg-support} & {
-                        // use css pseudo class for arrow
-                        &:after {
-                            css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
-                            margin-{$opposite-direction}: $topbar-link-padding
-                            margin-top: -(($topbar-dropdown-toggle-size / 2) - 2)
-                            position: absolute
-                            top: 50%
-                            {$opposite-direction}: 0
-                        }
-                    }
+                    // {$is-svg-support} & {
+                    // use svg for arrow
+                    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                    // }
+                    // {$is-no-svg-support} & {
+                    //     // use css pseudo class for arrow
+                    //     &:after {
+                    //         css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
+                    //         margin-{$opposite-direction}: $topbar-link-padding
+                    //         margin-top: -(($topbar-dropdown-toggle-size / 2) - 2)
+                    //         position: absolute
+                    //         top: 50%
+                    //         {$opposite-direction}: 0
+                    //     }
+                    // }
                 }
             }
 
@@ -554,9 +560,9 @@ if $include-html-topbar-classes {
         .dropdown {
             padding: 0
             position: absolute
-            {$default-float}: 100%
             top: 0
             z-index: $zindex-dropdown
+            {$default-float}: 100%
             topbar-hide-dropdown()
 
             li {
@@ -567,6 +573,7 @@ if $include-html-topbar-classes {
                     font-weight: $topbar-dropdown-link-weight
                     padding: rem-calc(6) $topbar-link-padding
                     text-transform: uppercase
+
                     &.parent-link {
                         font-weight: $topbar-link-weight
                     }
@@ -575,9 +582,9 @@ if $include-html-topbar-classes {
                 &.title h5,
                 &.parent-link {
                     // Back Button
+                    font-size:$topbar-back-link-size
                     margin-bottom: 0
                     margin-top: 0
-                    font-size:$topbar-back-link-size
                     a {
                         color: $topbar-link-color
                         // line-height: $topbar-height / 2
@@ -597,12 +604,12 @@ if $include-html-topbar-classes {
             }
 
             label {
-                padding: rem-calc(8 $topbar-link-padding 2)
-                margin-bottom: 0
-                text-transform: $topbar-dropdown-label-text-transform
                 color: $topbar-dropdown-label-color
-                font-weight: $topbar-dropdown-label-font-weight
                 font-size: $topbar-dropdown-label-font-size
+                font-weight: $topbar-dropdown-label-font-weight
+                margin-bottom: 0
+                padding: rem-calc(8 $topbar-link-padding 2)
+                text-transform: $topbar-dropdown-label-text-transform
             }
         }
     }// EOF - .topbar-section
@@ -639,12 +646,12 @@ if $include-html-topbar-classes {
                 > button,
                 > .btn {
                     font-size:$topbar-button-font-size
-                    position: relative
-                    top: $topbar-button-top
                     height: $topbar-input-height
                     line-height: $topbar-input-height
-                    padding-top: 0
                     padding-bottom: 0
+                    padding-top: 0
+                    position: relative
+                    top: $topbar-button-top
                 }
             }
 
@@ -655,9 +662,9 @@ if $include-html-topbar-classes {
         // EOF - .topbar
 
         .contain-to-grid .topbar {
-            max-width: $row-width
             margin: 0 auto
             margin-bottom: $topbar-margin-bottom
+            max-width: $row-width
         }
 
         .topbar-section {
@@ -665,9 +672,9 @@ if $include-html-topbar-classes {
             {$default-float}: 0 !important
 
             > ul {
-                width: auto
-                height: auto !important
                 display: inline
+                height: auto !important
+                width: auto
 
                 > li {
                     float: $default-float
@@ -691,9 +698,9 @@ if $include-html-topbar-classes {
                 }
                 &:not(.has-form) {
                     > a:not(.btn) {
-                        padding: 0 $topbar-link-padding
-                        line-height: $topbar-height
                         background-color: $topbar-link-bg
+                        line-height: $topbar-height
+                        padding: 0 $topbar-link-padding
                         &:hover {
                             if ($topbar-link-bg-hover) {
                                 background-color: $topbar-link-bg-hover
@@ -708,10 +715,11 @@ if $include-html-topbar-classes {
                 }
                 &.is-active:not(.has-form) {
                     > a:not(.btn) {
-                        padding: 0 $topbar-link-padding
-                        line-height: $topbar-height
-                        color: $topbar-link-color-active
                         background-color: $topbar-link-bg-active
+                        color: $topbar-link-color-active
+                        line-height: $topbar-height
+                        padding: 0 $topbar-link-padding
+
                         &:hover {
                             background-color: $topbar-link-bg-active-hover
                             color: $topbar-link-color-active-hover
@@ -739,16 +747,16 @@ if $include-html-topbar-classes {
                 if($topbar-arrows){
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        {$is-svg-support} & {
-                            svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
-                        }
-                        {$is-no-svg-support} & {
-                            &:after {
-                                css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
-                                margin-top: -($topbar-dropdown-toggle-size / 2)
-                                top: round($topbar-height / 2)
-                            }
-                        }
+                        // {$is-svg-support} & {
+                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                        // }
+                        // {$is-no-svg-support} & {
+                        //     &:after {
+                        //         css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
+                        //         margin-top: -($topbar-dropdown-toggle-size / 2)
+                        //         top: round($topbar-height / 2)
+                        //     }
+                        // }
                     }
                 }
 
@@ -774,11 +782,11 @@ if $include-html-topbar-classes {
                         if ($topbar-dropdown-arrows) {
                             &:after {
                                 border: none
-                                content: "\00bb"
-                                top: remify(1rem)
-                                margin-top: -(1px)
-                                {$opposite-direction}: 5px
+                                content: '\00bb'
                                 line-height: 1.2
+                                margin-top: -(1px)
+                                top: remify(1rem)
+                                {$opposite-direction}: 5px
                             }
                         }
                     }
@@ -788,20 +796,20 @@ if $include-html-topbar-classes {
 
             // 2nd Level = Dropdowns
             .dropdown {
-                {$default-float}: 0
-                top: auto
                 background-color: $topbar-dropdown-bg
                 min-width: 100%
+                top: auto
+                {$default-float}: 0
 
                 li {
 
                     &:not(.has-form) {
                         > a:not(.btn) {
                             display: block
-                            padding: rem-calc(6) $topbar-link-padding
-                            line-height: ($topbar-height / 2)
-                            font_family($topbar-link-font-family)
                             font-size:$topbar-link-font-size
+                            font_family($topbar-link-font-family)
+                            line-height: ($topbar-height / 2)
+                            padding: rem-calc(6) $topbar-link-padding
                             white-space: nowrap
                             
                             .lbl--badge {
@@ -812,39 +820,39 @@ if $include-html-topbar-classes {
                     }
                     &:not(.has-form):not(.is-active) {
                         > a:not(.btn) {
-                        color: $topbar-dropdown-link-color
-                        background-color: $topbar-dropdown-link-bg
+                            background-color: $topbar-dropdown-link-bg
+                            color: $topbar-dropdown-link-color
+
                             &:hover {
                                 color: $topbar-dropdown-link-color-hover
                             }
                         }
                         &:hover > a:not(.btn) {
-                            color: $topbar-dropdown-link-color-hover
-                            
                             if ($topbar-dropdown-link-bg-hover) {
                                 background-color: $topbar-dropdown-link-bg-hover
                             } else {
                                 background-color: $topbar-link-bg-color-hover
                             }
+                            color: $topbar-dropdown-link-color-hover
                         }
                     }
 
                     label {
-                        white-space: nowrap
                         background-color: $topbar-dropdown-label-bg
+                        white-space: nowrap
                     }
 
                     // 2nd Level Dropdowns
                     .dropdown {
-                        {$default-float}: 100%
                         top: 0
+                        {$default-float}: 100%
                     }
                 }
 
             }
 
             > ul > .divider,
-            > ul > [role="separator"] {
+            > ul > [role='separator'] {
                 border-bottom: none
                 border-top: none
                 border-{$opposite-direction}: $topbar-divider-border-bottom
@@ -855,8 +863,8 @@ if $include-html-topbar-classes {
 
             .has-form {
                 background-color: $topbar-link-bg-hover
-                padding: 0 $topbar-link-padding
                 height: $topbar-height
+                padding: 0 $topbar-link-padding
             }
 
             // Position overrides for ul.right and ul.left

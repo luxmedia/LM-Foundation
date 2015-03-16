@@ -97,7 +97,7 @@
           if (/mouse/i.test(e.type) && self.ie_touch(e)) {
             return false;
           }
-
+          
           if ($this.hasClass('is-open')) {
             if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) {
               e.preventDefault();
@@ -110,10 +110,16 @@
               e.preventDefault();
               S(settings.tooltip_class + '.is-open').hide();
               is_touch = true;
+              // close other open tooltips on touch
+              if ($('.is-open[' + self.attr_name() + ']').length > 0) {
+               var prevOpen = S($('.is-open[' + self.attr_name() + ']')[0]);
+               self.hide(prevOpen);
+              }
             }
 
             if (/enter|over/i.test(e.type)) {
               _startShow(this, $this);
+
             } else if (e.type === 'mouseout' || e.type === 'mouseleave') {
               _startHide(this, $this);
             } else {
@@ -122,12 +128,13 @@
           }
         })
         .on('mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip', '[' + this.attr_name() + '].is-open', function (e) {
-          if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
+          if (/mouse/i.test(e.type) && self.ie_touch(e)) {
+            return false;
+          }
 
           if ($(this).data('tooltip-open-event-type') == 'touch' && e.type == 'mouseleave') {
             return;
-          }
-          else if ($(this).data('tooltip-open-event-type') == 'mouse' && /MSPointerDown|touchstart/i.test(e.type)) {
+          } else if ($(this).data('tooltip-open-event-type') == 'mouse' && /MSPointerDown|touchstart/i.test(e.type)) {
             self.convert_to_touch($(this));
           } else {
             _startHide(this, $(this));
@@ -164,17 +171,16 @@
     },
 
     selector : function ($target) {
-      var id = $target.attr('id'),
-          dataSelector = $target.attr(this.attr_name()) || $target.attr('data-selector');
+      var dataSelector = $target.attr(this.attr_name()) || $target.attr('data-selector');
 
-      if ((id && id.length < 1 || !id) && typeof dataSelector != 'string') {
+      if (typeof dataSelector != 'string') {
         dataSelector = this.random_str(6);
         $target
           .attr('data-selector', dataSelector)
           .attr('aria-describedby', dataSelector);
       }
 
-      return (id && id.length > 0) ? id : dataSelector;
+      return dataSelector;
     },
 
     create : function ($target) {
@@ -267,7 +273,7 @@
 
     inheritable_classes : function ($target) {
       var settings = $.extend({}, this.settings, this.data_options($target)),
-          inheritables = ['tip--top', 'tip--left', 'tip--bottom', 'tip--right', 'radius', 'round'].concat(settings.additional_inheritable_classes),
+          inheritables = ['tip--top', 'tip--left', 'tip-bottom', 'tip--right', 'radius', 'round'].concat(settings.additional_inheritable_classes),
           classes = $target.attr('class'),
           filtered = classes ? $.map(classes.split(' '), function (el, i) {
             if ($.inArray(el, inheritables) !== -1) {
@@ -307,7 +313,6 @@
 
     hide : function ($target) {
       var $tip = this.getTip($target);
-
       $tip.fadeOut(150, function () {
         $tip.find('.tap-to-close').remove();
         $tip.off('click.fndtn.tooltip.tapclose MSPointerDown.fndtn.tapclose');

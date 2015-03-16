@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @Variables
@@ -11,17 +11,17 @@
 $include-html-nav-breadcrumb-classes =                 com_css.BREADCRUMBS
 
 // set the background color for the breadcrumb container.
-$crumb-bg ?=                                 lighten($secondary-color, 55%)
+$crumb-bg ?=                                 transparent // lightness($secondary-color, 80%)
 
 // set the padding around the breadcrumbs.
 $crumb-padding ?=                            rem-calc(9 14)
 $crumb-side-padding ?=                       rem-calc(6) // rem-calc(12)
 
 // border styles.
-$crumb-function-factor ?=                    10% // -10%
+$crumb-function-factor ?=                    -10%
 $crumb-border-size ?=                        false // 1px
 $crumb-border-style ?=                       solid
-$crumb-border-color ?=                       darken($crumb-bg, $crumb-function-factor)
+$crumb-border-color ?=                       scale-color($crumb-bg, $crumb-function-factor)
 $crumb-radius ?=                             false // $global-radius
 
 // set various text styles for breadcrumbs.
@@ -37,7 +37,7 @@ $crumb-link-decor ?=                         none // underline
 
 // the slash between breadcrumbs
 $crumb-slash-color ?=                        $gray-base
-$crumb-slash ?=                              "/"
+$crumb-slash ?=                              '/'
 
 //
 // Breadcrumb Mixins
@@ -45,30 +45,28 @@ $crumb-slash ?=                              "/"
 
 // We use this mixin to create a container around our breadcrumbs
 crumb-container() {
-    display: block
-    padding: $crumb-padding
-    overflow: hidden
-    margin: 0
-    list-style: none
+    background-color: $crumb-bg
     if ($crumb-border-size) {
         border-style: $crumb-border-style
         border-width: $crumb-border-size
         border-color: $crumb-border-color
     }
-
-    background-color: $crumb-bg
+    display: block
+    list-style: none
+    margin: 0
+    overflow: hidden
+    padding: $crumb-padding
 }
 
 // We use this mixin to create breadcrumb styles from list items.
 crumbs() {
-
-    // A normal state will make the links look and act like clickable breadcrumbs.
-    margin: 0
+    color: $crumb-font-color
     float: $default-float
     font-size: $crumb-font-size
     line-height: $crumb-line-height
+    // A normal state will make the links look and act like clickable breadcrumbs.
+    margin: 0
     text-transform: $crumb-font-transform
-    color: $crumb-font-color
 
     &:hover a,
     &:focus a { 
@@ -76,8 +74,8 @@ crumbs() {
     }
 
     a {
-        font-weight: $crumb-font-weight
         color: $crumb-font-color
+        font-weight: $crumb-font-weight
     }
 
     // Current is for the link of the current page
@@ -109,9 +107,9 @@ crumbs() {
         &:hover a,
         &:focus,
         a:focus {
-            text-decoration: none
             color: $crumb-font-color-unavailable
             cursor: $cursor-disabled-value
+            text-decoration: none
         }
     }
 
@@ -124,7 +122,7 @@ crumbs() {
     }
 
     &:first-child:before {
-        content: " "
+        content: ' '
         margin: 0
     }
 }
@@ -132,7 +130,6 @@ crumbs() {
 //
 // @styles
 //
-
 if $include-html-nav-breadcrumb-classes {
     .breadcrumbs {
         crumb-container()
@@ -147,7 +144,7 @@ if $include-html-nav-breadcrumb-classes {
     }
 
     // Accessibility - hides the forward slash
-    [aria-label="breadcrumbs"] [aria-hidden="true"]:after {
-        content: "/"
+    [aria-label='breadcrumbs'] [aria-hidden='true']:after {
+        content: '/'
     }
 }

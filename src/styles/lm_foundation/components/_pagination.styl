@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -63,8 +63,8 @@ pagination-container($center = false) {
 pagination-unavailable-item() {
     a,
     button {
-        cursor: $pagination-link-unavailable-cursor
         color: $pagination-link-unavailable-font-color
+        cursor: $pagination-link-unavailable-cursor
     }
     &:hover a,
     & a:focus,
@@ -86,8 +86,8 @@ pagination-current-item($has-anchor = true) {
         button {
             background: $pagination-link-current-background
             color: $pagination-link-current-font-color
-            font-weight: $pagination-link-current-font-weight
             cursor: $pagination-link-current-cursor
+            font-weight: $pagination-link-current-font-weight
             
             &:hover,
             &:focus {
@@ -96,12 +96,12 @@ pagination-current-item($has-anchor = true) {
             }
         }
     } else {
-        height: auto
-        padding: $pagination-link-pad
         background: $pagination-link-current-background
         color: $pagination-link-current-font-color
-        font-weight: $pagination-link-current-font-weight
         cursor: $pagination-link-current-cursor
+        font-weight: $pagination-link-current-font-weight
+        height: auto
+        padding: $pagination-link-pad
         radius(0)
 
         &:hover,
@@ -121,29 +121,29 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
 
     if $base-style {
         display: inline-block
-        min-height: $pagination-height
         margin: 0
         margin-{$default-float}: $pagination-margin
+        min-height: $pagination-height
 
         li {
-            line-height: $pagination-li-height
             color: $pagination-li-font-color
             font-size: $pagination-li-font-size
+            line-height: $pagination-li-height
             margin-{$default-float}: $pagination-li-margin
 
             a,
             button {
-                display: block
-                padding: $pagination-link-pad
-                color: $pagination-link-font-color
                 background: $pagination-link-bg
-                font_family($pagination-font-family)
+                color: $pagination-link-font-color
+                display: block
                 font-size: $pagination-font-size
                 font-weight: normal
+                font_family($pagination-font-family)
                 line-height: inherit
+                padding: $pagination-link-pad
                 text-transform: uppercase
                 if $pagination-link-border {
-                    border:1px solid $pagination-link-border
+                    border: 1px solid $pagination-link-border
                     border-width: $pagination-link-border-width
                 }
                 if ($pagination-link-boxshadow != false) {
@@ -167,7 +167,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             &:last-child button,
             &:last-of-type button {
                 if ($pagination-link-border != false) {
-                    border-right:none
+                    border-right: none
                 }
                 if ($pagination-link-boxshadow != false) {
                     box-shadow: 1px 1px 1px $pagination-link-border
@@ -219,11 +219,11 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 // }
                 &.pager__prev a {
                     padding-left: rem-calc(30)
-                    svg-background($file:'arrows_left.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:left)
+                    svg-background($file:'arrows_left.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:left)
                 }
                 &.pager__next a {
                     padding-right: rem-calc(30)
-                    svg-background($file:'arrows_right.svg', $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:right)
+                    svg-background($file:'arrows_right.svg',  $shapes:('polyline' 'polygon'), $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:right)
                 }
                 
             }
@@ -234,11 +234,11 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
     // Left or center align the li elements
     li {
         if $center {
-            float: none
             display: inline-block
+            float: none
         } else {
-            float: $pagination-li-float
             display: block
+            float: $pagination-li-float
         }
     }
 }
@@ -252,7 +252,7 @@ if $include-pagination-classes {
         pagination()
     }
 
-    /* Pagination centred wrapper */
+    // Pagination centred wrapper 
     .pager-centered {
         pagination-container(true)
 

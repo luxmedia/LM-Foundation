@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -62,8 +62,8 @@ $table-margin-bottom ?=                      rem-calc(20)
 
 table() {
     background: $table-bg
-    margin-bottom: $table-margin-bottom
     border: $table-border-style $table-border-size $table-border-color
+    margin-bottom: $table-margin-bottom
     table-layout: $table-layout
 
     &.tbl--flat {
@@ -88,12 +88,12 @@ table() {
         tr {
             th,
             td {
-                padding: $table-head-padding
+                border-bottom: $table-head-border 
+                color: $table-head-font-color
                 font-size: $table-head-font-size
                 font-weight: $table-head-font-weight
+                padding: $table-head-padding
                 text-transform: $table-head-text-transform
-                color: $table-head-font-color
-                border-bottom: $table-head-border 
             }
         }
     }
@@ -104,10 +104,10 @@ table() {
         tr {
             th,
             td {
-                padding: $table-foot-padding
+                color: $table-foot-font-color
                 font-size: $table-foot-font-size
                 font-weight: $table-foot-font-weight
-                color: $table-foot-font-color
+                padding: $table-foot-padding
                 text-transform: $table-foot-text-transform
             }
             th {
@@ -119,9 +119,9 @@ table() {
     tr {
         th,
         td {
-            padding: $table-row-padding
-            font-size: $table-row-font-size
             color: $table-row-font-color
+            font-size: $table-row-font-size
+            padding: $table-row-padding
             text-align: $default-float
         }
         td:last-child {

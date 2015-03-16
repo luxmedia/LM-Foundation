@@ -19,6 +19,8 @@
 
 	<script type="text/javascript" src="../dist/js/vendor.min.js"></script>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 	<!--[if (lt IE 9) & (!IEMobile)]>
 	<script type="text/javascript" src="../dist/js/ie8.min.js"></script>
 	<![endif]-->

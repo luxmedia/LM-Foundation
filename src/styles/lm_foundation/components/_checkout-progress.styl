@@ -5,18 +5,26 @@
 // @variables
 //
 
-$include-html-checkout-progress-classes =              com_css.CHECKOUTPROGRESS
+$include-html-checkout-progress-classes =       com_css.CHECKOUTPROGRESS
 
-$checkout-progress-font-family ?=            $font-family-custom
-$checkout-progress-bar-height ?=             rem-calc(2)
-$checkout-progress-bar-animation ?=          2s // false
-$checkout-progress-step-font-size ?=         fontsize(1.6rem)
-$checkout-progress-step-width ?=             rem-calc(42)
-$checkout-progress-step-height ?=            $checkout-progress-step-width
-$checkout-progress-label-margin-top ?=       rem-calc(8)
-$checkout-progress-label-height ?=           rem-calc(20)
-$checkout-progress-margin ?=                 rem-calc(20)
-
+$checkout-progress-color ?=                     $gray-darker-2
+$checkout-progress-font-family ?=               $font-family-custom
+$checkout-progress-bar-height ?=                rem-calc(2)
+$checkout-progress-bar-margin ?=                rem-calc(0 20)
+$checkout-progress-bar-animation ?=             2s // false
+$checkout-progress-step-font-size ?=            fontsize(1.6rem)
+$checkout-progress-step-width ?=                rem-calc(42)
+$checkout-progress-step-height ?=               $checkout-progress-step-width
+$checkout-progress-step-line-height ?=          ($checkout-progress-step-height - rem-calc(4))
+$checkout-progress-step-active-color ?=         $info-color
+$checkout-progress-step-visited-color ?=        $success-color
+$checkout-progress-step-hidden-color ?=         $white
+$checkout-progress-step-next-color ?=           $gray-base
+$checkout-progress-label-font-size ?=           fontsize(0.8rem)
+$checkout-progress-label-margin-top ?=          rem-calc(8)
+$checkout-progress-label-height ?=              rem-calc(20)
+$checkout-progress-margin ?=                    rem-calc(20)
+$checkout-progress-li-padding ?=                rem-calc(14 20 14 80)
 
 //
 // @mixins
@@ -24,25 +32,25 @@ $checkout-progress-margin ?=                 rem-calc(20)
 // Mixins for checkout progress bar
 
 hidden-progress() {
-    background-color: $white
+    background-color: $checkout-progress-step-hidden-color
 }
 
 next-progress() {
-    background-color: $gray-base
+    background-color: $checkout-progress-step-next-color
     // background-size: 35px 35px
     // background-image: -webkit-linear-gradient(-45deg, rgba($white, .4) 25%, transparent 25%,transparent 50%, rgba($white, .4) 50%, rgba($white, .4) 75%,transparent 75%, transparent)
     // background-image: -moz-linear-gradient(-45deg, rgba($white, .4) 25%, transparent 25%,transparent 50%, rgba($white, .4) 50%, rgba($white, .4) 75%,transparent 75%, transparent)
 }
 
 success-progress() {
-    background-color: $success-color
+    background-color: $checkout-progress-step-visited-color
     // background-size: 35px 35px
     // background-image: -webkit-linear-gradient(-45deg, rgba($white, .2) 25%, transparent 25%,transparent 50%, rgba($white, .2) 50%, rgba($white, .2) 75%,transparent 75%, transparent)
     // background-image: -moz-linear-gradient(-45deg, rgba($white, .2) 25%, transparent 25%,transparent 50%, rgba($white, .2) 50%, rgba($white, .2) 75%,transparent 75%, transparent)
 }
 
 active-progress() {
-    background-color: $info-color
+    background-color: $checkout-progress-step-active-color
     // background-size: 35px 35px
     // background-image: -webkit-linear-gradient(-45deg, rgba($white, .2) 25%, transparent 25%,transparent 50%, rgba($white, .2) 50%, rgba($white, .2) 75%,transparent 75%, transparent)
     // background-image: -moz-linear-gradient(-45deg, rgba($white, .2) 25%, transparent 25%,transparent 50%, rgba($white, .2) 50%, rgba($white, .2) 75%,transparent 75%, transparent)
@@ -64,28 +72,28 @@ active-progress() {
 if $include-html-checkout-progress-classes {
 
     .checkout-wrap {
-        position: relative
-        margin: rem-calc(20) auto
-        color: $gray-darker-2
+        color: $checkout-progress-color
         font-family: $checkout-progress-font-family
+        margin: rem-calc(20) auto
+        position: relative
     }
 
     .checkout-bar {
-        margin: rem-calc(0 20)
+        margin: $checkout-progress-bar-margin
 
         li {
-            position: relative
-            display: block
-            padding: rem-calc(14 20 14 80)
             color: $gray-base
+            display: block
             font-size: $checkout-progress-step-font-size
             font-weight: $font-weight-normal
+            padding: $checkout-progress-li-padding
+            position: relative
 
             // Step Label
             span,
             a {
                 color: $gray-base
-                font-size: fontsize(0.8rem)
+                font-size: $checkout-progress-label-font-size
                 font-weight: $font-weight-bold
                 text-decoration: none
                 text-transform: uppercase
@@ -95,36 +103,38 @@ if $include-html-checkout-progress-classes {
             }
 
             &:before {
-                position: absolute
-                left: rem-calc(20)
-                top: rem-calc(4)
-                width: $w = rem-calc(35)
-                height: $w
-                line-height: $w
                 background-color: $white
-                color: $gray-base
+                border: 2px solid $checkout-progress-step-next-color
+                border-radius: 50%
+                box-shadow: 0 0 0 2px $white // simualte white gap to progress bar
+                color: $checkout-progress-step-next-color
                 font-size: $checkout-progress-step-font-size
                 font-weight: $font-weight-normal
+                height: $checkout-progress-step-height //rem-calc(35)
+                left: rem-calc(20)
+                line-height: $checkout-progress-step-line-height //rem-calc(35)
+                position: absolute
                 text-align: center
-                border: 2px solid $gray-base
-                box-shadow: 0 0 0 2px $white // simualte white gap to progress bar
-                border-radius: 50%
+                top: rem-calc(4)
+                width: $checkout-progress-step-width //rem-calc(35)
                 z-index: 999
 
             }
 
             &.is-active {
                 color: $info-color
+
                 &:before {
-                    background-color: $info-color
-                    border-color: $info-color
+                    background-color: $checkout-progress-step-active-color
+                    border-color: $checkout-progress-step-active-color
                     color: $white
                     z-index: 999
                 }
+
                 a {
                     color: $info-color
                     &:hover {
-                        color: darken($info-color,25%)
+                        color: darken($checkout-progress-step-active-color, 25%)
                         cursor: $cursor-pointer-value
                     }
                 }
@@ -132,53 +142,56 @@ if $include-html-checkout-progress-classes {
             &.is-visited {
                 color: $success-color
                 z-index: 999
+
                 &:before {
-                    background-color: $success-color
+                    background-color: $checkout-progress-step-visited-color
                     {$is-svg-support} & {
                         svg-background($file:'arrows_check.svg', $size:($checkout-progress-step-height - rem-calc(10)), $stroke:$white, $stroke-width:$svg-stroke-width-large, $position-x:center)
-                        content: "" !important
+                        content: '' !important
                     }
-                    border-color: $success-color
+                    border-color: $checkout-progress-step-visited-color
                     box-shadow: none
                     color: $white
                     z-index: 999
                 }
+
                 a {
-                    color: $success-color
+                    color: $checkout-progress-step-visited-color
+
                     &:hover {
-                        color: darken($success-color,25%)
+                        color: darken($checkout-progress-step-visited-color, 25%)
                         cursor: $cursor-pointer-value
                     }
                 }
             }
             &:nth-child(1) {
                 &:before {
-                    content: "1"
+                    content: '1'
                 }
             }
             &:nth-child(2) {
                 &:before {
-                    content: "2"
+                    content: '2'
                 }
             }
             &:nth-child(3) {
                 &:before {
-                    content: "3"
+                    content: '3'
                 }
             }
             &:nth-child(4) {
                 &:before {
-                    content: "4"
+                    content: '4'
                 }
             }
             &:nth-child(5) {
                 &:before {
-                    content: "5"
+                    content: '5'
                 }
             }
             &:nth-child(6) {
                 &:before {
-                    content: "6"
+                    content: '6'
                 }
             }
         }
@@ -190,61 +203,59 @@ if $include-html-checkout-progress-classes {
         .checkout-wrap {
             margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
         }
+
         .checkout-bar li.is-active:after {
             active-progress()
-
-            content: ""
-            position: absolute
+            content: ''
+            height: $checkout-progress-bar-height
             left: 50%
+            position: absolute
             top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
             width: 100%
-            height: $checkout-progress-bar-height
             z-index: 0
 
             if $checkout-progress-bar-animation {
                 -webkit-animation: progressbar_animation $checkout-progress-bar-animation 0
             }
         }
+
         .checkout-bar {
             next-progress()
-
-            position: absolute
-            width: 100%
+            border-radius: $checkout-progress-bar-height
             height: $checkout-progress-bar-height
             margin: 0 auto
             padding: 0
-            border-radius: $checkout-progress-bar-height
+            position: absolute
+            width: 100%
 
             // Left end of progress bar stripe
             &:before {
                 success-progress()
-
-                position: absolute
-                left: 0
-                width: (percentage((1/4)) / 2) // 10%
-                height: $checkout-progress-bar-height
                 border-radius: $checkout-progress-bar-height
-                content: " "
+                content: ' '
+                height: $checkout-progress-bar-height
+                left: 0
+                position: absolute
+                width: (percentage((1/4)) / 2) // 10%
             }
 
             li {
-                float: left
                 display: inline-block
-                width: percentage((1/5)) // default width for five steps
+                float: left
                 margin: ($checkout-progress-step-height/2) 0 0 0
                 padding: 0
                 text-align: center
+                width: percentage((1/5)) // default width for five steps
 
-                // This is our Step umber Circle
+                // This is our Step number Circle
                 &:before {
-                    
-                    position: absolute
+                    height: $checkout-progress-step-height
                     left: 50%
+                    line-height: $checkout-progress-step-line-height
+                    margin-left: -($checkout-progress-step-width/2)
+                    position: absolute
                     top: -($checkout-progress-step-height + ($checkout-progress-bar-height/2))
                     width: $checkout-progress-step-width
-                    height: $checkout-progress-step-height
-                    margin-left: -($checkout-progress-step-width/2)
-                    line-height: ($checkout-progress-step-height - rem-calc(4))
                     z-index: 99
                 }
 
@@ -254,7 +265,7 @@ if $include-html-checkout-progress-classes {
                     &:after {
                         success-progress()
 
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 50%
                         top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
@@ -266,11 +277,11 @@ if $include-html-checkout-progress-classes {
 
                 span,
                 a {
+                    display: inline-block
+                    line-height: 1
+                    padding-top: ($checkout-progress-label-margin-top + $checkout-progress-step-height)
                     position: relative
                     top: -($checkout-progress-step-height) // move label closer to number
-                    display: inline-block
-                    padding-top: ($checkout-progress-label-margin-top + $checkout-progress-step-height)
-                    line-height: 1
                     z-index: 1001 //move link above li:before to make it a nice block link
                 }
             } // li

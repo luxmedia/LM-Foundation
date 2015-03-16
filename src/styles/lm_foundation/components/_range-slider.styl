@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -58,19 +58,20 @@ $rang-slider-label-bg-color ?=               $white
 //
 
 range-slider-bar-base($vertical = false) {
-    position: relative
     border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-border-color
     margin: rem-calc(20 0)
+    position: relative
     -ms-touch-action: none
     touch-action: none
+
     if ($vertical == true) {
         display: inline-block
-        width: $range-slider-vertical-bar-width
         height: $range-slider-vertical-bar-height
+        width: $range-slider-vertical-bar-width
     } else {
-        display: block;
-        width: $range-slider-bar-width;
-        height: $range-slider-bar-height;
+        display: block
+        height: $range-slider-bar-height
+        width: $range-slider-bar-width
     }
 }
 range-slider-bar-style($bg = true, $radius = false, $round = false, $disabled = false) {
@@ -95,14 +96,14 @@ range-slider-bar($bg = $range-slider-bar-bg-color, $radius = false) {
 }
 
 range-slider-handle-base() {
-    display: inline-block
-    position: absolute
-    z-index: 1
-    top: -($range-slider-handle-position-top)
-    width: $range-slider-handle-width
-    height: $range-slider-handle-height
     border-longhand($width:$range-slider-handle-border-width, $style:$range-slider-handle-border-style, $color:$range-slider-handle-border-color)
     cursor: $range-slider-handle-cursor
+    display: inline-block
+    height: $range-slider-handle-height
+    position: absolute
+    top: -($range-slider-handle-position-top)
+    width: $range-slider-handle-width
+    z-index: 1
 
     // This removes the 300ms touch delay on Windows 8
     -ms-touch-action: manipulation
@@ -143,18 +144,17 @@ range-slider-handle() {
 }
 
 range-slider-label-base() {
-    display: inline-block
-    position: relative
-    top: -($range-slider-handle-height)
-    padding: $rang-slider-label-padding
-    line-height: $range-slider-handle-height
-    font_family($rang-slider-label-font-family)
-    font-size: $rang-slider-label-font-size
-    font-weight: $rang-slider-label-font-weight
-    color: $rang-slider-label-color
     background-color: $rang-slider-label-bg-color
     border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-border-color
-
+    color: $rang-slider-label-color
+    display: inline-block
+    font-size: $rang-slider-label-font-size
+    font-weight: $rang-slider-label-font-weight
+    font_family($rang-slider-label-font-family)
+    line-height: $range-slider-handle-height
+    padding: $rang-slider-label-padding
+    position: relative
+    top: -($range-slider-handle-height)
 }
 
 //
@@ -167,16 +167,16 @@ if $include-html-range-slider-classes {
         &--vert {
             range-slider-bar-base($vertical: true)
             .rangeslider__handle {
-                margin-top: 0
-                margin-{$default-float}: -($range-slider-handle-position-left)
-                // margin-{$default-float}: -($range-slider-handle-width / 4)
-                position: absolute
                 bottom: -($range-slider-vertical-bar-height - $range-slider-handle-width)
+                margin-top: 0
+                // margin-{$default-float}: -($range-slider-handle-width / 4)
+                margin-{$default-float}: -($range-slider-handle-position-left)
+                position: absolute
             }
             .rangeslider__act-seg {
-                width: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
-                height: auto
                 bottom: 0
+                height: auto
+                width: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
             }
         }
         &--rad {
@@ -201,11 +201,11 @@ if $include-html-range-slider-classes {
     }
 
     .rangeslider__act-seg {
-        display: inline-block
-        position: absolute
-        height: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
         background: $range-slider-active-segment-bg-color
         border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-active-border-color
+        display: inline-block
+        height: ($range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2)))
+        position: absolute
     }
     
     .rangeslider__handle {

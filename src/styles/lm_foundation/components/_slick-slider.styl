@@ -2,7 +2,7 @@
 // lux-media.de - foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -10,7 +10,7 @@
 
 $include-html-slickslider-classes = com_js.SLICKSLIDER
 
-$slick-loader-path ?=               "./"
+$slick-loader-path ?=               './'
 $slick-arrow-color ?=               $gray-base
 $slick-arrow-color-hover ?=         $primary-color
 $slick-dot-color ?=                 $charcoal-2
@@ -48,7 +48,7 @@ slick-image-url($url) {
     if image-url is defined {
         return image-url($url)
     } else {
-        return unquote("url("+$slick-loader-path + $url+")")
+        return unquote('url('+$slick-loader-path + $url+')')
     }
 }
 
@@ -63,34 +63,34 @@ if $include-html-slickslider-classes {
     .slick {
 
         &__slider {
-            position: relative
-            display: block
-            box-sizing: border-box
+            -khtml-user-select: none
             -moz-box-sizing: border-box
+            -moz-user-select: none
+            -ms-touch-action: pan-y
+            -ms-user-select: none
+            -webkit-tap-highlight-color: transparent
             -webkit-touch-callout: none
             -webkit-user-select: none
-            -khtml-user-select: none
-            -moz-user-select: none
-            -ms-user-select: none
-            user-select: none
-            -ms-touch-action: pan-y
+            box-sizing: border-box
+            display: block
+            position: relative
             touch-action: pan-y
-            -webkit-tap-highlight-color: transparent
+            user-select: none
         }
         &__list {
-            position: relative
-            overflow: hidden
+            cursor($slick-cursor-drag)
             display: block
             margin: 0
+            overflow: hidden
             padding: 0
-            cursor($slick-cursor-drag)
+            position: relative
 
             &:focus {
                 outline: none
             }
 
             .is-loading & {
-                background: $white slick-image-url("ajax-loader.gif") center center no-repeat
+                background: $white slick-image-url('ajax-loader.gif') center center no-repeat
             }
 
             &.is-dragging {
@@ -107,14 +107,14 @@ if $include-html-slickslider-classes {
         }
 
         &__track {
-            position: relative
-            left: 0
-            top: 0
             display: block
+            left: 0
+            position: relative
+            top: 0
 
             &:before,
             &:after {
-                content: ""
+                content: ''
                 display: table
             }
 
@@ -127,11 +127,12 @@ if $include-html-slickslider-classes {
             }
         }
         &__slide {
+            display: none
             float: left
             height: 100%
             min-height: 1px
             
-            [dir="rtl"] & {
+            [dir='rtl'] & {
                 float: right
             }
 
@@ -142,8 +143,6 @@ if $include-html-slickslider-classes {
             &.is-loading img {
                 display: none
             }
-
-            display: none
 
             &.dragging img {
                 pointer-events: none
@@ -158,29 +157,29 @@ if $include-html-slickslider-classes {
             }
 
             .slick--vertical & {
+                border: 1px solid transparent
                 display: block
                 height: auto
-                border: 1px solid transparent
             }
         }
 
         // Arrows
         &__prev,
         &__next {
-            position: absolute
-            display: block
-            height: $slick-nav-button-size
-            width: $slick-nav-button-size
-            line-height: 0px
-            font-size: 0px
-            cursor: pointer
             background-color: transparent
-            color: transparent
-            top: 50%
-            margin-top: -($slick-nav-button-size/2)
-            padding: 0
             border: none
-            outline: none
+            color: transparent
+            cursor: pointer
+            display: block
+            font-size: 0px
+            height: $slick-nav-button-size
+            line-height: 0px
+            margin-top: -($slick-nav-button-size/2)
+            // outline: none
+            padding: 0
+            position: absolute
+            top: 50%
+            width: $slick-nav-button-size
 
             &:hover,
             &:focus {
@@ -196,24 +195,24 @@ if $include-html-slickslider-classes {
         &__prev {
             {$default-float}: -($slick-nav-button-size+rem-calc(5))
 
-            svg-background($file:'arrows_'+$default-float+'.svg', $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+            svg-background($file:'arrows_'+$default-float+'.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
         &__next {
             {$opposite-direction}: -($slick-nav-button-size+rem-calc(5))
 
-            svg-background($file:'arrows_'+$opposite-direction+'.svg', $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+            svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
 
         // Dots
         if $slick-dot-blockstyle {
             // Squaretype fullwidth "block-dots"
             &__dots--block {
-                position: relative
                 display: block
-                width: 100%
+                list-style: none
                 margin: 0 0 $slick-dot-margin-bottom 0
                 padding: 0
-                list-style: none
+                position: relative
+                width: 100%
 
                 li {
                     display: block
@@ -221,17 +220,17 @@ if $include-html-slickslider-classes {
                     height: $slick-dot-sensitive-size-block
 
                     button {
-                        display: block
-                        width: 100%
-                        height: $slick-dot-sensitive-size-block
-                        margin: 0
-                        padding: 0
-                        font-size: 0px
                         background: $slick-dot-color-alt
                         border: none
                         box-shadow: none
-                        outline: none
                         cursor($cursor-pointer-value)
+                        display: block
+                        font-size: 0px
+                        height: $slick-dot-sensitive-size-block
+                        margin: 0
+                        outline: none
+                        padding: 0
+                        width: 100%
                     }
 
                     &:nth-child(even) button {
@@ -255,46 +254,45 @@ if $include-html-slickslider-classes {
             &__dots {
                 // position: absolute
                 // bottom: -(($slick-dot-sensitive-size*2)+rem-calc(5))
-                position: relative
                 display: block
-                width: 100%
+                list-style: none
                 margin: 0 0 $slick-margin-bottom 0
                 padding: 0
-                list-style: none
+                position: relative
                 text-align: center
+                width: 100%
 
                 li {
-                    position: relative
+                    cursor: pointer
                     display: inline-block
                     height: $slick-dot-sensitive-size
-                    width: $slick-dot-sensitive-size
                     margin: $slick-dot-margin
                     padding: 0
-                    cursor: pointer
+                    position: relative
                     radius(1000px)
+                    width: $slick-dot-sensitive-size
 
                     button {
-                        margin: 0
-                        padding: $slick-dot-padding
-                        display: block
-                        height: $slick-dot-sensitive-size
-                        width: $slick-dot-sensitive-size
-                        line-height: 0
-                        font-size: 0
                         background: transparent
-                        color: transparent
                         border: none
                         box-shadow: none
-                        outline: none
+                        color: transparent
                         cursor($cursor-pointer-value)
-
+                        display: block
+                        font-size: 0
+                        height: $slick-dot-sensitive-size
+                        line-height: 0
+                        margin: 0
+                        // outline: none
+                        padding: $slick-dot-padding
                         radius(1000px)
+                        width: $slick-dot-sensitive-size
 
                         &:hover,
                         &:focus {
-                            outline: none
                             border: none
                             box-shadow: none
+                            outline: none
 
                             &:before {
                                 color: $slick-dot-color-hover
@@ -303,19 +301,19 @@ if $include-html-slickslider-classes {
                         }
 
                         &:before {
-                            position: absolute
-                            top: 50%
-                            left: 50%
-                            width: $slick-dot-size
-                            height: $slick-dot-size
-                            line-height: $slick-dot-size
-                            margin: (-($slick-dot-size/2)) 0 0 (-($slick-dot-size/2))
+                            background-color: $slick-dot-color
                             content: $slick-dot-character
                             font-family: $slick-font-family
                             font-size: $slick-dot-size
-                            text-align: center
-                            background-color: $slick-dot-color
+                            height: $slick-dot-size
+                            left: 50%
+                            line-height: $slick-dot-size
+                            margin: (-($slick-dot-size/2)) 0 0 (-($slick-dot-size/2))
                             opacity: $slick-opacity-not-active
+                            position: absolute
+                            text-align: center
+                            top: 50%
+                            width: $slick-dot-size
                             
                             antialiased()
                             
@@ -327,8 +325,8 @@ if $include-html-slickslider-classes {
                     &.is-active button:before:hover {
                         background-color: $slick-dot-color-active
                         color: $slick-dot-color-active
-                        opacity: $slick-opacity-active
                         cursor($cursor-default-value)
+                        opacity: $slick-opacity-active
                     }
                 }
             }

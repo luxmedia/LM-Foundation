@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -43,7 +43,7 @@ $h6-font-reduction ?=                0
 
 // header font colors
 $h1-font-color ?=                     $primary-color
-$h2-font-color ?=                     $gray-dark-2
+$h2-font-color ?=                     $header-font-color
 $h3-font-color ?=                     $header-font-color
 $h4-font-color ?=                     $header-font-color
 $h5-font-color ?=                     $header-font-color
@@ -67,7 +67,7 @@ $subheader-bottom-margin ?=          remify(.5rem)
 
 // A general <small> styling
 $small-font-size ?=                  fontsize(.8rem)
-$small-font-color ?=                 lighten($header-font-color, 35%)
+$small-font-color ?=                 scale-color($header-font-color, 35%)
 
 // style paragraphs
 $paragraph-font-family ?=            inherit
@@ -89,17 +89,17 @@ $code-color ?=                       $charcoal-1
 $code-font-family ?=                 $font-family-monospace
 $code-font-size ?=                   fontsize(.9rem)
 $code-font-weight ?=                 $font-weight-normal
-$code-background-color ?=            lighten($secondary-color, 70%)
+$code-background-color ?=            scale-color($secondary-color, 70%)
 $code-border-size ?=                 1px
 $code-border-style ?=                solid
-$code-border-color ?=                darken($code-background-color, 10%)
+$code-border-color ?=                scale-color($code-background-color, -10%)
 $code-padding ?=                     rem-calc(2) rem-calc(5) rem-calc(1)
 
 // style anchors
 $anchor-text-decoration ?=           none
 $anchor-text-decoration-hover ?=     none
 $anchor-font-color ?=                $primary-color
-$anchor-font-color-hover ?=          darken($anchor-font-color, 15%)
+$anchor-font-color-hover ?=          scale-color($anchor-font-color, -15%)
 
 // style the <hr> element
 $hr-border-width ?=                  1px
@@ -122,11 +122,11 @@ $definition-list-header-margin-bottom ?= rem-calc(5)
 $definition-list-margin-bottom ?=        rem-calc(12)
 
 // style blockquotes
-$blockquote-font-color ?=                lighten($header-font-color, 35%)
+$blockquote-font-color ?=                scale-color($header-font-color, 35%)
 $blockquote-padding ?=                   rem-calc(9 20 0 19)
 $blockquote-border ?=                    1px solid $gray-medium-1
 $blockquote-cite-font-size ?=            rem-calc(13)
-$blockquote-cite-font-color ?=           lighten($header-font-color, 23%)
+$blockquote-cite-font-color ?=           scale-color($header-font-color, 23%)
 $blockquote-cite-link-color ?=           $blockquote-cite-font-color
 
 // Acronym styles
@@ -209,11 +209,11 @@ lead() {
 }
 
 subheader() {
-    line-height: $subheader-line-height
     color: $subheader-font-color
     font-weight: $subheader-font-weight
-    margin-top: $subheader-top-margin
+    line-height: $subheader-line-height
     margin-bottom: $subheader-bottom-margin
+    margin-top: $subheader-top-margin
 }
 
 //
@@ -251,8 +251,8 @@ if $include-html-type-classes {
     /* Default Link Styles */
     a {
         color: $anchor-font-color
-        text-decoration: $anchor-text-decoration
         line-height: inherit
+        text-decoration: $anchor-text-decoration
 
         &:hover,
         &:focus {
@@ -269,9 +269,9 @@ if $include-html-type-classes {
 
     /* Default paragraph styles */
     p {
-        font_family($paragraph-font-family)
-        font-weight: $paragraph-font-weight
         font-size: $paragraph-font-size
+        font-weight: $paragraph-font-weight
+        font_family($paragraph-font-family)
         line-height: $paragraph-line-height
         margin-bottom: $paragraph-margin-bottom
         text-rendering: $paragraph-text-rendering
@@ -282,58 +282,58 @@ if $include-html-type-classes {
 
         & aside {
             font-size: $paragraph-aside-font-size
-            line-height: $paragraph-aside-line-height
             font-style: $paragraph-aside-font-style
+            line-height: $paragraph-aside-line-height
         }
     }
 
     /* Default header styles */
     h1, h2, h3, h4, h5, h6 {
-        font_family($header-font-family)
         font-style: $header-font-style
-        text-rendering: $header-text-rendering
-        margin-top: $header-top-margin
-        margin-bottom: $header-bottom-margin
+        font_family($header-font-family)
         line-height: $header-line-height
+        margin-bottom: $header-bottom-margin
+        margin-top: $header-top-margin
+        text-rendering: $header-text-rendering
 
         small {
-            font-size: $small-font-size
             color: $small-font-color
+            font-size: $small-font-size
             line-height: 0
         }
     }
 
     h1 {
-        font_family($h1-font-family)
-        font-size: ($h1-font-size - $h1-font-reduction)
         color: $h1-font-color
+        font-size: ($h1-font-size - $h1-font-reduction)
         font-weight: $h1-font-weight
+        font_family($h1-font-family)
     }
     h2 {
-        font_family($h2-font-family)
-        font-size: ($h2-font-size - $h2-font-reduction)
         color: $h2-font-color
+        font-size: ($h2-font-size - $h2-font-reduction)
         font-weight: $h2-font-weight
+        font_family($h2-font-family)
     }
     h3 {
-        font_family($h3-font-family)
-        font-size: ($h3-font-size - $h3-font-reduction)
         color: $h3-font-color
+        font-size: ($h3-font-size - $h3-font-reduction)
         font-weight: $h3-font-weight
+        font_family($h3-font-family)
     }
     h4 {
-        font-size: ($h4-font-size - $h4-font-reduction)
         color: $h4-font-color
+        font-size: ($h4-font-size - $h4-font-reduction)
         font-weight: $h4-font-weight
     }
     h5 {
-        font-size: ($h5-font-size - $h5-font-reduction)
         color: $h5-font-color
+        font-size: ($h5-font-size - $h5-font-reduction)
         font-weight: $h5-font-weight
     }
     h6 {
-        font-size: ($h6-font-size - $h6-font-reduction)
         color: $h6-font-color
+        font-size: ($h6-font-size - $h6-font-reduction)
         font-weight: $h6-font-weight
     }
 
@@ -345,8 +345,8 @@ if $include-html-type-classes {
         border: $hr-border-style $hr-border-color
         border-width: $hr-border-width 0 0
         clear: both
-        margin: $hr-margin 0 ($hr-margin - rem-calc($hr-border-width))
         height: 0
+        margin: $hr-margin 0 ($hr-margin - rem-calc($hr-border-width))
     }
 
     /* Helpful Typography Defaults */
@@ -369,14 +369,14 @@ if $include-html-type-classes {
     kbd,
     pre,
     samp {
-        font_family($code-font-family)
+        background-color: $code-background-color
+        border-color: $code-border-color
+        border-style: $code-border-style
+        border-width: $code-border-size
+        color: $code-color
         font-size: $code-font-size
         font-weight: $code-font-weight
-        color: $code-color
-        background-color: $code-background-color
-        border-width: $code-border-size
-        border-style: $code-border-style
-        border-color: $code-border-color
+        font_family($code-font-family)
         padding: $code-padding
     }
 
@@ -385,10 +385,10 @@ if $include-html-type-classes {
     ol,
     dl {
         font-size: $list-font-size
-        line-height: $list-line-height
-        margin-bottom: $list-margin-bottom
-        list-style-position: $list-style-position
         font_family($list-font-family)
+        line-height: $list-line-height
+        list-style-position: $list-style-position
+        margin-bottom: $list-margin-bottom
     }
 
     ul {
@@ -398,9 +398,9 @@ if $include-html-type-classes {
             li {
                 ul,
                 ol {
-                    margin-{$default-float}: $list-nested-margin
-                    margin-bottom: 0
                     list-style: none
+                    margin-bottom: 0
+                    margin-{$default-float}: $list-nested-margin
                 }
             }
         }
@@ -411,8 +411,8 @@ if $include-html-type-classes {
         li {
             ul,
             ol {
-                margin-{$default-float}: $list-nested-margin
                 margin-bottom: 0
+                margin-{$default-float}: $list-nested-margin
             }
         }
         &.square,
@@ -446,8 +446,8 @@ if $include-html-type-classes {
         li {
             ul,
             ol {
-                margin-{$default-float}: $list-nested-margin
                 margin-bottom: 0
+                margin-{$default-float}: $list-nested-margin
             }
         }
     }
@@ -455,8 +455,8 @@ if $include-html-type-classes {
     /* Definition Lists */
     dl {
         dt {
-            margin-bottom: $definition-list-header-margin-bottom
             font-weight: $definition-list-header-weight
+            margin-bottom: $definition-list-header-margin-bottom
         }
         dd {
             margin-bottom: $definition-list-margin-bottom
@@ -466,10 +466,10 @@ if $include-html-type-classes {
     /* Abbreviations */
     abbr,
     acronym {
-        text-transform: uppercase
-        font-size: 90%
         color: $body-font-color
         cursor: $cursor-help-value
+        font-size: 90%
+        text-transform: uppercase
     }
     abbr {
         text-transform: none
@@ -485,11 +485,11 @@ if $include-html-type-classes {
         border-{$default-float}: $blockquote-border
 
         cite {
+            color: $blockquote-cite-font-color
             display: block
             font-size: $blockquote-cite-font-size
-            color: $blockquote-cite-font-color
             &:before {
-                content: "\2014 \0020"
+                content: '\2014 \0020'
             }
 
             a,
@@ -500,24 +500,24 @@ if $include-html-type-classes {
     }
     blockquote,
     blockquote p {
-        line-height: $paragraph-line-height
         color: $blockquote-font-color
+        line-height: $paragraph-line-height
     }
 
     /* Microformats */
     .vcard {
+        border: $microformat-border-width $microformat-border-style $microformat-border-color
         display: inline-block
         margin: $microformat-margin
-        border: $microformat-border-width $microformat-border-style $microformat-border-color
         padding: $microformat-padding
 
         li {
-            margin: 0
             display: block
+            margin: 0
         }
         .fn {
-            font-weight: $microformat-fullname-font-weight
             font-size: $microformat-fullname-font-size
+            font-weight: $microformat-fullname-font-weight
         }
     }
 
@@ -527,11 +527,11 @@ if $include-html-type-classes {
         }
 
         abbr {
-            cursor: $cursor-default-value
-            text-decoration: $microformat-abbr-font-decoration
-            font-weight: $microformat-abbr-font-weight
             border: none
+            cursor: $cursor-default-value
+            font-weight: $microformat-abbr-font-weight
             padding: $microformat-abbr-padding
+            text-decoration: $microformat-abbr-font-decoration
         }
     }
 

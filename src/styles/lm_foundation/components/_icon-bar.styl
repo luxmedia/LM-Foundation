@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -36,18 +36,18 @@ $icon-bar-disabled-cursor ?=                 $cursor-disabled-value
 //
 icon-bar-base() {
 
-    width: 100%
-    font-size: 0
     display: inline-block
+    font-size: 0
+    width: 100%
 
     > * {
-        text-align: center
-        font-size: $icon-bar-font-size
-        width: 25%
-        margin: 0 auto
         display: block
-        padding: $icon-bar-item-padding
         float: left
+        font-size: $icon-bar-font-size
+        margin: 0 auto
+        padding: $icon-bar-item-padding
+        text-align: center
+        width: 25%
 
         i,
         img,
@@ -67,16 +67,16 @@ icon-bar-base() {
 
         img,
         svg {
-            width: $icon-bar-image-width
             height: $icon-bar-image-height
+            width: $icon-bar-image-width
         }
     }
 
     &--lbl--right > * {
 
         i, img, svg {
-            margin: 0 remify(.0625rem) 0 0
             display: inline-block
+            margin: 0 remify(.0625rem) 0 0
 
             & + label {
                 margin-top: 0
@@ -98,9 +98,9 @@ icon-bar-base() {
         width: auto
 
         .item {
-            width: auto
-            margin: auto
             float: none
+            margin: auto
+            width: auto
         }
     }
 
@@ -110,9 +110,9 @@ icon-bar-base() {
             width: auto
 
             .item {
-                width: auto
-                margin: auto
                 float: none
+                margin: auto
+                width: auto
             }
         }
     }
@@ -122,9 +122,9 @@ icon-bar-base() {
             width: auto
 
             .item {
-                width: auto
-                margin: auto
                 float: none
+                margin: auto
+                width: auto
             }
         }
     }
@@ -152,8 +152,8 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
 
         img,
         svg {
-            width: $image-width
             height: $image-height
+            width: $image-width
         }
     }
 
@@ -191,12 +191,13 @@ icon-bar-style($bar-bg = $icon-bar-bg, $bar-font-color = $icon-bar-font-color, $
 
     if $disabled {
         .item.is-disabled {
-            opacity: $icon-bar-disabled-opacity
             cursor: $icon-bar-disabled-cursor
+            opacity: $icon-bar-disabled-opacity
             pointer-events: none
+            
             > * {
-                opacity: $icon-bar-disabled-opacity
                 cursor: $icon-bar-disabled-cursor
+                opacity: $icon-bar-disabled-opacity
             }
         }
     }

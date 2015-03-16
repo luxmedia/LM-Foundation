@@ -2,14 +2,15 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
-@require "_labels"
+@require '_global'
+@require '_labels'
 
 //
 // @Variables
 //
 
 $include-html-button-classes =              com_css.BUTTONS
+$button-corner-style ?=                     'all' // else: 'normal' or 'radius' or 'round'
 
 // build padding for buttons.
 $button-tny ?=                               rem-calc(3)
@@ -35,30 +36,32 @@ $button-text-transform ?=                    uppercase
 $button-letter-spacing ?=                    0
 
 // various hover effects.
-$button-function-factor ?=                   15% // darken amount
+$button-function-factor ?=                   -15% // lightness adjustment
 
 // button border and hover styles.
-$button-border-width ?=                      0 1px 1px 0
+$button-border-width ?=                      1px
 $button-border-style ?=                      solid
 $button-bg-color ?=                          $primary-color
-$button-bg-hover ?=                          darken($button-bg-color, 20%)
+$button-bg-hover ?=                          scale-color($button-bg-color, -20%)
 $button-border-color ?=                      rgba($black, .1)
 $button-border-hover-color ?=                rgba($black, .1)
 $button-shadow ?=                            $global-ui-shadow
 $button-hover-shadow ?=                      false // 1px 1px 1px rgba($black, .25)
 
-$secondary-button-bg-hover ?=                darken($secondary-color, $button-function-factor)
-$secondary-button-border-color ?=            darken($secondary-button-bg-hover,5%)
-$neutral-button-bg-hover ?=                  darken($neutral-color, $button-function-factor)
-$neutral-button-border-color ?=              darken($neutral-button-bg-hover,5%)
-$success-button-bg-hover ?=                  darken($success-color, $button-function-factor)
-$success-button-border-color ?=              darken($success-button-bg-hover,5%)
-$info-button-bg-hover ?=                     darken($info-color, $button-function-factor)
-$info-button-border-color ?=                 darken($info-button-bg-hover,5%)
-$alert-button-bg-hover ?=                    darken($alert-color, $button-function-factor)
-$alert-button-border-color ?=                darken($alert-button-bg-hover,5%)
-$warning-button-bg-hover ?=                  darken($warning-color, $button-function-factor)
-$warning-button-border-color ?=              darken($warning-button-bg-hover,5%)
+$button-outline-width ?=                     2px // else: false
+
+$secondary-button-bg-hover ?=                scale-color($secondary-color, $button-function-factor)
+$secondary-button-border-color ?=            scale-color($secondary-button-bg-hover, -5%)
+$neutral-button-bg-hover ?=                  scale-color($neutral-color, $button-function-factor)
+$neutral-button-border-color ?=              scale-color($neutral-button-bg-hover, -5%)
+$success-button-bg-hover ?=                  scale-color($success-color, $button-function-factor)
+$success-button-border-color ?=              scale-color($success-button-bg-hover, -5%)
+$info-button-bg-hover ?=                     scale-color($info-color, $button-function-factor)
+$info-button-border-color ?=                 scale-color($info-button-bg-hover, -5%)
+$alert-button-bg-hover ?=                    scale-color($alert-color, $button-function-factor)
+$alert-button-border-color ?=                scale-color($alert-button-bg-hover, -5%)
+$warning-button-bg-hover ?=                  scale-color($warning-color, $button-function-factor)
+$warning-button-border-color ?=              scale-color($warning-button-bg-hover, -5%)
 
 // set the default radius used throughout the core.
 $button-radius ?=                            $global-radius
@@ -153,11 +156,11 @@ button-flat($font-color = $gray-base, $bg-hover = $primary-color, $font-color-ho
     }
 
     &.btn--dropdown {
-        svg-background($file: 'arrows_down.svg', $shapes: all, $stroke: darken($font-color, 25%), $stroke-hover: $font-color-hover, $stroke-width: $svg-stroke-width-small)
+        svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke: scale-color($font-color, -25%), $stroke-hover: $font-color-hover, $stroke-width: $svg-stroke-width-small)
     }
     
     label {
-        color: darken($font-color,25%)
+        color: scale-color($font-color, -25%)
     }
 
 }
@@ -226,42 +229,54 @@ button-size($padding = $button-med, $full-width = false) {
 // $disabled - We can set $disabled:true to create a disabled transparent button. Default: false
 // $bg-hover - Button Hover Background Color. Default: $button-bg-hover
 // $border-color - Button Border Color. Default: $button-border-color
-button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hover = null, $border-color = null, $font-color = $button-font-color, $flat = false) {
+button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hover = null, $outline = false, $border-color = null, $font-color = $button-font-color, $flat = false) {
     
     // We control which background styles are used,
     // these can be removed by setting $bg = false
     if $bg {
 
-        if ($bg-hover == null) {
+        if ($bg-hover == null && $bg-hover != transparent) {
             // $bg-hover = ($bg != $button-bg-color) ? $button-bg-hover : scale-color($bg, $button-function-factor)
-            $bg-hover = darken($bg, $button-function-factor)
+            $bg-hover = scale-color($bg, $button-function-factor)
+        }
+        // if ($border-color == null || lightness($bg) == lightness($border-color)) {
+        //     $border-color = scale-color($bg, $button-function-factor)
+        // }
+        if ($border-color == null) {
+            $border-color = $bg
         }
 
-        if ($border-color == null || lightness($bg) == lightness($border-color)) {
-            // $border-color = ($bg != $button-bg-color) ? $button-border-color : scale-color($bg, $button-function-factor)
-            $border-color = darken($bg, $button-function-factor)
-        }
-
-        // We control the text color for you based on the background color.
-        if ($font-color == $button-font-color) {
-            color: (lightness($bg) < 75%) ? $font-color : $button-font-color-alt
+        if $outline {
+            background-color: transparent
+            border-width: $outline
+            color: $bg
         } else {
-            color: $font-color
+            // Control the text color for you based on the background color.
+            if ($font-color == $button-font-color) {
+                color: (lightness($bg) < 75%) ? $font-color : $button-font-color-alt
+            } else {
+                color: $font-color
+            }
+            
+            background-color: $bg
+            border-color: $border-color
         }
-        
-        background-color: $bg
-        border-color: $border-color
 
         &:hover,
         &:focus {
-            if ($font-color == $button-font-color) {
-                color: $col = (lightness($bg) < 75%) ? $font-color : darken($button-font-color-alt, $button-function-factor)
+            border-color: $bg-hover
+            if $outline {
+                background-color: rgba($bg, .1)
+                color: $bg-hover
             } else {
-                color: darken($font-color, $button-function-factor)
+                background-color: $bg-hover
+                // border-color: scale-color($border-color, ($button-function-factor - 5))
+                if ($font-color == $button-font-color) {
+                    color: (lightness($bg) < 75%) ? $font-color : scale-color($button-font-color-alt, $button-function-factor)
+                } else {
+                    color: scale-color($font-color, $button-function-factor)
+                }
             }
-            background-color: $bg-hover
-            // border-color: scale-color($border-color, $button-function-factor)
-            border-color: darken($border-color, ($button-function-factor - 5))
         }
 
     }
@@ -273,9 +288,10 @@ button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hov
 
     // We can set $disabled:true to create a disabled transparent button.
     if $disabled {
+        box-shadow: none
         cursor: $button-disabled-cursor
         opacity: $button-disabled-opacity
-        box-shadow: none
+
         &:hover,
         &:focus {
             background-color: $bg
@@ -327,120 +343,80 @@ if $include-html-button-classes {
     .btn {
         button-base()
         button-size()
-        button-style()
+
+        // Set corner style for buttons
+        if ($button-corner-style == 'radius') {
+            button-style($radius:true)
+        } else if ($button-corner-style == 'round') {
+            button-style($radius:$button-round)
+        } else {
+            button-style()
+        }
 
         antialiased()
         
-        single-transition(background-color)
+        single-transition(background-color box-shadow)
     }
 
     .btn {
-        // Inner Labels
-        .lbl {
-            label-style($bg: $white, $font-color: $button-bg-color)
-            top: -(rem-calc(2))
-            line-height: .8
+
+        // Outline button
+        if $button-outline-width {
+            &--outline {
+                button-style($outline:$button-outline-width)
+            }
         }
 
+        // Color variants
         &--secondary {
-            button-style($bg: $secondary-color, $bg-hover: $secondary-button-bg-hover, $border-color: $secondary-button-border-color)
-            
-            // inner labels
-            .lbl {
-                if (lightness($secondary-color) > 70%) {
-                    label-style($bg: $gray-base)
-                } else {
-                    label-style($bg: $white, $font-color: $secondary-color)
-                }
-            }
-            &:hover .lbl {
-                if (lightness($secondary-color) > 70%) {
-                    background-color: darken($gray-base, $button-function-factor)
-                } else {
-                    color: darken($secondary-color, $button-function-factor)
-                }
-            }
+            button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
         }
         &--neutral {
             button-style($bg: $neutral-color, $bg-hover: $neutral-button-bg-hover, $border-color: $neutral-button-border-color)
-            
-            // inner labels
-            .lbl {
-                if (lightness($neutral-color) > 70%) {
-                    label-style($bg:lightness($neutral-color, 50%))
-                } else {
-                    label-style($bg: $white, $font-color: $neutral-color)
-                }
-            }
-            &:hover .lbl {
-                if (lightness($neutral-color) > 70%) {
-                    background-color: darken($neutral-color, $button-function-factor)
-                } else {
-                    color: darken($neutral-color, $button-function-factor)
-                }
-            }
         }
         &--success {
             button-style($bg: $success-color, $bg-hover: $success-button-bg-hover, $border-color: $success-button-border-color)
-            
-            //inner label
-            .lbl & {
-                label-style($bg: $white, $font-color: $success-color)
-            }
-            &:hover .lbl {
-                color: darken($success-color, $button-function-factor)
-            }
         }
         &--info {
             button-style($bg: $info-color, $bg-hover: $info-button-bg-hover, $border-color: $info-button-border-color)
-            
-            .lbl {
-                label-style($bg: $white, $font-color: $info-color)
-            }
-            &:hover .lbl {
-                color: darken($info-color, $button-function-factor)
-            }
         }            
         &--warning {
             button-style($bg: $warning-color, $bg-hover: $warning-button-bg-hover, $border-color: $warning-button-border-color, $font-color: $warning-font-color)
-            
-            .lbl {
-                label-style($bg: $warning-font-color, $font-color: $warning-color)
-            }
-            &:hover .lbl {
-                background-color: darken($warning-font-color, $button-function-factor)
-                color: darken($warning-color, $button-function-factor)
-            }
         }
         &--alert {
             button-style($bg: $alert-color, $bg-hover: $alert-button-bg-hover, $border-color: $alert-button-border-color, $font-color: $critical-font-color)
-            .lbl {
-                label-style($bg: $critical-font-color, $font-color: $alert-color)
-            }
-            &:hover .lbl {
-                background-color: darken($critical-font-color, $button-function-factor)
-                color: darken($alert-color, $button-function-factor)
-            }
         }
 
-        &--lrg {
-            button-size($padding: $button-lrg)
+        // Labels inside of buttons
+        .lbl {
+            line-height: .8
+            top: -(rem-calc(2))
+        }
+        &:not(.btn--flat) .lbl,
+        &:not(.btn--outline) .lbl {
+            border-width: 0
+        }
+
+        // Sizes
+        &--tny {
+            button-size($padding: $button-tny)
         }
         &--sml {
             button-size($padding: $button-sml)
-            
-            .lbl {
-                top: 0
-                padding: rem-calc(1 5 1)
-            }
         }
-        &--tny {
-            button-size($padding: $button-tny)
+        &--lrg {
+            button-size($padding: $button-lrg)
         }
         &--exp {
             button-size($padding:null, $full-width:true)
         }
+        &--tny .lbl,
+        &--sml .lbl {
+            top: 0
+            padding: rem-calc(1 5 1)
+        }
 
+        // Alignment
         &--txtleft {
             text-align: left;
             text-indent: $button-med
@@ -450,17 +426,24 @@ if $include-html-button-classes {
             padding-right: $button-med
         }
         
-        &--rad {
-            button-style($bg:false, $radius:true)
-        }
-        &--rnd {
-            button-style($bg:false, $radius: $button-round)
+        // Corner Variants
+        // NOTE: add additional btn corner variants only for 'all' button-corner-style.
+        // Otherwise we dont need more corner styles to avoid design inconsistency and blown up code.
+        if ($button-corner-style == 'all') {
+            &--rad {
+                button-style($bg:false, $radius:true)
+            }
+            &--rnd {
+                button-style($bg:false, $radius:$button-round)
+            }
         }
 
+        // BG-Less button
         &--flat {
             button-flat()
         }
 
+        // Disabled state
         &.is-disabled,
         &[disabled] {
             button-style($bg: $button-bg-color, $disabled:true, $bg-hover: $button-bg-hover, $border-color: $button-border-color)

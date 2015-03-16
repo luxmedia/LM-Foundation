@@ -7,7 +7,7 @@
     version : '{{VERSION}}',
 
     settings : {
-      active_class : 'is-active',
+      active_class : 'active',
       threshold : 0, // pixels from the top of the expedition for it to become fixes
       destination_threshold : 20, // pixels from the top of destination for it to be considered active
       throttle_delay : 30, // calculation throttling to increase framerate
@@ -49,7 +49,6 @@
           if (settings.offset_by_height) {
             scroll_top = scroll_top - expedition.outerHeight();
           }
-
           $('html, body').stop().animate({
             'scrollTop' : scroll_top
           }, settings.duration, settings.easing, function () {
@@ -61,9 +60,6 @@
           });
         })
         .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay));
-
-      $(window)
-        .on('resize.fndtn.magellan', self.throttle(this.set_expedition_position.bind(this), settings.throttle_delay));
     },
 
     check_for_arrivals : function () {

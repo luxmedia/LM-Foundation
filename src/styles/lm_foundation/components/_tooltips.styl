@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -46,9 +46,9 @@ if $include-html-tooltip-classes {
     /* Tooltips */
     .has-tip {
         border-bottom: $has-tip-border-bottom
+        color: $has-tip-font-color
         cursor: $has-tip-cursor-type
         font-weight: $has-tip-font-weight
-        color: $has-tip-font-color
 
         &:hover,
         &:focus {
@@ -63,32 +63,32 @@ if $include-html-tooltip-classes {
     }
 
     .tooltip {
-        display: none
-        position: absolute
-        z-index: $zindex-tooltip
-        font-weight: $tooltip-font-weight
-        font-size: $tooltip-font-size
-        line-height: $tooltip-line-height
-        padding: $tooltip-padding
-        max-width: $tooltip-max-width
-        {$default-float}: 50%
-        width: 100%
-        color: $tooltip-font-color
         background: $tooltip-bg
         border-longhand($width:$tooltip-border-width,$color:$tooltip-border-color)
         border-top-color: $tooltip-border-color-highlight
         box-shadow: $tooltip-box-shadow
+        color: $tooltip-font-color
+        display: none
+        font-size: $tooltip-font-size
+        font-weight: $tooltip-font-weight
+        line-height: $tooltip-line-height
+        max-width: $tooltip-max-width
+        padding: $tooltip-padding
+        position: absolute
+        width: 100%
+        z-index: $zindex-tooltip
+        {$default-float}: 50%
 
         > .nub {
-            display: block
-            {$default-float}: $tooltip-pip-size
-            position: absolute
-            width: 0
-            height: 0
             border: solid $tooltip-pip-size
             border-color: transparent transparent $tooltip-border-color-highlight transparent
-            top: -($tooltip-pip-size * 2)
+            display: block
+            height: 0
             pointer-events: none
+            position: absolute
+            top: -($tooltip-pip-size * 2)
+            width: 0
+            {$default-float}: $tooltip-pip-size
 
             &.rtl {
                 left: auto
@@ -113,9 +113,9 @@ if $include-html-tooltip-classes {
     }
 
     .tap-to-close {
+        color: $tooltip-close-font-color
         display: block
         font-size: $tooltip-close-font-size
-        color: $tooltip-close-font-color
         font-weight: $tooltip-close-font-weight
     }
 
@@ -132,8 +132,8 @@ if $include-html-tooltip-classes {
                     border-color: $tooltip-border-color $tooltip-border-color $tooltip-border-color-highlight $tooltip-border-color
                     > .nub {
                         border-color: $tooltip-border-color-highlight transparent transparent transparent
-                        top: auto
                         bottom: -($tooltip-pip-size * 2)
+                        top: auto
                     }
                 }
                 
@@ -146,20 +146,20 @@ if $include-html-tooltip-classes {
                     border-color: $tooltip-border-color $tooltip-border-color-highlight $tooltip-border-color $tooltip-border-color
                     > .nub {
                         border-color: transparent transparent transparent $tooltip-border-color-highlight
-                        right: -($tooltip-pip-size * 2)
                         left: auto
-                        top: 50%
                         margin-top: -($tooltip-pip-size)
+                        right: -($tooltip-pip-size * 2)
+                        top: 50%
                     }
                 }
                 &--right {
                     border-color: $tooltip-border-color $tooltip-border-color $tooltip-border-color $tooltip-border-color-highlight
                     > .nub {
                         border-color: transparent $tooltip-border-color-highlight transparent transparent
-                        right: auto
                         left: -($tooltip-pip-size * 2)
-                        top: 50%
                         margin-top: -($tooltip-pip-size)
+                        right: auto
+                        top: 50%
                     }
                 }
             }

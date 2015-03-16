@@ -143,22 +143,22 @@ form-row-base() {
 //
 // We use this mixin to give all basic form elements their style
 form-element() {
-    display: block
-    margin: 0 0 $form-spacing 0
-    padding: ($form-spacing / 2)
-    height: ($input-font-size + $form-spacing - rem-calc(1))
-    width: 100%
-    font_family($input-font-family)
-    font-size: $input-font-size
-    font-weight: $input-font-weight
-    color: $input-font-color
     background-color: $input-bg-color
+    border-bottom-color: $edge = lighten($input-border-color, 45%)
+    border-color: $input-border-color
+    border-right-color: $edge    
     border-style: $input-border-style
     border-width: $input-border-width
-    border-color: $input-border-color
-    border-bottom-color: $edge = lighten($input-border-color, 45%)
-    border-right-color: $edge    
     box-shadow: $input-box-shadow
+    color: $input-font-color
+    display: block
+    font-size: $input-font-size
+    font-weight: $input-font-weight
+    font_family($input-font-family)
+    height: ($input-font-size + $form-spacing - rem-calc(1))
+    margin: 0 0 $form-spacing 0
+    padding: ($form-spacing / 2)
+    width: 100%
     
     box-sizing(border-box)
     if $input-include-glowing-effect {
@@ -195,10 +195,10 @@ form-label($alignment = false, $base-style = true) {
 
     // Control whether or not the base styles come through.
     if $base-style {
-        font-size: $form-label-font-size
         color: $form-label-font-color
         cursor: $form-label-pointer
         display: block
+        font-size: $form-label-font-size
         font-weight: $form-label-font-weight
         line-height: $form-label-line-height
         margin-bottom: $form-label-bottom-margin
@@ -220,19 +220,19 @@ form-label($alignment = false, $base-style = true) {
 
 // We use this mixin to create postfix/prefix form Labels
 prefix-postfix-base() {
-    display: block
-    position: relative
-    z-index: 2
-    text-align: center
-    width: 100%
-    padding-top: 0
-    padding-bottom: 0
     border-style: $input-prefix-border-type
     border-width: $input-prefix-border-size
-    overflow: $input-prefix-overflow
+    display: block
     font-size: $form-label-font-size
     height: ($input-font-size + $form-spacing - rem-calc(1))
     line-height: ($input-font-size + $form-spacing - rem-calc(1))
+    overflow: $input-prefix-overflow
+    padding-bottom: 0
+    padding-top: 0
+    position: relative
+    text-align: center
+    width: 100%
+    z-index: 2
 }
 
 // @MIXIN
@@ -260,12 +260,12 @@ prefix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button 
     }
 
     if $is-button {
+        border: none
+        padding-bottom: 0
+        padding-top: 0
         padding-{$default-float}: 0
         padding-{$opposite-direction}: 0
-        padding-top: 0
-        padding-bottom: 0
         text-align: center
-        border: none
     }
 
 }
@@ -294,35 +294,35 @@ postfix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button
     }
 
     if $is-button {
+        border: none
+        padding-bottom: 0
+        padding-top: 0
         padding-{$default-float}: 0
         padding-{$opposite-direction}: 0
-        padding-top: 0
-        padding-bottom: 0
         text-align: center
-        border: none
     }
 
 }
 
 // We use this mixin to style fieldsets
 fieldset() {
-    display: inline-block
-    padding: $fieldset-padding
-    margin: $fieldset-margin
     background: $fieldset-bg-color
     border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color,3%)
+    display: inline-block
+    margin: $fieldset-margin
+    padding: $fieldset-padding
 
     // and legend styles
     legend {
-        padding: $legend-padding
-        margin: 0
-        margin-{$default-float}: -(rem-calc(3))
-        font_family($legend-font-family)
+        background: $legend-bg
+        color: $legend-font-color
         font-size: $legend-font-size
         font-weight: $legend-font-weight
+        font_family($legend-font-family)
+        margin: 0
+        margin-{$default-float}: -(rem-calc(3))
+        padding: $legend-padding
         text-transform: $legend-text-transform
-        color: $legend-font-color
-        background: $legend-bg
     }
 }
 
@@ -331,8 +331,8 @@ fieldset() {
 // We use this mixin to control border and background color of error inputs
 // $color - Default: $alert-color (found in settings file)
 form-error-color($color = $alert-color) {
-    border-color: $color
     background-color: lightness($color, 94%)
+    border-color: $color
 
     // Go back to normal on focus
     &:focus {
@@ -358,12 +358,12 @@ form-error-message($bg = $input-error-message-bg-color) {
     // alert-style($bg: $alert-color, $font-color: $alert-font-color-critical, $border-color:$alert-color)
 
     display: block
-    padding: $input-error-message-padding
-    margin-top: $input-error-message-top
-    margin-bottom: $form-spacing
     font-size: $input-error-message-font-size
-    font-weight: $input-error-message-font-weight
     font-style: $input-error-message-font-style
+    font-weight: $input-error-message-font-weight
+    margin-bottom: $form-spacing
+    margin-top: $input-error-message-top
+    padding: $input-error-message-padding
     text-transform: $input-error-message-font-transform
 
     background: $bg
@@ -377,6 +377,7 @@ form-error-message($bg = $input-error-message-bg-color) {
 // We use this mixin to style select elements
 form-select()  {
     -webkit-appearance: none !important
+    -moz-appearance: none !important
     background-color: $white
 
     // Hide the dropdown arrow shown in newer IE versions
@@ -384,53 +385,58 @@ form-select()  {
         display: none
     }
 
-    svg-background($file:'arrows_down.svg', $shapes:'polyline', $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
-
-    padding: ($form-spacing / 2)
-    line-height: normal
-    font-size: $input-font-size
-    font_family($body-font-family)
-    font-weight: $input-font-weight
-    color: $input-font-color
-    border-longhand($width:$input-border-width,$style:$input-border-style,$color:$input-border-color)
-    border-top-color: $edge = darken($fieldset-bg-color, 4%)
-    border-left-color: $edge
-    box-shadow: 1px 1px 1px $select-shadow-color
-    cursor: $cursor-pointer-value
+    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
+    border-longhand($width:$input-border-width, $style:$input-border-style, $color:$input-border-color)
+    border-left-color: $edge = darken($fieldset-bg-color, 4%)
     border-radius: 0
+    border-top-color: $edge
+    box-shadow: 1px 1px 1px $select-shadow-color
+    color: $input-font-color
+    cursor: $cursor-pointer-value
+    font-size: $input-font-size
+    font-weight: $input-font-weight
+    font_family($body-font-family)
+    line-height: normal
+    padding: ($form-spacing / 2)
+
     &.radius {
         radius($global-radius)
     }
+
     &:hover {
-        color: $input-font-color-hover
         background-color: $select-hover-bg-color
         border-bottom-color: $input-focus-border-color
+        border-left-color: $edge = darken($fieldset-bg-color, 8%)
         border-right-color: $input-focus-border-color
-        border-top-color: $edge = darken($fieldset-bg-color, 8%)
-        border-left-color: $edge
+        border-top-color: $edge
         box-shadow: 1px 1px 1px $select-shadow-color-hover
+        color: $input-font-color-hover
     }
+
     if $input-include-glowing-effect {
         block-glowing-effect(focus, $glowing-effect-fade-time, $glowing-effect-color)
     }
+
     // Basic focus styles
     &:focus {
         background-color: $input-focus-bg-color
         border-color: $input-focus-border-color
         outline: none
     }
+
     // Disabled Styles
     &:disabled {
         background-color: $input-disabled-bg
-        opacity: 0.5
-        cursor: $input-disabled-cursor
         border-style: dotted
+        cursor: $input-disabled-cursor
+        opacity: 0.5
+
         &:hover {
-            color: $input-font-color
             border-color: $input-border-color
-            border-top-color: $edge = darken($fieldset-bg-color, 4%)
-            border-left-color: $edge
+            border-left-color: $edge = darken($fieldset-bg-color, 4%)
+            border-top-color: $edge
             box-shadow: 1px 1px 1px $select-shadow-color
+            color: $input-font-color
         }
     }
 }
@@ -441,31 +447,33 @@ form-checkbox-base() {
     position: absolute
 
     & + label {
-        position: relative
+        cursor: pointer
         display: inline-block
+        font-size: $input-font-size
+        font-weight: $form-label-ui-font-weight
+        margin-bottom: ($form-spacing * .5) // 0
         margin-{$default-float}: ($form-spacing * .5)
         margin-{$opposite-direction}: $form-spacing
-        margin-bottom: ($form-spacing * .5) // 0
         padding-bottom: 0
         padding-left: ($input-checkbox-width * 1.5)
-        font-weight: $form-label-ui-font-weight
-        font-size: $input-font-size
+        position: relative
         text-transform: none
         vertical-align: baseline
-        cursor: pointer
+
         &::-moz-selection,
         &::selection {
             background: transparent
         }
+
         &:before {
-            display: inline-block
-            width: $input-checkbox-width
-            height: $input-checkbox-width
-            position: absolute
-            left: 0px
-            top: ceil((pxify($form-label-line-height+$font-size-normalization) - $input-checkbox-width) / 2) 
             // margin-right: ($w * 2)
-            content: ""
+            content: ''
+            display: inline-block
+            height: $input-checkbox-width
+            left: 0
+            position: absolute
+            top: ceil((pxify($form-label-line-height+$font-size-normalization) - $input-checkbox-width) / 2) 
+            width: $input-checkbox-width
             single-transition(all)
         }
     }
@@ -481,14 +489,17 @@ form-checkbox-style($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hov
 
     & + label {
         color: $font-color
+
         &:before {
             background-color: $bg // checkmark-rectangle fill
-            border: $input-checkbox-inner-padding solid $bg // is actually our inner padding and bg fill
             border-top-color: darken($bg, 5%) // bg fill shade
+            border: $input-checkbox-inner-padding solid $bg // is actually our inner padding and bg fill
             box-shadow: 0 0 0 $input-checkbox-border-width $border-color // is actually our border
         }
+
         &:hover {
             color: (dark($font-color) ? darken($font-color, 10%) : lighten($font-color, 10%))
+            
             &:before {
                 background-color: $bg-hover // hover: checkmark-rectangle fill
                 box-shadow: 0 0 0 $input-checkbox-border-width $border-color-hover // hover: border
@@ -599,6 +610,7 @@ if $include-html-form-classes {
     // We use this to get basic styling on all basic form elements
     {unquote(join(', ', text-inputs(all, 'input')))} {
         -webkit-appearance: none
+        -moz-appearance: none
         -webkit-border-radius: 0
         form-element()
         if ($input-include-glowing-effect == false) {
@@ -674,6 +686,7 @@ if $include-html-form-classes {
 
     input[type="submit"] {
         -webkit-appearance: none
+        -moz-appearance: none
         -webkit-border-radius: 0
         antialiased()
     }
@@ -784,14 +797,14 @@ if $include-html-form-classes {
 
         > label {
             > small {
-                color: lighten($form-label-font-color, 15%)
                 background: transparent
-                padding: 0
-                margin: 0
-                text-transform: $form-label-small-transform
-                font-style: normal
-                font-size: $form-label-small-font-size
+                color: lighten($form-label-font-color, 15%)
                 display: inline
+                font-size: $form-label-small-font-size
+                font-style: normal
+                margin: 0
+                padding: 0
+                text-transform: $form-label-small-transform
             }
         }
 

@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -126,18 +126,18 @@ alert-style($bg = $primary-color, $font-color = $alert-font-color, $border-color
 
 // We use this to create the close button.
 alert-close() {
-    font-size: $alert-close-font-size
-    padding: $alert-close-padding
-    line-height: .9
-    position: absolute
-    top: $alert-close-top
-    margin-top: -($alert-close-padding[0]+($alert-close-font-size/2))
-    {$opposite-direction}: $alert-close-position
-    // color: $alert-close-color
-    opacity: $alert-close-opacity
     if $alert-close-background {
         background: $alert-close-background
     }
+    font-size: $alert-close-font-size
+    line-height: .9
+    margin-top: -($alert-close-padding[0]+($alert-close-font-size/2))
+    opacity: $alert-close-opacity
+    position: absolute
+    padding: $alert-close-padding
+    top: $alert-close-top
+    {$opposite-direction}: $alert-close-position
+    // color: $alert-close-color
     &:hover,
     &:focus {
         opacity: $alert-close-opacity-hover
@@ -154,87 +154,89 @@ alert($bg = $primary-color, $radius = false) {
     radius($radius)
 }
 
-// +exports("alert-box") {
-    if $include-html-alert-classes {
-        .alert {
-            alert()
-            alert-size()
 
-            .alert__close {
-                alert-close()
-            }
+//
+// @styles
+//
+if $include-html-alert-classes {
+    .alert {
+        alert()
+        alert-size()
 
-            &--rad {
-                radius($alert-radius)
-            }
-            &--rnd {
-                radius($global-rounded)
-            }
+        .alert__close {
+            alert-close()
+        }
 
-            &--exp {
-                alert-size($full-width: true)
-            }
+        &--rad {
+            radius($alert-radius)
+        }
+        &--rnd {
+            radius($global-rounded)
+        }
 
-            // DEFAULT ALERT STYLE - light soft bg, colored typo
-            &--success {
-                alert-style($bg: lightness($success-color, 90%), $font-color: lightness($success-color, 30%), $border-color: lightness($success-color, 75%))
-                {$is-svg-support} & {
-                    svg-background($file:'arrows_circle_check.svg', $shapes:('polyline' 'circle'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$success-color, $stroke-hover:false, $position-x:$default-float)
-                }
-            }
-            &--neutral {
-                alert-style($bg: lightness($neutral-color, 90%), $font-color: lightness($neutral-color, 30%), $border-color: lightness($neutral-color, 75%))
-                {$is-svg-support} & {
-                    svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $position-x:$default-float)
-                }
-            }
-            &--secondary {
-                alert-style($bg: lighten($secondary-color, 80%), $font-color: darken($secondary-color, 40%), $border-color: $secondary-color)
-                {$is-svg-support} & {
-                    svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $position-x:$default-float)
-                }
-            }
-            &--info {
-                alert-style($bg: lightness($info-color, 90%), $font-color: lightness($info-color, 30%), $border-color: lightness($info-color, 75%))
-                {$is-svg-support} & {
-                    svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$info-color, $stroke-hover:false, $position-x:$default-float)
-                }
-            }            
-            &--warning {
-                alert-style($bg: lightness($warning-color, 90%), $font-color: $alert-font-color-warning, $border-color: lightness($warning-color, 75%))
-                {$is-svg-support} & {
-                    svg-background($file:'arrows_exclamation.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$warning-color, $stroke-hover:false, $position-x:$default-float)
-                }
-            }
-            &--critical {
-                alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
-                {$is-svg-support} & {
-                    svg-background($file:'basic_ban.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$critical-color, $stroke-hover:false, $position-x:$default-float)
-                }
-            }
+        &--exp {
+            alert-size($full-width: true)
+        }
 
-            // ALTERNATIVE ALERT STYLE - intense filled bg and inverted typo
-            if $include-html-alert-alt-classes {
-                &--success-alt {
-                    alert-style($bg:$success-color, $border-color:$success-color)
-                }
-                &--secondary-alt {
-                    alert-style($bg:$secondary-color, $border-color:$secondary-color)
-                }
-                &--info-alt {
-                    alert-style($bg:$info-color, $border-color:$info-color)
-                }            
-                &--warning-alt {
-                    alert-style($bg: $warning-color, $font-color: $alert-font-color-warning, $border-color:$warning-color)
-                }
-                &--critical-alt {
-                    alert-style($bg: $alert-color, $font-color: $alert-font-color-critical, $border-color:$alert-color)
-                }
-            }
-
-            &--is-closed {
-                opacity: 0
+        // DEFAULT ALERT STYLE - light soft bg, colored typo
+        &--success {
+            alert-style($bg: lightness($success-color, 90%), $font-color: lightness($success-color, 30%), $border-color: lightness($success-color, 75%))
+            {$is-svg-support} & {
+                svg-background($file:'arrows_circle_check.svg', $shapes:('polyline' 'circle'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$success-color, $stroke-hover:false, $position-x:$default-float)
             }
         }
+        &--neutral {
+            alert-style($bg: lightness($neutral-color, 90%), $font-color: lightness($neutral-color, 30%), $border-color: lightness($neutral-color, 75%))
+            {$is-svg-support} & {
+                svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $position-x:$default-float)
+            }
+        }
+        &--secondary {
+            alert-style($bg: lighten($secondary-color, 80%), $font-color: darken($secondary-color, 40%), $border-color: $secondary-color)
+            {$is-svg-support} & {
+                svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $position-x:$default-float)
+            }
+        }
+        &--info {
+            alert-style($bg: lightness($info-color, 90%), $font-color: lightness($info-color, 30%), $border-color: lightness($info-color, 75%))
+            {$is-svg-support} & {
+                svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$info-color, $stroke-hover:false, $position-x:$default-float)
+            }
+        }            
+        &--warning {
+            alert-style($bg: lightness($warning-color, 90%), $font-color: $alert-font-color-warning, $border-color: lightness($warning-color, 75%))
+            {$is-svg-support} & {
+                svg-background($file:'arrows_exclamation.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$warning-color, $stroke-hover:false, $position-x:$default-float)
+            }
+        }
+        &--critical {
+            alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
+            {$is-svg-support} & {
+                svg-background($file:'basic_ban.svg', $shapes:('path' 'line'), $size:$alert-bg-icosize, $stroke-width:$svg-stroke-width-medium, $stroke:$critical-color, $stroke-hover:false, $position-x:$default-float)
+            }
+        }
+
+        // ALTERNATIVE ALERT STYLE - intense filled bg and inverted typo
+        if $include-html-alert-alt-classes {
+            &--success-alt {
+                alert-style($bg:$success-color, $border-color:$success-color)
+            }
+            &--secondary-alt {
+                alert-style($bg:$secondary-color, $border-color:$secondary-color)
+            }
+            &--info-alt {
+                alert-style($bg:$info-color, $border-color:$info-color)
+            }            
+            &--warning-alt {
+                alert-style($bg: $warning-color, $font-color: $alert-font-color-warning, $border-color:$warning-color)
+            }
+            &--critical-alt {
+                alert-style($bg: $alert-color, $font-color: $alert-font-color-critical, $border-color:$alert-color)
+            }
+        }
+
+        .is-closed {
+            opacity: 0
+        }
     }
-// }
+}

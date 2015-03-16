@@ -1,6 +1,6 @@
 // LOADING OVERLAYS
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -13,7 +13,7 @@ $loading-bg-alpha ?=                    rgba($gray-base, 0.8)
 $loading-bg-radial-inner ?=             rgba($gray-medium-1, 0.85)
 $loading-bg-radial-outer ?=             rgba($gray-dark-1, 0.5)
 $loading-image-size ?=                  rem-calc(48)
-$loading-imageurl ?=                    image-url("loading.png")
+$loading-imageurl ?=                    image-url('loading.png')
 
 $loading-distort-perspective ?=         600px
 $loading-anim-duration ?=               1s
@@ -28,17 +28,6 @@ $loading-anim-duration ?=               1s
 if $include-html-loading-classes {
     
     .loading {
-        display: none
-        width: 100%
-        min-height: $loading-min-height
-        position: fixed
-        left: 0
-        top: 0
-        color: $gray-base
-        font_size(2rem)
-        text-align: center
-        z-index: $zindex-modal
-
         background: $loading-bg-opaque
         background: $loading-bg-alpha
         background: -moz-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%, $loading-bg-radial-outer 100%);
@@ -47,26 +36,35 @@ if $include-html-loading-classes {
         background: -o-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
         background: -ms-radial-gradient(center, ellipse cover, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
         background: radial-gradient(ellipse at center, $loading-bg-radial-inner 0%,$loading-bg-radial-outer 100%);
+        color: $gray-base
+        display: none
+        font_size(2rem)
+        left: 0
+        min-height: $loading-min-height
+        position: fixed
+        text-align: center
+        top: 0
+        width: 100%
+        z-index: $zindex-modal
 
         .container {
-            width: $loading-image-size
             height: $loading-image-size
-            position: absolute
-            top: 50%
             left: 50%
             margin: -(2*$loading-image-size) 0 0 -($loading-image-size/2);
+            position: absolute
+            top: 50%
+            width: $loading-image-size
             -webkit-perspective: $loading-distort-perspective
             -moz-perspective: $loading-distort-perspective
             -o-perspective: $loading-distort-perspective
             perspective: $loading-distort-perspective
 
             .box {
+                animation: loadinganim $loading-anim-duration linear infinite
                 background: transparent $loading-imageurl no-repeat center center
+                height: 100%
                 position: relative
                 width: 100%
-                height: 100%
-
-                animation: loadinganim $loading-anim-duration linear infinite
             }
         }
 

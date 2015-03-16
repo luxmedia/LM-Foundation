@@ -2,16 +2,6 @@
 // LM_FOUNDATION FRAMEWORK - READY FOR USE WITH STYLUS
 // =========================================================================
 
-// =========================================================================
-//
-// @json
-//
-
-base_colors = json('../json/base__colors.json', { hash: true })
-base_params = json('../json/base__params.json', { hash: true })
-com_css = json('../json/fndtn__com__css.json', { hash: true })
-com_js = json('../json/fndtn__com__js.json', { hash: true })
-
 
 // =========================================================================
 //
@@ -19,59 +9,59 @@ com_js = json('../json/fndtn__com__js.json', { hash: true })
 //
 
 // GLOBAL
-@require "lm_foundation/components/_global"
+@require 'lm_foundation/components/_global'
 
 // GRID
 // CAN BE DISABLED TO USE A DIFFERENT GRID-SYSTEM, E.G. JEET.GS
-@require "lm_foundation/components/_grid"
+@require 'lm_foundation/components/_grid'
 
 // COMPONENTS
-@require "lm_foundation/components/_accordion"
-@require "lm_foundation/components/_alerts"
-@require "lm_foundation/components/_block-grid"
-@require "lm_foundation/components/_breadcrumbs"
-@require "lm_foundation/components/_buttons"
-@require "lm_foundation/components/_button-groups"
-@require "lm_foundation/components/_clearing"
-@require "lm_foundation/components/_dropdown"
-@require "lm_foundation/components/_dropdown-buttons"
-@require "lm_foundation/components/_flex-video"
-@require "lm_foundation/components/_forms"
-@require "lm_foundation/components/_icon-bar"
-@require "lm_foundation/components/_inline-lists"
-@require "lm_foundation/components/_joyride"
-@require "lm_foundation/components/_keystrokes"
-@require "lm_foundation/components/_labels"
-@require "lm_foundation/components/_loading"
-@require "lm_foundation/components/_magellan"
-@require "lm_foundation/components/_orbit" // DEPRECATED
-@require "lm_foundation/components/_slick-slider"
-@require "lm_foundation/components/_pagination"
-@require "lm_foundation/components/_panels"
-@require "lm_foundation/components/_pricing-tables"
-@require "lm_foundation/components/_progress-bars"
-@require "lm_foundation/components/_checkout-progress"
-@require "lm_foundation/components/_range-slider"
-@require "lm_foundation/components/_reveal"
-@require "lm_foundation/components/_ribbons"
-@require "lm_foundation/components/_side-nav"
-@require "lm_foundation/components/_split-buttons"
-@require "lm_foundation/components/_sub-nav"
-@require "lm_foundation/components/_switches"
-@require "lm_foundation/components/_tables"
-@require "lm_foundation/components/_tabs"
-@require "lm_foundation/components/_thumbs"
-@require "lm_foundation/components/_tooltips"
-@require "lm_foundation/components/_topbar"
-@require "lm_foundation/components/_type"
-@require "lm_foundation/components/_offcanvas"
-// --> TODO: Bugfix media-query loop: not all breakpoints are loaded!!!
-@require "lm_foundation/components/_visibility"
-// =========================================================================
+@require 'lm_foundation/components/_accordion'
+@require 'lm_foundation/components/_alerts'
+@require 'lm_foundation/components/_block-grid'
+@require 'lm_foundation/components/_breadcrumbs'
+@require 'lm_foundation/components/_buttons'
+@require 'lm_foundation/components/_button-groups'
+@require 'lm_foundation/components/_clearing'
+@require 'lm_foundation/components/_dropdown'
+@require 'lm_foundation/components/_dropdown-buttons'
+@require 'lm_foundation/components/_flex-video'
+@require 'lm_foundation/components/_forms'
+@require 'lm_foundation/components/_icon-bar'
+@require 'lm_foundation/components/_inline-lists'
+@require 'lm_foundation/components/_joyride'
+@require 'lm_foundation/components/_keystrokes'
+@require 'lm_foundation/components/_labels'
+@require 'lm_foundation/components/_loading'
+@require 'lm_foundation/components/_magellan'
+@require 'lm_foundation/components/_orbit' // DEPRECATED
+@require 'lm_foundation/components/_slick-slider'
+@require 'lm_foundation/components/_pagination'
+@require 'lm_foundation/components/_panels'
+@require 'lm_foundation/components/_pricing-tables'
+@require 'lm_foundation/components/_progress-bars'
+@require 'lm_foundation/components/_checkout-progress'
+@require 'lm_foundation/components/_range-slider'
+@require 'lm_foundation/components/_reveal'
+@require 'lm_foundation/components/_ribbons'
+@require 'lm_foundation/components/_side-nav'
+@require 'lm_foundation/components/_split-buttons'
+@require 'lm_foundation/components/_sub-nav'
+@require 'lm_foundation/components/_switches'
+@require 'lm_foundation/components/_tables'
+@require 'lm_foundation/components/_tabs'
+@require 'lm_foundation/components/_thumbs'
+@require 'lm_foundation/components/_tooltips'
+@require 'lm_foundation/components/_topbar'
+@require 'lm_foundation/components/_type'
+@require 'lm_foundation/components/_offcanvas'
+@require 'lm_foundation/components/_visibility'
 
 // Ecommerce Components
-@require "lm_foundation/components/_product-list"
+@require 'lm_foundation/components/_product-list'
+
+// =========================================================================
 
 // Helper css stylings for docs.html ONLY!!!
 // Disable in production environments!
-@require "lm_foundation/components/_docs"
+@require 'lm_foundation/components/_docs'

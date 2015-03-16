@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @Variables
@@ -37,18 +37,18 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
 
     if $base-style {
         display: block
-        padding: 0
         if $align-block-grid-to-grid {
             margin: 0
         } else {
             margin: 0 (-($spacing) / 2)
         }
+        padding: 0
         clearfix()
 
         > li {
             display: block
-            height: auto
             float: $default-float
+            height: auto
             if $include-spacing {
                 padding: 0 ($spacing / 2) $spacing
             }
@@ -57,11 +57,11 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
 
     if $per-row {
         > li {
-            width: (100% / $per-row)
+            list-style: none
             if $include-spacing {
                 padding: 0 ($spacing / 2) $spacing
             }
-            list-style: none
+            width: (100% / $per-row)
 
             &:nth-of-type(1n) { 
                 clear: none
@@ -79,7 +79,7 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
 block-grid-aligned($per-row, $spacing) {
     for $i in 1..$block-grid-elements {
         if ($per-row >= $i) {
-            $grid-column = '+' + $i
+            $grid-column = ('+' + $i)
             if ($per-row == $i) {
                 $grid-column = ''
             }
@@ -102,35 +102,36 @@ block-grid-html-classes($size,$include-spacing) {
     }
 }
 
-// +exports("block-grid") {
-    if $include-html-block-grid-classes {
+//
+// @styles
+//
+if $include-html-block-grid-classes {
 
-        [class*="block-grid-"] { 
-            block-grid()
+    [class*='block-grid-'] { 
+        block-grid()
+    }
+
+    if $block-grid-media-queries {
+        +mediaquery($small-up) {
+            block-grid-html-classes($size:sml,$include-spacing:false)
         }
 
-        if $block-grid-media-queries {
-            +mediaquery($small-up) {
-                block-grid-html-classes($size:sml,$include-spacing:false)
+        +mediaquery($medium-up) {
+            block-grid-html-classes($size:med,$include-spacing:false)
+        }
+
+        +mediaquery($large-up) {
+            block-grid-html-classes($size:lrg,$include-spacing:false)
+        }
+
+        if $include-xl-html-block-grid-classes {
+            +mediaquery($xlarge-up) {
+               block-grid-html-classes($size:xlrg,$include-spacing:false)
             }
 
-            +mediaquery($medium-up) {
-                block-grid-html-classes($size:med,$include-spacing:false)
-            }
-
-            +mediaquery($large-up) {
-                block-grid-html-classes($size:lrg,$include-spacing:false)
-            }
-
-            if $include-xl-html-block-grid-classes {
-                +mediaquery($xlarge-up) {
-                   block-grid-html-classes($size:xlrg,$include-spacing:false)
-                }
-
-                +mediaquery($xxlarge-up) {
-                    block-grid-html-classes($size:xxlrg,$include-spacing:false)
-                }
+            +mediaquery($xxlarge-up) {
+                block-grid-html-classes($size:xxlrg,$include-spacing:false)
             }
         }
     }
-// }
+}

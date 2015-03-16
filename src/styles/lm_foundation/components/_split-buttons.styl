@@ -2,9 +2,9 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
-@require "_buttons"
-@require "_dropdown-buttons"
+@require '_global'
+@require '_buttons'
+@require '_dropdown-buttons'
 
 //
 // @variables
@@ -13,11 +13,11 @@
 $include-html-split-button-classes =         com_css.SPLITBUTTONS
 
 // different shared styles for Split Buttons
-$split-button-function-factor ?=             10%
+$split-button-function-factor ?=             -15%
 $split-button-pip-color ?=                   $white
 $split-button-pip-color-alt ?=               $charcoal-1
-$split-button-active-bg-tint ?=              rgba($black,0.1)
-$split-button-border-color ?=                rgba($white,0.5)
+$split-button-active-bg-tint ?=              rgba($black, .15)
+$split-button-border-color ?=                $white
 
 // tiny split buttons
 $split-button-padding-tny ?=                 ($button-pip-tny * 10)
@@ -47,6 +47,10 @@ $split-button-pip-size-lrg ?=                ($button-pip-lrg - rem-calc(6))
 $split-button-pip-top-lrg ?=                 ($button-pip-lrg + rem-calc(5))
 $split-button-pip-default-float-lrg ?=       -(rem-calc(6))
 
+// pip svg settings
+$split-button-pip-svg ?=                     'arrows_down.svg'
+$split-button-pip-svg-shapes ?=              ('polyline' 'polygon')
+
 
 //
 // @mixins
@@ -58,41 +62,26 @@ $split-button-pip-default-float-lrg ?=       -(rem-calc(6))
 // $pip-color - Color of the triangle. Default: $split-button-pip-color.
 // $span-border - Border color of button divider. Default: $primary-color.
 // $base-style - Apply base style to split button. Default: true.
-split-button($padding = medium, $pip-color = $split-button-pip-color, $span-border = $primary-color, $base-style = true) {
+split-button($padding = medium, $pip-color = $split-button-pip-color, $span-border = $primary-color, $outline = false, $base-style = true) {
 
     // With this, we can control whether or not the base styles come through.
     if $base-style {
         position: relative
 
         // Styling for the split arrow clickable area
-        span.toggler {
+        .toggler {
+            border-{$default-float}: solid 1px
             display: block
             height: 100%
             position: absolute
-            {$opposite-direction}: 0
             top: 0
-            border-{$default-float}: solid 1px
+            {$opposite-direction}: 0
 
-            {$is-svg-support} & {
-                // use svg for arrow
-                svg-background($file:'arrows_down.svg', $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
-            }
-            {$is-no-svg-support} & {
-                // Building the triangle pip indicator
-                &:after {
-                    position: absolute
-                    content: ""
-                    width: 0
-                    height: 0
-                    display: block
-                    border-style: inset
-                    top: 50%
-
-                    {$default-float}: 50%
-                }
-            }
-
-            &:active {
+            // use svg for pip
+            svg-background($file:$split-button-pip-svg, $shapes:$split-button-pip-svg-shapes, $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
+            
+            &:hover,
+            &[aria-expanded="true"] {
                 background-color: $split-button-active-bg-tint
             }
         }
@@ -100,7 +89,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
     // Control the border color for the span area of the split button
     if $span-border {
-        span.toggler {
+        .toggler {
             border-{$default-float}-color: $split-button-border-color
         }
     }
@@ -109,77 +98,53 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     if ($padding == tiny) {
         padding-{$opposite-direction}: $split-button-padding-tny
 
-        span.toggler {
+        .toggler {
             width: $split-button-span-width-tny
-            {$is-svg-support} & {
-                // use svg for arrow
-                svg-background($file:'arrows_down.svg', $size:rem-calc(16), $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-tiny, $position-x:center)
-            }
-            {$is-no-svg-support} & {
-                &:after {
-                    border-top-style: solid
-                    border-width: $split-button-pip-size-tny
-                    top: 48%
-                    margin-{$default-float}: $split-button-pip-default-float-tny
-                }
-            }
         }
     } else if ($padding == small) {
     // Style of the button and clickable area for small sizes
         padding-{$opposite-direction}: $split-button-padding-sml
 
-        span.toggler {
+        .toggler {
             width: $split-button-span-width-sml
-            {$is-no-svg-support} & {
-                &:after {
-                    border-top-style: solid
-                    border-width: $split-button-pip-size-sml
-                    top: 48%
-                    margin-{$default-float}: $split-button-pip-default-float-sml
-                }
-            }
         }
     } else if ($padding == medium) {
     // Style of the button and clickable area for default (medium) sizes
         padding-{$opposite-direction}: $split-button-padding-med
 
-        span.toggler {
+        .toggler {
             width: $split-button-span-width-med
-            {$is-no-svg-support} & {
-                &:after {
-                    border-top-style: solid
-                    border-width: $split-button-pip-size-med
-                    top: 48%
-                    margin-{$default-float}: $split-button-pip-default-float-med
-                }
-            }
         }
     } else if ($padding == large) {
     // Style of the button and clickable area for large sizes
         padding-{$opposite-direction}: $split-button-padding-lrg
 
-        span.toggler {
+        .toggler {
             width: $split-button-span-width-lrg
-            {$is-svg-support} & {
-                // use svg for arrow
-                svg-background($file:'arrows_down.svg', $size:rem-calc(20), $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-medium, $position-x:center)
-            }
-            {$is-no-svg-support} & {
-                &:after {
-                    border-top-style: solid
-                    border-width: $split-button-pip-size-lrg
-                    top: 48%
-                    margin-{$default-float}: $split-button-pip-default-float-lrg
-                }
-            }
         }
     }
 
     // Control the color of the triangle pip
     if $pip-color {
         {$is-no-svg-support} & {
-            span.toggler:after {
+            .toggler:after {
                 border-color: $pip-color transparent transparent transparent
+            }
+        }
+    }
+
+    // additional styling for outline buttons
+    if $outline {
+        .toggler {
+            border-{$default-float}-width: $outline
+            border-color: $pip-color
+
+            svg-background($file:$split-button-pip-svg, $shapes:$split-button-pip-svg-shapes, $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $size:false, $repeat:false, $position-x:false)
+            
+            &:hover,
+            &[aria-expanded="true"] {
+                background-color: $split-button-active-bg-tint
+                border-color: scale-color($pip-color, $button-function-factor)
             }
         }
     }
@@ -191,52 +156,80 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
 
 if $include-html-split-button-classes {
 
-    .btn--split {
+    .btn-split {
         split-button()
 
+        // Color variants
         &--secondary {
-            split-button(false, $split-button-pip-color, $secondary-color, false)
+            split-button($padding:false, $pip-color:$split-button-pip-color, $span-border:$secondary-color, $base-style:false)
         }
         &--alert {
-            split-button(false, false, $alert-color, false)
+            split-button($padding:false, $pip-color:false, $span-border:$alert-color, $base-style:false)
         }
         &--success {
-            split-button(false, false, $success-color, false)
+            split-button($padding:false, $pip-color:false, $span-border:$success-color, $base-style:false)
         }
 
+        // Outline button style
+        if $button-outline-width {
+            &.btn--outline {
+                split-button($padding:false, $pip-color:$button-bg-color, $span-border:$button-bg-color, $outline:$button-outline-width, $base-style:false)
+            }
+        }
+
+        // Sizes
         &--tny {
-            split-button(tiny, false, false, false)
+            split-button($padding:tiny, $pip-color:false, $span-border:false, $base-style:false)
         }
         &--sml {
-            split-button(small, false, false, false)
+            split-button($padding:small, $pip-color:false, $span-border:false, $base-style:false)
         }
         &--lrg {
-            split-button(large, false, false, false)
+            split-button($padding:large, $pip-color:false, $span-border:false, $base-style:false)
         }
         &--exp {
             padding-left: remify(2rem)
         }
 
-        // &--secondary {
-        //     split-button(false, $split-button-pip-color-alt, false, false)
-        // }
-
-        &--rad span {
-            side-radius($opposite-direction, $global-radius)
-        }
-        &--rnd span {
-            side-radius($opposite-direction, 1000px)
-        }
-        &--nopip {
-            span:before,
-            span:after {
-                border-style:none
+        // Set corner style for buttons
+        if ($button-corner-style == 'radius') {
+            .toggler {
+                side-radius($opposite-direction, $global-radius)
             }
-            span { padding-top:$split-button-pip-top-med; }
-            &.btn--tny { span { padding-top: $split-button-pip-top-tny; } }
-            &.btn--sml { span { padding-top: $split-button-pip-top-sml; } }
-            &.btn--lrg { span { padding-top: $split-button-pip-top-lrg; } }
+        } else if ($button-corner-style == 'round') {
+            .toggler {
+                side-radius($opposite-direction, 1000px)
+            }
+        } else if ($button-corner-style == 'all') {
+            &--rad .toggler {
+                side-radius($opposite-direction, $global-radius)
+            }
+            &--rnd .toggler {
+                side-radius($opposite-direction, 1000px)
+            }
+        }
+
+        // No pip
+        &--nopip {
+            .toggler {
+                background-image: none
+                padding-top:$split-button-pip-top-med
+            }
+            &.btn--tny {
+                .toggler {
+                    padding-top: $split-button-pip-top-tny
+                }
+            }
+            &.btn--sml {
+                .toggler {
+                    padding-top: $split-button-pip-top-sml
+                }
+            }
+            &.btn--lrg {
+                .toggler {
+                    padding-top: $split-button-pip-top-lrg
+                }
+            }
         }
     }
-
 }

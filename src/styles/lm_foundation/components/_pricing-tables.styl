@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -81,12 +81,12 @@ $price-label-text-transform ?=              uppercase
 // create the container element for the pricing tables
 pricing-table-container() {
     border: $price-table-border
-    margin-{$default-float}: 0
     margin-bottom: $price-table-margin-bottom
+    margin-{$default-float}: 0
 
     & * {
-        list-style: none
         line-height: 1
+        list-style: none
     }
 }
 // @mixins
@@ -94,12 +94,12 @@ pricing-table-container() {
 // create the pricing table title styles
 pricing-table-title() {
     background-color: $price-title-bg
+    color: $price-title-color
+    font-size: $price-title-size
+    font-weight: $price-title-weight
+    font_family($price-title-font-family)
     padding: $price-title-padding
     text-align: $price-title-align
-    color: $price-title-color
-    font-weight: $price-title-weight
-    font-size: $price-title-size
-    font_family($price-title-font-family)
 }
 
 // @mixins
@@ -107,12 +107,12 @@ pricing-table-title() {
 // control the pricing table price styles
 pricing-table-price() {
     background-color: $price-money-bg
+    color: $price-money-color
+    font-size: $price-money-size
+    font-weight: $price-money-weight
+    font_family($price-money-font-family)
     padding: $price-money-padding
     text-align: $price-money-align
-    color: $price-money-color
-    font-weight: $price-money-weight
-    font-size: $price-money-size
-    font_family($price-money-font-family)
 }
 
 // @mixins
@@ -120,13 +120,13 @@ pricing-table-price() {
 // create the description styles for the pricing table
 pricing-table-description() {
     background-color: $price-bg
-    padding: $price-desc-padding
-    text-align: $price-desc-align
+    border-bottom: $price-desc-bottom-border
     color: $price-desc-color
     font-size: $price-desc-font-size
     font-weight: $price-desc-weight
     line-height: $price-desc-line-height
-    border-bottom: $price-desc-bottom-border
+    padding: $price-desc-padding
+    text-align: $price-desc-align
 }
 
 // @mixins
@@ -134,12 +134,12 @@ pricing-table-description() {
 // style the bullet items in the pricing table
 pricing-table-bullet() {
     background-color: $price-bg
-    padding: $price-item-padding
-    text-align: $price-item-align
+    border-bottom: $price-item-bottom-border
     color: $price-item-color
     font-size: $price-item-font-size
     font-weight: $price-item-weight
-    border-bottom: $price-item-bottom-border
+    padding: $price-item-padding
+    text-align: $price-item-align
 }
 
 // @mixins
@@ -147,8 +147,8 @@ pricing-table-bullet() {
 // style the CTA area of the pricing tables
 pricing-table-cta() {
     background-color: $price-cta-bg
-    text-align: $price-cta-align
     padding: $price-cta-padding
+    text-align: $price-cta-align
 }
 
 //
@@ -183,12 +183,12 @@ if $include-html-pricing-classes {
         text-align: right
 
         .price {
+            color: $price-special-color
             display: block
-            line-height: $price-line-height
-            font_family($price-special-font-family)
             font-size: $price-special-font-size
             font-weight: $price-special-font-weight
-            color: $price-special-color
+            font_family($price-special-font-family)
+            line-height: $price-line-height
             margin: 0
 
             &--total {
@@ -200,25 +200,26 @@ if $include-html-pricing-classes {
             }
             &--old {
                 //font_family($price-old-font-family)
+                color: $price-old-color
                 font-size: $price-old-font-size
                 font-weight: $price-old-font-weight
-                color: $price-old-color
                 text-decoration: $price-old-decoration
             }
             &--base {
-                font_family($price-base-font-family)
+                color: $price-old-color
                 font-size: ($price-old-font-size - 0.1)
                 font-weight: $price-base-font-weight
-                color: $price-old-color
+                font_family($price-base-font-family)
                 letter-spacing: 0
             }
 
             // Price labels (e.g. uvp, from)
             &__label {
-                margin-right: rem-calc(4)
                 font-size: $price-label-font-size // Fallback font size
                 font-weight: $price-label-font-weight
+                margin-right: rem-calc(4)
                 text-transform: $price-label-text-transform
+                
                 &--uvp { }
                 &--special,
                 &--minimal { }

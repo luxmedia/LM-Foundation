@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -15,7 +15,7 @@ $label-padding ?=                            rem-calc(5 8)
 $label-radius ?=                             $global-radius
 
 // style the label text
-$label-font-sizing ?=                        fontsize(0.75rem)
+$label-font-sizing ?=                        fontsize(.75rem)
 $label-font-weight ?=                        $font-weight-bold
 $label-text-transform ?=                     uppercase
 $label-font-color ?=                         $charcoal-1
@@ -29,11 +29,12 @@ $label-font-size-xxlrg ?=                   fontsize(2.2rem)
 
 $label-inverted-font-color ?=               $gray-dark-1
 $label-inverted-bg ?=                       $white
-$label-inverted-border ?=                   $gray-light-1
+$label-inverted-border-width ?=             1px
+$label-inverted-border-colr ?=              $gray-light-1
 
 $badge-padding ?=                            rem-calc(3 5)
 $badge-radius ?=                             $global-radius
-$badge-font-sizing ?=                        fontsize(0.75rem)
+$badge-font-sizing ?=                        fontsize(.75rem)
 $badge-font-weight ?=                        $font-weight-bold
 $badge-font-color ?=                         $white
 $badge-font-color-alt ?=                     $charcoal-1
@@ -48,12 +49,12 @@ $badge-active-bg ?=                          $badge-font-color
 // We use this mixin to create a default label base.
 label-base() {
     display: inline-block
-    position: relative
-    margin-bottom: 0
-    min-width: 10px
-    line-height: 1
     font-weight: $label-font-weight
     font_family($label-font-family)
+    line-height: 1
+    margin-bottom: 0
+    min-width: 10px
+    position: relative
     text-align: $default-float
     text-decoration: none
     if ($label-text-transform != false) {
@@ -103,8 +104,8 @@ label-style($bg = $gray-base, $radius = false, $font-color = $label-font-color, 
     }
 
     // add border or not
-    if $border-color{
-        border: 1px solid $border-color
+    if $border-color {
+        border: $label-inverted-border-width solid $border-color
     }
 
 }
@@ -133,38 +134,61 @@ if $include-html-label-classes {
         label-style()
 
         // Empty badges collapse automatically (not available in IE8)
-        &:empty {
-            display: none
+        if !$ie8 {
+            &:empty {
+                display: none
+            }
         }
 
-        // Label Variants
+        // Corner variants
+        &--rad,
         &--radius {
-            label-style(false, true)
+            label-style($bg:false, $radius:true)
         }
+        &--rnd,
         &--round {
-            label-style(false, $radius:1000px)
-        }
-
-        &--success {
-            label-style($success-color)
-        }
-        &--primary {
-            label-style($primary-color)
-        }
-        &--info {
-            label-style($info-color)
-        }
-        &--alert {
-            label-style($bg:$alert-color, $font-color:$critical-font-color)
-        }
-        &--warning {
-            label-style($bg:$warning-color, $font-color:$warning-font-color)
+            label-style($bg:false, $radius:1000px)
         }
         
         // inverted and flat Label
+        &--inv,
         &--inverted {
-            label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-border)
+            label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-font-color)
         }
+
+        // Color variants
+        &--primary {
+            label-style($bg:$primary-color)
+            &.lbl--inv {
+                label-style($bg:$label-font-color-alt, $font-color:$primary-color, $border-color:$primary-color)
+            }
+        }
+        &--success {
+            label-style($bg:$success-color)
+            &.lbl--inv {
+                label-style($bg:$label-font-color-alt, $font-color:$success-color, $border-color:$success-color)
+            }
+        }
+        &--info {
+            label-style($bg:$info-color)
+            &.lbl--inv {
+                label-style($bg:$label-font-color-alt, $font-color:$info-color, $border-color:$info-color)
+            }
+        }
+        &--warning {
+            label-style($bg:$warning-color, $font-color:$warning-font-color)
+            &.lbl--inv {
+                label-style($bg:$warning-font-color, $font-color:$warning-color, $border-color:$warning-color)
+            }
+        }
+        &--alert {
+            label-style($bg:$alert-color, $font-color:$critical-font-color)
+            &.lbl--inv {
+                label-style($bg:$critical-font-color, $font-color:$alert-color, $border-color:$alert-color)
+            }
+        }
+
+        // Flat style
         &--flat {
             label-style($bg:transparent, $font-color:$label-inverted-font-color)
         }
@@ -174,13 +198,13 @@ if $include-html-label-classes {
 
         // Different sizes
         &--med {
-            label-size(false, $label-font-size-med)
+            label-size($padding:false, $label-font-size-med)
         }
         &--lrg {
-            label-size(false, $label-font-size-lrg)
+            label-size($padding:false, $label-font-size-lrg)
         }
         &--xlrg {
-            label-size(false, $label-font-size-xlrg)
+            label-size($padding:false, $label-font-size-xlrg)
             font-weight: $font-weight-normal
         }
         &--xxlrg {
@@ -191,7 +215,7 @@ if $include-html-label-classes {
         // Badges
         &--badge {
             label-size($padding:$badge-padding)
-            label-style(false, $radius:1000px)
+            label-style($bg:false, $radius:1000px)
         }
 
         // Hover state, but only for links
@@ -199,16 +223,16 @@ if $include-html-label-classes {
             &:hover,
             &:focus {
               color: $badge-hover-color
-              text-decoration: none
               cursor: pointer
+              text-decoration: none
             }
         }
 
         // Account for badges in navs
-        .list-group-item.active > &,
-        .nav-pills > .active > a > & {
-            color: $badge-active-color
+        .list-group-item.is-active > &,
+        .nav-pills > .is-active > a > & {
             background-color: $badge-active-bg
+            color: $badge-active-color
         }
         .list-group-item > & {
             float: right

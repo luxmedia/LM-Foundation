@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -13,24 +13,28 @@ $include-html-magellan-classes =            com_js.MAGELLAN
 $magellan-bg ?=                              $white
 $magellan-padding ?=                         10px
 
+//
+// @styles
+//
 
 if $include-html-magellan-classes {
 
     {data('magellan-expedition')}, {data('magellan-expedition-clone')} {
         background: $magellan-bg
-        z-index: 50
         min-width: 100%
         padding: $magellan-padding
+        z-index: 50
 
         .sub-nav {
             margin-bottom: 0
+
             dd {
                 margin-bottom: 0
             }
+
             a {
                 line-height: 1.8em
             }
         }
     }
-
 }

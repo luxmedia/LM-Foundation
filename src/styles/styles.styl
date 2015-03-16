@@ -1,18 +1,29 @@
-//@charset "UTF-8"
+//@charset 'UTF-8'
 
-$base-path = "../../node_modules"
+// =========================================================================
+//
+// @json
+//
+
+base_colors = json('../json/base__colors.json', { hash: true })
+base_params = json('../json/base__params.json', { hash: true })
+com_css = json('../json/fndtn__com__css.json', { hash: true })
+com_js = json('../json/fndtn__com__js.json', { hash: true })
+
+
+$base-path = '../../node_modules'
 // NORMALIZATION
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-@require "normalize"
+@require 'normalize'
 
 // GRID SYSTEM: jeet.gs
-@require ($base-path+"/jeet/stylus/jeet/index")
+@require ($base-path+'/jeet/stylus/jeet/index')
 
 // BASIC SETTINGS OF FRAMEWORK: LM-Foundation
-@require "lm_foundation/_settings"
+@require 'lm_foundation/_settings'
 
 // CUSTOM SETTING-OVERRIDES
-@require "custom/_settings"
+@require 'custom/_settings'
 
 // FOUNDATION COMPONENTS
-@require "lm-foundation"
+@require 'lm-foundation'

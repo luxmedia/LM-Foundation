@@ -2,7 +2,7 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
+@require '_global'
 
 //
 // @variables
@@ -40,18 +40,21 @@ $callout-panel-bg ?=                        lightness($primary-color, 94%)
 // $bg - Sets the panel background color. Default: $panel-pg || scale-color($white, $lightness: -5%) !default
 // $padding - Sets the panel padding amount. Default: $panel-padding || rem-calc(20)
 // $adjust - Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust || true
-panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust) {
+panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust, $border = true) {
 
     if $bg {
-
-        border-style: $panel-border-style
-        border-width: $panel-border-size
-        border-color: darken($bg, ($lightness = $panel-function-factor))
+        background: $bg
+        if $border {
+            border-style: $panel-border-style
+            border-width: $panel-border-size
+            border-color: darken($bg, $panel-function-factor)    
+        } else {
+            border-style: none
+            border-width: 0
+        }
+        color: (light($bg) ? $panel-font-color : $panel-font-color-alt)
         margin-bottom: $panel-margin-bottom
         padding: $padding
-
-        background: $bg
-        color: (light($bg) ? $panel-font-color : $panel-font-color-alt)
 
         // Respect the padding, fool.
         > :first-child {
@@ -89,6 +92,7 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
 //
 // @styles
 //
+
 if $include-html-panel-classes {
 
     /* Panels */
@@ -117,7 +121,5 @@ if $include-html-panel-classes {
         &--radius {
             radius()
         }
-
     }
-
 }

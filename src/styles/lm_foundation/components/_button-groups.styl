@@ -2,8 +2,8 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
-@require "_buttons"
+@require '_global'
+@require '_buttons'
 
 //
 // @Variables
@@ -13,7 +13,8 @@ $include-html-button-classes =              com_css.BUTTONGROUPS
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
 $button-bar-margin-opposite ?=               rem-calc(10)
-$button-group-border-width ?=                0 1px 1px 0
+$button-group-border-width ?=                1px
+$button-group-border-color ?=                $white // $button-border-color
 
 //
 // Button Group Mixins
@@ -36,129 +37,131 @@ button-group-container($styles = true, $float = false) {
     }
     if (!$ie8 && !$float) {
         // Eleminates whitespace before and behind li's
-        // WARNING: Requires children to have a font-size definition gt 0!
+        // WARNING: Requires children to have a font-size definition (gt 0)!
         font-size: 0
     }
 }
 
 // We use this to control styles for button groups
-button-group-style($radius = false, $even = false, $float = false, $orientation = horizontal) {
+button-group-style($styles = true, $radius = false, $even = false, $float = false, $orientation = horizontal) {
 
-    > button,
-    .btn {
-        border-{$default-float}: $button-group-border-width solid
-        border-color: $button-border-color
-    }
-
-    &:first-child {
-        button,
-        .btn {
-            border-{$default-float}: 0
+    if $styles {
+        // Apply separating border for inner buttons only (not first button)
+        &:not(:first-child) {
+            > button,
+            .btn {
+                border-{$default-float}: $button-group-border-width solid
+                border-{$default-float}-color: $button-group-border-color
+            }
         }
-    }
 
-    // Control the flow, or remove those styles completely.
-    if $float {
-        margin: 0
-        float: $float
-        display: list-item
-        // Make sure the first child doesn't get the negative margin.
-        &:first-child {
-            margin-{$default-float}: 0
-        }
-    } else {
-        if $ie8 {
-            margin-{$default-float}: -2px
-            margin-{$opposite-direction}: -2px
-            
+        // Control the flow, or remove those styles completely.
+        if $float {
+            display: list-item
+            float: $float
+            margin: 0
+
+            // Make sure the first child doesn't get the negative margin.
             &:first-child {
                 margin-{$default-float}: 0
             }
+        } else {
+            if $ie8 {
+                // correct spacing between items
+                margin-{$default-float}: -2px
+                margin-{$opposite-direction}: -2px
+                
+                &:first-child {
+                    margin-{$default-float}: 0
+                }
+            }
+            display: inline-block
         }
-        display: inline-block
-    }
 
-    if ($orientation == vertical) {
-        display:block
-        margin:0
-        > button,
-        .btn {
-            border-top: $button-group-border-width solid
-            border-color: $button-border-color
-            border-left-width: 0
-            margin:0
+        if ($orientation == vertical) {
             display: block
-        }
-        > button {
-            width: 100%
-        }
+            margin: 0
 
-        &:first-child {
-            button,
+            > button,
             .btn {
-                border-top: 0
+                // Reset left border. But only if normal buttons have no borders!
+                if ($button-border-width == false) {
+                    border-left-width: 0
+                }
+                display: block
+                margin: 0
             }
-        }
-    }
+            // Apply separating border for inner buttons only (not first button)
+            &:not(:first-child) {
+                > button,
+                .btn {
+                    border-top-color: $button-group-border-color
+                    border-top: $button-group-border-width solid
+                }
+            }
 
-    // Control left and right radius on first/last buttons in the group.
-    if $radius {
-        &,
-        > a,
-        > button,
-        > .btn {
-            radius(0)
+            > button {
+                width: 100%
+            }
+            
         }
-        &:first-child,
-        &:first-child > a,
-        &:first-child > button,
-        &:first-child > .btn {
-            if ($orientation == vertical) {
-                side-radius(top, $button-radius)
+
+        // Control left and right radius on first/last buttons in the group.
+        if ($radius == true) {
+            &,
+            > a,
+            > button,
+            > .btn {
+                radius(0)
             }
-            else {
-                side-radius($default-float, $button-radius)
+            &:first-child,
+            &:first-child > a,
+            &:first-child > button,
+            &:first-child > .btn {
+                if ($orientation == vertical) {
+                    side-radius(top, $button-radius)
+                }
+                else {
+                    side-radius($default-float, $button-radius)
+                }
             }
-        }
-        &:last-child,
-        &:last-child > a,
-        &:last-child > button,
-        &:last-child > .btn {
-            if ($orientation == vertical) {
-                side-radius(bottom, $button-radius)
+            &:last-child,
+            &:last-child > a,
+            &:last-child > button,
+            &:last-child > .btn {
+                if ($orientation == vertical) {
+                    side-radius(bottom, $button-radius)
+                }
+                else {
+                    side-radius($opposite-direction, $button-radius)
+                }
             }
-            else {
-                side-radius($opposite-direction, $button-radius)
+        } else if $radius {
+            &,
+            > a,
+            > button,
+            > .btn {
+                radius(0)
             }
-        }
-    }
-    else if $radius {
-        &,
-        > a,
-        > button,
-        > .btn {
-            radius(0)
-        }
-        &:first-child,
-        &:first-child > a,
-        &:first-child > button,
-        &:first-child > .btn {
-            if ($orientation == vertical) {
-                side-radius(top, $radius)
+            &:first-child,
+            &:first-child > a,
+            &:first-child > button,
+            &:first-child > .btn {
+                if ($orientation == vertical) {
+                    side-radius(top, $radius)
+                } else {
+                    side-radius($default-float, $radius)
+                }
             }
-            else {
-                side-radius($default-float, $radius)
-            }
-        }
-        &:last-child,
-        &:last-child > a,
-        &:last-child > button,
-        &:last-child > .btn {
-            if ($orientation == vertical) {
-                side-radius(bottom, $radius)
-            }
-            else {
-                side-radius($opposite-direction, $radius)
+            &:last-child,
+            &:last-child > a,
+            &:last-child > button,
+            &:last-child > .btn {
+                if ($orientation == vertical) {
+                    side-radius(bottom, $radius)
+                } else {
+                    side-radius($opposite-direction, $radius)
+                }
             }
         }
     }
@@ -173,44 +176,88 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
     }
 }
 
-// +exports("button-group") {
-    if $include-html-button-classes {
-        .btn-group {
-            button-group-container()
+// Button corner style mixin
+button-group-corner-style($rad = false, $sml-rad = false) {
+    // Base item style
+    > li {
+        if $rad {
+            // radius/round style
+            button-group-style($radius:$rad, $float:null)
+        } else {
+            // normal style
+            button-group-style()
+        }
+    }
 
-            for $i in 2..8 {
-                &.even-{$i} li {
-                    button-group-style($even:$i, $float:null)
-                }
+    // Stacked
+    &--stack > li {
+        button-group-style($radius:$rad, $float:null, $orientation:vertical)
+        float: none
+    }
+    &--stack-for-sml > li {
+        if $rad {
+            // radius/round style
+            +mediaquery($medium-up) {
+                button-group-style($radius:$rad, $orientation:horizontal)
             }
+        } else {
+            // normal style
+            button-group-style($orientation:horizontal)
+        }
+        // common style
+        +mediaquery($small-only) {
+            button-group-style($radius:$sml-rad, $orientation:vertical)
+        }
+    }
+}
 
-            > li {
-                button-group-style()
+
+//
+// @styles
+//
+
+if $include-html-button-classes {
+
+    .btn-group {
+        button-group-container()
+
+        // symmetric btn columns
+        for $i in 2..8 {
+            &.even-{$i} li {
+                button-group-style($styles:false, $even:$i, $float:null)
             }
+        }
 
-            &--stack {
-                & > li {
-                    button-group-style($orientation:vertical)
-                    float: none
-                }
-            }
-
-            &--stack-for-sml {
-                & > li {
-                    button-group-style($orientation:horizontal)
-                    +mediaquery($small-only) {
-                        button-group-style($orientation:vertical)
+        // style separating border for outline-style button-groups
+        if $button-outline-width {
+            &--outline li {
+                &:not(:first-child) {
+                    > button,
+                    .btn {
+                        border-{$default-float}-color: transparent
                     }
                 }
             }
+        }
 
-            &--radius > * {
+        // Include styles based on corner variant
+        if ($button-corner-style == 'radius') {
+            button-group-corner-style($rad:$button-radius, $sml-rad:$button-radius)
+        } else if ($button-corner-style == 'round') {
+            button-group-corner-style($rad:$button-round, $sml-rad:$button-med)
+        } else {
+            button-group-corner-style()
+        }
+
+        // Add corner variant styles
+        if ($button-corner-style == 'all') {
+            &--rad > li {
                 button-group-style($radius:$button-radius, $float:null)
             }
-            &--radius.btn-group--stack > * {
+            &--rad.btn-group--stack > li {
                 button-group-style($radius:$button-radius, $float:null, $orientation:vertical)
             }
-            &--radius.btn-group--stack-for-sml > * {
+            &--rad.btn-group--stack-for-sml > li {
                 +mediaquery($medium-up) {
                     button-group-style($radius:$button-radius, $orientation:horizontal)
                 }
@@ -219,13 +266,13 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                 }
             }
 
-            &--round > * {
+            &--rnd > li {
                 button-group-style($radius:$button-round, $float:null)
             }
-            &--round.btn-group--stack > * {
+            &--rnd.btn-group--stack > li {
                 button-group-style($radius:$button-med, $float:null, $orientation:vertical)
             }
-            &--round.btn-group--stack-for-sml > * {
+            &--rnd.btn-group--stack-for-sml > li {
                 +mediaquery($medium-up) {
                     button-group-style($radius:$button-round, $orientation:horizontal)
                 }
@@ -233,14 +280,15 @@ button-group-style($radius = false, $even = false, $float = false, $orientation 
                     button-group-style($radius:$button-med, $orientation:vertical)
                 }
             }
-
         }
 
-        .btn-bar {
-            clearfix()
-            .btn-group {
-                button-group-container($styles:false, $float:true)
-            }
+    }
+
+    // Button bar
+    .btn-bar {
+        clearfix()
+        .btn-group {
+            button-group-container($styles:false, $float:true)
         }
     }
-// }
+}
