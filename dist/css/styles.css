@@ -345,7 +345,7 @@ th {
 
 /* line 67 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm-foundation.styl */
 
-/* line 910 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 913 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 /* line 271 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
@@ -585,35 +585,41 @@ table.expand {
   border-radius: 3px;
 }
 
-/* line 861 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 859 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+
+.round {
+  border-radius: 1000px;
+}
+
+/* line 864 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 .is-hidden,
 .hide {
   display: none !important;
 }
 
-/* line 867 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 870 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 .is-invisible,
 .invisible {
   visibility: hidden;
 }
 
-/* line 876 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 879 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 881 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 884 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 .is-blurred {
   transition: filter 500ms ease;
   filter: blur(3px);
 }
 
-/* line 885 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 888 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 .is-grayscale {
   filter: grayscale(100%);
@@ -623,14 +629,14 @@ table.expand {
   -o-filter: grayscale(100%);
 }
 
-/* line 890 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 893 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 img {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 900 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 903 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 textarea {
   height: auto;
@@ -638,13 +644,13 @@ textarea {
   resize: vertical;
 }
 
-/* line 907 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 910 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 select {
   width: 100%;
 }
 
-/* line 910 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 913 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 /* line 327 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_grid.styl */
 
@@ -2388,30 +2394,34 @@ select {
 
 /* line 159 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_accordion.styl */
 
-/* line 242 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 230 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 /* line 271 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
-/* line 161 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 158 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
-/* line 162 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 159 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert {
+  border-style: solid;
+  border-width: 2px 2px 2px 10px;
   display: block;
   font-weight: normal;
   margin-bottom: 2rem;
   position: relative;
-  transition: opacity 300ms ease-out;
+  background-size: 5rem 2.6rem;
+  background-position: left center;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease-out;
   background-color: #3ea5e5;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #3ea5e5;
   color: #fff;
-  padding: 1.4rem 2.4rem 1.4rem 1.4rem;
+  padding: 1.4rem 2.1rem 1.4rem 1.4rem;
   font-size: 1.6rem;
+  padding-left: 4.8rem;
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert p,
 .alert small,
@@ -2424,87 +2434,78 @@ select {
   color: #fff;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert a {
   color: #bfbfbf;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert a:hover {
   color: #808080;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert .btn {
   margin-bottom: 0;
 }
 
-/* line 83 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert {
-  padding-left: 4.8rem;
-}
-
-/* line 166 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 163 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert .alert__close {
+  background-color: transparent;
   font-size: 2.4rem;
   line-height: 0.9;
   margin-top: -1.2rem;
   opacity: 0.3;
+  padding: 0;
   position: absolute;
-  padding: 0 1rem 1rem;
+  text-align: center;
   top: 50%;
+  width: 3.5rem;
   right: 0.4rem;
 }
 
-/* line 141 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 138 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert .alert__close:hover,
 .alert .alert__close:focus {
   opacity: 0.5;
 }
 
-/* line 170 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 167 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--rad {
   border-radius: 3px;
 }
 
-/* line 173 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 170 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--rnd {
   border-radius: 1000px;
 }
 
-/* line 177 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 174 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--exp {
-  padding: 1.4rem 2.4rem 1.4rem 1.4rem;
+  padding: 1.4rem 2.1rem 1.4rem 1.4rem;
   font-size: 1.6rem;
   display: block;
-}
-
-/* line 83 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert--exp {
   padding-left: 4.8rem;
 }
 
-/* line 182 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 179 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--success {
   background-color: #d9f2e8;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #a0dfc7;
   color: #267355;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgo8cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGZjNDk3IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lam9pbj0iYmV2ZWwiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgcG9pbnRzPSIxMywzMyAyNSw0NSANCgkJNDksMjEgCSIvPgo8L2c+CjxnPgo8Y2lyY2xlIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRmYzQ5NyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSIzMiIgY3k9IjMyIiByPSIzMC45OTkiLz4KPC9nPgo8L3N2Zz4=');
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--success p,
 .alert--success small,
@@ -2517,44 +2518,34 @@ html.svg .alert--exp {
   color: #267355;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--success a {
   color: #1d5640;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--success a:hover {
   color: #13392b;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--success .btn {
   margin-bottom: 0;
 }
 
-/* line 184 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert--success {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgo8cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGZjNDk3IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lam9pbj0iYmV2ZWwiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgcG9pbnRzPSIxMywzMyAyNSw0NSANCgkJNDksMjEgCSIvPgo8L2c+CjxnPgo8Y2lyY2xlIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRmYzQ5NyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSIzMiIgY3k9IjMyIiByPSIzMC45OTkiLz4KPC9nPgo8L3N2Zz4=');
-  background-size: 5rem 2.6rem;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-/* line 188 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 183 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--neutral {
   background-color: #e6e6e6;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #bfbfbf;
   color: #4d4d4d;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzgwODA4MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODQsMGMtMTIuMTA3LTEyLjEwNS0xMi4xMDctMzEuNzMyLDAtNDMuODM4QzIyLjE4Ni0yLjAyNyw0MS44MTMtMi4wMjcsNTMuOTIsMTAuMDgxeiIvPgo8bGluZSBzdHJva2U9IiM4MDgwODAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMzIiIHkxPSI0NyIgeDI9IjMyIiB5Mj0iMjUiIGZpbGw9Im5vbmUiLz4KPGxpbmUgc3Ryb2tlPSIjODA4MDgwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMjEiIHgyPSIzMiIgeTI9IjE3IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--neutral p,
 .alert--neutral small,
@@ -2567,44 +2558,34 @@ html.svg .alert--success {
   color: #4d4d4d;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--neutral a {
   color: #393939;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--neutral a:hover {
   color: #262626;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--neutral .btn {
   margin-bottom: 0;
 }
 
-/* line 190 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert--neutral {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzgwODA4MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODQsMGMtMTIuMTA3LTEyLjEwNS0xMi4xMDctMzEuNzMyLDAtNDMuODM4QzIyLjE4Ni0yLjAyNyw0MS44MTMtMi4wMjcsNTMuOTIsMTAuMDgxeiIvPgo8bGluZSBzdHJva2U9IiM4MDgwODAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMzIiIHkxPSI0NyIgeDI9IjMyIiB5Mj0iMjUiIGZpbGw9Im5vbmUiLz4KPGxpbmUgc3Ryb2tlPSIjODA4MDgwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMjEiIHgyPSIzMiIgeTI9IjE3IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
-  background-size: 5rem 2.6rem;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-/* line 194 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 187 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--secondary {
   background-color: #e6e6e6;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #808080;
   color: #4d4d4d;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzgwODA4MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODQsMGMtMTIuMTA3LTEyLjEwNS0xMi4xMDctMzEuNzMyLDAtNDMuODM4QzIyLjE4Ni0yLjAyNyw0MS44MTMtMi4wMjcsNTMuOTIsMTAuMDgxeiIvPgo8bGluZSBzdHJva2U9IiM4MDgwODAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMzIiIHkxPSI0NyIgeDI9IjMyIiB5Mj0iMjUiIGZpbGw9Im5vbmUiLz4KPGxpbmUgc3Ryb2tlPSIjODA4MDgwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMjEiIHgyPSIzMiIgeTI9IjE3IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--secondary p,
 .alert--secondary small,
@@ -2617,44 +2598,34 @@ html.svg .alert--neutral {
   color: #4d4d4d;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--secondary a {
   color: #3a3a3a;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--secondary a:hover {
   color: #272727;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--secondary .btn {
   margin-bottom: 0;
 }
 
-/* line 196 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert--secondary {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzgwODA4MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODQsMGMtMTIuMTA3LTEyLjEwNS0xMi4xMDctMzEuNzMyLDAtNDMuODM4QzIyLjE4Ni0yLjAyNyw0MS44MTMtMi4wMjcsNTMuOTIsMTAuMDgxeiIvPgo8bGluZSBzdHJva2U9IiM4MDgwODAiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMzIiIHkxPSI0NyIgeDI9IjMyIiB5Mj0iMjUiIGZpbGw9Im5vbmUiLz4KPGxpbmUgc3Ryb2tlPSIjODA4MDgwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMjEiIHgyPSIzMiIgeTI9IjE3IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
-  background-size: 5rem 2.6rem;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-/* line 200 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 191 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--info {
   background-color: #d6e8f5;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #98c5e6;
   color: #1e547b;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzYyYTdkOSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODQsMGMtMTIuMTA3LTEyLjEwNS0xMi4xMDctMzEuNzMyLDAtNDMuODM4QzIyLjE4Ni0yLjAyNyw0MS44MTMtMi4wMjcsNTMuOTIsMTAuMDgxeiIvPgo8bGluZSBzdHJva2U9IiM2MmE3ZDkiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMzIiIHkxPSI0NyIgeDI9IjMyIiB5Mj0iMjUiIGZpbGw9Im5vbmUiLz4KPGxpbmUgc3Ryb2tlPSIjNjJhN2Q5IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMjEiIHgyPSIzMiIgeTI9IjE3IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--info p,
 .alert--info small,
@@ -2667,44 +2638,34 @@ html.svg .alert--secondary {
   color: #1e547b;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--info a {
   color: #163f5c;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--info a:hover {
   color: #0f2a3e;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--info .btn {
   margin-bottom: 0;
 }
 
-/* line 202 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert--info {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzYyYTdkOSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODQsMGMtMTIuMTA3LTEyLjEwNS0xMi4xMDctMzEuNzMyLDAtNDMuODM4QzIyLjE4Ni0yLjAyNyw0MS44MTMtMi4wMjcsNTMuOTIsMTAuMDgxeiIvPgo8bGluZSBzdHJva2U9IiM2MmE3ZDkiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iMzIiIHkxPSI0NyIgeDI9IjMyIiB5Mj0iMjUiIGZpbGw9Im5vbmUiLz4KPGxpbmUgc3Ryb2tlPSIjNjJhN2Q5IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMjEiIHgyPSIzMiIgeTI9IjE3IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
-  background-size: 5rem 2.6rem;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-/* line 206 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 195 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--warning {
   background-color: #fff1cc;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #ffdd80;
   color: #e45a5a;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmY2Q0NSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODM5LDBjLTEyLjEwNy0xMi4xMDUtMTIuMTA3LTMxLjczMiwwLTQzLjgzOEMyMi4xODYtMi4wMjcsNDEuODEzLTIuMDI3LDUzLjkyLDEwLjA4MXoiLz4KPGxpbmUgc3Ryb2tlPSIjZmZjZDQ1IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMTciIHgyPSIzMiIgeTI9IjM5IiBmaWxsPSJub25lIi8+CjxsaW5lIHN0cm9rZT0iI2ZmY2Q0NSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIzMiIgeTE9IjQzIiB4Mj0iMzIiIHkyPSI0NyIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4=');
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--warning p,
 .alert--warning small,
@@ -2717,44 +2678,34 @@ html.svg .alert--info {
   color: #e45a5a;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--warning a {
   color: #cd2222;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--warning a:hover {
   color: #891616;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--warning .btn {
   margin-bottom: 0;
 }
 
-/* line 208 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-html.svg .alert--warning {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmY2Q0NSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MiwxMC4wODFjMTIuMTA3LDEyLjEwNSwxMi4xMDcsMzEuNzMyLDAsNDMuODM4DQoJYy0xMi4xMDYsMTIuMTA4LTMxLjczNCwxMi4xMDgtNDMuODM5LDBjLTEyLjEwNy0xMi4xMDUtMTIuMTA3LTMxLjczMiwwLTQzLjgzOEMyMi4xODYtMi4wMjcsNDEuODEzLTIuMDI3LDUzLjkyLDEwLjA4MXoiLz4KPGxpbmUgc3Ryb2tlPSIjZmZjZDQ1IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjMyIiB5MT0iMTciIHgyPSIzMiIgeTI9IjM5IiBmaWxsPSJub25lIi8+CjxsaW5lIHN0cm9rZT0iI2ZmY2Q0NSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIzMiIgeTE9IjQzIiB4Mj0iMzIiIHkyPSI0NyIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4=');
-  background-size: 5rem 2.6rem;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-/* line 212 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 199 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--critical {
   background-color: #fce9df;
-  border-style: solid;
-  border-width: 2px 2px 2px 10px;
   border-color: #f09060;
   color: #c52121;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwOTA2MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MTksMTAuMDhjMTIuMTA4LDEyLjEwNiwxMi4xMDgsMzEuNzMzLDAsNDMuODQNCgljLTEyLjEwNSwxMi4xMDctMzEuNzMyLDEyLjEwNy00My44MzgsMGMtMTIuMTA4LTEyLjEwNi0xMi4xMDgtMzEuNzMzLDAtNDMuODRDMjIuMTg3LTIuMDI3LDQxLjgxMy0yLjAyNyw1My45MTksMTAuMDh6Ii8+CjxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwOTA2MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxMC4wOCIgeTE9IjEwLjA4IiB4Mj0iNTMuOTIiIHkyPSI1My45MiIvPgo8L3N2Zz4=');
 }
 
-/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 108 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--critical p,
 .alert--critical small,
@@ -2767,40 +2718,37 @@ html.svg .alert--warning {
   color: #c52121;
 }
 
-/* line 116 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 111 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--critical a {
   color: #941919;
 }
 
-/* line 118 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--critical a:hover {
   color: #621111;
 }
 
-/* line 122 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 117 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 .alert--critical .btn {
   margin-bottom: 0;
 }
 
-/* line 214 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 223 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
-html.svg .alert--critical {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwOTA2MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik01My45MTksMTAuMDhjMTIuMTA4LDEyLjEwNiwxMi4xMDgsMzEuNzMzLDAsNDMuODQNCgljLTEyLjEwNSwxMi4xMDctMzEuNzMyLDEyLjEwNy00My44MzgsMGMtMTIuMTA4LTEyLjEwNi0xMi4xMDgtMzEuNzMzLDAtNDMuODRDMjIuMTg3LTIuMDI3LDQxLjgxMy0yLjAyNyw1My45MTksMTAuMDh6Ii8+CjxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwOTA2MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxMC4wOCIgeTE9IjEwLjA4IiB4Mj0iNTMuOTIiIHkyPSI1My45MiIvPgo8L3N2Zz4=');
-  background-size: 5rem 2.6rem;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-/* line 238 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
-
-.alert .is-closed {
+.alert.is-closed {
   opacity: 0;
 }
 
-/* line 242 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+/* line 226 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
+
+.alert.is-closeable {
+  padding-right: 4.9rem;
+}
+
+/* line 230 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_alerts.styl */
 
 /* line 137 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_block-grid.styl */
 
@@ -6154,7 +6102,6 @@ input[type="color"],
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
-  -webkit-border-radius: 0;
   background-color: #fff;
   border-bottom-color: #e3e3e3;
   border-color: #ccc;
@@ -7708,7 +7655,7 @@ ul.pager li:not(.is-disabled) a:focus {
 
 ul.pager li.is-disabled a {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
 }
 
