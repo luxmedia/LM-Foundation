@@ -50,7 +50,7 @@
       </ul>
     </div>
     <div class="sml-6 col">
-      <ul class="btn-group btn-group--rnd">
+      <ul class="btn-group btn-group--rnd btn-group--outline">
         <li><a href="#" class="btn btn--outline">Outline</a></li>
         <li><a href="#" class="btn btn--outline">Buttons</a></li>
       </ul>

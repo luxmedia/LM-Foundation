@@ -228,16 +228,6 @@ if $include-html-button-classes {
             }
         }
 
-        // style separating border for outline-style button-groups
-        if $button-outline-width {
-            &--outline li:not(:first-child) {
-                > button,
-                .btn {
-                    border-{$default-float}-color: transparent
-                }
-            }
-        }
-
         // Include styles based on corner variant
         if ($button-corner-style == 'radius') {
             button-group-corner-style($rad:$button-radius, $sml-rad:$button-radius)
@@ -276,6 +266,18 @@ if $include-html-button-classes {
                 }
                 +mediaquery($small-only) {
                     button-group-style($radius:$button-med, $orientation:vertical)
+                }
+            }
+        }
+
+        // style separating border for outline-style button-groups
+        if $button-outline-width {
+            &--outline > li:not(:first-child) {
+                > button,
+                .btn {
+                    border-{$default-float}-color: transparent
+                    // margin-{$default-float}: -($button-outline-width)
+                    // position: relative
                 }
             }
         }
