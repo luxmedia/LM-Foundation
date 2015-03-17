@@ -230,12 +230,10 @@ if $include-html-button-classes {
 
         // style separating border for outline-style button-groups
         if $button-outline-width {
-            &--outline li {
-                &:not(:first-child) {
-                    > button,
-                    .btn {
-                        border-{$default-float}-color: transparent
-                    }
+            &--outline li:not(:first-child) {
+                > button,
+                .btn {
+                    border-{$default-float}-color: transparent
                 }
             }
         }

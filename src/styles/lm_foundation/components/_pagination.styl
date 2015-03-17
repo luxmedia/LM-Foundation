@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @require '_global'
+@require '_buttons'
 
 //
 // @variables
@@ -25,10 +26,11 @@ $pagination-li-margin ?=                     0 // rem-calc(1)
 $pagination-link-pad ?=                      rem-calc(0 10)
 $pagination-link-font-color ?=               $pagination-li-font-color
 $pagination-link-bg ?=                       none // rgba($black,0.1)
+$pagination-link-bg-hover ?=                 $primary-color
 $pagination-font-size ?=                     fontsize(1rem)
 $pagination-font-family ?=                   $font-family-custom
 $pagination-link-boxshadow ?=                false // 0 1px 1px rgba($black,0.1)
-$pagination-link-border ?=                   rgba($black,0.1)
+$pagination-link-border ?=                   $gray-medium-1
 $pagination-link-border-width ?=             0 1px 0 0
 $pagination-link-active-bg ?=                $primary-color
 $pagination-link-hover-color ?=              $white
@@ -39,6 +41,7 @@ $pagination-link-hover-border ?=             $white // rgba(0,0,0,0.1)
 $pagination-link-unavailable-cursor ?=       $cursor-disabled-value
 $pagination-link-unavailable-font-color ?=   $gray-medium-1
 $pagination-link-unavailable-bg-active ?=    none
+$pagination-link-unavailable-opacity ?=      0.6 // else: 'false'
 
 // We use these for currently selected anchor links
 $pagination-link-current-background ?=       $primary-color
@@ -46,6 +49,12 @@ $pagination-link-current-font-color ?=       $white
 $pagination-link-current-font-weight ?=      $font-weight-bold
 $pagination-link-current-cursor ?=           $cursor-default-value
 $pagination-link-current-active-bg ?=        $primary-color
+
+$pagination-link-svg-size ?=                 rem-calc(18)
+$pagination-link-prev-svg-bg ?=              'arrows_left.svg'
+$pagination-link-prev-svg-bg-shapes ?=       ('polyline' 'polygon')
+$pagination-link-next-svg-bg ?=              'arrows_right.svg'
+$pagination-link-next-svg-bg-shapes ?=        $pagination-link-prev-svg-bg-shapes
 
 
 // @mixins
@@ -61,19 +70,21 @@ pagination-container($center = false) {
 // @mixins
 // Style unavailable list items
 pagination-unavailable-item() {
-    a,
-    button {
-        color: $pagination-link-unavailable-font-color
+    a {
         cursor: $pagination-link-unavailable-cursor
+        if $pagination-link-unavailable-opacity {
+            opacity: $pagination-link-unavailable-opacity
+        } else {
+            color: $pagination-link-unavailable-font-color
+        }
+        pointer-events: none
     }
     &:hover a,
-    & a:focus,
-    &:hover button,
-    & button:focus { 
+    & a:focus { 
         if $pagination-link-border {
             border-color: $pagination-link-border
         }        
-        background: $pagination-link-unavailable-bg-active 
+        background-color: $pagination-link-unavailable-bg-active 
     }
 }
 // @mixins
@@ -82,9 +93,9 @@ pagination-unavailable-item() {
 // $has-anchor - Default: true, Options: false
 pagination-current-item($has-anchor = true) {
     if $has-anchor {
-        a,
-        button {
+        a {
             background: $pagination-link-current-background
+            border-color: transparent
             color: $pagination-link-current-font-color
             cursor: $pagination-link-current-cursor
             font-weight: $pagination-link-current-font-weight
@@ -92,7 +103,7 @@ pagination-current-item($has-anchor = true) {
             &:hover,
             &:focus {
                 background: $pagination-link-current-active-bg
-                border-color: $pagination-link-current-background
+                border-color: transparent
             }
         }
     } else {
@@ -107,6 +118,7 @@ pagination-current-item($has-anchor = true) {
         &:hover,
         &:focus {
             background: $pagination-link-current-active-bg
+            color: $pagination-link-current-font-color
         }
     }
 }
@@ -131,9 +143,8 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             line-height: $pagination-li-height
             margin-{$default-float}: $pagination-li-margin
 
-            a,
-            button {
-                background: $pagination-link-bg
+            a {
+                background-color: $pagination-link-bg
                 color: $pagination-link-font-color
                 display: block
                 font-size: $pagination-font-size
@@ -141,45 +152,37 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 font_family($pagination-font-family)
                 line-height: inherit
                 padding: $pagination-link-pad
+                position: relative
                 text-transform: uppercase
                 if $pagination-link-border {
-                    border: 1px solid $pagination-link-border
+                    border: solid $pagination-link-border
                     border-width: $pagination-link-border-width
                 }
-                if ($pagination-link-boxshadow != false) {
+                if $pagination-link-boxshadow {
                     box-shadow: $pagination-link-boxshadow
                 }
                 radius(0)
-                single-transition(background-color)
-                single-transition(box-shadow)
+                single-transition((background-color box-shadow))
             }
             
-            &:first-child a,
-            &:first-of-type a,
-            &:first-child button,
-            &:first-of-type button {
-                if ($pagination-link-border != false) {
+            &:first-child a {
+                if $pagination-link-border {
                     border-left: none
                 }
             }
-            &:last-child a,
-            &:last-of-type a,
-            &:last-child button,
-            &:last-of-type button {
-                if ($pagination-link-border != false) {
+            &:last-child a {
+                if $pagination-link-border {
                     border-right: none
                 }
-                if ($pagination-link-boxshadow != false) {
+                if $pagination-link-boxshadow {
                     box-shadow: 1px 1px 1px $pagination-link-border
                 }
                 
             }
             
-            &:hover a,
-            a:focus,
-            &:hover button,
-            button:focus {
-                background: $pagination-link-active-bg
+            &:not(.is-disabled):hover a,
+            &:not(.is-disabled) a:focus {
+                background-color: $pagination-link-bg-hover
                 color: $pagination-link-hover-color
                 if $pagination-link-hover-border {
                     border-color: $pagination-link-hover-border
@@ -199,35 +202,28 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
             }
             
             // Icons for previous and next links
-            {$is-svg-support} & {
-                &.is-icononly {
-                    a {
-                        font-size: 0
-                        text-indent: -(9999em)
-                    }
-                    &.pager__prev {
-                        padding-right: 0
-                    }
-                    &.pager__next {
-                        padding-left: 0
-                    }
+            &.is-icononly {
+                a {
+                    font-size: 0
+                    text-indent: -(9999em)
+                    color: transparent
                 }
-                // &.pager__prev a,
-                // &.pager__next a {
-                //     height: $pagination-li-height
-                //     padding: $pagination-link-pad
-                // }
-                &.pager__prev a {
-                    padding-left: rem-calc(30)
-                    svg-background($file:'arrows_left.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:left)
+                &.pager__prev {
+                    padding-{$opposite-direction}: 0
                 }
-                &.pager__next a {
-                    padding-right: rem-calc(30)
-                    svg-background($file:'arrows_right.svg',  $shapes:('polyline' 'polygon'), $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:right)
+                &.pager__next {
+                    padding-{$default-float}: 0
                 }
-                
             }
-            
+
+            &.pager__prev a {
+                padding-{$default-float}: ($pagination-link-svg-size * 1.7)
+                svg-background($file:$pagination-link-prev-svg-bg, $shapes:$pagination-link-prev-svg-bg-shapes, $size:$pagination-link-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:$default-float)
+            }
+            &.pager__next a {
+                padding-{$opposite-direction}: ($pagination-link-svg-size * 1.7)
+                svg-background($file:$pagination-link-next-svg-bg,  $shapes:$pagination-link-next-svg-bg-shapes, $size:$pagination-link-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:$opposite-direction)
+            }
         }
     }
 
@@ -243,6 +239,17 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
     }
 }
 
+pager-style($radius = false) {
+    if $radius {
+        li:first-child a {
+            side-radius($default-float, $radius)
+        }
+        li:last-child a {
+            side-radius($opposite-direction, $radius)
+        }
+    }
+}
+
 //
 // @styles
 //
@@ -250,6 +257,54 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
 if $include-pagination-classes {
     ul.pager {
         pagination()
+
+        // Outline variant
+        if $button-outline-width {
+            &--outline {
+                li {
+                    a {
+                        background-color: transparent
+                        border-width: $button-outline-width
+                        border-{$default-float}-color: transparent
+                        margin-left: -(rem-calc($button-outline-width))
+                    }
+                    &:first-child a {
+                        border-{$default-float}: $button-outline-width solid $pagination-link-border
+                    }
+                    &:last-child a {
+                        border-{$opposite-direction}: $button-outline-width solid $pagination-link-border
+                    }
+                    &:not(.is-disabled):hover a,
+                    &:not(.is-disabled) a:focus {
+                        background-color: transparent
+                        border-color: $pagination-link-bg-hover
+                        color: $pagination-link-bg-hover
+                    }
+                    &.pager__prev a {
+                        svg-background($file:$pagination-link-prev-svg-bg, $shapes:$pagination-link-prev-svg-bg-shapes, $stroke-width:$svg-stroke-width-small, $stroke:false, $stroke-hover:$pagination-link-bg-hover, $size:false, $repeat:false, $position-x:false)
+                    }
+                    &.pager__next a {
+                        svg-background($file:$pagination-link-next-svg-bg,  $shapes:$pagination-link-next-svg-bg-shapes, $stroke-width:$svg-stroke-width-small, $stroke:false, $stroke-hover:$pagination-link-bg-hover, $size:false, $repeat:false, $position-x:false)
+                    }
+                }
+            }
+        }
+        
+        // Radius and round variants
+        if ($button-corner-style == 'all') {
+            &--rad {
+                pager-style($radius:$button-radius)
+            }
+
+            &--rnd {
+                pager-style($radius:$button-round)
+            }
+        } else if ($button-corner-style == 'radius') {
+            pager-style($radius:$button-radius)
+        } else if ($button-corner-style == 'round') {
+            pager-style($radius:$button-round)
+        }
+
     }
 
     // Pagination centred wrapper 

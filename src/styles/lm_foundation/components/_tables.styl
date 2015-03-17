@@ -12,7 +12,8 @@ $include-html-table-classes =               com_css.TABLES
 
 // These control the background color for the table and even rows
 $table-bg ?=                                 $white
-$table-even-row-bg ?=                        $gray-lighter-1
+$table-even-row-bg ?=                        $gray-lighter-3
+$table-bg-hover ?=                           lightness($primary-color, 95%) // else: 'false'
 $table-row-border ?=                         false // 1px solid $gray-lighter-3
 
 // These control the table cell border style
@@ -117,6 +118,13 @@ table() {
     }
 
     tr {
+        if $table-bg-hover {
+            &:hover,
+            &:nth-of-type(even):hover {
+                background: $table-bg-hover
+            }
+        }
+        
         th,
         td {
             color: $table-row-font-color
@@ -130,7 +138,7 @@ table() {
 
     }
 
-    // ALternating Rows
+    // Alternating Rows
     if $table-even-row-bg {
         tbody tr {
             &.even,

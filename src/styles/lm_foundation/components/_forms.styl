@@ -88,7 +88,7 @@ $input-number-spinners ?=                    true
 // style the error states for inputs and labels
 $input-error-message-padding ?=              rem-calc(2 5)
 $input-error-message-top ?=                  -1px
-$input-error-message-font-size ?=            fontsize(0.8rem)
+$input-error-message-font-size ?=            fontsize(.8rem)
 $input-error-message-font-weight ?=          $font-weight-bold
 $input-error-message-font-style ?=           normal
 $input-error-message-font-transform ?=       uppercase
@@ -97,13 +97,13 @@ $input-error-message-bg-color ?=             $critical-font-color
 $input-error-message-font-color-alt ?=       $white
 
 // style the glowing effect of inputs when focused
-$glowing-effect-fade-time ?=                 0.45s
+$glowing-effect-fade-time ?=                 .45s
 $glowing-effect-color ?=                     $input-focus-border-color
 
 // Select variables
 $select-bg-color ?=                          $white
-$select-shadow-color ?=                      rgba($charcoal-1,0.1)
-$select-shadow-color-hover ?=                rgba($charcoal-1,0.2)
+$select-shadow-color ?=                      rgba($charcoal-1, .1)
+$select-shadow-color-hover ?=                rgba($charcoal-1, .2)
 $select-hover-bg-color ?=                    $white
 
 
@@ -307,7 +307,7 @@ postfix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button
 // We use this mixin to style fieldsets
 fieldset() {
     background: $fieldset-bg-color
-    border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color,3%)
+    border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color, 4%)
     display: inline-block
     margin: $fieldset-margin
     padding: $fieldset-padding
@@ -387,7 +387,7 @@ form-select()  {
 
     svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
     border-longhand($width:$input-border-width, $style:$input-border-style, $color:$input-border-color)
-    border-left-color: $edge = darken($fieldset-bg-color, 4%)
+    border-left-color: $edge = darken($fieldset-bg-color, 5%)
     border-radius: 0
     border-top-color: $edge
     box-shadow: 1px 1px 1px $select-shadow-color
@@ -406,7 +406,7 @@ form-select()  {
     &:hover {
         background-color: $select-hover-bg-color
         border-bottom-color: $input-focus-border-color
-        border-left-color: $edge = darken($fieldset-bg-color, 8%)
+        border-left-color: $edge = darken($fieldset-bg-color, 10%)
         border-right-color: $input-focus-border-color
         border-top-color: $edge
         box-shadow: 1px 1px 1px $select-shadow-color-hover
@@ -429,11 +429,11 @@ form-select()  {
         background-color: $input-disabled-bg
         border-style: dotted
         cursor: $input-disabled-cursor
-        opacity: 0.5
+        opacity: .5
 
         &:hover {
             border-color: $input-border-color
-            border-left-color: $edge = darken($fieldset-bg-color, 4%)
+            border-left-color: $edge = darken($fieldset-bg-color, 5%)
             border-top-color: $edge
             box-shadow: 1px 1px 1px $select-shadow-color
             color: $input-font-color
@@ -442,23 +442,34 @@ form-select()  {
 }
 
 form-checkbox-base() {
+    & + label {
+        color: $input-font-color
+        cursor: pointer
+        display: inline-block
+        font-size: $input-font-size
+        font-weight: $form-label-ui-font-weight
+        margin-{$default-float}: ($form-spacing * .5)
+        margin-{$opposite-direction}: $form-spacing
+        margin-bottom: ($form-spacing * .5) // 0
+        padding-bottom: 0
+        // padding-left: ($input-checkbox-width * 1.5)
+        position: relative
+        text-transform: none
+        vertical-align: baseline
+
+        &:hover {
+            color: (dark($input-font-color) ? darken($input-font-color, 10%) : lighten($input-font-color, 10%))
+        }
+    }
+}
+
+form-checkbox-base-pseudo() {
     visibility: hidden
     opacity: 0
     position: absolute
 
     & + label {
-        cursor: pointer
-        display: inline-block
-        font-size: $input-font-size
-        font-weight: $form-label-ui-font-weight
-        margin-bottom: ($form-spacing * .5) // 0
-        margin-{$default-float}: ($form-spacing * .5)
-        margin-{$opposite-direction}: $form-spacing
-        padding-bottom: 0
         padding-left: ($input-checkbox-width * 1.5)
-        position: relative
-        text-transform: none
-        vertical-align: baseline
 
         &::-moz-selection,
         &::selection {
@@ -485,10 +496,9 @@ form-checkbox-base() {
     }
 }
 
-form-checkbox-style($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hover, $bg-checked = $input-checkbox-bg-checked, $border-color = $input-checkbox-border-color, $border-color-hover = $input-checkbox-border-color-hover, $border-color-checked = $input-checkbox-border-color-checked, $font-color = $input-font-color) {
+form-checkbox-style-pseudo($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hover, $bg-checked = $input-checkbox-bg-checked, $border-color = $input-checkbox-border-color, $border-color-hover = $input-checkbox-border-color-hover, $border-color-checked = $input-checkbox-border-color-checked, $font-color = false) {
 
     & + label {
-        color: $font-color
 
         &:before {
             background-color: $bg // checkmark-rectangle fill
@@ -498,7 +508,9 @@ form-checkbox-style($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hov
         }
 
         &:hover {
-            color: (dark($font-color) ? darken($font-color, 10%) : lighten($font-color, 10%))
+            if $font-color {
+                color: (dark($font-color) ? darken($font-color, 10%) : lighten($font-color, 10%))
+            }
             
             &:before {
                 background-color: $bg-hover // hover: checkmark-rectangle fill
@@ -510,8 +522,6 @@ form-checkbox-style($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hov
     &:checked + label {
         &:before {
             background-color: $bg-checked // checked: checkmark-rectangle fill
-            // border-color: ( (lightness($bg-checked) < 50%) ? $bg : $gray-darker-1) // checked: bg fill
-            // border-top-color: ( (lightness($bg-checked) < 50%) ? darken($bg, 5%) : darken($gray-darker-1,10%)) // checked: bg fill shade
             box-shadow: 0 0 0 $input-checkbox-border-width $border-color-checked // checked: border
         }
         &:hover::before {
@@ -522,15 +532,16 @@ form-checkbox-style($bg = $input-checkbox-bg, $bg-hover = $input-checkbox-bg-hov
 
 // We use this mixin to turn on/off HTML5 number spinners
 html5number($browser, $on = true) {
-    if ($on==false) {
-        if ($browser==webkit) {
+    if ($on == false) {
+        if ($browser == webkit) {
             -webkit-appearance: none
             margin: 0
-        } else if ($browser==moz) {
+        } else if ($browser == moz) {
             -moz-appearance: textfield
         }
     }
 }
+
 
 //
 // @styles
@@ -723,15 +734,20 @@ if $include-html-form-classes {
     input[type="checkbox"],
     input[type="radio"] {
         form-checkbox-base()
-        form-checkbox-style()
     }
-    input[type="radio"] + label:before {
+
+    // Pseudo element styled checkboxes
+    *:not(.switch) > input[type="checkbox"],
+    *:not(.switch) > input[type="radio"] {
+        form-checkbox-base-pseudo()
+        form-checkbox-style-pseudo()
+    }
+    *:not(.switch) > input[type="radio"] + label:before {
         radius(1000px)
     }
-    input[type="checkbox"].checkbox--inverted,
-    input[type="radio"].radio--inverted {
-        form-checkbox-base()
-        form-checkbox-style($bg:rgba($black,0.25), $bg-hover:rgba($white,0.25), $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
+    *:not(.switch) > input[type="checkbox"].checkbox--inv,
+    *:not(.switch) > input[type="radio"].radio--inv {
+        form-checkbox-style-pseudo($bg:rgba($black, 0.25), $bg-hover:rgba($white, 0.25), $border-color:$white, $border-color-hover:$white, $border-color-checked:$white, $font-color:$white)
     }
 
     // Normalize file input width

@@ -126,7 +126,7 @@ $last-child-float ?=                 $opposite-direction
 $global-radius ?=                    3px
 $global-rounded ?=                   1000px
 $global-blur-radius ?=               3px
-$global-ui-shadow ?=                 1px 1px 1px rgba($black,0.2)
+$global-ui-shadow ?=                 1px 1px 1px rgba($black, .2)
 
 // inset shadow shiny edges and depressions.
 $shiny-edge-size ?=                  0 1px 0
@@ -142,6 +142,9 @@ $svg-icons-base-size ?=              rem-calc(16) // base icon size
 $svg-scale-factor-uni ?=             0.2 // rem-based - is added to background-size value to make bg-icons a bit bigger
 $svg-scale-factor-x ?=               2 // multiply the svg width with this factor to get a pseudo padding for better icon alignment
 $svg-scale-factor-y ?=               1 // multiply the svg height with this factor to get a pseudo padding for better icon alignment
+
+// Transitions
+$transition-default-speed ?=        .15s
 
 // =========================================================================
 // d. Breakpoints for media queries
@@ -381,7 +384,7 @@ find_similar_basecolor($color = false) {
 }
 
 // SVG backgrounds based on "svg-stylus" plugin
-svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = none, $fill-hover = none, $stroke-hover = false, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
+svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = false, $fill-hover = none, $stroke-hover = false, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
     // possible svg shapes
     // If your svg files feature <g> you could use this instead of "all"
     // "g" is the svg group selector which inherits its styling to all children
@@ -401,8 +404,10 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
         if !$ie8 {
             // set styles (normal and hover) for all possible shapes
             for $shape in $shapes {
-                $params-normal = ($shape+' fill '+color_rgb($fill)+', '+$shape+' stroke '+color_rgb($stroke)+', '+$shape+' stroke-width '+$stroke-width)
-                push($svg-params-normal-state, $params-normal)
+                if $stroke {
+                    $params-normal = ($shape+' fill '+color_rgb($fill)+', '+$shape+' stroke '+color_rgb($stroke)+', '+$shape+' stroke-width '+$stroke-width)
+                    push($svg-params-normal-state, $params-normal)
+                }
                 if $stroke-hover {
                     $params-hover = ($shape+' fill '+color_rgb($fill-hover)+', '+$shape+' stroke '+color_rgb($stroke-hover)+', '+$shape+' stroke-width '+$stroke-width)
                     push($svg-params-hover-state, $params-hover)
@@ -413,7 +418,9 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
             if $properties {
                 background-image: svgurl($path-to-file) svg($properties)
             } else {
-                background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
+                if $stroke {
+                    background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
+                }
                 // Additional Styling for Hover State
                 if ($stroke-hover && $stroke-hover != $stroke) {
                     &:focus,
@@ -458,8 +465,16 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
 // $property - Default: all, Options: http://www.w3.org/TR/css3-transitions/#animatable-properties
 // $speed - Default: 300ms
 // $ease - Default:ease-out, Options: http://css-tricks.com/almanac/properties/t/transition-timing-function/
-single-transition($property = all, $speed = 300ms, $ease = ease-out) {
-    transition: unquote($property) $speed $ease
+single-transition($property = all, $speed = $transition-default-speed, $ease = false) {
+    $trans = ()
+    for $prop in $property {
+        if $ease {
+            push($trans, join(' ', ($prop $speed $ease)))
+        } else {
+            push($trans, join(' ', ($prop $speed)))
+        }
+    }
+    transition: unquote(join(', ', $trans))
 }
 
 // add box-sizing across browser prefixes
@@ -652,8 +667,8 @@ cursor(value) {
     // if not, add vendor prefixes
     $is-supported = true
     $unsupported-cursors = (grab grabbing)
-    for $i in $unsupported-cursors {
-        if (value == $i) {
+    for $unsup in $unsupported-cursors {
+        if (unquote(value) == unquote($unsup)) {
             $is-supported = false
             return false
         }

@@ -14,7 +14,7 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<link href="../dist/css/styles.min.css" rel="stylesheet" />
+	<link href="../dist/css/styles.css" rel="stylesheet" />
 	<link href="templates.css" rel="stylesheet" />
 
 	<script type="text/javascript" src="../dist/js/vendor.min.js"></script>

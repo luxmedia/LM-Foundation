@@ -118,6 +118,7 @@
 			<div class="col lrg-5">
 				<h3>Pagination</h3>
 				<p>For use on pages with huge amounts of items. Like shop category pages.</p>
+				<p>Comes with 2 different styles: normal and outline</p>
 				<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__pager">HTML</a></span>
 			</div>
 			<div class="col lrg-7">
@@ -312,7 +313,6 @@
 
 		<div class="col lrg-5">
 			<p>Switches using css pseudo-classes and JS</p>
-			<div class="alert alert--warning">TODO: Avoid conflict with normal checkbox/radio style!! </div>
 			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__switches">HTML</a></span>
 		</div>
 

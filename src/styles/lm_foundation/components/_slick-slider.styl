@@ -12,7 +12,7 @@ $include-html-slickslider-classes = com_js.SLICKSLIDER
 
 $slick-loader-path ?=               './'
 $slick-arrow-color ?=               $gray-base
-$slick-arrow-color-hover ?=         $primary-color
+$slick-arrow-color-hover ?=         $white // $primary-color
 $slick-dot-color ?=                 $charcoal-2
 $slick-dot-color-alt ?=             $gray-base
 $slick-dot-color-active ?=          $primary-color
@@ -38,6 +38,9 @@ $slick-dot-blockstyle ?=            false
 
 $slick-cursor-drag ?=               $cursor-grab-value
 $slick-cursor-dragging ?=           $cursor-grabbing-value
+
+$slick-nav-button-svg-size ?=       rem-calc(22)
+$slick-nav-button-svg-shapes ?=     ('polyline' 'polygon')
 
 
 //
@@ -166,19 +169,20 @@ if $include-html-slickslider-classes {
         // Arrows
         &__prev,
         &__next {
-            background-color: transparent
-            border: none
-            color: transparent
-            cursor: pointer
-            display: block
-            font-size: 0px
+            
+            // NOTE: Use button classes for styling
+            // background-color: transparent
+            // border: none
+            // color: transparent
+            // cursor: pointer
+            // display: block
+            font-size: 0
             height: $slick-nav-button-size
-            line-height: 0px
-            margin-top: -($slick-nav-button-size/2)
-            // outline: none
+            // line-height: 0
+            margin-top: -($slick-nav-button-size / 2)
             padding: 0
             position: absolute
-            top: 50%
+            top: 49%
             width: $slick-nav-button-size
 
             &:hover,
@@ -195,12 +199,12 @@ if $include-html-slickslider-classes {
         &__prev {
             {$default-float}: -($slick-nav-button-size+rem-calc(5))
 
-            svg-background($file:'arrows_'+$default-float+'.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+            svg-background($file:'arrows_'+$default-float+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
         &__next {
             {$opposite-direction}: -($slick-nav-button-size+rem-calc(5))
 
-            svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(20), $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+            svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
 
         // Dots
