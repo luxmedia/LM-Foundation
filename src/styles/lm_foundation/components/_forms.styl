@@ -106,6 +106,11 @@ $select-shadow-color ?=                      rgba($charcoal-1, .1)
 $select-shadow-color-hover ?=                rgba($charcoal-1, .2)
 $select-hover-bg-color ?=                    $white
 
+// We use this to style the transition when inputs are focused and when the glowing effect is disabled.
+$input-transition-fade-time ?=               0.15s
+$input-transition-fade-timing-function ?=    linear
+
+
 
 //
 // @MIXINS
@@ -626,11 +631,11 @@ if $include-html-form-classes {
         form-element()
         if ($input-include-glowing-effect == false) {
             // single-transition(all, 0.15s, linear)
-            -webkit-transition: border-color 0.15s linear, background 0.15s linear
-            -moz-transition: border-color 0.15s linear, background 0.15s linear
-            -ms-transition: border-color 0.15s linear, background 0.15s linear
-            -o-transition: border-color 0.15s linear, background 0.15s linear
-            transition: border-color 0.15s linear, background 0.15s linear
+            -webkit-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background $input-transition-fade-time $input-transition-fade-timing-function
+            -moz-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background $input-transition-fade-time $input-transition-fade-timing-function
+            -ms-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background $input-transition-fade-time $input-transition-fade-timing-function
+            -o-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background $input-transition-fade-time $input-transition-fade-timing-function
+            transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background $input-transition-fade-time $input-transition-fade-timing-function
         }
     }
     textarea {

@@ -2,15 +2,15 @@
 
 	<div class="row">
 		<div class="sml-12 col">
-			<h1 id="getting-started">Getting Started</h1>
-			<h3 class="subheader">Getting started with Foundation is easy. Whether you are a master of Sass, building a new app, or making your existing site responsive, we&#39;ve got you covered.</h3>
+			<h1 id="getting-started">LM-Foundation</h1>
+			<h3 class="subheader">A custom UI-Framework based on ZUBR's Foundation but with some additions and modifications.</h3>
 
 			<hr>
 
 			<div class="row">
 				<div class="sml-12 col">
 					<h2>What is Foundation?</h2>
-					<h2 class="subheader">Foundation is the most advanced, responsive front-end framework in the world. The framework is mobile friendly and ready for you to customize it any way you want to use it.</h2>
+					<h3 class="subheader">Foundation is the most advanced, responsive front-end framework in the world. The framework is mobile friendly and ready for you to customize it any way you want to use it.</h3>
 					<div class="row whatis">
 						<div class="lrg-12 col">
 							<p>Millions of designers and engineers use Foundation as part of their workflows. It was the first framework to introduce the concepts of responsive design, semantics, mobile first and partials. It&#39;s also compatibile with most browsers and devices. Foundation is the professional choice for designers and engineers.</p> 
@@ -24,8 +24,6 @@
 	<div class="row">
 		<div class="sml-12 col">
 			<h2>What comes with LM-Foundation?</h2>
-			<h2 class="subheader">Foundation has a ton of components and structures to help you build a responsive site without having to worry about all of your baseline, foundational (see what we did there?) code.</h2>
-			<!--<p>You can see all of Foundation&#39;s components on one page called the <a href="components/kitchen_sink.html">Kitchen Sink</a> or check out a small snapshot of what Foundation includes: </p>-->
 		</div>
 	</div>
 

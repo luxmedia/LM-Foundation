@@ -26,8 +26,9 @@ $topbar-logo-weight ?=                       $font-weight-normal
 $topbar-logo-font-size ?=                    fontsize(1rem)
 $topbar-logo-bg ?=                           $primary-color
 $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
+$topbar-logo-padding ?=                     rem-calc(10)
 
-$topbar-link-hover-lightness ?=              15% // -10% !default
+$topbar-link-hover-lightness ?=              -15% // -10% !default
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color ?=                        $white
@@ -37,10 +38,10 @@ $topbar-link-color-active-hover ?=           $white
 $topbar-link-weight ?=                       $font-weight-bold
 $topbar-link-font-size ?=                    fontsize(0.8rem)
 $topbar-link-bg ?=                           $topbar-bg
-$topbar-link-bg-hover ?=                     darken($topbar-link-bg, $topbar-link-hover-lightness)
-$topbar-link-bg-color-hover ?=               darken($topbar-link-bg, $topbar-link-hover-lightness)
+$topbar-link-bg-hover ?=                     scale-color($topbar-link-bg, $topbar-link-hover-lightness)
+$topbar-link-bg-color-hover ?=               scale-color($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-active ?=                    $primary-color
-$topbar-link-bg-active-hover ?=              darken($primary-color, $topbar-link-hover-lightness)
+$topbar-link-bg-active-hover ?=              scale-color($primary-color, $topbar-link-hover-lightness)
 $topbar-link-font-family ?=                  $font-family-custom
 $topbar-link-text-transform ?=               uppercase
 $topbar-link-padding ?=                      ($topbar-height/3)
@@ -63,17 +64,19 @@ $topbar-site-search-padding ?=               rem-calc(7 (3*7)) // 7 is based on 
 $topbar-site-search-font-size ?=             fontsize(1rem)
 $topbar-site-search-font-color ?=            $black
 $topbar-site-search-text-transform ?=        lowercase
+$topbar-site-search-svg-bg ?=                'basic_magnifier.svg'
+$topbar-site-search-svg-bg-shapes ?=         ('circle' 'line' 'rect')
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg ?=                       $topbar-link-bg-hover
 $topbar-dropdown-link-color ?=               $white
 $topbar-dropdown-link-color-hover ?=         $primary-color
 $topbar-dropdown-link-bg ?=                  $topbar-dropdown-bg
-$topbar-dropdown-link-bg-hover ?=            darken($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
+$topbar-dropdown-link-bg-hover ?=            scale-color($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
 $topbar-dropdown-link-weight ?=              $font-weight-bold
 $topbar-dropdown-toggle-size ?=              5px
 $topbar-dropdown-toggle-color ?=             $white
-$topbar-dropdown-toggle-alpha ?=             0.4
+$topbar-dropdown-toggle-alpha ?=             .4
 
 $topbar-dropdown-label-color ?=              lighten($topbar-link-bg, 30%)
 $topbar-dropdown-label-text-transform ?=     uppercase
@@ -92,7 +95,7 @@ $topbar-menu-icon-color-toggled ?=           $topbar-menu-link-color
 $topbar-menu-icon-position ?=                $opposite-direction
 
 // Transitions and breakpoint styles
-$topbar-transition-speed ?=                  300ms
+$topbar-transition-speed ?=                  .3s
 
 // Using rem-calc for the below breakpoint causes issues with top bar
 $topbar-breakpoint ?=                        lower-bound($medium-range) // Change to 9999px for always mobile layout
@@ -209,11 +212,13 @@ if $include-html-topbar-classes {
         }
 
         form,
-        input {
+        input,
+        select {
             margin-bottom: 0
         }
 
         input,
+        select,
         input[type='text'],
         input[type='search'] { 
             position: relative
@@ -267,7 +272,10 @@ if $include-html-topbar-classes {
               float: $opposite-direction
             }
 
-            h1, h2, h3, h4, p, span {
+            // h1, h2, h3, h4, p, span {
+            // logo should be in a plain div or header tag
+            div,
+            header {
                 display: block
                 line-height: $topbar-height
                 font-size: $topbar-logo-font-size
@@ -276,7 +284,7 @@ if $include-html-topbar-classes {
                 a {
                     // width: 75%
                     display: block
-                    padding: 0 $topbar-link-padding
+                    padding: $topbar-logo-padding
                     +mediaquery($small-only) {
                         padding: 0
                     }
@@ -312,6 +320,11 @@ if $include-html-topbar-classes {
                 font-size:$topbar-site-search-font-size
                 color: $topbar-site-search-font-color
                 text-transform: $topbar-site-search-text-transform
+                if ($button-corner-style == 'radius') {
+                    radius($global-radius)
+                } else if ($button-corner-style == 'round') {
+                    radius($global-rounded)
+                }
             }
             .btn,
             button {
@@ -320,16 +333,19 @@ if $include-html-topbar-classes {
                 width: $topbar-button-search-width
                 height: $topbar-input-height
                 margin-top: -($topbar-input-height) // move in line with search field
+                if ($button-corner-style == 'radius') {
+                    side-radius($opposite-direction, $global-radius)
+                } else if ($button-corner-style == 'round') {
+                    side-radius($opposite-direction, $global-rounded)
+                }
 
                 +mediaquery($small-only) {
                     display: none
                 }
 
-                {$is-svg-support} & {
-                    font-size: 0!important
-                    text-indent: -9999em
-                    svg-background($file:'basic_magnifier.svg', $shapes:('circle' 'line' 'rect'), $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
-                }
+                font-size: 0!important
+                text-indent: -9999em
+                svg-background($file:$topbar-site-search-svg-bg, $shapes:$topbar-site-search-svg-bg-shapes, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
 
                 background-color: $input-bg-color
                 border-{$default-float}: $topbar-button-search-border
@@ -643,9 +659,10 @@ if $include-html-topbar-classes {
             
             .topbar-section > ul > li {
                 > input,
+                > select,
                 > button,
                 > .btn {
-                    font-size:$topbar-button-font-size
+                    font-size: $topbar-button-font-size
                     height: $topbar-input-height
                     line-height: $topbar-input-height
                     padding-bottom: 0

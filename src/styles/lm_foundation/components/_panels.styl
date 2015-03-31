@@ -16,8 +16,8 @@ $panel-border-style ?=                       solid
 $panel-border-size ?=                        1px
 
 // We use this % to control how much we darken things on hover
-$panel-function-factor ?=                    10% // -11%
-$panel-border-color ?=                       darken($panel-bg, $panel-function-factor)
+$panel-function-factor ?=                    -10% // -11%
+$panel-border-color ?=                       scale-color($panel-bg, $panel-function-factor)
 
 // set default inner padding and bottom margin
 $panel-margin-bottom ?=                      rem-calc(20)
@@ -29,7 +29,7 @@ $panel-font-color-alt ?=                     $white
 
 $panel-header-adjust ?=                      true
 $callout-panel-link-color ?=                 $primary-color
-$callout-panel-link-color-hover ?=           darken($callout-panel-link-color, $panel-function-factor)
+$callout-panel-link-color-hover ?=           scale-color($callout-panel-link-color, $panel-function-factor)
 $callout-panel-bg ?=                        lightness($primary-color, 94%)
 
 
@@ -47,7 +47,7 @@ panel($bg = $panel-bg, $padding = $panel-padding, $adjust = $panel-header-adjust
         if $border {
             border-style: $panel-border-style
             border-width: $panel-border-size
-            border-color: darken($bg, $panel-function-factor)    
+            border-color: $panel-border-color
         } else {
             border-style: none
             border-width: 0
