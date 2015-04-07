@@ -10,7 +10,8 @@
 
 $include-html-accordion-classes =           com_js.ACCORDION
 
-$accordion-navigation-padding ?=             rem-calc(16)
+$accordion-navigation-padding ?=             rem-calc(10 16)
+$accordion-navigation-margin-bottom ?=       rem-calc(10)
 $accordion-navigation-bg-color ?=            $gray-light-2  
 $accordion-navigation-hover-bg-color ?=      darken($accordion-navigation-bg-color, 5%)
 $accordion-navigation-active-bg-color ?=     darken($accordion-navigation-bg-color, 3%)
@@ -127,28 +128,33 @@ if $include-html-accordion-classes {
     .accordion {
         clearfix()
         margin-bottom: 0
+        
         .accordion-navigation,
         dd {
             display: block
-            margin-bottom: 0 !important
+            margin-bottom: $accordion-navigation-margin-bottom !important
+
             &.is-active > a {
                 background: $accordion-navigation-active-bg-color
             }
-            & > a {
+
+            > a {
                 background: $accordion-navigation-bg-color
                 color: $accordion-navigation-font-color
                 display: block
                 font_family($accordion-navigation-font-family)
                 font-size: $accordion-navigation-font-size
                 padding: $accordion-navigation-padding
+
                 &:hover {
                     background: $accordion-navigation-hover-bg-color
                 }
             }
 
-            & > .content {
+            > .content {
                 display: none
                 padding: $accordion-content-padding
+
                 &.is-active {
                     background: $accordion-content-active-bg-color
                     display: block

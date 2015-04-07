@@ -28,6 +28,8 @@ $base-path-src ?=                    ('./' + base_params.src)
 $base-path-svg ?=                    $base-path-src+'/svg'
 $base-path-png ?=                    $base-path-src+'/png'
 $base-path-dist ?=                   ('./' + base_params.dist)
+$dir_img ?=                          $base-path-src + '/img'
+$dir_font ?=                         $base-path-dist + '/fonts'
 
 $relative-paths ?=                   true
 
@@ -250,9 +252,7 @@ mediaquery($bp = false) {
 // control border radius.
 // $radius - Default: $global-radius || 4px
 radius($radius = $global-radius) {
-    if $radius {
-        border-radius: $radius
-    }
+    border-radius: $radius
 }
 
 // create equal side border radius on elements.
@@ -632,21 +632,9 @@ if ($text-direction == ltr) {
 // FONT MIXINS
 // =========================================================================
 
-// Return normalized (based on rem-base) font size value
-fontsize(value) {
-    if (value != 0 && value != null && value != inherit) {
-        if (unit(value) != 'px') {
-            return remify(normalize_rem(value))
-        } else {
-            return value
-        }
-    } else {
-        return value
-    }
-}
 
 // Convert font-size to rem
-// @DEPRECATED - We use fontsize() instead
+// @DEPRECATED - We use fontsize() in _functions.styl instead
 font_size(value) {
     font-size: fontsize(value)
 }
@@ -686,7 +674,7 @@ cursor(value) {
 
 image-url($url = '', $imgbase = $dir_img) {
     if $url {
-        return unquote('url(' + $imgbase + $url + ')')
+        return unquote('url(' + $imgbase + '/' + $url + ')')
     } else {
         return false
     }
@@ -694,7 +682,7 @@ image-url($url = '', $imgbase = $dir_img) {
 
 font-url($url = '', $fontbase = $dir_font) {
     if $url {
-        return unquote('url(' + $fontbase + $url + ')')
+        return unquote('url(' + $fontbase + '/' + $url + ')')
     } else {
         return false
     }

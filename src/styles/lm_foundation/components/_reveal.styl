@@ -29,7 +29,8 @@ $reveal-close-font-size ?=                   rem-calc(40)
 $reveal-close-top ?=                         rem-calc(10)
 $reveal-close-side ?=                        rem-calc(22)
 $reveal-close-color ?=                       $gray-base
-$reveal-close-weight ?=                      $font-weight-bold
+$reveal-close-color-hover ?=                 $primary-color
+$reveal-close-weight ?=                      $font-weight-normal
 
 // set the default radius used throughout the core.
 $reveal-radius ?=                            0
@@ -38,7 +39,7 @@ $reveal-round ?=                             $global-rounded
 // the modal border
 $reveal-border-style ?=                      solid
 $reveal-border-width ?=                      2px
-$reveal-border-color ?=                      $gray-medium-1
+$reveal-border-color ?=                      $reveal-modal-bg // $gray-medium-1
 $reveal-border-highlight-color ?=            $primary-color
 
 $reveal-modal-class ?=                       'reveal-modal'
@@ -52,7 +53,7 @@ $close-reveal-modal-class ?=                 'close-reveal-modal'
 // We use this to create the reveal background overlay styles
 reveal-bg( $include-z-index-value = true ) {
     background: $reveal-overlay-bg
-    background: $reveal-overlay-bg-old // Autoprefixer should be used to avoid such variables needed when Foundation for Sites can do so in the near future.
+    // background: $reveal-overlay-bg-old // Autoprefixer should be used to avoid such variables needed when Foundation for Sites can do so in the near future.
     bottom: 0
     display: none
     left: 0
@@ -167,6 +168,10 @@ reveal-close($color = $reveal-close-color) {
     position: absolute
     top: $reveal-close-top
     {$opposite-direction}: $reveal-close-side
+
+    &:hover {
+        color: $reveal-close-color-hover
+    }
 }
 
 //

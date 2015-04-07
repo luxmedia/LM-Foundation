@@ -20,12 +20,12 @@ $pagination-li-float ?=                      $default-float
 $pagination-li-height ?=                     rem-calc(20)
 $pagination-li-font-color ?=                 $gray-dark-1
 $pagination-li-font-size ?=                  fontsize(1rem)
-$pagination-li-margin ?=                     0 // rem-calc(1)
+$pagination-li-margin ?=                     0
 
 // We use these for the pagination anchor links
 $pagination-link-pad ?=                      rem-calc(0 10)
 $pagination-link-font-color ?=               $pagination-li-font-color
-$pagination-link-bg ?=                       none // rgba($black,0.1)
+$pagination-link-bg ?=                       transparent // rgba($black,0.1)
 $pagination-link-bg-hover ?=                 $primary-color
 $pagination-font-size ?=                     fontsize(1rem)
 $pagination-font-family ?=                   $font-family-custom
@@ -196,6 +196,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 &.is-disabled {
                     pagination-unavailable-item()
                 }
+                &.is-active,
                 &.is-current {
                     pagination-current-item()
                 }
@@ -274,6 +275,7 @@ if $include-pagination-classes {
                     &:last-child a {
                         border-{$opposite-direction}: $button-outline-width solid $pagination-link-border
                     }
+                    &.is-active a,
                     &:not(.is-disabled):hover a,
                     &:not(.is-disabled) a:focus {
                         background-color: transparent

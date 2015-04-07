@@ -23,6 +23,14 @@ $switch-border-color ?=                         $gray-base
 $switch-border-color-hover ?=                   darken($switch-border-color, 25%)
 $switch-border-color-active ?=                  $switch-bg-active
 
+// ALternative/Inverted colors
+$switch-inv-bg ?=                                   rgba($black, .5)
+$switch-inv-bg-hover ?=                             $switch-inv-bg
+$switch-inv-bg-active ?=                            $primary-color
+$switch-inv-border-color ?=                         rgba($white, .4)
+$switch-inv-border-color-hover ?=                   rgba($white, .6)
+$switch-inv-border-color-active ?=                  $switch-bg-active
+
 // the switch heights for our default classes
 $switch-height-tny ?=                           remify(1.4rem)
 $switch-height-sml ?=                           remify(1.8rem)
@@ -34,6 +42,9 @@ $switch-border-width ?=                         2px // else: 0
 // We use these to style the switch-paddle
 $switch-paddle-bg ?=                            $white
 $switch-paddle-bg-hover ?=                      darken($switch-paddle-bg, 6%)
+$switch-paddle-inv-bg ?=                        $gray-base
+$switch-paddle-inv-bg-hover ?=                  lighten($switch-paddle-bg, 10%)
+
 $switch-paddle-transition-speed ?=              .10s
 $switch-paddle-transition-ease ?=               ease-out
 //space between paddle and bg
@@ -152,34 +163,34 @@ switch-size($height = $switch-height-med) {
 // $negative-color - Background color of negative side of switch. Default: $switch-negative-color.
 // $radius - Radius to apply to switch. Default: false.
 // $base-style - Apply base styles? Default: true.
-switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, $radius = false, $base-style = true) {
+switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, $radius = false, $base-style = true, $inverted-colors = false) {
 
     if $base-style {
         label {
-            background: $switch-bg
+            background: (!$inverted-colors ? $switch-bg : $switch-inv-bg)
             if ($switch-border-width != 0) {
-                border: $switch-border-width solid $switch-border-color
+                border: $switch-border-width solid (!$inverted-colors ? $switch-border-color : $switch-inv-border-color)
             }
             // color: transparent
             &:hover {
                 if ($switch-border-width != 0) {
-                    border-color: $switch-border-color-hover
+                    border-color: (!$inverted-colors ? $switch-border-color-hover : $switch-inv-border-color-hover)
                 }
                 &::after {
-                    background: $switch-paddle-bg-hover
+                    background: (!$inverted-colors ? $switch-paddle-bg-hover : $switch-paddle-inv-bg-hover)
                     single-transition(background, $speed:$transition-speed, $ease:$transition-ease)
                 }
             }
         }
 
         label:after {
-            background: $paddle-bg
+            background: (!$inverted-colors ? $paddle-bg : $switch-paddle-inv-bg)
         }
 
         input:checked + label {
-            background: $active-color
+            background: (!$inverted-colors ? $active-color : $switch-inv-bg-active)
             if ($switch-border-width != 0) {
-                border-color: $switch-border-color-active
+                border-color: (!$inverted-colors ? $switch-border-color-active : $switch-inv-border-color-active)
             }
         }
         
@@ -231,6 +242,11 @@ if $include-html-form-classes {
     .switch {
         switch()
 
+        // Inverted colors
+        &--inv {
+            switch-style($inverted-colors:true, $base-style:true)
+        }
+
         // Sizes
         &--tny { 
             switch-size($switch-height-tny)
@@ -245,16 +261,16 @@ if $include-html-form-classes {
         // Add a radius to the switch
         &--rad {
             label { 
-                radius(4px)
+                radius($global-radius+1)
                 &:after { 
-                    radius(3px)
+                    radius($global-radius)
                 }
             }
         }
 
-        // Make the switch completely round, like a pill
+        // Make the switch completly round, like a pill
         &--rnd { 
-            radius(1000px)
+            radius($global-rounded)
             
             label { 
                 radius(2rem)

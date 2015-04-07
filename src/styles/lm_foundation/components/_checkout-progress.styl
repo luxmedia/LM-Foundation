@@ -130,7 +130,8 @@ if $include-html-checkout-progress-classes {
                     color: $white
                     z-index: 999
                 }
-
+                
+                span,
                 a {
                     color: $info-color
                     &:hover {
@@ -154,7 +155,8 @@ if $include-html-checkout-progress-classes {
                     color: $white
                     z-index: 999
                 }
-
+                
+                span,
                 a {
                     color: $checkout-progress-step-visited-color
 
@@ -237,6 +239,13 @@ if $include-html-checkout-progress-classes {
                 left: 0
                 position: absolute
                 width: (percentage((1/4)) / 2) // 10%
+            }
+            
+            // If first item in steps is active, colorize left stripe "active" and NOT "success"
+            &.checkout-bar--firstactive {
+                &:before {
+                    active-progress()
+                }
             }
 
             li {

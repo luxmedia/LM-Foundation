@@ -13,13 +13,13 @@
 $include-html-form-classes =                com_css.FORMS
 
 // set the base for lots of form spacing and positioning styles
-$form-spacing ?=                             rem-calc(16)
+$form-spacing ?=                             rem-calc(20)
 
 // style the labels in different ways
 $input-font-family ?=                        inherit
 $input-font-color ?=                         $charcoal-1
 $input-font-color-hover ?=                   $black
-$input-font-size ?=                          fontsize(1rem)
+$input-font-size ?=                          fontsize(1.1rem)
 $input-font-weight ?=                        $font-weight-normal
 $input-bg-color ?=                           $white
 $input-focus-bg-color ?=                     darken($white, 2%)
@@ -30,18 +30,20 @@ $input-border-width ?=                       1px
 $input-border-radius ?=                      $global-radius
 $input-disabled-bg ?=                        transparent
 $input-disabled-cursor ?=                    $cursor-disabled-value
-$input-box-shadow ?=                         inset 0 1px 2px rgba(0,0,0,0.1)
+$input-box-shadow ?=                         inset 0 1px 2px rgba(0,0,0,.1)
 $input-include-glowing-effect ?=             false
 
 $form-label-pointer ?=                       pointer
-$form-label-font-size ?=                     fontsize(0.8rem)
+$form-label-font-size ?=                     fontsize(.8rem)
 $form-label-font-weight ?=                   $font-weight-bold
 $form-label-ui-font-weight ?=                $font-weight-normal
 $form-label-line-height ?=                   1.5
 $form-label-font-color ?=                    $gray-dark-1
 $form-label-font-color-hover ?=              $input-font-color-hover
+$form-label-inv-font-color ?=                rgba($white, .75)
+$form-label-inv-font-color-hover ?=          $white
 $form-label-small-transform ?=               capitalize
-$form-label-small-font-size ?=               fontsize(0.75rem)
+$form-label-small-font-size ?=               fontsize(.75rem)
 $form-label-bottom-margin ?=                 0
 $form-label-bottom-padding ?=                rem-calc(4)
 $form-label-required-font-color ?=           $primary-color
@@ -68,7 +70,7 @@ $fieldset-margin ?=                          rem-calc(18 0)
 $legend-bg ?=                                $white
 $legend-font-color ?=                        $gray-medium-2
 $legend-font-family ?=                       $font-family-custom
-$legend-font-size ?=                         fontsize(0.9rem)
+$legend-font-size ?=                         fontsize(.9rem)
 $legend-font-weight ?=                       $font-weight-bold
 $legend-text-transform ?=                    uppercase
 $legend-padding ?=                           rem-calc(0 5)
@@ -126,7 +128,8 @@ form-row-base() {
         }
 
         // Use this to collapse the margins of a form row
-        &.collapse {
+        &--cllps,
+        &--collapse {
             margin: 0
 
             .col {
@@ -162,7 +165,7 @@ form-element() {
     font_family($input-font-family)
     height: ($input-font-size + $form-spacing - rem-calc(1))
     margin: 0 0 $form-spacing 0
-    padding: ($form-spacing / 2)
+    padding: ($form-spacing - $input-font-size) ($form-spacing / 2)
     width: 100%
     
     box-sizing(border-box)
@@ -329,6 +332,11 @@ fieldset() {
         padding: $legend-padding
         text-transform: $legend-text-transform
     }
+
+    button:last-of-type,
+    .btn:last-of-type {
+        margin-bottom: 0
+    }
 }
 
 // @MIXIN
@@ -402,9 +410,9 @@ form-select()  {
     font-weight: $input-font-weight
     font_family($body-font-family)
     line-height: normal
-    padding: ($form-spacing / 2)
+    padding: ($form-spacing - $input-font-size) ($form-spacing / 2)
 
-    &.radius {
+    &.rad {
         radius($global-radius)
     }
 
@@ -464,6 +472,14 @@ form-checkbox-base() {
 
         &:hover {
             color: (dark($input-font-color) ? darken($input-font-color, 10%) : lighten($input-font-color, 10%))
+        }
+
+        &.lbl--inv {
+            color: $form-label-inv-font-color
+
+            &:hover {
+                color: $form-label-inv-font-color-hover
+            }
         }
     }
 }
@@ -566,10 +582,10 @@ if $include-html-form-classes {
     // Label Styles
     label {
         form-label()
-        &.right {
+        &--right {
             form-label(right,false)
         }
-        &.inline {
+        &--inline {
             form-label(inline,false)
         }
         // Styles for required inputs
@@ -645,7 +661,7 @@ if $include-html-form-classes {
 
     form {
         .row {
-            .prefix--rad.row.collapse {
+            .prefix--rad.row--collapse {
                 input,
                 textarea,
                 select,
@@ -658,7 +674,7 @@ if $include-html-form-classes {
                     side-radius($default-float, $button-radius)
                 }
             }
-            .postfix--rad.row.collapse {
+            .postfix--rad.row--collapse {
                 input,
                 textarea,
                 select,
@@ -671,7 +687,7 @@ if $include-html-form-classes {
                     side-radius($opposite-direction, $button-radius)
                 }
             }
-            .prefix--rnd.row.collapse {
+            .prefix--rnd.row--collapse {
                 input,
                 textarea,
                 select,
@@ -684,7 +700,7 @@ if $include-html-form-classes {
                     side-radius($default-float, $button-round)
                 }
             }
-            .postfix--rnd.row.collapse {
+            .postfix--rnd.row--collapse {
                 input,
                 textarea,
                 select,
@@ -720,7 +736,7 @@ if $include-html-form-classes {
     // Add height value for select elements to match text input height
     select {
         form-select()
-        height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1))
+        height: ($input-font-size + $form-spacing - rem-calc(1))
         antialiased()
         
         &[multiple] {

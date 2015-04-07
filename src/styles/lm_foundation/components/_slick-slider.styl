@@ -207,9 +207,91 @@ if $include-html-slickslider-classes {
             svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
 
-        // Dots
+        // DOTS FOR NAVIGATION
+
+        // Single Dots
+        &__dots {
+            // bottom: -(($slick-dot-sensitive-size*2)+rem-calc(5))
+            // position: absolute
+            display: block
+            list-style: none
+            margin: 0 0 $slick-margin-bottom 0
+            padding: 0
+            position: relative
+            text-align: center
+            width: 100%
+
+            li {
+                cursor: pointer
+                display: inline-block
+                height: $slick-dot-sensitive-size
+                margin: $slick-dot-margin
+                padding: 0
+                position: relative
+                radius(1000px)
+                width: $slick-dot-sensitive-size
+
+                button {
+                    background: transparent
+                    border: none
+                    box-shadow: none
+                    color: transparent
+                    cursor($cursor-pointer-value)
+                    display: block
+                    font-size: 0
+                    height: $slick-dot-sensitive-size
+                    line-height: 0
+                    margin: 0
+                    // outline: none
+                    padding: $slick-dot-padding
+                    radius(1000px)
+                    width: $slick-dot-sensitive-size
+
+                    &:hover,
+                    &:focus {
+                        border: none
+                        box-shadow: none
+                        outline: none
+
+                        &:before {
+                            color: $slick-dot-color-hover
+                            opacity: $slick-opacity-on-hover
+                        }
+                    }
+
+                    &:before {
+                        background-color: $slick-dot-color
+                        content: $slick-dot-character
+                        font-family: $slick-font-family
+                        font-size: $slick-dot-size
+                        height: $slick-dot-size
+                        left: 50%
+                        line-height: $slick-dot-size
+                        margin: (-($slick-dot-size/2)) 0 0 (-($slick-dot-size/2))
+                        opacity: $slick-opacity-not-active
+                        position: absolute
+                        text-align: center
+                        top: 50%
+                        width: $slick-dot-size
+                        
+                        antialiased()
+                        
+                        radius(1000px)
+                    }
+                }
+
+                &.is-active button:before,
+                &.is-active button:before:hover {
+                    background-color: $slick-dot-color-active
+                    color: $slick-dot-color-active
+                    cursor($cursor-default-value)
+                    opacity: $slick-opacity-active
+                }
+            }
+        }
+
+        // Squaretype fullwidth "block-dots"
         if $slick-dot-blockstyle {
-            // Squaretype fullwidth "block-dots"
             &__dots--block {
                 display: block
                 list-style: none
@@ -250,87 +332,6 @@ if $include-html-slickslider-classes {
                     &.is-active:hover button {
                         background: $slick-dot-color-active
                         cursor($cursor-default-value)
-                    }
-                }
-            }
-        } else {
-            // Single Dots
-            &__dots {
-                // position: absolute
-                // bottom: -(($slick-dot-sensitive-size*2)+rem-calc(5))
-                display: block
-                list-style: none
-                margin: 0 0 $slick-margin-bottom 0
-                padding: 0
-                position: relative
-                text-align: center
-                width: 100%
-
-                li {
-                    cursor: pointer
-                    display: inline-block
-                    height: $slick-dot-sensitive-size
-                    margin: $slick-dot-margin
-                    padding: 0
-                    position: relative
-                    radius(1000px)
-                    width: $slick-dot-sensitive-size
-
-                    button {
-                        background: transparent
-                        border: none
-                        box-shadow: none
-                        color: transparent
-                        cursor($cursor-pointer-value)
-                        display: block
-                        font-size: 0
-                        height: $slick-dot-sensitive-size
-                        line-height: 0
-                        margin: 0
-                        // outline: none
-                        padding: $slick-dot-padding
-                        radius(1000px)
-                        width: $slick-dot-sensitive-size
-
-                        &:hover,
-                        &:focus {
-                            border: none
-                            box-shadow: none
-                            outline: none
-
-                            &:before {
-                                color: $slick-dot-color-hover
-                                opacity: $slick-opacity-on-hover
-                            }
-                        }
-
-                        &:before {
-                            background-color: $slick-dot-color
-                            content: $slick-dot-character
-                            font-family: $slick-font-family
-                            font-size: $slick-dot-size
-                            height: $slick-dot-size
-                            left: 50%
-                            line-height: $slick-dot-size
-                            margin: (-($slick-dot-size/2)) 0 0 (-($slick-dot-size/2))
-                            opacity: $slick-opacity-not-active
-                            position: absolute
-                            text-align: center
-                            top: 50%
-                            width: $slick-dot-size
-                            
-                            antialiased()
-                            
-                            radius(1000px)
-                        }
-                    }
-
-                    &.is-active button:before,
-                    &.is-active button:before:hover {
-                        background-color: $slick-dot-color-active
-                        color: $slick-dot-color-active
-                        cursor($cursor-default-value)
-                        opacity: $slick-opacity-active
                     }
                 }
             }

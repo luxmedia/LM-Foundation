@@ -120,9 +120,11 @@ button-group-style($styles = true, $radius = false, $even = false, $float = fals
             &:first-child > .btn {
                 if ($orientation == vertical) {
                     side-radius(top, $button-radius)
+                    side-radius(bottom, 0)
                 }
                 else {
                     side-radius($default-float, $button-radius)
+                    side-radius($opposite-direction, 0)
                 }
             }
             &:last-child,
@@ -131,9 +133,11 @@ button-group-style($styles = true, $radius = false, $even = false, $float = fals
             &:last-child > .btn {
                 if ($orientation == vertical) {
                     side-radius(bottom, $button-radius)
+                    side-radius(top, 0)
                 }
                 else {
                     side-radius($opposite-direction, $button-radius)
+                    side-radius($default-float, 0)
                 }
             }
         } else if $radius {
@@ -149,8 +153,10 @@ button-group-style($styles = true, $radius = false, $even = false, $float = fals
             &:first-child > .btn {
                 if ($orientation == vertical) {
                     side-radius(top, $radius)
+                    side-radius(bottom, 0)
                 } else {
                     side-radius($default-float, $radius)
+                    side-radius($opposite-direction, 0)
                 }
             }
             &:last-child,
@@ -159,8 +165,10 @@ button-group-style($styles = true, $radius = false, $even = false, $float = fals
             &:last-child > .btn {
                 if ($orientation == vertical) {
                     side-radius(bottom, $radius)
+                    side-radius(top, 0)
                 } else {
                     side-radius($opposite-direction, $radius)
+                    side-radius($default-float, 0)
                 }
             }
         }

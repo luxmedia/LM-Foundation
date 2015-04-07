@@ -84,6 +84,23 @@ pxify($value) {
     }
 }
 
+// =========================================================================
+// FONT MIXINS
+// =========================================================================
+
+// Return normalized (based on rem-base) font size value
+fontsize(value) {
+    if (value != 0 && value != null && value != inherit) {
+        if (unit(value) != 'px') {
+            return remify(normalize_rem(value))
+        } else {
+            return value
+        }
+    } else {
+        return value
+    }
+}
+
 /* ========================================================================= */
 // COLOR CALCULATIONS
 /* ========================================================================= */

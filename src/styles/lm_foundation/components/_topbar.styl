@@ -26,7 +26,7 @@ $topbar-logo-weight ?=                       $font-weight-normal
 $topbar-logo-font-size ?=                    fontsize(1rem)
 $topbar-logo-bg ?=                           $primary-color
 $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
-$topbar-logo-padding ?=                     rem-calc(10)
+$topbar-logo-padding ?=                     rem-calc(0 10)
 
 $topbar-link-hover-lightness ?=              -15% // -10% !default
 
@@ -52,7 +52,7 @@ $topbar-button-top ?=                        rem-calc(7)
 $topbar-button-font-size ?=                  fontsize(1rem)
 $topbar-input-height ?=                      ($topbar-height - (2*$topbar-button-top))
 $topbar-button-search-width ?=               rem-calc(40)
-$topbar-button-search-border ?=             1px solid darken($input-bg-color,10%)
+$topbar-button-search-border ?=              false // 1px solid darken($input-bg-color,10%)
 $topbar-button-search-svg-color ?=           $gray-dark-1
 $topbar-button-search-svg-color-hover ?=     $primary-color
 $topbar-button-search-svg-stroke-width ?=    $svg-stroke-width-small
@@ -82,7 +82,7 @@ $topbar-dropdown-label-color ?=              lighten($topbar-link-bg, 30%)
 $topbar-dropdown-label-text-transform ?=     uppercase
 $topbar-dropdown-label-font-weight ?=        $font-weight-bold
 $topbar-dropdown-label-font-size ?=          fontsize(0.8rem)
-$topbar-dropdown-label-bg ?=                 transparent
+$topbar-dropdown-label-bg ?=                 false // transparent
 
 // Top menu icon styles
 $topbar-menu-link-transform ?=               uppercase
@@ -217,13 +217,13 @@ if $include-html-topbar-classes {
             margin-bottom: 0
         }
 
-        input,
         select,
         input[type='text'],
+        input[type='password'],
         input[type='search'] { 
             position: relative
             height: $topbar-input-height
-            padding-top: $ptop = remify(.35rem) // 0 // (.35rem + rem-calc(1))
+            padding-top: $ptop = remify(.35rem)
             padding-bottom: $ptop
             font-size: $topbar-button-font-size
             if ($topbar-input-border-width) {
@@ -348,7 +348,11 @@ if $include-html-topbar-classes {
                 svg-background($file:$topbar-site-search-svg-bg, $shapes:$topbar-site-search-svg-bg-shapes, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
 
                 background-color: $input-bg-color
-                border-{$default-float}: $topbar-button-search-border
+                if $topbar-button-search-border {
+                    border-{$default-float}: $topbar-button-search-border
+                } else {
+                    border: none
+                }
                 &:focus,
                 &:hover {
                     background-color: darken($input-bg-color,10%)
@@ -539,23 +543,9 @@ if $include-html-topbar-classes {
         .has-dropdown {
             position: relative
 
-            > a {
-                if ($topbar-arrows){
-                    // {$is-svg-support} & {
-                    // use svg for arrow
+            if ($topbar-arrows){
+                > a {
                     svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
-                    // }
-                    // {$is-no-svg-support} & {
-                    //     // use css pseudo class for arrow
-                    //     &:after {
-                    //         css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), $default-float)
-                    //         margin-{$opposite-direction}: $topbar-link-padding
-                    //         margin-top: -(($topbar-dropdown-toggle-size / 2) - 2)
-                    //         position: absolute
-                    //         top: 50%
-                    //         {$opposite-direction}: 0
-                    //     }
-                    // }
                 }
             }
 
@@ -764,16 +754,7 @@ if $include-html-topbar-classes {
                 if($topbar-arrows){
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        // {$is-svg-support} & {
                         svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
-                        // }
-                        // {$is-no-svg-support} & {
-                        //     &:after {
-                        //         css-triangle($topbar-dropdown-toggle-size, rgba($topbar-dropdown-toggle-color, $topbar-dropdown-toggle-alpha), top)
-                        //         margin-top: -($topbar-dropdown-toggle-size / 2)
-                        //         top: round($topbar-height / 2)
-                        //     }
-                        // }
                     }
                 }
 
@@ -855,7 +836,9 @@ if $include-html-topbar-classes {
                     }
 
                     label {
-                        background-color: $topbar-dropdown-label-bg
+                        if $topbar-dropdown-label-bg {
+                            background-color: $topbar-dropdown-label-bg
+                        }
                         white-space: nowrap
                     }
 
