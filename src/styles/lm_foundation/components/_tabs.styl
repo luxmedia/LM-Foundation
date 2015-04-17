@@ -19,7 +19,8 @@ $tabs-navigation-font-color ?=                  $gray-dark-2
 $tabs-navigation-hover-font-color ?=            $charcoal-1
 $tabs-navigation-active-font-color ?=           $primary-color
 $tabs-navigation-border-width ?=                2px
-$tabs-navigation-active-border-color ?=         $primary-color
+$tabs-navigation-active-border-color-top ?=     $tabs-navigation-active-bg-color
+$tabs-navigation-active-border-color-bottom ?=  $primary-color
 $tabs-navigation-font-size ?=                   fontsize(1rem)
 $tabs-navigation-font-family ?=                 $font-family-custom
 $tabs-navigation-font-weight ?=                 $font-weight-bold
@@ -28,7 +29,7 @@ $tabs-navigation-text-transform ?=              uppercase
 $tabs-content-margin-bottom ?=                  rem-calc(24)
 $tabs-content-padding ?=                        ($column-gutter/2)
 $tabs-content-bg ?=                             $tabs-navigation-active-bg-color
-$tabs-content-border-width ?=                   0 0 2px 0
+$tabs-content-border-width ?=                   false // 0 0 2px 0
 $tabs-content-border-color ?=                   $gray-medium-1
 
 $tabs-vertical-navigation-margin-bottom ?=      remify(1.25rem)
@@ -62,11 +63,11 @@ if $include-html-tabs-classes {
             position: relative
 
             & > a {
-                border-style: solid
-                border-color: transparent
                 background-color: $tabs-navigation-bg-color
-                border-bottom-color: $tabs-content-border-color
+                border-style: solid
                 border-width: $tabs-navigation-border-width 0
+                border-color: transparent
+                border-bottom-color: $tabs-content-border-color
                 color: $tabs-navigation-font-color
                 display: block
                 font-size: $tabs-navigation-font-size
@@ -85,8 +86,8 @@ if $include-html-tabs-classes {
             }
             &.is-active a {
                 background-color: $tabs-navigation-active-bg-color
-                border-bottom-color: $tabs-navigation-active-bg-color
-                border-top-color: $tabs-navigation-active-border-color
+                border-bottom-color: $tabs-navigation-active-border-color-bottom
+                border-top-color: $tabs-navigation-active-border-color-top
                 color: $tabs-navigation-active-font-color
             }
         }
@@ -117,9 +118,11 @@ if $include-html-tabs-classes {
 
     {$tabs-content-class} {
         clearfix()
-        border-color: $tabs-content-border-color
-        border-style: solid
-        border-width: $tabs-content-border-width
+        if $tabs-content-border-width {
+            border-color: $tabs-content-border-color
+            border-style: solid
+            border-width: $tabs-content-border-width
+        }
         margin-bottom: $tabs-content-margin-bottom
         width: 100%
 

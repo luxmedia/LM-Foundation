@@ -57,8 +57,8 @@ reveal-bg( $include-z-index-value = true ) {
     bottom: 0
     display: none
     left: 0
-    // position: absolute; // allows modal background to extend beyond window position
-    position: fixed
+    // position: fixed; // fixed position. NOTE: could be problematic if height of modal extends screen height. So if you use it, specify "height: 100vh; overflow: auto;"
+    position: absolute // allows modal to scroll with browser scrollbar
     right: 0
     top: 0
     z-index: ($include-z-index-value ? 'auto' : $zindex-reveal)

@@ -17,12 +17,16 @@ $ribbon-text-transform ?=                    uppercase
 $ribbon-padding-top ?=                       rem-calc(5)
 $ribbon-padding-left ?=                      rem-calc(7)
 $ribbon-line-height ?=                       1
+$ribbon-line-height-lrg ?=                   ($ribbon-line-height + 0.3)
+$ribbon-line-height-xlrg ?=                  ($ribbon-line-height-lrg + 0.2)
 $ribbon-backface-dimensions ?=               6px
 $ribbon-flag-dimensions ?=                   6px
 $ribbon-flag-padding ?=                      ($ribbon-padding-left - rem-calc($ribbon-flag-dimensions/2))
 $ribbon-box-shadow ?=                        -1px 2px 10px rgba($black,0.1) // -5px 5px 10px rgba(0,0,0,0.1)
 $ribbon-box-shadow-left ?=                   1px 2px 10px rgba($black,0.1) // -5px 5px 10px rgba(0,0,0,0.1)
 
+$ribbon-font-size-lrg ?=                      ($ribbon-font-size + 0.3)
+$ribbon-font-size-xlrg ?=                     ($ribbon-font-size-lrg + 0.2)
 
 //
 // @mixins
@@ -155,6 +159,22 @@ if $include-html-ribbon-classes {
         }
         &--flag.ribbon--alert {
             ribbon-style($color: $critical-font-color, $bg:$alert-color, $type:'flag')
+        }
+        
+        // Sizing
+        &--lrg {
+            font-size: $ribbon-font-size-lrg
+            
+            &:after {
+                top: (rem-calc($ribbon-line-height-lrg * $rem-base-actual) + (2*$ribbon-padding-top) - rem-calc(1))
+            }
+        }
+        &--xlrg {
+            font-size: $ribbon-font-size-xlrg
+
+            &:after {
+                top: (rem-calc($ribbon-line-height-xlrg * $rem-base-actual) + (2*$ribbon-padding-top) - rem-calc(1))
+            }
         }
 
         // Left ribbon
