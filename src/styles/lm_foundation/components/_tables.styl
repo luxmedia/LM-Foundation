@@ -23,7 +23,7 @@ $table-border-color ?=                       $gray-medium-1
 
 // These control the table head styles
 $table-head-bg ?=                            $table-bg
-$table-head-font-size ?=                     fontsize(0.8rem)
+$table-head-font-size ?=                     fontsize(.8rem)
 $table-head-font-color ?=                    $gray-dark-1
 $table-head-font-weight ?=                   $font-weight-bold
 $table-head-padding ?=                       rem-calc(8 10)
@@ -32,7 +32,7 @@ $table-head-border ?=                        1px solid $table-border-color
 
 // These control the row padding and font styles
 $table-row-padding ?=                        rem-calc(8 10)
-$table-row-font-size ?=                      fontsize(0.9rem)
+$table-row-font-size ?=                      fontsize(.9rem)
 $table-row-font-color ?=                     $charcoal-1
 $table-line-height ?=                        rem-calc(16)
 
@@ -47,7 +47,7 @@ $table-foot-text-transform ?=                uppercase
 // These control the caption
 $table-caption-bg ?=                         transparent
 $table-caption-font-color ?=                 $table-head-font-color
-$table-caption-font-size ?=                  fontsize(0.9rem)
+$table-caption-font-size ?=                  fontsize(.9rem)
 $table-caption-font-weight ?=                bold
 
 // These are for controlling the layout, display and margin of tables
@@ -167,9 +167,49 @@ table() {
     tbody tr td,
     tr td { 
         display: $table-display 
-        line-height: $table-line-height }
+        line-height: $table-line-height
+    }
+}
+
+// Container for large tables (scrollable)
+large-table() {
+
+    .block__tbl--lrg {
+        padding-bottom: rem-calc(30)
+        position: relative
+
+        > .inner {
+            height: 80vh
+            // margin-left: rem-calc(170)
+            overflow-x: auto
+            overflow-y: auto // visible
+            width: auto
+        }
     }
 
+    table.tbl--lrg {
+        
+        table-layout: fixed
+        width: auto
+
+        tr {
+            thead th {
+                font-size: ($table-head-font-size - .15)
+            }
+            th,
+            td {
+                padding: rem-calc(3 4)
+                vertical-align: middle
+                white-space: normal
+            }
+            td {
+                padding-left: rem-calc(5)
+                padding-right: rem-calc(5)
+                font-size: ($table-row-font-size - .1)
+            }
+        }
+    }
+}
 
 //
 // @styles
@@ -178,4 +218,8 @@ if $include-html-table-classes {
     table {
         table()
     }
+
+    // Large tables
+    large-table()
+
 }

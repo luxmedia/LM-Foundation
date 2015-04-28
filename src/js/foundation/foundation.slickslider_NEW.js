@@ -522,7 +522,7 @@
         _.setSlideClasses(typeof this.currentSlide === 'number' ? this.currentSlide : 0);
 
         if (_.options.draggable === true) {
-            _.$list.addClass('is-draggable');
+            _.$list.addClass('draggable');
         }
 
     };

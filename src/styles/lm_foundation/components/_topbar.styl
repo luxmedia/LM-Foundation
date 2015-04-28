@@ -118,13 +118,13 @@ $topbar-dropdown-arrows ?=                   true //Set false to remove the \00b
 // Accessibility mixins for hiding and showing the menu dropdown items
 topbar-hide-dropdown() {
     // Makes an element visually hidden by default, but visible when focused.
-    display: block
     element-invisible()
+    display: block
 }
 
 topbar-show-dropdown() {
-    display: block
     element-invisible-off()
+    display: block
     position: absolute !important // Reset the position from static to absolute
 }
 
@@ -385,6 +385,9 @@ if $include-html-topbar-classes {
                 margin-top: -16px
 
                 a {
+                    // @include hamburger icon
+                    hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, '', false)
+
                     if ($text-direction == rtl) {
                         text-indent: -(58px)
                     }
@@ -393,11 +396,6 @@ if $include-html-topbar-classes {
                     padding: 0 rem-calc($topbar-link-padding + 25) 0 $topbar-link-padding
                     color: $topbar-menu-link-color
                     position: relative
-
-                    & {
-                        // @include hamburger icon
-                        hamburger(16px, false, 0, 1px, 6px, $topbar-menu-icon-color, '', false)
-                    }
                 }
             }
         }
@@ -421,8 +419,22 @@ if $include-html-topbar-classes {
                     }
                 }
             }
-        }
 
+            // Fixes an issue with Desktop and Mobile Safari where deeply-nested menus don't appear
+            @media screen and (-webkit-min-device-pixel-ratio:0) {
+                .top-bar-section {
+                    .has-dropdown.moved > .dropdown,
+                    .dropdown {
+                        clip: initial
+                    }
+
+                    // This was needed as parent ul's had padding, and the clip: was allowing content to peak through
+                    .has-dropdown:not(.moved) > ul {
+                        padding: 0
+                    }
+                }
+            }
+        }
     }
     // EOF - .topbar
 
@@ -564,12 +576,13 @@ if $include-html-topbar-classes {
         // Styling elements inside of dropdowns
         // 2nd Level
         .dropdown {
+            topbar-hide-dropdown()
             padding: 0
             position: absolute
             top: 0
             z-index: $zindex-dropdown
             {$default-float}: 100%
-            topbar-hide-dropdown()
+            
 
             li {
                 width: 100%
@@ -629,8 +642,8 @@ if $include-html-topbar-classes {
     @media $topbar-media-query {
 
         .topbar {
-            background-color: $topbar-bg
             clearfix()
+            background-color: $topbar-bg
             overflow: visible
 
             .toggle-topbar {
@@ -751,7 +764,7 @@ if $include-html-topbar-classes {
             } // EOF - li
 
             .has-dropdown {
-                if($topbar-arrows){
+                if $topbar-arrows {
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
                         svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)

@@ -38,7 +38,7 @@ $form-label-font-size ?=                     fontsize(.8rem)
 $form-label-font-weight ?=                   $font-weight-bold
 $form-label-ui-font-weight ?=                $font-weight-normal
 $form-label-line-height ?=                   1.5
-$form-label-font-color ?=                    $gray-dark-1
+$form-label-font-color ?=                    $gray-darker-1
 $form-label-font-color-hover ?=              $input-font-color-hover
 $form-label-inv-font-color ?=                rgba($white, .75)
 $form-label-inv-font-color-hover ?=          $white
@@ -60,11 +60,12 @@ $input-checkbox-border-color-checked ?=      $gray-dark-3
 
 // style the fieldset border and spacing.
 $fieldset-bg-color ?=                        $gray-lighter-3
-$fieldset-border-style ?=                    solid
+$fieldset-border-style ?=                    false // solid
 $fieldset-border-width ?=                    1px
 $fieldset-border-color ?=                    $gray-medium-1
 $fieldset-padding ?=                         rem-calc(20)
 $fieldset-margin ?=                          rem-calc(18 0)
+$fieldset-bg-dotted ?=                       rgba($black, .1) // false
 
 // style the legends when you use them
 $legend-bg ?=                                $white
@@ -178,7 +179,7 @@ form-element() {
         border-color: $input-focus-border-color
         outline: none
     }
-    // Disbaled Styles
+    // Disabled Styles
     &:disabled {
         background-color: $input-disabled-bg
         cursor: $input-disabled-cursor
@@ -283,11 +284,13 @@ prefix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button 
 // We use this mixin to create postfix label styles
 // $bg - Default:$input-prefix-bg || scale-color($white, $lightness: -5%) !default
 // $is-button - Toggle position settings if prefix is a button. Default: false
-postfix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button = false) {
+postfix($bg = $input-prefix-bg, $border-left-hidden = false, $border = $input-prefix-border-color, $is-button = false) {
 
     if $bg {
         background: $bg
-        border-{$default-float}: none
+        if $border-left-hidden {
+            border-{$default-float}: none
+        }
 
         // Control the font color based on background brightness
         if (light($bg) || $bg == yellow) {
@@ -315,10 +318,24 @@ postfix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button
 // We use this mixin to style fieldsets
 fieldset() {
     background: $fieldset-bg-color
-    border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color, 4%)
+    if $fieldset-border-style {
+        border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color, 4%)
+    } else {
+        border: none
+    }
     display: inline-block
     margin: $fieldset-margin
     padding: $fieldset-padding
+
+    if $fieldset-bg-dotted {
+        background-image: -webkit-repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
+        background-image: -moz-repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
+        background-image: -ms-repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
+        background-image: repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
+        -webkit-background-size: 3px 3px
+        -moz-background-size: 3px 3px
+        background-size: 3px 3px
+    }
 
     // and legend styles
     legend {

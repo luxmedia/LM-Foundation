@@ -24,7 +24,7 @@ $icon-bar-active-color ?=                    $primary-color
 $icon-bar-item-padding ?=                    remify(1.25rem)
 
 // set default opacity and cursor for disabled icons.
-$icon-bar-disabled-opacity ?=                0.7
+$icon-bar-disabled-opacity ?=                .7
 $icon-bar-disabled-cursor ?=                 $cursor-disabled-value
 
 
@@ -143,6 +143,7 @@ icon-bar-size($padding = $icon-bar-item-padding, $font-size = $icon-bar-font-siz
 
             & + label {
                 margin-top: remify(.0625rem)
+                font-size: $font-size
             }
         }
 

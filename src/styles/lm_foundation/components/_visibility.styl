@@ -313,6 +313,19 @@ if $include-html-visibility-classes {
         display: table-cell !important
     }
 
+    // Screen reader-specific classes
+    .show-for-sr {
+        element-invisible()
+    }
+    .show-on-focus {
+        element-invisible()
+
+        &:focus,
+        &:active {
+            element-invisible-off()
+        }
+    }
+
     // Only include these styles if you want them.
     if $include-print-styles {
         /*
@@ -453,5 +466,8 @@ if $include-html-visibility-classes {
         th.show-for-print {
             display: table-cell !important
         }
+    }
+    @media not print {
+        .show-for-print { display: none !important; }
     }
 }

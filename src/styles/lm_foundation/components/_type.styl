@@ -276,15 +276,15 @@ if $include-html-type-classes {
         margin-bottom: $paragraph-margin-bottom
         text-rendering: $paragraph-text-rendering
 
-        &.lead {
-            lead()
-        }
-
         & aside {
             font-size: $paragraph-aside-font-size
             font-style: $paragraph-aside-font-style
             line-height: $paragraph-aside-line-height
         }
+    }
+    p.lead,
+    .lead p {
+        lead()
     }
 
     /* Default header styles */

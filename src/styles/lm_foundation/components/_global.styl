@@ -16,6 +16,7 @@ $base-line-height ?=                 140% // 150%
 // whether or not CSS classes come through in the gem files.
 $include-html-classes ?=             true
 $include-print-styles ?=             true
+$include-js-meta-styles ?=           true // Warning! Meta styles are a dependancy of the Javascript.
 $include-html-global-classes ?=      com_css.GLOBAL
 
 // =========================================================================
@@ -177,6 +178,8 @@ $xlarge-only ?=              $screen+' and (min-width:'+lower-bound($xlarge-rang
 
 $xxlarge-up ?=               $screen+' and (min-width:'+lower-bound($xxlarge-range)+')'
 $xxlarge-only ?=             $screen+' and (min-width:'+lower-bound($xxlarge-range)+') and (max-width:' + upper-bound($xxlarge-range)+')'
+
+$retina ?=                   ($screen+' and (-webkit-min-device-pixel-ratio: 2),' $screen+' and (min--moz-device-pixel-ratio: 2),' $screen+' and (-o-min-device-pixel-ratio: 2/1),' $screen+' and (min-device-pixel-ratio: 2),' $screen+' and (min-resolution: 192dpi),' $screen+' and (min-resolution: 2dppx)')
 
 // Legacy
 $small ?=                            $medium-up
@@ -695,57 +698,59 @@ font-url($url = '', $fontbase = $dir_font) {
 // =========================================================================
 
 
-// Meta styles are included in all builds, as they are a dependancy of the Javascript.
+// Meta styles are a dependancy of the Javascript.
 // Used to provide media query values for javascript components.
 // Forward slash placed around everything to convince PhantomJS to read the value.
 
-meta.foundation-version {
-    font-family: '/{{VERSION}}/'
-}
+if $include-js-meta-styles {
+    meta.foundation-version {
+        font-family: '/{{VERSION}}/'
+    }
 
-meta.foundation-mq-small {
-    font-family: ('/' + unquote($small-up) + '/')
-    width: lower-bound($small-range)
-}
-meta.foundation-mq-small-only {
-    font-family: ('/' + unquote($small-only) + '/')
-    width: lower-bound($small-range)
-}
+    meta.foundation-mq-small {
+        font-family: ('/' + unquote($small-up) + '/')
+        width: lower-bound($small-range)
+    }
+    meta.foundation-mq-small-only {
+        font-family: ('/' + unquote($small-only) + '/')
+        width: lower-bound($small-range)
+    }
 
-meta.foundation-mq-medium {
-    font-family: ('/' + unquote($medium-up) + '/')
-    width: lower-bound($medium-range)
-}
-meta.foundation-mq-medium-only {
-    font-family: ('/' + unquote($medium-only) + '/')
-    width: lower-bound($medium-range)
-}
+    meta.foundation-mq-medium {
+        font-family: ('/' + unquote($medium-up) + '/')
+        width: lower-bound($medium-range)
+    }
+    meta.foundation-mq-medium-only {
+        font-family: ('/' + unquote($medium-only) + '/')
+        width: lower-bound($medium-range)
+    }
 
-meta.foundation-mq-large {
-    font-family: ('/' + unquote($large-up) + '/')
-    width: lower-bound($large-range)
-}
-meta.foundation-mq-large-only {
-    font-family: ('/' + unquote($large-only) + '/')
-    width: lower-bound($large-range)
-}
+    meta.foundation-mq-large {
+        font-family: ('/' + unquote($large-up) + '/')
+        width: lower-bound($large-range)
+    }
+    meta.foundation-mq-large-only {
+        font-family: ('/' + unquote($large-only) + '/')
+        width: lower-bound($large-range)
+    }
 
-meta.foundation-mq-xlarge {
-    font-family: ('/' + unquote($xlarge-up) + '/')
-    width: lower-bound($xlarge-range)
-}
-meta.foundation-mq-xlarge-only {
-    font-family: ('/' + unquote($xlarge-only) + '/')
-    width: lower-bound($xlarge-range)
-}
+    meta.foundation-mq-xlarge {
+        font-family: ('/' + unquote($xlarge-up) + '/')
+        width: lower-bound($xlarge-range)
+    }
+    meta.foundation-mq-xlarge-only {
+        font-family: ('/' + unquote($xlarge-only) + '/')
+        width: lower-bound($xlarge-range)
+    }
 
-meta.foundation-mq-xxlarge {
-    font-family: ('/' + unquote($xxlarge-up) + '/')
-    width: lower-bound($xxlarge-range)
-}
+    meta.foundation-mq-xxlarge {
+        font-family: ('/' + unquote($xxlarge-up) + '/')
+        width: lower-bound($xxlarge-range)
+    }
 
-meta.foundation-data-attribute-namespace {
-    font-family: $namespace
+    meta.foundation-data-attribute-namespace {
+        font-family: $namespace
+    }
 }
 
 if $include-html-global-classes {

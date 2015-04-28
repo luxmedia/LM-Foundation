@@ -280,13 +280,13 @@ if $include-html-grid-classes {
         &.last {
             padding-{$opposite-direction}: 0
         }
-    }
 
-    [class*='col'] + [class*='col']:last-child {
-        float: $last-child-float
-    }
-    [class*='col'] + [class*='col'].end {
-        float: $default-float
+        & + &:last-child {
+            float: $last-child-float
+        }
+        & + &.end {
+            float: $default-float
+        }
     }
 
     +mediaquery($small-up) {
