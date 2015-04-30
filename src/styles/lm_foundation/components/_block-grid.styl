@@ -36,6 +36,7 @@ $block-grid-media-queries ?=                 true
 block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-spacing = true, $base-style = true) {
 
     if $base-style {
+        clearfix()
         display: block
         if $align-block-grid-to-grid {
             margin: 0
@@ -43,7 +44,6 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
             margin: 0 (-($spacing) / 2)
         }
         padding: 0
-        clearfix()
 
         > li {
             display: block

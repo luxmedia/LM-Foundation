@@ -10,6 +10,8 @@
 
 $include-html-tooltip-classes =             com_js.TOOLTIP
 
+$tooltip-corner-style ?=                     'all' // else: 'normal' or 'radius' or 'round'
+
 $has-tip-border-bottom ?=                    dotted 1px $gray-medium-2
 $has-tip-font-weight ?=                      inherit // $font-weight-bold
 $has-tip-font-color ?=                       $body-font-color
@@ -96,13 +98,25 @@ if $include-html-tooltip-classes {
             }
         }
 
-        &--radius {
+        // Corner Variants
+        // NOTE: add additional btn corner variants only for 'all' button-corner-style.
+        // Otherwise we dont need more corner styles to avoid design inconsistency and blown up code.
+        if ($tooltip-corner-style == 'all') {
+            &--rad {
+                radius($tooltip-radius)
+            }
+            &--rnd {
+                radius($tooltip-rounded)
+                > .nub {
+                    {$default-float}: remify(2rem)
+                }
+            }
+        } else if ($tooltip-corner-style == 'radius') {
             radius($tooltip-radius)
-        }
-        &--round {
+        } else if ($tooltip-corner-style == 'round') {
             radius($tooltip-rounded)
             > .nub {
-                left: remify(2rem)
+                {$default-float}: remify(2rem)
             }
         }
 

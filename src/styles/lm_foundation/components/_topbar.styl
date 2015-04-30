@@ -75,8 +75,8 @@ $topbar-dropdown-link-bg ?=                  $topbar-dropdown-bg
 $topbar-dropdown-link-bg-hover ?=            scale-color($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
 $topbar-dropdown-link-weight ?=              $font-weight-bold
 $topbar-dropdown-toggle-size ?=              5px
-$topbar-dropdown-toggle-color ?=             $white
-$topbar-dropdown-toggle-alpha ?=             .4
+$topbar-dropdown-toggle-color ?=             rgba($white, .75)
+$topbar-dropdown-toggle-color-hover ?=       $white
 
 $topbar-dropdown-label-color ?=              lighten($topbar-link-bg, 30%)
 $topbar-dropdown-label-text-transform ?=     uppercase
@@ -557,7 +557,7 @@ if $include-html-topbar-classes {
 
             if ($topbar-arrows){
                 > a {
-                    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                 }
             }
 
@@ -767,7 +767,7 @@ if $include-html-topbar-classes {
                 if $topbar-arrows {
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:darken($topbar-link-color,25%), $stroke-hover:$topbar-link-color-hover, $stroke-width:$svg-stroke-width-small)
+                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                     }
                 }
 

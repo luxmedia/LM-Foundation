@@ -34,7 +34,7 @@
       self.S('[' + this.attr_name() + ']', this.scope).each(function () {
         var topbar = $(this),
             settings = topbar.data(self.attr_name(true) + '-init'),
-            section = self.S('section, .'+settings.topbar_namespace+'-section', this);
+            section = self.S('section, .topbar-section', this);
         topbar.data('index', 0);
         var topbarContainer = topbar.parents('.'+settings.topbar_parent);
         if (topbarContainer.hasClass(settings.topbar_parent+settings.fixed_class) || self.is_sticky(topbar, topbarContainer, settings) ) {
@@ -100,16 +100,16 @@
 
       var settings = topbar.data(this.attr_name(true) + '-init');
 
-      var topbarContainer = $(topbar).parents('.' + settings.topbar_parent);
+      var topbarContainer = topbar.parents('.' + settings.topbar_parent);
 
       var section = self.S('section, .' + settings.topbar_namespace + '-section', topbar);
 
       if (self.breakpoint()) {
         if (!self.rtl) {
-          section.css({left: '0%'});
+          section.css({left : '0%'});
           $('>.name', section).css({left : '100%'});
         } else {
-          section.css({right: '0%'});
+          section.css({right : '0%'});
           $('>.name', section).css({right : '100%'});
         }
 
@@ -174,7 +174,7 @@
           e.preventDefault();
           self.toggle(this);
         })
-        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.' + settings.topbar_namespace + ' .top-bar-section li a[href^="#"],[' + this.attr_name() + '] .top-bar-section li a[href^="#"]', function (e) {
+        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.' + settings.topbar_namespace + ' .topbar-section li a[href^="#"],[' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
             var li = $(this).closest('li'),
                 topbar = li.closest('[' + self.attr_name() + ']'),
                 settings = topbar.data(self.attr_name(true) + '-init');
@@ -202,6 +202,7 @@
           if (self.breakpoint()) {
             return;
           }
+
           if (settings.is_hover && !Modernizr.touch) {
             return;
           }
@@ -209,9 +210,13 @@
           e.stopImmediatePropagation();
 
           if (li.hasClass('is-hover')) {
-            li.removeClass('is-hover').find('li').removeClass('is-hover');
+            li
+              .removeClass('is-hover')
+              .find('li')
+              .removeClass('is-hover');
 
-            li.parents('li.is-hover').removeClass('is-hover');
+            li.parents('li.is-hover')
+              .removeClass('is-hover');
           } else {
             li.addClass('is-hover');
 
@@ -380,11 +385,10 @@
             url = $link.attr('href'),
             $titleLi;
 
-
         if (!$dropdown.find('.title.back').length) {
 
           if (settings.mobile_show_parent_link == true && url) {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link hide-for-medium-up"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link hide-for-med-up"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
           } else {
             $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
           }

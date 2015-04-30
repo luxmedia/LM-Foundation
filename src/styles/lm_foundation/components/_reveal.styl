@@ -12,13 +12,13 @@
 $include-html-reveal-classes =              com_js.REVEAL
 
 // the style of the reveal overlay.
-$reveal-overlay-bg ?=                        rgba($white, .25)
+$reveal-overlay-bg ?=                        rgba($gray-light-1, .5)
 $reveal-overlay-bg-old ?=                    $gray-base
 
 // the style of the modal itself.
 $reveal-modal-bg ?=                          $white
 $reveal-position-top ?=                      rem-calc(100)
-$reveal-position ?=                          absolute
+$reveal-position ?=                          absolute // fixed
 $reveal-default-width ?=                     80%
 $reveal-max-width ?=                         $row-width
 $reveal-modal-padding ?=                     rem-calc(20)
@@ -52,8 +52,11 @@ $close-reveal-modal-class ?=                 'close-reveal-modal'
 
 // We use this to create the reveal background overlay styles
 reveal-bg( $include-z-index-value = true ) {
-    background: $reveal-overlay-bg
-    // background: $reveal-overlay-bg-old // Autoprefixer should be used to avoid such variables needed when Foundation for Sites can do so in the near future.
+    if (!$ie8) {
+        background: $reveal-overlay-bg
+    } else {
+        background: $reveal-overlay-bg-old
+    }
     bottom: 0
     display: none
     left: 0
