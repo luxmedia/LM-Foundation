@@ -32,10 +32,12 @@ $base-font-size ?=                   unit(percentage($rem-base / $browser-defaul
 $ref-font-size ?=                    1.4rem
 // this is just a dummy font size for the body. Within the font_size mixin we also add $font-size-normalization to it!!
 $body-font-size ?=                   1rem
+$body-font-size-sml ?=              ($body-font-size + .1)
+$body-font-size-lrg ?=              ($body-font-size + .1)
 
 // Normalization factor for all font sizes
 $font-size-normalization ?=          ($ref-font-size - $body-font-size)
-$rem-base-actual ?=                  ($rem-base + unit($font-size-normalization*10,'px'))
+$rem-base-actual ?=                  ($rem-base + unit($font-size-normalization * 10,'px'))
 
 
 // =========================================================================
@@ -47,26 +49,27 @@ $rem-base-actual ?=                  ($rem-base + unit($font-size-normalization*
 // Normalize rem-size value according to rem-base font-size
 normalize_rem(value) {
     if (unit(value) != 'px') {
-        return (value+$font-size-normalization)
+        return (value + $font-size-normalization)
     }
 }
 
 // Convert unit to rems if unit is in pixels.
-remify($value, $isPx = false) {
+remify($value, $isPx = false, $refvalue = $rem-base) {
+
     if ($value == 'inherit' || $value == 'auto' || $value == 'none' || $value == 'cover' || $value == 'contain' || $value == 'smaller' || $value == 0 || $value == null) {
         $val = $value
     } else if ($value == 'hairline') {
         $val = '1px'
     } else if (unit($value) == 'px' || $isPx) {
-        $val = (!$ie8 ? unit($value/$rem-base, 'rem') : unit($value, 'px'))
+        $val = (!$ie8 ? unit(($value / $refvalue), 'rem') : unit($value, 'px'))
     } else if ((unit($value) == 0 || unit($value) == null) && ($isPx == false)) {
         $val = (!$ie8 ? unit($value, 'rem') : round(unit($value, 'px')))
     } else if (unit($value) == 'rem') {
-        $val = (!$ie8 ? unit($value, 'rem') : round(unit($value*$rem-base, 'px')))
+        $val = (!$ie8 ? unit($value, 'rem') : round(unit($value * $refvalue, 'px')))
     } else {
         $val = unit($value, unit($value))
     }
-    return $val
+    return round($val,2)
 }
 
 // Convert unit to pixels if unit is in rem.
@@ -125,17 +128,20 @@ scale-color($color, $mod = 0) {
 /* ========================================================================= */
 // We use these functions to define ranges for various things, like media queries.
 lower-bound($range){
-    if length($range) <= 0 {
-        return 0;
+    if (length($range) <= 0) {
+        return 0
+    } else {
+        return $range[0]
     }
-    return $range[0]
 }
 
 upper-bound($range) {
-    if length($range) < 2 {
-        return 999999999999;
+    $l = length($range)
+    if ($l < 2) {
+        return 999999999999
+    } else {
+        return $range[($l - 1)]
     }
-    return $range[1]
 }
 
 
@@ -145,7 +151,8 @@ upper-bound($range) {
 // It strips the unit of measure and returns it
 strip-unit($num) {
     if($num != null) { 
-        return ($num / ($num * 0 + 1))
+        // return ($num / ($num * 0 + 1))
+        return unit($num, "")
     } else {
         return 0
     }
@@ -217,12 +224,30 @@ rem-calc($values, $base-value = $rem-base) {
     $max = length($values)
 
     if ($max == 1) {
-        return remify($values[0],true)
+        return remify($values[0], $isPx:true, $refvalue:$base-value)
     }
 
     $remValues = ()
-    for $i in 0..$max {
-        push($remValues, remify($values[$i],true))
+    for $i in 0..($max - 1) {
+        push($remValues, remify($values[$i], $isPx:true, $refvalue:$base-value))
     }
     return $remValues
+}
+
+// $reffont = calculate em based on $rem-base-actual or $rem-base. Latter is 10px, the other 14px. Breakpoints need $rem-base-actual to work proberly!!!
+em-calc($values, $reffont = $rem-base-actual) {
+    $remValues = rem-calc($values, $base-value:$reffont)
+
+    $max = length($remValues)
+
+    if ($max == 1) {
+        return unit($remValues[0], 'em')
+    }
+
+    $emValues = ()
+
+    for $i in 0..($max - 1) {
+        push($emValues, unit($remValues[$i],'em'))
+    }
+    return $emValues
 }

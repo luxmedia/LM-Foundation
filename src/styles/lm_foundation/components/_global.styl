@@ -44,9 +44,11 @@ $relative-paths ?=                   true
 $include-html-grid-classes ?=        $include-html-classes
 $include-xl-html-grid-classes ?=     false
 
-$row-width ?=                        rem-calc(1000)
+// DEPRECATED - max row width is defined by breakpoints!
+$row-width ?=                        rem-calc(1170)
+
 $total-columns ?=                    12
-$column-gutter ?=                    rem-calc(30)
+$column-gutter ?=                    rem-calc(20)
 
 $last-child-float ?=                 $opposite-direction
 
@@ -150,13 +152,24 @@ $svg-scale-factor-y ?=               1 // multiply the svg height with this fact
 $transition-default-speed ?=        .15s
 
 // =========================================================================
-// d. Breakpoints for media queries
+// d. Media Query Ranges
 // =========================================================================
-$small-range ?=                      (0em 40em)
-$medium-range ?=                     (40.0625em 64em)
-$large-range ?=                      (64.0625em 90em)
-$xlarge-range ?=                     (90.0625em 120em)
-$xxlarge-range ?=                    (120.0625em 99999999em)
+
+// Upper bounds
+$small-breakpoint-px ?=             480
+$medium-breakpoint-px ?=            768
+$large-breakpoint-px ?=             1170
+$xlarge-breakpoint-px ?=            1440
+$small-breakpoint ?=                em-calc($small-breakpoint-px) // em-calc(640)
+$medium-breakpoint ?=               em-calc($medium-breakpoint-px) // em-calc(1024)
+$large-breakpoint ?=                em-calc($large-breakpoint-px) // em-calc(1440)
+$xlarge-breakpoint ?=               em-calc($xlarge-breakpoint-px)
+
+$small-range ?=                     (0 $small-breakpoint)
+$medium-range ?=                    (($small-breakpoint  + em-calc(1)) $medium-breakpoint)
+$large-range ?=                     (($medium-breakpoint + em-calc(1)) $large-breakpoint) 
+$xlarge-range ?=                    (($large-breakpoint + em-calc(1)) $xlarge-breakpoint)
+$xxlarge-range ?=                   (($xlarge-breakpoint + em-calc(1)) em-calc(99999999))
 
 
 $screen ?=                   'only screen'
@@ -784,6 +797,12 @@ if $include-html-global-classes {
         color: $body-font-color
         cursor: $cursor-auto-value
         font-size: fontsize($body-font-size)
+        +mediaquery($small-only) {
+            font-size: fontsize($body-font-size-sml)
+        }
+        +mediaquery($xlarge-up) {
+            font-size: fontsize($body-font-size-lrg)
+        }
         font-style: $body-font-style
         font-weight: $body-font-weight
         font_family($body-font-family)

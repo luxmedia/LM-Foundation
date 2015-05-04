@@ -9,9 +9,11 @@
 //
 
 $include-html-grid-classes =        com_css.GRID
-$include-xl-html-grid-classes ?=     false
+$include-xl-html-grid-classes ?=     true
 
-$row-width ?=                        rem-calc(1000)
+// DEPRECATED - max row width is defined by breakpoints!
+$row-width ?=                        rem-calc(1170)
+
 $total-columns ?=                    12
 $column-gutter ?=                    rem-calc(20)
 
@@ -27,6 +29,10 @@ $last-child-float ?=                 $opposite-direction
 // $totalColumns - Found in settings file
 grid-calc($colNumber, $totalColumns) {
     return percentage(($colNumber / $totalColumns))
+    if ($result == 0%) {
+        $result = 0
+    }
+    return $result
 }
 
 //
@@ -41,15 +47,32 @@ grid-row($behavior = false) {
 
     // use @include grid-row(nest) to include a nested row
     if ($behavior == nest) {
-        margin: 0
-        margin-{$default-float}: -($column-gutter/2)
-        margin-{$opposite-direction}: -($column-gutter/2)
+        margin: 0 (-($column-gutter / 2))
         max-width: none
         width: auto
     } else if ($behavior == collapse) {
         // use @include grid-row(collapse) to collapsed a container row margins
         margin: 0
-        max-width: $row-width
+        // max-width: $row-width
+        // Define maximum page dimensions depending on breakpoint
+        +mediaquery($small-up) {
+            max-width: 96%
+        }
+        +mediaquery($medium-up) {
+            $rowmax = round(avg($small-breakpoint-px $medium-breakpoint-px))
+            max-width: rem-calc($rowmax)
+        }
+        +mediaquery($large-up) {
+            $rowmax = round(avg($medium-breakpoint-px $large-breakpoint-px))
+            max-width: rem-calc($rowmax)
+        }
+        +mediaquery($xlarge-up) {
+            $rowmax = round(avg($large-breakpoint-px $xlarge-breakpoint-px))
+            max-width: rem-calc($rowmax)
+        }
+        +mediaquery($xxlarge-up) {
+            max-width: rem-calc($xlarge-breakpoint-px)
+        }
         width: 100%
     } else if ($behavior == nest-collapse) {
         // use @include grid-row(nest-collapse) to collapse outer margins on a nested row
@@ -62,12 +85,32 @@ grid-row($behavior = false) {
         margin-top: 0
         margin-{$default-float}: auto
         margin-{$opposite-direction}: auto
-        max-width: $row-width
+        // max-width: $row-width
+        // Define maximum page dimensions depending on breakpoint-px
+        +mediaquery($small-up) {
+            max-width: 96%
+        }
+        +mediaquery($medium-up) {
+            $rowmax = round(avg($small-breakpoint-px $medium-breakpoint-px))
+            max-width: rem-calc($rowmax)
+        }
+        +mediaquery($large-up) {
+            $rowmax = round(avg($medium-breakpoint-px $large-breakpoint-px))
+            max-width: rem-calc($rowmax)
+        }
+        +mediaquery($xlarge-up) {
+            $rowmax = round(avg($large-breakpoint-px $xlarge-breakpoint-px))
+            max-width: rem-calc($rowmax)
+        }
+        +mediaquery($xxlarge-up) {
+            max-width: rem-calc($xlarge-breakpoint-px)
+        }
         width: 100%
+
+        // Clearfix for all rows
+        clearfix()
     }
 
-    // Clearfix for all rows
-    clearfix()
 }
 
 // Creates a column, should be used inside of a media query to control layouts
@@ -154,6 +197,9 @@ grid-column( $columns = false, $last-column = false, $center = false, $offset = 
 //
 // $size - Name of class to use, i.e. "large" will generate .large-1, .large-2, etc.
 grid-html-classes($size) {
+    
+    $size = unquote($size)
+
     for $i in 0..($total-columns - 1) {
         .{$size}-push-{$i} {            
             grid-column($push:$i, $collapse:null, $float:false)
@@ -290,31 +336,21 @@ if $include-html-grid-classes {
     }
 
     +mediaquery($small-up) {
-        grid-html-classes($size:sml)
+
+        grid-html-classes(sml)
+
     }
 
     +mediaquery($medium-up) {
-        grid-html-classes($size:med)
-        // Old push and pull classes
-        for $i in 0..($total-columns - 1) {
-            .push-{$i} {
-                grid-column($push:$i, $collapse:null, $float:false)
-            }
-            .pull-{$i} {
-                grid-column($pull:$i, $collapse:null, $float:false)
-            }
-        }
+
+        grid-html-classes(med)
+
     }
+    
     +mediaquery($large-up) {
+        
         grid-html-classes(lrg)
-        for $i in 0..($total-columns - 1) {
-            .push-{$i} {
-                grid-column($push:$i, $collapse:null, $float:false)
-            }
-            .pull-{$i} {
-                grid-column($pull:$i, $collapse:null, $float:false)
-            }
-        }
+
     }
 }
 if $include-xl-html-grid-classes {
