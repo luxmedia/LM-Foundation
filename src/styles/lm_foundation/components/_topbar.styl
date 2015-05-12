@@ -18,7 +18,7 @@ $topbar-bg-color ?=                          $charcoal-1
 $topbar-bg ?=                                $topbar-bg-color
 
 // Height and margin
-$topbar-height ?=                            rem-calc(45)
+$topbar-height ?=                            rem-calc(44)
 $topbar-margin-bottom ?=                     0
 
 // Controlling the styles for the title in the top bar
@@ -28,7 +28,7 @@ $topbar-logo-bg ?=                           $primary-color
 $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
 $topbar-logo-padding ?=                     rem-calc(0 10)
 
-$topbar-link-hover-lightness ?=              -15% // -10% !default
+$topbar-link-hover-lightness ?=              -15%
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color ?=                        $white
@@ -58,7 +58,7 @@ $topbar-button-search-svg-color-hover ?=     $primary-color
 $topbar-button-search-svg-stroke-width ?=    $svg-stroke-width-small
 $topbar-input-border-width ?=                false // 1px 0 0 1px
 $topbar-input-border-color ?=                darken($topbar-bg, 20%)
-$topbar-button-font-size ?=                  fontsize(0.8rem)
+$topbar-button-font-size ?=                  fontsize(.8rem)
 
 $topbar-site-search-padding ?=               rem-calc(7 (3*7)) // 7 is based on $topbar-button-top
 $topbar-site-search-font-size ?=             fontsize(1rem)
@@ -97,8 +97,9 @@ $topbar-menu-icon-position ?=                $opposite-direction
 // Transitions and breakpoint styles
 $topbar-transition-speed ?=                  .3s
 
+// Navbar collapse
 // Using rem-calc for the below breakpoint causes issues with top bar
-$topbar-breakpoint ?=                        lower-bound($medium-range) // Change to 9999px for always mobile layout
+$topbar-breakpoint ?=                        $medium-min // Change to 9999px for always mobile layout
 $topbar-media-query ?=                       $medium-up
 
 // Divider Styles
@@ -149,6 +150,7 @@ if $include-html-topbar-classes {
         width: 100%
 
         .topbar {
+            // grid-row()
             margin-bottom: $topbar-margin-bottom
         }
     }
@@ -301,17 +303,7 @@ if $include-html-topbar-classes {
         // search form in topbar
         .site-search {
             padding: $topbar-site-search-padding
-            +mediaquery($small-only) {
-                col(2/3, gutter:0)
-                padding-left: remify(0.6rem)
-                padding-right: remify(0.6rem)
-            }
-            +mediaquery($medium-up) {
-                col(6/12, gutter:0)
-            }
-            +mediaquery($large-up) {
-                col(4/12, gutter:0)
-            }
+
             input[type="text"],
             input[type="search"] {
                 top: auto
@@ -382,7 +374,7 @@ if $include-html-topbar-classes {
             // Adding the class "menu-icon" will add the 3-line icon people love and adore.
             &.menu-icon {
                 top: 50%
-                margin-top: -16px
+                margin-top: -(16px)
 
                 a {
                     // @include hamburger icon
@@ -393,7 +385,7 @@ if $include-html-topbar-classes {
                     }
                     height: 34px
                     line-height: 33px
-                    padding: 0 rem-calc($topbar-link-padding + 25) 0 $topbar-link-padding
+                    padding: 0 rem-calc(($topbar-link-padding + 25)) 0 $topbar-link-padding
                     color: $topbar-menu-link-color
                     position: relative
                 }
@@ -446,7 +438,6 @@ if $include-html-topbar-classes {
         single-transition($default-float, $topbar-transition-speed)
 
         ul {
-            //font-size:$ref-font-size
             display: block
             height: auto
             margin: 0

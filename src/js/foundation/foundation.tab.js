@@ -1,306 +1,249 @@
-/**
- * Accessible Tabs - jQuery plugin for accessible, unobtrusive tabs
- * Build to seemlessly work with the CCS-Framework YAML (yaml.de) not depending on YAML though
- * @requires jQuery - tested with 1.9.1, 1.7 and 1.4.2 but might as well work with older versions
- *
- * english article: http://blog.ginader.de/archives/2009/02/07/jQuery-Accessible-Tabs-How-to-make-tabs-REALLY-accessible.php
- * german article: http://blog.ginader.de/archives/2009/02/07/jQuery-Accessible-Tabs-Wie-man-Tabs-WIRKLICH-zugaenglich-macht.php
- * 
- * code: http://github.com/ginader/Accessible-Tabs
- * please report issues at: http://github.com/ginader/Accessible-Tabs/issues
- *
- * Copyright (c) 2007 Dirk Ginader (ginader.de)
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- */
+;(function ($, window, document, undefined) {
+  'use strict';
 
-;(function($) {
-    var debugMode = false;
-    $.fn.extend({
-        // We assume there could be multiple sets of tabs on a page, so,
-        // the unique id for each invididual tab's heading is identified with params q and r (e.g., id="accessibletabscontent0-2")
-        getUniqueId: function(p, q, r){
-            if (r===undefined) {r='';} else {r='-'+r;}
-            return p + q + r;
-        },
-        accessibleTabs: function(config) {
-            var defaults = {
-                wrapperClass: 'tabs-content', // Classname to apply to the div that is wrapped around the original Markup
-                currentClass: 'is-active', // Classname to apply to the LI of the selected Tab
-                tabhead: 'h4', // Tag or valid Query Selector of the Elements to Transform the Tabs-Navigation from (originals are removed)
-                tabheadClass: 'tab-head is-hidden', // Classname to apply to the target heading element for each tab div
-                tabbody: '.content', // Tag or valid Query Selector of the Elements to be treated as the Tab Body
-                fx:'fadeIn', // can be "fadeIn", "slideDown", "show"
-                fxspeed: 'fast', // speed (String|Number): "slow", "normal", or "fast") or the number of milliseconds to run the animation
-                currentInfoText: '', // text to indicate for screenreaders which tab is the current one
-                currentInfoPosition: 'prepend', // Definition where to insert the Info Text. Can be either "prepend" or "append"
-                currentInfoClass: 'current-info', // Class to apply to the span wrapping the CurrentInfoText
-                tabsListClass:'tabs-list', // Class to apply to the generated list of tabs above the content
-                tabsListItemClass:'tab-title', // Class to apply to the generated list item of tabs above the content
-                syncheights:false, // syncs the heights of the tab contents when the SyncHeight plugin is available http://blog.ginader.de/dev/jquery/syncheight/index.php
-                syncHeightMethodName:'syncHeight', // set the Method name of the plugin you want to use to sync the tab contents. Defaults to the SyncHeight plugin: http://github.com/ginader/syncHeight
-                cssClassAvailable:true, // Enable individual css classes for tabs. Gets the appropriate class name of a tabhead element and apply it to the tab list element. Boolean value
-                saveState:false, // save the selected tab into a cookie so it stays selected after a reload. This requires that the wrapping div needs to have an ID (so we know which tab we're saving)
-                autoAnchor:false, // will move over any existing id of a headline in tabs markup so it can be linked to it
-                pagination:false, // adds buttons to each tab to switch to the next/previous tab
-                position:'top', // can be 'top' or 'bottom'. Defines where the tabs list is inserted.
-                wrapInnerNavLinks: '', // inner wrap for a-tags in tab navigation. See http://api.jquery.com/wrapInner/ for further informations
-                firstNavItemClass: '', // Classname of the first list item in the tab navigation
-                lastNavItemClass: '', // Classname of the last list item in the tab navigation
-                clearfixClass: '' // Name of the Class that is used to clear/contain floats
-            };
-            var keyCodes = {
-                37 : -1, //LEFT
-                38 : -1, //UP
-                39 : +1, //RIGHT 
-                40 : +1 //DOWN
-            };
-            var positions = {
-                top : 'prepend',
-                bottom : 'append'
-            };
-            this.options = $.extend(defaults, config);
+  Foundation.libs.tab = {
+    name : 'tab',
 
-            var tabsCount = 0;
-            if($("body").data('accessibleTabsCount') !== undefined){
-                tabsCount = $("body").data('accessibleTabsCount');
-            }
-            $("body").data('accessibleTabsCount',this.size()+tabsCount);
+    version : '{{VERSION}}',
 
-            var o = this;
-            return this.each(function(t) {
-                var el = $(this);
-                var list = '';
-                var tabCount = 0;
-                var ids = [];
+    settings : {
+      active_class : 'is-active',
+      callback : function () {},
+      deep_linking : false,
+      scroll_to_content : true,
+      is_hover : false
+    },
 
-                // LUXMEDIA MOD
-                var tabHeaders =  $(el).children().filter(":header");
-                // EOF
+    default_tab_hashes : [],
 
-                $(el).wrapInner('<div class="'+o.options.wrapperClass+'"></div>');
+    init : function (scope, method, options) {
+      var self = this,
+          S = this.S;
 
-                // LUXMEDIA MOD
-                // $(el).find(o.options.tabhead).each(function(i){
-                $(tabHeaders).each(function(i){
-                // EOF
-                    var id = '';
-                    var elId = $(this).attr('id');
-                    if(elId){
-                        // Skip this item if it already exists.
-                        if(elId.indexOf('accessibletabscontent') === 0) {
-                            return;
-                        }
-                        id =' id="'+elId+'"';
-                    }
-                    var tabId = o.getUniqueId('accessibletabscontent', tabsCount+t, i);//get a unique id to assign to this tab's heading
-                    var navItemId = o.getUniqueId('accessibletabsnavigation', tabsCount+t, i);//get a unique id for this navigation item
-                    ids.push(tabId);
-                    // LUXMEDIA MOD
-                    var cssClass = '';
-                    var itemClass = '';
-                    if(o.options.cssClassAvailable === true) {
-                        if($(this).attr('class')) {
-                            cssClass = $(this).attr('class');
-                            cssClass = ' class="'+cssClass+'"';
-                        }
-                    }
-                    if(o.options.tabsListItemClass) itemClass = ' class="'+o.options.tabsListItemClass+'"';
-                    list += '<li id="'+navItemId+'"'+itemClass+'><a'+id+''+cssClass+' href="#'+tabId+'">'+$(this).html()+'</a></li>';
-                    // EOF
-                    $(this).attr({"id": tabId, "class": o.options.tabheadClass, "tabindex": "-1"});//assign the unique id and the tabheadClass class name to this tab's heading
-                    tabCount++;
-                });
-
-                if (o.options.syncheights && $.fn[o.options.syncHeightMethodName]) {
-                    $(el).find(o.options.tabbody)[o.options.syncHeightMethodName]();
-                    $(window).resize(function(){
-                        $(el).find(o.options.tabbody)[o.options.syncHeightMethodName]();
-                    });
-                }
-
-                // Ensure that the call to setup tabs is re-runnable
-                var tabs_selector = '.' + o.options.tabsListClass;
-                if(!$(el).find(tabs_selector).length) {
-                    if (o.options.clearfixClass) { o.options.clearfixClass += ' '; }
-                    $(el)[positions[o.options.position]]('<ul class="'+o.options.clearfixClass+o.options.tabsListClass+' tab-amount'+tabCount+'"></ul>');
-                }
-
-                $(el).find(tabs_selector).append(list);
-
-                // initial show first content block and hide the others
-                var content = $(el).find(o.options.tabbody);
-                if (content.length > 0) {
-                    $(content).hide();
-                    $(content[0]).show();
-                }
-                // LUXMEDIA MOD
-                $(el).find("ul."+o.options.tabsListClass+">li:first").addClass(o.options.currentClass);
-                if (o.options.firstNavItemClass) $(el).find("ul."+o.options.tabsListClass+">li:first").addClass(o.options.firstNavItemClass);
-                if (o.options.currentInfoText) $(el).find('a')[o.options.currentInfoPosition]('<span class="'+o.options.currentInfoClass+'">'+o.options.currentInfoText+'</span>');
-                if (o.options.lastNavItemClass) $(el).parents("ul."+o.options.tabsListClass).children('li:last').addClass(o.options.lastNavItemClass);
-                // EOF
-
-                if (o.options.wrapInnerNavLinks) {
-                  $(el).find('ul.'+o.options.tabsListClass+'>li>a').wrapInner(o.options.wrapInnerNavLinks);
-                }
-
-                $(el).find('ul.'+o.options.tabsListClass+'>li>a').each(function(i){
-                    $(this).click(function(event){
-                        event.preventDefault();
-                        el.trigger("showTab.accessibleTabs", [$(event.target)]);
-                        if(o.options.saveState && $.cookie){
-                            $.cookie('accessibletab_'+el.attr('id')+'_active',i);
-                        }
-                        $(el).find('ul.'+o.options.tabsListClass+'>li.'+o.options.currentClass).removeClass(o.options.currentClass)
-                        .find("span."+o.options.currentInfoClass).remove();
-                        $(this).blur();
-
-                        // LUXMEDIA MOD
-                        // nicely animate tabs
-                        var hideMe = $(el).find(o.options.tabbody+':visible');
-                        var showMe = $(el).find(o.options.tabbody).eq(i);
-                        var showMeHeight = $(showMe).actual("outerHeight");
-                        if(!o.options.syncheights) {
-                            try {
-                                $(hideMe).fadeOut(o.options.fxspeed).promise().done( function() {
-                                    // show activated tab after current tab is hidden
-                                    
-                                    // adapt container height to new tab content height
-                                    $(showMe).parent().animate({"height":showMeHeight},o.options.fxspeed).promise().done( function() {
-                                        // show new tab
-                                        $(showMe).fadeIn(o.options.fxspeed);
-                                    });
-                                });
-                            } catch(e) {
-                                $(hideMe).hide();
-                                $(el).find(o.options.tabbody).eq(i)[o.options.fx](o.options.fxspeed);
-                                debug(e);
-                            }
-                        } else {
-                            $(hideMe).hide();
-                            $(showMe)[o.options.fx](o.options.fxspeed);
-                        }
-                        // EOF
-                        
-                        $(this)[o.options.currentInfoPosition]('<span class="'+o.options.currentInfoClass+'">'+o.options.currentInfoText+'</span>')
-                        .parent().addClass(o.options.currentClass);
-                        //now, only after writing the currentInfoText span to the tab list link, set focus to the tab's heading
-
-                        $($(this).attr("href")).focus().keyup(function(event){
-                            if(keyCodes[event.keyCode]){
-                                o.showAccessibleTab(i+keyCodes[event.keyCode]);
-                                $(this).unbind( "keyup" );
-                            }
-                        });
-
-                        // $(el).find('.accessibletabsanchor').keyup(function(event){
-                        //     if(keyCodes[event.keyCode]){
-                        //         o.showAccessibleTab(i+keyCodes[event.keyCode]);
-                        //     }
-                        // });
-                    });
-
-                    $(this).focus(function(){
-                        $(document).keyup(function(event){
-                            if(keyCodes[event.keyCode]){
-                                o.showAccessibleTab(i+keyCodes[event.keyCode]);
-                            }
-                        });
-                    });
-                    $(this).blur(function(){
-                        $(document).unbind( "keyup" );
-                    });
-
-                });
-
-                if(o.options.saveState && $.cookie){
-                    var savedState = $.cookie('accessibletab_'+el.attr('id')+'_active');
-                    debug($.cookie('accessibletab_'+el.attr('id')+'_active'));
-                    if(savedState !== null){
-                        o.showAccessibleTab(savedState,el.attr('id'));
-                    }
-                }
-
-                if(o.options.autoAnchor && window.location.hash){
-                    var anchorTab = $('.'+o.options.tabsListClass).find(window.location.hash);
-                    if(anchorTab.size()){
-                        anchorTab.click();
-                    }
-                }
-
-                if(o.options.pagination){
-                    var m = '<ul class="pagination">';
-                    m +='    <li class="previous"><a href="#{previousAnchor}"><span>{previousHeadline}</span></a></li>';
-                    m +='    <li class="next"><a href="#{nextAnchor}"><span>{nextHeadline}</span></a></li>';
-                    m +='</ul>';
-                    var tabs = $(el).find('.tabbody');
-                    var tabcount = tabs.size();
-                    tabs.each(function(idx){
-                        $(this).append(m);
-                        var next = idx+1;
-                        if(next>=tabcount){next = 0;}
-                        var previous = idx-1;
-                        if(previous<0){previous = tabcount-1;}
-                        var p = $(this).find('.pagination');
-                        var previousEl = p.find('.previous');
-                        previousEl.find('span').text($('#'+ids[previous]).text());
-                        previousEl.find('a').attr('href','#'+ids[previous])
-                        .click(function(event){
-                            event.preventDefault();
-                            $(el).find('.tabs-list a').eq(previous).click();
-                        });
-                        var nextEl = p.find('.next');
-                        nextEl.find('span').text($('#'+ids[next]).text());
-                        nextEl.find('a').attr('href','#'+ids[next])
-                        .click(function(event){
-                            event.preventDefault();
-                            $(el).find('.tabs-list a').eq(next).click();
-                        });
-                    });
-                }
-            });
-        },
-        showAccessibleTab: function(index,id){
-            debug('showAccessibleTab');
-            var o = this;
-            if(id) {
-                var el = $('#'+id);
-                var links = el.find('ul.'+o.options.tabsListClass+'>li>a');
-                el.trigger("showTab.accessibleTabs", [links.eq(index)]);
-                links.eq(index).click();
-            } else {
-                return this.each(function() {
-                    var el = $(this);
-                    el.trigger("showTab.accessibleTabs");
-                    var links = el.find('ul.'+o.options.tabsListClass+'>li>a');
-                    el.trigger("showTab.accessibleTabs", [links.eq(index)]);
-                    links.eq(index).click();
-                });
-            }
-        },
-        showAccessibleTabSelector: function(selector){
-            debug('showAccessibleTabSelector');
-            var el = $(selector);
-            if(el){
-                if(el.get(0).nodeName.toLowerCase() === 'a'){
-                    el.click();
-                }else{
-                    debug('the selector of a showAccessibleTabSelector() call needs to point to a tabs headline!');
-                }
-            }
-        }
+    // Store the default active tabs which will be referenced when the
+    // location hash is absent, as in the case of navigating the tabs and
+    // returning to the first viewing via the browser Back button.
+    S('[' + this.attr_name() + '] > .is-active > a', this.scope).each(function () {
+      self.default_tab_hashes.push(this.hash);
     });
-    // private Methods
-    function debug(msg,info){
-        if(debugMode && window.console && window.console.log){
-            if(info){
-                window.console.log(info+': ',msg);
-            }else{
-                window.console.log(msg);
+
+      // store the initial href, which is used to allow correct behaviour of the
+      // browser back button when deep linking is turned on.
+      self.entry_location = window.location.href;
+
+      this.bindings(method, options);
+      this.handle_location_hash_change();
+    },
+
+    events : function () {
+      var self = this,
+          S = this.S;
+
+      var usual_tab_behavior =  function (e, target) {
+          var settings = S(target).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
+          if (!settings.is_hover || Modernizr.touch) {
+            e.preventDefault();
+            e.stopPropagation();
+            self.toggle_active_tab(S(target).parent());
+          }
+        };
+
+      S(this.scope)
+        .off('.tab')
+        // Key event: focus/tab key
+        .on('keydown.fndtn.tab', '[' + this.attr_name() + '] > * > a', function(e) {
+          var el = this;
+          var keyCode = e.keyCode || e.which;
+            // if user pressed tab key
+            if (keyCode == 9) { 
+              e.preventDefault();
+              // TODO: Change usual_tab_behavior into accessibility function?
+              usual_tab_behavior(e, el);
+            } 
+        })
+        // Click event: tab title
+        .on('click.fndtn.tab', '[' + this.attr_name() + '] > * > a', function(e) {
+          var el = this;
+          usual_tab_behavior(e, el);
+        })
+        // Hover event: tab title
+        .on('mouseenter.fndtn.tab', '[' + this.attr_name() + '] > * > a', function (e) {
+          var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
+          if (settings.is_hover) {
+            self.toggle_active_tab(S(this).parent());
+          }
+        });
+
+      // Location hash change event
+      S(window).on('hashchange.fndtn.tab', function (e) {
+        e.preventDefault();
+        self.handle_location_hash_change();
+      });
+    },
+
+    handle_location_hash_change : function () {
+
+      var self = this,
+          S = this.S;
+
+      S('[' + this.attr_name() + ']', this.scope).each(function () {
+        var settings = S(this).data(self.attr_name(true) + '-init');
+        if (settings.deep_linking) {
+          // Match the location hash to a label
+          var hash;
+          if (settings.scroll_to_content) {
+            hash = self.scope.location.hash;
+          } else {
+            // prefix the hash to prevent anchor scrolling
+            hash = self.scope.location.hash.replace('fndtn-', '');
+          }
+          if (hash != '') {
+            // Check whether the location hash references a tab content div or
+            // another element on the page (inside or outside the tab content div)
+            var hash_element = S(hash);
+            if (hash_element.hasClass('content') && hash_element.parent().hasClass('tabs-content')) {
+              // Tab content div
+              self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + hash + ']').parent());
+            } else {
+              // Not the tab content div. If inside the tab content, find the
+              // containing tab and toggle it as active.
+              var hash_tab_container_id = hash_element.closest('.content').attr('id');
+              if (hash_tab_container_id != undefined) {
+                self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=#' + hash_tab_container_id + ']').parent(), hash);
+              }
             }
+          } else {
+            // Reference the default tab hashes which were initialized in the init function
+            for (var ind = 0; ind < self.default_tab_hashes.length; ind++) {
+              self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + self.default_tab_hashes[ind] + ']').parent());
+            }
+          }
         }
-    }
-})(jQuery);
+       });
+     },
+
+    toggle_active_tab : function (tab, location_hash) {
+      var self = this,
+          S = self.S,
+          tabs = tab.closest('[' + this.attr_name() + ']'),
+          tab_link = tab.find('a'),
+          anchor = tab.children('a').first(),
+          target_hash = '#' + anchor.attr('href').split('#')[1],
+          target = S(target_hash),
+          siblings = tab.siblings(),
+          settings = tabs.data(this.attr_name(true) + '-init'),
+          interpret_keyup_action = function (e) {
+            // Light modification of Heydon Pickering's Practical ARIA Examples: http://heydonworks.com/practical_aria_examples/js/a11y.js
+
+            // define current, previous and next (possible) tabs
+
+            var $original = $(this);
+            var $prev = $(this).parents('li').prev().children('[role="tab"]');
+            var $next = $(this).parents('li').next().children('[role="tab"]');
+            var $target;
+
+            // find the direction (prev or next)
+
+            switch (e.keyCode) {
+              case 37:
+                $target = $prev;
+                break;
+              case 39:
+                $target = $next;
+                break;
+              default:
+                $target = false
+                  break;
+            }
+
+            if ($target.length) {
+              $original.attr({
+                'tabindex' : '-1',
+                'aria-selected' : null
+              });
+              $target.attr({
+                'tabindex' : '0',
+                'aria-selected' : true
+              }).focus();
+            }
+
+            // Hide panels
+
+            $('[role="tabpanel"]')
+              .attr('aria-hidden', 'true');
+
+            // Show panel which corresponds to target
+
+            $('#' + $(document.activeElement).attr('href').substring(1))
+              .attr('aria-hidden', null);
+
+          },
+          go_to_hash = function(hash) {
+            // This function allows correct behaviour of the browser's back button when deep linking is enabled. Without it
+            // the user would get continually redirected to the default hash.
+            var is_entry_location = window.location.href === self.entry_location,
+                default_hash = settings.scroll_to_content ? self.default_tab_hashes[0] : is_entry_location ? window.location.hash :'fndtn-' + self.default_tab_hashes[0].replace('#', '')
+
+            if (!(is_entry_location && hash === default_hash)) {
+              window.location.hash = hash;
+            }
+          };
+
+      // allow usage of data-tab-content attribute instead of href
+      if (anchor.data('tab-content')) {
+        target_hash = '#' + anchor.data('tab-content').split('#')[1];
+        target = S(target_hash);
+      }
+
+      if (settings.deep_linking) {
+
+        if (settings.scroll_to_content) {
+
+          // retain current hash to scroll to content
+          go_to_hash(location_hash || target_hash);
+
+          if (location_hash == undefined || location_hash == target_hash) {
+            tab.parent()[0].scrollIntoView();
+          } else {
+            S(target_hash)[0].scrollIntoView();
+          }
+        } else {
+          // prefix the hashes so that the browser doesn't scroll down
+          if (location_hash != undefined) {
+            go_to_hash('fndtn-' + location_hash.replace('#', ''));
+          } else {
+            go_to_hash('fndtn-' + target_hash.replace('#', ''));
+          }
+        }
+      }
+
+      // WARNING: The activation and deactivation of the tab content must
+      // occur after the deep linking in order to properly refresh the browser
+      // window (notably in Chrome).
+      // Clean up multiple attr instances to done once
+      tab.addClass(settings.active_class).triggerHandler('opened');
+      tab_link.attr({'aria-selected' : 'true',  tabindex : 0});
+      siblings.removeClass(settings.active_class)
+      siblings.find('a').attr({'aria-selected' : 'false',  tabindex : -1});
+      target.siblings().removeClass(settings.active_class).attr({'aria-hidden' : 'true',  tabindex : -1});
+      target.addClass(settings.active_class).attr('aria-hidden', 'false').removeAttr('tabindex');
+      settings.callback(tab);
+      target.triggerHandler('toggled', [target]);
+      tabs.triggerHandler('toggled', [tab]);
+
+      tab_link.off('keydown').on('keydown', interpret_keyup_action );
+    },
+
+    data_attr : function (str) {
+      if (this.namespace.length > 0) {
+        return this.namespace + '-' + str;
+      }
+
+      return str;
+    },
+
+    off : function () {},
+
+    reflow : function () {}
+  };
+}(jQuery, window, window.document));

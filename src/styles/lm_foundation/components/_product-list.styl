@@ -196,16 +196,20 @@ if $include-html-productlist-classes {
         padding: $product-list-padding
         margin: 0
         background-color: $product-list-bg
-        
             
         // List item (li)
+        > li {
+            list-style-type: none
+            margin: 0
+            padding: 0
+        }
+        
+        // List item (li) or nested div inside of a "li.col" grid
         .prd {
             background-color: $product-list-item-bg
             if ($product-list-item-border) {
                 border-longhand($width:$product-list-item-border-width,$style:$product-list-item-border-style,$color:$product-list-item-border-color)
             }
-            list-style-type: none
-            margin: 0
             padding: $product-list-item-padding
             position: relative
             z-index: 1
@@ -306,7 +310,7 @@ if $include-html-productlist-classes {
             &--special.prd--new {
                 .ribbon--primary,
                 .ribbon--special {
-                    top: ($product-list-ribbon-offset-top + rem-calc(32))
+                    top: ($product-list-ribbon-offset-top + rem-calc(30))
                 }
             }
 
@@ -336,18 +340,7 @@ if $include-html-productlist-classes {
                 margin: $product-list-item-margin
                 padding: 0
                 
-                +mediaquery($small-up) {
-                    col(1/2, cycle:2)
-                }
-                +mediaquery($medium-up) {
-                    col(1/3, uncycle:2, cycle:3)
-                }
-                +mediaquery($large-up) {
-                    col(1/4, uncycle:3, cycle:4)
-                }
-                +mediaquery($small-only) {
-                    span(1/1)
-                }
+                // Use foundation grid-system-classes in html to arrange product columns!!
 
                 &__link {
                     padding: $product-grid-item-padding
@@ -374,7 +367,9 @@ if $include-html-productlist-classes {
                 &__brand,
                 &__title {
                     +mediaquery($small-only) {
-                        col(2/3)
+                        float: none
+                        // size of floated image __img
+                        margin-{$default-float}: ((1/3)*100)%
                     } 
                 }
                 &__sdesc {
@@ -393,7 +388,8 @@ if $include-html-productlist-classes {
                         height: $product-grid-pricebox-height
                     }
                     +mediaquery($small-only) {
-                        span(1/3)
+                        float: none
+                        margin-{$default-float}: ((1/3)*100)%
                         text-align: right
                     }
                     margin: $product-grid-pricebox-margin
@@ -484,15 +480,11 @@ if $include-html-productlist-classes {
                 }
 
                 .price-box {
+                    text-align: right
                     +mediaquery($medium-up) {
                         col(1/4, gutter:0)
                         float: right
                         margin-right: 0
-                        text-align: right
-                    }
-                    +mediaquery($small-only) {
-                        span(1/1)
-                        text-align: right
                     }
                 }
 
@@ -502,7 +494,6 @@ if $include-html-productlist-classes {
                     svg-background($file:false, $position-x:right)
 
                     +mediaquery($medium-up) {
-                        // col(1/4,gutter:0)
                         bottom: $product-list-item-padding
                         color: $product-list-item-bg // hides text in normal state
                         margin-right: 0
@@ -510,16 +501,11 @@ if $include-html-productlist-classes {
                         position: absolute
                         right: $product-list-item-padding
                     }
-                    // padding-right: rem-calc(20)
+
                     +mediaquery($small-only) {
                         clear: both
                         span(1/1)
                     }
-                }
-                
-                // Align ribbons left
-                .ribbon {
-                    ribbon-left()
                 }
 
             } // EOF - product

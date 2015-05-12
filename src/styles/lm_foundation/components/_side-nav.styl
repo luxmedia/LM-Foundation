@@ -20,12 +20,12 @@ $side-nav-list-margin ?=                     rem-calc(0 0 7 0)
 
 // link styles.
 $side-nav-link-color ?=                      $primary-color
-$side-nav-link-color-active ?=               scale-color($side-nav-link-color, 30%)
-$side-nav-link-color-hover ?=                scale-color($side-nav-link-color, 30%)
-$side-nav-link-bg-hover ?=                   rgba($black, 0.05)
+$side-nav-link-color-active ?=               lighten($side-nav-link-color, 30%)
+$side-nav-link-color-hover ?=                lighten($side-nav-link-color, 30%)
+$side-nav-link-bg-hover ?=                   rgba($black, .05)
 $side-nav-link-margin ?=                     0
 $side-nav-link-padding ?=                    rem-calc(7 14)
-$side-nav-font-size ?=                       rem-calc(14)
+$side-nav-font-size ?=                       fontsize(1rem)
 $side-nav-font-weight ?=                     $font-weight-normal
 $side-nav-font-weight-active ?=              $side-nav-font-weight
 $side-nav-font-family ?=                     $font-family-custom
@@ -40,7 +40,7 @@ $side-nav-heading-text-transform ?=          uppercase
 // border styles
 $side-nav-divider-size ?=                    1px
 $side-nav-divider-style ?=                   solid
-$side-nav-divider-color ?=                   scale-color($white, -10%)
+$side-nav-divider-color ?=                   darken($white, 10%)
 
 
 //

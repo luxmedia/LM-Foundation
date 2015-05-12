@@ -12,13 +12,31 @@ $include-html-grid-classes =        com_css.GRID
 $include-xl-html-grid-classes ?=     true
 
 // DEPRECATED - max row width is defined by breakpoints!
-$row-width ?=                        rem-calc(1170)
+$row-width ?=                        rem-calc(1140)
 
 $total-columns ?=                    12
 $column-gutter ?=                    rem-calc(20)
 
 $last-child-float ?=                 $opposite-direction
 
+//== Container sizes
+//
+//## Define the maximum width of `.row` for different screen sizes.
+
+// Small screen / tablet
+$row-width-tablet ?=             (rem-calc(720, $base-value:$browser-default-font-size) + $column-gutter)
+//** For `$screen-med-min` and up.
+$row-width-med ?=                 $row-width-tablet
+
+// Medium screen / desktop
+$row-width-desktop ?=            (rem-calc(940, $base-value:$browser-default-font-size) + $column-gutter)
+//** For `$screen-lrg-min` and up.
+$row-width-lrg ?=                 $row-width-desktop
+
+// Large screen / wide desktop
+$row-width-xlrg-desktop ?=      (rem-calc(1140, $base-value:$browser-default-font-size) + $column-gutter)
+//** For `$screen-lrg-min` and up.
+$row-width-xlrg ?=                 $row-width-xlrg-desktop
 
 //
 // Grid Functions
@@ -28,7 +46,7 @@ $last-child-float ?=                 $opposite-direction
 // $colNumber - Found in settings file
 // $totalColumns - Found in settings file
 grid-calc($colNumber, $totalColumns) {
-    return percentage(($colNumber / $totalColumns))
+    $result = percentage(($colNumber / $totalColumns))
     if ($result == 0%) {
         $result = 0
     }
@@ -59,19 +77,13 @@ grid-row($behavior = false) {
             max-width: 96%
         }
         +mediaquery($medium-up) {
-            $rowmax = round(avg($small-breakpoint-px $medium-breakpoint-px))
-            max-width: rem-calc($rowmax)
+            max-width: $row-width-med
         }
         +mediaquery($large-up) {
-            $rowmax = round(avg($medium-breakpoint-px $large-breakpoint-px))
-            max-width: rem-calc($rowmax)
+            max-width: $row-width-lrg
         }
         +mediaquery($xlarge-up) {
-            $rowmax = round(avg($large-breakpoint-px $xlarge-breakpoint-px))
-            max-width: rem-calc($rowmax)
-        }
-        +mediaquery($xxlarge-up) {
-            max-width: rem-calc($xlarge-breakpoint-px)
+            max-width: $row-width-xlrg
         }
         width: 100%
     } else if ($behavior == nest-collapse) {
@@ -91,19 +103,13 @@ grid-row($behavior = false) {
             max-width: 96%
         }
         +mediaquery($medium-up) {
-            $rowmax = round(avg($small-breakpoint-px $medium-breakpoint-px))
-            max-width: rem-calc($rowmax)
+            max-width: $row-width-med
         }
         +mediaquery($large-up) {
-            $rowmax = round(avg($medium-breakpoint-px $large-breakpoint-px))
-            max-width: rem-calc($rowmax)
+            max-width: $row-width-lrg
         }
         +mediaquery($xlarge-up) {
-            $rowmax = round(avg($large-breakpoint-px $xlarge-breakpoint-px))
-            max-width: rem-calc($rowmax)
-        }
-        +mediaquery($xxlarge-up) {
-            max-width: rem-calc($xlarge-breakpoint-px)
+            max-width: $row-width-xlrg
         }
         width: 100%
 

@@ -28,9 +28,12 @@ $slick-opacity-not-active ?=        .25
 $slick-opacity-active ?=            1
 
 $slick-nav-button-size ?=           rem-calc(34)
+$slick-dot-button-font-size ?=      fontsize(.7rem)
+$slick-dot-button-font-color ?=     $gray-medium-2
+$slick-dot-button-font-color-active ?= $white
 $slick-dot-margin-bottom ?=         rem-calc(30)
 $slick-dot-sensitive-size ?=        rem-calc(20)
-$slick-dot-sensitive-size-block ?=  rem-calc(10)
+$slick-dot-sensitive-size-block ?=  rem-calc(18)
 $slick-dot-margin ?=                rem-calc(0 5)
 $slick-dot-padding ?=               rem-calc(5)
 
@@ -215,7 +218,7 @@ if $include-html-slickslider-classes {
             // position: absolute
             display: block
             list-style: none
-            margin: 0 0 $slick-margin-bottom 0
+            margin: 0 0 $slick-dot-margin-bottom 0
             padding: 0
             position: relative
             text-align: center
@@ -293,6 +296,7 @@ if $include-html-slickslider-classes {
         // Squaretype fullwidth "block-dots"
         if $slick-dot-blockstyle {
             &__dots--block {
+                clearfix()
                 display: block
                 list-style: none
                 margin: 0 0 $slick-dot-margin-bottom 0
@@ -309,13 +313,17 @@ if $include-html-slickslider-classes {
                         background: $slick-dot-color-alt
                         border: none
                         box-shadow: none
+                        color: $slick-dot-button-font-color
                         cursor($cursor-pointer-value)
                         display: block
-                        font-size: 0px
+                        font-size: $slick-dot-button-font-size
                         height: $slick-dot-sensitive-size-block
+                        line-height: $slick-dot-sensitive-size-block
                         margin: 0
                         outline: none
+                        overflow: hidden
                         padding: 0
+                        radius(0)
                         width: 100%
                     }
 
@@ -331,6 +339,7 @@ if $include-html-slickslider-classes {
                     &.is-active button,
                     &.is-active:hover button {
                         background: $slick-dot-color-active
+                        color: $slick-dot-button-font-color-active
                         cursor($cursor-default-value)
                     }
                 }

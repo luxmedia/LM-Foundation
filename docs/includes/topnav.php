@@ -5,7 +5,7 @@
 ?>
 
 <div class="topbar__wrap topbar__wrap--fixed contain-to-grid">
-	<nav class="topbar expanded hide-for-sml-only" data-topbar role="navigation">
+	<nav class="topbar expanded hide-for-sml-only" data-topbar data-options="is_hover:false" role="navigation">
 	  <div class="logo-wrap">
 	    <div class="logo">
 	      <h2><a href="index.php">LM-Foundation</a></h2>
@@ -13,7 +13,7 @@
 	  </div>
 
 	  <section class="topbar-section">
-	    <div class="site-search">
+	    <div class="col sml-8 med-5 lrg-4 site-search">
 	      <form>
 	          <input type="search" placeholder="Stichwort, Marke, Artikelnummer">
 	          <a href="#" class="btn btn--exp btn--flat btn--sml btn__search">Go</a>
