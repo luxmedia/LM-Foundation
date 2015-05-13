@@ -40,8 +40,8 @@ $product-list-title-color-hover ?=               $primary-color
 $product-list-title-font-weight ?=               $font-weight-bold
 $product-list-title-line-height ?=               1.1
 $product-grid-title-row-count ?=                 3 // <- how many lines should be visible?
-$product-grid-title-height ?=                    unit((ceil($product-grid-title-font-size * $product-list-title-line-height * $product-grid-title-row-count) + .1), '')
-$product-grid-title-height-xxlrg ?=              unit((ceil($product-grid-title-font-size * $product-list-title-line-height * ($product-grid-title-row-count + 1)) + .1), '')
+$product-grid-title-height ?=                    unit((ceil($product-grid-title-font-size * $product-list-title-line-height * $product-grid-title-row-count) ), '')
+$product-grid-title-height-xxlrg ?=              unit((ceil($product-grid-title-font-size * $product-list-title-line-height * ($product-grid-title-row-count + 1)) ), '')
 $product-list-title-padding ?=                   0
 $product-list-title-margin ?=                    rem-calc(0 0 10 0)
 $product-grid-title-margin ?=                    rem-calc(0 0 2 0)
@@ -199,6 +199,13 @@ if $include-html-productlist-classes {
         padding: $product-list-padding
         margin: 0
         background-color: $product-list-bg
+
+        &.row:not(.row--collapse) {
+            margin-left: 0
+            margin-right: 0
+            padding-left: ($column-gutter / 2)
+            padding-right: ($column-gutter / 2)
+        }
             
         // List item (li)
         > li {
@@ -366,7 +373,7 @@ if $include-html-productlist-classes {
                         height: ($product-grid-title-height - 0.1rem)
                         overflow: hidden
                     }
-                    +mediaquery($xxlrg-up) {
+                    +mediaquery($xxlarge-up) {
                         // on row more for large desktops, because we use more columns there ...
                         height: ($product-grid-title-height-xxlrg - 0.1rem)
                     }

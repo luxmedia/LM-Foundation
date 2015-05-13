@@ -119,7 +119,8 @@ $list-side-margin-no-bullet ?=           0
 $list-nested-margin ?=                   rem-calc(20)
 $definition-list-header-weight ?=        $font-weight-bold
 $definition-list-header-margin-bottom ?= rem-calc(5)
-$definition-list-margin-bottom ?=        rem-calc(12)
+$definition-list-header-text-transform ?= uppercase
+$definition-list-margin-bottom ?=        rem-calc(10)
 
 // style blockquotes
 $blockquote-font-color ?=                scale-color($header-font-color, 35%)
@@ -457,6 +458,7 @@ if $include-html-type-classes {
         dt {
             font-weight: $definition-list-header-weight
             margin-bottom: $definition-list-header-margin-bottom
+            text-transform: $definition-list-header-text-transform
         }
         dd {
             margin-bottom: $definition-list-margin-bottom
