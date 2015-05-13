@@ -219,12 +219,12 @@ $large ?=                            $large-up
 $include-html-grid-classes ?=        $include-html-classes
 $include-xl-html-grid-classes ?=     true
 
-// DEPRECATED - max row width is defined by breakpoints!
-$row-width ?=                        rem-calc(1140)
-
 $total-columns ?=                    12
 $column-gutter ?=                    rem-calc(20)
 
+// DEPRECATED - max row width is defined by breakpoints!
+// $row-width ?=                        (rem-calc($values:$xlarge-breakpoint-px, $base-value:$browser-default-font-size) - $column-gutter) // rem-calc(1140)
+$row-width ?=                        (rem-calc($values:$xlarge-breakpoint-px) - $column-gutter)
 
 // We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
 // https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
@@ -807,19 +807,9 @@ if $include-html-global-classes {
         box-shadow: $focus-shadow
     }
 
-    html,
-    body {
+
+    html {
         font-size: $base-font-size
-        if ($base-font-size-sml != $base-font-size) {
-            +mediaquery($small-only) {
-                font-size: fontsize($base-font-size-sml)
-            }
-        }
-        if ($base-font-size-lrg != $base-font-size) {
-            +mediaquery($xlarge-up) {
-                font-size: fontsize($base-font-size-lrg)
-            }
-        }
     }
 
     // Default body styles
@@ -828,6 +818,17 @@ if $include-html-global-classes {
         background: $body-bg
         color: $body-font-color
         cursor: $cursor-auto-value
+        font-size: fontsize($body-font-size)
+        if ($base-font-size-sml != $body-font-size) {
+            +mediaquery($small-only) {
+                font-size: fontsize($base-font-size-sml)
+            }
+        }
+        if ($base-font-size-lrg != $body-font-size) {
+            +mediaquery($xlarge-up) {
+                font-size: fontsize($base-font-size-lrg)
+            }
+        }
         font-style: $body-font-style
         font-weight: $body-font-weight
         font_family($body-font-family)

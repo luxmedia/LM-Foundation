@@ -155,7 +155,7 @@
       settings = settings || this.settings;
 
 
-      if (modal.hasClass('is-open') && target.attr('data-reveal-id') == modal.attr('id')) {
+      if (modal.hasClass('is-open') && target !== undefined && target.attr('data-reveal-id') == modal.attr('id')) {
         return self.close(modal);
       }
 

@@ -166,11 +166,12 @@
 	Accessible Tabs
 	==================================-->
 
-	<h3>Accessible Tabs (JS)</h3>
+	<h3>Tabs (JS)</h3>
 	<div class="row">
 
 		<div class="col lrg-5">
-			<p> Instead of foundations origin tabs plugin we use the jquery plugin "accessible tabs". This ensures an accessible and sequential html structure of tab heading and tabcontent if javascript is disabled.</p>
+			<p>Tabs are elements that help you organize and navigate multiple documents in a single container. They can be used for switching between items in the container.</p>
+			<p>You can make tabs more accessible by using the code snippet below. The tabs are keyboard accessible meaning that a user can use the tab key or arrow keys to navigate through them. The role of tablist tells a screen reader what the element is and reads the necessary content.</p>
 			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__tabs">HTML</a></span>
 		</div>
 
@@ -424,7 +425,7 @@
 
 		<div class="col lrg-3">
 			<p>This component is new and not included in the original foundation fork.</p>
-			<p>The productlist.styl provides two styles for product listings: Grid and List. The columns of the products-grid are controlled using jeet.gs due to its flexibility.</p>
+			<p>The productlist.styl provides two styles for product listings: Grid and List. The columns of the products-grid can be defined by the default foundation grid classes. the li's should obtain the grid classes and enclose an div with the class "prd". The ul.prdlist must hav an row class as well to marke the grid working. Also be sure to uncollapse (e.g. sml--uncollapse) the row, if it has any parent .row's.</p>
 			<p>THe Markup includes microdate and rich snippets for google according to schema.org.</p>
 			<span class="html"><a href="#" class="btn btn--flat btn--tny" data-reveal-id="modal__products-grid">HTML</a></span>
 		</div>

@@ -1,5 +1,6 @@
-<ul class="prdlist prdlist--grid">
-<li class="prd" itemscope itemtype="http://schema.org/Product">
+<ul class="row med--uncollapse prdlist prdlist--grid">
+<li class="col sml-12 med-6 lrg-4 xlrg-3" itemscope itemtype="http://schema.org/Product">
+	<div class="prd">
 	<a class="prd__link">
 		<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
 		<span class="prd__brand" itemprop="brand">brand</span>
@@ -11,9 +12,11 @@
 		</div>
 		<div class="ribbon ribbon--primary">-20%</div>
 	</a>
+	</div>
 </li>
 
-<li class="prd" itemscope itemtype="http://schema.org/Product">
+<li class="col sml-12 med-6 lrg-4 xlrg-3" itemscope itemtype="http://schema.org/Product">
+	<div class="prd">
 	<a class="prd__link">
 		<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
 		<span class="prd__brand" itemprop="brand">brand</span>
@@ -23,9 +26,11 @@
 			<span itemprop="price" class="price price--special">299,- &euro;</span>
 		</div>
 	</a>
+	</div>
 </li>
 
-<li class="prd" itemscope itemtype="http://schema.org/Product">
+<li class="col sml-12 med-6 lrg-4 xlrg-3" itemscope itemtype="http://schema.org/Product">
+	<div class="prd">
 	<a class="prd__link">
 		<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
 		<span class="prd__brand" itemprop="brand">brand</span>
@@ -35,9 +40,11 @@
 			<span class="price price--minimal"><span itemprop="lowPrice" class="price__label price__label--minimal">ab&nbsp;</span>159,- &euro;</span>
 		</div>
 	</a>
+	</div>
 </li>
 
-<li class="prd prd--special prd--new" itemscope itemtype="http://schema.org/Product">
+<li class="col sml-12 med-6 lrg-4 xlrg-3" itemscope itemtype="http://schema.org/Product">
+	<div class="prd prd--special prd--new">
 	<a class="prd__link">
 		<span class="prd__img"><img itemprop="image" src="" width="auto" height="100" /></span>
 		<span class="prd__brand" itemprop="brand">brand</span>
@@ -50,6 +57,7 @@
 		<div class="ribbon ribbon--warning">Neu!</div>
 		<div class="ribbon ribbon--primary">-20%</div>
 	</a>
+	</div>
 </li>
 
 </ul>

@@ -6,8 +6,8 @@
 // NOTE: We set it to a 10px base to get cleaner rem-calc values.
 // Later on we set the font-size with a custom mixin and normalization factor to get our final font size
 // CHANGED 2015-05-05: Siwtched back to px based body font-sze. So rem-base is the same as rem-base-actual!!!!
-$rem-base ?=                        13px // 10px
-$rem-base-unitless ?=               strip-unit($rem-base)
+$rem-base ?=                        10px // 12px
+$rem-base-unitless ?=               unit($rem-base, '')
 
 // Marker for ie8 fallback styles
 // NOTE: This marker is used for creation of the ie8 fallback css file
@@ -28,24 +28,24 @@ percentage($value){
 $browser-default-font-size ?=        16px
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size ?=                   $rem-base
-// $base-font-size ?=                   unit(percentage(($rem-base / $browser-default-font-size)),'%') // reduce base font size from 16px to 14px
+// $base-font-size ?=                   $rem-base
+$base-font-size ?=                   unit(percentage(($rem-base / $browser-default-font-size)),'%') // reduce base font size from 16px to 14px
 
 // this is the font size we like to achieve for the body and all its children
-$ref-font-size ?=                    1.3rem
+$ref-font-size ?=                    1.4rem
 
 // this is just a dummy font size for the body. Within the font_size mixin we also add $font-size-normalization to it!!
-$body-font-size ?=                   1.3rem // 1rem
+$body-font-size ?=                   1rem // 1.4rem
 
-$base-font-size-sml-factor ?=        0.9
-$base-font-size-sml ?=               ceil(($base-font-size * $base-font-size-sml-factor)) // ~12px
+$base-font-size-sml-factor ?=        1 // 0.9
+$base-font-size-sml ?=               unite(ceil(($base-font-size-sml-factor * $body-font-size)), 'rem') // ~12px
 $base-font-size-lrg-factor ?=        1.15
-$base-font-size-lrg ?=               ceil(($base-font-size * $base-font-size-lrg-factor)) // ~15px
+$base-font-size-lrg ?=               unite(ceil(($base-font-size-lrg-factor * $body-font-size)), 'rem') // ~15px
 
 // Normalization factor for all font sizes
 $font-size-normalization ?=          ($ref-font-size - $body-font-size)
-// $rem-base-actual ?=                  ($rem-base + unit(($font-size-normalization * 10),'px'))
-$rem-base-actual ?=                  $base-font-size
+$rem-base-actual ?=                  ($rem-base + unit(($font-size-normalization * 10),'px'))
+// $rem-base-actual ?=                  $base-font-size
 
 
 // =========================================================================

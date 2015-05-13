@@ -16,7 +16,6 @@
       custom_back_text : true,
       back_text : 'Back',
       mobile_show_parent_link : true,
-      small_only_class : 'show-for-sml-only',
       is_hover : true,
       scrolltop : true, // jump to top when sticky nav menu toggle is clicked
       sticky_on : 'all',
@@ -169,12 +168,12 @@
       // EOF - LM MOD
 
       S(this.scope)
-        .off('.'+settings.topbar_namespace)
+        .off('.topbar')
         .on('click.fndtn.topbar', '[' + this.attr_name() + '] .toggle-topbar', function (e) {
           e.preventDefault();
           self.toggle(this);
         })
-        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.' + settings.topbar_namespace + ' .topbar-section li a[href^="#"],[' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
+        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.topbar .topbar-section li a[href^="#"],[' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
             var li = $(this).closest('li'),
                 topbar = li.closest('[' + self.attr_name() + ']'),
                 settings = topbar.data(self.attr_name(true) + '-init');
@@ -253,14 +252,14 @@
           }
         });
 
-      S(window).off('.'+settings.topbar_namespace).on('resize.fndtn.topbar', self.throttle(function () {
+      S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
           self.resize.call(self);
       }, 50)).trigger('resize.fndtn.topbar').load(function () {
           // Ensure that the offset is calculated after all of the pages resources have loaded
           S(this).trigger('resize.fndtn.topbar');
       });
 
-      S('body').off('.'+settings.topbar_namespace).on('click.fndtn.topbar', function (e) {
+      S('body').off('.topbar').on('click.fndtn.topbar', function (e) {
         var parent = S(e.target).closest('li').closest('li.is-hover');
 
         if (parent.length > 0) {

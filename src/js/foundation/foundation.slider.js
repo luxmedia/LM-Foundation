@@ -67,7 +67,7 @@
       // update slider value as users change input value
       this.S('[' + this.attr_name() + ']').each(function () {
         var slider = $(this),
-            handle = slider.children('.range-slider-handle')[0],
+            handle = slider.children('.rangeslider__handle')[0],
             settings = self.initialize_settings(handle);
 
         if (settings.display_selector != '') {

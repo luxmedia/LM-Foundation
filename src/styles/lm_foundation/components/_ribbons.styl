@@ -24,20 +24,20 @@ $ribbon-text-transform ?=                    uppercase
 $ribbon-padding-top ?=                       rem-calc(5)
 $ribbon-padding-left ?=                      rem-calc(7)
 $ribbon-line-height ?=                       1
-$ribbon-line-height-lrg ?=                   ($ribbon-line-height + 0.3)
-$ribbon-line-height-xlrg ?=                  ($ribbon-line-height-lrg + 0.2)
+$ribbon-line-height-lrg ?=                   ($ribbon-line-height + .3)
+$ribbon-line-height-xlrg ?=                  ($ribbon-line-height-lrg + .2)
 $ribbon-backface-dimensions ?=               6px
 $ribbon-backface-dimensions-sml ?=           floor($ribbon-backface-dimensions * $base-font-size-sml-factor)
 $ribbon-backface-dimensions-lrg ?=           ceil($ribbon-backface-dimensions * $base-font-size-lrg-factor)
 $ribbon-flag-dimensions ?=                   6px
 $ribbon-flag-dimensions-sml ?=               floor($ribbon-flag-dimensions * $base-font-size-sml-factor)
 $ribbon-flag-dimensions-lrg ?=               ceil($ribbon-flag-dimensions * $base-font-size-lrg-factor)
-$ribbon-flag-padding ?=                      ($ribbon-padding-left - rem-calc($ribbon-flag-dimensions/2))
-$ribbon-box-shadow ?=                        -1px 2px 10px rgba($black,.1) // -5px 5px 10px rgba(0,0,0,0.1)
-$ribbon-box-shadow-left ?=                   1px 2px 10px rgba($black,.1) // -5px 5px 10px rgba(0,0,0,0.1)
+$ribbon-flag-padding ?=                      ($ribbon-padding-left - rem-calc(($ribbon-flag-dimensions/2)))
+$ribbon-box-shadow ?=                        -1px 2px 10px rgba($black,.1)
+$ribbon-box-shadow-left ?=                   1px 2px 10px rgba($black,.1)
 
-$ribbon-font-size-lrg ?=                      ($ribbon-font-size + 0.3)
-$ribbon-font-size-xlrg ?=                     ($ribbon-font-size-lrg + 0.2)
+$ribbon-font-size-lrg ?=                      ($ribbon-font-size + .3)
+$ribbon-font-size-xlrg ?=                     ($ribbon-font-size-lrg + .2)
 
 //
 // @mixins
@@ -104,7 +104,7 @@ ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = 'norma
         &:before {
             border: 0 solid transparent
             border-top-width: $border-height = ceil((($ribbon-line-height * $rem-base-actual) / 2) + pxify($ribbon-padding-top))
-            border-bottom-width: $border-height
+            border-bottom-width: ($border-height - 1px)
             border-{$ribbon-default-position}-width: $ribbon-flag-dimensions
             border-{$ribbon-opposite-position}-color: $bg // Set color if we have a .--opposite ribbon
             border-{$ribbon-default-position}-color: $bg
@@ -113,7 +113,7 @@ ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = 'norma
             height: 0
             {$ribbon-opposite-position}: 0
             margin: 0
-            margin-{$ribbon-opposite-position}: -((pxify($ribbon-flag-dimensions) - 1px)) //-((rem-calc($ribbon-flag-dimensions) - rem-calc(1)))
+            margin-{$ribbon-opposite-position}: -(pxify($ribbon-flag-dimensions)) //-((rem-calc($ribbon-flag-dimensions) - rem-calc(1)))
             position: absolute
             top: 0
             width: 0
@@ -219,7 +219,7 @@ if $include-html-ribbon-classes {
                 border-{$ribbon-default-position}-width: 0
                 {$ribbon-opposite-position}: auto
                 margin: 0
-                margin-{$ribbon-default-position}: -((pxify($ribbon-flag-dimensions) - 1px)) //-((rem-calc($ribbon-flag-dimensions) - rem-calc(1)))
+                margin-{$ribbon-default-position}: -(pxify($ribbon-flag-dimensions)) //-((rem-calc($ribbon-flag-dimensions) - rem-calc(1)))
                 {$ribbon-default-position}: 0
             }
         }

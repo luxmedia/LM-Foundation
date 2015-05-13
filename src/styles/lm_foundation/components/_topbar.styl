@@ -630,7 +630,7 @@ if $include-html-topbar-classes {
 
 
     // Top Bar styles intended for screen sizes above the breakpoint.
-    @media $topbar-media-query {
+    +mediaquery($topbar-media-query) {
 
         .topbar {
             clearfix()
@@ -671,13 +671,15 @@ if $include-html-topbar-classes {
             }
         }
         // EOF - .topbar
-
+        
+        //desktop max row-width
         .contain-to-grid .topbar {
             margin: 0 auto
             margin-bottom: $topbar-margin-bottom
-            max-width: $row-width
+            width: auto
+            max-width: $row-width-xlrg
         }
-
+        
         .topbar-section {
             single-transition(none, 0, 0)
             {$default-float}: 0 !important
@@ -930,4 +932,14 @@ if $include-html-topbar-classes {
         }
 
     } // EOF - media topbar-media-query
+
+    // for extra large desktops
+    if $include-xl-html-grid-classes {
+        +mediaquery($xxlarge-up) {
+            .contain-to-grid .topbar {
+                max-width: $row-width-xxlrg
+            }
+        }
+    }
+
 } // EOF - if $include-html-topbar-classes

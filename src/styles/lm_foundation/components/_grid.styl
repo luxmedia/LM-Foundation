@@ -11,8 +11,9 @@
 $include-html-grid-classes =        com_css.GRID
 $include-xl-html-grid-classes ?=     true
 
-// DEPRECATED - max row width is defined by breakpoints!
-$row-width ?=                        rem-calc(1140)
+// DEPRECATED row-width - max row width is defined by breakpoints in section "Container sizes"!
+// $row-width ?=                        (rem-calc($xlarge-breakpoint-px, $base-value:$browser-default-font-size) - $column-gutter) // rem-calc(1140)
+$row-width ?=                        (rem-calc($values:$xlarge-breakpoint-px) - $column-gutter)
 
 $total-columns ?=                    12
 $column-gutter ?=                    rem-calc(20)
@@ -24,19 +25,20 @@ $last-child-float ?=                 $opposite-direction
 //## Define the maximum width of `.row` for different screen sizes.
 
 // Small screen / tablet
-$row-width-tablet ?=             (rem-calc(720, $base-value:$browser-default-font-size) + $column-gutter)
-//** For `$screen-med-min` and up.
-$row-width-med ?=                 $row-width-tablet
+$row-width-tablet ?=                (rem-calc($values:$medium-breakpoint-px) - $column-gutter)
+$row-width-med ?=                   $row-width-tablet
 
 // Medium screen / desktop
-$row-width-desktop ?=            (rem-calc(940, $base-value:$browser-default-font-size) + $column-gutter)
-//** For `$screen-lrg-min` and up.
-$row-width-lrg ?=                 $row-width-desktop
+$row-width-desktop ?=               (rem-calc($values:$large-breakpoint-px) - $column-gutter)
+$row-width-lrg ?=                   $row-width-desktop
 
 // Large screen / wide desktop
-$row-width-xlrg-desktop ?=      (rem-calc(1140, $base-value:$browser-default-font-size) + $column-gutter)
-//** For `$screen-lrg-min` and up.
-$row-width-xlrg ?=                 $row-width-xlrg-desktop
+$row-width-xlrg-desktop ?=          (rem-calc($values:$xlarge-breakpoint-px) - $column-gutter)
+$row-width-xlrg ?=                  $row-width-xlrg-desktop
+
+// Large screen / wide desktop
+$row-width-xxlrg-desktop ?=         (rem-calc($values:$xxlarge-breakpoint-px) - $column-gutter - rem-calc(100))
+$row-width-xxlrg ?=                 $row-width-xxlrg-desktop
 
 //
 // Grid Functions
@@ -85,6 +87,11 @@ grid-row($behavior = false) {
         +mediaquery($xlarge-up) {
             max-width: $row-width-xlrg
         }
+        if $include-xl-html-grid-classes {
+            +mediaquery($xxlarge-up) {
+                max-width: $row-width-xxlrg
+            }
+        }
         width: 100%
     } else if ($behavior == nest-collapse) {
         // use @include grid-row(nest-collapse) to collapse outer margins on a nested row
@@ -92,6 +99,8 @@ grid-row($behavior = false) {
         max-width: none
         width: auto
     } else {
+        // Clearfix for all rows
+        clearfix()
         // use @include grid-row to use a container row
         margin-bottom: 0
         margin-top: 0
@@ -111,10 +120,12 @@ grid-row($behavior = false) {
         +mediaquery($xlarge-up) {
             max-width: $row-width-xlrg
         }
+        if $include-xl-html-grid-classes {
+            +mediaquery($xxlarge-up) {
+                max-width: $row-width-xxlrg
+            }
+        }
         width: 100%
-
-        // Clearfix for all rows
-        clearfix()
     }
 
 }

@@ -33,23 +33,24 @@ $product-list-img-height ?=                      120px
 $product-list-img-width ?=                       $product-list-img-height
 
 $product-list-title-font-family ?=               $font-family-custom
-$product-grid-title-font-size ?=                 fontsize(0.9rem)
+$product-grid-title-font-size ?=                 fontsize(.9rem)
 $product-list-title-font-size ?=                 fontsize(1rem)
 $product-list-title-color ?=                     $gray-darker-3
 $product-list-title-color-hover ?=               $primary-color
 $product-list-title-font-weight ?=               $font-weight-bold
 $product-list-title-line-height ?=               1.1
 $product-grid-title-row-count ?=                 3 // <- how many lines should be visible?
-$product-grid-title-height ?=                    (round($product-grid-title-font-size * $product-list-title-line-height * $product-grid-title-row-count) + 0.1)
+$product-grid-title-height ?=                    unit((ceil($product-grid-title-font-size * $product-list-title-line-height * $product-grid-title-row-count) + .1), '')
+$product-grid-title-height-xxlrg ?=              unit((ceil($product-grid-title-font-size * $product-list-title-line-height * ($product-grid-title-row-count + 1)) + .1), '')
 $product-list-title-padding ?=                   0
 $product-list-title-margin ?=                    rem-calc(0 0 10 0)
 $product-grid-title-margin ?=                    rem-calc(0 0 2 0)
 
-$product-list-manu-font-size ?=                  fontsize(0.8rem) // 0.9rem, if we do not use uppercase transform
+$product-list-manu-font-size ?=                  fontsize(.8rem) // .9rem, if we do not use uppercase transform
 $product-list-manu-color ?=                      $gray-dark-1
 $product-grid-manu-font-weight ?=                $font-weight-normal
 $product-list-manu-font-weight ?=                $font-weight-normal
-$product-grid-manu-height ?=                     round($product-list-manu-font-size*$product-list-title-line-height)
+$product-grid-manu-height ?=                     unit(ceil($product-list-manu-font-size * $product-list-title-line-height), 'rem')
 $product-grid-manu-text-transform ?=             uppercase
 $product-list-manu-text-transform ?=             $product-grid-manu-text-transform
 
@@ -58,17 +59,17 @@ $product-grid-desc-margin ?=                     rem-calc(0 0 5 0)
 $product-list-desc-padding ?=                    0
 $product-grid-desc-padding ?=                    0
 $product-list-desc-font-family ?=                $font-family-custom
-$product-list-desc-font-size ?=                  fontsize(0.9rem)
-$product-grid-desc-font-size ?=                  fontsize(0.8rem)
+$product-list-desc-font-size ?=                  fontsize(.9rem)
+$product-grid-desc-font-size ?=                  fontsize(.8rem)
 $product-list-desc-line-height ?=                $product-list-title-line-height
 $product-grid-desc-row-count ?=                  4 // <- how many lines should be visible?
-$product-grid-desc-height ?=                     round($product-grid-desc-font-size*$product-list-desc-line-height*$product-grid-desc-row-count)
+$product-grid-desc-height ?=                     unit(ceil($product-grid-desc-font-size * $product-list-desc-line-height * $product-grid-desc-row-count), 'rem')
 $product-list-desc-color ?=                      $gray-dark-3
 $product-list-desc-color-hover ?=                $gray-darker-3
 
 $product-list-opts-line-height ?=                1.3
 $product-list-opts-font-family ?=                $font-family-custom
-$product-list-opts-font-size ?=                  fontsize(0.75rem)
+$product-list-opts-font-size ?=                  fontsize(.75rem)
 $product-list-opts-font-weight ?=                $font-weight-normal
 $product-list-opts-color ?=                      $gray-darker-3
 $product-list-opts-item-padding ?=               rem-calc(2 10)
@@ -85,14 +86,16 @@ $product-list-opts-label-bg ?=                   transparent
 $product-list-opts-label-color ?=                $gray-darker-1
 
 $product-list-opts-link-color ?=                 $charcoal-1
-$product-list-opts-link-font-size ?=             fontsize(0.8rem)
+$product-list-opts-link-font-size ?=             fontsize(.8rem)
 $product-list-opts-link-color-hover ?=           $charcoal-2
 $product-list-opts-link-bg-hover ?=              $gray-light-3
 
-$product-grid-pricebox-height ?=                 round(($price-special-font-size*$price-line-height)+($price-old-font-size*$price-line-height))
+$product-grid-pricebox-height ?=                 unit(ceil(($price-special-font-size * $price-line-height) + ($price-old-font-size * $price-line-height)), 'rem')
 $product-grid-pricebox-padding ?=                0
 $product-grid-pricebox-margin ?=                 rem-calc(3 0)
 $product-list-button-size ?=                     $button-sml
+$product-list-button-width ?=                    rem-calc(40)
+$product-list-button-height ?=                   $product-list-button-width
 $product-list-button-pseudo-size ?=              rem-calc(20) // needed for container height calculation. 20 = tiny button, 27 = small button
 $product-list-button-bg-hover ?=                 $primary-color
 $product-list-button-color ?=                    $gray-dark-1
@@ -102,7 +105,7 @@ $product-list-button-ico-color-hover ?=          $white
 
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
 
-$product-grid-sml-font-size ?=                   fontsize(0.8rem)
+$product-grid-sml-font-size ?=                   fontsize(.8rem)
 $product-grid-sml-img-height ?=                  rem-calc(50)
 
 
@@ -208,24 +211,24 @@ if $include-html-productlist-classes {
         .prd {
             background-color: $product-list-item-bg
             if ($product-list-item-border) {
-                border-longhand($width:$product-list-item-border-width,$style:$product-list-item-border-style,$color:$product-list-item-border-color)
+                border-longhand($width:$product-list-item-border-width, $style:$product-list-item-border-style, $color:$product-list-item-border-color)
             }
             padding: $product-list-item-padding
             position: relative
             z-index: 1
 
-            &__inner {
-                // clearfix()
-            }
+            // &__inner {
+            //     clearfix()
+            // }
 
             &__link {
-                // clearfix()
+                clearfix()
                 display: block
 
                 &:hover {
-                    .btn {
+                    .btn__details {
                         background-color: $product-list-button-bg-hover
-                        svg-background($file:'arrows_right.svg', $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color-hover, $stroke-hover:$product-list-button-ico-color-hover)
+                        svg-background($file:'arrows_right.svg', $shapes:('polyline' 'polygon'), $size:false, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color-hover, $stroke-hover:$product-list-button-ico-color-hover, $repeat:false, $position-x:false)
                     }
                 }
             }
@@ -354,14 +357,18 @@ if $include-html-productlist-classes {
 
                 &__brand {
                     +mediaquery($medium-up) {
-                        height: ($product-grid-manu-height - remify(0.1rem))
+                        height: ($product-grid-manu-height - 0.1rem)
                     }
                 }
                 &__title {
                     margin: $product-grid-title-margin
                     +mediaquery($medium-up) {
-                        height: ($product-grid-title-height - remify(0.1rem))
+                        height: ($product-grid-title-height - 0.1rem)
                         overflow: hidden
+                    }
+                    +mediaquery($xxlrg-up) {
+                        // on row more for large desktops, because we use more columns there ...
+                        height: ($product-grid-title-height-xxlrg - 0.1rem)
                     }
                 }
                 &__brand,
@@ -378,7 +385,7 @@ if $include-html-productlist-classes {
                     padding: $product-grid-desc-padding
 
                     +mediaquery($medium-up) {
-                        height: ($product-grid-desc-height - remify(0.1rem))
+                        height: ($product-grid-desc-height - 0.1rem)
                         overflow: hidden
                     }
                 }
@@ -390,18 +397,18 @@ if $include-html-productlist-classes {
                     +mediaquery($small-only) {
                         float: none
                         margin-{$default-float}: ((1/3)*100)%
-                        text-align: right
+                        text-align: $opposite-direction
                     }
                     margin: $product-grid-pricebox-margin
                     padding: $product-grid-pricebox-padding
                 }
 
-                .btn {
-                    float: left
-                    font-size: 0
-                    height: $product-grid-pricebox-height
+                .btn__details {
+                    float: $default-float
+                    font-size: 0 !important
+                    height: $product-list-button-height
                     text-indent: -(9999em)
-                    width: $product-grid-pricebox-height
+                    width: $product-list-button-width
                 }
             }
 
@@ -457,14 +464,14 @@ if $include-html-productlist-classes {
                 }
 
                 &__img {
-                    float: left
+                    float: $default-float
                     height: $product-list-img-height
                     line-height: ($product-list-img-height - 10px)
                     margin: $product-list-img-margin
-                    margin-left: 0
+                    margin-{$default-float}: 0
                     width: $product-list-img-width
                 }
-                
+
                 &__brand {
                     display: block
                     font-weight: $product-list-manu-font-weight
@@ -475,31 +482,32 @@ if $include-html-productlist-classes {
                     font-size: $product-list-title-font-size
                 }
 
-                &__sdesc {
-                    // display: block
-                }
+                // &__sdesc {
+                //     display: block
+                // }
 
                 .price-box {
-                    text-align: right
+                    text-align: $opposite-direction
                     +mediaquery($medium-up) {
-                        col(1/4, gutter:0)
-                        float: right
-                        margin-right: 0
+                        width: ((1/4)*100)%
+                        clear: none
+                        float: $opposite-direction
+                        margin-{$opposite-direction}: 0
                     }
                 }
 
-                .btn {
+                .btn__details {
 
                     text-align: center
-                    svg-background($file:false, $position-x:right)
+                    svg-background($file:false, $position-x:$opposite-direction)
 
                     +mediaquery($medium-up) {
                         bottom: $product-list-item-padding
                         color: $product-list-item-bg // hides text in normal state
-                        margin-right: 0
-                        padding-right: (2*$product-list-button-ico-size)
+                        margin-{$opposite-direction}: 0
+                        padding-{$opposite-direction}: (2*$product-list-button-ico-size)
                         position: absolute
-                        right: $product-list-item-padding
+                        {$opposite-direction}: $product-list-item-padding
                     }
 
                     +mediaquery($small-only) {
