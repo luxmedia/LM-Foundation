@@ -38,9 +38,9 @@ $ref-font-size ?=                    1.4rem
 $body-font-size ?=                   1rem // 1.4rem
 
 $base-font-size-sml-factor ?=        1 // 0.9
-$base-font-size-sml ?=               unit(ceil(($base-font-size-sml-factor * $body-font-size)), 'rem') // ~12px
+$base-font-size-sml ?=               unit(round(($base-font-size-sml-factor * $body-font-size),2), 'rem') // ~12px
 $base-font-size-lrg-factor ?=        1.15
-$base-font-size-lrg ?=               unit(ceil(($base-font-size-lrg-factor * $body-font-size)), 'rem') // ~15px
+$base-font-size-lrg ?=               unit(round(($base-font-size-lrg-factor * $body-font-size),2), 'rem') // ~15px
 
 // Normalization factor for all font sizes
 $font-size-normalization ?=          ($ref-font-size - $body-font-size)
