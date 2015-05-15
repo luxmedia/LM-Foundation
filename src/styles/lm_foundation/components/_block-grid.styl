@@ -13,7 +13,7 @@ $include-xl-html-block-grid-classes ?=       true
 
 // the maximum number of block grid elements per row
 $block-grid-elements ?=                      12
-$block-grid-default-spacing ?=               rem-calc(20)
+$block-grid-default-spacing ?=               rem-calc(10)
 $align-block-grid-to-grid ?=                 false
 
 if $align-block-grid-to-grid {
@@ -41,7 +41,7 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
         if $align-block-grid-to-grid {
             margin: 0
         } else {
-            margin: 0 (-($spacing) / 2)
+            margin: 0 -($spacing)
         }
         padding: 0
 
@@ -50,7 +50,7 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
             float: $default-float
             height: auto
             if $include-spacing {
-                padding: 0 ($spacing / 2) $spacing
+                padding: 0 $spacing $spacing
             }
         }
     }
@@ -59,7 +59,7 @@ block-grid($per-row = false, $spacing = $block-grid-default-spacing, $include-sp
         > li {
             list-style: none
             if $include-spacing {
-                padding: 0 ($spacing / 2) $spacing
+                padding: 0 $spacing $spacing
             }
             width: (100% / $per-row)
 

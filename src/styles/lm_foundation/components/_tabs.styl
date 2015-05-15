@@ -11,7 +11,7 @@
 
 $include-html-tabs-classes =                   com_js.TAB
 
-$tabs-navigation-padding ?=                     rem-calc(5)
+$tabs-navigation-padding ?=                     rem-calc(10 15)
 $tabs-navigation-bg-color ?=                    $gray-light-2
 $tabs-navigation-active-bg-color ?=             $white
 $tabs-navigation-hover-bg-color ?=              darken($tabs-navigation-bg-color, 6%)
@@ -68,7 +68,7 @@ if $include-html-tabs-classes {
                 font-size: $tabs-navigation-font-size
                 font-weight: $tabs-navigation-font-weight
                 font_family($tabs-navigation-font-family)
-                padding: $tabs-navigation-padding ($tabs-navigation-padding * 2.5)
+                padding: $tabs-navigation-padding
                 text-transform: $tabs-navigation-text-transform
 
                 &:hover {
@@ -77,6 +77,7 @@ if $include-html-tabs-classes {
                 }
                 &:focus{
                     outline: none
+                    box-shadow: none
                 }
             }
             &.is-active a {

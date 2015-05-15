@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.5.3
+ Version: 1.5.5
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -866,7 +866,7 @@
         _.$slider.removeClass('is-init');
 
         _.unslicked = true;
-        
+
         if(!refresh) {
             _.$slider.trigger('destroy', [_]);
         }
