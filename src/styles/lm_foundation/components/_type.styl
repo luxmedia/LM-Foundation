@@ -84,6 +84,11 @@ $paragraph-text-rendering ?=         optimizeLegibility
 $lead-font-size ?=                   ($paragraph-font-size + .3rem)
 $lead-line-height ?=                 ($paragraph-line-height + 0.2)
 
+// lead font sizes
+$aside-font-size ?=                  ($paragraph-font-size - .2rem)
+$aside-line-height ?=                ($paragraph-line-height - 0.15)
+$aside-font-color ?=                 $gray-dark-2
+
 // style <code> tags
 $code-color ?=                       $charcoal-1
 $code-font-family ?=                 $font-family-monospace
@@ -209,6 +214,13 @@ lead() {
     line-height: $lead-line-height
 }
 
+// These will throw a deprecation warning if used within a media query.
+aside() {
+    color: $aside-font-color
+    font-size: $aside-font-size
+    line-height: $aside-line-height
+}
+
 subheader() {
     color: $subheader-font-color
     font-weight: $subheader-font-weight
@@ -283,9 +295,15 @@ if $include-html-type-classes {
             line-height: $paragraph-aside-line-height
         }
     }
+    // Leader paragraph
     p.lead,
     .lead p {
         lead()
+    }
+    // Smaller paragraph
+    p.aside,
+    .aside p {
+        aside()
     }
 
     /* Default header styles */

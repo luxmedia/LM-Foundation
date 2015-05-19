@@ -44,7 +44,7 @@ $relative-paths ?=                   true
 // =========================================================================
 
 // define default font stacks
-$font-family-sans-serif ?=           'Lucida Sans', Helvetica, Arial, sans-serif
+$font-family-sans-serif ?=           'Open Sans', 'Lucida Sans', Helvetica, Arial, sans-serif
 $font-family-serif ?=                Georgia, Cambria, 'Times New Roman', Times, serif
 $font-family-monospace ?=            Consolas, 'Menlo', 'Liberation Mono', Courier, monospace
 $font-family-headings ?=             $font-family-sans-serif
@@ -679,8 +679,11 @@ font_size(value) {
 // Handle fallback for non-fontface Browsers
 font_family($family = $body-font-family, $spacing = $font-custom-spacing) {
 
+    // Add font-family parameter only if its different than the body font-family
+    if ($family != $body-font-family ) {
+        font-family: $family
+    }
     // Add custom parameters for custom fonts
-    font-family: $family
     if ($family == $font-family-custom && $family != $body-font-family ) {
         letter-spacing: $spacing
     }

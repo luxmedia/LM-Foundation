@@ -22,11 +22,15 @@ $topbar-height ?=                            rem-calc(44)
 $topbar-margin-bottom ?=                     0
 
 // Controlling the styles for the title in the top bar
-$topbar-logo-weight ?=                       $font-weight-normal
-$topbar-logo-font-size ?=                    fontsize(1rem)
+$topbar-logo-family ?=                       $font-family-headings
+$topbar-logo-weight ?=                       $font-weight-bold
+$topbar-logo-font-size ?=                    fontsize(1.2rem)
+$topbar-logo-font-color ?=                   $white
+$topbar-logo-font-color-hover ?=             $white
+$topbar-logo-text-transform ?=               uppercase
 $topbar-logo-bg ?=                           $primary-color
 $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
-$topbar-logo-padding ?=                     rem-calc(0 10)
+$topbar-logo-padding ?=                      rem-calc(0 10)
 
 $topbar-link-hover-lightness ?=              -15%
 
@@ -160,17 +164,17 @@ if $include-html-topbar-classes {
         background-color: $topbar-bg
 
         &--fixed {
-            width: 100%
-            {$default-float}: 0
             position: fixed
             top: 0
+            width: 100%
             z-index: $zindex-navbar-fixed
+            {$default-float}: 0
 
             &.expanded:not(.topbar) {
-                overflow-y: auto
                 height: auto
-                width: 100%
                 max-height: 100%
+                overflow-y: auto
+                width: 100%
 
                 .logo-wrap {
                     position: fixed
@@ -179,33 +183,22 @@ if $include-html-topbar-classes {
                 }
                 // Ensure you can scroll the menu on small screens
                 .topbar-section {
-                    z-index: ($zindex-topbar - 1)
                     margin-top: $topbar-height
+                    z-index: ($zindex-topbar - 1)
                 }
             }
         }
     }
     // EOF - .topbar__wrap
 
-    // Offcanvas menu
-    .tab-bar {
-        +mediaquery($medium-up) {
-            display: none !important
-        }
-        +mediaquery($small-only) {
-            display: block !important
-            float: left
-        }
-    }
-
     // Main top nav section
     .topbar {
-        overflow: hidden
+        background-color: $topbar-bg
         height: $topbar-height
         line-height: $topbar-height
-        position: relative
-        background-color: $topbar-bg
         margin-bottom: $topbar-margin-bottom
+        overflow: hidden
+        position: relative
         
         // Topbar Global list Styles
         ul {
@@ -222,12 +215,7 @@ if $include-html-topbar-classes {
         select,
         input[type='text'],
         input[type='password'],
-        input[type='search'] { 
-            position: relative
-            height: $topbar-input-height
-            padding-top: $ptop = remify(.35rem)
-            padding-bottom: $ptop
-            font-size: $topbar-button-font-size
+        input[type='search'] {
             if ($topbar-input-border-width) {
                 border-color: $topbar-input-border-color
                 border-width: $topbar-input-border-width
@@ -236,6 +224,11 @@ if $include-html-topbar-classes {
             }
             box-shadow: none
             box-sizing: border-box
+            font-size: $topbar-button-font-size
+            height: $topbar-input-height
+            padding-top: $ptop = remify(.35rem)
+            padding-bottom: $ptop
+            position: relative
         }
 
         .btn,
@@ -257,19 +250,13 @@ if $include-html-topbar-classes {
         .logo-wrap {
             position: relative
             margin: 0
-            // +mediaquery($medium-up) {
-            //     col(2/12, gutter: 0)   
-            // }
-            // +mediaquery($small-only) {
-            //     col(1/3, gutter: 0)
-            // }
         }
 
         .logo {
-            height: $topbar-height
-            margin: 0
             background-color: $topbar-logo-bg
             font-size: $topbar-logo-font-size
+            height: $topbar-height
+            margin: 0
             if ($topbar-menu-icon-position == $default-float) {
               float: $opposite-direction
             }
@@ -279,20 +266,20 @@ if $include-html-topbar-classes {
             div,
             header {
                 display: block
-                line-height: $topbar-height
                 font-size: $topbar-logo-font-size
+                line-height: $topbar-height
                 margin: 0
                 text-align: center
                 a {
-                    // width: 75%
+                    color: $topbar-logo-font-color
                     display: block
-                    padding: $topbar-logo-padding
-                    +mediaquery($small-only) {
-                        padding: 0
-                    }
                     font-weight: $topbar-logo-weight
-                    color: $topbar-link-color
+                    font_family($topbar-logo-font-family)
+                    padding: $topbar-logo-padding
+                    text-transform: $topbar-logo-text-transform 
+
                     &:hover {
+                        color: $topbar-logo-font-color-hover
                         background-color: $topbar-logo-bg-hover
                         single-transition(background-color)
                     }
@@ -360,15 +347,15 @@ if $include-html-topbar-classes {
 
             a {
                 color: $topbar-link-color
-                text-transform: $topbar-menu-link-transform
+                display: block
                 font-size:$topbar-menu-link-font-size
                 font-weight: $topbar-menu-link-weight
-                position: relative
-                display: block
-                padding: 0 $topbar-link-padding
                 height: $topbar-height
                 line-height: $topbar-height
-
+                min-width: $topbar-height
+                padding: 0 $topbar-link-padding
+                position: relative
+                text-transform: $topbar-menu-link-transform
             }
 
             // Adding the class "menu-icon" will add the 3-line icon people love and adore.
@@ -383,10 +370,10 @@ if $include-html-topbar-classes {
                     if ($text-direction == rtl) {
                         text-indent: -(58px)
                     }
+                    color: $topbar-menu-link-color
                     height: 34px
                     line-height: 33px
                     padding: 0 rem-calc(($topbar-link-padding + 25)) 0 $topbar-link-padding
-                    color: $topbar-menu-link-color
                     position: relative
                 }
             }
@@ -394,8 +381,8 @@ if $include-html-topbar-classes {
 
         // Change things up when the topbar is expanded
         &.expanded {
-            height: auto
             background-color: transparent
+            height: auto
 
             .logo-wrap {
                 background-color: $topbar-logo-bg
@@ -676,8 +663,8 @@ if $include-html-topbar-classes {
         .contain-to-grid .topbar {
             margin: 0 auto
             margin-bottom: $topbar-margin-bottom
-            width: auto
             max-width: $row-width-xlrg
+            width: auto
         }
         
         .topbar-section {
