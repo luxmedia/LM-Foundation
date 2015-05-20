@@ -338,9 +338,17 @@ expand() {
     }
 }
 
+// Remove transition flicker on phones
+kill-flicker() {
+    // -webkit-transform: translateZ(0x)
+    -webkit-backface-visibility: hidden
+}
+
 // CSS Blur filter
 blur-filter($radius = $global-blur-radius) {
     if $radius {
+        -webkit-filter: blur($radius)
+        -moz-filter: blur($radius)
         filter: blur($radius)
     }
 }

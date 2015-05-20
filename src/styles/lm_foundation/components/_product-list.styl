@@ -13,24 +13,28 @@ $product-list-padding ?=                         rem-calc(20)
 $product-list-bg ?=                              $gray-lighter-3
 
 $product-list-item-padding ?=                    rem-calc(10)
-$product-grid-item-padding ?=                    rem-calc(0 10 10 10)
+$product-grid-item-padding ?=                    $product-list-item-padding
 $product-list-item-margin ?=                     rem-calc(8 0)
 $product-grid-item-margin ?=                     rem-calc(16)
 $product-list-item-bg ?=                         $white
 $product-list-item-bg-hover ?=                   darken($product-list-bg,10%) // transparent
+$product-list-item-fig-overlay-bg ?=             rgba($product-list-item-bg-hover,.75)
+$product-list-item-border ?=                     false
 $product-list-item-border-width ?=               2px
 $product-list-item-border-style ?=               solid
 $product-list-item-border-color ?=               transparent
 $product-list-item-border-hover-color ?=         transparent
 $product-list-item-box-shadow-hover ?=           false // 0 0 10px rgba($black, 0.2)
+$product-list-item-hover-blur ?=                 10px // false
 
 $product-list-img-bg ?=                          $white
-$product-list-img-padding ?=                     rem-calc(5 10)
-$product-grid-img-margin ?=                      rem-calc(0 0 10 0)
-$product-list-img-gutter ?=                      rem-calc(10)
-$product-list-img-margin ?=                      rem-calc(0 15 0 0)
+$product-list-img-padding ?=                     rem-calc(8) // padding of actual image (not container!)
+$product-grid-img-gutter ?=                      rem-calc(10)
+$product-grid-img-margin ?=                      $product-grid-img-gutter // DEPRECATED - we use gutter instead
+$product-list-img-gutter ?=                      rem-calc(20)
+$product-list-img-margin ?=                      $product-list-img-gutter // DEPRECATED - we use gutter instead
 $product-grid-img-height ?=                      120px
-$product-list-img-height ?=                      120px
+$product-list-img-height ?=                      140px
 $product-list-img-width ?=                       $product-list-img-height
 
 $product-list-title-font-family ?=               $font-family-custom
@@ -96,15 +100,13 @@ $product-list-opts-link-bg-hover ?=              $gray-light-3
 $product-grid-pricebox-height ?=                 unit(ceil(($price-special-font-size * $price-line-height) + ($price-old-font-size * $price-line-height)), 'rem')
 $product-grid-pricebox-padding ?=                0
 $product-grid-pricebox-margin ?=                 rem-calc(3 0)
-$product-list-button-size ?=                     $button-sml
-$product-list-button-width ?=                    rem-calc(40)
-$product-list-button-height ?=                   $product-list-button-width
-$product-list-button-pseudo-size ?=              rem-calc(20) // needed for container height calculation. 20 = tiny button, 27 = small button
 $product-list-button-bg-hover ?=                 $primary-color
-$product-list-button-color ?=                    $gray-dark-1
-$product-list-button-ico-size ?=                 rem-calc(18)
+$product-list-button-color ?=                    $primary-color
+$product-list-button-ico-size ?=                 rem-calc(20)
 $product-list-button-ico-color ?=                $product-list-button-color
-$product-list-button-ico-color-hover ?=          $white
+$product-list-button-ico-color-hover ?=          scale-color($product-list-button-ico-color,$button-function-factor) // $white
+$product-list-button-width ?=                    rem-calc(45)
+$product-list-button-height ?=                   $product-list-button-width
 
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
 
@@ -239,30 +241,38 @@ if $include-html-productlist-classes {
             &__link {
                 clearfix()
                 display: block
-
-                &:hover {
-                    .btn__details {
-                        background-color: $product-list-button-bg-hover
-                        svg-background($file:'arrows_right.svg', $shapes:('polyline' 'polygon'), $size:false, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color-hover, $stroke-hover:$product-list-button-ico-color-hover, $repeat:false, $position-x:false)
-                    }
-                }
             }
+
             // Images (wrapper)
             &__img {
                 background: $product-list-img-bg
                 display: block
                 height: $product-grid-img-height
                 line-height: $product-grid-img-height
-                margin: $product-grid-img-margin
-                padding: $product-list-img-padding
+                overflow: hidden
+                position: relative
                 text-align: center
                 width: auto
+
+                .fig-overlay {
+                    kill-flicker()
+                    background-color: $product-list-item-fig-overlay-bg
+                    height: $product-grid-img-height
+                    left: 0
+                    line-height: 1
+                    opacity: 0
+                    position: absolute
+                    text-align: center
+                    top: 0
+                    visibility: hidden
+                    width: 100%
+                }
 
                 img {
                     border: none
                     margin: 0
                     max-height: 100%
-                    padding: 0
+                    padding: $product-list-img-padding
                 }
             }
 
@@ -314,9 +324,15 @@ if $include-html-productlist-classes {
                 margin-bottom: 0
 
                 &__details {
-                    button-size($padding:$product-list-button-size)
-                    button-flat($font-color:$product-list-button-color)
-                    svg-background($file:'arrows_right.svg', $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
+                    font-size: 0 !important
+                    height: $product-list-button-height
+                    margin: -($product-list-button-height/2) auto 0 auto
+                    width: $product-list-button-width
+                    padding: 0
+                    position: relative
+                    text-indent: -(9999px) !important
+                    top: 50%
+                    svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
                 }
             }
 
@@ -334,13 +350,25 @@ if $include-html-productlist-classes {
 
             &:hover {
                 background-color: $product-list-item-bg-hover
-                border-color: $product-list-item-border-hover-color
+                if $product-list-item-border {
+                    border-color: $product-list-item-border-hover-color
+                }
                 if $product-list-item-box-shadow {
                     box-shadow: $product-list-item-box-shadow-hover
                 }
                 overflow: visible
-
-                single-transition()
+                if $product-list-item-hover-blur {
+                    .prd__img img {
+                        blur-filter($product-list-item-hover-blur)
+                        single-transition()
+                    }
+                }
+                .fig-overlay {
+                    opacity: 1
+                    visibility: visible
+                    single-transition(opacity)
+                }
+                single-transition(background-color)
             
                 .prd__sdesc,
                 .prd__sdesc p {
@@ -365,6 +393,8 @@ if $include-html-productlist-classes {
                 }
 
                 &__img {
+                    margin: -($product-grid-item-padding)
+                    margin-bottom: $product-grid-img-gutter
                     +mediaquery($small-only) {
                         col(1/3)
                     }
@@ -391,7 +421,7 @@ if $include-html-productlist-classes {
                     +mediaquery($small-only) {
                         float: none
                         // size of floated image __img
-                        margin-{$default-float}: ((1/3)*100)%
+                        margin-{$default-float}: ((1/3) * 100)%
                     } 
                 }
                 &__sdesc {
@@ -411,19 +441,11 @@ if $include-html-productlist-classes {
                     }
                     +mediaquery($small-only) {
                         float: none
-                        margin-{$default-float}: ((1/3)*100)%
+                        margin-{$default-float}: ((1/3) * 100)%
                         text-align: $opposite-direction
                     }
                     margin: $product-grid-pricebox-margin
                     padding: $product-grid-pricebox-padding
-                }
-
-                .btn__details {
-                    float: $default-float
-                    font-size: 0 !important
-                    height: $product-list-button-height
-                    text-indent: -(9999em)
-                    width: $product-list-button-width
                 }
             }
 
@@ -482,24 +504,30 @@ if $include-html-productlist-classes {
                     float: $default-float
                     height: $product-list-img-height
                     line-height: ($product-list-img-height - 10px)
-                    margin: $product-list-img-margin
+                    margin: -($product-list-item-padding)
+                    margin-{$opposite-direction}: $product-list-img-gutter
                     // margin-{$default-float}: 0
                     width: $product-list-img-width
+
+                    .fig-overlay {
+                        height: $product-list-img-height
+                    }
                 }
 
                 &__brand {
                     display: block
                     font-weight: $product-list-manu-font-weight
+                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                     text-transform: $product-list-manu-text-transform
                 }
                 &__title {
                     display: block
                     font-size: $product-list-title-font-size
-                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-margin[1] + $product-list-img-gutter)
+                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                 }
 
                 &__sdesc {
-                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-margin[1] + $product-list-img-gutter)
+                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                 }
 
                 .price-box {
@@ -512,26 +540,6 @@ if $include-html-productlist-classes {
                     }
                 }
 
-                .btn__details {
-
-                    text-align: center
-                    svg-background($file:false, $position-x:$opposite-direction)
-
-                    +mediaquery($medium-up) {
-                        bottom: $product-list-item-padding
-                        color: $product-list-item-bg // hides text in normal state
-                        margin-{$opposite-direction}: 0
-                        padding-{$opposite-direction}: (2 * $product-list-button-ico-size)
-                        position: absolute
-                        {$opposite-direction}: $product-list-item-padding
-                    }
-
-                    +mediaquery($small-only) {
-                        clear: both
-                        span(1/1)
-                    }
-                }
-
             } // EOF - product
 
             // Options in product-list line-view
@@ -539,7 +547,7 @@ if $include-html-productlist-classes {
                 if $product-list-opts-border {
                     border-top: $product-list-opts-border
                 }
-                margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-margin[1] + $product-list-img-gutter)
+                margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
 
                 .lbl {
                     color: $primary-color

@@ -20,7 +20,7 @@ $reveal-modal-bg ?=                          $white
 $reveal-position-top ?=                      rem-calc(100)
 $reveal-position ?=                          absolute // fixed
 $reveal-default-width ?=                     80%
-$reveal-max-width ?=                         $row-width
+$reveal-max-width ?=                         95% // $row-width
 $reveal-modal-padding ?=                     rem-calc(20)
 $reveal-box-shadow ?=                        0 5px 50px rgba($black,.3)
 
@@ -60,8 +60,8 @@ reveal-bg( $include-z-index-value = true ) {
     bottom: 0
     display: none
     left: 0
-    // position: fixed; // fixed position. NOTE: could be problematic if height of modal extends screen height. So if you use it, specify "height: 100vh; overflow: auto;"
-    position: absolute // allows modal to scroll with browser scrollbar
+    position: fixed; // fixed position. NOTE: could be problematic if height of modal extends screen height. So if you use it, specify "height: 100vh; overflow: auto;"
+    // position: absolute // allows modal to scroll with browser scrollbar
     right: 0
     top: 0
     z-index: ($include-z-index-value ? 'auto' : $zindex-reveal)
@@ -202,22 +202,22 @@ if $include-html-reveal-classes {
             reveal-modal-style($padding:0)
         }
         &--tny  {
-            reveal-modal-base(false, 40%)
+            reveal-modal-base($base-style:false, $width:40%)
         }
         &--sml {
-            reveal-modal-base(false, 50%)
+            reveal-modal-base($base-style:false, $width:50%)
         }
         &--med  {
-            reveal-modal-base(false, 60%)
+            reveal-modal-base($base-style:false, $width:60%)
         }
         &--lrg {
-            reveal-modal-base(false, 70%)
+            reveal-modal-base($base-style:false, $width:70%)
         }
         &--xlrg {
-            reveal-modal-base(false, 95%)
+            reveal-modal-base($base-style:false, $width:95%)
         }
         &--full {
-            reveal-modal-base(false, 100%)
+            reveal-modal-base($base-style:false, $width:100%)
             height: 100%
             height: 100vh
             left: 0
