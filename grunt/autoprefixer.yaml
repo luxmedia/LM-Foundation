@@ -1,12 +1,26 @@
 # Add Browser vendor prefixes
 # https://github.com/nDmitry/grunt-autoprefixer
-autoprefixer:
+options:
+  remove: false
+  browsers:
+    - 'last 5 versions'
+    - 'ie 9'
+dist:
   options:
     remove: false
     browsers:
       - 'last 5 versions'
-      - 'ie 8'
       - 'ie 9'
+  multiple_files:
+      expand: true
+      cwd: '<%= base_paths.dest %>'
+      src: '**/*.css'
+      dest: '<%= base_paths.dest %>'
+iefallback:
+  options:
+    remove: false
+    browsers:
+      - 'ie 8'
   multiple_files:
       expand: true
       cwd: '<%= base_paths.dest %>'
