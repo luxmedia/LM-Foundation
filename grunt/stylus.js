@@ -11,6 +11,7 @@ module.exports = {
             use: [
                 function () {
                     return require('autoprefixer-stylus')({
+                        remove: false,
                         browsers: ('> 1%','ie 9')
                     });
                 },
