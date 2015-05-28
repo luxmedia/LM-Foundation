@@ -26,36 +26,17 @@ Installation
 
 1. Install NodeJS using the Installer binary available from http://nodejs.org/
 2. Install packages via console (Mac OS "Terminal.app"):
-```
-cd ~/Project
-npm install jeet
-npm install grunt
-npm install grunt-autoprefixer
-npm install grunt-svgstore
-npm install grunt-contrib-clean
-npm install grunt-contrib-coffee
-npm install grunt-contrib-connect
-npm install grunt-contrib-copy
-npm install grunt-contrib-cssmin
-npm install grunt-contrib-jade
-npm install grunt-contrib-jshint
-npm install grunt-contrib-stylus
-npm install grunt-contrib-uglify
-npm install grunt-contrib-watch
-npm install svg-stylus
-npm install autoprefixer-stylus
-```
-or let the `package.json` do all the work for you. Switch to your local project directory using the `console` (terminal.app) and run the following command:
+Switch to your local project directory using the `console` (terminal.app) and run the following command:
 ```
 npm install
 ```
-maybe a `sudo` is required in some environments (e.g. Mac os)
+maybe a `sudo` is required in some environments (e.g. Mac os). This will install all dependencies defined in package.json.
 
 NOTE:
 -----------
 - The Project is in alpha state and for internal use only!
 
-- The module.export() function of foundation is not implemented yet. Instead we make a simple linear import of all .styl files in ```"lm-foundation.styl"```. To avoid duplicate code i converted the ```@import``` rules inside the ```"components/*.styl"``` to ```@require```. This avoids redundant loading.
+- Instead of the module.export() function we use stylus' @require method to import all .styl files in ```"lm-foundation.styl"```. This avoids redundant loading.
 
 - All style overrides can be done in ```"_global/lm-foundation/_settings.styl"```. The outcommented code segments could be outdated! So look in the corresponding .styl files first, for the actual available variables. New or custom settings and variables can be defined in ```"custom/_settings.styl"```. Inside of the `"custom"` directory you can also implement your own .styl files for your projects.
 
@@ -70,6 +51,5 @@ Namespace:
 
 Deprecated and unused Components:
 -----------
-- Foundation Tabs: We use "accessible Tabs" instead
 - Foundation Orbit: We use "Slick Slider" instead
 
