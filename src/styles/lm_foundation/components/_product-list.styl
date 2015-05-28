@@ -116,6 +116,8 @@ $product-list-ribbon-offset-top ?=               ($product-list-item-padding + r
 $product-grid-sml-font-size ?=                   fontsize(.8rem)
 $product-grid-sml-img-height ?=                  rem-calc(50)
 
+$product-list-transition-speed ?=               240ms
+
 
 //
 // @mixins
@@ -236,6 +238,7 @@ if $include-html-productlist-classes {
             padding: $product-list-item-padding
             position: relative
             z-index: 1
+            single-transition($speed:$product-list-transition-speed)
 
             // &__inner {
             //     clearfix()
@@ -269,6 +272,7 @@ if $include-html-productlist-classes {
                     top: 0
                     visibility: hidden
                     width: 100%
+                    single-transition($speed:$product-list-transition-speed)
                 }
 
                 img {
@@ -276,6 +280,7 @@ if $include-html-productlist-classes {
                     margin: 0
                     max-height: 100%
                     padding: $product-list-img-padding
+                    single-transition($speed:$product-list-transition-speed)
                 }
             }
 
@@ -309,7 +314,7 @@ if $include-html-productlist-classes {
             }
             a:hover .prd__title {
                 color: $product-list-title-color-hover
-                single-transition(color,$ease:ease)
+                single-transition($speed:$product-list-transition-speed)
             }
 
             &__sdesc,
@@ -320,6 +325,7 @@ if $include-html-productlist-classes {
                 line-height: $product-list-desc-line-height
                 margin: $product-list-desc-margin
                 padding: $product-list-desc-padding
+                single-transition($speed:$product-list-transition-speed)
             }
 
             // Buttons
@@ -363,20 +369,16 @@ if $include-html-productlist-classes {
                 if $product-list-item-hover-blur {
                     .prd__img img {
                         blur-filter($product-list-item-hover-blur)
-                        single-transition()
                     }
                 }
                 .fig-overlay {
                     opacity: 1
                     visibility: visible
-                    single-transition(opacity)
                 }
-                single-transition(background-color)
             
                 .prd__sdesc,
                 .prd__sdesc p {
                     color: $product-list-desc-color-hover
-                    single-transition(color)
                 }
             }
 

@@ -135,7 +135,7 @@ $svg-scale-factor-x ?=               2 // multiply the svg width with this facto
 $svg-scale-factor-y ?=               1 // multiply the svg height with this factor to get a pseudo padding for better icon alignment
 
 // Transitions
-$transition-default-speed ?=        .15s
+$transition-default-speed ?=        .24s
 
 // =========================================================================
 // d. Media Query Ranges
@@ -342,6 +342,7 @@ expand() {
 kill-flicker() {
     // -webkit-transform: translateZ(0x)
     -webkit-backface-visibility: hidden
+    backface-visibility: hidden
 }
 
 // CSS Blur filter
@@ -931,8 +932,8 @@ if $include-html-global-classes {
 
     // Blurred out elements or bgs
     .is-blurred {
-        single-transition(filter, $speed:500ms, $ease:ease)
         blur-filter()
+        single-transition($property:filter, $speed:300ms)
     }
     .is-grayscale {
         filter-grayscale()

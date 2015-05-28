@@ -306,107 +306,107 @@ th {
 
 /* line 6 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm-foundation.styl */
 
-/* line 962 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm-foundation.styl */
+/* line 963 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm-foundation.styl */
 
 /* line 6 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 /* line 269 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
-/* line 667 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
-
-/* line 750 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 668 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
 /* line 751 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+
+/* line 752 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-version {
   font-family: '/{{VERSION}}/';
 }
 
-/* line 755 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 756 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-small {
   font-family: '/only screen/';
   width: 480em;
 }
 
-/* line 759 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 760 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-small-only {
   font-family: '/only screen and (max-width:767em)/';
   width: 480em;
 }
 
-/* line 764 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 765 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-medium {
   font-family: '/only screen and (min-width:768em)/';
   width: 768em;
 }
 
-/* line 768 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 769 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-medium-only {
   font-family: '/only screen and (min-width:768em) and (max-width:991em)/';
   width: 768em;
 }
 
-/* line 773 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 774 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-large {
   font-family: '/only screen and (min-width:992em)/';
   width: 992em;
 }
 
-/* line 777 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 778 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-large-only {
   font-family: '/only screen and (min-width:992em) and (max-width:1199em)/';
   width: 992em;
 }
 
-/* line 782 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 783 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-xlarge {
   font-family: '/only screen and (min-width:1200em)/';
   width: 1200em;
 }
 
-/* line 786 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 787 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-xlarge-only {
   font-family: '/only screen and (min-width:1200em) and (max-width:1439em)/';
   width: 1200em;
 }
 
-/* line 791 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 792 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-mq-xxlarge {
   font-family: '/only screen and (min-width:1440em)/';
   width: 1440em;
 }
 
-/* line 796 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 797 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 meta.foundation-data-attribute-namespace {
   font-family: false;
 }
 
-/* line 803 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
-
 /* line 804 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+
+/* line 805 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 html,
 body {
   height: 100%;
 }
 
-/* line 810 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 811 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
 
-/* line 816 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 817 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 *:focus {
   outline: none;
   box-shadow: 0 0 10px #3ea5e5;
 }
 
-/* line 822 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 823 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 html {
   font-size: 62.5%;
 }
 
-/* line 827 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 828 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -422,25 +422,25 @@ body {
   position: relative;
 }
 
-/* line 852 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 853 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 a:hover {
   cursor: pointer;
 }
 
-/* line 857 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 858 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* line 862 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 863 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 img {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 866 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 867 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
-/* line 869 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 870 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 #map_canvas img,
 .map_canvas img,
 .mqa-display img,
@@ -453,19 +453,19 @@ img {
   max-width: none !important;
 }
 
-/* line 877 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 878 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .left {
   float: left !important;
 }
 
-/* line 880 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 881 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .right {
   float: right !important;
 }
 
-/* line 883 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 884 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .cf:before,
 .clearfix:before,
 .cf:after,
@@ -474,33 +474,33 @@ img {
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .cf:after,
 .clearfix:after {
   clear: both;
 }
 
-/* line 887 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 888 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .clear {
   clear: both;
 }
 
-/* line 891 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 892 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .no-break {
   white-space: nowrap !important;
 }
 
-/* line 894 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 895 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .break {
   white-space: normal !important;
 }
 
-/* line 898 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 899 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .block {
   display: block;
 }
 
-/* line 901 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 902 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .expand {
   display: block;
   padding-left: 0;
@@ -513,42 +513,42 @@ table.expand {
   display: table;
 }
 
-/* line 905 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 906 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .radius {
   border-radius: 3px;
 }
 
-/* line 908 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 909 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .round {
   border-radius: 1000px;
 }
 
-/* line 913 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 914 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .is-hidden,
 .hide {
   display: none !important;
 }
 
-/* line 919 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 920 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .is-invisible,
 .invisible {
   visibility: hidden;
 }
 
-/* line 928 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 929 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 933 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 934 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .is-blurred {
-  transition: filter 500ms ease;
   -moz-filter: blur(3px);
   filter: blur(3px);
+  transition: filter 300ms linear;
 }
 
-/* line 937 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 938 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .is-grayscale {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
@@ -557,20 +557,20 @@ table.expand {
   -o-filter: grayscale(100%);
 }
 
-/* line 942 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 943 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 img {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 952 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 953 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 textarea {
   height: auto;
   min-height: 50px;
   resize: vertical;
 }
 
-/* line 959 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 960 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 select {
   width: 100%;
 }
@@ -592,14 +592,14 @@ select {
   width: 100%;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .row:before,
 .row:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .row:after {
   clear: both;
 }
@@ -1029,14 +1029,14 @@ select {
   padding: 0;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 [class*='block-grid-']:before,
 [class*='block-grid-']:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 [class*='block-grid-']:after {
   clear: both;
 }
@@ -1376,7 +1376,7 @@ button,
   border-color: #3ea5e5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.24s linear, box-shadow 0.24s linear;
 }
 
 /* line 107 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_buttons.styl */
@@ -1698,14 +1698,14 @@ button::-moz-focus-inner {
   left: 0;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .btn-group:before,
 .btn-group:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .btn-group:after {
   clear: both;
 }
@@ -2170,14 +2170,14 @@ button::-moz-focus-inner {
 
 /* line 296 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_button-groups.styl */
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .btn-bar:before,
 .btn-bar:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .btn-bar:after {
   clear: both;
 }
@@ -2209,7 +2209,7 @@ button::-moz-focus-inner {
   margin-left: 0;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .clearing-thumbs:before,
 [data-clearing]:before,
 .clearing-thumbs:after,
@@ -2218,7 +2218,7 @@ button::-moz-focus-inner {
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .clearing-thumbs:after,
 [data-clearing]:after {
   clear: both;
@@ -3444,7 +3444,7 @@ input[type="radio"] + label.lbl--inv:hover {
   position: absolute;
   top: 3px;
   width: 14px;
-  transition: all 0.15s;
+  transition: all 0.24s linear;
 }
 
 /* line 530 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_forms.styl */
@@ -4314,7 +4314,7 @@ ul.pager li a {
   border: solid #ddd;
   border-width: 0 1px 0 0;
   border-radius: 0;
-  transition: background-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.24s linear, box-shadow 0.24s linear;
 }
 
 /* line 168 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_pagination.styl */
@@ -6114,7 +6114,7 @@ html.no-svg .btn--split.btn--outline .toggler:after {
   position: absolute;
   top: -1px;
   width: 16px;
-  transition: left 0.15s, 0.1s 0.15s, ease-out 0.15s;
+  transition: left 0.24s linear, 0.1s 0.24s linear, ease-out 0.24s linear;
   -o-transition: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
@@ -6480,14 +6480,14 @@ table.tbl--lrg tr td {
   margin-left: 0;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .tabs:before,
 .tabs:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .tabs:after {
   clear: both;
 }
@@ -6583,14 +6583,14 @@ table.tbl--lrg tr td {
   width: 100%;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .tabs-content:before,
 .tabs-content:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .tabs-content:after {
   clear: both;
 }
@@ -6823,15 +6823,15 @@ meta.foundation-mq-topbar {
 
 /* line 185 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar__wrap--fixed.expanded:not(.topbar) .topbar-section {
-  margin-top: 44px;
+  margin-top: 45px;
   z-index: 98;
 }
 
 /* line 195 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar {
   background-color: #333;
-  height: 44px;
-  line-height: 44px;
+  height: 45px;
+  line-height: 45px;
   margin-bottom: 0;
   overflow: hidden;
   position: relative;
@@ -6859,7 +6859,7 @@ meta.foundation-mq-topbar {
   box-shadow: none;
   box-sizing: border-box;
   font-size: 14px;
-  height: 30px;
+  height: 31px;
   padding-top: 4px;
   padding-bottom: 4px;
   position: relative;
@@ -6881,7 +6881,7 @@ meta.foundation-mq-topbar {
 .topbar .logo {
   background-color: #3ea5e5;
   font-size: 16px;
-  height: 44px;
+  height: 45px;
   margin: 0;
 }
 
@@ -6890,7 +6890,7 @@ meta.foundation-mq-topbar {
 .topbar .logo header {
   display: block;
   font-size: 16px;
-  line-height: 44px;
+  line-height: 45px;
   margin: 0;
   text-align: center;
 }
@@ -6901,7 +6901,6 @@ meta.foundation-mq-topbar {
   color: #fff;
   display: block;
   font-weight: bold;
-  font-family: $topbar-logo-font-family;
   padding: 0 10px;
   text-transform: uppercase;
 }
@@ -6911,7 +6910,7 @@ meta.foundation-mq-topbar {
 .topbar .logo header a:hover {
   color: #fff;
   background-color: #2499e2;
-  transition: background-color 0.15s;
+  transition: background-color 0.24s linear;
 }
 
 /* line 291 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
@@ -6936,8 +6935,8 @@ meta.foundation-mq-topbar {
   top: auto;
   float: right;
   width: 40px;
-  height: 30px;
-  margin-top: -30px;
+  height: 31px;
+  margin-top: -31px;
   font-size: 0 !important;
   text-indent: -9999em;
   background-image: url("./src/png/basic_magnifier.svg-medium.png");
@@ -6968,10 +6967,10 @@ meta.foundation-mq-topbar {
   display: block;
   font-size: 14px;
   font-weight: bold;
-  height: 44px;
-  line-height: 44px;
-  min-width: 44px;
-  padding: 0 14.666666666666666px;
+  height: 45px;
+  line-height: 45px;
+  min-width: 45px;
+  padding: 0 15px;
   position: relative;
   text-transform: uppercase;
 }
@@ -6987,11 +6986,11 @@ meta.foundation-mq-topbar {
   color: #fff;
   height: 34px;
   line-height: 33px;
-  padding: 0 39.67px 0 14.666666666666666px;
+  padding: 0 40px 0 15px;
   position: relative;
 }
 
-/* line 576 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 577 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .topbar .toggle-topbar.menu-icon a span::after {
   content: '';
   display: block;
@@ -6999,12 +6998,12 @@ meta.foundation-mq-topbar {
   position: absolute;
   margin-top: -8px;
   top: 50%;
-  right: 14.666666666666666px;
+  right: 15px;
   box-shadow: 0 0 0 1px #fff, 0 7px 0 1px #fff, 0 14px 0 1px #fff;
   width: 16px;
 }
 
-/* line 603 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 604 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .topbar .toggle-topbar.menu-icon a span:hover:after {
   box-shadow: 0 0 0 1px '', 0 7px 0 1px '', 0 14px 0 1px '';
 }
@@ -7052,7 +7051,7 @@ meta.foundation-mq-topbar {
   position: relative;
   width: auto;
   left: 0;
-  transition: left 0.3s;
+  transition: left 0.3s linear;
 }
 
 /* line 427 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
@@ -7084,18 +7083,18 @@ meta.foundation-mq-topbar {
   display: block;
   font-size: 12px;
   font-weight: bold;
-  padding-left: 14.666666666666666px;
+  padding-left: 15px;
   padding: 12px 0;
   text-transform: uppercase;
   width: 100%;
-  transition: background-color 0.15s;
+  transition: background-color 0.24s linear;
 }
 
 /* line 458 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar-section > ul > li > a.btn {
   font-size: 12px;
-  padding-left: 14.666666666666666px;
-  padding-right: 14.666666666666666px;
+  padding-left: 15px;
+  padding-right: 15px;
   color: #fff;
   background-color: #3ea5e5;
   border-color: #3ea5e5;
@@ -7187,8 +7186,8 @@ meta.foundation-mq-topbar {
 /* line 483 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar-section > ul > li > button {
   font-size: 12px;
-  padding-left: 14.666666666666666px;
-  padding-right: 14.666666666666666px;
+  padding-left: 15px;
+  padding-right: 15px;
   color: #fff;
   background-color: #3ea5e5;
   border-color: #3ea5e5;
@@ -7297,7 +7296,7 @@ meta.foundation-mq-topbar {
 
 /* line 528 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar-section .has-form {
-  padding: 14.666666666666666px;
+  padding: 15px;
 }
 
 /* line 533 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
@@ -7358,7 +7357,7 @@ meta.foundation-mq-topbar {
 /* line 569 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar-section .dropdown li:not(.has-form) a:not(.btn):not(.prd__link) {
   font-weight: bold;
-  padding: 6px 14.666666666666666px;
+  padding: 6px 15px;
   text-transform: uppercase;
 }
 
@@ -7390,7 +7389,7 @@ meta.foundation-mq-topbar {
 
 /* line 594 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 .topbar-section .dropdown li.has-form {
-  padding: 8px 14.666666666666666px;
+  padding: 8px 15px;
 }
 
 /* line 597 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
@@ -7405,7 +7404,7 @@ meta.foundation-mq-topbar {
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 0;
-  padding: 8px 14.67px 2px;
+  padding: 8px 15px 2px;
   text-transform: uppercase;
 }
 
@@ -7416,7 +7415,7 @@ meta.foundation-mq-topbar {
 
 /* line 269 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 
-/* line 581 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
+/* line 585 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl */
 
 /* line 6 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
@@ -7844,7 +7843,13 @@ small {
   line-height: inherit;
 }
 
-/* line 387 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 386 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+caption {
+  font-size: 12px;
+  line-height: inherit;
+}
+
+/* line 391 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 code,
 kbd,
 pre,
@@ -7860,7 +7865,7 @@ samp {
   padding: 2px 5px 1px;
 }
 
-/* line 403 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 407 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul,
 ol,
 dl {
@@ -7871,19 +7876,19 @@ dl {
   margin-bottom: 20px;
 }
 
-/* line 413 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 417 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul {
   margin-left: 20px;
 }
 
-/* line 415 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 419 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.no-bullet {
   margin-left: 0;
 }
 
-/* line 417 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 421 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 418 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 422 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.no-bullet li ul,
 ul.no-bullet li ol {
   list-style: none;
@@ -7891,78 +7896,78 @@ ul.no-bullet li ol {
   margin-left: 20px;
 }
 
-/* line 429 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 433 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 430 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 434 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 431 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 435 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul li ul,
 ul li ol {
   margin-bottom: 0;
   margin-left: 20px;
 }
 
-/* line 437 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 441 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 440 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 444 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.square li ul,
 ul.circle li ul,
 ul.disc li ul {
   list-style: inherit;
 }
 
-/* line 445 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 449 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.square {
   list-style-type: square;
   margin-left: 20px;
 }
 
-/* line 449 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 453 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.circle {
   list-style-type: circle;
   margin-left: 20px;
 }
 
-/* line 453 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 457 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.disc {
   list-style-type: disc;
   margin-left: 20px;
 }
 
-/* line 457 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 461 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ul.no-bullet {
   list-style: none;
 }
 
-/* line 463 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 467 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ol {
   margin-left: 20px;
 }
 
-/* line 465 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 469 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 466 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 470 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 ol li ul,
 ol li ol {
   margin-bottom: 0;
   margin-left: 20px;
 }
 
-/* line 475 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 479 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 476 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 480 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 dl dt {
   font-weight: bold;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-/* line 481 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 485 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 dl dd {
   margin-bottom: 10px;
 }
 
-/* line 487 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 491 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 abbr,
 acronym {
   color: #222;
@@ -7971,49 +7976,49 @@ acronym {
   text-transform: uppercase;
 }
 
-/* line 494 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 498 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 abbr {
   text-transform: none;
 }
 
-/* line 496 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 500 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 abbr[title] {
   border-bottom: 1px dotted #ddd;
 }
 
-/* line 502 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 506 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 blockquote {
   margin: 0 0 20px;
   padding: 9px 20px 0 19px;
   border-left: 1px solid #ddd;
 }
 
-/* line 507 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 511 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 blockquote cite {
   color: #626262;
   display: block;
   font-size: 13px;
 }
 
-/* line 511 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 515 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 blockquote cite:before {
   content: '\2014 \0020';
 }
 
-/* line 515 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 519 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 blockquote cite a,
 blockquote cite a:visited {
   color: #626262;
 }
 
-/* line 521 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 525 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 blockquote,
 blockquote p {
   color: #7a7a7a;
   line-height: 1.4;
 }
 
-/* line 528 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 532 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 .vcard {
   border: 1px solid #ddd;
   display: inline-block;
@@ -8021,26 +8026,26 @@ blockquote p {
   padding: 10px 12px;
 }
 
-/* line 534 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 538 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 .vcard li {
   display: block;
   margin: 0;
 }
 
-/* line 538 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 542 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 .vcard .fn {
   font-size: 15px;
   font-weight: bold;
 }
 
-/* line 544 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 548 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 
-/* line 545 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 549 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 .vevent .summary {
   font-weight: bold;
 }
 
-/* line 549 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
+/* line 553 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_type.styl */
 .vevent abbr {
   border: none;
   cursor: default;
@@ -8061,7 +8066,7 @@ blockquote p {
 
 /* line 331 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .off-canvas-wrap {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -8076,27 +8081,27 @@ blockquote p {
 
 /* line 334 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .inner-wrap {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: relative;
   width: 100%;
   transition: transform 500ms ease;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .inner-wrap:before,
 .inner-wrap:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .inner-wrap:after {
   clear: both;
 }
 
 /* line 338 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .tab-bar {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #333;
   color: #fff;
   height: 45px;
@@ -8184,7 +8189,7 @@ blockquote p {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 576 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 577 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .tab-bar .menu-icon span::after {
   content: '';
   display: block;
@@ -8197,7 +8202,7 @@ blockquote p {
   width: 16px;
 }
 
-/* line 603 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 604 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .tab-bar .menu-icon span:hover:after {
   box-shadow: 0 0 0 1px #b3b3b3, 0 7px 0 1px #b3b3b3, 0 14px 0 1px #b3b3b3;
 }
@@ -8210,7 +8215,7 @@ blockquote p {
 
 /* line 383 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .left-off-canvas-menu {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
   background: #333;
@@ -8229,12 +8234,12 @@ blockquote p {
 
 /* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .left-off-canvas-menu * {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* line 386 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .right-off-canvas-menu {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
   background: #333;
@@ -8253,7 +8258,7 @@ blockquote p {
 
 /* line 113 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .right-off-canvas-menu * {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* line 390 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8289,7 +8294,7 @@ ul.off-canvas-list li a {
   padding: 10px;
   position: relative;
   text-transform: uppercase;
-  transition: background-color 0.15s;
+  transition: background-color 0.24s linear;
 }
 
 /* line 279 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8316,7 +8321,7 @@ ul.off-canvas-list li a:active {
 
 /* line 404 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .move-right .exit-off-canvas {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-tap-highlight-color: rgba(17,17,17,0);
   bottom: 0;
   cursor: pointer;
@@ -8326,7 +8331,7 @@ ul.off-canvas-list li a:active {
   right: 0;
   top: 0;
   z-index: 1002;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.24s ease;
 }
 
 /* line 407 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8348,7 +8353,7 @@ ul.off-canvas-list li a:active {
 
 /* line 421 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .move-left .exit-off-canvas {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-tap-highlight-color: rgba(17,17,17,0);
   bottom: 0;
   cursor: pointer;
@@ -8358,7 +8363,7 @@ ul.off-canvas-list li a:active {
   right: 0;
   top: 0;
   z-index: 1002;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.24s ease;
 }
 
 /* line 424 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8377,7 +8382,7 @@ ul.off-canvas-list li a:active {
 
 /* line 435 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .offcanvas-overlap .exit-off-canvas {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-tap-highlight-color: rgba(17,17,17,0);
   bottom: 0;
   cursor: pointer;
@@ -8387,7 +8392,7 @@ ul.off-canvas-list li a:active {
   right: 0;
   top: 0;
   z-index: 1002;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.24s ease;
 }
 
 /* line 439 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8400,7 +8405,7 @@ ul.off-canvas-list li a:active {
 
 /* line 444 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .offcanvas-overlap-left .exit-off-canvas {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-tap-highlight-color: rgba(17,17,17,0);
   bottom: 0;
   cursor: pointer;
@@ -8410,7 +8415,7 @@ ul.off-canvas-list li a:active {
   right: 0;
   top: 0;
   z-index: 1002;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.24s ease;
 }
 
 /* line 448 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8423,7 +8428,7 @@ ul.off-canvas-list li a:active {
 
 /* line 453 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .offcanvas-overlap-right .exit-off-canvas {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-tap-highlight-color: rgba(17,17,17,0);
   bottom: 0;
   cursor: pointer;
@@ -8433,7 +8438,7 @@ ul.off-canvas-list li a:active {
   right: 0;
   top: 0;
   z-index: 1002;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.24s ease;
 }
 
 /* line 459 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8462,7 +8467,7 @@ ul.off-canvas-list li a:active {
 
 /* line 589 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .left-submenu {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #333;
   bottom: 0;
   box-sizing: content-box;
@@ -8481,7 +8486,7 @@ ul.off-canvas-list li a:active {
 
 /* line 482 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .left-submenu * {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* line 507 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -8516,7 +8521,7 @@ ul.off-canvas-list li a:active {
 
 /* line 598 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .right-submenu {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   background: #333;
   bottom: 0;
   box-sizing: content-box;
@@ -8535,7 +8540,7 @@ ul.off-canvas-list li a:active {
 
 /* line 482 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
 .right-submenu * {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* line 507 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_offcanvas.styl */
@@ -9673,7 +9678,7 @@ th.hide-for-touch {
   }
 }
 
-/* line 574 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_visibility.styl */
+/* line 580 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_visibility.styl */
 
 /* line 6 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
@@ -9685,28 +9690,28 @@ th.hide-for-touch {
 
 /* line 269 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 206 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 211 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 207 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 212 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist {
   padding: 20px;
   margin: 0;
   background-color: #f6f6f6;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .prdlist:before,
 .prdlist:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .prdlist:after {
   clear: both;
 }
 
-/* line 213 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 218 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist.row:not(.row--collapse) {
   margin-left: 0;
   margin-right: 0;
@@ -9714,39 +9719,40 @@ th.hide-for-touch {
   padding-right: 10px;
 }
 
-/* line 221 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 226 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist > li {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 228 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 233 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd {
   background-color: #fff;
   padding: 10px;
   position: relative;
   z-index: 1;
+  transition: all 240ms linear;
 }
 
-/* line 241 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 247 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__link {
   display: block;
 }
 
-/* line 610 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 611 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .prdlist .prd__link:before,
 .prdlist .prd__link:after {
   content: ' ';
   display: table;
 }
 
-/* line 615 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
+/* line 616 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_global.styl */
 .prdlist .prd__link:after {
   clear: both;
 }
 
-/* line 247 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 253 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__img {
   background: #fff;
   display: block;
@@ -9758,9 +9764,9 @@ th.hide-for-touch {
   width: auto;
 }
 
-/* line 257 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 263 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__img .fig-overlay {
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   background-color: rgba(221,221,221,0.75);
   height: 120px;
   left: 0;
@@ -9771,30 +9777,32 @@ th.hide-for-touch {
   top: 0;
   visibility: hidden;
   width: 100%;
+  transition: all 240ms linear;
 }
 
-/* line 271 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 278 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__img img {
   border: none;
   margin: 0;
   max-height: 100%;
   padding: 8px;
+  transition: all 240ms linear;
 }
 
-/* line 280 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 288 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__brand {
-  color: #999;
+  color: #666;
   display: block;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.1;
-  margin: 0;
+  margin: 0 0 4px 0;
   overflow: hidden;
   padding: 0;
   text-transform: uppercase;
 }
 
-/* line 294 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 302 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__title {
   color: #444;
   display: block;
@@ -9808,13 +9816,13 @@ th.hide-for-touch {
   text-transform: uppercase;
 }
 
-/* line 307 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 315 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd a:hover .prd__title {
   color: #3ea5e5;
-  transition: color 0.15s ease;
+  transition: all 240ms linear;
 }
 
-/* line 312 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 320 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd__sdesc,
 .prdlist .prd__sdesc p {
   color: #777;
@@ -9822,14 +9830,15 @@ th.hide-for-touch {
   line-height: 1.1;
   margin: 0 0 20px 0;
   padding: 0;
+  transition: all 240ms linear;
 }
 
-/* line 323 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 332 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd .btn {
   margin-bottom: 0;
 }
 
-/* line 326 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 335 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd .btn__details {
   font-size: 0 !important;
   height: 45px;
@@ -9844,94 +9853,93 @@ th.hide-for-touch {
   background-repeat: no-repeat;
 }
 
-/* line 339 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 348 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd .ribbon {
   top: 15px;
 }
 
-/* line 344 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 353 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 345 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 354 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd--special.prd--new .ribbon--primary,
 .prdlist .prd--special.prd--new .ribbon--special {
   top: 45px;
 }
 
-/* line 351 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 360 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd:hover {
   background-color: #ddd;
   box-shadow: false;
   overflow: visible;
-  transition: background-color 0.15s;
 }
 
-/* line 361 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 370 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd:hover .prd__img img {
   -moz-filter: blur(10px);
   filter: blur(10px);
-  transition: all 0.15s;
 }
 
-/* line 366 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 374 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd:hover .fig-overlay {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.15s;
 }
 
-/* line 373 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 379 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist .prd:hover .prd__sdesc,
 .prdlist .prd:hover .prd__sdesc p {
   color: #444;
-  transition: color 0.15s;
 }
 
-/* line 384 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 389 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 385 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 390 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid .prd {
   margin: 8px 0;
   padding: 0;
 }
 
-/* line 391 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 396 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid .prd__link {
   padding: 10px;
 }
 
-/* line 395 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 400 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid .prd__img {
   margin: -10px;
   margin-bottom: 10px;
 }
 
-/* line 403 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
-
 /* line 408 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+.prdlist--grid .prd__brand {
+  margin: 0 0 2px 0;
+}
+
+/* line 414 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid .prd__title {
   margin: 0 0 2px 0;
 }
 
-/* line 419 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 425 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 427 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 433 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid .prd__sdesc {
   font-size: 12px;
   margin: 0 0 5px 0;
   padding: 0;
 }
 
-/* line 438 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 444 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid .prd .price-box {
   margin: 3px 0;
   padding: 0;
 }
 
-/* line 453 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 459 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 454 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 460 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 455 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 461 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid--sml .prd__title,
 .prdlist--grid--sml .prd__sdesc,
 .prdlist--grid--sml .prd__brand,
@@ -9940,49 +9948,49 @@ th.hide-for-touch {
   font-size: 12px;
 }
 
-/* line 462 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 468 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid--sml .prd__img {
   height: 50px;
   line-height: 50px;
 }
 
-/* line 466 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 472 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--grid--sml .prd .price,
 .prdlist--grid--sml .prd .price--special {
   font-size: inherit;
 }
 
-/* line 475 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 481 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 476 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 482 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd {
   clear: both;
   margin: 8px 0;
   padding: 0;
 }
 
-/* line 481 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 487 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd.first,
 .prdlist--line .prd:first-of-type,
 .prdlist--line .prd:first-child {
   margin-top: 0;
 }
 
-/* line 486 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 492 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd.last,
 .prdlist--line .prd:last-of-type,
 .prdlist--line .prd:last-child {
   margin-bottom: 0;
 }
 
-/* line 492 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 498 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__link {
   padding: 10px;
 }
 
-/* line 497 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
-
 /* line 503 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+
+/* line 509 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__img {
   float: left;
   height: 140px;
@@ -9992,55 +10000,55 @@ th.hide-for-touch {
   width: 140px;
 }
 
-/* line 512 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 518 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__img .fig-overlay {
   height: 140px;
 }
 
-/* line 517 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 523 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__brand {
   display: block;
-  font-weight: normal;
+  font-weight: bold;
   margin-left: 160px;
   text-transform: uppercase;
 }
 
-/* line 523 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 529 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__title {
   display: block;
   font-size: 14px;
   margin-left: 160px;
 }
 
-/* line 529 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 535 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__sdesc {
   margin-left: 160px;
 }
 
-/* line 533 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 539 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd .price-box {
   text-align: right;
 }
 
-/* line 546 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 552 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__opts {
   border-top: 1px solid rgba(17,17,17,0.15);
   margin-left: 160px;
 }
 
-/* line 552 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 558 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__opts .lbl {
   color: #3ea5e5;
   float: left;
 }
 
-/* line 557 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 563 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prdlist--line .prd__opts ul li {
   margin-right: 0;
   border-left: 1px solid rgba(17,17,17,0.1);
 }
 
-/* line 570 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 576 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts {
   color: #444;
   font-weight: normal;
@@ -10048,7 +10056,7 @@ th.hide-for-touch {
   text-transform: uppercase;
 }
 
-/* line 129 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 134 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts .lbl {
   background-color: transparent;
   color: #666;
@@ -10059,13 +10067,13 @@ th.hide-for-touch {
   padding: 2px 0;
 }
 
-/* line 142 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 147 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 146 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 151 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul li {
   background: #fff;
   display: inline-block;
@@ -10075,20 +10083,20 @@ th.hide-for-touch {
   padding: 2px 10px;
 }
 
-/* line 154 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 159 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul li:first-child {
   margin-left: 0;
   border-left: none;
 }
 
-/* line 161 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 166 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul li.is-disabled {
   opacity: 0.5;
 }
 
-/* line 165 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 170 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 
-/* line 166 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 171 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul li.is-selected a,
 .prd__opts ul li.is-selected a:hover {
   background-color: #777;
@@ -10097,7 +10105,7 @@ th.hide-for-touch {
   cursor: default;
 }
 
-/* line 174 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 179 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul li a {
   border-style: solid;
   border-color: rgba(17,17,17,0.1);
@@ -10108,13 +10116,13 @@ th.hide-for-touch {
   padding: 2px 10px;
 }
 
-/* line 185 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 190 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts ul li a:hover {
   background: #eee;
   color: #222;
 }
 
-/* line 195 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
+/* line 200 : /Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_product-list.styl */
 .prd__opts .lst--plain li {
   border-right: 1px solid rgba(17,17,17,0.15);
 }

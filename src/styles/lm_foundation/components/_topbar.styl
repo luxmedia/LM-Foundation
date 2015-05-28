@@ -18,12 +18,12 @@ $topbar-bg-color ?=                          $charcoal-1
 $topbar-bg ?=                                $topbar-bg-color
 
 // Height and margin
-$topbar-height ?=                            rem-calc(44)
+$topbar-height ?=                            rem-calc(45)
 $topbar-margin-bottom ?=                     0
 
 // Controlling the styles for the title in the top bar
-$topbar-logo-family ?=                       $font-family-headings
-$topbar-logo-weight ?=                       $font-weight-bold
+$topbar-logo-font-family ?=                  $font-family-headings
+$topbar-logo-font-weight ?=                       $font-weight-bold
 $topbar-logo-font-size ?=                    fontsize(1.2rem)
 $topbar-logo-font-color ?=                   $white
 $topbar-logo-font-color-hover ?=             $white
@@ -273,7 +273,7 @@ if $include-html-topbar-classes {
                 a {
                     color: $topbar-logo-font-color
                     display: block
-                    font-weight: $topbar-logo-weight
+                    font-weight: $topbar-logo-font-weight
                     font_family($topbar-logo-font-family)
                     padding: $topbar-logo-padding
                     text-transform: $topbar-logo-text-transform 
