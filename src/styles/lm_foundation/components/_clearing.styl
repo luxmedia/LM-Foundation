@@ -28,7 +28,7 @@ $clearing-arrow-color ?=                     $clearing-close-color
 // style captions
 $clearing-caption-font-color ?=              $gray-medium-2
 $clearing-caption-font-size ?=               fontsize(.8rem)
-$clearing-caption-padding ?=                 10px 30px 20px
+$clearing-caption-padding ?=                 rem-calc(10 20 10)
 
 // make the image and carousel height and style
 $clearing-active-img-height ?=               85%
@@ -57,7 +57,7 @@ if $include-html-clearing-classes {
 
         li {
             float: $default-float
-            margin-{$opposite-direction}: 10px
+            margin-{$opposite-direction}: rem-calc(10)
         }
 
         &[class*='block-grid-'] li {
