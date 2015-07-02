@@ -48,7 +48,7 @@ $topbar-link-bg-active ?=                    $primary-color
 $topbar-link-bg-active-hover ?=              scale-color($primary-color, $topbar-link-hover-lightness)
 $topbar-link-font-family ?=                  $font-family-custom
 $topbar-link-text-transform ?=               uppercase
-$topbar-link-padding ?=                      ($topbar-height/3)
+$topbar-link-padding ?=                      (($topbar-height/6) ($topbar-height/3))
 $topbar-back-link-size ?=                    fontsize(1.3rem)
 $topbar-link-dropdown-padding ?=             rem-calc(20)
 
@@ -568,7 +568,7 @@ if $include-html-topbar-classes {
 
                 &:not(.has-form) a:not(.btn):not(.prd__link) {
                     font-weight: $topbar-dropdown-link-weight
-                    padding: rem-calc(6) $topbar-link-padding
+                    padding: $topbar-link-padding
                     text-transform: uppercase
 
                     &.parent-link {
@@ -732,12 +732,12 @@ if $include-html-topbar-classes {
                 &.is-active li {
                     // give last item a little bottom space
                     &:last-child {
-                        margin-bottom: remify(0.35rem)
+                        margin-bottom: rem-calc(4)
                     }
                     a:not(.btn) {
-                        line-height: remify(1.4rem)
-                        padding-bottom: remify(0.35rem)
-                        padding-top: remify(0.35rem)
+                        line-height: 1.4
+                        padding-bottom: rem-calc(4)
+                        padding-top: rem-calc(4)
                     }
                 }
 
@@ -771,14 +771,8 @@ if $include-html-topbar-classes {
                 .dropdown li.has-dropdown {
                     > a {
                         if ($topbar-dropdown-arrows) {
-                            &:after {
-                                border: none
-                                content: '\00bb'
-                                line-height: 1.2
-                                margin-top: -(1px)
-                                top: remify(1rem)
-                                {$opposite-direction}: 5px
-                            }
+                            padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
+                            svg-background($file:'arrows_right.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                         }
                     }
                 }

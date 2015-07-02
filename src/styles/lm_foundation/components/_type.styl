@@ -560,6 +560,33 @@ if $include-html-type-classes {
         }
     }
 
+    .bg {
+        &--primary {
+            background-color: $primary-color
+            color: $white
+        }
+        &--secondary {
+            background-color: $secondary-color
+            color: $white
+        }
+        &--info {
+            background-color: $info-color
+            color: $white
+        }
+        &--success {
+            background-color: $success-color
+            color: $white
+        }
+        &--warning {
+            background-color: $warning-color
+            color: $white
+        }
+        &--alert {
+            background-color: $alert-color
+            color: $white
+        }
+    }
+
     +mediaquery($medium-up) {
         h1, h2, h3, h4, h5, h6 {
             line-height: $header-line-height
