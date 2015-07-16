@@ -3,7 +3,8 @@ stylesheets:
   tasks:
     - 'stylus' #autopprefixer plugin is included here via 'use'-option!
     # - 'autoprefixer'
-    - 'cssmin'
+    # - 'cssmin'
+    - 'postcss'
     - 'clean:stylesheets'
 scripts:
   description: 'Compiles and concatenates the JavaScript files.'

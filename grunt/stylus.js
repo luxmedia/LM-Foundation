@@ -9,12 +9,12 @@ module.exports = {
             linenos: true,
             compress: false,
             use: [
-                function () {
-                    return require('autoprefixer-stylus')({
-                        remove: false,
-                        browsers: ('> 1%','ie 9')
-                    });
-                },
+                // function () {
+                //     return require('autoprefixer-stylus')({
+                //         remove: false,
+                //         browsers: ('> 1%','ie 9')
+                //     });
+                // },
                 require('svg-stylus')
             ]
         },
@@ -37,11 +37,11 @@ module.exports = {
             linenos: true,
             compress: false,
             use: [
-                function () {
-                    return require('autoprefixer-stylus')({
-                        browsers: ('ie 8')
-                    });
-                }
+                // function () {
+                //     return require('autoprefixer-stylus')({
+                //         browsers: ('ie 8')
+                //     });
+                // }
             ],
             import: ['<%= lm_conf.styl_src_ie8flag %>']
         },

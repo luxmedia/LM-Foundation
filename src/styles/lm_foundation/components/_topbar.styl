@@ -23,7 +23,7 @@ $topbar-margin-bottom ?=                     0
 
 // Controlling the styles for the title in the top bar
 $topbar-logo-font-family ?=                  $font-family-headings
-$topbar-logo-font-weight ?=                       $font-weight-bold
+$topbar-logo-font-weight ?=                  $font-weight-bold
 $topbar-logo-font-size ?=                    fontsize(1.2rem)
 $topbar-logo-font-color ?=                   $white
 $topbar-logo-font-color-hover ?=             $white
@@ -48,7 +48,7 @@ $topbar-link-bg-active ?=                    $primary-color
 $topbar-link-bg-active-hover ?=              scale-color($primary-color, $topbar-link-hover-lightness)
 $topbar-link-font-family ?=                  $font-family-custom
 $topbar-link-text-transform ?=               uppercase
-$topbar-link-padding ?=                      (($topbar-height/6) ($topbar-height/3))
+$topbar-link-padding ?=                      ($topbar-height/3)
 $topbar-back-link-size ?=                    fontsize(1.3rem)
 $topbar-link-dropdown-padding ?=             rem-calc(20)
 
@@ -77,6 +77,7 @@ $topbar-dropdown-link-color ?=               $white
 $topbar-dropdown-link-color-hover ?=         $primary-color
 $topbar-dropdown-link-bg ?=                  $topbar-dropdown-bg
 $topbar-dropdown-link-bg-hover ?=            scale-color($topbar-dropdown-link-bg, $topbar-link-hover-lightness)
+$topbar-dropdown-link-padding ?=             rem-calc(6 20)
 $topbar-dropdown-link-weight ?=              $font-weight-bold
 $topbar-dropdown-toggle-size ?=              5px
 $topbar-dropdown-toggle-color ?=             rgba($white, .75)
@@ -793,8 +794,8 @@ if $include-html-topbar-classes {
                             display: block
                             font-size:$topbar-link-font-size
                             font_family($topbar-link-font-family)
-                            line-height: ($topbar-height / 2)
-                            padding: rem-calc(6) $topbar-link-padding
+                            line-height: 1.4
+                            padding: $topbar-dropdown-link-padding
                             white-space: nowrap
                             
                             .lbl--badge {

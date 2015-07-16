@@ -582,7 +582,11 @@ if $include-html-type-classes {
             color: $white
         }
         &--alert {
-            background-color: $alert-color
+            if (light($alert-color)) {
+                background-color: $alert-color
+            } else {
+                background-color: $warning-font-color
+            }
             color: $white
         }
     }

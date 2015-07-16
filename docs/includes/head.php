@@ -14,6 +14,7 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+	<link href="../dist/css/styles_data.min.css" rel="stylesheet" />
 	<link href="../dist/css/styles.css" rel="stylesheet" />
 	<link href="templates.css" rel="stylesheet" />
 

@@ -264,6 +264,7 @@ $zindex-dropdown ?=                      1000
 $zindex-popover ?=                       1060
 $zindex-tooltip ?=                       1070
 $zindex-navbar-fixed ?=                  1030
+$zindex-magellan-fixed ?=                1031
 $zindex-modal ?=                         1040
 $zindex-off-canvas-menu ?=               1001
 $zindex-offcanvas ?=                     1050
@@ -911,6 +912,15 @@ if $include-html-global-classes {
     }
     .round {
         radius($global-rounded)
+    }
+
+    // Fixed elements
+    .fixed {
+        position: fixed
+        top: 0
+        width: 100%
+        z-index: $zindex-navbar-fixed
+        {$default-float}: 0
     }
 
     // Hide visually and from screen readers

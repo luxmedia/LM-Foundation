@@ -11,7 +11,9 @@
 $include-html-magellan-classes =            com_js.MAGELLAN
 
 $magellan-bg ?=                              $white
-$magellan-padding ?=                         10px
+$magellan-padding ?=                         rem-calc(10)
+
+$zindex-magellan-fixed ?=                   1031
 
 //
 // @styles
@@ -19,11 +21,13 @@ $magellan-padding ?=                         10px
 
 if $include-html-magellan-classes {
 
-    {data('magellan-expedition')}, {data('magellan-expedition-clone')} {
+    {data('magellan-expedition')},
+    {data('magellan-expedition-clone')} {
         background: $magellan-bg
         min-width: 100%
         padding: $magellan-padding
-        z-index: 50
+        z-index: $zindex-magellan-fixed
+        {$default-float}: auto !important
 
         .sub-nav {
             margin-bottom: 0

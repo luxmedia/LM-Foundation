@@ -16,6 +16,10 @@ $clearing-caption-bg ?=                      $clearing-bg
 $clearing-carousel-bg ?=                     rgba($charcoal-1,.8)
 $clearing-img-bg ?=                          $clearing-bg
 
+$clearing-thumb-margin ?=                    rem-calc(10)
+$clearing-thumb-figure-margin ?=             0
+$clearing-thumb-figure-padding ?=            0
+
 // style the close button
 $clearing-close-color ?=                     $gray-medium-2
 $clearing-close-hover-color ?=               $gray-medium-2
@@ -27,8 +31,8 @@ $clearing-arrow-color ?=                     $clearing-close-color
 
 // style captions
 $clearing-caption-font-color ?=              $gray-medium-2
-$clearing-caption-font-size ?=               fontsize(.8rem)
-$clearing-caption-padding ?=                 rem-calc(10 20 10)
+$clearing-caption-font-size ?=               fontsize(.75rem)
+$clearing-caption-padding ?=                 rem-calc(5 10)
 
 // make the image and carousel height and style
 $clearing-active-img-height ?=               85%
@@ -57,11 +61,17 @@ if $include-html-clearing-classes {
 
         li {
             float: $default-float
-            margin-{$opposite-direction}: rem-calc(10)
+            margin-{$opposite-direction}: $clearing-thumb-margin
         }
 
         &[class*='block-grid-'] li {
             margin-{$opposite-direction}: 0
+
+            .img,
+            figure {
+                margin: $clearing-thumb-figure-margin
+                padding: $clearing-thumb-figure-padding
+            }
         }
     }
 
@@ -72,7 +82,7 @@ if $include-html-clearing-classes {
         position: fixed
         top: 0
         width: 100%
-        z-index: 998
+        z-index: ($zindex-modal - 1)
 
         .clearing-close {
             display: block
@@ -84,7 +94,7 @@ if $include-html-clearing-classes {
         margin: 0
         overflow: hidden
         position: relative
-        z-index: 998
+        z-index: ($zindex-modal - 1)
     }
 
     .clearing-touch-label {
@@ -115,16 +125,16 @@ if $include-html-clearing-classes {
 
     .clearing-caption {
         background: $clearing-caption-bg
-        bottom: 0
+        // bottom: 0
         color: $clearing-caption-font-color
         font-size: $clearing-caption-font-size
-        line-height: 1.3
+        line-height: 1.2
         margin-bottom: 0
-        text-align: center
+        text-align: $default-float
         padding: $clearing-caption-padding
-        position: absolute
+        // position: absolute
         width: 100%
-        {$default-float}: 0
+        // {$default-float}: 0
     }
 
     .clearing-close {
@@ -134,7 +144,7 @@ if $include-html-clearing-classes {
         line-height: 1
         padding-{$default-float}: 20px
         padding-top: 10px
-        z-index: 999
+        z-index: $zindex-modal
 
         &:hover,
         &:focus {
@@ -217,7 +227,7 @@ if $include-html-clearing-classes {
                     float: none
                     height: 100%
                     position: relative
-                    z-index: 999
+                    z-index: $zindex-modal
 
                     li {
                         clear: none

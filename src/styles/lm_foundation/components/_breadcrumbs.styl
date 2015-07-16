@@ -30,6 +30,7 @@ $crumb-line-height ?=                        1
 $crumb-font-weight ?=                        $font-weight-bold
 $crumb-font-weight-current ?=                $font-weight-normal
 $crumb-font-color ?=                         $primary-color
+$crumb-font-color-hover ?=                   scale-color($crumb-font-color, $crumb-function-factor)
 $crumb-font-color-current ?=                 $gray-base
 $crumb-font-color-unavailable ?=             $gray-medium-2
 $crumb-font-transform ?=                     uppercase
@@ -70,6 +71,7 @@ crumbs() {
 
     &:hover a,
     &:focus a { 
+        color: $crumb-font-color-hover
         text-decoration: $crumb-link-decor
     }
 
