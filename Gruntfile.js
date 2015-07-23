@@ -80,12 +80,15 @@ module.exports = function(grunt) {
     // ===============================================
     // define our source and destination folders
     var lm_conf = {
+
         // --- SOURCE ---
+        // --------------
+
         stylus_plugins: ['svg-stylus'],
         // vednor js
         js_src_vendor: ['<%= base_paths.src %>/js/vendor/common/*.js'],
         // ie8 fallback js
-        js_src_ie8: ['<%= base_paths.src %>/js/vendor/ie/*.js'],
+        js_src_ie8: ['<%= base_paths.src %>/js/vendor/' + base__params.namespace_ie_8 + '/*.js'],
         // foundation js source files
         // make sure to load foundation.js before its components (see JSON routine above) !!!
         js_src_fndtn_com: fndtn__src__com,
@@ -94,33 +97,43 @@ module.exports = function(grunt) {
         // custom javascripts
         js_src_custom: js_src_scripts,
         // stylus source file(s)
-        styl_src: ['<%= base_paths.src %>/styles/*.styl'],
-        styl_src_file: '<%= base_paths.src %>/styles/styles.styl',
-        styl_src_files: 'styles/styles.styl',
-        styl_src_ie8flag: 'styles/ie8-flag.styl',
-        // svg source folder/files
-        svg_src: ['<%= base_paths.src %>/svg'],
+        styl_src: ['<%= base_paths.src %>/' + base__params.namespace_common_styles + '/*.styl'],
+        styl_src_file: '<%= base_paths.src %>/' + base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
+        styl_src_files: base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
+        styl_src_ie8flag: base__params.namespace_common_styles + '/ie8-flag.styl',
+        // svg source folder/filess
+        svg_src: ['<%= base_paths.src %>/vg'],
         svg_src_files: ['<%= base_paths.src %>/svg/*.svg'],
+
+        // --- DESTINATION ---
+        // -------------------
+
+        // js distribution folder and files
+        js_dist_folder: '<%= base_paths.dest %>/js',
+        js_dist_file_vendor: '<%= base_paths.dest %>/js/' + base__params.namespace_vendor,
+        js_dist_file_fndtn: '<%= base_paths.dest %>/js/' + base__params.jnamespace_fndtn,
+        js_dist_file_plugins: '<%= base_paths.dest %>/js/' + base__params.namespace_plugins,
+        js_dist_file_custom: '<%= base_paths.dest %>/js/' + base__params.namespace_custom,
+        js_dist_file_ie8: '<%= base_paths.dest %>/js/' + base__params.namespace_ie_8,
+        // css distribution folder and files
+        css_dist_folder: '<%= base_paths.dest %>/css',
+        css_dist_file_styles: '<%= base_paths.dest %>/css/' + base__params.namespace_common_styles,
+        css_dist_file_styles_data: '<%= base_paths.dest %>/css/' + base__params.namespace_common_styles + '_data',
+        css_dist_file_ie9to10: '<%= base_paths.dest %>/css/' + base__params.namespace_ie_9to10,
+        css_dist_file_ie8: '<%= base_paths.dest %>/css/' + base__params.namespace_ie_8,
+        // svg distribution folder and files
+        svg_dist: ['<%= base_paths.dest %>/svg'],
+        svg_dist_file: '<%= base_paths.dest %>/svg/' + base__params.namespace_svg_sprite + '.svg',
+
+        // --- PARAMETERS ---
+        // -------------------
+        
         svg_colors_arr: base__colors,
         svg_colors_ext: svg_color_str,
-        // Default png-widths for grunticon
+        // Default png-widths for grunticon svg-fallback
         png_width: base__params.default_png_width,
         png_height: base__params.default_png_height,
-        // --- DESTINATION ---
-        // js distribution folder and file
-        js_dist_folder: '<%= base_paths.dest %>/js',
-        js_dist_file_vendor: base__params.js_dist_file_vendor,
-        js_dist_file_fndtn: base__params.js_dist_file_fndtn,
-        js_dist_file_plugins: base__params.js_dist_file_plugins,
-        js_dist_file_custom: base__params.js_dist_file_custom,
-        js_dist_file_iefallback: base__params.js_dist_file_iefallback,
-        // css distribution folder and file
-        css_dist_folder: '<%= base_paths.dest %>/css',
-        css_dist_file: '<%= base_paths.dest %>/css/styles',
-        css_dist_file_ie8: '<%= base_paths.dest %>/css/ie8',
-        // svg distribution folder/files
-        svg_dist: ['<%= base_paths.dest %>/svg'],
-        svg_dist_file: '<%= base_paths.dest %>/svg/sprite.svg',
+
         // excludes for "copy" to avoid duplication
         do_not_copy: ['!<%= base_paths.src %>/**/*.styl', '!<%= base_paths.src %>/**/*.coffee', '!<%= base_paths.src %>/**/*.jade'],
         // avoid cleaning out this files (minified distribution versions)
@@ -146,7 +159,8 @@ module.exports = function(grunt) {
         data: {
             test: false,
             base_paths: base_paths,
-            lm_conf: lm_conf
+            lm_conf: lm_conf,
+            base__params: base__params
         },
 
         // pass variables to modules and tasks

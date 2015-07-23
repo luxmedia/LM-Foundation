@@ -2,8 +2,8 @@
 dist:
   files:
     -
-      src: '<%= lm_conf.css_dist_file %>.css'
-      dest: '<%= lm_conf.css_dist_file %>.min.css'
+      src: '<%= lm_conf.css_dist_file_styles %>.css'
+      dest: '<%= lm_conf.css_dist_file_styles %>.min.css'
     -
       src: '<%= lm_conf.css_dist_file_ie8 %>.css'
       dest: '<%= lm_conf.css_dist_file_ie8 %>.min.css'

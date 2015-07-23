@@ -22,7 +22,17 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-	<!--[if (lt IE 9) & (!IEMobile)]>
+	<!--[if IE 8]>
+	<link href="../dist/css/ie8.min.css" rel="stylesheet" />
 	<script type="text/javascript" src="../dist/js/ie8.min.js"></script>
 	<![endif]-->
+	
+	<!--[if IE 9]>
+	<link href="../dist/css/ie9-10.min.css" rel="stylesheet" />
+	<![endif]-->
+
+	<!--[if IE 10]>
+	<link href="../dist/css/ie9-10.min.css" rel="stylesheet" />
+	<![endif]-->
+
 </head>

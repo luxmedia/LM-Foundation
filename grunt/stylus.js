@@ -27,11 +27,11 @@ module.exports = {
         //     flatten: true
         // }]
         files: {
-            '<%= lm_conf.css_dist_file %>.css': '<%= lm_conf.styl_src_file %>'
+            '<%= lm_conf.css_dist_file_styles %>.css': '<%= lm_conf.styl_src_file %>'
         }
     },
     // Create css for ie8 only
-    iefallback: {
+    ie8: {
         options: {
             paths: ['<%= base_paths.src %>'],
             linenos: true,

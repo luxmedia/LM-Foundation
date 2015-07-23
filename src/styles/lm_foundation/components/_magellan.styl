@@ -13,6 +13,11 @@ $include-html-magellan-classes =            com_js.MAGELLAN
 $magellan-bg ?=                              $white
 $magellan-padding ?=                         rem-calc(10)
 
+$magellan-list-border-style ?=               solid //false
+$magellan-list-border-color ?=               darken($magellan-bg, 10%)
+$magellan-list-border-width ?=               0 0 1px 0
+$magellan-link-line-height ?=               1.4
+
 $zindex-magellan-fixed ?=                   1031
 
 //
@@ -34,10 +39,15 @@ if $include-html-magellan-classes {
 
             dd {
                 margin-bottom: 0
+                if ($magellan-list-border-style) {
+                    border-color: $magellan-list-border-color
+                    border-style: $magellan-list-border-style
+                    border-width: $magellan-list-border-width
+                }
             }
 
             a {
-                line-height: 1.8em
+                line-height: $magellan-link-line-height
             }
         }
     }

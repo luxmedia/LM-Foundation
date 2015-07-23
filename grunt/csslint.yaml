@@ -12,9 +12,9 @@ options:
 strict:
   options:
     import: 2
-  src: '<%= lm_conf.css_dist_file %>'
+  src: '<%= lm_conf.css_dist_file_styles %>'
 
 lax:
   options:
     import: false
-  src: '<%= lm_conf.css_dist_file %>'
+  src: '<%= lm_conf.css_dist_file_styles %>'

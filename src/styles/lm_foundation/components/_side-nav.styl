@@ -10,13 +10,18 @@
 
 $include-html-side-nav-classes =             com_css.SIDENAV
 
-// padding.
+// list styles.
+$side-nav-margin ?=                          0
+$side-nav-max-width ?=                       ($row-width / 2)
 $side-nav-padding ?=                         rem-calc(14 0)
 
-// list styles.
+// list element styles.
 $side-nav-list-type ?=                       none
 $side-nav-list-position ?=                   outside
 $side-nav-list-margin ?=                     rem-calc(0 0 7 0)
+$side-nav-list-border-style ?=               solid //false
+$side-nav-list-border-color ?=               rgba($black, 0.2)
+$side-nav-list-border-width ?=               0 0 1px 0
 
 $side-nav-function-factor ?=                 20%
 
@@ -24,11 +29,16 @@ $side-nav-function-factor ?=                 20%
 $side-nav-link-color ?=                      $primary-color
 $side-nav-link-color-active ?=               scale-color($side-nav-link-color, $side-nav-function-factor)
 $side-nav-link-color-hover ?=                scale-color($side-nav-link-color, $side-nav-function-factor)
-$side-nav-link-bg-hover ?=                   rgba($black, .05)
+$side-nav-link-bg-hover ?=                   rgba($black, .1)
 $side-nav-link-margin ?=                     0
 $side-nav-link-padding ?=                    rem-calc(7 14)
-$side-nav-font-size ?=                       fontsize(1rem)
-$side-nav-font-weight ?=                     $font-weight-normal
+
+$side-nav-link-icon ?=                       true
+$side-nav-link-icon-color ?=                 $side-nav-link-color
+$side-nav-link-icon-color-hover ?=           $side-nav-link-color-hover
+
+$side-nav-font-size ?=                       fontsize(1.1rem)
+$side-nav-font-weight ?=                     $font-weight-bold
 $side-nav-font-weight-active ?=              $side-nav-font-weight
 $side-nav-font-family ?=                     $font-family-custom
 $side-nav-font-family-active ?=              $side-nav-font-family
@@ -60,22 +70,34 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
     font_family($side-nav-font-family)
     list-style-position: $side-nav-list-position
     list-style-type: $side-nav-list-type
-    margin: 0
+    margin: $side-nav-margin
+    max-width: $side-nav-max-width
     padding: $side-nav-padding
 
-    li {
+    li,
+    dt {
         font-size: $font-size
         font-weight: $side-nav-font-weight
         margin: $side-nav-list-margin
+        if ($side-nav-list-border-style) {
+            border-color: $side-nav-list-border-color
+            border-style: $side-nav-list-border-style
+            border-width: $side-nav-list-border-width
+        }
 
         a:not(.btn) {
             color: $link-color
             display: block
             margin: $side-nav-link-margin
             padding: $side-nav-link-padding
+            if($side-nav-link-icon) {
+                padding-{$default-float}: (2.5 * $svg-icons-base-size)
+                svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:('polyline' 'polygon'), $stroke: $side-nav-link-icon-color, $stroke-hover: $side-nav-link-icon-color-hover, $stroke-width: $svg-stroke-width-small, $position-x: $default-float)
+            }
+
             &:hover,
             &:focus {
-                background: $link-bg-hover
+                background-color: $link-bg-hover
                 color: $link-color-hover
             }
             &:active {

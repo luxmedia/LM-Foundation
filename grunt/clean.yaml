@@ -6,13 +6,20 @@ dist:
 stylesheets:
   src:
     - '<%= lm_conf.css_dist_folder %>/**/*.css'
-    - '!<%= lm_conf.css_dist_file %>.css'
-    - '!<%= lm_conf.css_dist_file %>.min.css'
-    - '!<%= lm_conf.css_dist_file %>_data.min.css'
-    - '!<%= lm_conf.css_dist_file_ie8 %>.css'
+    - '!<%= lm_conf.css_dist_file_styles %>.css'
+    - '!<%= lm_conf.css_dist_file_styles %>.min.css'
+    # - '!<%= lm_conf.css_dist_file_styles_data %>.css'
+    - '!<%= lm_conf.css_dist_file_styles_data %>.min.css'
+    # - '!<%= lm_conf.css_dist_file_ie9to10 %>.css'
+    - '!<%= lm_conf.css_dist_file_ie9to10 %>.min.css'
+    # - '!<%= lm_conf.css_dist_file_ie8 %>.css'
     - '!<%= lm_conf.css_dist_file_ie8 %>.min.css'
 
 scripts:
   src:
     - '<%= lm_conf.js_dist_folder %>/**/*.js'
     - '<%= lm_conf.do_not_clean_js %>'
+
+svgs:
+  src:
+    - '!<%= lm_conf.svg_dist_file %>'

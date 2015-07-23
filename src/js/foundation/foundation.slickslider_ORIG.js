@@ -426,8 +426,8 @@
 
             if( _.slideCount > _.options.slidesToShow ) {
 
-                _.$prevArrow.removeClass('is-hidden').removeAttr('aria-hidden tabindex');
-                _.$nextArrow.removeClass('is-hidden').removeAttr('aria-hidden tabindex');
+                _.$prevArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
+                _.$nextArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
 
                 if (_.htmlExpr.test(_.options.prevArrow)) {
                     _.$prevArrow.prependTo(_.options.appendArrows);
@@ -439,7 +439,7 @@
 
                 if (_.options.infinite !== true) {
                     _.$prevArrow
-                        .addClass('is-disabled')
+                        .addClass('slick-disabled')
                         .attr('aria-disabled', 'true');
                 }
 
@@ -447,7 +447,7 @@
 
                 _.$prevArrow.add( _.$nextArrow )
 
-                    .addClass('is-hidden')
+                    .addClass('slick-hidden')
                     .attr({
                         'aria-disabled': 'true',
                         'tabindex': '-1'
@@ -842,9 +842,9 @@
             if ( _.$prevArrow && _.$prevArrow.length ) {
 
                 _.$prevArrow
-                    .removeClass('is-disabled slick-arrow is-hidden')
+                    .removeClass('slick-disabled slick-arrow slick-hidden')
                     .removeAttr('aria-hidden aria-disabled tabindex')
-                    .css('display','');
+                    .css("display","");
 
                 if ( _.htmlExpr.test( _.options.prevArrow )) {
                     _.$prevArrow.remove();
@@ -854,9 +854,9 @@
             if ( _.$nextArrow && _.$nextArrow.length ) {
 
                 _.$nextArrow
-                    .removeClass('is-disabled slick-arrow is-hidden')
+                    .removeClass('slick-disabled slick-arrow slick-hidden')
                     .removeAttr('aria-hidden aria-disabled tabindex')
-                    .css('display','');
+                    .css("display","");
 
                 if ( _.htmlExpr.test( _.options.nextArrow )) {
                     _.$nextArrow.remove();
@@ -1080,7 +1080,7 @@
         if (_.options.variableWidth === true) {
 
             if (_.slideCount <= _.options.slidesToShow || _.options.infinite === false) {
-                targetSlide = _.$slideTrack.children('.slick__slide').eq(slideIndex);
+                targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex);
             } else {
                 targetSlide = _.$slideTrack.children('.slick__slide').eq(slideIndex + _.options.slidesToShow);
             }
@@ -2570,7 +2570,7 @@
     };
     Slick.prototype.initADA = function() {
         var _ = this;
-        _.$slides.add(_.$slideTrack.find('.slick--cloned')).attr({
+        _.$slides.add(_.$slideTrack.find('.slick-cloned')).attr({
             'aria-hidden': 'true',
             'tabindex': '-1'
         }).find('a, input, button, select').attr({
@@ -2579,10 +2579,10 @@
 
         _.$slideTrack.attr('role', 'listbox');
 
-        _.$slides.not(_.$slideTrack.find('.slick--cloned')).each(function(i) {
+        _.$slides.not(_.$slideTrack.find('.slick-cloned')).each(function(i) {
             $(this).attr({
                 'role': 'option',
-                'aria-describedby': 'slick__slide' + _.instanceUid + i + ''
+                'aria-describedby': 'slick-slide' + _.instanceUid + i + ''
             });
         });
 
@@ -2592,7 +2592,7 @@
                     'role': 'presentation',
                     'aria-selected': 'false',
                     'aria-controls': 'navigation' + _.instanceUid + i + '',
-                    'id': 'slick__slide' + _.instanceUid + i + ''
+                    'id': 'slick-slide' + _.instanceUid + i + ''
                 });
             })
                 .first().attr('aria-selected', 'true').end()
@@ -2608,14 +2608,14 @@
         _isSlideOnFocus =_.$slider.find('*').is(':focus');
         // _isSlideOnFocus = _.$slides.is(':focus') || _.$slides.find('*').is(':focus');
 
-        _.$slideTrack.find('.is-active').attr({
+        _.$slideTrack.find('.slick-active').attr({
             'aria-hidden': 'false',
             'tabindex': '0'
         }).find('a, input, button, select').attr({
             'tabindex': '0'
         });
 
-        (_isSlideOnFocus) &&  _.$slideTrack.find('.is-active').focus();
+        (_isSlideOnFocus) &&  _.$slideTrack.find('.slick-active').focus();
 
     };
 

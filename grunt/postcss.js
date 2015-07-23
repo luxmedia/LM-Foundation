@@ -13,8 +13,8 @@ module.exports = {
             require('cssnano')() // minify the result
           ]
       },
-      src: '<%= lm_conf.css_dist_file %>.css',
-      dest: '<%= lm_conf.css_dist_file %>_data.min.css',
+      src: '<%= lm_conf.css_dist_file_styles %>.css',
+      dest: '<%= lm_conf.css_dist_file_styles_data %>.min.css',
   },
 
   // Create css for common modern browsers
@@ -23,26 +23,41 @@ module.exports = {
         map: false, // inline sourcemaps
 
         processors: [
-          require('autoprefixer-core')({browsers: ('> 1%','ie 9')}), // add vendor prefixes
+          require('autoprefixer-core')({browsers: ('> 5%','ie > 10')}), // add vendor prefixes
           require('postcss-data-packer')({dataFile: false, pure: false}), // strip data expcet data
           require('cssnano')() // minify the result
         ]
       },
-      src: '<%= lm_conf.css_dist_file %>.css',
-      dest: '<%= lm_conf.css_dist_file %>.min.css',
+      src: '<%= lm_conf.css_dist_file_styles %>.css',
+      dest: '<%= lm_conf.css_dist_file_styles %>.min.css',
       // files: {
       //     '<%= lm_conf.css_dist_file %>.min.css' : '<%= lm_conf.css_dist_file %>.css'
       // }
   },
 
-  // Create css for ie8 only
-  iefallback: {
+  // Create .css for IE 9 and 10 only
+  ie9to10: {
+      options: {
+        map: false, // inline sourcemaps
+
+        processors: [
+          require('autoprefixer-core')({browsers: ('ie 9', 'ie 10')}), // add vendor prefixes
+          require('pixrem')({replace: true, browsers: ('ie 9', 'ie 10') }), // add fallbacks for rem units -> https://github.com/robwierzbowski/node-pixrem
+          require('cssnano')() // minify the result
+        ]
+      },
+      src: '<%= lm_conf.css_dist_file_styles %>.css',
+      dest: '<%= lm_conf.css_dist_file_ie9to10 %>.min.css',
+  },
+
+  // Create css for IE 8 only
+  ie8: {
       options: {
         map: false, // inline sourcemaps
 
         processors: [
           require('autoprefixer-core')({browsers: ('ie 8')}), // add vendor prefixes
-          // require('pixrem')(), // add fallbacks for rem units
+          require('pixrem')({replace: true, browsers: 'ie 8' }), // add fallbacks for rem units -> https://github.com/robwierzbowski/node-pixrem
           require('cssnano')() // minify the result
         ]
       },
