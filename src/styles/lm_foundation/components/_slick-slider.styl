@@ -213,15 +213,15 @@ if $include-html-slickslider-classes {
 
         &__slider.arrows-bottom {
             .slick__next {
-                {$opposite-direction}: rem-clac(10)
+                {$opposite-direction}: rem-calc(10)
             }
             .slick__prev {
-                {$default-float}: rem-clac(10)
+                {$default-float}: rem-calc(10)
             }
             .slick__next,
             .slick__prev {
                 top: auto
-                bottom: ($slick-nav-button-size / 2.6)
+                bottom: ($slick-nav-button-size / 2.5)
             }
         }
 
@@ -233,11 +233,11 @@ if $include-html-slickslider-classes {
             // position: absolute
             display: block
             list-style: none
-            margin: 0 1% $slick-dot-margin-bottom 1%
+            margin: 0 0 $slick-dot-margin-bottom 0
             padding: 0
-            position: relative
+            position: static
             text-align: center
-            width: 98%
+            width: 100%
 
             li {
                 cursor: pointer
