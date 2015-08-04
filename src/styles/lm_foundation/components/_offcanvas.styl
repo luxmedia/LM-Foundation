@@ -191,6 +191,12 @@ tab-bar-base() {
     h1,h2,h3,h4 {
         font-size: $h5-font-size
     }
+
+    // avoid overlapping images
+    img.logo {
+        height: $tabbar-height
+        max-height: 100%
+    }
 }
 
 // SMALL SECTIONS
@@ -240,6 +246,8 @@ tab-bar-section() {
     &.middle {
         left: $tabbar-icon-width
         right: $tabbar-icon-width
+        // avoid overlapping images
+        overflow: hidden
     }
 }
 

@@ -7,24 +7,24 @@ module.exports = function(grunt) {
     var jsonpath = 'src/json';
 
     // BASE PATH AND FILES VARIABLES
-    if (grunt.file.isFile('src/json/base__params.json')) {
-        var base__params = grunt.file.readJSON('src/json/base__params.json', {encoding:"utf-8"});
+    if (grunt.file.isFile(jsonpath+'/base__params.json')) {
+        var base__params = grunt.file.readJSON(jsonpath+'/base__params.json', {encoding:"utf-8"});
     }
     // BASE COLOR VARIABELS (used for svg and png variant generation)
-    if (grunt.file.isFile('src/json/base__colors.json')) {
-        var base__colors = grunt.file.readJSON('src/json/base__colors.json', {encoding:"utf-8"});
+    if (grunt.file.isFile(jsonpath+'/base__colors.json')) {
+        var base__colors = grunt.file.readJSON(jsonpath+'/base__colors.json', {encoding:"utf-8"});
     }
     // GET THE FRAMEWORK (FOUNDATION) COMPONENTS TO BE LOADED
-    if (grunt.file.isFile('src/json/fndtn__com__js.json')) {
-        var fndtn__com = grunt.file.readJSON('src/json/fndtn__com__js.json');
+    if (grunt.file.isFile(jsonpath+'/fndtn__com__js.json')) {
+        var fndtn__com = grunt.file.readJSON(jsonpath+'/fndtn__com__js.json');
     }
     // CUSTOM JQUERY PLUGINS
-    if (grunt.file.isFile('src/json/cust__jquery__plugins.json')) {
-        var jquery__plugins = grunt.file.readJSON('src/json/cust__jquery__plugins.json');
+    if (grunt.file.isFile(jsonpath+'/cust__jquery__plugins.json')) {
+        var jquery__plugins = grunt.file.readJSON(jsonpath+'/cust__jquery__plugins.json');
     }
     // CUSTOM SCRIPTS
-    if (grunt.file.isFile('src/json/cust__js.json')) {
-        var custom__js = grunt.file.readJSON('src/json/cust__js.json');
+    if (grunt.file.isFile(jsonpath+'/cust__js.json')) {
+        var custom__js = grunt.file.readJSON(jsonpath+'/cust__js.json');
     }
 
     // Global Variables
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
         // js distribution folder and files
         js_dist_folder: '<%= base_paths.dest %>/js',
         js_dist_file_vendor: '<%= base_paths.dest %>/js/' + base__params.namespace_vendor,
-        js_dist_file_fndtn: '<%= base_paths.dest %>/js/' + base__params.jnamespace_fndtn,
+        js_dist_file_fndtn: '<%= base_paths.dest %>/js/' + base__params.namespace_fndtn,
         js_dist_file_plugins: '<%= base_paths.dest %>/js/' + base__params.namespace_plugins,
         js_dist_file_custom: '<%= base_paths.dest %>/js/' + base__params.namespace_custom,
         js_dist_file_ie8: '<%= base_paths.dest %>/js/' + base__params.namespace_ie_8,

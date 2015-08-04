@@ -31,6 +31,7 @@ $topbar-logo-text-transform ?=               uppercase
 $topbar-logo-bg ?=                           $primary-color
 $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
 $topbar-logo-padding ?=                      rem-calc(0 10)
+$topbar-logo-height ?=                       $topbar-height
 
 $topbar-link-hover-lightness ?=              -15%
 
@@ -68,7 +69,7 @@ $topbar-site-search-padding ?=               rem-calc(7 (3*7)) // 7 is based on 
 $topbar-site-search-font-size ?=             fontsize(1.1rem)
 $topbar-site-search-font-color ?=            $black
 $topbar-site-search-text-transform ?=        lowercase
-$topbar-site-search-svg-bg ?=                'basic_magnifier.svg'
+$topbar-site-search-svg-bg ?=                'basic_search_2.svg'
 $topbar-site-search-svg-bg-shapes ?=         ('circle' 'line' 'rect')
 
 // Style the top bar dropdown elements
@@ -254,9 +255,8 @@ if $include-html-topbar-classes {
         }
 
         .logo {
-            background-color: $topbar-logo-bg
             font-size: $topbar-logo-font-size
-            height: $topbar-height
+            height: $topbar-logo-height
             margin: 0
             if ($topbar-menu-icon-position == $default-float) {
               float: $opposite-direction
@@ -268,21 +268,28 @@ if $include-html-topbar-classes {
             header {
                 display: block
                 font-size: $topbar-logo-font-size
-                line-height: $topbar-height
+                // line-height: $topbar-logo-height
                 margin: 0
                 text-align: center
                 a {
+                    background-color: $topbar-logo-bg
                     color: $topbar-logo-font-color
                     display: block
                     font-weight: $topbar-logo-font-weight
                     font_family($topbar-logo-font-family)
+                    height: $topbar-logo-height
+                    line-height: $topbar-logo-height
                     padding: $topbar-logo-padding
-                    text-transform: $topbar-logo-text-transform 
+                    text-transform: $topbar-logo-text-transform
 
                     &:hover {
                         color: $topbar-logo-font-color-hover
                         background-color: $topbar-logo-bg-hover
                         single-transition(background-color)
+                    }
+
+                    img {
+                        max-height: 100%
                     }
                 }
             }
@@ -296,7 +303,8 @@ if $include-html-topbar-classes {
             input[type="search"] {
                 top: auto
                 width: 100%
-                padding-right: ($topbar-button-search-width + rem-calc(6))
+                padding-{$default-float}: rem-calc(15)
+                padding-{$opposite-direction}: ($topbar-button-search-width + rem-calc(6))
                 font-size:$topbar-site-search-font-size
                 color: $topbar-site-search-font-color
                 text-transform: $topbar-site-search-text-transform
@@ -325,7 +333,11 @@ if $include-html-topbar-classes {
 
                 font-size: 0!important
                 text-indent: -9999em
-                svg-background($file:$topbar-site-search-svg-bg, $shapes:$topbar-site-search-svg-bg-shapes, $stroke:$topbar-button-search-svg-color, $stroke-hover:$topbar-button-search-svg-color-hover, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
+                $hover-col = $topbar-button-search-svg-color-hover
+                if ($topbar-button-search-svg-color == $topbar-button-search-svg-color-hover) {
+                    $hover-col = false
+                }
+                svg-background($file:$topbar-site-search-svg-bg, $shapes:$topbar-site-search-svg-bg-shapes, $stroke:$topbar-button-search-svg-color, $stroke-hover:$hover-col, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
 
                 background-color: $input-bg-color
                 if $topbar-button-search-border {

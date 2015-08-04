@@ -694,7 +694,7 @@ font_family($family = $body-font-family, $spacing = $font-custom-spacing) {
         font-family: $family
     }
     // Add custom parameters for custom fonts
-    if ($family == $font-family-custom && $family != $body-font-family ) {
+    if ($family == $font-family-custom && $family != $body-font-family && $spacing) {
         letter-spacing: $spacing
     }
 }
@@ -891,6 +891,13 @@ if $include-html-global-classes {
     }
     .clear {
         clear: both
+        
+        &--left {
+            clear: left
+        }
+        &--right {
+            clear: right
+        }
     }
 
     .no-break {

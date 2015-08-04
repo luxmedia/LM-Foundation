@@ -18,8 +18,9 @@ $crumb-padding ?=                            rem-calc(9 14)
 $crumb-side-padding ?=                       rem-calc(6) // rem-calc(12)
 
 // border styles.
-$crumb-function-factor ?=                    -10%
+$crumb-function-factor ?=                    -(10%)
 $crumb-border-size ?=                        false // 1px
+$crumb-border-pos ?=                         false // top, right, bottom, left
 $crumb-border-style ?=                       solid
 $crumb-border-color ?=                       scale-color($crumb-bg, $crumb-function-factor)
 $crumb-radius ?=                             false // $global-radius
@@ -48,9 +49,11 @@ $crumb-slash ?=                              '/'
 crumb-container() {
     background-color: $crumb-bg
     if ($crumb-border-size) {
-        border-style: $crumb-border-style
-        border-width: $crumb-border-size
-        border-color: $crumb-border-color
+        if ($crumb-border-pos) {
+            border-{$crumb-border-pos}: $crumb-border-size $crumb-border-style $crumb-border-color
+        } else {
+            border: $crumb-border-size $crumb-border-style $crumb-border-color
+        }
     }
     display: block
     list-style: none

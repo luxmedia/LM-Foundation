@@ -182,6 +182,7 @@ if $include-html-slickslider-classes {
             font-size: 0
             height: $slick-nav-button-size
             // line-height: 0
+            margin: 0
             margin-top: -($slick-nav-button-size / 2)
             padding: 0
             position: absolute
@@ -200,14 +201,28 @@ if $include-html-slickslider-classes {
         }
 
         &__prev {
-            {$default-float}: -($slick-nav-button-size+rem-calc(5))
+            {$default-float}: -(($slick-nav-button-size + rem-calc(5)))
 
             svg-background($file:'arrows_'+$default-float+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
         &__next {
-            {$opposite-direction}: -($slick-nav-button-size+rem-calc(5))
+            {$opposite-direction}: -(($slick-nav-button-size + rem-calc(5)))
 
             svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+        }
+
+        &__slider.arrows-bottom {
+            .slick__next {
+                {$opposite-direction}: rem-clac(10)
+            }
+            .slick__prev {
+                {$default-float}: rem-clac(10)
+            }
+            .slick__next,
+            .slick__prev {
+                top: auto
+                bottom: ($slick-nav-button-size / 2.6)
+            }
         }
 
         // DOTS FOR NAVIGATION
@@ -218,11 +233,11 @@ if $include-html-slickslider-classes {
             // position: absolute
             display: block
             list-style: none
-            margin: 0 0 $slick-dot-margin-bottom 0
+            margin: 0 1% $slick-dot-margin-bottom 1%
             padding: 0
             position: relative
             text-align: center
-            width: 100%
+            width: 98%
 
             li {
                 cursor: pointer

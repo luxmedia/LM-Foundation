@@ -361,15 +361,15 @@
         .siblings('.visible-img');
 
       if (target.next().length > 0) {
-        this.S('.clearing-main-next', visible_image).removeClass('disabled');
+        this.S('.clearing-main-next', visible_image).removeClass('is-disabled');
       } else {
-        this.S('.clearing-main-next', visible_image).addClass('disabled');
+        this.S('.clearing-main-next', visible_image).addClass('is-disabled');
       }
 
       if (target.prev().length > 0) {
-        this.S('.clearing-main-prev', visible_image).removeClass('disabled');
+        this.S('.clearing-main-prev', visible_image).removeClass('is-disabled');
       } else {
-        this.S('.clearing-main-prev', visible_image).addClass('disabled');
+        this.S('.clearing-main-prev', visible_image).addClass('is-disabled');
       }
     },
 
