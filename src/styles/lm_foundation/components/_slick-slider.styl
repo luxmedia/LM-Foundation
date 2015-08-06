@@ -31,9 +31,18 @@ $slick-nav-button-size ?=           rem-calc(34)
 $slick-dot-button-font-size ?=      fontsize(.7rem)
 $slick-dot-button-font-color ?=     $gray-medium-2
 $slick-dot-button-font-color-active ?= $white
-$slick-dot-margin-bottom ?=         rem-calc(30)
+$slick-dot-ul-margin ?=             rem-calc(0 0 30 0)
 $slick-dot-sensitive-size ?=        rem-calc(20)
-$slick-dot-sensitive-size-block ?=  rem-calc(18)
+$slick-dot-block-ul-margin ?=       $slick-dot-ul-margin
+$slick-dot-block-ul-padding ?=      rem-calc(0 5)
+$slick-dot-block-ul-bg ?=           $gray-light-1
+$slick-dot-block-li-bg ?=           $slick-dot-block-ul-bg
+$slick-dot-block-li-padding ?=      rem-calc(5)
+$slick-dot-block-button-line-height ?=  1.2rem
+$slick-dot-block-button-padding ?=  rem-calc(5)
+$slick-dot-block-button-bg ?=       $slick-dot-color-alt
+$slick-dot-block-button-bg-hover ?= $slick-dot-color-hover-alt
+$slick-dot-block-sensitive-size ?=  rem-calc(18)
 $slick-dot-margin ?=                rem-calc(0 5)
 $slick-dot-padding ?=               rem-calc(5)
 
@@ -138,6 +147,10 @@ if $include-html-slickslider-classes {
             height: 100%
             min-height: 1px
             
+            &:focus {
+                box-shadow: none
+            }
+
             [dir='rtl'] & {
                 float: right
             }
@@ -221,7 +234,7 @@ if $include-html-slickslider-classes {
             .slick__next,
             .slick__prev {
                 top: auto
-                bottom: ($slick-nav-button-size / 2.5)
+                bottom: ($slick-nav-button-size / 2)
             }
         }
 
@@ -233,14 +246,14 @@ if $include-html-slickslider-classes {
             // position: absolute
             display: block
             list-style: none
-            margin: 0 0 $slick-dot-margin-bottom 0
+            margin: $slick-dot-ul-margin
             padding: 0
             position: static
             text-align: center
-            width: 100%
+            // width: 100%
 
             li {
-                cursor: pointer
+                cursor: $cursor-pointer-value
                 display: inline-block
                 height: $slick-dot-sensitive-size
                 margin: $slick-dot-margin
@@ -312,44 +325,52 @@ if $include-html-slickslider-classes {
         if $slick-dot-blockstyle {
             &__dots--block {
                 clearfix()
+                if $slick-dot-block-ul-bg {
+                    background: $slick-dot-block-ul-bg
+                }
                 display: block
                 list-style: none
-                margin: 0 0 $slick-dot-margin-bottom 0
-                padding: 0
+                margin: $slick-dot-block-ul-margin
+                padding: $slick-dot-block-ul-padding
                 position: relative
-                width: 100%
+                // width: 100%
 
                 li {
                     display: block
                     float: left
-                    height: $slick-dot-sensitive-size-block
+                    height: auto
+                    padding: $slick-dot-block-li-padding
+                    if $slick-dot-block-li-bg {
+                        background: $slick-dot-block-li-bg
+                    }
 
                     button {
-                        background: $slick-dot-color-alt
+                        background: $slick-dot-block-button-bg
                         border: none
                         box-shadow: none
                         color: $slick-dot-button-font-color
                         cursor($cursor-pointer-value)
                         display: block
                         font-size: $slick-dot-button-font-size
-                        height: $slick-dot-sensitive-size-block
-                        line-height: $slick-dot-sensitive-size-block
+                        // height: $slick-dot-block-sensitive-size
+                        line-height: $slick-dot-block-button-line-height
                         margin: 0
                         outline: none
                         overflow: hidden
-                        padding: 0
+                        padding: $slick-dot-block-button-padding
                         radius(0)
                         width: 100%
                     }
 
-                    &:nth-child(even) button {
-                        background: ($slick-dot-color-alt != $white ) ? lighten($slick-dot-color-alt,20%) : $slick-dot-color-alt
+                    &:first-child {
+                        padding-{$default-float}: 0
                     }
+                    &:last-child {
+                        padding-{$opposite-direction}: 0
+                    }
+
                     &:hover button {
-                        background: $slick-dot-color-hover-alt
-                    }
-                    &:nth-child(even):hover button {
-                        background: ($slick-dot-color-hover-alt != $white ) ? lighten($slick-dot-color-hover-alt,20%) : $slick-dot-color-hover-alt
+                        background: $slick-dot-block-button-bg-hover
                     }
                     &.is-active button,
                     &.is-active:hover button {

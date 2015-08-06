@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.5.8
+ Version: 1.5.7
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -44,8 +44,8 @@
                 appendDots: $(element),
                 arrows: true,
                 asNavFor: null,
-                prevArrow: '<button type="button" data-role="none" class="btn btn--rnd btn--flat slick__prev" aria-label="Previous" tabindex="0" role="button">Previous</button>',
-                nextArrow: '<button type="button" data-role="none" class="btn btn--rnd btn--flat slick__next" aria-label="Next" tabindex="0" role="button">Next</button>',
+                prevArrow: '<button type="button" data-role="none" class="btn btn--rnd btn--flat slick__prev" aria-label="previous" tabindex="0" role="button">Previous</button>',
+                nextArrow: '<button type="button" data-role="none" class="btn btn--rnd btn--flat slick__next" aria-label="next" tabindex="0" role="button">Next</button>',
                 autoplay: false,
                 autoplaySpeed: 3000,
                 centerMode: false,
@@ -837,32 +837,33 @@
             _.$dots.remove();
         }
 
+        if ( _.options.arrows === true ) {
 
-        if ( _.$prevArrow && _.$prevArrow.length ) {
+            if ( _.$prevArrow && _.$prevArrow.length ) {
 
-            _.$prevArrow
-                .removeClass('is-disabled slick-arrow is-hidden')
-                .removeAttr('aria-hidden aria-disabled tabindex')
-                .css('display','');
+                _.$prevArrow
+                    .removeClass('is-disabled slick-arrow is-hidden')
+                    .removeAttr('aria-hidden aria-disabled tabindex')
+                    .css('display','');
 
-            if ( _.htmlExpr.test( _.options.prevArrow )) {
-                _.$prevArrow.remove();
-            }
-        }
-
-        if ( _.$nextArrow && _.$nextArrow.length ) {
-
-            _.$nextArrow
-                .removeClass('is-disabled slick-arrow is-hidden')
-                .removeAttr('aria-hidden aria-disabled tabindex')
-                .css('display','');
-
-            if ( _.htmlExpr.test( _.options.nextArrow )) {
-                _.$nextArrow.remove();
+                if ( _.htmlExpr.test( _.options.prevArrow )) {
+                    _.$prevArrow.remove();
+                }
             }
 
-        }
+            if ( _.$nextArrow && _.$nextArrow.length ) {
 
+                _.$nextArrow
+                    .removeClass('is-disabled slick-arrow is-hidden')
+                    .removeAttr('aria-hidden aria-disabled tabindex')
+                    .css('display','');
+
+                if ( _.htmlExpr.test( _.options.nextArrow )) {
+                    _.$nextArrow.remove();
+                }
+            }
+
+        }
 
         if (_.$slides) {
 
@@ -1490,8 +1491,8 @@
 
     };
 
-    Slick.prototype.preventDefault = function(event) {
-        event.preventDefault();
+    Slick.prototype.preventDefault = function(e) {
+        e.preventDefault();
     };
 
     Slick.prototype.progressiveLazyLoad = function() {

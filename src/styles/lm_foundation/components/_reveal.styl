@@ -26,6 +26,8 @@ $reveal-box-shadow ?=                        0 5px 50px rgba($black,.3)
 
 // style the reveal close button
 $reveal-close-font-size ?=                   rem-calc(40)
+$reveal-close-line-height ?=                 ($reveal-close-font-size - rem-calc(10))
+$reveal-close-padding ?=                     rem-calc(10)
 $reveal-close-top ?=                         rem-calc(10)
 $reveal-close-side ?=                        rem-calc(22)
 $reveal-close-color ?=                       $gray-base
@@ -166,8 +168,9 @@ reveal-close($color = $reveal-close-color) {
     color: $color
     cursor: $cursor-pointer-value
     font-weight: $reveal-close-weight
-    font_size($reveal-close-font-size)
-    line-height: 1
+    font-size: fontsize($reveal-close-font-size)
+    line-height: $reveal-close-line-height
+    padding: $reveal-close-padding
     position: absolute
     top: $reveal-close-top
     {$opposite-direction}: $reveal-close-side
@@ -225,6 +228,9 @@ if $include-html-reveal-classes {
             max-width: none !important
             min-height: 100vh
             top: 0
+        }
+        &--grid {
+            grid-row()
         }
 
         .{$close-reveal-modal-class} {

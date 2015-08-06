@@ -88,7 +88,14 @@ if $include-html-tabs-classes {
                 color: $tabs-navigation-active-font-color
                 cursor: $cursor-default-value
             }
+            
+            // According to: http://foundation.zurb.com/forum/posts/1678-how-to-change-f5-tabs-in-accordion--in-small-screens
+            +mediaquery($small-only) {
+                float: none
+                margin: 1px auto
+            }
         }
+
         &--rad {
             dd:first-child,
             .tab:first-child {

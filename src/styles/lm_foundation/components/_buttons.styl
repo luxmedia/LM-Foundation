@@ -29,14 +29,14 @@ $button-font-color-alt ?=                    $charcoal-1
 $button-font-tny ?=                          fontsize(.8rem)
 $button-font-sml ?=                          fontsize(.9rem)
 $button-font-med ?=                          fontsize(1.1rem)
-$button-font-lrg ?=                          fontsize(1.2rem)
+$button-font-lrg ?=                          fontsize(1.3rem)
 $button-font-weight ?=                       $font-weight-bold
 $button-font-align ?=                        center
 $button-text-transform ?=                    uppercase
 $button-letter-spacing ?=                    0
 
 // various hover effects.
-$button-function-factor ?=                   -20% // lightness adjustment
+$button-function-factor ?=                   -(20%) // lightness adjustment
 
 // button border and hover styles.
 $button-border-width ?=                      1px
@@ -50,18 +50,24 @@ $button-hover-shadow ?=                      false // 1px 1px 1px rgba($black, .
 
 $button-outline-width ?=                     2px // else: false
 
+$secondary-button-bg-color ?=                $secondary-color
 $secondary-button-bg-hover ?=                scale-color($secondary-color, $button-function-factor)
-$secondary-button-border-color ?=            scale-color($secondary-button-bg-hover, -5%)
+$secondary-button-border-color ?=            scale-color($secondary-button-bg-hover, -(5%))
+$neutral-button-bg-color ?=                  $neutral-color
 $neutral-button-bg-hover ?=                  scale-color($neutral-color, $button-function-factor)
-$neutral-button-border-color ?=              scale-color($neutral-button-bg-hover, -5%)
+$neutral-button-border-color ?=              scale-color($neutral-button-bg-hover, -(5%))
+$success-button-bg-color ?=                  $success-color
 $success-button-bg-hover ?=                  scale-color($success-color, $button-function-factor)
-$success-button-border-color ?=              scale-color($success-button-bg-hover, -5%)
+$success-button-border-color ?=              scale-color($success-button-bg-hover, -(5%))
+$info-button-bg-color ?=                     $info-color
 $info-button-bg-hover ?=                     scale-color($info-color, $button-function-factor)
-$info-button-border-color ?=                 scale-color($info-button-bg-hover, -5%)
+$info-button-border-color ?=                 scale-color($info-button-bg-hover, -(5%))
+$alert-button-bg-color ?=                    $alert-color
 $alert-button-bg-hover ?=                    scale-color($alert-color, $button-function-factor)
-$alert-button-border-color ?=                scale-color($alert-button-bg-hover, -5%)
+$alert-button-border-color ?=                scale-color($alert-button-bg-hover, -(5%))
+$warning-button-bg-color ?=                  $warning-color
 $warning-button-bg-hover ?=                  scale-color($warning-color, $button-function-factor)
-$warning-button-border-color ?=              scale-color($warning-button-bg-hover, -5%)
+$warning-button-border-color ?=              scale-color($warning-button-bg-hover, -(5%))
 
 // set the default radius used throughout the core.
 $button-radius ?=                            $global-radius
@@ -155,11 +161,11 @@ button-flat($font-color = $gray-base, $bg-hover = $primary-color, $font-color-ho
     }
 
     &.btn--dropdown {
-        svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke: scale-color($font-color, -25%), $stroke-hover: $font-color-hover, $stroke-width: $svg-stroke-width-small)
+        svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke: scale-color($font-color, -(25%)), $stroke-hover: $font-color-hover, $stroke-width: $svg-stroke-width-small)
     }
     
     label {
-        color: scale-color($font-color, -25%)
+        color: scale-color($font-color, -(25%))
     }
 
 }
@@ -177,9 +183,9 @@ button-size($padding = $button-med, $full-width = false) {
     // these can be turned off by setting $padding:false
     if ($padding != false && $padding != null) {
         padding-top: $padding
-        padding-{$opposite-direction}: ($padding * 2)
+        padding-{$opposite-direction}: (2 * $padding)
         padding-bottom: ($padding + rem-calc(1))
-        padding-{$default-float}: ($padding * 2)
+        padding-{$default-float}: (2 * $padding)
 
         // We control the font-size based on mixin input.
         if ($padding == $button-med) {
@@ -194,7 +200,6 @@ button-size($padding = $button-med, $full-width = false) {
         } else if ($padding == $button-lrg) {
             font-size: $button-font-lrg
             svg-background($size: $button-font-lrg)
-
         }
     }
 
@@ -209,8 +214,8 @@ button-size($padding = $button-med, $full-width = false) {
             padding-top: 0
             padding-bottom: 0
         }
-        padding-right: 0
-        padding-left: 0
+        padding-left: $button-med
+        padding-right: $button-med
         width: 100%
     }
 }
@@ -367,28 +372,28 @@ if $include-html-button-classes {
 
         // Color variants
         &--secondary {
-            button-style($bg:$secondary-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
+            button-style($bg:$secondary-button-bg-color, $bg-hover:$secondary-button-bg-hover, $border-color:$secondary-button-border-color)
             &.btn--outline {
-                button-style($bg:$secondary-color, $outline:$button-outline-width)
+                button-style($bg:$secondary-button-bg-color, $outline:$button-outline-width)
             }
         }
         &--neutral {
-            button-style($bg:$neutral-color, $bg-hover:$neutral-button-bg-hover, $border-color:$neutral-button-border-color)
+            button-style($bg:$neutral-button-bg-color, $bg-hover:$neutral-button-bg-hover, $border-color:$neutral-button-border-color)
             &.btn--outline {
-                button-style($bg:$neutral-color, $outline:$button-outline-width)
+                button-style($bg:$neutral-button-bg-color, $outline:$button-outline-width)
             }
         }
         &--success {
-            button-style($bg:$success-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
+            button-style($bg:$success-button-bg-color, $bg-hover:$success-button-bg-hover, $border-color:$success-button-border-color)
         }
         &--info {
-            button-style($bg:$info-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
+            button-style($bg:$info-button-bg-color, $bg-hover:$info-button-bg-hover, $border-color:$info-button-border-color)
         }            
         &--warning {
-            button-style($bg:$warning-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color, $font-color:$warning-font-color)
+            button-style($bg:$warning-button-bg-color, $bg-hover:$warning-button-bg-hover, $border-color:$warning-button-border-color, $font-color:$warning-font-color)
         }
         &--alert {
-            button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color)
+            button-style($bg:$alert-button-bg-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color, $font-color:$critical-font-color)
         }
 
         // Labels inside of buttons
@@ -412,7 +417,7 @@ if $include-html-button-classes {
             button-size($padding: $button-lrg)
         }
         &--exp {
-            button-size($padding:null, $full-width:true)
+            button-size($padding: null, $full-width: true)
         }
         &--tny .lbl,
         &--sml .lbl {
