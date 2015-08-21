@@ -71,7 +71,9 @@ $product-list-desc-font-size ?=                  fontsize(.9rem)
 $product-grid-desc-font-size ?=                  fontsize(.8rem)
 $product-list-desc-line-height ?=                $product-list-title-line-height
 $product-grid-desc-row-count ?=                  4 // <- how many lines should be visible?
+$product-grid-desc-row-count-small-devices ?=    ($product-grid-desc-row-count - 1)
 $product-grid-desc-height ?=                     unit(floor(($product-grid-desc-font-size * $product-list-desc-line-height * $product-grid-desc-row-count), 4), 'rem')
+$product-grid-desc-height-small-devices ?=       unit(floor(($product-grid-desc-font-size * $product-list-desc-line-height * $product-grid-desc-row-count-small-devices), 4), 'rem')
 $product-list-desc-color ?=                      $gray-dark-3
 $product-list-desc-color-hover ?=                $gray-darker-3
 
@@ -252,13 +254,13 @@ if $include-html-productlist-classes {
             // Images (wrapper)
             &__img {
                 background: $product-list-img-bg
-                display: block
+                // display: block
                 height: $product-grid-img-height
                 line-height: $product-grid-img-height
                 overflow: hidden
                 position: relative
                 text-align: center
-                width: auto
+                // width: auto
 
                 .fig-overlay {
                     kill-flicker()
@@ -397,61 +399,57 @@ if $include-html-productlist-classes {
                     padding: $product-grid-item-padding
                 }
 
-                &__img {
-                    margin: -($product-grid-item-padding)
-                    margin-bottom: $product-grid-img-gutter
-                    +mediaquery($small-only) {
-                        col(1/3)
+                +mediaquery($medium-up) {
+                    &__img {
+                        margin: -($product-grid-item-padding)
+                        margin-bottom: $product-grid-img-gutter
                     }
                 }
 
                 &__brand {
                     margin: $product-grid-manu-margin
-                    +mediaquery($medium-up) {
-                        height: ($product-grid-manu-height)
-                    }
+                    height: ($product-grid-manu-height)
                 }
                 &__title {
+                    height: ($product-grid-title-height)
                     margin: $product-grid-title-margin
-                    +mediaquery($medium-up) {
-                        height: ($product-grid-title-height)
-                        overflow: hidden
-                    }
+                    overflow: hidden
+
                     +mediaquery($xxlarge-up) {
-                        // on row more for large desktops, because we use more columns there ...
+                        // plus one row for xxlarge desktops, because we use more columns there ...
                         height: ($product-grid-title-height-xxlrg)
                     }
                 }
-                &__brand,
-                &__title {
-                    +mediaquery($small-only) {
-                        float: none
-                        // size of floated image __img
-                        margin-{$default-float}: ((1/3) * 100)%
-                    } 
-                }
+                // &__brand,
+                // &__title {
+                //     +mediaquery($small-only) {
+                //         float: none
+                //         // size of floated image __img
+                //         margin-{$default-float}: ((1/3) * 100)%
+                //     } 
+                // }
                 &__sdesc {
                     font-size: $product-grid-desc-font-size
+                    height: $product-grid-desc-height
                     margin: $product-grid-desc-margin
+                    overflow: hidden
                     padding: $product-grid-desc-padding
 
-                    +mediaquery($medium-up) {
-                        height: ($product-grid-desc-height)
-                        overflow: hidden
+                    +mediaquery($small-only) {
+                        height: $product-grid-desc-height-small-devices
                     }
                 }
 
                 .price-box {
-                    +mediaquery($medium-up) {
-                        height: $product-grid-pricebox-height
-                    }
+                    height: $product-grid-pricebox-height
+                    margin: $product-grid-pricebox-margin
+                    padding: $product-grid-pricebox-padding
+
                     +mediaquery($small-only) {
                         float: none
                         margin-{$default-float}: ((1/3) * 100)%
                         text-align: $opposite-direction
                     }
-                    margin: $product-grid-pricebox-margin
-                    padding: $product-grid-pricebox-padding
                 }
             }
 
@@ -500,11 +498,11 @@ if $include-html-productlist-classes {
                 }
 
                 // Wrapper for img, manufacturer, title and shortdesc
-                &__info {
-                    +mediaquery($medium-up) {
-                        col(3/4, gutter:0)
-                    }
-                }
+                // &__info {
+                //     +mediaquery($medium-up) {
+                //         col(3/4, gutter:0)
+                //     }
+                // }
 
                 &__img {
                     float: $default-float
@@ -538,6 +536,7 @@ if $include-html-productlist-classes {
 
                 .price-box {
                     text-align: $opposite-direction
+
                     +mediaquery($medium-up) {
                         width: ((1/4)*100)%
                         clear: none
@@ -572,7 +571,7 @@ if $include-html-productlist-classes {
 
     }
 
-    // PRODUCT VARIANTS/OPTIONS
+    // PRODUCT VARIANTS/OPTIONS BASE STYLES
     .prd__opts {
         prd-opts()
     }

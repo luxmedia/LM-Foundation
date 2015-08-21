@@ -66,7 +66,7 @@ reveal-bg( $include-z-index-value = true ) {
     // position: absolute // allows modal to scroll with browser scrollbar
     right: 0
     top: 0
-    z-index: ($include-z-index-value ? 'auto' : $zindex-reveal)
+    z-index: ($include-z-index-value ? $zindex-reveal : 'auto')
     {$default-float}: 0
 
 }

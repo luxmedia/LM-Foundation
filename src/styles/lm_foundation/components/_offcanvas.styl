@@ -132,11 +132,13 @@ off-canvas-menu($position) {
         // translate-3d(-100.5%, 0, 0)
         translate-3d(-100%, 0, 0)
         left: 0
+        text-align: left
     }
     if ($position == right) {
         // translate-3d(100.5%, 0, 0)
         translate-3d(100%, 0, 0)
         right: 0
+        text-align: right
     }
 
 }
@@ -363,10 +365,13 @@ if $include-html-off-canvas-classes {
     .tab-bar .menu-icon {
         color: $tabbar-menu-icon-color
         display: inline-block
+        font_family($font-family-custom)
+        font-weight: $font-weight-bold
         height: $tabbar-menu-icon-height
         padding: $tabbar-menu-icon-padding
         position: relative
         text-indent: $tabbar-menu-icon-text-indent
+        text-transform: uppercase
         translate-3d(0, 0, 0)
 
         // @include for the hamburger menu-icon

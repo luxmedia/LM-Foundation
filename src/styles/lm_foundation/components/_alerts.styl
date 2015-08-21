@@ -27,7 +27,7 @@ $alert-font-color-warning ?=                 $warning-font-color
 $alert-font-color-critical ?=                $critical-font-color
 
 // close hover effect.
-$alert-function-factor ?=                    -14%
+$alert-function-factor ?=                    -(14%)
 
 // border styles.
 $alert-border-style ?=                       solid
@@ -160,7 +160,7 @@ if $include-html-alert-classes {
         alert()
         alert-size()
 
-        .alert__close {
+        .alert__close:not(.btn) {
             alert-close()
         }
 

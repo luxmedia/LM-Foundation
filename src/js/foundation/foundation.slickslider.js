@@ -1635,14 +1635,16 @@
 
         var _ = this;
 
-        if ($(window).width() !== _.windowWidth) {
+        // LUXMEDIA MOD
+        // SEE: https://github.com/kenwheeler/slick/issues/362
+        // if ($(window).width() !== _.windowWidth) {
             clearTimeout(_.windowDelay);
             _.windowDelay = window.setTimeout(function() {
                 _.windowWidth = $(window).width();
                 _.checkResponsive();
                 if( !_.unslicked ) { _.setPosition(); }
             }, 50);
-        }
+        // }
     };
 
     Slick.prototype.removeSlide = Slick.prototype.slickRemove = function(index, removeBefore, removeAll) {

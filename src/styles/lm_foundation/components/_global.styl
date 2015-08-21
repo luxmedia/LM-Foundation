@@ -916,9 +916,35 @@ if $include-html-global-classes {
 
     .radius {
         radius($global-radius)
+
+        &--top {
+            side-radius(top, $global-radius)
+        }
+        &--bottom {
+            side-radius(bottom, $global-radius)
+        }
+        &--{$default-float} {
+            side-radius($default-float, $global-radius)
+        }
+        &--{$opposite-direction} {
+            side-radius($opposite-direction, $global-radius)
+        }
     }
     .round {
         radius($global-rounded)
+
+        &--top {
+            side-radius(top, $global-rounded)
+        }
+        &--bottom {
+            side-radius(bottom, $global-rounded)
+        }
+        &--{$default-float} {
+            side-radius($default-float, $global-rounded)
+        }
+        &--{$opposite-direction} {
+            side-radius($opposite-direction, $global-rounded)
+        }
     }
 
     // Fixed elements
@@ -939,6 +965,7 @@ if $include-html-global-classes {
     // Hide visually and from screen readers, but maintain layout
     .is-invisible,
     .invisible {
+        line-height: 0
         visibility: hidden
     }
 

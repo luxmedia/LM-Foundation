@@ -33,7 +33,7 @@ $topbar-logo-bg-hover ?=                     darken($primary-color, 10%)
 $topbar-logo-padding ?=                      rem-calc(0 10)
 $topbar-logo-height ?=                       $topbar-height
 
-$topbar-link-hover-lightness ?=              -15%
+$topbar-link-hover-lightness ?=              -(15%)
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color ?=                        $white
@@ -53,11 +53,13 @@ $topbar-link-padding ?=                      ($topbar-height/3)
 $topbar-back-link-size ?=                    fontsize(1.3rem)
 $topbar-link-dropdown-padding ?=             rem-calc(20)
 
-$topbar-button-top ?=                        rem-calc(7)
+$topbar-button-top ?=                        rem-calc(4)
 $topbar-button-font-size ?=                  fontsize(1rem)
-$topbar-input-height ?=                      ($topbar-height - (2*$topbar-button-top))
+$topbar-input-height ?=                      ($topbar-height - (2 * $topbar-button-top))
 $topbar-button-search-width ?=               rem-calc(40)
 $topbar-button-search-border ?=              false // 1px solid darken($input-bg-color,10%)
+$topbar-button-search-bg-color ?=            $primary-color
+$topbar-button-search-bg-color-hover ?=      scale-color($primary-color, $topbar-link-hover-lightness)
 $topbar-button-search-svg-color ?=           $gray-dark-1
 $topbar-button-search-svg-color-hover ?=     $primary-color
 $topbar-button-search-svg-stroke-width ?=    $svg-stroke-width-small
@@ -65,8 +67,9 @@ $topbar-input-border-width ?=                false // 1px 0 0 1px
 $topbar-input-border-color ?=                darken($topbar-bg, 20%)
 $topbar-button-font-size ?=                  fontsize(.8rem)
 
-$topbar-site-search-padding ?=               rem-calc(7 (3*7)) // 7 is based on $topbar-button-top
-$topbar-site-search-font-size ?=             fontsize(1.1rem)
+$topbar-site-search-padding ?=               $topbar-button-top // ($topbar-button-top (3 * $topbar-button-top))
+$topbar-site-search-input-height ?=          ($topbar-height - (2 * $topbar-site-search-padding[0]))
+$topbar-site-search-font-size ?=             fontsize(1rem)
 $topbar-site-search-font-color ?=            $black
 $topbar-site-search-text-transform ?=        lowercase
 $topbar-site-search-svg-bg ?=                'basic_search_2.svg'
@@ -199,7 +202,7 @@ if $include-html-topbar-classes {
         height: $topbar-height
         line-height: $topbar-height
         margin-bottom: $topbar-margin-bottom
-        overflow: hidden
+        // overflow: hidden
         position: relative
         
         // Topbar Global list Styles
@@ -298,48 +301,50 @@ if $include-html-topbar-classes {
         // search form in topbar
         .site-search {
             padding: $topbar-site-search-padding
-
+            
             input[type="text"],
             input[type="search"] {
-                top: auto
-                width: 100%
+                color: $topbar-site-search-font-color
+                font-size: $topbar-site-search-font-size
+                height: $topbar-site-search-input-height
                 padding-{$default-float}: rem-calc(15)
                 padding-{$opposite-direction}: ($topbar-button-search-width + rem-calc(6))
-                font-size:$topbar-site-search-font-size
-                color: $topbar-site-search-font-color
                 text-transform: $topbar-site-search-text-transform
-                if ($button-corner-style == 'radius') {
-                    radius($global-radius)
-                } else if ($button-corner-style == 'round') {
-                    radius($global-rounded)
-                }
+                // top: auto
+                width: 100%
+                // if ($button-corner-style == 'radius') {
+                //     radius($global-radius)
+                // } else if ($button-corner-style == 'round') {
+                //     radius($global-rounded)
+                // }
             }
             .btn,
             button {
                 top: auto
                 float: $opposite-direction
                 width: $topbar-button-search-width
-                height: $topbar-input-height
-                margin-top: -($topbar-input-height) // move in line with search field
-                if ($button-corner-style == 'radius') {
-                    side-radius($opposite-direction, $global-radius)
-                } else if ($button-corner-style == 'round') {
-                    side-radius($opposite-direction, $global-rounded)
-                }
+                // height: $topbar-input-height
+                height: $topbar-site-search-input-height
+                margin-top: -($topbar-site-search-input-height) // move in line with search field
+                // if ($button-corner-style == 'radius') {
+                //     side-radius($opposite-direction, $global-radius)
+                // } else if ($button-corner-style == 'round') {
+                //     side-radius($opposite-direction, $global-rounded)
+                // }
 
                 +mediaquery($small-only) {
                     display: none
                 }
 
                 font-size: 0!important
-                text-indent: -9999em
+                text-indent: -(9999em)
                 $hover-col = $topbar-button-search-svg-color-hover
                 if ($topbar-button-search-svg-color == $topbar-button-search-svg-color-hover) {
                     $hover-col = false
                 }
                 svg-background($file:$topbar-site-search-svg-bg, $shapes:$topbar-site-search-svg-bg-shapes, $stroke:$topbar-button-search-svg-color, $stroke-hover:$hover-col, $stroke-width:$topbar-button-search-svg-stroke-width, $position-x:center)
 
-                background-color: $input-bg-color
+                background-color: $topbar-button-search-bg-color
                 if $topbar-button-search-border {
                     border-{$default-float}: $topbar-button-search-border
                 } else {
@@ -347,7 +352,7 @@ if $include-html-topbar-classes {
                 }
                 &:focus,
                 &:hover {
-                    background-color: darken($input-bg-color,10%)
+                    background-color: $topbar-button-search-bg-color-hover
                 }
             }
         }
@@ -433,7 +438,7 @@ if $include-html-topbar-classes {
     // Right and Left Navigation that stacked by default
     .topbar-section {
         position: relative
-        width: auto
+        // width: auto
         {$default-float}: 0
         single-transition($default-float, $topbar-transition-speed)
 
@@ -453,87 +458,133 @@ if $include-html-topbar-classes {
             width: 100%
         }
 
-        > ul > li {
-            background-color: $topbar-dropdown-bg
-            > a {
-                color: $topbar-link-color
-                display: block
-                font-size:$topbar-link-font-size
-                font-weight: $topbar-link-weight
-                font_family($topbar-link-font-family)
-                padding-{$default-float}: $topbar-link-padding
-                padding: rem-calc(12 0)
-                text-transform: $topbar-link-text-transform
-                width: 100%
-                
-                single-transition(background-color)
+        > ul {
+            display: inline
+            // height: auto !important
+            width: auto
 
-                &.btn {
+            > li {
+                float: $default-float
+                background-color: $topbar-dropdown-bg
+                > a {
+                    color: $topbar-link-color
+                    display: block
                     font-size:$topbar-link-font-size
+                    font-weight: $topbar-link-weight
+                    font_family($topbar-link-font-family)
+                    padding-{$default-float}: $topbar-link-padding
+                    padding: rem-calc(12 0)
+                    text-transform: $topbar-link-text-transform
+                    // width: 100%
+                    
+                    single-transition(background-color)
+
+                    &.btn {
+                        font-size: $topbar-link-font-size
+                        padding-{$default-float}: $topbar-link-padding
+                        padding-{$opposite-direction}: $topbar-link-padding
+                        button-style($primary-color)
+                        
+                        &--secondary {
+                            button-style($bg:$secondary-color)
+                        }
+                        &--info {
+                            button-style($bg:$info-color)
+                        }
+                        &--success {
+                            button-style($bg:$success-color)
+                        }
+                        &--warning {
+                            button-style($bg:$warning-color, $font-color:$warning-font-color)
+                        }
+                        &--alert {
+                            button-style($bg:$alert-color, $font-color:$critical-font-color)
+                        }
+                    }
+                    
+                }
+
+                > button {
+                    // font-size: $topbar-link-font-size
                     padding-{$default-float}: $topbar-link-padding
                     padding-{$opposite-direction}: $topbar-link-padding
-                    button-style($primary-color)
-                    
-                    &--secondary {
+                    button-style($bg:$primary-color)
+
+                    &.btn--secondary {
                         button-style($bg:$secondary-color)
                     }
-                    &--info {
+                    &.btn--info {
                         button-style($bg:$info-color)
                     }
-                    &--success {
+                    &.btn--success {
                         button-style($bg:$success-color)
                     }
-                    &--warning {
+                    &.btn--warning {
                         button-style($bg:$warning-color, $font-color:$warning-font-color)
                     }
-                    &--alert {
+                    &.btn--alert {
                         button-style($bg:$alert-color, $font-color:$critical-font-color)
                     }
                 }
-                
+                > input,
+                > select,
+                > button,
+                > .btn {
+                    font-size: $topbar-button-font-size
+                    height: $topbar-input-height
+                    line-height: $topbar-input-height
+                    padding-bottom: 0
+                    padding-top: 0
+                    position: relative
+                    top: $topbar-button-top
+                }
+
+                &:not(.has-form) {
+                    > a:not(.btn) {
+                        background-color: $topbar-link-bg
+                        line-height: $topbar-height
+                        padding: 0 $topbar-link-padding
+                        &:hover {
+                            if ($topbar-link-bg-hover) {
+                                background-color: $topbar-link-bg-hover
+                            } else {
+                                background-color: $topbar-link-bg-color-hover
+                            }
+                        }
+                        .lbl--badge {
+                            margin-{$default-float}: rem-calc(4)
+                        }
+                    }
+                }
+                // Apply the hover link color when it has that class
+                &:hover:not(.has-form) > a:not(.btn) {
+                    if ($topbar-link-bg-hover) {
+                        background-color: $topbar-link-bg-hover
+                    } else {
+                        background-color: $topbar-link-bg-color-hover
+                    }
+                    color: $topbar-link-color-hover
+                }
+
+                // Apply the active link color when it has that class
+                &.is-active > a {
+                    background-color: $topbar-link-bg-active
+                    color: $topbar-link-color-active
+                    &:hover {
+                        background-color: $topbar-link-bg-active-hover
+                        color: $topbar-link-color-active-hover
+                    }
+                }
             }
 
-            > button {
-                font-size:$topbar-link-font-size
-                padding-{$default-float}: $topbar-link-padding
-                padding-{$opposite-direction}: $topbar-link-padding
-                button-style($bg:$primary-color)
-
-                &.btn--secondary {
-                    button-style($bg:$secondary-color)
-                }
-                &.btn--info {
-                    button-style($bg:$info-color)
-                }
-                &.btn--success {
-                    button-style($bg:$success-color)
-                }
-                &.btn--warning {
-                    button-style($bg:$warning-color, $font-color:$warning-font-color)
-                }
-                &.btn--alert {
-                    button-style($bg:$alert-color, $font-color:$critical-font-color)
-                }
-            }
-
-            // Apply the hover link color when it has that class
-            &:hover:not(.has-form) > a:not(.btn) {
-                if ($topbar-link-bg-hover) {
-                    background-color: $topbar-link-bg-hover
-                } else {
-                    background-color: $topbar-link-bg-color-hover
-                }
-                color: $topbar-link-color-hover
-            }
-
-            // Apply the active link color when it has that class
-            &.is-active > a {
-                background-color: $topbar-link-bg-active
-                color: $topbar-link-color-active
-                &:hover {
-                    background-color: $topbar-link-bg-active-hover
-                    color: $topbar-link-color-active-hover
-                }
+            > .divider,
+            > [role='separator'] {
+                border-bottom: none
+                border-top: none
+                border-{$opposite-direction}: $topbar-divider-border-bottom
+                clear: none
+                height: $topbar-height
+                width: 0
             }
         }
 
@@ -546,9 +597,15 @@ if $include-html-topbar-classes {
         .has-dropdown {
             position: relative
 
+            // Show Arrow only for medium-up breakpoints
+            // if ($topbar-arrows){
+            //     > a {
+            //         svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+            //     }
+            // }
             if ($topbar-arrows){
                 > a {
-                    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                    background-image: none
                 }
             }
 
@@ -577,7 +634,10 @@ if $include-html-topbar-classes {
 
             li {
                 width: 100%
-                height: auto
+
+                &:not(.divider) {
+                    height: auto
+                }
 
                 &:not(.has-form) a:not(.btn):not(.prd__link) {
                     font-weight: $topbar-dropdown-link-weight
@@ -651,20 +711,20 @@ if $include-html-topbar-classes {
                 width: auto
             }
             
-            .topbar-section > ul > li {
-                > input,
-                > select,
-                > button,
-                > .btn {
-                    font-size: $topbar-button-font-size
-                    height: $topbar-input-height
-                    line-height: $topbar-input-height
-                    padding-bottom: 0
-                    padding-top: 0
-                    position: relative
-                    top: $topbar-button-top
-                }
-            }
+            // .topbar-section > ul > li {
+            //     > input,
+            //     > select,
+            //     > button,
+            //     > .btn {
+            //         font-size: $topbar-button-font-size
+            //         height: $topbar-input-height
+            //         line-height: $topbar-input-height
+            //         padding-bottom: 0
+            //         padding-top: 0
+            //         position: relative
+            //         top: $topbar-button-top
+            //     }
+            // }
 
             &.expanded {
                 background-color: $topbar-bg
@@ -685,12 +745,11 @@ if $include-html-topbar-classes {
             {$default-float}: 0 !important
 
             > ul {
-                display: inline
-                height: auto !important
-                width: auto
+                // display: inline
+                // height: auto !important
+                // width: auto
 
                 > li {
-                    float: $default-float
                     .js-generated {
                         display: none
                     }
@@ -709,23 +768,23 @@ if $include-html-topbar-classes {
                         color: $topbar-link-color-hover
                     }
                 }
-                &:not(.has-form) {
-                    > a:not(.btn) {
-                        background-color: $topbar-link-bg
-                        line-height: $topbar-height
-                        padding: 0 $topbar-link-padding
-                        &:hover {
-                            if ($topbar-link-bg-hover) {
-                                background-color: $topbar-link-bg-hover
-                            } else {
-                                background-color: $topbar-link-bg-color-hover
-                            }
-                        }
-                        .lbl--badge {
-                            margin-{$default-float}: rem-calc(4)
-                        }
-                    }
-                }
+                // &:not(.has-form) {
+                //     > a:not(.btn) {
+                //         background-color: $topbar-link-bg
+                //         line-height: $topbar-height
+                //         padding: 0 $topbar-link-padding
+                //         &:hover {
+                //             if ($topbar-link-bg-hover) {
+                //                 background-color: $topbar-link-bg-hover
+                //             } else {
+                //                 background-color: $topbar-link-bg-color-hover
+                //             }
+                //         }
+                //         .lbl--badge {
+                //             margin-{$default-float}: rem-calc(4)
+                //         }
+                //     }
+                // }
                 &.is-active:not(.has-form) {
                     > a:not(.btn) {
                         background-color: $topbar-link-bg-active
@@ -851,15 +910,15 @@ if $include-html-topbar-classes {
 
             }
 
-            > ul > .divider,
-            > ul > [role='separator'] {
-                border-bottom: none
-                border-top: none
-                border-{$opposite-direction}: $topbar-divider-border-bottom
-                clear: none
-                height: $topbar-height
-                width: 0
-            }
+            // > ul > .divider,
+            // > ul > [role='separator'] {
+            //     border-bottom: none
+            //     border-top: none
+            //     border-{$opposite-direction}: $topbar-divider-border-bottom
+            //     clear: none
+            //     height: $topbar-height
+            //     width: 0
+            // }
 
             .has-form {
                 background-color: $topbar-link-bg-hover
