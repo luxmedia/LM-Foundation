@@ -60,7 +60,8 @@ $input-checkbox-border-color-checked ?=      $gray-dark-3
 
 // style the fieldset border and spacing.
 $fieldset-bg-color ?=                        $gray-lighter-3
-$fieldset-border-style ?=                    false // solid
+$fieldset-border ?=                          false // true
+$fieldset-border-style ?=                    solid
 $fieldset-border-width ?=                    1px
 $fieldset-border-color ?=                    $gray-medium-1
 $fieldset-padding ?=                         rem-calc(20)
@@ -318,10 +319,9 @@ postfix($bg = $input-prefix-bg, $border-left-hidden = false, $border = $input-pr
 // We use this mixin to style fieldsets
 fieldset() {
     background: $fieldset-bg-color
-    if $fieldset-border-style {
-        border: $fieldset-border-width $fieldset-border-style darken($fieldset-bg-color, 4%)
-    } else {
-        border: none
+    border: $fieldset-border-width $fieldset-border-style $fieldset-border-color
+    if (! $fieldset-border) {
+        border-width: 0
     }
     display: inline-block
     margin: $fieldset-margin

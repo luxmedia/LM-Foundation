@@ -35,9 +35,9 @@
             settings = topbar.data(self.attr_name(true) + '-init'),
             section = self.S('section, .topbar-section', this);
         topbar.data('index', 0);
-        var topbarContainer = topbar.parents('.'+settings.topbar_parent);
-        if (topbarContainer.hasClass(settings.topbar_parent+settings.fixed_class) || self.is_sticky(topbar, topbarContainer, settings) ) {
-          self.settings.sticky_class = settings.sticky_class;
+        var topbarContainer = topbar.parents('.topbar__wrap');
+        if (topbarContainer.hasClass('topbar__wrap--fixed') || self.is_sticky(topbar, topbarContainer, settings) ) {
+          self.settings.sticky_class = settings.topbar_parent + settings.sticky_class;
           self.settings.sticky_topbar = topbar;
           topbar.data('height', topbarContainer.outerHeight());
           topbar.data('stickyoffset', topbarContainer.offset().top);
@@ -58,7 +58,7 @@
         // Pad body when sticky (scrolled) or fixed.
         self.add_custom_rule('.f-topbar-fixed { padding-top: ' + topbar.data('height') + 'px }');
 
-        if (topbarContainer.hasClass(settings.topbar_parent+settings.fixed_class)) {
+        if (topbarContainer.hasClass('topbar__wrap--fixed')) {
           self.S('body').addClass('f-topbar-fixed');
         }
       });
@@ -99,9 +99,9 @@
 
       var settings = topbar.data(this.attr_name(true) + '-init');
 
-      var topbarContainer = topbar.parents('.' + settings.topbar_parent);
+      var topbarContainer = topbar.parents('.topbar__wrap');
 
-      var section = self.S('section, .' + settings.topbar_namespace + '-section', topbar);
+      var section = self.S('section, .topbar-section', topbar);
 
       if (self.breakpoint()) {
         if (!self.rtl) {
@@ -122,15 +122,15 @@
 
       if (settings.scrolltop) {
         if (!topbar.hasClass('expanded')) {
-          if (topbar.hasClass(settings.topbar_namespace+settings.fixed_class)) {
-            topbarContainer.addClass(settings.topbar_parent+settings.fixed_class);
-            topbar.removeClass(settings.topbar_namespace+settings.fixed_class);
+          if (topbar.hasClass('topbar--fixed')) {
+            topbarContainer.addClass('topbar__wrap--fixed');
+            topbar.removeClass('topbar--fixed');
             self.S('body').addClass('f-topbar-fixed');
           }
-        } else if (topbarContainer.hasClass(settings.topbar_parent+settings.fixed_class)) {
+        } else if (topbarContainer.hasClass('topbar__wrap--fixed')) {
           if (settings.scrolltop) {
-            topbarContainer.removeClass(settings.topbar_parent+settings.fixed_class);
-            topbar.addClass(settings.topbar_namespace+settings.fixed_class);
+            topbarContainer.removeClass('topbar__wrap--fixed');
+            topbar.addClass('topbar--fixed');
             self.S('body').removeClass('f-topbar-fixed');
 
             window.scrollTo(0, 0);
@@ -140,16 +140,16 @@
         }
       } else {
         if (self.is_sticky(topbar, topbarContainer, settings)) {
-          topbarContainer.addClass(settings.topbar_parent+settings.fixed_class);
+          topbarContainer.addClass('topbar__wrap--fixed');
         }
 
-        if (topbarContainer.hasClass(settings.topbar_parent+settings.fixed_class)) {
+        if (topbarContainer.hasClass('topbar__wrap--fixed')) {
           if (!topbar.hasClass('expanded')) {
-            topbar.removeClass(settings.topbar_namespace+settings.fixed_class);
+            topbar.removeClass('topbar--fixed');
             topbarContainer.removeClass('expanded');
             self.update_sticky_positioning();
           } else {
-            topbar.addClass(settings.topbar_namespace+settings.fixed_class);
+            topbar.addClass('topbar--fixed');
             topbarContainer.addClass('expanded');
             self.S('body').addClass('f-topbar-fixed');
           }
@@ -173,7 +173,7 @@
           e.preventDefault();
           self.toggle(this);
         })
-        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.topbar .topbar-section li a[href^="#"],[' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
+        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.topbar .topbar-section li a[href^="#"], [' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
             var li = $(this).closest('li'),
                 topbar = li.closest('[' + self.attr_name() + ']'),
                 settings = topbar.data(self.attr_name(true) + '-init');
@@ -233,7 +233,7 @@
 
             var $this = S(this),
                 topbar = $this.closest('[' + self.attr_name() + ']'),
-                section = topbar.find('section, .'+settings.topbar_namespace+'-section'),
+                section = topbar.find('section, .topbar-section'),
                 dropdownHeight = $this.next('.dropdown').outerHeight(),
                 $selectedLi = $this.closest('li');
 
@@ -275,7 +275,7 @@
 
         var $this = S(this),
             topbar = $this.closest('[' + self.attr_name() + ']'),
-            section = topbar.find('section, .'+settings.topbar_namespace+'-section'),
+            section = topbar.find('section, .topbar-section'),
             settings = topbar.data(self.attr_name(true) + '-init'),
             $movedLi = $this.closest('li.is-moved'),
             $previousLevelUl = $movedLi.parent();
@@ -317,7 +317,7 @@
         var topbar = self.S(this),
             settings = topbar.data(self.attr_name(true) + '-init');
 
-        var stickyContainer = topbar.parents('.' + self.settings.topbar_parent + self.settings.sticky_class);
+        var stickyContainer = topbar.parents('.topbar__wrap' + self.settings.sticky_class);
         var stickyOffset;
 
         if (!self.breakpoint()) {
@@ -334,9 +334,9 @@
         }
 
         if (self.is_sticky(topbar, stickyContainer, settings)) {
-          if (stickyContainer.hasClass(self.settings.topbar_parent + self.settings.fixed_class)) {
+          if (stickyContainer.hasClass('.topbar__wrap--fixed')) {
             // Remove the fixed to allow for correct calculation of the offset.
-            stickyContainer.removeClass(self.settings.topbar_parent + self.settings.fixed_class);
+            stickyContainer.removeClass('.topbar__wrap--fixed');
 
             stickyOffset = stickyContainer.offset().top;
             if (self.S(document.body).hasClass('f-topbar-fixed')) {
@@ -344,7 +344,7 @@
             }
 
             topbar.data('stickyoffset', stickyOffset);
-            stickyContainer.addClass(self.settings.topbar_parent + self.settings.fixed_class);
+            stickyContainer.addClass('.topbar__wrap--fixed');
           } else {
             stickyOffset = stickyContainer.offset().top;
             topbar.data('stickyoffset', stickyOffset);
@@ -373,7 +373,7 @@
     assemble : function (topbar) {
       var self = this,
           settings = topbar.data(this.attr_name(true) + '-init'),
-          section = self.S('section, .' + settings.topbar_namespace + '-section', topbar);
+          section = self.S('section, .topbar-section', topbar);
 
       // Pull element out of the DOM for manipulation
       section.detach();
@@ -435,21 +435,21 @@
     },
 
     update_sticky_positioning : function () {
-      var klass = '.' + this.settings.topbar_parent + this.settings.sticky_class,
+      var klass = '.topbar__wrap' + this.settings.sticky_class,
           $window = this.S(window),
           self = this;
 
-      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar,this.settings.sticky_topbar.parent(), this.settings)) {
+      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar, this.settings.sticky_topbar.parent(), this.settings)) {
         var distance = this.settings.sticky_topbar.data('stickyoffset') + this.settings.start_offset;
         if (!self.S(klass).hasClass('expanded')) {
           if ($window.scrollTop() > (distance)) {
-            if (!self.S(klass).hasClass(self.settings.topbar_parent + self.settings.fixed_class)) {
-              self.S(klass).addClass(self.settings.topbar_parent + self.settings.fixed_class);
+            if (!self.S(klass).hasClass('topbar__wrap--fixed')) {
+              self.S(klass).addClass('topbar__wrap--fixed');
               self.S('body').addClass('f-topbar-fixed');
             }
           } else if ($window.scrollTop() <= distance) {
-            if (self.S(klass).hasClass(self.settings.topbar_parent + self.settings.fixed_class)) {
-              self.S(klass).removeClass(self.settings.topbar_parent + self.settings.fixed_class);
+            if (self.S(klass).hasClass('topbar__wrap--fixed')) {
+              self.S(klass).removeClass('topbar__wrap--fixed');
               self.S('body').removeClass('f-topbar-fixed');
             }
           }
