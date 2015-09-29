@@ -485,6 +485,11 @@ if $include-html-topbar-classes {
                         padding-{$opposite-direction}: $topbar-link-padding
                         button-style($primary-color)
                         
+                        if $include-primary-2-color-styles {
+                            &--primary-2 {
+                                button-style($bg:$primary-2-color)
+                            }
+                        }
                         &--secondary {
                             button-style($bg:$secondary-color)
                         }
@@ -510,7 +515,12 @@ if $include-html-topbar-classes {
                     padding-{$opposite-direction}: $topbar-link-padding
                     button-style($bg:$primary-color)
 
-                    &.btn--secondary {
+                    if $include-primary-2-color-styles {
+                        &--primary-2 {
+                            button-style($bg:$primary-2-color)
+                        }
+                    }
+                    &--secondary {
                         button-style($bg:$secondary-color)
                     }
                     &.btn--info {

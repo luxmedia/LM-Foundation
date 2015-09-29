@@ -176,17 +176,19 @@ if $include-html-alert-classes {
         }
 
         // DEFAULT ALERT STYLE - light soft bg, colored typo
-        &--success {
-            alert-style($bg: lightness($success-color, 90%), $font-color: lightness($success-color, 30%), $border-color: lightness($success-color, 75%))
-            svg-background($file:'arrows_circle_check.svg', $shapes:('polyline' 'circle'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$success-color, $stroke-hover:false, $repeat:false, $position-x:false)
-        }
-        &--neutral {
-            alert-style($bg: lightness($neutral-color, 90%), $font-color: lightness($neutral-color, 30%), $border-color: lightness($neutral-color, 75%))
-            svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $repeat:false, $position-x:false)
+        if $include-primary-2-color-styles {
+            &--primary-2 {
+                alert-style($bg: lightness($primary-2-color, 90%), $font-color: lightness($primary-2-color, 30%), $border-color: lightness($primary-2-color, 75%))
+                svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$primary-2-color, $stroke-hover:false, $repeat:false, $position-x:false)
+            }
         }
         &--secondary {
             alert-style($bg: lighten($secondary-color, 80%), $font-color: darken($secondary-color, 40%), $border-color: $secondary-color)
             svg-background($file:'arrows_info.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $repeat:false, $position-x:false)
+        }
+        &--success {
+            alert-style($bg: lightness($success-color, 90%), $font-color: lightness($success-color, 30%), $border-color: lightness($success-color, 75%))
+            svg-background($file:'arrows_circle_check.svg', $shapes:('polyline' 'circle'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$success-color, $stroke-hover:false, $repeat:false, $position-x:false)
         }
         &--info {
             alert-style($bg: lightness($info-color, 90%), $font-color: lightness($info-color, 30%), $border-color: lightness($info-color, 75%))

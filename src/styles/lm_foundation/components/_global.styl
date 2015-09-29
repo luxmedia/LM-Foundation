@@ -22,6 +22,7 @@ $include-html-classes ?=             true
 $include-print-styles ?=             true
 $include-js-meta-styles ?=           true // Warning! Meta styles are a dependancy of the Javascript.
 $include-html-global-classes ?=      com_css.GLOBAL
+$include-primary-2-color-styles ?=   base_params.include_primary_2_styles
 
 // =========================================================================
 // Folder
@@ -80,10 +81,11 @@ $black ?=                            base_colors.dark
 
 // We use these as default colors throughout
 $primary-color ?=                    base_colors.primary
-$primary-2-color ?=                  base_colors.secondary
+// if corporate color scope includes a second primary color, you can define it here
+$primary-2-color ?=                  base_colors.primary-2
 
+// Secondary color should be a neutral color
 $secondary-color ?=                  lightness($gray-base, 50%)
-$neutral-color ?=                    lightness($gray-base, 50%)
 
 $info-color ?=                       #62a7d9 // #a0d3e8
 $success-color ?=                    #4fc497 // #43AC6A
@@ -422,6 +424,8 @@ find_similar_basecolor($color = false) {
     if ($color != false && $color != none) {
         if ( $color == $primary-color) {
             return 'primary'
+        } else if ( $color == $primary-2-color) {
+            return 'primary-2'
         } else if ( $color == $secondary-color) {
             return 'secondary'
         } else if (lightness($color) > 75%) {

@@ -50,12 +50,12 @@ $button-hover-shadow ?=                      false // 1px 1px 1px rgba($black, .
 
 $button-outline-width ?=                     2px // else: false
 
+$primary-2-button-bg-color ?=                $primary-2-color
+$primary-2-button-bg-hover ?=                scale-color($primary-2-color, $button-function-factor)
+$primary-2-button-border-color ?=            scale-color($primary-2-button-bg-hover, -(5%))
 $secondary-button-bg-color ?=                $secondary-color
 $secondary-button-bg-hover ?=                scale-color($secondary-color, $button-function-factor)
 $secondary-button-border-color ?=            scale-color($secondary-button-bg-hover, -(5%))
-$neutral-button-bg-color ?=                  $neutral-color
-$neutral-button-bg-hover ?=                  scale-color($neutral-color, $button-function-factor)
-$neutral-button-border-color ?=              scale-color($neutral-button-bg-hover, -(5%))
 $success-button-bg-color ?=                  $success-color
 $success-button-bg-hover ?=                  scale-color($success-color, $button-function-factor)
 $success-button-border-color ?=              scale-color($success-button-bg-hover, -(5%))
@@ -377,10 +377,12 @@ if $include-html-button-classes {
                 button-style($bg:$secondary-button-bg-color, $outline:$button-outline-width)
             }
         }
-        &--neutral {
-            button-style($bg:$neutral-button-bg-color, $bg-hover:$neutral-button-bg-hover, $border-color:$neutral-button-border-color)
-            &.btn--outline {
-                button-style($bg:$neutral-button-bg-color, $outline:$button-outline-width)
+        if $include-primary-2-color-styles {
+            &--primary-2 {
+                button-style($bg:$primary-2-button-bg-color, $bg-hover:$primary-2-button-bg-hover, $border-color:$primary-2-button-border-color)
+                &.btn--outline {
+                    button-style($bg:$primary-2-button-bg-color, $outline:$button-outline-width)
+                }
             }
         }
         &--success {

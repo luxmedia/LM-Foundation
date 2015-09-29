@@ -562,6 +562,39 @@ if $include-html-type-classes {
         }
     }
 
+    // Classes for coloring
+    .text {
+        &--white {
+            color: $white
+        }
+        &--darker {
+            color: $gray-darker-2
+        }
+        &--primary {
+            color: $primary-color
+        }
+        if $include-primary-2-color-styles {
+            &--primary-2 {
+                color: $primary-2-color
+            }
+        }
+        &--secondary {
+            color: $secondary-color
+        }
+        &--success {
+            color: $success-color
+        }
+        &--info {
+            color: $info-color
+        }
+        &--alert {
+            color: $alert-color
+        }
+        &--warning {
+            color: $warning-color
+        }
+    }
+
     .bg {
         &--primary {
             background-color: $primary-color
@@ -569,6 +602,16 @@ if $include-html-type-classes {
             &.bg--outline {
                 border-color: $primary-color
                 background-color: $white
+            }
+        }
+        if $include-primary-2-color-styles {
+            &--primary-2 {
+                background-color: $primary-2-color
+                color: $white
+                &.bg--outline {
+                    border-color: $primary-2-color
+                    background-color: $white
+                }
             }
         }
         &--secondary {

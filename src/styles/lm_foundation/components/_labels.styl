@@ -147,7 +147,7 @@ if $include-html-label-classes {
         }
         &--rnd,
         &--round {
-            label-style($bg:false, $radius:1000px)
+            label-style($bg:false, $radius:$global-rounded)
         }
         
         // inverted and flat Label
@@ -161,6 +161,20 @@ if $include-html-label-classes {
             label-style($bg:$primary-color)
             &.lbl--inv {
                 label-style($bg:$label-font-color-alt, $font-color:$primary-color, $border-color:$primary-color)
+            }
+        }
+        if $include-primary-2-color-styles {
+            &--primary-2 {
+                label-style($bg:$primary-2-color)
+                &.lbl--inv {
+                    label-style($bg:$label-font-color-alt, $font-color:$primary-2-color, $border-color:$primary-2-color)
+                }
+            }
+        }
+        &--secondary {
+            label-style($bg:$secondary-color)
+            &.lbl--inv {
+                label-style($bg:$label-font-color-alt, $font-color:$secondary-color, $border-color:$secondary-color)
             }
         }
         &--success {
@@ -191,9 +205,13 @@ if $include-html-label-classes {
         // Flat style
         &--flat {
             label-style($bg:transparent, $font-color:$label-inverted-font-color)
-        }
-        &--primary.lbl--flat {
-            color: $primary-color
+
+            &.lbl--primary {
+                color: $primary-color    
+            }
+            &.lbl--secondary {
+                color: $secondary-color    
+            }
         }
 
         // Different sizes
@@ -215,7 +233,7 @@ if $include-html-label-classes {
         // Badges
         &--badge {
             label-size($padding:$badge-padding)
-            label-style($bg:false, $radius:1000px)
+            label-style($bg:false, $radius:$global-rounded)
         }
 
         // Hover state, but only for links
