@@ -68,7 +68,7 @@ if $include-html-joyride-classes {
     }
 
     .lt-ie9 .joyride-tip-guide {
-        margin-{$default-float}: -400px
+        margin-{$default-float}: -(400px)
         max-width: 800px
         {$default-float}: 50%
     }
@@ -98,17 +98,17 @@ if $include-html-joyride-classes {
             {$default-float}: $joyride-tip-position-offset
 
             &.top {
-                border-top-style: solid
                 border-color: $joyride-tip-bg
                 border-top-color: transparent !important
+                border-top-style: solid
                 border-{$default-float}-color: transparent !important
                 border-{$opposite-direction}-color: transparent !important
                 top: -($joyride-tip-nub-size*2)
             }
             &.bottom {
-                border-bottom-style: solid
                 border-color: $joyride-tip-bg !important
                 border-bottom-color: transparent !important
+                border-bottom-style: solid
                 border-{$default-float}-color: transparent !important
                 border-{$opposite-direction}-color: transparent !important
                 bottom: -($joyride-tip-nub-size*2)
@@ -173,7 +173,6 @@ if $include-html-joyride-classes {
     }
 
     .joyride-modal-bg {
-        background: transparent
         background: $joyride-screenfill
         cursor: $cursor-pointer-value
         display: none

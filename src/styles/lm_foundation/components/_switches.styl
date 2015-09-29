@@ -16,6 +16,7 @@
 $include-html-form-switches-classes =           com_js.SWITCHES
 
 // Controlling background color for the switch container
+$switch-font-family ?=                          $font-family-custom
 $switch-bg ?=                                   $gray-medium-1
 $switch-bg-hover ?=                             $switch-bg
 $switch-bg-active ?=                            $primary-color
@@ -77,6 +78,7 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
     label {
         cursor: pointer
         display: block
+        font_family($switch-font-family)
         height: $switch-height-med
         line-height: $switch-height-med
         margin-bottom: ($switch-height-med / 2)

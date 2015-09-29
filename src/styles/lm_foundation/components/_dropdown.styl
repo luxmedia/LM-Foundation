@@ -238,10 +238,6 @@ dropdown-style() {
         }
     }
 
-    &--rad {
-        radius($f-dropdown-radius)
-    }
-
     > a {
         color: $f-dropdown-font-color
         display: block
@@ -289,6 +285,11 @@ if $include-html-dropdown-classes {
         // You can also put custom content in these dropdowns
         &.content {
             dropdown-container(content, $triangle:false)
+        }
+        
+        // Radius of Dropdown
+        &--rad {
+            radius($f-dropdown-radius)
         }
 
         // Sizes

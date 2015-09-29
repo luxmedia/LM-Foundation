@@ -177,7 +177,7 @@ grid-column( $columns = false, $last-column = false, $center = false, $offset = 
         {$default-float}: auto
     }
 
-    if $float {
+    if ($float && $last-column == false) {
         if ($float == left || $float == true) {
             float: $default-float
         } else if ($float == right) {

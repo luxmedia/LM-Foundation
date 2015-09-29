@@ -21,7 +21,7 @@ $reveal-position-top ?=                      rem-calc(100)
 $reveal-position ?=                          absolute // fixed
 $reveal-default-width ?=                     80%
 $reveal-max-width ?=                         95% // $row-width
-$reveal-modal-padding ?=                     rem-calc(20)
+$reveal-modal-padding ?=                     rem-calc(30)
 $reveal-box-shadow ?=                        0 5px 50px rgba($black,.3)
 
 // style the reveal close button
@@ -66,7 +66,7 @@ reveal-bg( $include-z-index-value = true ) {
     // position: absolute // allows modal to scroll with browser scrollbar
     right: 0
     top: 0
-    z-index: ($include-z-index-value ? $zindex-reveal : 'auto')
+    z-index: ($include-z-index-value ? ($zindex-reveal - 1) : auto)
     {$default-float}: 0
 
 }
@@ -128,12 +128,12 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
 // $box-shadow - Choose whether or not to include the default box-shadow. Default: true, Options: false
 // $radius - If true, set to modal radius which is $global-radius || explicitly set radius amount in px (ex. $radius:10px). Default: false
 // $top-offset - Default: $reveal-position-top || 50px
-reveal-modal-style($bg = false, $padding = false, $border = false, $border-style = $reveal-border-style, $border-width = $reveal-border-width, $border-color = $reveal-border-color, $box-shadow = false, $radius = false, $top-offset=false) {
+reveal-modal-style($bg = false, $padding = false, $border = false, $border-style = $reveal-border-style, $border-width = $reveal-border-width, $border-color = $reveal-border-color, $box-shadow = false, $radius = false, $top-offset = false) {
 
     if $bg {
         background-color: $bg
     }
-    if $padding != false {
+    if ($padding != false) {
         padding: $padding
     }
 
@@ -193,7 +193,6 @@ if $include-html-reveal-classes {
     .{$reveal-modal-class} {
         reveal-modal-base()
         reveal-modal-style($bg:$reveal-modal-bg, $padding:$reveal-modal-padding, $border:true, $box-shadow:true, $radius:false, $top-offset:$reveal-position-top)
-        reveal-modal-style($padding:($reveal-modal-padding * 1.5))
 
         &--rad {
             reveal-modal-style($radius:true)
@@ -205,10 +204,10 @@ if $include-html-reveal-classes {
             reveal-modal-style($padding:0)
         }
         &--tny  {
-            reveal-modal-base($base-style:false, $width:40%)
+            reveal-modal-base($base-style:false, $width:30%)
         }
         &--sml {
-            reveal-modal-base($base-style:false, $width:50%)
+            reveal-modal-base($base-style:false, $width:40%)
         }
         &--med  {
             reveal-modal-base($base-style:false, $width:60%)
@@ -231,6 +230,11 @@ if $include-html-reveal-classes {
         }
         &--grid {
             grid-row()
+        }
+
+        // Modals pushed to back
+        &.toback {
+            z-index: ($zindex-reveal - 2)
         }
 
         .{$close-reveal-modal-class} {

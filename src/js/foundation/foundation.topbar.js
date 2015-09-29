@@ -173,18 +173,18 @@
           e.preventDefault();
           self.toggle(this);
         })
-        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.topbar .topbar-section li a[href^="#"], [' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
-            var li = $(this).closest('li'),
-                topbar = li.closest('[' + self.attr_name() + ']'),
-                settings = topbar.data(self.attr_name(true) + '-init');
+        .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.topbar .topbar-section li a[href^="#"],[' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
+          var li = $(this).closest('li'),
+              topbar = li.closest('[' + self.attr_name() + ']'),
+              settings = topbar.data(self.attr_name(true) + '-init');
 
-            if (settings.dropdown_autoclose && settings.is_hover) {
-              var hoverLi = $(this).closest('.is-hover');
-              hoverLi.removeClass('is-hover');
-            }
-            if (self.breakpoint() && !li.hasClass('back') && !li.hasClass('has-dropdown')) {
-              self.toggle();
-            }
+          if (settings.dropdown_autoclose && settings.is_hover) {
+            var hoverLi = $(this).closest('.is-hover');
+            hoverLi.removeClass('is-hover');
+          }
+          if (self.breakpoint() && !li.hasClass('back') && !li.hasClass('has-dropdown')) {
+            self.toggle();
+          }
 
         })
         .on('click.fndtn.topbar', '[' + this.attr_name() + '] li.has-dropdown', function (e) {
@@ -439,7 +439,7 @@
           $window = this.S(window),
           self = this;
 
-      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar, this.settings.sticky_topbar.parent(), this.settings)) {
+      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar,this.settings.sticky_topbar.parent(), this.settings)) {
         var distance = this.settings.sticky_topbar.data('stickyoffset') + this.settings.start_offset;
         if (!self.S(klass).hasClass('expanded')) {
           if ($window.scrollTop() > (distance)) {

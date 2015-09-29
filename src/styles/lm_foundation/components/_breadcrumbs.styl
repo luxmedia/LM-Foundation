@@ -40,6 +40,7 @@ $crumb-link-decor ?=                         none // underline
 // the slash between breadcrumbs
 $crumb-slash-color ?=                        $gray-base
 $crumb-slash ?=                              '/'
+$crumb-slash-position ?=                     1px
 
 //
 // Breadcrumb Mixins
@@ -123,7 +124,7 @@ crumbs() {
         color: $crumb-slash-color
         margin: 0 $crumb-side-padding
         position: relative
-        top: 1px
+        top: $crumb-slash-position
     }
 
     &:first-child:before {

@@ -417,17 +417,6 @@ if $include-html-type-classes {
 
     ul {
         margin-{$default-float}: $list-side-margin
-        &.no-bullet {
-            margin-{$default-float}: $list-side-margin-no-bullet
-            li {
-                ul,
-                ol {
-                    list-style: none
-                    margin-bottom: 0
-                    margin-{$default-float}: $list-nested-margin
-                }
-            }
-        }
     }
 
     /* Unordered Lists */
@@ -470,6 +459,19 @@ if $include-html-type-classes {
         li {
             ul,
             ol {
+                margin-bottom: 0
+                margin-{$default-float}: $list-nested-margin
+            }
+        }
+    }
+
+    // Lists without bullets
+    &.no-bullet {
+        margin-{$default-float}: $list-side-margin-no-bullet
+        li {
+            ul,
+            ol {
+                list-style: none
                 margin-bottom: 0
                 margin-{$default-float}: $list-nested-margin
             }
@@ -564,22 +566,42 @@ if $include-html-type-classes {
         &--primary {
             background-color: $primary-color
             color: $white
+            &.bg--outline {
+                border-color: $primary-color
+                background-color: $white
+            }
         }
         &--secondary {
             background-color: $secondary-color
             color: $white
+            &.bg--outline {
+                border-color: $secondary-color
+                background-color: $white
+            }
         }
         &--info {
             background-color: $info-color
             color: $white
+            &.bg--outline {
+                border-color: $info-color
+                background-color: $white
+            }
         }
         &--success {
             background-color: $success-color
             color: $white
+            &.bg--outline {
+                border-color: $success-color
+                background-color: $white
+            }
         }
         &--warning {
             background-color: $warning-color
             color: $white
+            &.bg--outline {
+                border-color: $warning-color
+                background-color: $white
+            }
         }
         &--alert {
             if (light($alert-color)) {
@@ -588,6 +610,18 @@ if $include-html-type-classes {
                 background-color: $warning-font-color
             }
             color: $white
+            &.bg--outline {
+                if (light($alert-color)) {
+                    border-color: $alert-color
+                } else {
+                    border-color: $warning-font-color
+                }
+                background-color: $white
+            }
+        }
+        &--outline {
+            border-style: solid
+            border-width: 2px
         }
     }
 

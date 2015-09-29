@@ -19,6 +19,7 @@ $split-button-pip-color-alt ?=               $charcoal-1
 $split-button-active-bg-tint ?=              rgba($black, .15)
 $split-button-border-color ?=                $white
 $split-button-span-border-color ?=           rgba($white, .6)
+$split-button-span-border-color-alt ?=       rgba($black, .4)
 
 // tiny split buttons
 $split-button-padding-tny ?=                 ($button-pip-tny * 10)
@@ -126,13 +127,13 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
     }
 
     // Control the color of the triangle pip
-    if $pip-color {
-        {$is-no-svg-support} & {
-            .toggler:after {
-                border-color: $pip-color transparent transparent transparent
-            }
-        }
-    }
+    // if $pip-color {
+    //     {$is-no-svg-support} & {
+    //         .toggler:after {
+    //             border-color: $pip-color transparent transparent transparent
+    //         }
+    //     }
+    // }
 
     // additional styling for outline buttons
     if $outline {
@@ -162,13 +163,13 @@ if $include-html-split-button-classes {
 
         // Color variants
         &--secondary {
-            split-button($padding:false, $pip-color:$split-button-pip-color, $span-border:$secondary-color, $base-style:false)
+            split-button($padding:false, $pip-color:$split-button-pip-color-alt, $span-border:$split-button-span-border-color-alt, $base-style:false)
         }
         &--alert {
-            split-button($padding:false, $pip-color:false, $span-border:$alert-color, $base-style:false)
+            split-button($padding:false, $pip-color:false, $span-border:$split-button-span-border-color, $base-style:false)
         }
         &--success {
-            split-button($padding:false, $pip-color:false, $span-border:$success-color, $base-style:false)
+            split-button($padding:false, $pip-color:false, $span-border:$split-button-span-border-color, $base-style:false)
         }
 
         // Outline button style
@@ -199,14 +200,14 @@ if $include-html-split-button-classes {
             }
         } else if ($button-corner-style == 'round') {
             .toggler {
-                side-radius($opposite-direction, 1000px)
+                side-radius($opposite-direction, $global-rounded)
             }
         } else if ($button-corner-style == 'all') {
             &--rad .toggler {
                 side-radius($opposite-direction, $global-radius)
             }
             &--rnd .toggler {
-                side-radius($opposite-direction, 1000px)
+                side-radius($opposite-direction, $global-rounded)
             }
         }
 
@@ -215,6 +216,14 @@ if $include-html-split-button-classes {
             .toggler {
                 background-image: none
                 padding-top:$split-button-pip-top-med
+                > i {
+                    display: block
+                    left: 50%
+                    margin-left: -(0.28889em)
+                    margin-top: -(0.48889em)
+                    position: absolute
+                    top: 50%
+                }
             }
             &.btn--tny {
                 .toggler {

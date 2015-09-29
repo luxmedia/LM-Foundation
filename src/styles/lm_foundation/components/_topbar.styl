@@ -419,14 +419,14 @@ if $include-html-topbar-classes {
 
             // Fixes an issue with Desktop and Mobile Safari where deeply-nested menus don't appear
             @media screen and (-webkit-min-device-pixel-ratio:0) {
-                .top-bar-section {
-                    .has-dropdown.moved > .dropdown,
+                .topbar-section {
+                    .has-dropdown.is-moved > .dropdown,
                     .dropdown {
                         clip: initial
                     }
 
                     // This was needed as parent ul's had padding, and the clip: was allowing content to peak through
-                    .has-dropdown:not(.moved) > ul {
+                    .has-dropdown:not(.is-moved) > ul {
                         padding: 0
                     }
                 }
@@ -465,7 +465,7 @@ if $include-html-topbar-classes {
 
             > li {
                 float: $default-float
-                background-color: $topbar-dropdown-bg
+                // background-color: $topbar-dropdown-bg
                 > a {
                     color: $topbar-link-color
                     display: block
@@ -625,12 +625,12 @@ if $include-html-topbar-classes {
         // 2nd Level
         .dropdown {
             topbar-hide-dropdown()
+            background-color: $topbar-dropdown-bg
             padding: 0
             position: absolute
             top: 0
             z-index: $zindex-dropdown
             {$default-float}: 100%
-            
 
             li {
                 width: 100%
@@ -725,6 +725,13 @@ if $include-html-topbar-classes {
             //         top: $topbar-button-top
             //     }
             // }
+
+            .has-form > .button,
+            .has-form > button { 
+                padding-top: rem-calc(5)
+                position: relative
+                top: (($topbar-height - $topbar-input-height + rem-calc(-3)) / 2)
+            }
 
             &.expanded {
                 background-color: $topbar-bg

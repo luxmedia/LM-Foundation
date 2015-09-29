@@ -20,6 +20,8 @@ $input-font-family ?=                        inherit
 $input-font-color ?=                         $charcoal-1
 $input-font-color-hover ?=                   $black
 $input-font-size ?=                          fontsize(1.1rem)
+$input-line-height ?=                        $base-line-height
+$input-font-size-computed ?=                 unit((floor(($input-line-height * $input-font-size), 4)), 'rem')
 $input-font-weight ?=                        $font-weight-normal
 $input-bg-color ?=                           $white
 $input-focus-bg-color ?=                     darken($white, 2%)
@@ -91,7 +93,7 @@ $input-number-spinners ?=                    true
 
 // style the error states for inputs and labels
 $input-error-message-padding ?=              rem-calc(2 5)
-$input-error-message-top ?=                  -1px
+$input-error-message-top ?=                  -(1px)
 $input-error-message-font-size ?=            fontsize(.8rem)
 $input-error-message-font-weight ?=          $font-weight-bold
 $input-error-message-font-style ?=           normal
@@ -165,9 +167,9 @@ form-element() {
     font-size: $input-font-size
     font-weight: $input-font-weight
     font_family($input-font-family)
-    height: ($input-font-size + $form-spacing - rem-calc(1))
+    height: ($input-font-size-computed + $form-spacing - rem-calc(1))
     margin: 0 0 $form-spacing 0
-    padding: ($form-spacing - $input-font-size) ($form-spacing / 2)
+    padding: ($form-spacing / 2) $form-spacing
     width: 100%
     
     box-sizing(border-box)
@@ -224,7 +226,7 @@ form-label($alignment = false, $base-style = true) {
     }
     else if ($alignment == inline) {
         margin: 0 0 $form-spacing 0
-        padding: ($form-spacing / 2 + rem-calc($input-border-width)) 0
+        padding: (($form-spacing / 2) + rem-calc($input-border-width)) 0
     }
 }
 
@@ -283,9 +285,9 @@ prefix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button 
 // @MIXIN
 //
 // We use this mixin to create postfix label styles
-// $bg - Default:$input-prefix-bg || scale-color($white, $lightness: -5%) !default
+// $bg - Default:$input-prefix-bg || scale-color($white, $lightness: -5%) !default;
 // $is-button - Toggle position settings if prefix is a button. Default: false
-postfix($bg = $input-prefix-bg, $border-left-hidden = false, $border = $input-prefix-border-color, $is-button = false) {
+postfix($bg = $input-prefix-bg, $border-left-hidden = true, $border = $input-prefix-border-color, $is-button = false) {
 
     if $bg {
         background: $bg
@@ -428,6 +430,7 @@ form-select()  {
     font_family($body-font-family)
     line-height: normal
     padding: ($form-spacing - $input-font-size) ($form-spacing / 2)
+    radius(0)
 
     &.rad {
         radius($global-radius)

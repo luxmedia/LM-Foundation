@@ -13,6 +13,7 @@ $include-accessibility-classes ?=            $include-html-visibility-classes
 $include-table-visibility-classes ?=         $include-html-visibility-classes
 // $include-legacy-visibility-classes ?=        false // DEPRECATED
 
+$print-margin ?=                            0.34in
 
 //
 // Media Class Names
@@ -370,6 +371,12 @@ if $include-html-visibility-classes {
                 display: table-cell !important
             }
 
+            @media not print {
+                .show-for-print {
+                    display: none !important
+                }
+            }
+
             a,
             a:visited {
                 text-decoration: underlin
@@ -409,7 +416,7 @@ if $include-html-visibility-classes {
             }
 
             @page {
-                margin: 0.5cm
+                margin: $print-margin
             }
 
             p,
@@ -437,37 +444,5 @@ if $include-html-visibility-classes {
                 display: inherit !important
             }
         }
-    }
-
-    /* Print visibility */
-    @media print {
-        .show-for-print {
-            display: block
-        }
-        .hide-for-print {
-            display: none
-        }
-
-        table.show-for-print {
-            display: table !important
-        }
-        thead.show-for-print {
-            display: table-header-group !important
-        }
-        tbody.show-for-print {
-            display: table-row-group !important
-        }
-        tr.show-for-print {
-            display: table-row !important
-        }
-        td.show-for-print {
-            display: table-cell !important
-        }
-        th.show-for-print {
-            display: table-cell !important
-        }
-    }
-    @media not print {
-        .show-for-print { display: none !important; }
     }
 }

@@ -135,7 +135,7 @@
 			"file": "src/styles/lm_foundation/components/_global.styl",
 			"settings":
 			{
-				"buffer_size": 31512,
+				"buffer_size": 32360,
 				"line_ending": "Unix"
 			}
 		},
@@ -143,7 +143,7 @@
 			"file": "src/styles/lm_foundation/_settings.styl",
 			"settings":
 			{
-				"buffer_size": 103444,
+				"buffer_size": 104028,
 				"line_ending": "Unix"
 			}
 		},
@@ -164,11 +164,13 @@
 			}
 		},
 		{
-			"file": "Gruntfile.js",
+			"contents": "Package Control Messages\n========================\n\nPackage Control:\n---------------\n\n  Version 3.1 Release Notes\n  \n  Package Control continues its focus on polish and fixing edge-case bugs. Some\n  of the changes in this version include:\n  \n   - quick panel for Install Package now stays open on Windows with recent\n     versions of ST3, even when focus is lost\n   - new \"downloader_precedence\" setting to allow users to use specific HTTP\n     backend due to network proxy or SSL issues\n   - added Install Local Dependency command for package developers to more\n     easily deal with dependencies during development\n   - improved handling of git/hg package upgrade errors\n   - better handling of locked .sublime-package files on Windows\n   - performance improvements for users with a large number of open windows\n  \n  For package developers, the list of available dependencies has been growing:\n  https://github.com/wbond/package_control_channel/blob/master/repository/dependencies.json\n  \n  Enjoy!\n  \n  ",
 			"settings":
 			{
-				"buffer_size": 8015,
-				"line_ending": "Unix"
+				"buffer_size": 1004,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"scratch": true
 			}
 		}
 	],
@@ -296,6 +298,7 @@
 	},
 	"file_history":
 	[
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/SOFTWARE/WEB/Git/LM-Foundation/Gruntfile.js",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_breadcrumbs.styl",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_topbar.styl",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_labels.styl",
@@ -422,8 +425,7 @@
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.magellan.js",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/js/foundation/foundation.alert.js",
 		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_toolbar.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_loading.styl",
-		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/custom/_settings.styl"
+		"/Volumes/LM-HDD-PORTABLE-02/_INTERN/RESOURCES/WEB/Git/LM-Foundation/src/styles/lm_foundation/components/_loading.styl"
 	],
 	"find":
 	{
@@ -1169,7 +1171,7 @@
 					"file": "src/styles/lm_foundation/components/_global.styl",
 					"settings":
 					{
-						"buffer_size": 31512,
+						"buffer_size": 32360,
 						"regions":
 						{
 						},
@@ -1177,7 +1179,7 @@
 						[
 							[
 								0,
-								31512
+								0
 							]
 						],
 						"settings":
@@ -1290,15 +1292,15 @@
 					"file": "src/styles/lm_foundation/_settings.styl",
 					"settings":
 					{
-						"buffer_size": 103444,
+						"buffer_size": 104028,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								96228,
-								96228
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1647,18 +1649,17 @@
 				},
 				{
 					"buffer": 8,
-					"file": "Gruntfile.js",
 					"settings":
 					{
-						"buffer_size": 8015,
+						"buffer_size": 1004,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								220,
-								280
+								1004,
+								1004
 							]
 						],
 						"settings":
@@ -1669,6 +1670,7 @@
 								"README",
 								"FIXME"
 							],
+							"auto_indent": false,
 							"csslint_options":
 							{
 								"adjoining-classes": "warning",
@@ -1756,9 +1758,10 @@
 							},
 							"sublimelinter_wrap_find": true,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

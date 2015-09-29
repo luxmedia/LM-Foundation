@@ -16,6 +16,7 @@ $accordion-navigation-bg-color ?=            $gray-light-2
 $accordion-navigation-hover-bg-color ?=      darken($accordion-navigation-bg-color, 5%)
 $accordion-navigation-active-bg-color ?=     darken($accordion-navigation-bg-color, 3%)
 $accordion-navigation-font-color ?=          $charcoal-2
+$accordion-navigation-active-font-color ?=   $charcoal-2
 $accordion-navigation-font-size ?=           fontsize(1.2rem)
 $accordion-navigation-font-family ?=         $body-font-family
 
@@ -42,7 +43,7 @@ accordion-container() {
     //    @params $font-size [ number ]: Specifiy the font-size of the text inside the navigation element
     //    @params $font-family [ string ]: Specify the font family for the text of the navigation of the accorion
 
-accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordion-navigation-hover-bg-color, $active-bg = $accordion-navigation-active-bg-color, $padding = $accordion-navigation-padding, $active_class = 'active',  $font-color = $accordion-navigation-font-color, $font-size = $accordion-navigation-font-size, $font-family = $accordion-navigation-font-family ){
+accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordion-navigation-hover-bg-color, $active-bg = $accordion-navigation-active-bg-color, $padding = $accordion-navigation-padding, $active_class = 'active',  $font-color = $accordion-navigation-font-color, $font-size = $accordion-navigation-font-size, $font-family = $accordion-navigation-font-family, $active-font = $accordion-navigation-active-font-color ){
     display: block
     margin-bottom: 0 !important
     if (typeof($active_class) != "string") {
@@ -51,6 +52,7 @@ accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordio
     else {
         &.{$active_class} > a {
             background: $active-bg
+            color: $active-font
         }
     }
     > a {
@@ -128,7 +130,8 @@ if $include-html-accordion-classes {
     .accordion {
         clearfix()
         margin-bottom: 0
-        
+        margin-left: 0
+
         .accordion-navigation,
         dd {
             display: block
@@ -136,6 +139,7 @@ if $include-html-accordion-classes {
 
             &.is-active > a {
                 background: $accordion-navigation-active-bg-color
+                color: $accordion-navigation-active-font-color
             }
 
             > a {

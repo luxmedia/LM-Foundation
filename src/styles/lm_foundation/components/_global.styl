@@ -206,7 +206,7 @@ $xxlarge-only ?=                    $screen + ' and (min-width:' + $xxlarge-min 
 $retina ?=                          ($screen + ' and (-webkit-min-device-pixel-ratio: 2),' $screen+' and (min--moz-device-pixel-ratio: 2),' $screen+' and (-o-min-device-pixel-ratio: 2/1),' $screen+' and (min-device-pixel-ratio: 2),' $screen+' and (min-resolution: 192dpi),' $screen+' and (min-resolution: 2dppx)')
 
 // DEPRECATED / legacy
-$small ?=                            $medium-up
+$small ?=                            $small-up
 $medium ?=                           $medium-up
 $large ?=                            $large-up
 
@@ -528,7 +528,75 @@ single-transition($property = all, $speed = $transition-default-speed, $ease = f
         }
     }
     transition: unquote(join(', ', $trans))
+    // transition($property, $speed, $ease)
 }
+
+// We use this to add single or multiple transitions to elements
+// $property - Default: all, Options: http://www.w3.org/TR/css3-transitions/#animatable-properties
+// $speed - Default: 300ms
+// $ease - Default: ease-out, Options: http://css-tricks.com/almanac/properties/t/transition-timing-function/
+// $delay - Default: null (0s)
+// transition($property = all, $speed = $transition-default-speed, $ease = ease-out, $delay = null) {
+//     $transition = none
+
+//     if (length($property) > 1) {
+
+//         for $transition_list in $property {
+
+//             $len = length($transition_list)
+
+//             for $i in 1..$len {
+
+//                 if ($i == 1) {
+//                     $_property = $transition_list[$i]
+//                 }
+
+//                 if ($len > 1) {
+//                     if ($i == 2) {
+//                         $_speed = $transition_list[$i]
+//                     }
+//                 } else {
+//                     $_speed = $speed
+//                 }
+
+//                 if ($len > 2) {
+//                     if ($i == 3) {
+//                         $_ease = $transition_list[$i]
+//                     }
+//                 } else {
+//                     $_ease = $ease
+//                 }
+
+//                 if ($len > 3) {
+//                     if ($i == 4) {
+//                         $_delay = $transition_list[$i]
+//                     }
+//                 } else {
+//                     $_delay = $delay
+//                 }
+//             }
+
+//             if ($transition == none) {
+//                 $transition = ($_property $_speed $_ease $_delay)
+//             } else {
+//                 $transition = ($transition, $_property $_speed $_ease $_delay)
+//             }
+//         }
+
+//     } else {
+
+//         for $prop in $property {
+
+//             if ($transition == none) {
+//                 $transition = ($prop $speed $ease $delay)
+//             } else {
+//                 $transition = ($transition, $prop $speed $ease $delay)
+//             }
+//         }
+//     }
+
+//     transition: $transition
+// }
 
 // add box-sizing across browser prefixes
 box-sizing($type = border-box) {
@@ -909,6 +977,9 @@ if $include-html-global-classes {
 
     .block {
         display: block
+    }
+    .inlineblock {
+        display: inline-block
     }
     .expand {
         expand()
