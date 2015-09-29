@@ -479,7 +479,7 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
                     background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
                 }
                 // Additional Styling for Hover State
-                if ($stroke-hover && $stroke-hover != $stroke) {
+                if ($stroke-hover && ($stroke-hover != $stroke)) {
                     &:focus,
                     &:hover {
                         background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))
