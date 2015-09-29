@@ -235,7 +235,7 @@ if $include-html-slickslider-classes {
             .slick__next,
             .slick__prev {
                 top: auto
-                bottom: ($slick-nav-button-size / 2)
+                bottom: ($slick-nav-button-size / 2.5)
             }
         }
 
@@ -260,7 +260,7 @@ if $include-html-slickslider-classes {
                 margin: $slick-dot-margin
                 padding: 0
                 position: relative
-                radius(1000px)
+                radius($global-rounded)
                 width: $slick-dot-sensitive-size
 
                 button {
@@ -276,7 +276,7 @@ if $include-html-slickslider-classes {
                     margin: 0
                     // outline: none
                     padding: $slick-dot-padding
-                    radius(1000px)
+                    radius($global-rounded)
                     width: $slick-dot-sensitive-size
 
                     &:hover,
@@ -308,7 +308,7 @@ if $include-html-slickslider-classes {
                         
                         antialiased()
                         
-                        radius(1000px)
+                        radius($global-rounded)
                     }
                 }
 

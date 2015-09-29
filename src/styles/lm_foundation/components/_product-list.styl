@@ -510,7 +510,6 @@ if $include-html-productlist-classes {
                     line-height: ($product-list-img-height - 10px)
                     margin: -($product-list-item-padding)
                     margin-{$opposite-direction}: $product-list-img-gutter
-                    // margin-{$default-float}: 0
                     width: $product-list-img-width
 
                     .fig-overlay {
@@ -537,12 +536,12 @@ if $include-html-productlist-classes {
                 .price-box {
                     text-align: $opposite-direction
 
-                    +mediaquery($medium-up) {
-                        width: ((1/4)*100)%
-                        clear: none
-                        float: $opposite-direction
-                        margin-{$opposite-direction}: 0
-                    }
+                    // +mediaquery($medium-up) {
+                    //     width: ((1/4)*100)%
+                    //     clear: none
+                    //     float: $opposite-direction
+                    //     margin-{$opposite-direction}: 0
+                    // }
                 }
 
             } // EOF - product
