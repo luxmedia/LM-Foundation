@@ -165,8 +165,12 @@
         var open_modal = self.S('[' + self.attr_name() + '].is-open');
 
         if (typeof modal.data('css-top') === 'undefined') {
-          modal.data('css-top', parseInt(modal.css('top'), 10))
+          // LUXMEDIA MOD
+          // modal.data('css-top', parseInt(modal.css('top'), 10))
+          //   .data('offset', this.cache_offset(modal));
+          modal.data('css-top', this.getTopOffset(modal))
             .data('offset', this.cache_offset(modal));
+          // EOF
         }
 
         modal.attr('tabindex','0').attr('aria-hidden','false');
@@ -353,7 +357,10 @@
         if (animData.pop) {
           css.top = $(window).scrollTop() - el.data('offset') + 'px';
           var end_css = {
-            top: $(window).scrollTop() + el.data('css-top') + 'px',
+            // LUXMEDIA MOD
+            // top: $(window).scrollTop() + el.data('css-top') + 'px',
+            top: this.getTopOffset(el) + 'px',
+            // EOF
             opacity: 1
           };
 
@@ -496,12 +503,46 @@
       return str;
     },
 
-    cache_offset : function (modal) {
-      var offset = modal.show().height() + parseInt(modal.css('top'), 10) + modal.scrollY;
+    // LUXMEDIA MOD
+    // Fix offset top if reveal-height + offset > 100vh and reveal modals have fixed position
+    getTopOffset : function (modal) {
+      var _cssTop = parseInt(modal.css('top'), 10),
+        _modalPosition = modal.css('position'),
+        _modalHeight = parseInt(modal.show().outerHeight(true), 10),
+        _windowHeight = parseInt($(window).height(), 10),
+        _heightDiff = _windowHeight - _modalHeight,
+        _logoHeight = $('.topbar__wrap--fixed').find('#logo').outerHeight() || 0,
+        _maxHeight = _windowHeight,
+        offset = 0;
+      if (_logoHeight) { _maxHeight = _windowHeight - (2 * _logoHeight); }
 
+      if ((_modalPosition == 'fixed') && ((_heightDiff <= _cssTop) || (_heightDiff <= _logoHeight))) {
+        // set new offset and center modal vertically
+        offset = Math.max(0, parseInt(((_cssTop - _heightDiff) / 2), 10));
+        if (_logoHeight && (offset < _logoHeight)) {
+          offset = _logoHeight;
+        }
+        // set modal (max)height to window height
+        modal.height(_maxHeight);
+      } else {
+        offset = _modalHeight + _cssTop + modal.scrollY;
+      }
       modal.hide();
 
       return offset;
+    },
+    // EOF
+
+    cache_offset : function (modal) {
+      
+      // LUXMEDIA MOD
+      // Fix offset top if reveal-height + offset > 100vh and reveal modals have fixed position
+      // var offset = modal.show().height() + parseInt(modal.css('top'), 10) + modal.scrollY;
+      // modal.hide();
+      var offset = this.getTopOffset(modal);
+
+      return offset;
+      // EOF
     },
 
     off : function () {

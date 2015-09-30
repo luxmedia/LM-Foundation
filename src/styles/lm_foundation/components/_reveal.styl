@@ -17,8 +17,11 @@ $reveal-overlay-bg-old ?=                    $gray-base
 
 // the style of the modal itself.
 $reveal-modal-bg ?=                          $white
-$reveal-position-top ?=                      rem-calc(100)
-$reveal-position ?=                          absolute // fixed
+
+// fixed position. NOTE: could be problematic if height of modal extends screen height. So if you use it, specify "height: 100vh; overflow: auto;"
+$reveal-position ?=                          fixed // absolute
+
+$reveal-offset-top ?=                        rem-calc(100)
 $reveal-default-width ?=                     80%
 $reveal-max-width ?=                         95% // $row-width
 $reveal-modal-padding ?=                     rem-calc(30)
@@ -62,7 +65,8 @@ reveal-bg( $include-z-index-value = true ) {
     bottom: 0
     display: none
     left: 0
-    position: fixed; // fixed position. NOTE: could be problematic if height of modal extends screen height. So if you use it, specify "height: 100vh; overflow: auto;"
+    // fixed position. NOTE: could be problematic if height of modal extends screen height. So if you use it, specify "height: 100vh; overflow: auto;"
+    position: fixed
     // position: absolute // allows modal to scroll with browser scrollbar
     right: 0
     top: 0
@@ -80,6 +84,8 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
     if $base-style {
         border-radius: $border-radius
         display: none
+        max-height: 100vh
+        overflow: scroll
         position: $reveal-position
         top: 0
         visibility: hidden
@@ -88,7 +94,10 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
         {$default-float}: 0
 
         +mediaquery($small-only) {
-            min-height: 100vh
+            margin-{$default-float}: 1%
+            margin-top: 1%
+            max-width: 98%
+            max-height: 98vh
         }
 
         // Make sure rows don't have a min-width on them
@@ -127,7 +136,7 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
 // $border-color - Color of border. Default: $reveal-border-color.
 // $box-shadow - Choose whether or not to include the default box-shadow. Default: true, Options: false
 // $radius - If true, set to modal radius which is $global-radius || explicitly set radius amount in px (ex. $radius:10px). Default: false
-// $top-offset - Default: $reveal-position-top || 50px
+// $top-offset - Default: $reveal-offset-top || 50px
 reveal-modal-style($bg = false, $padding = false, $border = false, $border-style = $reveal-border-style, $border-width = $reveal-border-width, $border-color = $reveal-border-color, $box-shadow = false, $radius = false, $top-offset = false) {
 
     if $bg {
@@ -192,7 +201,7 @@ if $include-html-reveal-classes {
 
     .{$reveal-modal-class} {
         reveal-modal-base()
-        reveal-modal-style($bg:$reveal-modal-bg, $padding:$reveal-modal-padding, $border:true, $box-shadow:true, $radius:false, $top-offset:$reveal-position-top)
+        reveal-modal-style($bg:$reveal-modal-bg, $padding:$reveal-modal-padding, $border:true, $box-shadow:true, $radius:false, $top-offset:$reveal-offset-top)
 
         &--rad {
             reveal-modal-style($radius:true)
@@ -220,7 +229,7 @@ if $include-html-reveal-classes {
         }
         &--full {
             reveal-modal-base($base-style:false, $width:100%)
-            height: 100%
+            // height: 100%
             height: 100vh
             left: 0
             margin-left: 0 !important

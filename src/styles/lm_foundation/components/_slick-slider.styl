@@ -32,7 +32,8 @@ $slick-dot-button-font-size ?=      fontsize(.7rem)
 $slick-dot-button-font-color ?=     $gray-medium-2
 $slick-dot-button-font-color-active ?= $white
 $slick-dot-ul-margin ?=             rem-calc(0 0 30 0)
-$slick-dot-sensitive-size ?=        rem-calc(20)
+$slick-dot-li-padding ?=            rem-calc(0)
+$slick-dot-sensitive-size ?=        rem-calc(28)
 $slick-dot-block-ul-margin ?=       $slick-dot-ul-margin
 $slick-dot-block-ul-padding ?=      rem-calc(0 5)
 $slick-dot-block-ul-bg ?=           $gray-light-1
@@ -53,6 +54,8 @@ $slick-cursor-dragging ?=           $cursor-grabbing-value
 
 $slick-nav-button-svg-size ?=       rem-calc(22)
 $slick-nav-button-svg-shapes ?=     ('polyline' 'polygon')
+$slick-loading-image ?=             'ajax-loader.gif'
+$slick-loading-image-bg-size ?=     40px
 
 
 //
@@ -105,7 +108,8 @@ if $include-html-slickslider-classes {
             }
 
             .is-loading & {
-                background: $white slick-image-url('ajax-loader.gif') center center no-repeat
+                background: $white $slick-loading-image center center no-repeat
+                background-size: $slick-loading-image-bg-size
             }
 
             &.is-dragging {
@@ -235,7 +239,8 @@ if $include-html-slickslider-classes {
             .slick__next,
             .slick__prev {
                 top: auto
-                bottom: ($slick-nav-button-size / 2.5)
+                // bottom: ($slick-nav-button-size / 2)
+                bottom: rem-calc(10)
             }
         }
 
@@ -258,7 +263,7 @@ if $include-html-slickslider-classes {
                 display: inline-block
                 height: $slick-dot-sensitive-size
                 margin: $slick-dot-margin
-                padding: 0
+                padding: $slick-dot-li-padding
                 position: relative
                 radius($global-rounded)
                 width: $slick-dot-sensitive-size
