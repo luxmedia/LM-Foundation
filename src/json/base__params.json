@@ -2,6 +2,8 @@
     "nodejs" : "node_modules",
     "src" : "src",
     "dest" : "dist",
+    "projectroot_relative" : "../../",
+    "themeroot_relative" : "../../",
     "httpurl" : "http.yourdomain.com",
     "namespace_vendor" : "vendor",
     "namespace_fndtn" : "fndtn",
