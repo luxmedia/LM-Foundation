@@ -35,8 +35,6 @@ $ribbon-flag-dimensions ?=                   6px
 $ribbon-flag-dimensions-lrg ?=               ($ribbon-flag-dimensions + rem-calc($ribbon-lrg-factor))
 $ribbon-flag-dimensions-xlrg ?=              ($ribbon-flag-dimensions + rem-calc($ribbon-lrg-factor))
 $ribbon-flag-padding ?=                      ($ribbon-padding-left - rem-calc(($ribbon-flag-dimensions/2)))
-$ribbon-box-shadow ?=                        -1px 2px 10px rgba($black, .1)
-$ribbon-box-shadow-left ?=                   1px 2px 10px rgba($black, .1)
 
 $ribbon-font-size-lrg ?=                      ($ribbon-font-size + rem-calc($ribbon-lrg-factor))
 $ribbon-font-size-xlrg ?=                     ($ribbon-font-size + rem-calc($ribbon-xlrg-factor))
@@ -58,7 +56,6 @@ ribbon-cont() {
 
 
 ribbon-base() {
-    box-shadow: $ribbon-box-shadow
     display: inline-block
     font-size: $ribbon-font-size
     font-weight: $ribbon-font-weight
@@ -92,6 +89,7 @@ ribbon-base() {
 ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = 'normal'){
     color: $color
     background-color: $bg
+    shadow-elevation('marker' + $default-float)
 
     &:after {
         border-{$ribbon-default-position}-color: darken($bg, 20%)
@@ -133,10 +131,10 @@ ribbon-style($color = $ribbon-font-color, $bg = $ribbon-bg-color, $type = 'norma
 }
 
 ribbon-opposite() {
-    box-shadow: $ribbon-box-shadow-left
     {$ribbon-opposite-position}: -($ribbon-backface-dimensions)
     {$ribbon-default-position}: auto
     text-align: $ribbon-opposite-position
+    shadow-elevation('marker' + $opposite-direction)
 
     &:after {
         border-{$ribbon-opposite-position}-width: 0

@@ -108,8 +108,6 @@ $glowing-effect-color ?=                     $input-focus-border-color
 
 // Select variables
 $select-bg-color ?=                          $white
-$select-shadow-color ?=                      rgba($charcoal-1, .1)
-$select-shadow-color-hover ?=                rgba($charcoal-1, .2)
 $select-hover-bg-color ?=                    $white
 
 // We use this to style the transition when inputs are focused and when the glowing effect is disabled.
@@ -185,7 +183,7 @@ form-element() {
     // Disabled Styles
     &:disabled {
         background-color: $input-disabled-bg
-        cursor: $input-disabled-cursor
+        cursor($input-disabled-cursor)
     }
 
     // Disabled background input background color
@@ -193,7 +191,7 @@ form-element() {
     &[readonly],
     fieldset[disabled] & {
         background-color: $input-disabled-bg
-        cursor: $input-disabled-cursor
+        cursor($input-disabled-cursor)
     }
 }
 
@@ -208,7 +206,7 @@ form-label($alignment = false, $base-style = true) {
     // Control whether or not the base styles come through.
     if $base-style {
         color: $form-label-font-color
-        cursor: $form-label-pointer
+        cursor($form-label-pointer)
         display: block
         font-size: $form-label-font-size
         font-weight: $form-label-font-weight
@@ -422,15 +420,16 @@ form-select()  {
     border-left-color: $edge = darken($fieldset-bg-color, 5%)
     border-radius: 0
     border-top-color: $edge
-    box-shadow: 1px 1px 1px $select-shadow-color
     color: $input-font-color
-    cursor: $cursor-pointer-value
+    cursor($cursor-pointer-value)
     font-size: $input-font-size
     font-weight: $input-font-weight
     font_family($body-font-family)
     line-height: normal
     padding: ($form-spacing - $input-font-size) ($form-spacing / 2)
     radius(0)
+
+    shadow-elevation('button')
 
     &.rad {
         radius($global-radius)
@@ -442,7 +441,6 @@ form-select()  {
         border-left-color: $edge = darken($fieldset-bg-color, 10%)
         border-right-color: $input-focus-border-color
         border-top-color: $edge
-        box-shadow: 1px 1px 1px $select-shadow-color-hover
         color: $input-font-color-hover
     }
 
@@ -461,14 +459,14 @@ form-select()  {
     &:disabled {
         background-color: $input-disabled-bg
         border-style: dotted
-        cursor: $input-disabled-cursor
+        box-shadow: none
+        cursor($input-disabled-cursor)
         opacity: .5
 
         &:hover {
             border-color: $input-border-color
             border-left-color: $edge = darken($fieldset-bg-color, 5%)
             border-top-color: $edge
-            box-shadow: 1px 1px 1px $select-shadow-color
             color: $input-font-color
         }
     }
@@ -477,7 +475,7 @@ form-select()  {
 form-checkbox-base() {
     & + label {
         color: $input-font-color
-        cursor: pointer
+        cursor($cursor-pointer-value)
         display: inline-block
         font-size: $input-font-size
         font-weight: $form-label-ui-font-weight

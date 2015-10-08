@@ -24,7 +24,6 @@ $product-list-item-border-width ?=               2px
 $product-list-item-border-style ?=               solid
 $product-list-item-border-color ?=               transparent
 $product-list-item-border-hover-color ?=         transparent
-$product-list-item-box-shadow-hover ?=           false // 0 0 10px rgba($black, 0.2)
 $product-list-item-hover-blur ?=                 10px // false
 
 $product-list-img-bg ?=                          $white
@@ -91,7 +90,6 @@ $product-list-opts-item-border ?=                1px solid rgba($black, .15)
 $product-list-opts-item-border-width ?=          0 1px 1px 0
 $product-list-opts-item-border-color ?=          rgba($black, .2)
 $product-list-opts-item-border-hover ?=          $product-list-opts-item-border-color
-$product-list-opts-item-box-shadow ?=            $global-ui-shadow
 $product-list-opts-label-padding ?=              rem-calc(2 0)
 $product-list-opts-label-margin ?=               rem-calc(0 10 5 0)
 $product-list-opts-label-border ?=               false // 1px solid rgba($black, 0.15)
@@ -186,14 +184,12 @@ prd-opts() {
                     border-color: $product-list-opts-item-border-color
                     border-width: $product-list-opts-item-border-width
                 }
-                if $product-list-opts-item-box-shadow {
-                    box-shadow: $product-list-opts-item-box-shadow
-                }
                 color: $product-list-opts-link-color
                 display: inline-block
                 font-size: $product-list-opts-link-font-size
                 line-height: $product-list-opts-line-height
                 padding: $product-list-opts-item-padding
+                shadow-elevation('button')
 
                 &:hover {
                     if $product-list-opts-link-bg-hover {
@@ -229,8 +225,7 @@ if $include-html-productlist-classes {
             padding-left: ($column-gutter / 2)
             padding-right: ($column-gutter / 2)
         }
-            
-        // List item (li)
+
         > li {
             list-style-type: none
             margin: 0
@@ -246,11 +241,8 @@ if $include-html-productlist-classes {
             padding: $product-list-item-padding
             position: relative
             z-index: 1
+            shadow-elevation('card', $shadow: false)
             single-transition($speed:$product-list-transition-speed)
-
-            // &__inner {
-            //     clearfix()
-            // }
 
             &__link {
                 clearfix()
@@ -260,13 +252,11 @@ if $include-html-productlist-classes {
             // Images (wrapper)
             &__img {
                 background: $product-list-img-bg
-                // display: block
                 height: $product-grid-img-height
                 line-height: $product-grid-img-height
                 overflow: hidden
                 position: relative
                 text-align: center
-                // width: auto
 
                 .fig-overlay {
                     kill-flicker()
@@ -369,9 +359,6 @@ if $include-html-productlist-classes {
                 background-color: $product-list-item-bg-hover
                 if $product-list-item-border {
                     border-color: $product-list-item-border-hover-color
-                }
-                if $product-list-item-box-shadow {
-                    box-shadow: $product-list-item-box-shadow-hover
                 }
                 overflow: visible
                 if $product-list-item-hover-blur {

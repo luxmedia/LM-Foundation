@@ -181,13 +181,14 @@ switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, 
                 &::after {
                     background: (!$inverted-colors ? $switch-paddle-bg-hover : $switch-paddle-inv-bg-hover)
                     single-transition(background, $speed:$transition-speed, $ease:$transition-ease)
+                    shadow-elevation('switches', $shadow: false, $shadow-hover: true)
                 }
             }
         }
 
         label:after {
             background: (!$inverted-colors ? $paddle-bg : $switch-paddle-inv-bg)
-            shadow-elevation(switch)
+            shadow-elevation('switches', $shadow: true, $shadow-hover: false)
         }
 
         input:checked + label {

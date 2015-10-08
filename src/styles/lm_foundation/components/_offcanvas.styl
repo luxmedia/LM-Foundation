@@ -496,9 +496,10 @@ if $include-html-off-canvas-classes {
     .tab-bar .menu-icon {
         color: $tabbar-menu-icon-color
         display: inline-block
-        font_family($font-family-custom)
         font-weight: $font-weight-bold
+        font_family($font-family-custom)
         height: $tabbar-menu-icon-height
+        min-width: @height
         padding: $tabbar-menu-icon-padding
         position: relative
         text-indent: $tabbar-menu-icon-text-indent
@@ -555,7 +556,7 @@ if $include-html-off-canvas-classes {
             back-link()
         }
         .left-off-canvas-menu {           
-            shadow-elevation(navdrawerleft)
+            shadow-elevation('navdrawerleft')
         }
     }
 
@@ -571,7 +572,7 @@ if $include-html-off-canvas-classes {
             back-link()
         }
         .right-off-canvas-menu {           
-            shadow-elevation(navdrawerright)
+            shadow-elevation('navdrawerright')
         }
     }
     .move-top {

@@ -167,7 +167,7 @@ if $include-html-topbar-classes {
     // Wrapped around .topbar to make it stick to the top
     .topbar__wrap {
         background-color: $topbar-bg
-        shadow-elevation(appbar)
+        shadow-elevation('appbar')
 
         &--fixed {
             position: fixed
@@ -636,6 +636,7 @@ if $include-html-topbar-classes {
         // 2nd Level
         .dropdown {
             topbar-hide-dropdown()
+            shadow-elevation('menu')
             background-color: $topbar-dropdown-bg
             padding: 0
             position: absolute
@@ -923,20 +924,11 @@ if $include-html-topbar-classes {
                     .dropdown {
                         top: 0
                         {$default-float}: 100%
+                        shadow-elevation('submenu')
                     }
                 }
 
             }
-
-            // > ul > .divider,
-            // > ul > [role='separator'] {
-            //     border-bottom: none
-            //     border-top: none
-            //     border-{$opposite-direction}: $topbar-divider-border-bottom
-            //     clear: none
-            //     height: $topbar-height
-            //     width: 0
-            // }
 
             .has-form {
                 background-color: $topbar-link-bg-hover
