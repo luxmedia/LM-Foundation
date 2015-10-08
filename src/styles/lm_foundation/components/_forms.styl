@@ -53,7 +53,7 @@ $form-label-font-size ?=                     fontsize(.8rem)
 $form-label-font-weight ?=                   $font-weight-normal
 $form-label-ui-font-weight ?=                $font-weight-normal
 $form-label-line-height ?=                   1.5
-$form-label-font-color ?=                    $gray-dark-2
+$form-label-font-color ?=                    $gray-medium-2
 $form-label-font-color-hover ?=              $input-font-color-hover
 $form-label-inv-font-color ?=                rgba($white, .75)
 $form-label-inv-font-color-hover ?=          $white
@@ -163,7 +163,8 @@ form-row-base() {
 // We use this mixin to give all basic form elements their style
 form-element() {
     background-color: $input-bg-color
-    border: $input-border-width $input-border-style
+    border-width: $input-border-width
+    border-style: $input-border-style
     border-color: $input-border-color
     if ($input-box-shadow != false) {
         box-shadow: $input-box-shadow
@@ -190,6 +191,9 @@ form-element() {
             border-width: $input-border-width-focus
         }
         outline: none
+        if (!$input-include-glowing-effect) {
+            box-shadow: none
+        }
     }
     // Disabled Styles
     &:disabled {
@@ -418,7 +422,8 @@ form-select()  {
     }
 
     svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small, $position-x: $opposite-direction)
-    border: $select-border-width $input-border-style
+    border-width: $select-border-width
+    border-style: $input-border-style
     border-color: $select-border-color
     border-radius: 0
     color: $input-font-color
@@ -598,7 +603,11 @@ if $include-html-form-classes {
 
     // Label Styles
     label {
-        form-label()
+
+        &[for] {
+            form-label()
+        }
+
         &--right {
             form-label(right,false)
         }
