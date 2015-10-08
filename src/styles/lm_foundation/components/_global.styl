@@ -129,22 +129,22 @@ $global-ui-shadow-hover ?=           1px 1px 3px rgba($black, .4)
 $shadow-switches ?=                 1px 2px 4px rgba($black, .25)
 $shadow-switches-hover ?=           1px 2px 6px rgba($black, .35)
 $shadow-button ?=                   1px 1px 3px rgba($black, .25)
-$shadow-button-hover ?=             1px 3px 5px rgba($black, .25)
+$shadow-button-hover ?=             1px 3px 5px rgba($black, .3)
 $shadow-searchbar ?=                1px 1px 3px rgba($black, .25)
-$shadow-searchbar-hover ?=          1px 3px 5px rgba($black, .25)
+$shadow-searchbar-hover ?=          1px 3px 5px rgba($black, .3)
 $shadow-appbar ?=                   0 3px 6px rgba($black, .25)
 $shadow-appbar-hover ?=             false
 $shadow-floatingbutton ?=           1px 6px 8px rgba($black, .25)
-$shadow-floatingbutton-hover ?=     1px 10px 14px rgba($black, .25)
+$shadow-floatingbutton-hover ?=     1px 10px 14px rgba($black, .3)
 $shadow-card ?=                     1px 2px 5px rgba($black, .25)
 $shadow-card-hover ?=               1px 7px 14px rgba($black, .25)
-$shadow-markerleft ?=               2px 2px 6px rgba($black, .25)
+$shadow-markerleft ?=               2px 2px 6px rgba($black, .3)
 $shadow-markerleft-hover ?=         false
-$shadow-markerright ?=              -2px 2px 6px rgba($black, .25)
+$shadow-markerright ?=              -2px 2px 6px rgba($black, .3)
 $shadow-markerright-hover ?=        false
-$shadow-menu ?=                     1px 6px 10px rgba($black, .25)
+$shadow-menu ?=                     1px 6px 10px rgba($black, .3)
 $shadow-menu-hover ?=               false
-$shadow-submenu ?=                  1px 8px 12px rgba($black, .25)
+$shadow-submenu ?=                  1px 8px 12px rgba($black, .3)
 $shadow-submenu-hover ?=            false
 $shadow-navdrawerleft ?=            6px 0 16px rgba($black, .25)
 $shadow-navdrawerleft-hover ?=      false
@@ -752,8 +752,12 @@ block-glowing-effect($selector = focus, $fade-time = 300ms, $glowing-effect-colo
 shadow-elevation($el = 'button', $shadow = $global-ui-shadow, $shadow-hover = false) {
 
     if $el {
-        $shadow = lookup('$shadow-' + $el)
-        $shadow-hover = lookup('$shadow-' + $el + '-hover')
+        if ($shadow != false) {
+            $shadow = lookup('$shadow-' + $el)
+        }
+        if ($shadow-hover != false) {
+            $shadow-hover = lookup('$shadow-' + $el + '-hover')
+        }
     }
 
     if ($shadow != false) {

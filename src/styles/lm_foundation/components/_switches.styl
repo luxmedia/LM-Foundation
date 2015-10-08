@@ -207,9 +207,9 @@ switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, 
     // Setting up the radius for switches
     if ($radius == true) {
         label {
-            border-radius: remify(2rem)
+            border-radius: $global-rounded // remify(2rem)
             &:after {
-                border-radius: remify(2rem)
+                border-radius: $global-rounded // remify(2rem)
             }
         }
     } else if $radius {

@@ -21,29 +21,43 @@ $input-font-color ?=                         $charcoal-1
 $input-font-color-hover ?=                   $black
 $input-font-size ?=                          fontsize(1.1rem)
 $input-line-height ?=                        $base-line-height
+$input-padding ?=                            ($form-spacing / 1.8) $form-spacing
 $input-font-size-computed ?=                 unit((floor(($input-line-height * $input-font-size), 4)), 'rem')
 $input-font-weight ?=                        $font-weight-normal
 $input-bg-color ?=                           $white
 $input-focus-bg-color ?=                     darken($white, 2%)
-$input-border-color ?=                       darken($white, 20%)
-$input-focus-border-color ?=                 darken($white, 40%)
+$input-border-color ?=                       darken($white, 20%) darken($white, 10%) darken($white, 10%) darken($white, 20%)
+$input-border-color-focus ?=                 darken($white, 40%) darken($white, 30%) darken($white, 30%) darken($white, 40%)
 $input-border-style ?=                       solid
 $input-border-width ?=                       1px
+$input-border-width-focus ?=                 1px
 $input-border-radius ?=                      $global-radius
 $input-disabled-bg ?=                        transparent
 $input-disabled-cursor ?=                    $cursor-disabled-value
-$input-box-shadow ?=                         inset 0 1px 2px rgba(0,0,0,.1)
+$input-box-shadow ?=                         false // inset 0 1px 2px rgba(0,0,0,.1)
 $input-include-glowing-effect ?=             false
+$input-element-height ?=                     ($input-font-size-computed + $form-spacing - rem-calc(1))
+
+
+// Select variables
+$select-bg-color ?=                          $input-bg-color
+$select-hover-bg-color ?=                    $select-bg-color
+$select-border-width ?=                      1px
+$select-border-color ?=                      $input-border-color
+$select-border-color-focus ?=                $input-border-color-focus
+$select-padding ?=                           $input-padding
+$select-padding-arrow ?=                     rem-calc(30)
 
 $form-label-pointer ?=                       pointer
 $form-label-font-size ?=                     fontsize(.8rem)
-$form-label-font-weight ?=                   $font-weight-bold
+$form-label-font-weight ?=                   $font-weight-normal
 $form-label-ui-font-weight ?=                $font-weight-normal
 $form-label-line-height ?=                   1.5
-$form-label-font-color ?=                    $gray-darker-1
+$form-label-font-color ?=                    $gray-dark-2
 $form-label-font-color-hover ?=              $input-font-color-hover
 $form-label-inv-font-color ?=                rgba($white, .75)
 $form-label-inv-font-color-hover ?=          $white
+$form-label-text-transform ?=                false // uppercase
 $form-label-small-transform ?=               capitalize
 $form-label-small-font-size ?=               fontsize(.75rem)
 $form-label-bottom-margin ?=                 0
@@ -61,14 +75,13 @@ $input-checkbox-border-color-hover ?=        $gray-dark-3
 $input-checkbox-border-color-checked ?=      $gray-dark-3
 
 // style the fieldset border and spacing.
-$fieldset-bg-color ?=                        $gray-lighter-3
-$fieldset-border ?=                          false // true
+$fieldset-bg-color ?=                        $white // $gray-lighter-3
+$fieldset-border ?=                          true // false
 $fieldset-border-style ?=                    solid
 $fieldset-border-width ?=                    1px
-$fieldset-border-color ?=                    $gray-medium-1
+$fieldset-border-color ?=                    $gray-light-3
 $fieldset-padding ?=                         rem-calc(20)
 $fieldset-margin ?=                          rem-calc(18 0)
-$fieldset-bg-dotted ?=                       rgba($black, .1) // false
 
 // style the legends when you use them
 $legend-bg ?=                                $white
@@ -104,11 +117,7 @@ $input-error-message-font-color-alt ?=       $white
 
 // style the glowing effect of inputs when focused
 $glowing-effect-fade-time ?=                 .45s
-$glowing-effect-color ?=                     $input-focus-border-color
-
-// Select variables
-$select-bg-color ?=                          $white
-$select-hover-bg-color ?=                    $white
+$glowing-effect-color ?=                     $input-border-color-focus
 
 // We use this to style the transition when inputs are focused and when the glowing effect is disabled.
 $input-transition-fade-time ?=               .24s
@@ -154,20 +163,19 @@ form-row-base() {
 // We use this mixin to give all basic form elements their style
 form-element() {
     background-color: $input-bg-color
-    border-bottom-color: $edge = lighten($input-border-color, 45%)
+    border: $input-border-width $input-border-style
     border-color: $input-border-color
-    border-right-color: $edge    
-    border-style: $input-border-style
-    border-width: $input-border-width
-    box-shadow: $input-box-shadow
+    if ($input-box-shadow != false) {
+        box-shadow: $input-box-shadow
+    }
     color: $input-font-color
     display: block
     font-size: $input-font-size
     font-weight: $input-font-weight
     font_family($input-font-family)
-    height: ($input-font-size-computed + $form-spacing - rem-calc(1))
+    // height: $input-element-height
     margin: 0 0 $form-spacing 0
-    padding: ($form-spacing / 2) $form-spacing
+    padding: $input-padding
     width: 100%
     
     box-sizing(border-box)
@@ -177,12 +185,15 @@ form-element() {
     // Basic focus styles
     &:focus {
         background-color: $input-focus-bg-color
-        border-color: $input-focus-border-color
+        border-color: $input-border-color-focus
+        if (($input-border-width-focus != false) && ($input-border-width-focus != $input-border-width)) {
+            border-width: $input-border-width-focus
+        }
         outline: none
     }
     // Disabled Styles
     &:disabled {
-        background-color: $input-disabled-bg
+        border-style: dotted
         cursor($input-disabled-cursor)
     }
 
@@ -213,8 +224,9 @@ form-label($alignment = false, $base-style = true) {
         line-height: $form-label-line-height
         margin-bottom: $form-label-bottom-margin
         padding-bottom: $form-label-bottom-padding
-        text-transform: uppercase
-
+        if $form-label-text-transform {
+            text-transform: $form-label-text-transform
+        }
     }
 
     // Alignment options
@@ -224,7 +236,7 @@ form-label($alignment = false, $base-style = true) {
     }
     else if ($alignment == inline) {
         margin: 0 0 $form-spacing 0
-        padding: (($form-spacing / 2) + rem-calc($input-border-width)) 0
+        padding: (($form-spacing / 1.8) + rem-calc($input-border-width)) 0
     }
 }
 
@@ -265,7 +277,7 @@ prefix($bg = $input-prefix-bg, $border = $input-prefix-border-color, $is-button 
         }
     }
 
-    if $border {
+    if ($border != false) {
         border-color: $border
     }
 
@@ -301,7 +313,7 @@ postfix($bg = $input-prefix-bg, $border-left-hidden = true, $border = $input-pre
         }
     }
 
-    if $border {
+    if ($border != false) {
         border-color: $border
     }
 
@@ -326,16 +338,6 @@ fieldset() {
     display: inline-block
     margin: $fieldset-margin
     padding: $fieldset-padding
-
-    if $fieldset-bg-dotted {
-        background-image: -webkit-repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
-        background-image: -moz-repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
-        background-image: -ms-repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
-        background-image: repeating-radial-gradient(center center, $fieldset-bg-dotted, $fieldset-bg-dotted 1px, transparent 1px, transparent 100%)
-        -webkit-background-size: 3px 3px
-        -moz-background-size: 3px 3px
-        background-size: 3px 3px
-    }
 
     // and legend styles
     legend {
@@ -367,7 +369,7 @@ form-error-color($color = $alert-color) {
     // Go back to normal on focus
     &:focus {
         background-color: $input-focus-bg-color
-        border-color: $input-focus-border-color
+        border-color: $input-border-color-focus
     }
 }
 
@@ -408,39 +410,38 @@ form-error-message($bg = $input-error-message-bg-color) {
 form-select()  {
     -webkit-appearance: none !important
     -moz-appearance: none !important
-    background-color: $white
+    background-color: $select-bg-color
 
     // Hide the dropdown arrow shown in newer IE versions
     &::-ms-expand {
         display: none
     }
 
-    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small)
-    border-longhand($width:$input-border-width, $style:$input-border-style, $color:$input-border-color)
-    border-left-color: $edge = darken($fieldset-bg-color, 5%)
+    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$input-font-color, $stroke-hover:$input-font-color-hover, $stroke-width:$svg-stroke-width-small, $position-x: $opposite-direction)
+    border: $select-border-width $input-border-style
+    border-color: $select-border-color
     border-radius: 0
-    border-top-color: $edge
     color: $input-font-color
     cursor($cursor-pointer-value)
     font-size: $input-font-size
     font-weight: $input-font-weight
     font_family($body-font-family)
-    line-height: normal
-    padding: ($form-spacing - $input-font-size) ($form-spacing / 2)
+    // line-height: normal
+    padding: $select-padding
+    padding-{$opposite-direction}: $select-padding-arrow
     radius(0)
 
-    shadow-elevation('button')
+    shadow-elevation('button', $shadow:false, $shadow-hover:true)
 
     &.rad {
         radius($global-radius)
     }
 
     &:hover {
-        background-color: $select-hover-bg-color
-        border-bottom-color: $input-focus-border-color
-        border-left-color: $edge = darken($fieldset-bg-color, 10%)
-        border-right-color: $input-focus-border-color
-        border-top-color: $edge
+        if ($select-hover-bg-color != $select-bg-color) {
+            background-color: $select-hover-bg-color
+        }
+        border-color: $select-border-color-focus
         color: $input-font-color-hover
     }
 
@@ -451,22 +452,20 @@ form-select()  {
     // Basic focus styles
     &:focus {
         background-color: $input-focus-bg-color
-        border-color: $input-focus-border-color
+        border-color: $input-border-color-focus
         outline: none
     }
 
     // Disabled Styles
     &:disabled {
         background-color: $input-disabled-bg
-        border-style: dotted
         box-shadow: none
-        cursor($input-disabled-cursor)
         opacity: .5
 
         &:hover {
             border-color: $input-border-color
-            border-left-color: $edge = darken($fieldset-bg-color, 5%)
-            border-top-color: $edge
+            border-left-color: darken($fieldset-bg-color, 5%)
+            border-top-color: @border-left-color
             color: $input-font-color
         }
     }
@@ -479,9 +478,9 @@ form-checkbox-base() {
         display: inline-block
         font-size: $input-font-size
         font-weight: $form-label-ui-font-weight
-        margin-{$default-float}: ($form-spacing * .5)
+        margin-{$default-float}: (.5 * $form-spacing)
         margin-{$opposite-direction}: $form-spacing
-        margin-bottom: ($form-spacing * .5) // 0
+        margin-bottom: (.5 * $form-spacing) // 0
         padding-bottom: 0
         // padding-left: ($input-checkbox-width * 1.5)
         position: relative
@@ -674,7 +673,7 @@ if $include-html-form-classes {
     }
     textarea {
         form-element()
-        height: auto
+        // height: auto
     }
 
     form {
@@ -754,12 +753,12 @@ if $include-html-form-classes {
     // Add height value for select elements to match text input height
     select {
         form-select()
-        height: ($input-font-size + $form-spacing - rem-calc(1))
+        // height: $input-element-height
         antialiased()
         
-        &[multiple] {
-            height: auto
-        }
+        // &[multiple] {
+        //     height: auto
+        // }
     }
 
     // Adjust margin for form elements below

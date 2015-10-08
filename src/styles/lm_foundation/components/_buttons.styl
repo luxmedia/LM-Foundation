@@ -117,6 +117,8 @@ button-base($style = true, $display = $button-display) {
             font-size: $label-font-sizing
         }
 
+        single-transition((background-color box-shadow))
+
     }
     if $display {
         display: $display
@@ -319,7 +321,7 @@ button-basic($padding = $button-med, $bg = $button-bg-color, $radius = false, $f
     button-style($bg, $radius, $disabled, $bg-hover, $border-color, $flat: $flat-style)
 
     if $transition {
-        single-transition((background-color color))
+        single-transition((background-color color box-shadow))
     }
 }
 
@@ -346,8 +348,6 @@ if $include-html-button-classes {
         }
 
         antialiased()
-        
-        single-transition((background-color box-shadow))
     }
 
     .btn {
@@ -441,6 +441,11 @@ if $include-html-button-classes {
         // BG-Less button
         &--flat {
             button-flat()
+        }
+
+        // elevate button with more shadow
+        &--floating {
+            shadow-elevation('floatingbutton')
         }
 
         // Disabled state

@@ -28,11 +28,11 @@ $reveal-modal-padding ?=                     rem-calc(30)
 
 // style the reveal close button
 $reveal-close-font-size ?=                   rem-calc(40)
-$reveal-close-line-height ?=                 ($reveal-close-font-size - rem-calc(10))
+$reveal-close-line-height ?=                 0.49 // ($reveal-close-font-size - rem-calc(10))
 $reveal-close-padding ?=                     rem-calc(10)
 $reveal-close-top ?=                         rem-calc(10)
 $reveal-close-side ?=                        rem-calc(22)
-$reveal-close-color ?=                       $gray-base
+$reveal-close-color ?=                       $gray-dark-2
 $reveal-close-color-hover ?=                 $primary-color
 $reveal-close-weight ?=                      $font-weight-normal
 
@@ -84,7 +84,7 @@ reveal-modal-base($base-style = true, $width = $reveal-default-width, $max-width
         border-radius: $border-radius
         display: none
         max-height: 100vh
-        overflow: scroll
+        overflow: auto
         position: $reveal-position
         top: 0
         visibility: hidden
@@ -175,12 +175,14 @@ reveal-modal-style($bg = false, $padding = false, $border = false, $border-style
 reveal-close($color = $reveal-close-color) {
     color: $color
     cursor: $cursor-pointer-value
-    font-weight: $reveal-close-weight
     font-size: fontsize($reveal-close-font-size)
+    font-weight: $reveal-close-weight
+    height: @font-size
     line-height: $reveal-close-line-height
     padding: $reveal-close-padding
     position: absolute
     top: $reveal-close-top
+    width: @font-size
     {$opposite-direction}: $reveal-close-side
 
     &:hover {

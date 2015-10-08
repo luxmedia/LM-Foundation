@@ -53,7 +53,7 @@ label-base() {
     font_family($label-font-family)
     line-height: 1
     margin-bottom: 0
-    min-width: 10px
+    min-width: (1.5 * $label-font-sizing)
     position: relative
     text-align: $default-float
     text-decoration: none
@@ -153,7 +153,7 @@ if $include-html-label-classes {
         // inverted and flat Label
         &--inv,
         &--inverted {
-            label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:$label-inverted-font-color)
+            label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:lighten($label-inverted-font-color, 15%))
         }
 
         // Color variants
@@ -232,8 +232,9 @@ if $include-html-label-classes {
 
         // Badges
         &--badge {
-            label-size($padding:$badge-padding)
+            label-size($padding:$badge-padding, $text-size:false)
             label-style($bg:false, $radius:$global-rounded)
+            text-align: center
         }
 
         // Hover state, but only for links

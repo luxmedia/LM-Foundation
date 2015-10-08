@@ -14,7 +14,7 @@ $product-list-bg ?=                              $gray-lighter-3
 
 $product-list-item-padding ?=                    rem-calc(10)
 $product-grid-item-padding ?=                    $product-list-item-padding
-$product-list-item-margin ?=                     rem-calc(8 0)
+$product-list-item-margin ?=                     rem-calc(10 0)
 $product-grid-item-margin ?=                     rem-calc(16)
 $product-list-item-bg ?=                         $white
 $product-list-item-bg-hover ?=                   darken($product-list-bg,10%) // transparent
@@ -76,7 +76,7 @@ $product-grid-desc-height-small-devices ?=       unit(floor(($product-grid-desc-
 $product-list-desc-color ?=                      $gray-dark-3
 $product-list-desc-color-hover ?=                $gray-darker-3
 
-$product-list-opts-line-height ?=                1.3
+$product-list-opts-line-height ?=                1.4
 $product-list-opts-font-family ?=                $font-family-custom
 $product-list-opts-font-size ?=                  fontsize(.75rem)
 $product-list-opts-font-weight ?=                $font-weight-normal
@@ -190,6 +190,7 @@ prd-opts() {
                 line-height: $product-list-opts-line-height
                 padding: $product-list-opts-item-padding
                 shadow-elevation('button')
+                single-transition((background-color color box-shadow))
 
                 &:hover {
                     if $product-list-opts-link-bg-hover {
@@ -413,14 +414,7 @@ if $include-html-productlist-classes {
                         height: ($product-grid-title-height-xxlrg)
                     }
                 }
-                // &__brand,
-                // &__title {
-                //     +mediaquery($small-only) {
-                //         float: none
-                //         // size of floated image __img
-                //         margin-{$default-float}: ((1/3) * 100)%
-                //     } 
-                // }
+
                 &__sdesc {
                     font-size: $product-grid-desc-font-size
                     height: $product-grid-desc-height
@@ -490,13 +484,6 @@ if $include-html-productlist-classes {
                     padding: $product-list-item-padding
                 }
 
-                // Wrapper for img, manufacturer, title and shortdesc
-                // &__info {
-                //     +mediaquery($medium-up) {
-                //         col(3/4, gutter:0)
-                //     }
-                // }
-
                 &__img {
                     float: $default-float
                     height: $product-list-img-height
@@ -528,13 +515,6 @@ if $include-html-productlist-classes {
 
                 .price-box {
                     text-align: $opposite-direction
-
-                    // +mediaquery($medium-up) {
-                    //     width: ((1/4)*100)%
-                    //     clear: none
-                    //     float: $opposite-direction
-                    //     margin-{$opposite-direction}: 0
-                    // }
                 }
 
             } // EOF - product
