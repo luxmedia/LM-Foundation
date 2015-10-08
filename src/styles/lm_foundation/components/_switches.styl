@@ -187,6 +187,7 @@ switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, 
 
         label:after {
             background: (!$inverted-colors ? $paddle-bg : $switch-paddle-inv-bg)
+            shadow-elevation(switch)
         }
 
         input:checked + label {

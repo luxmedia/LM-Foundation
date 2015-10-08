@@ -43,7 +43,6 @@ $range-slider-handle-round ?=                $global-rounded
 $range-slider-handle-bg-hover-color ?=       darken($primary-color, 12%)
 $range-slider-handle-border-color-hover ?=   darken($range-slider-handle-bg-hover-color, 10%)
 $range-slider-handle-cursor ?=               $cursor-pointer-value
-$range-slider-handle-box-shadow ?=           $global-ui-shadow
 
 $rang-slider-label-padding ?=                rem-calc(5 0)
 $rang-slider-label-font-family ?=            $font-family-custom
@@ -127,9 +126,9 @@ range-slider-handle-style($bg = true, $radius = false, $round = false, $disabled
     if ($range-slider-handle-border-width) {
         border-longhand($width:$range-slider-handle-border-width, $style:$range-slider-handle-border-style, $color:$range-slider-handle-border-color)
     }
-    if ($range-slider-handle-box-shadow) {
-        box-shadow: $range-slider-handle-box-shadow
-    }
+    
+    shadow-elevation(switch)
+
     &:hover {
         background: $range-slider-handle-bg-hover-color
         if ($range-slider-handle-border-width) {

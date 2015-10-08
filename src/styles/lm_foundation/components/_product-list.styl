@@ -89,8 +89,9 @@ $product-list-opts-item-bg ?=                    $white
 $product-list-opts-item-selected-bg ?=           $gray-dark-3
 $product-list-opts-item-border ?=                1px solid rgba($black, .15)
 $product-list-opts-item-border-width ?=          0 1px 1px 0
-$product-list-opts-item-border-color ?=          rgba($black, .1)   
-$product-list-opts-item-border-hover ?=          rgba($black, .1)
+$product-list-opts-item-border-color ?=          rgba($black, .2)
+$product-list-opts-item-border-hover ?=          $product-list-opts-item-border-color
+$product-list-opts-item-box-shadow ?=            $global-ui-shadow
 $product-list-opts-label-padding ?=              rem-calc(2 0)
 $product-list-opts-label-margin ?=               rem-calc(0 10 5 0)
 $product-list-opts-label-border ?=               false // 1px solid rgba($black, 0.15)
@@ -157,6 +158,7 @@ prd-opts() {
             list-style-type: none
             margin: $product-list-opts-item-margin
             padding: $product-list-opts-item-padding
+
             
             &:first-child {
                 margin-{$default-float}: 0
@@ -184,9 +186,13 @@ prd-opts() {
                     border-color: $product-list-opts-item-border-color
                     border-width: $product-list-opts-item-border-width
                 }
+                if $product-list-opts-item-box-shadow {
+                    box-shadow: $product-list-opts-item-box-shadow
+                }
                 color: $product-list-opts-link-color
                 display: inline-block
                 font-size: $product-list-opts-link-font-size
+                line-height: $product-list-opts-line-height
                 padding: $product-list-opts-item-padding
 
                 &:hover {

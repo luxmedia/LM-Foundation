@@ -36,7 +36,6 @@ $tooltip-max-width ?=                        300px
 $tooltip-border-width ?=                     2px
 $tooltip-border-color ?=                     $gray-base
 $tooltip-border-color-highlight ?=           $primary-color
-$tooltip-box-shadow ?=                       1px 1px 10px rgba($black,0.5)
 
 
 //
@@ -68,7 +67,6 @@ if $include-html-tooltip-classes {
         background: $tooltip-bg
         border-longhand($width:$tooltip-border-width,$color:$tooltip-border-color)
         border-top-color: $tooltip-border-color-highlight
-        box-shadow: $tooltip-box-shadow
         color: $tooltip-font-color
         display: none
         font-size: $tooltip-font-size
@@ -80,6 +78,8 @@ if $include-html-tooltip-classes {
         width: 100%
         z-index: $zindex-tooltip
         {$default-float}: 50%
+
+        shadow-elevation(card)
 
         > .nub {
             border: solid $tooltip-pip-size

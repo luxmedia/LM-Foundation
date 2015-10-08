@@ -15,7 +15,7 @@ $header-font-family ?=               $font-family-headings
 $header-font-weight ?=               $font-weight-bold
 $header-font-style ?=                normal
 $header-font-color ?=                $charcoal-1
-$header-line-height ?=               1.2
+$header-line-height ?=               (32 / 24)
 $header-top-margin ?=                remify(.2rem)
 $header-bottom-margin ?=             remify(.5rem)
 $header-text-rendering ?=            optimizeLegibility
@@ -32,6 +32,11 @@ $h3-font-size ?=                     fontsize(1.2rem)
 $h4-font-size ?=                     fontsize(1rem)
 $h5-font-size ?=                     fontsize(.9rem)
 $h6-font-size ?=                     fontsize(.8rem)
+
+// header font sizes
+$h1-line-height ?=                   (40 / 34)
+$h2-line-height ?=                   (32 / 24)
+$h3-line-height ?=                   (28 / 16)
 
 // header size reduction on small screens
 $h1-font-reduction ?=                remify(.2rem)
@@ -58,7 +63,7 @@ $h5-font-weight ?=                    $header-font-weight
 $h6-font-weight ?=                    $header-font-weight
 
 // These control how subheaders are styled.
-$subheader-line-height ?=            1.2
+$subheader-line-height ?=            (24 / 16)
 $subheader-font-color ?=             $gray-dark-2
 $subheader-font-weight ?=            $font-weight-normal
 $subheader-top-margin ?=             remify(.2rem)
@@ -73,20 +78,21 @@ $small-font-color ?=                 scale-color($header-font-color, 35%)
 $paragraph-font-family ?=            inherit
 $paragraph-font-weight ?=            $font-weight-normal
 $paragraph-font-size ?=              fontsize(1rem)
-$paragraph-line-height ?=            1.4
+$paragraph-line-height ?=            unit((24 / ($ref-font-size * 10)), '') // = 24px / 14px
 $paragraph-margin-bottom ?=          rem-calc(20)
+$paragraph-max-width ?=              rem-calc(600)
 $paragraph-aside-font-size ?=        rem-calc(14)
-$paragraph-aside-line-height ?=      1.35
+$paragraph-aside-line-height ?=      ($paragraph-line-height - .5)
 $paragraph-aside-font-style ?=       italic
 $paragraph-text-rendering ?=         optimizeLegibility
 
 // lead font sizes
 $lead-font-size ?=                   ($paragraph-font-size + .3rem)
-$lead-line-height ?=                 ($paragraph-line-height + 0.2)
+$lead-line-height ?=                 ($paragraph-line-height + .2)
 
 // lead font sizes
 $aside-font-size ?=                  ($paragraph-font-size - .2rem)
-$aside-line-height ?=                ($paragraph-line-height - 0.15)
+$aside-line-height ?=                ($paragraph-line-height - .15)
 $aside-font-color ?=                 $gray-dark-2
 
 // style <code> tags
@@ -287,6 +293,9 @@ if $include-html-type-classes {
         font_family($paragraph-font-family)
         line-height: $paragraph-line-height
         margin-bottom: $paragraph-margin-bottom
+        if ($paragraph-max-width) {
+            max-width: $paragraph-max-width
+        }
         text-rendering: $paragraph-text-rendering
 
         & aside {
@@ -327,18 +336,21 @@ if $include-html-type-classes {
         font-size: ($h1-font-size - $h1-font-reduction)
         font-weight: $h1-font-weight
         font_family($h1-font-family)
+        line-height: $h1-line-height
     }
     h2 {
         color: $h2-font-color
         font-size: ($h2-font-size - $h2-font-reduction)
         font-weight: $h2-font-weight
         font_family($h2-font-family)
+        line-height: $h2-line-height
     }
     h3 {
         color: $h3-font-color
         font-size: ($h3-font-size - $h3-font-reduction)
         font-weight: $h3-font-weight
         font_family($h3-font-family)
+        line-height: $h3-line-height
     }
     h4 {
         color: $h4-font-color

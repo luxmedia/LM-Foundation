@@ -80,8 +80,6 @@ $tabbar-hamburger-icon-gap ?=                6px
 // Off Canvas Back-Link Overlay
 $off-canvas-overlay-transition ?=            true // background 300ms ease
 $off-canvas-overlay-cursor ?=                $cursor-pointer-value
-$off-canvas-overlay-box-shadow ?=            2px 0 15px rgba($black, 0.5) // -4px 0 4px rgba($black, 0.5), 4px 0 4px rgba($black, 0.5)
-$off-canvas-overlay-box-shadow-right ?=      -2px 0 15px rgba($black, 0.5)
 $off-canvas-overlay-background ?=            false // rgba($white, 0.2)
 $off-canvas-overlay-background-hover ?=      rgba($white, 0.05)
 
@@ -223,12 +221,10 @@ tabbar-small-section($position) {
     width: $tabbar-icon-width
     if ($position == left) {
         border-right: $tabbar-left-section-border
-        // box-shadow: 1px 0 0 scale-color($tabbar-bg, $lightness: 13%)
         left: 0
     }
     if ($position == right) {
         border-left: $tabbar-right-section-border
-        // box-shadow: -1px 0 0 scale-color($tabbar-bg, $lightness: -50%)
         right:0
     }
 }
@@ -559,9 +555,7 @@ if $include-html-off-canvas-classes {
             back-link()
         }
         .left-off-canvas-menu {           
-            if ($off-canvas-overlay-box-shadow) {
-                box-shadow: $off-canvas-overlay-box-shadow
-            }
+            shadow-elevation(navdrawerleft)
         }
     }
 
@@ -577,9 +571,7 @@ if $include-html-off-canvas-classes {
             back-link()
         }
         .right-off-canvas-menu {           
-            if ($off-canvas-overlay-box-shadow) {
-                box-shadow: $off-canvas-overlay-box-shadow-right
-            }
+            shadow-elevation(navdrawerright)
         }
     }
     .move-top {

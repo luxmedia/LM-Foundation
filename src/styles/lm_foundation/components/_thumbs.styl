@@ -15,8 +15,6 @@ $thumb-border-style ?=                       solid
 $thumb-border-width ?=                       4px
 $thumb-border-color ?=                       $white
 $thumb-border-color-hover ?=                 $primary-color
-$thumb-box-shadow ?=                         0 0 0 1px rgba($black,.2)
-$thumb-box-shadow-hover ?=                   0 0 6px 1px rgba($primary-color,0.5)
 
 // Radius and transition speed for thumbs
 $thumb-radius ?=                             $global-radius
@@ -32,9 +30,8 @@ $thumb-transition-speed ?=                   300ms
 // $border-width - Width of border around thumbnail. Default: $thumb-border-width.
 // $box-shadow - Box shadow to apply to thumbnail. Default: $thumb-box-shadow.
 // $box-shadow-hover - Box shadow to apply on hover. Default: $thumb-box-shadow-hover.
-thumb($border-width = $thumb-border-width, $box-shadow = $thumb-box-shadow, $box-shadow-hover = $thumb-box-shadow-hover) {
+thumb($border-width = $thumb-border-width, $box-shadow = true, $box-shadow-hover = $thumb-box-shadow-hover) {
     border: $thumb-border-style $border-width $thumb-border-color
-    box-shadow: $box-shadow
     display: inline-block
     line-height: 0
     max-width: 100%
@@ -42,7 +39,9 @@ thumb($border-width = $thumb-border-width, $box-shadow = $thumb-box-shadow, $box
     &:hover,
     &:focus {
         border-color: $thumb-border-color-hover
-        box-shadow: $box-shadow-hover
+    }
+    if $box-shadow {
+        shadow-elevation(card)
     }
 }
 

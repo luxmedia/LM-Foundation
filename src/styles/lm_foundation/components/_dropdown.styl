@@ -35,9 +35,6 @@ $f-dropdown-border-style ?=                  solid
 $f-dropdown-border-width ?=                  1px
 $f-dropdown-border-color ?=                  scale-color($f-dropdown-bg, -20%)
 
-// box shadow for dropdowns
-$f-dropdown-box-shadow ?=                   2px 2px 15px rgba($black, .2)
-
 // style the triangle pip.
 $f-dropdown-triangle-size ?=                 6px
 $f-dropdown-triangle-color ?=                $f-dropdown-bg
@@ -73,9 +70,8 @@ $f-dropdown-radius ?=                        $global-radius
 // $triangle - Sets if dropdown has triangle. Default:true.
 // $max-width - Default: $f-dropdown-max-width || 200px.
 dropdown-container($content = list, $triangle = true, $max-width = $f-dropdown-max-width) {
-    if $f-dropdown-box-shadow {
-        box-shadow: $f-dropdown-box-shadow
-    }
+    shadow-elevation(menu)
+
     display: none
     left: -(9999px)
     list-style: $f-dropdown-list-style
