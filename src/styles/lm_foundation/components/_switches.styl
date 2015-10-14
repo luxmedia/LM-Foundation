@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @require '_global'
+@require '_forms'
 
 //
 // @name
@@ -17,41 +18,49 @@ $include-html-form-switches-classes =           com_js.SWITCHES
 
 // Controlling background color for the switch container
 $switch-font-family ?=                          $font-family-custom
-$switch-bg ?=                                   $gray-medium-1
+$switch-font-size ?=                            fontsize(1rem)
+$switch-font-size-sml ?=                        fontsize(.8rem)
+$switch-font-size-lrg ?=                        fontsize(1.1rem)
+$switch-font-color ?=                           $input-font-color
+$switch-font-color-inv ?=                       $input-font-color-inv
+$switch-font-color-hover ?=                     $input-font-color-hover
+$switch-font-color-hover-inv ?=                 $input-font-color-hover-inv
+$switch-bg ?=                                   color_alpha($black, .15) // $gray-medium-1
 $switch-bg-hover ?=                             $switch-bg
 $switch-bg-active ?=                            $primary-color
-$switch-border-color ?=                         $gray-base
-$switch-border-color-hover ?=                   darken($switch-border-color, 25%)
+$switch-border-color ?=                         $gray-base // blend($input-border-color, $white)
+$switch-border-color-hover ?=                   darken($switch-border-color, 15%) // darken($switch-border-color, 25%)
 $switch-border-color-active ?=                  $switch-bg-active
 
 // ALternative/Inverted colors
-$switch-inv-bg ?=                               rgba($black, .5)
+$switch-inv-bg ?=                               color_alpha($black, .5)
 $switch-inv-bg-hover ?=                         $switch-inv-bg
 $switch-inv-bg-active ?=                        $primary-color
-$switch-inv-border-color ?=                     rgba($white, .4)
-$switch-inv-border-color-hover ?=               rgba($white, .6)
+$switch-inv-border-color ?=                     color_alpha($white, .4)
+$switch-inv-border-color-hover ?=               color_alpha($white, .6)
 $switch-inv-border-color-active ?=              $switch-bg-active
 
 // the switch heights for our default classes
-$switch-height-tny ?=                           remify(1rem)
-$switch-height-sml ?=                           remify(1.4rem)
-$switch-height-med ?=                           remify(1.8rem)
-$switch-height-lrg ?=                           remify(2.2rem)
-$switch-bottom-margin ?=                        remify(1.1rem)
-$switch-border-width ?=                         2px // else: 0
+$switch-height-tny ?=                           rem-calc(10)
+$switch-height-sml ?=                           rem-calc(15)
+$switch-height-med ?=                           rem-calc(18)
+$switch-height-lrg ?=                           rem-calc(22)
+$switch-bottom-margin ?=                        rem-calc(10)
+$switch-border-width ?=                         2px
 
 // We use these to style the switch-paddle
 $switch-paddle-bg ?=                            $white
-$switch-paddle-bg-hover ?=                      darken($switch-paddle-bg, 6%)
-$switch-paddle-inv-bg ?=                        $gray-base
-$switch-paddle-inv-bg-hover ?=                  lighten($switch-paddle-bg, 10%)
+$switch-paddle-bg-hover ?=                      darken($switch-paddle-bg, 5%)
+$switch-paddle-inv-bg ?=                        darken($white, 10%) // $gray-base
+$switch-paddle-inv-bg-hover ?=                  $white // lighten($switch-paddle-bg, 10%)
 
 $switch-paddle-transition-speed ?=              .10s
-$switch-paddle-transition-ease ?=               ease-out
+$switch-paddle-transition-ease ?=               ease-in
 //space between paddle and bg
 $switch-paddle-inset ?=                         rem-calc(2)
 
-$switch-text-space ?=                           remify(1rem)
+$switch-text-space ?=                           rem-calc(10)
+$switch-transform-factor ?=                     rem-calc(5)
 
 
 //
@@ -117,10 +126,10 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
         height: ($switch-height-med - $switch-paddle-inset)
         left: (($switch-paddle-inset / 2) - remify($switch-border-width))
         position: absolute
-        top: (($switch-paddle-inset / 2) - remify($switch-border-width))
-        width: ($switch-height-med - $switch-paddle-inset)
+        top: @left
+        width: @height
 
-        single-transition(left $transition-speed $transition-ease)
+        single-transition(all, $transition-speed, $transition-ease)
         -o-transition: translate3d(0, 0, 0)
 
         -webkit-transform: translate3d(0, 0, 0)
@@ -130,8 +139,17 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
         transform: translate3d(0, 0, 0)
     }
 
-    input:checked + label:after {
-        left: ($switch-height-med + ($switch-paddle-inset / 2) - remify($switch-border-width))
+    input {
+        &:active + label:after {
+            width: ($switch-height-med - $switch-paddle-inset + $switch-transform-factor)
+        }
+        &:checked:active + label:after {
+            width: ($switch-height-med - $switch-paddle-inset + $switch-transform-factor)
+            left: ($switch-height-med + ($switch-paddle-inset / 2) - remify($switch-border-width) - $switch-transform-factor)
+        }
+        &:checked + label:after {
+            left: ($switch-height-med + ($switch-paddle-inset / 2) - remify($switch-border-width))
+        }
     }
 }
 
@@ -142,18 +160,41 @@ switch-base($transition-speed = $switch-paddle-transition-speed, $transition-eas
 // $line-height - Line height of switch. Default: 2.3rem.
 switch-size($height = $switch-height-med) {
 
-    label {
-        height: $height
-        text-indent: (($height * 2) + $switch-text-space)
-        width: ($height * 2)
-        &:after {
-            height: ($height - $switch-paddle-inset)
-            width: ($height - $switch-paddle-inset)
+    if ($height != $switch-height-med) {
+        // Factor for material transformation
+        $transform-factor = $switch-transform-factor
+        if $height < $switch-height-med {
+            $transform-factor = rem-calc(3)
         }
-    }
 
-    input:checked + label:after {
-        left: ($height + ($switch-paddle-inset / 2) - remify($switch-border-width))
+        label {
+            height: $height
+            if ($height == $switch-height-sml) {
+                font-size: $switch-font-size-sml
+            } else if ($height == $switch-height-lrg) {
+                font-size: $switch-font-size-lrg
+            }
+            text-indent: (($height * 2) + $switch-text-space)
+            width: ($height * 2)
+
+            &:after {
+                height: ($height - $switch-paddle-inset)
+                width: ($height - $switch-paddle-inset)
+            }
+        }
+
+        input {
+            &:active + label:after {
+                width: ($height - $switch-paddle-inset + $transform-factor)
+            }
+            &:checked:active + label:after {
+                width: ($height - $switch-paddle-inset + $transform-factor)
+                left: ($height + ($switch-paddle-inset / 2) - remify($switch-border-width) - $transform-factor)
+            }
+            &:checked + label:after {
+                left: ($height + ($switch-paddle-inset / 2) - remify($switch-border-width))
+            }
+        }
     }
 
 }
@@ -173,28 +214,36 @@ switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, 
             if ($switch-border-width != 0) {
                 border: $switch-border-width solid (!$inverted-colors ? $switch-border-color : $switch-inv-border-color)
             }
-            // color: transparent
+            color: (!$inverted-colors ? $switch-font-color : $switch-font-color-inv)
+            font-size: $switch-font-size
+
             &:hover {
                 if ($switch-border-width != 0) {
                     border-color: (!$inverted-colors ? $switch-border-color-hover : $switch-inv-border-color-hover)
                 }
+                color: (!$inverted-colors ? $switch-font-color-hover : $switch-font-color-hover-inv)
                 &::after {
                     background: (!$inverted-colors ? $switch-paddle-bg-hover : $switch-paddle-inv-bg-hover)
-                    single-transition(background, $speed:$transition-speed, $ease:$transition-ease)
-                    shadow-elevation('switches', $shadow: false, $shadow-hover: true)
+                    // single-transition(background, $speed:$transition-speed, $ease:$transition-ease)
+                    // shadow-elevation('switches', $shadow: true, $shadow-hover: false)
                 }
             }
         }
 
         label:after {
             background: (!$inverted-colors ? $paddle-bg : $switch-paddle-inv-bg)
-            shadow-elevation('switches', $shadow: true, $shadow-hover: false)
+            shadow-elevation('switches')
         }
-
-        input:checked + label {
-            background: (!$inverted-colors ? $active-color : $switch-inv-bg-active)
-            if ($switch-border-width != 0) {
-                border-color: (!$inverted-colors ? $switch-border-color-active : $switch-inv-border-color-active)
+        
+        input {
+            &:checked + label {
+                background: (!$inverted-colors ? $active-color : $switch-inv-bg-active)
+                if ($switch-border-width != 0) {
+                    border-color: (!$inverted-colors ? $switch-border-color-active : $switch-inv-border-color-active)
+                }
+            }
+            &:active + label:after {
+                background: (!$inverted-colors ? $switch-paddle-bg-hover : $switch-paddle-inv-bg-hover)
             }
         }
         
@@ -277,11 +326,15 @@ if $include-html-form-classes {
             radius($global-rounded)
             
             label { 
-                radius(2rem)
+                radius($global-rounded)
                 &:after { 
-                    radius(2rem)
+                    radius($global-rounded)
                 }
             }
+        }
+
+        &--inline {
+            display: inline-block
         }
     }
 }

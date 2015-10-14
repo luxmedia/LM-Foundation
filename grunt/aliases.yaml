@@ -23,6 +23,7 @@ build:
   tasks:
     - 'clean:dist'
     - 'copy'
+    - 'webfont' # Turn On/Off grunt-webfont svg converter
     - 'stylesheets'
     - 'scripts'
     # - 'svgs'

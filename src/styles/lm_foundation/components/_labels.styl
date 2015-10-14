@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @require '_global'
+@require '_forms'
 
 //
 // @variables
@@ -27,10 +28,12 @@ $label-font-size-lrg ?=                     fontsize(1.2rem)
 $label-font-size-xlrg ?=                    fontsize(1.6rem)
 $label-font-size-xxlrg ?=                   fontsize(2.2rem)
 
-$label-inverted-font-color ?=               $gray-dark-1
-$label-inverted-bg ?=                       $white
-$label-inverted-border-width ?=             1px
-$label-inverted-border-color ?=              $gray-light-1
+$label-alt-font-color ?=                     $font-color-hint // $gray-dark-1
+$label-alt-bg ?=                             $white
+$label-alt-border-width ?=                   1px
+$label-alt-border-color ?=                   $gray-light-1
+
+$label-bg-inv ?=                             color_alpha($black, .3 ,$black)
 
 $badge-padding ?=                            rem-calc(3 5)
 $badge-radius ?=                             $global-radius
@@ -105,7 +108,7 @@ label-style($bg = $gray-base, $radius = false, $font-color = $label-font-color, 
 
     // add border or not
     if $border-color {
-        border: $label-inverted-border-width solid $border-color
+        border: $label-alt-border-width solid $border-color
     }
 
 }
@@ -149,11 +152,16 @@ if $include-html-label-classes {
         &--round {
             label-style($bg:false, $radius:$global-rounded)
         }
-        
-        // inverted and flat Label
+
+        // inverted (on dark)
+        .inv {
+            background-color: $label-bg-inv
+        }
+
+        // alternate label color
         &--inv,
         &--inverted {
-            label-style($bg:$label-inverted-bg, $font-color:$label-inverted-font-color, $border-color:lighten($label-inverted-font-color, 15%))
+            label-style($bg:$label-alt-bg, $font-color:$label-alt-font-color, $border-color:lighten($label-alt-font-color, 15%))
         }
 
         // Color variants
@@ -204,7 +212,7 @@ if $include-html-label-classes {
 
         // Flat style
         &--flat {
-            label-style($bg:transparent, $font-color:$label-inverted-font-color)
+            label-style($bg:transparent, $font-color:$label-alt-font-color)
 
             &.lbl--primary {
                 color: $primary-color    
@@ -235,6 +243,26 @@ if $include-html-label-classes {
             label-size($padding:$badge-padding, $text-size:false)
             label-style($bg:false, $radius:$global-rounded)
             text-align: center
+
+            &.is-active {
+                shadow-elevation('button', shadow-hover: false)
+            }
+        }
+
+        &__mandatory {
+            padding-left: 0
+            padding-right: 0
+            // color: $font-color-hint
+            color: $form-label-required-color
+
+            > em {
+                // color: $form-label-required-color
+                float: $default-float
+                font-size: $form-label-required-font-size
+                font-style: $form-label-required-font-style
+                line-height: .7
+                margin-{$opposite-direction}: rem-calc(5)
+            }
         }
 
         // Hover state, but only for links

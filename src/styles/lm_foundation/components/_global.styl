@@ -86,10 +86,10 @@ $black ?=                            base_colors.dark
 $primary-color ?=                    base_colors.primary
 // if corporate color scope includes a second primary color, you can define it here
 $primary-2-color ?=                  base_colors.primary-2
+$primary-color-2 ?=                  $primary-2-color
 
 // Secondary color should be a neutral color
 $secondary-color ?=                  lightness($gray-base, 50%)
-
 $info-color ?=                       #62a7d9 // #a0d3e8
 $success-color ?=                    #4fc497 // #43AC6A
 $warning-color ?=                    #ffcd45 // #f08a24
@@ -99,9 +99,40 @@ $critical-color ?=                   $alert-color
 $warning-font-color ?=               #e45a5a // #f08a24
 $critical-font-color ?=              #c52121 // #f04124
 
+// Font colors
+$font-color-button ?=                lightness($gray-base, 13%)
+$font-color-menu ?=                  lightness($gray-base, 13%)
+$font-color-caption ?=               lightness($gray-base, 56%)
+$font-color-body ?=                  lightness($gray-base, 13%)
+$font-color-secondary ?=             lightness($gray-base, 56%)
+$font-color-hint ?=                  lightness($gray-base, 62%) // color_alpha($black, 0.38)
+$font-color-subheading ?=            lightness($gray-base, 35%)
+$font-color-title ?=                 lightness($gray-base, 13%)
+$font-color-headline ?=              lightness($gray-base, 13%)
+$font-color-display-1 ?=             lightness($gray-base, 56%)
+$font-color-display-2 ?=             lightness($gray-base, 56%)
+$font-color-display-3 ?=             lightness($gray-base, 56%)
+$font-color-display-4 ?=             lightness($gray-base, 56%)
+
+$font-color-body-inv ?=              $white
+$font-color-secondary-inv ?=         lightness($gray-base, 70%)
+$font-color-hint-inv ?=              color_alpha($white, .7, $black)
+
+// Icon colors
+$icon-color-normal ?=                lightness($gray-base, 56%)
+$icon-color-hover ?=                 lightness($gray-base, 36%)
+$icon-color-inactive ?=              lightness($gray-base, 74%)
+$icon-color-normal-inv ?=            $white
+$icon-color-hover-inv ?=             $white
+$icon-color-inactive-inv ?=          lightness($gray-base, 70%)
+
+// Line and border colors
+$separator-color ?=                  color_alpha($black, .1)
+$separator-color-inv ?=              color_alpha($white, .2, $black)
+
 // various global styles
 $body-bg ?=                          $white
-$body-font-color ?=                  lightness($black, 13%)
+$body-font-color ?=                  $font-color-body
 $body-font-family ?=                 $font-family-sans-serif
 $body-font-weight ?=                 $font-weight-normal
 $body-font-style ?=                  normal
@@ -110,7 +141,7 @@ $body-font-style ?=                  normal
 $font-smoothing ?=                   antialiased
 
 // focus shadow
-$focus-shadow ?=                     1px 1px 10px $primary-color
+$focus-shadow ?=                     false // 1px 1px 10px $primary-color
 
 // text direction settings
 $text-direction ?=                   ltr
@@ -122,49 +153,49 @@ $last-child-float ?=                 $opposite-direction
 $global-radius ?=                    3px
 $global-rounded ?=                   1000px
 $global-blur-radius ?=               3px
-$global-ui-shadow ?=                 1px 1px 3px rgba($black, .2)
-$global-ui-shadow-hover ?=           1px 1px 3px rgba($black, .4)
+$global-ui-shadow ?=                 1px 1px 3px color_alpha($black, .2)
+$global-ui-shadow-hover ?=           1px 1px 3px color_alpha($black, .4)
 
 // Shadow and Elevation
-$shadow-switches ?=                 1px 2px 4px rgba($black, .25)
-$shadow-switches-hover ?=           1px 2px 6px rgba($black, .35)
-$shadow-button ?=                   1px 1px 3px rgba($black, .25)
-$shadow-button-hover ?=             1px 3px 5px rgba($black, .3)
-$shadow-searchbar ?=                1px 1px 3px rgba($black, .25)
-$shadow-searchbar-hover ?=          1px 3px 5px rgba($black, .3)
-$shadow-appbar ?=                   0 3px 6px rgba($black, .25)
+$shadow-switches ?=                 1px 2px 4px color_alpha($black, .25)
+$shadow-switches-hover ?=           1px 2px 5px color_alpha($black, .4)
+$shadow-button ?=                   1px 1px 3px color_alpha($black, .2)
+$shadow-button-hover ?=             1px 1px 3px color_alpha($black, .3)
+$shadow-searchbar ?=                1px 1px 3px color_alpha($black, .25)
+$shadow-searchbar-hover ?=          1px 3px 5px color_alpha($black, .3)
+$shadow-appbar ?=                   0 3px 6px color_alpha($black, .25)
 $shadow-appbar-hover ?=             false
-$shadow-floatingbutton ?=           1px 6px 8px rgba($black, .25)
-$shadow-floatingbutton-hover ?=     1px 10px 14px rgba($black, .3)
-$shadow-card ?=                     1px 2px 5px rgba($black, .25)
-$shadow-card-hover ?=               1px 7px 14px rgba($black, .25)
-$shadow-markerleft ?=               2px 2px 6px rgba($black, .3)
+$shadow-floatingbutton ?=           1px 6px 8px color_alpha($black, .25)
+$shadow-floatingbutton-hover ?=     1px 10px 14px color_alpha($black, .3)
+$shadow-card ?=                     1px 2px 5px color_alpha($black, .25)
+$shadow-card-hover ?=               1px 7px 14px color_alpha($black, .25)
+$shadow-markerleft ?=               2px 2px 6px color_alpha($black, .3)
 $shadow-markerleft-hover ?=         false
-$shadow-markerright ?=              -2px 2px 6px rgba($black, .3)
+$shadow-markerright ?=              -2px 2px 6px color_alpha($black, .3)
 $shadow-markerright-hover ?=        false
-$shadow-menu ?=                     1px 6px 10px rgba($black, .3)
+$shadow-menu ?=                     1px 6px 10px color_alpha($black, .3)
 $shadow-menu-hover ?=               false
-$shadow-submenu ?=                  1px 8px 12px rgba($black, .3)
+$shadow-submenu ?=                  1px 8px 12px color_alpha($black, .3)
 $shadow-submenu-hover ?=            false
-$shadow-navdrawerleft ?=            6px 0 16px rgba($black, .25)
+$shadow-navdrawerleft ?=            6px 0 16px color_alpha($black, .25)
 $shadow-navdrawerleft-hover ?=      false
-$shadow-navdrawerright ?=           -6px 0 16px rgba($black, .25)
+$shadow-navdrawerright ?=           -6px 0 16px color_alpha($black, .25)
 $shadow-navdrawerright-hover ?=     false
-$shadow-modal ?=                    0px 18px 32px 2px rgba($black, .3)
+$shadow-modal ?=                    0px 18px 32px 2px color_alpha($black, .3)
 $shadow-modal-hover ?=              false
-$shadow-dialog ?=                   0px 18px 32px 2px rgba($black, .3)
+$shadow-dialog ?=                   0px 18px 32px 2px color_alpha($black, .3)
 $shadow-dialog-hover ?=             false
 
 // inset shadow shiny edges and depressions.
 $shiny-edge-size ?=                  0 1px 0
-$shiny-edge-color ?=                 rgba($white, .5)
-$shiny-edge-active-color ?=          rgba($black, .2)
+$shiny-edge-color ?=                 color_alpha($white, .5)
+$shiny-edge-active-color ?=          color_alpha($black, .2)
 
 // SVGs
-$svg-stroke-width-tiny ?=            6 // Stroke width for linea svgs
-$svg-stroke-width-small ?=           5
-$svg-stroke-width-medium ?=          4
-$svg-stroke-width-large ?=           3
+$svg-stroke-width-tiny ?=            7 // Stroke width for linea svgs
+$svg-stroke-width-small ?=           6
+$svg-stroke-width-medium ?=          5
+$svg-stroke-width-large ?=           4
 $svg-icons-base-size ?=              rem-calc(16) // base icon size
 $svg-scale-factor-uni ?=             0.2 // rem-based - is added to background-size value to make bg-icons a bit bigger
 $svg-scale-factor-x ?=               2 // multiply the svg width with this factor to get a pseudo padding for better icon alignment
@@ -425,16 +456,21 @@ filter-grayscale($value = 100%, $reset = false) {
 }
 
 // Return color with alpha-channel and an opaque fallback
-color_alpha($property, $color = $black, $opacity = false, $bg = $white) {
-    if ($opacity && $opacity != 1) {
-        /.ie8 & {
-            {$property}: blend(rgba($color, $opacity), $bg); // ie8 only
-        }
-        /.rgba & {
-            {$property}: rgba($color, $opacity); // modern browsers
+color_alpha($color = $black, $opacity = false, $bg = $white) {
+    if (($opacity != false) && ($opacity != 1)) {
+        // /.ie8 & {
+        //     {$property}: blend(color_alpha($color, $opacity), $bg) // ie8 only
+        // }
+        // /.color_alpha & {
+        //     {$property}: color_alpha($color, $opacity) // modern browsers
+        // }
+        if $ie8 {
+            return blend(rgba($color, $opacity), $bg) // ie8 only
+        } else {
+            return rgba($color, $opacity) // modern browsers
         }
     } else {
-        {$property}: rgb($maincolor);
+        return rgb($color)
     }
 }
 
@@ -449,9 +485,9 @@ color_rgb(value) {
 
 // Border parameters
 border-longhand($width = 0, $style = solid, $color = transparent) {
-    border-width: $width
-    border-style: $style
     border-color: $color
+    border-style: $style
+    border-width: $width
 }
 
 find_similar_basecolor($color = false) {
@@ -953,7 +989,9 @@ if $include-html-global-classes {
 
     *:focus {
         outline: none
-        box-shadow: $focus-shadow
+        if $focus-shadow {
+            box-shadow: $focus-shadow
+        }
     }
 
 

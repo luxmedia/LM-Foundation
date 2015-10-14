@@ -18,29 +18,30 @@ $side-nav-padding ?=                         rem-calc(14 0)
 // list element styles.
 $side-nav-list-type ?=                       none
 $side-nav-list-position ?=                   outside
-$side-nav-list-margin ?=                     rem-calc(0 0 7 0)
+$side-nav-list-margin ?=                     0
 $side-nav-list-border-style ?=               solid //false
-$side-nav-list-border-color ?=               rgba($black, 0.2)
+$side-nav-list-border-color ?=               $separator-color
 $side-nav-list-border-width ?=               0 0 1px 0
 
 $side-nav-function-factor ?=                 20%
 
 // link styles.
-$side-nav-link-color ?=                      $primary-color
-$side-nav-link-color-active ?=               scale-color($side-nav-link-color, $side-nav-function-factor)
-$side-nav-link-color-hover ?=                scale-color($side-nav-link-color, $side-nav-function-factor)
-$side-nav-link-bg-hover ?=                   rgba($black, .1)
+$side-nav-link-color ?=                      $font-color-menu
+$side-nav-link-color-active ?=               $primary-color
+$side-nav-link-color-hover ?=                $primary-color
+$side-nav-link-bg-hover ?=                   false
 $side-nav-link-margin ?=                     0
 $side-nav-link-padding ?=                    rem-calc(7 14)
+$side-nav-link-text-transform ?=             false // uppercase
 
 $side-nav-link-icon ?=                       true
-$side-nav-link-icon-color ?=                 $side-nav-link-color
-$side-nav-link-icon-color-hover ?=           $side-nav-link-color-hover
+$side-nav-link-icon-color ?=                 $icon-color-normal
+$side-nav-link-icon-color-hover ?=           $icon-color-hover
 
-$side-nav-font-size ?=                       fontsize(1.1rem)
+$side-nav-font-size ?=                       fontsize(.9rem)
 $side-nav-font-weight ?=                     $font-weight-bold
 $side-nav-font-weight-active ?=              $side-nav-font-weight
-$side-nav-font-family ?=                     $font-family-custom
+$side-nav-font-family ?=                     $font-family-sans-serif // $font-family-custom
 $side-nav-font-family-active ?=              $side-nav-font-family
 
 // heading styles.
@@ -52,7 +53,7 @@ $side-nav-heading-text-transform ?=          uppercase
 // border styles
 $side-nav-divider-size ?=                    1px
 $side-nav-divider-style ?=                   solid
-$side-nav-divider-color ?=                   scale-color($white, ($side-nav-function-factor/2))
+$side-nav-divider-color ?=                   $separator-color
 
 
 //
@@ -90,6 +91,9 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
             display: block
             margin: $side-nav-link-margin
             padding: $side-nav-link-padding
+            if $side-nav-link-text-transform {
+                text-transform: $side-nav-link-text-transform
+            }
             if($side-nav-link-icon) {
                 padding-{$default-float}: (2.5 * $svg-icons-base-size)
                 svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:('polyline' 'polygon'), $stroke: $side-nav-link-icon-color, $stroke-hover: $side-nav-link-icon-color-hover, $stroke-width: $svg-stroke-width-small, $position-x: $default-float)
@@ -97,7 +101,9 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
 
             &:hover,
             &:focus {
-                background-color: $link-bg-hover
+                if $link-bg-hover {
+                    background-color: $link-bg-hover
+                }
                 color: $link-color-hover
             }
             &:active {
@@ -126,6 +132,7 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
             text-transform: $side-nav-heading-text-transform
         }
     }
+
 }
 
 

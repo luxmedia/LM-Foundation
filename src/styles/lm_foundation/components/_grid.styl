@@ -350,6 +350,15 @@ if $include-html-grid-classes {
         & + &.end {
             float: $default-float
         }
+
+        .col__divider {
+            background-color: $separator-color
+            width: 1px
+
+            &.inv {
+                background-color: $separator-color-inv
+            }
+        }
     }
 
     +mediaquery($small-up) {

@@ -293,6 +293,11 @@
             parent.removeClass(this.settings.error_class);
             if (label.length > 0 && this.settings.error_labels) {
               label.removeClass(this.settings.error_class).removeAttr('role');
+              // LUXMEDIA MOD
+              if (!label.parent().hasClass('switch')) {
+                label.removeClass('is-invalid').addClass('is-valid');
+              }
+              // EOF
             }
             $(el).triggerHandler('valid');
           } else {
@@ -310,6 +315,11 @@
             parent.addClass(this.settings.error_class);
             if (label.length > 0 && this.settings.error_labels) {
               label.addClass(this.settings.error_class).attr('role', 'alert');
+              // LUXMEDIA MOD
+              if (!label.parent().hasClass('switch')) {
+                label.removeClass('is-valid').addClass('is-invalid');
+              }
+              // EOF
             }
             $(el).triggerHandler('invalid');
           }

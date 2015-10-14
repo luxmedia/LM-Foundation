@@ -19,15 +19,15 @@ $table-row-border ?=                         false // 1px solid $gray-lighter-3
 // These control the table cell border style
 $table-border-style ?=                       solid
 $table-border-size ?=                        1px
-$table-border-color ?=                       $gray-medium-1
+$table-border-color ?=                       $separator-color
 
 // These control the table head styles
 $table-head-bg ?=                            $table-bg
 $table-head-font-size ?=                     fontsize(.8rem)
-$table-head-font-color ?=                    $gray-dark-1
+$table-head-font-color ?=                    $font-color-caption
 $table-head-font-weight ?=                   $font-weight-bold
 $table-head-padding ?=                       rem-calc(8 10)
-$table-head-text-transform ?=                uppercase
+$table-head-text-transform ?=                false // uppercase
 $table-head-border ?=                        1px solid $table-border-color
 
 // These control the row padding and font styles
@@ -42,7 +42,7 @@ $table-foot-font-size ?=                     $table-row-font-size
 $table-foot-font-color ?=                    $charcoal-2
 $table-foot-font-weight ?=                   $table-head-font-weight
 $table-foot-padding ?=                       $table-head-padding
-$table-foot-text-transform ?=                uppercase
+$table-foot-text-transform ?=                false // uppercase
 
 // These control the caption
 $table-caption-bg ?=                         transparent
@@ -94,7 +94,9 @@ table() {
                 font-size: $table-head-font-size
                 font-weight: $table-head-font-weight
                 padding: $table-head-padding
-                text-transform: $table-head-text-transform
+                if $table-head-text-transform {
+                    text-transform: $table-head-text-transform
+                }
             }
         }
     }
@@ -109,7 +111,9 @@ table() {
                 font-size: $table-foot-font-size
                 font-weight: $table-foot-font-weight
                 padding: $table-foot-padding
-                text-transform: $table-foot-text-transform
+                if $table-foot-text-transform {
+                    text-transform: $table-foot-text-transform
+                }
             }
             th {
                 color: $table-head-font-color

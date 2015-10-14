@@ -14,7 +14,7 @@ $include-html-type-classes =        com_css.TYPE
 $header-font-family ?=               $font-family-headings
 $header-font-weight ?=               $font-weight-bold
 $header-font-style ?=                normal
-$header-font-color ?=                $charcoal-1
+$header-font-color ?=                $font-color-title
 $header-line-height ?=               (32 / 24)
 $header-top-margin ?=                remify(.2rem)
 $header-bottom-margin ?=             remify(.5rem)
@@ -64,7 +64,7 @@ $h6-font-weight ?=                    $header-font-weight
 
 // These control how subheaders are styled.
 $subheader-line-height ?=            (24 / 16)
-$subheader-font-color ?=             $gray-dark-2
+$subheader-font-color ?=             $font-color-subheading
 $subheader-font-weight ?=            $font-weight-normal
 $subheader-top-margin ?=             remify(.2rem)
 $subheader-bottom-margin ?=          remify(.5rem)
@@ -72,7 +72,7 @@ $subheader-bottom-margin ?=          remify(.5rem)
 
 // A general <small> styling
 $small-font-size ?=                  fontsize(.8rem)
-$small-font-color ?=                 scale-color($header-font-color, 35%)
+$small-font-color ?=                 $font-color-caption
 
 // style paragraphs
 $paragraph-font-family ?=            inherit
@@ -93,10 +93,10 @@ $lead-line-height ?=                 ($paragraph-line-height + .2)
 // lead font sizes
 $aside-font-size ?=                  ($paragraph-font-size - .2rem)
 $aside-line-height ?=                ($paragraph-line-height - .15)
-$aside-font-color ?=                 $gray-dark-2
+$aside-font-color ?=                 $font-color-secondary
 
 // style <code> tags
-$code-color ?=                       $charcoal-1
+$code-color ?=                       $font-color-body
 $code-font-family ?=                 $font-family-monospace
 $code-font-size ?=                   fontsize(.9rem)
 $code-font-weight ?=                 $font-weight-normal
@@ -115,7 +115,7 @@ $anchor-font-color-hover ?=          scale-color($anchor-font-color, -15%)
 // style the <hr> element
 $hr-border-width ?=                  1px
 $hr-border-style ?=                  solid
-$hr-border-color ?=                  $gray-medium-1
+$hr-border-color ?=                  $separator-color
 $hr-margin ?=                        rem-calc(20)
 
 // style lists
@@ -134,11 +134,11 @@ $definition-list-header-text-transform ?= uppercase
 $definition-list-margin-bottom ?=        rem-calc(10)
 
 // style blockquotes
-$blockquote-font-color ?=                scale-color($header-font-color, 35%)
+$blockquote-font-color ?=                $font-color-caption
 $blockquote-padding ?=                   rem-calc(9 20 0 19)
-$blockquote-border ?=                    1px solid $gray-medium-1
+$blockquote-border ?=                    1px solid $separator-color
 $blockquote-cite-font-size ?=            rem-calc(13)
-$blockquote-cite-font-color ?=           scale-color($header-font-color, 23%)
+$blockquote-cite-font-color ?=           $font-color-caption
 $blockquote-cite-link-color ?=           $blockquote-cite-font-color
 
 // Acronym styles
@@ -151,7 +151,7 @@ $microformat-margin ?=                   rem-calc(0 0 20 0)
 // the border styles
 $microformat-border-width ?=             1px
 $microformat-border-style ?=             solid
-$microformat-border-color ?=             $gray-medium-1
+$microformat-border-color ?=             $separator-color
 
 // full name font styles
 $microformat-fullname-font-weight ?=     $font-weight-bold
