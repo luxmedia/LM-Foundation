@@ -106,7 +106,7 @@ $font-color-caption ?=               lightness($gray-base, 56%)
 $font-color-body ?=                  lightness($gray-base, 13%)
 $font-color-secondary ?=             lightness($gray-base, 56%)
 $font-color-hint ?=                  lightness($gray-base, 62%) // color_alpha($black, 0.38)
-$font-color-subheading ?=            lightness($gray-base, 35%)
+$font-color-subheading ?=            lightness($gray-base, 45%)
 $font-color-title ?=                 lightness($gray-base, 13%)
 $font-color-headline ?=              lightness($gray-base, 13%)
 $font-color-display-1 ?=             lightness($gray-base, 56%)
@@ -129,6 +129,9 @@ $icon-color-inactive-inv ?=          lightness($gray-base, 70%)
 // Line and border colors
 $separator-color ?=                  color_alpha($black, .1)
 $separator-color-inv ?=              color_alpha($white, .2, $black)
+
+// Contrast Rage
+$luminance-contrast-min ?=           35%
 
 // various global styles
 $body-bg ?=                          $white
@@ -481,6 +484,28 @@ color_rgb(value) {
     } else {
         return value
     }
+}
+
+// Return a color with a predefined minimium luminance contrast to its background
+check_contrast($fg = $white, $bg = $black, $contrast-min = $luminance-contrast-min) {
+    $lightness-bg = lightness($bg)
+    $lightness-fg = lightness($fg)
+    $color = $fg
+
+    if dark($bg) {
+        $contrast-range = ($lightness-fg - $lightness-bg)
+        if ($contrast-range < $contrast-min) {
+            $lightness-new = ($lightness-fg + ($contrast-min - $contrast-range))
+            $color = lightness($fg, $lightness-new)
+        }
+    } else {
+        $contrast-range = ($lightness-bg - $lightness-fg)
+        if ($contrast-range < $contrast-min) {
+            $lightness-new = ($lightness-fg - ($contrast-min - $contrast-range))
+            $color = lightness($fg, $lightness-new)
+        }
+    }
+    return $color
 }
 
 // Border parameters

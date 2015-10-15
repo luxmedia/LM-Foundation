@@ -7,6 +7,8 @@
 
 $include-html-checkout-progress-classes =       com_css.CHECKOUTPROGRESS
 
+$checkout-wrap-margin ?=                rem-calc(20) auto
+
 $checkout-progress-color ?=                     $gray-darker-2
 $checkout-progress-font-family ?=               $font-family-custom
 $checkout-progress-bar-height ?=                rem-calc(2)
@@ -23,10 +25,14 @@ $checkout-progress-step-next-color ?=           $gray-base
 $checkout-progress-label-font-size ?=           fontsize(0.8rem)
 $checkout-progress-label-margin-top ?=          rem-calc(8)
 $checkout-progress-label-height ?=              rem-calc(20)
+$checkout-progress-label-line-height ?=         1
 $checkout-progress-margin ?=                    rem-calc(20)
 $checkout-progress-li-padding ?=                rem-calc(14 20 14 80)
 
 $checkout-progress-zindex ?=                    999
+
+$stepcount ?=                                   5
+$stepwidth ?=                                   percentage(1 / $stepcount)
 
 //
 // @mixins
@@ -76,7 +82,10 @@ if $include-html-checkout-progress-classes {
     .checkout-wrap {
         color: $checkout-progress-color
         font-family: $checkout-progress-font-family
-        margin: rem-calc(20) auto
+        // margin: $checkout-wrap-margin
+        overflow: hidden
+        padding-top: $pad = (ceil($checkout-progress-step-height / 2) + rem-calc(2))
+        padding-bottom: ($pad + ($checkout-progress-label-line-height * $checkout-progress-label-font-size))
         position: relative
     }
 
@@ -127,7 +136,6 @@ if $include-html-checkout-progress-classes {
                 color: $info-color
 
                 &:before {
-                    // background-color: $checkout-progress-step-active-color
                     border-color: $checkout-progress-step-active-color
                     color: $checkout-progress-step-active-color // $white
                     z-index: $checkout-progress-zindex
@@ -147,7 +155,6 @@ if $include-html-checkout-progress-classes {
                 z-index: $checkout-progress-zindex
 
                 &:before {
-                    // background-color: $checkout-progress-step-visited-color
                     svg-background($file:'arrows_check.svg', $size:($checkout-progress-step-height - rem-calc(10)), $stroke:$checkout-progress-step-visited-color, $stroke-width:$svg-stroke-width-large, $position-x:center)
                     content: '' !important
                     border-color: $checkout-progress-step-visited-color
@@ -200,130 +207,155 @@ if $include-html-checkout-progress-classes {
 
     } // EOF - ul.checkout-bar
 
+    .checkout-wrap {
+        margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
+    }
 
-    +mediaquery($small-up) {
-        .checkout-wrap {
-            margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
+    .checkout-bar li.is-active:after {
+        active-progress()
+        content: ''
+        height: $checkout-progress-bar-height
+        left: 50%
+        position: absolute
+        top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
+        width: 100%
+        z-index: 0
+
+        if $checkout-progress-bar-animation {
+            -webkit-animation: progressbar_animation $checkout-progress-bar-animation 0
         }
+    }
 
-        .checkout-bar li.is-active:after {
-            active-progress()
-            content: ''
-            height: $checkout-progress-bar-height
-            left: 50%
-            position: absolute
-            top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
-            width: 100%
-            z-index: 0
+    .checkout-bar {
+        next-progress()
+        border-radius: $checkout-progress-bar-height
+        height: $checkout-progress-bar-height
+        margin: 0 auto
+        padding: 0
+        position: absolute
+        width: 100%
 
-            if $checkout-progress-bar-animation {
-                -webkit-animation: progressbar_animation $checkout-progress-bar-animation 0
-            }
-        }
-
-        .checkout-bar {
-            next-progress()
+        // Left end of progress bar stripe
+        &:before {
+            success-progress()
             border-radius: $checkout-progress-bar-height
+            content: ' '
             height: $checkout-progress-bar-height
-            margin: 0 auto
-            padding: 0
+            left: 0
             position: absolute
-            width: 100%
-
-            // Left end of progress bar stripe
+            width: ($stepwidth / 2)
+        }
+        
+        // If first item in steps is active, colorize left stripe "active" and NOT "success"
+        &.is-active-1 {
             &:before {
-                success-progress()
-                border-radius: $checkout-progress-bar-height
-                content: ' '
-                height: $checkout-progress-bar-height
-                left: 0
+                active-progress()
+            }
+        }
+
+        li {
+            display: inline-block
+            float: left
+            margin: ($checkout-progress-step-height/2) 0 0 0
+            padding: 0
+            text-align: center
+            width: $stepwidth
+
+            // This is our Step number Circle
+            &:before {
+                height: $checkout-progress-step-height
+                left: 50%
+                line-height: $checkout-progress-step-line-height
+                margin-left: -($checkout-progress-step-width/2)
                 position: absolute
-                width: (percentage((1/4)) / 2) // 10%
-            }
-            
-            // If first item in steps is active, colorize left stripe "active" and NOT "success"
-            &.checkout-bar--firstactive {
-                &:before {
-                    active-progress()
-                }
+                top: -($checkout-progress-step-height + ($checkout-progress-bar-height/2))
+                width: $checkout-progress-step-width
+                z-index: ($checkout-progress-zindex - 1)
             }
 
-            li {
-                display: inline-block
-                float: left
-                margin: ($checkout-progress-step-height/2) 0 0 0
-                padding: 0
-                text-align: center
-                width: percentage((1/5)) // default width for five steps
+            &.is-visited {
+                background: none
 
-                // This is our Step number Circle
-                &:before {
-                    height: $checkout-progress-step-height
-                    left: 50%
-                    line-height: $checkout-progress-step-line-height
-                    margin-left: -($checkout-progress-step-width/2)
+                &:after {
+                    success-progress()
+
+                    content: ''
                     position: absolute
-                    top: -($checkout-progress-step-height + ($checkout-progress-bar-height/2))
-                    width: $checkout-progress-step-width
+                    left: 50%
+                    top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
+                    width: 100%
+                    height: $checkout-progress-bar-height
                     z-index: ($checkout-progress-zindex - 1)
                 }
-
-                &.is-visited {
-                    background: none
-
-                    &:after {
-                        success-progress()
-
-                        content: ''
-                        position: absolute
-                        left: 50%
-                        top: -(($checkout-progress-step-height/2) + ($checkout-progress-bar-height/2) - rem-calc(1))
-                        width: 100%
-                        height: $checkout-progress-bar-height
-                        z-index: ($checkout-progress-zindex - 1)
-                    }
-                }
-
-                span,
-                a {
-                    display: inline-block
-                    line-height: 1
-                    padding-top: ($checkout-progress-label-margin-top + $checkout-progress-step-height)
-                    position: relative
-                    top: -($checkout-progress-step-height) // move label closer to number
-                    z-index: ($checkout-progress-zindex + 1) //move link above li:before to make it a nice block link
-                }
-            } // li
-
-            // handle different step counts
-            &__four {
-                $stepwidth = percentage((1/4))
-                &:before {
-                    width: ($stepwidth/2)
-                }
-                li {
-                    width: $stepwidth
-                }
-            }
-            &__five {
-                $stepwidth = percentage((1/5))
-                &:before {
-                    width: ($stepwidth/2)
-                }
-                li {
-                    width: $stepwidth
-                }
-            }
-            &__six {
-                $stepwidth = percentage((1/6))
-                &:before {
-                    width: ($stepwidth/2)
-                }
-                li {
-                    width: $stepwidth
-                }
             }
 
-        } // EOF - .checkout-bar
-    } // EOF - +mediaquery($small-up)
+            span,
+            a {
+                display: inline-block
+                line-height: $checkout-progress-label-line-height
+                padding-top: ($checkout-progress-label-margin-top + $checkout-progress-step-height)
+                position: relative
+                top: -($checkout-progress-step-height) // move label closer to number
+                z-index: ($checkout-progress-zindex + 1) //move link above li:before to make it a nice block link
+            }
+        } // li
+
+        // handle different step counts
+
+        // &__four {
+        //     $stepwidth = percentage((1/4))
+        //     &:before {
+        //         width: ($stepwidth/2)
+        //     }
+        //     li {
+        //         width: $stepwidth
+        //     }
+        // }
+        // &__five {
+        //     $stepwidth = percentage((1/5))
+        //     &:before {
+        //         width: ($stepwidth/2)
+        //     }
+        //     li {
+        //         width: $stepwidth
+        //     }
+        // }
+        // &__six {
+        //     $stepwidth = percentage((1/6))
+        //     &:before {
+        //         width: ($stepwidth/2)
+        //     }
+        //     li {
+        //         width: $stepwidth
+        //     }
+        // }
+
+    } // EOF - .checkout-bar
+
+    +mediaquery($small-only) {
+        .checkout-bar {
+            width: 200%
+
+            &.is-active-2 {
+                li.step1 {
+                    margin-{$default-float}: -($stepwidth)
+                }
+            }
+            &.is-active-3 {
+                li.step1 {
+                    margin-{$default-float}: -(2 * $stepwidth)
+                }
+            }
+            &.is-active-4 {
+                li.step1 {
+                    margin-{$default-float}: -(3 * $stepwidth)
+                }
+            }
+            &.is-active-5 {
+                li.step1 {
+                    margin-{$default-float}: -(4 * $stepwidth)
+                }
+            }
+        }
+    }
 }

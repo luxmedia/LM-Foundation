@@ -198,7 +198,6 @@ if $include-html-topbar-classes {
 
     // Main top nav section
     .topbar {
-        clearfix()
         background-color: $topbar-bg
         height: $topbar-height
         line-height: $topbar-height
@@ -444,7 +443,6 @@ if $include-html-topbar-classes {
             display: inline
             width: auto
 
-            // FIRST NAV LEVEL
             > li {
                 float: $default-float
                 > a {
@@ -497,7 +495,7 @@ if $include-html-topbar-classes {
                     padding-{$default-float}: $topbar-link-padding
                     padding-{$opposite-direction}: $topbar-link-padding
                 }
-
+                
                 > input,
                 > select,
                 > button,
@@ -529,41 +527,22 @@ if $include-html-topbar-classes {
                     }
                 }
                 // Apply the hover link color when it has that class
-                &.is-hover:not(.has-form) > a:not(.btn),
                 &:hover:not(.has-form) > a:not(.btn) {
                     if ($topbar-link-bg-hover != $topbar-bg-color) {
                         background-color: $topbar-link-bg-hover
                     }
-                    color: check_contrast($topbar-link-color-hover, $topbar-link-bg-hover)
+                    color: $topbar-link-color-hover
                 }
 
                 // Apply the active link color when it has that class
-                &.is-active > a:not(.btn) {
+                &.is-active > a {
                     if ($topbar-link-bg-active != $topbar-bg-color) {
                         background-color: $topbar-link-bg-active
                     }
-                    if ($topbar-link-color-active != $topbar-link-color) {
-                        color: $topbar-link-color-active
-                    }
-                    // line-height: $topbar-height
-                    // padding: 0 $topbar-link-padding
+                    color: $topbar-link-color-active
                     &:hover {
                         background-color: $topbar-link-bg-active-hover
                         color: $topbar-link-color-active-hover
-                    }
-                }
-
-                // 2nd Second Level = Dropdown
-                li,
-                &.is-active li {
-                    // give last item a little bottom space
-                    &:last-child {
-                        margin-bottom: rem-calc(4)
-                    }
-                    a:not(.btn) {
-                        line-height: 1.4
-                        padding-bottom: rem-calc(4)
-                        padding-top: rem-calc(4)
                     }
                 }
             }
@@ -581,7 +560,6 @@ if $include-html-topbar-classes {
 
         // Add some extra padding for list items contains buttons
         .has-form {
-            background-color: $topbar-link-bg-hover
             padding: $topbar-link-padding
         }
 
@@ -626,42 +604,19 @@ if $include-html-topbar-classes {
             {$default-float}: 100%
 
             li {
-                // width: 100%
+                width: 100%
 
                 &:not(.divider) {
                     height: auto
                 }
 
                 &:not(.has-form) a:not(.btn):not(.prd__link) {
-                    display: block
-                    font-size:$topbar-link-font-size
                     font-weight: $topbar-dropdown-link-weight
-                    font_family($topbar-link-font-family)
-                    line-height: 1.4
                     padding: $topbar-link-padding (2 * $topbar-link-padding)
                     text-transform: uppercase
-                    white-space: nowrap
 
                     &.parent-link {
                         font-weight: $topbar-link-weight
-                    }
-
-                    &:not(.is-active) {
-                        background-color: $topbar-dropdown-link-bg
-                        color: check_contrast($topbar-dropdown-link-color, $topbar-bg-color)
-
-                        &:hover {
-                            if ($topbar-dropdown-link-bg-hover) {
-                                background-color: $topbar-dropdown-link-bg-hover
-                            } else {
-                                background-color: $topbar-link-bg-hover
-                            }
-                            color: $topbar-dropdown-link-color-hover
-                        }
-                    }
-
-                    .lbl--badge {
-                        margin-{$default-float}: rem-calc(4)
                     }
                 }
 
@@ -683,7 +638,6 @@ if $include-html-topbar-classes {
                 &.has-form {
                     padding: rem-calc(8) $topbar-link-padding
                 }
-
                 .btn,
                 button {
                     top: auto
@@ -699,8 +653,6 @@ if $include-html-topbar-classes {
                 text-transform: $topbar-dropdown-label-text-transform
             }
         }
-
-            
     }// EOF - .topbar-section
 
     .js-generated {
@@ -712,6 +664,9 @@ if $include-html-topbar-classes {
     +mediaquery($topbar-media-query) {
 
         .topbar {
+            clearfix()
+            background-color: $topbar-bg
+            overflow: visible
 
             .toggle-topbar {
                 display: none
@@ -726,12 +681,31 @@ if $include-html-topbar-classes {
                 display: block
                 width: auto
             }
+            
+            // .topbar-section > ul > li {
+            //     > input,
+            //     > select,
+            //     > button,
+            //     > .btn {
+            //         font-size: $topbar-button-font-size
+            //         height: $topbar-input-height
+            //         line-height: $topbar-input-height
+            //         padding-bottom: 0
+            //         padding-top: 0
+            //         position: relative
+            //         top: $topbar-button-top
+            //     }
+            // }
 
             .has-form > .button,
             .has-form > button { 
                 padding-top: rem-calc(5)
                 position: relative
                 top: (($topbar-height - $topbar-input-height + rem-calc(-3)) / 2)
+            }
+
+            &.expanded {
+                background-color: $topbar-bg
             }
         }
         // EOF - .topbar
@@ -749,12 +723,61 @@ if $include-html-topbar-classes {
             {$default-float}: 0 !important
 
             > ul {
+                // display: inline
+                // height: auto !important
+                // width: auto
+
                 > li {
                     .js-generated {
                         display: none
                     }
                 }
             }
+            
+            // FIRST LEVEL
+            > ul > li {
+                &.is-hover {
+                    > a:not(.btn) {
+                        if ($topbar-link-bg-hover != $topbar-bg-color) {
+                            background-color: $topbar-link-bg-hover
+                        }
+                        color: check_contrast($topbar-link-color-hover, $topbar-link-bg-hover)
+                    }
+                }
+
+                &.is-active:not(.has-form) {
+                    > a:not(.btn) {
+                        if ($topbar-link-bg-active != $topbar-bg-color) {
+                            background-color: $topbar-link-bg-active
+                        }
+                        if ($topbar-link-color-active != $topbar-link-color) {
+                            color: $topbar-link-color-active
+                        }
+                        line-height: $topbar-height
+                        padding: 0 $topbar-link-padding
+
+                        &:hover {
+                            background-color: $topbar-link-bg-active-hover
+                            color: $topbar-link-color-active-hover
+                        }
+                    }
+                }
+
+                // Second Level = Dropdown
+                li,
+                &.is-active li {
+                    // give last item a little bottom space
+                    &:last-child {
+                        margin-bottom: rem-calc(4)
+                    }
+                    a:not(.btn) {
+                        line-height: 1.4
+                        padding-bottom: rem-calc(4)
+                        padding-top: rem-calc(4)
+                    }
+                }
+
+            } // EOF - li
 
             .has-dropdown {
                 if $topbar-arrows {
@@ -794,11 +817,46 @@ if $include-html-topbar-classes {
 
             // 2nd Level = Dropdowns
             .dropdown {
+                background-color: $topbar-dropdown-bg
                 min-width: 100%
                 top: auto
                 {$default-float}: 0
 
                 li {
+
+                    &:not(.has-form) {
+                        > a:not(.btn) {
+                            display: block
+                            font-size:$topbar-link-font-size
+                            font_family($topbar-link-font-family)
+                            line-height: 1.4
+                            padding: $topbar-dropdown-link-padding
+                            white-space: nowrap
+                            
+                            .lbl--badge {
+                                margin-{$default-float}: rem-calc(4)
+                            }
+                        }
+
+                    }
+                    &:not(.has-form):not(.is-active) {
+                        > a:not(.btn) {
+                            background-color: $topbar-dropdown-link-bg
+                            color: check_contrast($topbar-dropdown-link-color, $topbar-bg-color)
+
+                            &:hover {
+                                color: $topbar-dropdown-link-color-hover
+                            }
+                        }
+                        &:hover > a:not(.btn) {
+                            if ($topbar-dropdown-link-bg-hover) {
+                                background-color: $topbar-dropdown-link-bg-hover
+                            } else {
+                                background-color: $topbar-link-bg-hover
+                            }
+                            color: $topbar-dropdown-link-color-hover
+                        }
+                    }
 
                     label {
                         if $topbar-dropdown-label-bg {
@@ -807,7 +865,7 @@ if $include-html-topbar-classes {
                         white-space: nowrap
                     }
 
-                    // 3rd Level Dropdowns
+                    // 2nd Level Dropdowns
                     .dropdown {
                         top: 0
                         {$default-float}: 100%
@@ -818,6 +876,7 @@ if $include-html-topbar-classes {
             }
 
             .has-form {
+                background-color: $topbar-link-bg-hover
                 height: $topbar-height
                 padding: 0 $topbar-link-padding
             }
