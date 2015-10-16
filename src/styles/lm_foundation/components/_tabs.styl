@@ -11,29 +11,77 @@
 
 $include-html-tabs-classes =                   com_js.TAB
 
+$include-html-tabs-light-style ?=               true
+$include-html-tabs-dark-style ?=                false
+
 $tabs-navigation-padding ?=                     rem-calc(10 15)
-$tabs-navigation-bg-color ?=                    $gray-light-2
-$tabs-navigation-active-bg-color ?=             $white
-$tabs-navigation-hover-bg-color ?=              darken($tabs-navigation-bg-color, 6%)
-$tabs-navigation-font-color ?=                  $gray-dark-2
-$tabs-navigation-hover-font-color ?=            $charcoal-1
+$tabs-navigation-border-width ?=                1px
+$tabs-navigation-border-color ?=                $separator-color
+$tabs-navigation-bg-color ?=                    transparent
+$tabs-navigation-active-bg-color ?=             transparent
+$tabs-navigation-hover-bg-color ?=              transparent
+$tabs-navigation-font-color ?=                  $font-color-tabs // $gray-dark-2
+$tabs-navigation-font-color-inv ?=              $font-color-tabs-inv
+$tabs-navigation-hover-font-color ?=            $primary-color // $charcoal-1
+$tabs-navigation-hover-font-color-inv ?=        $white
 $tabs-navigation-active-font-color ?=           $primary-color
-$tabs-navigation-border-width ?=                2px
-$tabs-navigation-active-border-color-top ?=     $tabs-navigation-active-bg-color
-$tabs-navigation-active-border-color-bottom ?=  $primary-color
+$tabs-navigation-active-font-color-inv ?=       check_contrast($primary-color)
+$tabs-navigation-link-border-width ?=           2px
+$tabs-navigation-link-active-border-color ?=    $primary-color
 $tabs-navigation-font-size ?=                   fontsize(1rem)
 $tabs-navigation-font-family ?=                 $font-family-custom
 $tabs-navigation-font-weight ?=                 $font-weight-bold
 $tabs-navigation-text-transform ?=              uppercase
 
 $tabs-content-margin-bottom ?=                  rem-calc(24)
-$tabs-content-padding ?=                        ($column-gutter/2)
+$tabs-content-padding ?=                        rem-calc(20) // ($column-gutter/2)
 $tabs-content-bg ?=                             $tabs-navigation-active-bg-color
-$tabs-content-border-width ?=                   false // 0 0 2px 0
-$tabs-content-border-color ?=                   $gray-medium-1
 
 $tabs-vertical-navigation-margin-bottom ?=      remify(1.25rem)
 
+//
+// @mixins
+//
+tabs-style($bg = $tabs-navigation-bg-color, $bg-hover = $tabs-navigation-hover-bg-color, $bg-active = $tabs-navigation-active-bg-color, $font-color = $tabs-navigation-font-color, $font-color-hover = $tabs-navigation-hover-font-color, $font-color-active = $tabs-navigation-active-font-color, $inverted = false) {
+    
+    > a {
+        if (!$inverted) {
+            color: $font-color
+            background: $bg
+        } else {
+            background: transparent
+            color: $tabs-navigation-font-color-inv
+        }
+
+        single-transition(all)
+
+        &:hover {
+            if (($bg-hover != $bg) && (!$inverted)) {
+                background: $tabs-navigation-hover-bg-color
+            }
+            if (!$inverted) {
+                color: $tabs-navigation-hover-font-color
+            }
+            if ($inverted) {
+                background: transparent
+                color: $tabs-navigation-hover-font-color-inv
+            }
+        }
+    }
+
+    &.is-active > a {
+        if (($bg-active != $bg) && (!$inverted)) {
+            background: $tabs-navigation-active-bg-color
+        }
+        border-bottom-color: $tabs-navigation-link-active-border-color
+        if (!$inverted) {
+            color: $font-color-active
+        } else {
+            background: transparent
+            color: $tabs-navigation-active-font-color-inv
+        }
+    }
+}
 
 //
 // @styles
@@ -41,10 +89,13 @@ $tabs-vertical-navigation-margin-bottom ?=      remify(1.25rem)
 if $include-html-tabs-classes {
     
     .tabs-list {
-        border-bottom: $tabs-navigation-border-width solid $tabs-content-border-color
+        // border-bottom: $tabs-navigation-border-width solid $tabs-content-border-color
         overflow: visible
     }
     .tabs {
+        if ($tabs-navigation-border-width) {
+            border-bottom: $tabs-navigation-border-width solid $tabs-navigation-border-color
+        }
         clearfix()
         margin-bottom: 0 !important
         margin-left: 0
@@ -59,12 +110,7 @@ if $include-html-tabs-classes {
             position: relative
 
             > a {
-                background-color: $tabs-navigation-bg-color
-                border-style: solid
-                border-width: $tabs-navigation-border-width 0
-                border-color: transparent
-                border-bottom-color: $tabs-content-border-color
-                color: $tabs-navigation-font-color
+                border-bottom: $tabs-navigation-link-border-width solid transparent
                 display: block
                 font-size: $tabs-navigation-font-size
                 font-weight: $tabs-navigation-font-weight
@@ -72,27 +118,34 @@ if $include-html-tabs-classes {
                 padding: $tabs-navigation-padding
                 text-transform: $tabs-navigation-text-transform
 
-                &:hover {
-                    background-color: $tabs-navigation-hover-bg-color
-                    color: $tabs-navigation-hover-font-color
-                }
                 &:focus{
                     outline: none
                     box-shadow: none
                 }
             }
             &.is-active > a {
-                background-color: $tabs-navigation-active-bg-color
-                border-bottom-color: $tabs-navigation-active-border-color-bottom
-                border-top-color: $tabs-navigation-active-border-color-top
-                color: $tabs-navigation-active-font-color
                 cursor: $cursor-default-value
+            }
+
+            // Tabs colors and styles
+            if $include-html-tabs-light-style {
+                tabs-style()
             }
             
             // According to: http://foundation.zurb.com/forum/posts/1678-how-to-change-f5-tabs-in-accordion--in-small-screens
             +mediaquery($small-only) {
                 float: none
                 margin: 1px auto
+            }
+        }
+
+
+        if $include-html-tabs-dark-style {
+            &--inv {
+                dd,
+                .tab-title {
+                    tabs-style($inverted:true)
+                }
             }
         }
 
@@ -123,22 +176,18 @@ if $include-html-tabs-classes {
 
     .tabs-content {
         clearfix()
-        if $tabs-content-border-width {
-            border-color: $tabs-content-border-color
-            border-style: solid
-            border-width: $tabs-content-border-width
-        }
         margin-bottom: $tabs-content-margin-bottom
         width: 100%
 
         > .content {
+            if ($tabs-content-bg && ($tabs-content-bg != transparent)) {
+                background: $tabs-content-bg
+            }
             display: none
             float: $default-float
             padding: $tabs-content-padding 0
             width: 100%
-            if $tabs-content-bg {
-                background: $tabs-content-bg
-            }
+
             &.is-active {
                 display: block
                 float: none
@@ -149,6 +198,7 @@ if $include-html-tabs-classes {
         }
         &--vert {
             display: block
+
             > .content {
                 padding: 0 $tabs-content-padding
             }

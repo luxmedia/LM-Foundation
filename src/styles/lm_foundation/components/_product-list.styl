@@ -115,7 +115,10 @@ $product-list-button-height ?=                   $product-list-button-width
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
 
 $product-grid-sml-font-size ?=                   fontsize(.8rem)
-$product-grid-sml-img-height ?=                  rem-calc(50)
+$product-grid-sml-title-height ?=                unit((floor(($product-list-title-line-height * $product-grid-title-row-count * $product-grid-sml-font-size), 4)), 'rem')
+$product-grid-sml-img-height ?=                  ($product-grid-img-height - 20px)
+$product-grid-tny-font-size ?=                   fontsize(.8rem)
+$product-grid-tny-img-height ?=                  50px
 
 $product-list-transition-speed ?=               240ms
 
@@ -440,19 +443,39 @@ if $include-html-productlist-classes {
                 }
             }
 
-            // SMALLER GRID VIEW (e.g. in MINICARTS, PROMO-BOXES a.so.)
+            // SMALLER GRID VIEW (e.g. in PROMO-BOXES a.so.)
             &--sml {
+                .prd {
+                    &__title,
+                    &__brand {
+                        font-size: $product-grid-sml-font-size
+                    }
+                    &__title {
+                        height: $product-grid-sml-title-height
+                    }
+                    &__img {
+                        height: $product-grid-sml-img-height
+                        line-height: $product-grid-sml-img-height
+                    }
+                    .price--final {
+                        font-size: ($price-final-font-size - .2rem)
+                    }
+                }
+            }
+
+            // TINY GRID VIEW (e.g. in MINICARTS)
+            &--tny {
                 .prd {
                     &__title,
                     &__sdesc,
                     &__brand,
                     .price-box {
                         height: auto
-                        font-size: $product-grid-sml-font-size
+                        font-size: $product-grid-tny-font-size
                     }
                     &__img {
-                        height: $product-grid-sml-img-height
-                        line-height: $product-grid-sml-img-height
+                        height: $product-grid-tny-img-height
+                        line-height: $product-grid-tny-img-height
                     }
                     .price,
                     .price--special {
@@ -460,7 +483,7 @@ if $include-html-productlist-classes {
                     }
                 }
             }
-        }
+        } // EOF - GRID VIEW
 
         // LIST VIEW
         &--line {
