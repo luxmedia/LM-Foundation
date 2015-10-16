@@ -113,6 +113,7 @@ $product-list-button-width ?=                    rem-calc(45)
 $product-list-button-height ?=                   $product-list-button-width
 
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
+$product-list-ribbon-offset-top-sml ?=           $product-list-item-padding
 
 $product-grid-sml-font-size ?=                   fontsize(.8rem)
 $product-grid-sml-title-height ?=                unit((floor(($product-list-title-line-height * $product-grid-title-row-count * $product-grid-sml-font-size), 4)), 'rem')
@@ -459,6 +460,16 @@ if $include-html-productlist-classes {
                     }
                     .price--final {
                         font-size: ($price-final-font-size - .2rem)
+                    }
+
+                    &.ribbon {
+                        top: $product-list-ribbon-offset-top-sml
+                    }
+                    // sorty ribbons if we have more than one ribbon
+                    &--special.prd--new {
+                        .ribbon--primary {
+                            top: ($product-list-ribbon-offset-top-sml + rem-calc(30))
+                        }
                     }
                 }
             }
