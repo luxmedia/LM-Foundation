@@ -138,23 +138,24 @@
 // $gray-light-3 =                     #EEEEEE
 // $gray-medium-1 =                    #DDDDDD
 // $gray-medium-2 =                    #CCCCCC
-// $gray-dark-1 =                      #999999
-// $gray-dark-2 =                      #888888
-// $gray-dark-3 =                      #777777
-// $gray-darker-1 =                    #666666
-// $gray-darker-2 =                    #555555
-// $gray-darker-3 =                    #444444
-// $charcoal-1 =                       #333333
-// $charcoal-2 =                       #222222
+// $gray-dark-1 =                      darken($gray-base,8%) // #999796 // #999999
+// $gray-dark-2 =                      darken($gray-base,14%) // #888888
+// $gray-dark-3 =                      darken($gray-base,21%) // #777777
+// $gray-darker-1 =                    darken($gray-base,28%) // #666666
+// $gray-darker-2 =                    darken($gray-base,34%) // #555555
+// $gray-darker-3 =                    darken($gray-base,41%) // #444444
+// $charcoal-1 =                       lightness($gray-base, 20%) // #333333
+// $charcoal-2 =                       lightness($gray-base, 14%) // #222222
 // $black =                            base_colors.dark
 
 // // We use these as default colors throughout
 // $primary-color =                    base_colors.primary
-// $primary-2-color =                  base_colors.secondary
+// // if corporate color scope includes a second primary color, you can define it here
+// $primary-2-color =                  base_colors.primary-2
+// $primary-color-2 =                  $primary-2-color
 
+// // Secondary color should be a neutral color
 // $secondary-color =                  lightness($gray-base, 50%)
-// $neutral-color =                    lightness($gray-base, 50%)
-
 // $info-color =                       #62a7d9 // #a0d3e8
 // $success-color =                    #4fc497 // #43AC6A
 // $warning-color =                    #ffcd45 // #f08a24
@@ -164,9 +165,43 @@
 // $warning-font-color =               #e45a5a // #f08a24
 // $critical-font-color =              #c52121 // #f04124
 
+// // Font colors
+// $font-color-button =                lightness($gray-base, 13%)
+// $font-color-menu =                  lightness($gray-base, 13%)
+// $font-color-caption =               lightness($gray-base, 56%)
+// $font-color-body =                  lightness($gray-base, 13%)
+// $font-color-secondary =             lightness($gray-base, 56%)
+// $font-color-hint =                  lightness($gray-base, 62%) // color_alpha($black, 0.38)
+// $font-color-subheading =            lightness($gray-base, 45%)
+// $font-color-title =                 lightness($gray-base, 13%)
+// $font-color-headline =              lightness($gray-base, 13%)
+// $font-color-display-1 =             lightness($gray-base, 56%)
+// $font-color-display-2 =             lightness($gray-base, 56%)
+// $font-color-display-3 =             lightness($gray-base, 56%)
+// $font-color-display-4 =             lightness($gray-base, 56%)
+
+// $font-color-body-inv =              $white
+// $font-color-secondary-inv =         lightness($gray-base, 70%)
+// $font-color-hint-inv =              color_alpha($white, .7, $black)
+
+// // Icon colors
+// $icon-color-normal =                lightness($gray-base, 56%)
+// $icon-color-hover =                 lightness($gray-base, 36%)
+// $icon-color-inactive =              lightness($gray-base, 74%)
+// $icon-color-normal-inv =            $white
+// $icon-color-hover-inv =             $white
+// $icon-color-inactive-inv =          lightness($gray-base, 70%)
+
+// // Line and border colors
+// $separator-color =                  color_alpha($black, .1)
+// $separator-color-inv =              color_alpha($white, .2, $black)
+
+// // Contrast Rage
+// $luminance-contrast-min =           35%
+
 // // various global styles
 // $body-bg =                          $white
-// $body-font-color =                  $charcoal-2
+// $body-font-color =                  $font-color-body
 // $body-font-family =                 $font-family-sans-serif
 // $body-font-weight =                 $font-weight-normal
 // $body-font-style =                  normal
@@ -175,7 +210,7 @@
 // $font-smoothing =                   antialiased
 
 // // focus shadow
-// $focus-shadow =                     0 0 10px $primary-color
+// $focus-shadow =                     false // 1px 1px 10px $primary-color
 
 // // text direction settings
 // $text-direction =                   ltr
@@ -187,33 +222,37 @@
 // $global-radius =                    3px
 // $global-rounded =                   1000px
 // $global-blur-radius =               3px
-// $global-ui-shadow =                 1px 1px 3px rgba($black, .2)
-// $global-ui-shadow = 				   1px 1px 3px rgba($black, .4)
+// $global-ui-shadow =                 1px 1px 3px color_alpha($black, .2)
+// $global-ui-shadow-hover =           1px 1px 3px color_alpha($black, .4)
 
 // // Shadow and Elevation
-// $shadow-switch =                   1px 2px 4px rgba($black, .25)
-// $shadow-switch-hover =             1px 2px 6px rgba($black, .35)
-// $shadow-button =                   1px 1px 3px rgba($black, .2)
-// $shadow-button-hover =             1px 4px 6px rgba($black, .3)
-// $shadow-searchbar =                1px 1px 3px rgba($black, .2)
-// $shadow-searchbar-hover =          1px 4px 6px rgba($black, .3)
-// $shadow-appbar =                   0 3px 6px rgba($black, .25)
+// $shadow-switches =                 1px 2px 4px color_alpha($black, .25)
+// $shadow-switches-hover =           1px 2px 5px color_alpha($black, .4)
+// $shadow-button =                   1px 1px 3px color_alpha($black, .2)
+// $shadow-button-hover =             1px 1px 3px color_alpha($black, .3)
+// $shadow-searchbar =                1px 1px 3px color_alpha($black, .25)
+// $shadow-searchbar-hover =          1px 3px 5px color_alpha($black, .3)
+// $shadow-appbar =                   0 3px 6px color_alpha($black, .25)
 // $shadow-appbar-hover =             false
-// $shadow-floatingbutton =           1px 6px 8px rgba($black, .2)
-// $shadow-floatingbutton-hover =     1px 10px 14px rgba($black, .2)
-// $shadow-card =                     1px 2px 5px rgba($black, .2)
-// $shadow-card-hover =               1px 7px 14px rgba($black, .3)
-// $shadow-menu =                     1px 6px 10px rgba($black, .25)
+// $shadow-floatingbutton =           1px 6px 8px color_alpha($black, .25)
+// $shadow-floatingbutton-hover =     1px 10px 14px color_alpha($black, .3)
+// $shadow-card =                     1px 2px 5px color_alpha($black, .25)
+// $shadow-card-hover =               1px 7px 14px color_alpha($black, .25)
+// $shadow-markerleft =               2px 2px 6px color_alpha($black, .3)
+// $shadow-markerleft-hover =         false
+// $shadow-markerright =              -2px 2px 6px color_alpha($black, .3)
+// $shadow-markerright-hover =        false
+// $shadow-menu =                     1px 6px 10px color_alpha($black, .3)
 // $shadow-menu-hover =               false
-// $shadow-submenu =                  1px 8px 12px rgba($black, .25)
+// $shadow-submenu =                  1px 8px 12px color_alpha($black, .3)
 // $shadow-submenu-hover =            false
-// $shadow-navdrawerleft =            6px 0 16px rgba($black, .2)
+// $shadow-navdrawerleft =            6px 0 16px color_alpha($black, .25)
 // $shadow-navdrawerleft-hover =      false
-// $shadow-navdrawerright =           -6px 0 16px rgba($black, .2)
+// $shadow-navdrawerright =           -6px 0 16px color_alpha($black, .25)
 // $shadow-navdrawerright-hover =     false
-// $shadow-modal =                    0px 18px 32px 2px rgba($black, .3)
+// $shadow-modal =                    0px 18px 32px 2px color_alpha($black, .3)
 // $shadow-modal-hover =              false
-// $shadow-dialog =                   0px 18px 32px 2px rgba($black, .3)
+// $shadow-dialog =                   0px 18px 32px 2px color_alpha($black, .3)
 // $shadow-dialog-hover =             false
 
 // // inset shadow shiny edges and depressions.
@@ -678,6 +717,7 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // 05. Buttons
 // =========================================================================
 
+// // if you watn to have only round or square buttons, you can define it here
 // $button-corner-style =                     'all' // else: 'normal' or 'radius' or 'round'
 
 // // build padding for buttons.
@@ -697,39 +737,43 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // $button-font-tny =                          fontsize(.8rem)
 // $button-font-sml =                          fontsize(.9rem)
 // $button-font-med =                          fontsize(1.1rem)
-// $button-font-lrg =                          fontsize(1.2rem)
+// $button-font-lrg =                          fontsize(1.3rem)
 // $button-font-weight =                       $font-weight-bold
 // $button-font-align =                        center
 // $button-text-transform =                    uppercase
 // $button-letter-spacing =                    0
 
 // // various hover effects.
-// $button-function-factor =                   -20% // lightness adjustment
+// $button-function-factor =                   -(20%) // lightness adjustment
 
 // // button border and hover styles.
 // $button-border-width =                      1px
 // $button-border-style =                      solid
 // $button-bg-color =                          $primary-color
 // $button-bg-hover =                          scale-color($button-bg-color, $button-function-factor)
-// $button-border-color =                      rgba($black, .1)
-// $button-border-hover-color =                rgba($black, .1)
-// $button-shadow =                            $global-ui-shadow
-// $button-hover-shadow =                      false // 1px 1px 1px rgba($black, .25)
+// $button-border-color =                      color_alpha($black, .1)
+// $button-border-hover-color =                color_alpha($black, .1)
 
 // $button-outline-width =                     2px // else: false
 
+// $primary-2-button-bg-color =                $primary-2-color
+// $primary-2-button-bg-hover =                scale-color($primary-2-color, $button-function-factor)
+// $primary-2-button-border-color =            scale-color($primary-2-button-bg-hover, -(5%))
+// $secondary-button-bg-color =                $secondary-color
 // $secondary-button-bg-hover =                scale-color($secondary-color, $button-function-factor)
-// $secondary-button-border-color =            scale-color($secondary-button-bg-hover, -5%)
-// $neutral-button-bg-hover =                  scale-color($neutral-color, $button-function-factor)
-// $neutral-button-border-color =              scale-color($neutral-button-bg-hover, -5%)
+// $secondary-button-border-color =            scale-color($secondary-button-bg-hover, -(5%))
+// $success-button-bg-color =                  $success-color
 // $success-button-bg-hover =                  scale-color($success-color, $button-function-factor)
-// $success-button-border-color =              scale-color($success-button-bg-hover, -5%)
+// $success-button-border-color =              scale-color($success-button-bg-hover, -(5%))
+// $info-button-bg-color =                     $info-color
 // $info-button-bg-hover =                     scale-color($info-color, $button-function-factor)
-// $info-button-border-color =                 scale-color($info-button-bg-hover, -5%)
+// $info-button-border-color =                 scale-color($info-button-bg-hover, -(5%))
+// $alert-button-bg-color =                    $alert-color
 // $alert-button-bg-hover =                    scale-color($alert-color, $button-function-factor)
-// $alert-button-border-color =                scale-color($alert-button-bg-hover, -5%)
+// $alert-button-border-color =                scale-color($alert-button-bg-hover, -(5%))
+// $warning-button-bg-color =                  $warning-color
 // $warning-button-bg-hover =                  scale-color($warning-color, $button-function-factor)
-// $warning-button-border-color =              scale-color($warning-button-bg-hover, -5%)
+// $warning-button-border-color =              scale-color($warning-button-bg-hover, -(5%))
 
 // // set the default radius used throughout the core.
 // $button-radius =                            $global-radius
@@ -1609,6 +1653,8 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // 23.b Checkout Progress Bar
 // =========================================================================
 
+// $checkout-wrap-margin =                        rem-calc(10 0)
+
 // $checkout-progress-color =                     $gray-darker-2
 // $checkout-progress-font-family =               $font-family-custom
 // $checkout-progress-bar-height =                rem-calc(2)
@@ -1625,8 +1671,14 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // $checkout-progress-label-font-size =           fontsize(0.8rem)
 // $checkout-progress-label-margin-top =          rem-calc(8)
 // $checkout-progress-label-height =              rem-calc(20)
+// $checkout-progress-label-line-height =         1
 // $checkout-progress-margin =                    rem-calc(20)
 // $checkout-progress-li-padding =                rem-calc(14 20 14 80)
+
+// $checkout-progress-zindex =                    999
+
+// $stepcount =                                   5
+// $stepwidth =                                   percentage(1 / $stepcount)
 
 
 // =========================================================================
@@ -1726,29 +1778,30 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // // list element styles.
 // $side-nav-list-type =                       none
 // $side-nav-list-position =                   outside
-// $side-nav-list-margin =                     rem-calc(0 0 7 0)
+// $side-nav-list-margin =                     0
 // $side-nav-list-border-style =               solid //false
-// $side-nav-list-border-color =               rgba($black, 0.2)
+// $side-nav-list-border-color =               $separator-color
 // $side-nav-list-border-width =               0 0 1px 0
 
 // $side-nav-function-factor =                 20%
 
 // // link styles.
-// $side-nav-link-color =                      $primary-color
-// $side-nav-link-color-active =               scale-color($side-nav-link-color, $side-nav-function-factor)
-// $side-nav-link-color-hover =                scale-color($side-nav-link-color, $side-nav-function-factor)
-// $side-nav-link-bg-hover =                   rgba($black, .1)
+// $side-nav-link-color =                      $font-color-menu
+// $side-nav-link-color-active =               $primary-color
+// $side-nav-link-color-hover =                $primary-color
+// $side-nav-link-bg-hover =                   false
 // $side-nav-link-margin =                     0
 // $side-nav-link-padding =                    rem-calc(7 14)
+// $side-nav-link-text-transform =             false // uppercase
 
 // $side-nav-link-icon =                       true
-// $side-nav-link-icon-color =                 $side-nav-link-color
-// $side-nav-link-icon-color-hover =           $side-nav-link-color-hover
+// $side-nav-link-icon-color =                 $icon-color-normal
+// $side-nav-link-icon-color-hover =           $icon-color-hover
 
-// $side-nav-font-size =                       fontsize(1.1rem)
+// $side-nav-font-size =                       fontsize(.9rem)
 // $side-nav-font-weight =                     $font-weight-bold
 // $side-nav-font-weight-active =              $side-nav-font-weight
-// $side-nav-font-family =                     $font-family-custom
+// $side-nav-font-family =                     $font-family-sans-serif // $font-family-custom
 // $side-nav-font-family-active =              $side-nav-font-family
 
 // // heading styles.
@@ -1760,7 +1813,7 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // // border styles
 // $side-nav-divider-size =                    1px
 // $side-nav-divider-style =                   solid
-// $side-nav-divider-color =                   scale-color($white, ($side-nav-function-factor/2))
+// $side-nav-divider-color =                   $separator-color
 
 // =========================================================================
 // 26.b Slick-Slider
@@ -1891,41 +1944,50 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // =========================================================================
 
 // // Controlling background color for the switch container
-// $switch-bg =                                   $gray-medium-1
+// $switch-font-family =                          $font-family-custom
+// $switch-font-size =                            fontsize(1rem)
+// $switch-font-size-sml =                        fontsize(.8rem)
+// $switch-font-size-lrg =                        fontsize(1.1rem)
+// $switch-font-color =                           $input-font-color
+// $switch-font-color-inv =                       $input-font-color-inv
+// $switch-font-color-hover =                     $input-font-color-hover
+// $switch-font-color-hover-inv =                 $input-font-color-hover-inv
+// $switch-bg =                                   color_alpha($black, .15) // $gray-medium-1
 // $switch-bg-hover =                             $switch-bg
 // $switch-bg-active =                            $primary-color
-// $switch-border-color =                         $gray-base
-// $switch-border-color-hover =                   darken($switch-border-color, 25%)
+// $switch-border-color =                         $gray-base // blend($input-border-color, $white)
+// $switch-border-color-hover =                   darken($switch-border-color, 15%) // darken($switch-border-color, 25%)
 // $switch-border-color-active =                  $switch-bg-active
 
 // // ALternative/Inverted colors
-// $switch-inv-bg =                               rgba($black, .5)
+// $switch-inv-bg =                               color_alpha($black, .5)
 // $switch-inv-bg-hover =                         $switch-inv-bg
 // $switch-inv-bg-active =                        $primary-color
-// $switch-inv-border-color =                     rgba($white, .4)
-// $switch-inv-border-color-hover =               rgba($white, .6)
+// $switch-inv-border-color =                     color_alpha($white, .4)
+// $switch-inv-border-color-hover =               color_alpha($white, .6)
 // $switch-inv-border-color-active =              $switch-bg-active
 
 // // the switch heights for our default classes
-// $switch-height-tny =                           remify(1rem)
-// $switch-height-sml =                           remify(1.4rem)
-// $switch-height-med =                           remify(1.8rem)
-// $switch-height-lrg =                           remify(2.2rem)
-// $switch-bottom-margin =                        remify(1.1rem)
-// $switch-border-width =                         2px // else: 0
+// $switch-height-tny =                           rem-calc(10)
+// $switch-height-sml =                           rem-calc(15)
+// $switch-height-med =                           rem-calc(18)
+// $switch-height-lrg =                           rem-calc(22)
+// $switch-bottom-margin =                        rem-calc(10)
+// $switch-border-width =                         2px
 
 // // We use these to style the switch-paddle
 // $switch-paddle-bg =                            $white
-// $switch-paddle-bg-hover =                      darken($switch-paddle-bg, 6%)
-// $switch-paddle-inv-bg =                        $gray-base
-// $switch-paddle-inv-bg-hover =                  lighten($switch-paddle-bg, 10%)
+// $switch-paddle-bg-hover =                      darken($switch-paddle-bg, 5%)
+// $switch-paddle-inv-bg =                        darken($white, 10%) // $gray-base
+// $switch-paddle-inv-bg-hover =                  $white // lighten($switch-paddle-bg, 10%)
 
 // $switch-paddle-transition-speed =              .10s
-// $switch-paddle-transition-ease =               ease-out
+// $switch-paddle-transition-ease =               ease-in
 // //space between paddle and bg
 // $switch-paddle-inset =                         rem-calc(2)
 
-// $switch-text-space =                           remify(1rem)
+// $switch-text-space =                           rem-calc(10)
+// $switch-transform-factor =                     rem-calc(5)
 
 
 // =========================================================================
@@ -1941,15 +2003,15 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // // These control the table cell border style
 // $table-border-style =                       solid
 // $table-border-size =                        1px
-// $table-border-color =                       $gray-medium-1
+// $table-border-color =                       $separator-color
 
 // // These control the table head styles
 // $table-head-bg =                            $table-bg
 // $table-head-font-size =                     fontsize(.8rem)
-// $table-head-font-color =                    $gray-dark-1
+// $table-head-font-color =                    $font-color-caption
 // $table-head-font-weight =                   $font-weight-bold
 // $table-head-padding =                       rem-calc(8 10)
-// $table-head-text-transform =                uppercase
+// $table-head-text-transform =                false // uppercase
 // $table-head-border =                        1px solid $table-border-color
 
 // // These control the row padding and font styles
@@ -1964,7 +2026,7 @@ jeet.max-width =                    $row-width // rem-calc(1170)
 // $table-foot-font-color =                    $charcoal-2
 // $table-foot-font-weight =                   $table-head-font-weight
 // $table-foot-padding =                       $table-head-padding
-// $table-foot-text-transform =                uppercase
+// $table-foot-text-transform =                false // uppercase
 
 // // These control the caption
 // $table-caption-bg =                         transparent

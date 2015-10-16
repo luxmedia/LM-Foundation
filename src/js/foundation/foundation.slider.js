@@ -10,7 +10,7 @@
       start : 0,
       end : 100,
       step : 1,
-      precision : 2,
+      precision : 0,
       initial : null,
       display_selector : '',
       vertical : false,
@@ -28,7 +28,6 @@
 
     events : function () {
       var self = this;
-
       $(this.scope)
         .off('.slider')
         .on('mousedown.fndtn.slider touchstart.fndtn.slider pointerdown.fndtn.slider',

@@ -174,6 +174,7 @@
           self.toggle(this);
         })
         .on('click.fndtn.topbar contextmenu.fndtn.topbar', '.topbar .topbar-section li a[href^="#"], [' + this.attr_name() + '] .topbar-section li a[href^="#"]', function (e) {
+          e.preventDefault();
           var li = $(this).closest('li'),
               topbar = li.closest('[' + self.attr_name() + ']'),
               settings = topbar.data(self.attr_name(true) + '-init');

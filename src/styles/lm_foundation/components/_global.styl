@@ -72,14 +72,14 @@ $gray-light-2 ?=                     #EFEFEF
 $gray-light-3 ?=                     #EEEEEE
 $gray-medium-1 ?=                    #DDDDDD
 $gray-medium-2 ?=                    #CCCCCC
-$gray-dark-1 ?=                      #999999
-$gray-dark-2 ?=                      #888888
-$gray-dark-3 ?=                      #777777
-$gray-darker-1 ?=                    #666666
-$gray-darker-2 ?=                    #555555
-$gray-darker-3 ?=                    #444444
-$charcoal-1 ?=                       #333333
-$charcoal-2 ?=                       #222222
+$gray-dark-1 ?=                      darken($gray-base,8%) // #999796 // #999999
+$gray-dark-2 ?=                      darken($gray-base,14%) // #888888
+$gray-dark-3 ?=                      darken($gray-base,21%) // #777777
+$gray-darker-1 ?=                    darken($gray-base,28%) // #666666
+$gray-darker-2 ?=                    darken($gray-base,34%) // #555555
+$gray-darker-3 ?=                    darken($gray-base,41%) // #444444
+$charcoal-1 ?=                       lightness($gray-base, 20%) // #333333
+$charcoal-2 ?=                       lightness($gray-base, 14%) // #222222
 $black ?=                            base_colors.dark
 
 // We use these as default colors throughout
