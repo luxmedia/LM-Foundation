@@ -7,7 +7,7 @@
 
 $include-html-checkout-progress-classes =       com_css.CHECKOUTPROGRESS
 
-$checkout-wrap-margin ?=                rem-calc(20) auto
+$checkout-wrap-margin ?=                        rem-calc(10 0)
 
 $checkout-progress-color ?=                     $gray-darker-2
 $checkout-progress-font-family ?=               $font-family-custom
@@ -82,7 +82,7 @@ if $include-html-checkout-progress-classes {
     .checkout-wrap {
         color: $checkout-progress-color
         font-family: $checkout-progress-font-family
-        // margin: $checkout-wrap-margin
+        margin: $checkout-wrap-margin
         overflow: hidden
         padding-top: $pad = (ceil($checkout-progress-step-height / 2) + rem-calc(2))
         padding-bottom: ($pad + ($checkout-progress-label-line-height * $checkout-progress-label-font-size))
@@ -207,9 +207,9 @@ if $include-html-checkout-progress-classes {
 
     } // EOF - ul.checkout-bar
 
-    .checkout-wrap {
-        margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
-    }
+    // .checkout-wrap {
+    //     margin: ((($checkout-progress-step-height/2)+$checkout-progress-margin) auto (($checkout-progress-step-height/2)+$checkout-progress-label-height+$checkout-progress-margin) auto)
+    // }
 
     .checkout-bar li.is-active:after {
         active-progress()
