@@ -182,9 +182,9 @@ $shadow-menu ?=                     1px 6px 10px color_alpha($black, .3)
 $shadow-menu-hover ?=               false
 $shadow-submenu ?=                  1px 8px 12px color_alpha($black, .3)
 $shadow-submenu-hover ?=            false
-$shadow-navdrawerleft ?=            6px 0 16px color_alpha($black, .25)
+$shadow-navdrawerleft ?=            6px 0 16px color_alpha($black, .3)
 $shadow-navdrawerleft-hover ?=      false
-$shadow-navdrawerright ?=           -6px 0 16px color_alpha($black, .25)
+$shadow-navdrawerright ?=           -6px 0 16px color_alpha($black, .3)
 $shadow-navdrawerright-hover ?=     false
 $shadow-modal ?=                    0px 18px 32px 2px color_alpha($black, .3)
 $shadow-modal-hover ?=              false
@@ -207,7 +207,7 @@ $svg-scale-factor-x ?=               2 // multiply the svg width with this facto
 $svg-scale-factor-y ?=               1 // multiply the svg height with this factor to get a pseudo padding for better icon alignment
 
 // Transitions
-$transition-default-speed ?=        .24s
+$transition-default-speed ?=        .2s
 
 // =========================================================================
 // d. Media Query Ranges
@@ -632,72 +632,6 @@ single-transition($property = all, $speed = $transition-default-speed, $ease = f
     // transition($property, $speed, $ease)
 }
 
-// We use this to add single or multiple transitions to elements
-// $property - Default: all, Options: http://www.w3.org/TR/css3-transitions/#animatable-properties
-// $speed - Default: 300ms
-// $ease - Default: ease-out, Options: http://css-tricks.com/almanac/properties/t/transition-timing-function/
-// $delay - Default: null (0s)
-// transition($property = all, $speed = $transition-default-speed, $ease = ease-out, $delay = null) {
-//     $transition = none
-
-//     if (length($property) > 1) {
-
-//         for $transition_list in $property {
-
-//             $len = length($transition_list)
-
-//             for $i in 1..$len {
-
-//                 if ($i == 1) {
-//                     $_property = $transition_list[$i]
-//                 }
-
-//                 if ($len > 1) {
-//                     if ($i == 2) {
-//                         $_speed = $transition_list[$i]
-//                     }
-//                 } else {
-//                     $_speed = $speed
-//                 }
-
-//                 if ($len > 2) {
-//                     if ($i == 3) {
-//                         $_ease = $transition_list[$i]
-//                     }
-//                 } else {
-//                     $_ease = $ease
-//                 }
-
-//                 if ($len > 3) {
-//                     if ($i == 4) {
-//                         $_delay = $transition_list[$i]
-//                     }
-//                 } else {
-//                     $_delay = $delay
-//                 }
-//             }
-
-//             if ($transition == none) {
-//                 $transition = ($_property $_speed $_ease $_delay)
-//             } else {
-//                 $transition = ($transition, $_property $_speed $_ease $_delay)
-//             }
-//         }
-
-//     } else {
-
-//         for $prop in $property {
-
-//             if ($transition == none) {
-//                 $transition = ($prop $speed $ease $delay)
-//             } else {
-//                 $transition = ($transition, $prop $speed $ease $delay)
-//             }
-//         }
-//     }
-
-//     transition: $transition
-// }
 
 // add box-sizing across browser prefixes
 box-sizing($type = border-box) {
@@ -840,6 +774,22 @@ shadow-elevation($el = 'button', $shadow = $global-ui-shadow, $shadow-hover = tr
 // $vertical: Default: 0
 translate2d($horizontal = 0, $vertical = 0) {
     transform: translate($horizontal, $vertical)
+}
+
+translate-3d($tx, $ty, $tz) {
+  -webkit-transform: translate3d($tx, $ty, $tz)
+     -moz-transform: translate3d($tx, $ty, $tz)
+      -ms-transform: translate($tx, $ty)
+       -o-transform: translate3d($tx, $ty, $tz)
+          transform: translate3d($tx, $ty, $tz)
+}
+
+transForm($t) {
+    -webkit-transform: $t
+       -moz-transform: $t
+        -ms-transform: $t
+         -o-transform: $t
+            transform: $t
 }
 
 // Makes an element visually hidden, but accessible.
@@ -1057,6 +1007,7 @@ if $include-html-global-classes {
 
     a:hover {
         cursor: $cursor-pointer-value
+        single-transition((color background-color border), $ease:ease-in)
     }
 
     // Grid Defaults to get images and embeds to work properly
@@ -1088,6 +1039,9 @@ if $include-html-global-classes {
     }
     .right {
         float: right !important
+    }
+    .f-none {
+        float: none !important
     }
     .cf,
     .clearfix {
@@ -1187,7 +1141,7 @@ if $include-html-global-classes {
     // Blurred out elements or bgs
     .is-blurred {
         blur-filter()
-        single-transition($property:filter, $speed:300ms)
+        single-transition(filter, $ease:ease)
     }
     .is-grayscale {
         filter-grayscale()

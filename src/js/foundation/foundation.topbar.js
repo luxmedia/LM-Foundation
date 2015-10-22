@@ -227,7 +227,7 @@
             }
           }
         })
-        .on('click.fndtn.topbar', '[' + this.attr_name() + '] .has-dropdown>a', function (e) {
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] .has-dropdown > a', function (e) {
           if (self.breakpoint()) {
 
             e.preventDefault();

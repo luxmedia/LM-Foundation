@@ -115,7 +115,7 @@ $fieldset-margin ?=                          rem-calc(18 0)
 $buttonset-include ?=                        true
 $buttonset-bg-padding ?=                     rem-calc(10 20)
 $buttonset-text-align ?=                     $opposite-direction
-$buttonset-bg-color ?=                       color_alpha($black, .05)
+$buttonset-bg-color ?=                       lightness($gray-base, 94%) // color_alpha($black, .05)
 $buttonset-border-color ?=                   color_alpha($black, .05)
 $buttonset-bg-color-inv ?=                   color_alpha($white, .1)
 $buttonset-border-color-inv ?=               color_alpha($white, .1)
@@ -522,22 +522,24 @@ buttonset() {
         border-color: $buttonset-border-color-inv
     }
 
-    +mediaquery($medium-up) {
-        .btn {
-            margin-bottom: 0
-            &__prev {
-                float: $default-float
-            }
-            &__save,
-            &__next {
-                float: $opposite-direction
+    &:not(.btnset__offcanvas) {
+        +mediaquery($medium-up) {
+            .btn {
+                margin-bottom: 0
+                &__prev {
+                    float: $default-float
+                }
+                &__save,
+                &__next {
+                    float: $opposite-direction
+                }
             }
         }
-    }
-    +mediaquery($small-only) {
-        .btn {
-            float: none
-            display: block
+        +mediaquery($small-only) {
+            .btn {
+                float: none
+                display: block
+            }
         }
     }
 
@@ -878,12 +880,12 @@ if $include-html-form-classes {
         // -webkit-border-radius: 0
         form-element()
         if ($input-include-glowing-effect == false) {
-            // single-transition(all, 0.15s, linear)
-            -webkit-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
-            -moz-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
-            -ms-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
-            -o-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
-            transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
+            single-transition((border-color background-color color), $ease:ease-in)
+            // -webkit-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
+            // -moz-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
+            // -ms-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
+            // -o-transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
+            // transition: border-color $input-transition-fade-time $input-transition-fade-timing-function, background-color $input-transition-fade-time $input-transition-fade-timing-function
         }
     }
     textarea {

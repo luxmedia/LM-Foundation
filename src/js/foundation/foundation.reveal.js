@@ -532,6 +532,11 @@
         _logoHeight = $('.topbar__wrap--fixed').find('#logo').outerHeight() || 0,
         _maxHeight = _windowHeight,
         offset = 0;
+      modal.hide();
+
+      console.log('_modalHeight - ' + _modalHeight);
+      console.log('_windowHeight - ' + _windowHeight);
+      console.log('_heightDiff - ' + _heightDiff);
       if (_logoHeight) { _maxHeight = _windowHeight - (2 * _logoHeight); }
 
       if ((_modalPosition == 'fixed') && ((_heightDiff <= _cssTop) || (_heightDiff <= _logoHeight))) {
@@ -545,7 +550,6 @@
       } else {
         offset = _modalHeight + _cssTop + modal.scrollY;
       }
-      modal.hide();
 
       return offset;
     },
