@@ -2,10 +2,10 @@ stylesheets:
   description: 'Compiles, concatenates and minifies the stylesheets.'
   tasks:
     - 'stylus:fonts'
+    - 'stylus:fontsie'
     - 'stylus:dist' #autopprefixer plugin is included here via 'use'-option!
     # - 'stylus:ie8'
     - 'postcss:fonts'
-    - 'postcss:fontsapple'
     - 'postcss:fontsie'
     - 'postcss:data'
     - 'postcss:dist'
