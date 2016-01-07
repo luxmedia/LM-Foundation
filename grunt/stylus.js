@@ -45,6 +45,7 @@ module.exports = {
     // Create css for fonts - ie8 special
     fontsie: {
         options: {
+            paths: ['<%= base_paths.src %>'],
             linenos: true,
             compress: true,
             import: ['<%= lm_conf.styl_src_ie8flag %>']
