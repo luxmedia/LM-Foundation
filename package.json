@@ -6,7 +6,8 @@
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "autoprefixer-stylus": "~0.6.x",
-    "cssnano": "^2.1.x",
+    "balanced-match": "^0.3.0",
+    "cssnano": "^3.4.0",
     "grunt": "~0.4.x",
     "grunt-cleanempty": "~1.0.3",
     "grunt-contrib-clean": "~0.6.x",
@@ -33,6 +34,8 @@
     "load-grunt-config": "~0.17.x",
     "pixrem": "^1.3.1",
     "postcss-data-packer": "^1.0.6",
+    "postcss-discard-comments": "^2.0.3",
+    "postcss-discard-font-face": "^2.1.0",
     "svg-stylus": "~0.0.x"
   },
   "repository": {

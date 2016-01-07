@@ -1,10 +1,16 @@
 stylesheets:
   description: 'Compiles, concatenates and minifies the stylesheets.'
   tasks:
-    - 'stylus' #autopprefixer plugin is included here via 'use'-option!
-    # - 'autoprefixer'
-    # - 'cssmin'
-    - 'postcss'
+    - 'stylus:fonts'
+    - 'stylus:dist' #autopprefixer plugin is included here via 'use'-option!
+    # - 'stylus:ie8'
+    - 'postcss:fonts'
+    - 'postcss:fontsapple'
+    - 'postcss:fontsie'
+    - 'postcss:data'
+    - 'postcss:dist'
+    # - 'postcss:ie9to10'
+    # - 'postcss:ie8'
     - 'clean:stylesheets'
 scripts:
   description: 'Compiles and concatenates the JavaScript files.'

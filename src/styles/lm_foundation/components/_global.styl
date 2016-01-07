@@ -26,21 +26,6 @@ $include-js-meta-styles ?=           true // Warning! Meta styles are a dependan
 $include-html-global-classes ?=      com_css.GLOBAL
 $include-primary-2-color-styles ?=   base_params.include_primary_2_styles
 
-// =========================================================================
-// Folder
-// =========================================================================
-
-$base-http ?=                       base_params.httpurl
-
-$base-path-src ?=                    ('./' + base_params.src)
-$base-path-svg ?=                    $base-path-src+'/svg'
-$base-path-png ?=                    $base-path-src+'/png'
-$base-path-dist ?=                   ('./' + base_params.dist)
-$dir_img ?=                          $base-path-src + '/img'
-$dir_font ?=                         $base-path-dist + '/fonts'
-
-$relative-paths ?=                   true
-
 
 // =========================================================================
 // c. Global
@@ -53,8 +38,8 @@ $font-family-monospace ?=            Consolas, 'Menlo', 'Liberation Mono', Couri
 $font-family-headings ?=             $font-family-sans-serif
 $font-family-custom ?=               $font-family-sans-serif
 $font-family-custom-fallback ?=      $font-family-sans-serif
-$font-default-spacing ?=             .1px
-$font-custom-spacing ?=              1px
+$font-default-spacing ?=             0
+$font-custom-spacing ?=              .05em
 
 // define default font weights
 $font-weight-normal ?=               normal
@@ -1007,13 +992,14 @@ if $include-html-global-classes {
 
     a:hover {
         cursor: $cursor-pointer-value
-        single-transition((color background-color border), $ease:ease-in)
+        single-transition((color background-color border))
     }
 
     // Grid Defaults to get images and embeds to work properly
     img {
         max-width: 100%
-        height: auto
+        // height: auto
+        height: initial
     }
 
     img {

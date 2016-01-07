@@ -99,8 +99,9 @@ module.exports = function(grunt) {
         // stylus source file(s)
         styl_src: ['<%= base_paths.src %>/' + base__params.namespace_common_styles + '/*.styl'],
         styl_src_file: '<%= base_paths.src %>/' + base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
+        styl_src_file_fonts: '<%= base_paths.src %>/' + base__params.namespace_common_styles + '/custom/fonts.styl',
         styl_src_files: base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
-        styl_src_ie8flag: base__params.namespace_common_styles + '/ie8-flag.styl',
+        styl_src_ie8flag: base__params.namespace_common_styles + '/aux/_ie8-flag.styl',
         // svg source folder/filess
         svg_src: ['<%= base_paths.src %>/vg'],
         svg_src_files: ['<%= base_paths.src %>/svg/*.svg'],
@@ -119,6 +120,7 @@ module.exports = function(grunt) {
         css_dist_folder: '<%= base_paths.dest %>/css',
         css_dist_file_styles: '<%= base_paths.dest %>/css/' + base__params.namespace_common_styles,
         css_dist_file_styles_data: '<%= base_paths.dest %>/css/' + base__params.namespace_common_styles + '_data',
+        css_dist_file_styles_fonts: '<%= base_paths.dest %>/css/fonts',
         css_dist_file_ie9to10: '<%= base_paths.dest %>/css/' + base__params.namespace_ie_9to10,
         css_dist_file_ie8: '<%= base_paths.dest %>/css/' + base__params.namespace_ie_8,
         // svg distribution folder and files

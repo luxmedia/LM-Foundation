@@ -6,7 +6,7 @@
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.5.9
+ Version: 1.5.8
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -508,6 +508,8 @@
                 .data('originalStyling', $(element).attr('style') || '');
         });
 
+        _.$slidesCache = _.$slides;
+
         _.$slider.addClass('slick__slider');
 
         _.$slideTrack = (_.slideCount === 0) ?
@@ -842,7 +844,7 @@
             _.$prevArrow
                 .removeClass('is-disabled slick-arrow is-hidden')
                 .removeAttr('aria-hidden aria-disabled tabindex')
-                .css("display","");
+                .css('display','');
 
             if ( _.htmlExpr.test( _.options.prevArrow )) {
                 _.$prevArrow.remove();
@@ -854,7 +856,7 @@
             _.$nextArrow
                 .removeClass('is-disabled slick-arrow is-hidden')
                 .removeAttr('aria-hidden aria-disabled tabindex')
-                .css("display","");
+                .css('display','');
 
             if ( _.htmlExpr.test( _.options.nextArrow )) {
                 _.$nextArrow.remove();
@@ -976,8 +978,6 @@
 
         if (filter !== null) {
 
-            _.$slidesCache = _.$slides;
-
             _.unload();
 
             _.$slideTrack.children(this.options.slide).detach();
@@ -1008,7 +1008,7 @@
         if (_.options.infinite === true) {
             while (breakPoint < _.slideCount) {
                 ++pagerQty;
-                breakPoint = counter + _.options.slidesToScroll;
+                breakPoint = counter + _.options.slidesToShow;
                 counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
             }
         } else if (_.options.centerMode === true) {
@@ -1016,7 +1016,7 @@
         } else {
             while (breakPoint < _.slideCount) {
                 ++pagerQty;
-                breakPoint = counter + _.options.slidesToScroll;
+                breakPoint = counter + _.options.slidesToShow;
                 counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
             }
         }
@@ -1085,33 +1085,15 @@
                 targetSlide = _.$slideTrack.children('.slick__slide').eq(slideIndex + _.options.slidesToShow);
             }
 
-            if (_.options.rtl === true) {
-                if (targetSlide[0]) {
-                    targetLeft = (_.$slideTrack.width() - targetSlide[0].offsetLeft - targetSlide.width()) * -1;
-                } else {
-                    targetLeft =  0;
-                }
-            } else {
-                targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
-            }
+            targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
 
             if (_.options.centerMode === true) {
-                if (_.slideCount <= _.options.slidesToShow || _.options.infinite === false) {
+                if (_.options.infinite === false) {
                     targetSlide = _.$slideTrack.children('.slick__slide').eq(slideIndex);
                 } else {
                     targetSlide = _.$slideTrack.children('.slick__slide').eq(slideIndex + _.options.slidesToShow + 1);
                 }
-
-                if (_.options.rtl === true) {
-                    if (targetSlide[0]) {
-                        targetLeft = (_.$slideTrack.width() - targetSlide[0].offsetLeft - targetSlide.width()) * -1;
-                    } else {
-                        targetLeft =  0;
-                    }
-                } else {
-                    targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
-                }
-
+                targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
                 targetLeft += (_.$list.width() - targetSlide.outerWidth()) / 2;
             }
         }

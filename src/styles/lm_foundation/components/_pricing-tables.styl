@@ -66,6 +66,8 @@ $price-old-color ?=                         $gray-darker-2
 $price-old-decoration ?=                    line-through
 $price-base-font-family ?=                  $body-font-family
 $price-base-font-weight ?=                  $font-weight-normal
+$price-base-color ?=                        $font-color-caption
+$price-base-color-alt ?=                    $gray-darker-2
 $price-final-font-family ?=                 $font-family-custom
 $price-final-font-size ?=                   fontsize(1.5rem)
 $price-final-font-weight ?=                 $font-weight-bold
@@ -182,21 +184,62 @@ if $include-html-pricing-classes {
         }
     }
 
-    // Price-Boxes
+    // Price base formats
+    .price {
+        font-weight: $price-final-font-weight
+        font_family($price-final-font-family)
+        margin: 0
+        text-decoration: $price-final-decoration
+
+        &--special {
+            if ($price-special-font-family != $price-final-font-family) {
+                font_family($price-special-font-family)
+            }
+        }
+
+        &--old {
+            if ($price-old-font-family != $price-final-font-family) {
+                font_family($price-old-font-family)
+            }
+            font-size: $price-old-font-size
+            font-weight: $price-old-font-weight
+            text-decoration: $price-old-decoration
+        }
+
+        &--base {
+            color: $price-base-color
+            font-size: ($price-old-font-size - 0.1)
+            font-weight: $price-base-font-weight
+            if ($price-base-font-family != $price-final-font-family) {
+                font_family($price-base-font-family)
+            }
+            letter-spacing: 0
+        }
+        // Price labels (e.g. uvp, from)
+        &__label {
+            font-size: $price-label-font-size // Fallback font size
+            font-weight: $price-label-font-weight
+            margin-right: rem-calc(4)
+            text-transform: $price-label-text-transform
+            
+            &--uvp { }
+            &--special,
+            &--minimal { }
+        }
+    }
+
+    // Price-Boxes and styles
     .price-box {
         text-align: right
 
         .price {
             color: $price-final-color
             display: block
-            font-size: $price-final-font-size
-            font-weight: $price-final-font-weight
-            font_family($price-final-font-family)
+            
             line-height: $price-line-height
-            margin: 0
-            text-decoration: $price-final-decoration
 
             &--total {
+                font-size: $price-final-font-size
             }
             &--minimal {
             }
@@ -204,43 +247,19 @@ if $include-html-pricing-classes {
                 if ($price-special-color != $price-final-color) {
                     color: $price-special-color
                 }
-                if ($price-special-font-family != $price-final-font-family) {
-                    font_family($price-special-font-family)
-                }
                 if ($price-special-font-size != $price-final-font-size) {
                     font-size: $price-special-font-size
                 }
             }
+
             &--old {
-                if ($price-old-font-family != $price-final-font-family) {
-                    font_family($price-old-font-family)
-                }
                 color: $price-old-color
-                font-size: $price-old-font-size
-                font-weight: $price-old-font-weight
-                text-decoration: $price-old-decoration
-            }
-            &--base {
-                color: $price-old-color
-                font-size: ($price-old-font-size - 0.1)
-                font-weight: $price-base-font-weight
-                if ($price-base-font-family != $price-final-font-family) {
-                    font_family($price-base-font-family)
-                }
-                letter-spacing: 0
             }
 
-            // Price labels (e.g. uvp, from)
-            &__label {
-                font-size: $price-label-font-size // Fallback font size
-                font-weight: $price-label-font-weight
-                margin-right: rem-calc(4)
-                text-transform: $price-label-text-transform
-                
-                &--uvp { }
-                &--special,
-                &--minimal { }
+            &--base {
+                color: $price-base-color-alt
             }
+
         }
     }
 }

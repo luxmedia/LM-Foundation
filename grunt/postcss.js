@@ -2,7 +2,7 @@
 // https://github.com/nDmitry/grunt-postcss
 
 module.exports = {
-
+  
   // Create data-only css with all base64 encoded data
   data: {
       options: {
@@ -33,6 +33,53 @@ module.exports = {
       // files: {
       //     '<%= lm_conf.css_dist_file %>.min.css' : '<%= lm_conf.css_dist_file %>.css'
       // }
+  },
+
+
+// TODO: Font-format Filter does NOT WORK!!!!
+
+  // Create css for common modern browsers
+  fonts: {
+      options: {
+        map: false, // inline sourcemaps
+
+        processors: [
+          require('postcss-discard-comments')(),
+          require('postcss-discard-font-face')({discardFonts: (
+            function (url, format) {
+              if (~format.indexOf('woff') == -1) {
+                // only base64 encoded woff font files
+                return false;
+              }
+            }
+          )}),
+        ]
+      },
+      src: '<%= lm_conf.css_dist_file_styles_fonts %>.css',
+      dest: '<%= lm_conf.css_dist_file_styles_fonts %>.min.css',
+  },
+
+  // Create css for internet explorer - once again :(
+  fontsie: {
+      options: {
+        map: false, // inline sourcemaps
+
+        processors: [
+          require('postcss-discard-comments')(),
+          require('postcss-discard-font-face')({discardFonts: (
+            function (url, format) {
+              if (url.indexOf('.eot')) {
+                // only .eot font files
+                return true;
+              } else {
+                return false;
+              }
+            }
+          )})
+        ]
+      },
+      src: '<%= lm_conf.css_dist_file_styles_fonts %>_ie.css',
+      dest: '<%= lm_conf.css_dist_file_styles_fonts %>_ie.min.css',
   },
 
   // Create .css for IE 9 and 10 only

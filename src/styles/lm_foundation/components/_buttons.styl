@@ -467,6 +467,18 @@ if $include-html-button-classes {
             shadow-elevation('floatingbutton')
         }
 
+        // Almost invisible buttons, e.g. for use with images inside
+        &.is-icononly {
+            background-color: transparent !important
+            // border-radius: 0 !important
+            border: none !important
+            padding: 0 !important
+
+            &:hover {
+                background-color: none !important
+            }
+        }
+
         // Disabled state
         &.is-disabled,
         &[disabled] {

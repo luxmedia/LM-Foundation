@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @require '_global'
+@require '_forms'
 
 //
 // @variables
@@ -124,6 +125,21 @@ if $include-html-panel-classes {
 
         &--radius {
             radius()
+        }
+
+        // Button-Sets inside of panels
+        > .block__btnset {
+            background-color: color_alpha($black, .05, darken($panel-bg,7%))
+            margin: 0 (-($panel-padding)) (-($panel-padding)) (-($panel-padding))
+            padding-left: $panel-padding
+            padding-right: $panel-padding
+            border-width: $buttonset-border-width 0 0 0
+
+            &--top {
+                margin-top: -($panel-padding)
+                margin-bottom: 0
+                border-width: 0 0 $buttonset-border-width 0
+            }
         }
     }
 }

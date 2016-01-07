@@ -98,14 +98,32 @@
 // Folder
 // =========================================================================
 
+
+// =========================================================================
+// Folder
+// =========================================================================
+
 // $base-http =                       base_params.httpurl
+
+// NOTE: Absolute path to your theme folder starting from your web-root
+$base-theme-path =                  './out/cb2015/src/'
 
 // $base-path-src =                    ('./' + base_params.src)
 // $base-path-svg =                    $base-path-src+'/svg'
 // $base-path-png =                    $base-path-src+'/png'
 // $base-path-dist =                   ('./' + base_params.dist)
-// $dir_img =                          $base-path-src + '/img'
-// $dir_font =                         $base-path-dist + '/fonts'
+
+// $dir-dist =                         'dist' // Name of distribution folder
+
+// NOTE: path is relative to output style.css in dist/css/
+// $relative-theme-path =              '../../' // path relative from output style.css in "dist/css/"
+// $absolute-theme-path =              '/' // e.g. '/out/mytheme/src/'
+// $absolute-image-path =              '/' // e.g. '/out/mytheme/img'
+
+// $dir_themebase =                  	$relative-theme-path
+// $dir_img =                          $absolute-image-path // ($dir_themebase + 'img')
+// $dir_js =                           ($absolute-theme-path + $dir-dist + '/js') // ($dir_themebase + $dir-dist + '/js')
+// $dir_font =                         ($absolute-theme-path + $dir-dist + '/fonts') // ($dir_themebase + $dir-dist + '/fonts')
 
 // $relative-paths =                   true
 
@@ -386,8 +404,10 @@
 // GRID system (based on jeet.gs)
 // =========================================================================
 // jeet overrides - requires jeet to be imported before!
-jeet.gutter =                       2
-jeet.max-width =                    $row-width // rem-calc(1170)
+if jeet is defined {
+	jeet.gutter =                       2
+	jeet.max-width =                    $row-width
+}
 
 // // We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
 // // https://developer.mozilla.org/en-US/docs/Web/CSS/cursor

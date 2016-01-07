@@ -2,9 +2,9 @@
 // foundation.zurb.com
 // Licensed under MIT Open Source
 
-@require "_global"
-@require "_buttons"
-@require "_alerts"
+@require '_global'
+@require '_buttons'
+@require '_alerts'
 
 //
 // @variables
@@ -119,6 +119,7 @@ $buttonset-bg-color ?=                       lightness($gray-base, 94%) // color
 $buttonset-border-color ?=                   color_alpha($black, .05)
 $buttonset-bg-color-inv ?=                   color_alpha($white, .1)
 $buttonset-border-color-inv ?=               color_alpha($white, .1)
+$buttonset-border-width ?=                   1px
 
 $form-label-for-font-color ?=                transparent // $fieldset-bg-color
 $form-label-for-font-color-valid ?=          $placeholder-color
@@ -513,7 +514,7 @@ fieldset() {
 buttonset() {
     padding: $buttonset-bg-padding
     background-color: $buttonset-bg-color
-    border: 1px solid $buttonset-border-color
+    border: $buttonset-border-width solid $buttonset-border-color
     clear: both
     text-align: $buttonset-text-align
     

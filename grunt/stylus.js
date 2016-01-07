@@ -30,6 +30,30 @@ module.exports = {
             '<%= lm_conf.css_dist_file_styles %>.css': '<%= lm_conf.styl_src_file %>'
         }
     },
+
+    // Create css for fonts
+    fonts: {
+        options: {
+            linenos: true,
+            compress: true
+        },
+        files: {
+            '<%= lm_conf.css_dist_file_styles_fonts %>.css': '<%= lm_conf.styl_src_file_fonts %>'
+        }
+    },
+    
+    // Create css for fonts - ie8 special
+    fontsie: {
+        options: {
+            linenos: true,
+            compress: true,
+            import: ['<%= lm_conf.styl_src_ie8flag %>']
+        },
+        files: {
+            '<%= lm_conf.css_dist_file_styles_fonts %>_ie.css': '<%= lm_conf.styl_src_file_fonts %>'
+        }
+    },
+
     // Create css for ie8 only
     ie8: {
         options: {

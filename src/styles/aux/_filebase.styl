@@ -1,0 +1,28 @@
+// =========================================================================
+// Folder & Filesystem
+// =========================================================================
+// We put our path and file structure in some global varibales here ...
+
+@require '_json'
+
+//
+// @var
+//
+$base-http ?=                       base_params.httpurl
+
+$base-path-src ?=                    ('./' + base_params.src)
+$base-path-svg ?=                    $base-path-src+'/svg'
+$base-path-png ?=                    $base-path-src+'/png'
+$base-path-dist ?=                   ('./' + base_params.dist)
+
+$dir-dist ?=                         'dist' // Name of distribution folder
+
+// NOTE: path is relative to output style.css in dist/css/
+$relative-theme-path ?=              '../../' // path relative from output style.css in "dist/css/"
+$absolute-theme-path ?=              '/' // e.g. '/out/mytheme/src/'
+$absolute-image-path ?=              '/' // e.g. '/out/mytheme/img'
+
+$dir_img ?=                          $base-path-src + '/img'
+$dir_font ?=                         $base-path-dist + '/fonts'
+
+$relative-paths ?=                   true
