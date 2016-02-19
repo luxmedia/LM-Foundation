@@ -1,16 +1,25 @@
 {
-  "name": "LM-FOUNDATION",
+  "name": "LM-Fundation",
+  "title": "LM-Foundation",
   "description": "Custom Webdesign Framework based on Zurb Foundation",
   "author": "Volker Lux (www.lux-media.de)",
-  "version": "1.2.0",
+  "version": "5.2.0",
   "keywords": [
-    "LmFoundation",
+    "LM-Foundation",
     "Foundation",
     "semantic",
     "mobile first",
     "customizable",
     "responsive"
   ],
+  "homepage": "http://framework.lux-media.de/",
+  "bugs": "https://github.com/luxmedia/LM-Foundation/issues",
+  "license": "MIT",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxmedia/LM-Foundation"
+  },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "autoprefixer-stylus": "^0.9.1",
@@ -46,9 +55,5 @@
     "postcss-discard-font-face": "^2.1.0",
     "svg-stylus": "^0.0.2",
     "yargs": "^4.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/luxmedia/LM-Foundation"
   }
 }
