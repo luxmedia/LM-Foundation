@@ -1,0 +1,30 @@
+{
+  "name": "lm-foundation",
+  "description": "Custom Webdesign Framework based on Zurb Foundation",
+  "main": "Gruntfile.js",
+  "authors": [
+    "Volker Lux (www.lux-media.de)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "LM-Foundation",
+    "Foundation",
+    "semantic",
+    "mobile",
+    "first",
+    "customizable",
+    "responsive"
+  ],
+  "homepage": "https://github.com/luxmedia/LM-Foundation",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
