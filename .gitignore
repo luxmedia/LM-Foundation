@@ -1,52 +1,33 @@
 ### Node
-lib-cov
-lcov.info
-*.seed
-*.log
 *.csv
 *.dat
+*.gz
+*.log
 *.out
 *.pid
-*.gz
-
-pids
-logs
-results
-build
-.grunt
-docs
-_BAK
-
-node_modules
-report
-
-### SASS
-### Sass Ignores - "Sassy CSS" http://sass-lang.com/
-*.sass-cache
-
-
-### OSX
-.DS_Store
-.AppleDouble
-.LSOverride
-
-### Sublime Text
+*.sass-cache*
+*.seed
 *.sublime-project
 *.sublime-workspace
-sftp-config.json
-
-# Icon must ends with two \r.
-Icon
-
-### Thumbnails
 ._*
-
-### Fonts
-fonts
-
-### Files that might appear on external disk
+.AppleDouble
+.DS_Store
+.grunt
+.htaccess
+.LSOverride
 .Spotlight-V100
 .Trashes
-
-### htaccess
-.htaccess
+build
+dist
+docs
+fonts
+grunt/_BAK
+Icon
+lcov.info
+lib-cov
+logs
+node_modules
+pids
+report
+results
+sftp-config.json
