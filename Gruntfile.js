@@ -103,8 +103,8 @@ module.exports = function(grunt) {
         styl_src_files: base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
         styl_src_ie8flag: base__params.namespace_common_styles + '/aux/_ie8-flag.styl',
         // svg source folder/filess
-        svg_src: ['<%= base_paths.src %>/vg'],
-        svg_src_files: ['<%= base_paths.src %>/svg/*.svg'],
+        svg_src: ['<%= base_paths.src %>/svg'],
+        svg_src_files: ['<%= base_paths.src %>/svg/lm/*.svg', '<%= base_paths.src %>/svg/cust/*.svg'],
 
         // --- DESTINATION ---
         // -------------------

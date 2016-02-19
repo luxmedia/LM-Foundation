@@ -35,6 +35,7 @@ $reveal-close-side ?=                        rem-calc(22)
 $reveal-close-color ?=                       $gray-dark-2
 $reveal-close-color-hover ?=                 $primary-color
 $reveal-close-weight ?=                      $font-weight-normal
+$reveal-close-zindex ?=                      ($zindex-reveal + 1)
 
 // set the default radius used throughout the core.
 $reveal-radius ?=                            0
@@ -184,6 +185,7 @@ reveal-close($color = $reveal-close-color) {
     top: $reveal-close-top
     width: @font-size
     {$opposite-direction}: $reveal-close-side
+    z-index: $reveal-close-zindex
 
     &:hover {
         color: $reveal-close-color-hover

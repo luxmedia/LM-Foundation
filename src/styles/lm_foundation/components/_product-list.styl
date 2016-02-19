@@ -44,8 +44,9 @@ $product-list-title-color-hover ?=               $primary-color
 $product-list-title-font-weight ?=               $font-weight-bold
 $product-list-title-line-height ?=               1.1
 $product-grid-title-row-count ?=                 3 // <- how many lines should be visible?
+$product-grid-title-row-count-xxlrg ?=           3
 $product-grid-title-height ?=                    unit((floor(($product-list-title-line-height * $product-grid-title-row-count * $product-grid-title-font-size), 4)), 'rem')
-$product-grid-title-height-xxlrg ?=              unit((floor(($product-list-title-line-height * ($product-grid-title-row-count + 2) * $product-grid-title-font-size), 4)), 'rem')
+$product-grid-title-height-xxlrg ?=              unit((floor(($product-list-title-line-height * $product-grid-title-row-count-xxlrg * $product-grid-title-font-size), 4)), 'rem')
 $product-list-title-padding ?=                   0
 $product-list-title-margin ?=                    rem-calc(0 0 10 0)
 $product-grid-title-margin ?=                    rem-calc(0 0 2 0)
@@ -116,7 +117,8 @@ $product-list-ribbon-offset-top ?=               ($product-list-item-padding + r
 $product-list-ribbon-offset-top-sml ?=           $product-list-item-padding
 
 $product-grid-sml-font-size ?=                   fontsize(.8rem)
-$product-grid-sml-title-height ?=                unit((floor(($product-list-title-line-height * $product-grid-title-row-count * $product-grid-sml-font-size), 4)), 'rem')
+$product-grid-sml-title-row-count ?=             4
+$product-grid-sml-title-height ?=                unit((floor(($product-list-title-line-height * $product-grid-sml-title-row-count * $product-grid-sml-font-size), 4)), 'rem')
 $product-grid-sml-img-height ?=                  ($product-grid-img-height - 20px)
 $product-grid-tny-font-size ?=                   fontsize(.8rem)
 $product-grid-tny-img-height ?=                  50px
@@ -344,7 +346,7 @@ if $include-html-productlist-classes {
                     position: relative
                     text-indent: -(9999px) !important
                     top: 50%
-                    svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
+                    svg-background($file: $arrow-opposite, $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
                 }
             }
 
@@ -412,10 +414,12 @@ if $include-html-productlist-classes {
                     height: ($product-grid-title-height)
                     margin: $product-grid-title-margin
                     overflow: hidden
-
-                    +mediaquery($xxlarge-up) {
-                        // plus one row for xxlarge desktops, because we use more columns there ...
-                        height: ($product-grid-title-height-xxlrg)
+                    
+                    if ($product-grid-title-row-count-xxlrg != $product-grid-title-row-count) {
+                        +mediaquery($xxlarge-up) {
+                            // plus one row for xxlarge desktops, because we use more columns there ...
+                            height: ($product-grid-title-height-xxlrg)
+                        }
                     }
                 }
 
@@ -570,6 +574,22 @@ if $include-html-productlist-classes {
                     if ($product-list-opts-item-border) {
                         border-{$default-float}: 1px solid $product-list-opts-item-border-color
                     }
+                }
+            }
+
+            +mediaquery($small-only) {
+                .prd__sdesc,
+                .prd__title,
+                .prd__opts {
+                    margin-{$default-float}: 0
+                }
+                
+                .prd__img {
+                    float: none
+                    height: auto
+                    line-height: inherit
+                    margin: 0
+                    width: auto
                 }
             }
 

@@ -599,7 +599,7 @@ form-select()  {
     &::-ms-expand {
         display: none
     }
-    svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$icon-color-normal, $stroke-hover:$icon-color-hover, $stroke-width:$svg-stroke-width-small, $position-x: $opposite-direction)
+    svg-background($file:'lm/00015-down.svg', $shapes:('polyline' 'polygon'), $stroke:$icon-color-normal, $stroke-hover:$icon-color-hover, $stroke-width:$svg-stroke-width-small, $position-x: $opposite-direction)
     
     if !$select-style-like-input {
         antialiased()
@@ -971,6 +971,13 @@ if $include-html-form-classes {
     // Add height value for select elements to match text input height
     select {
         form-select()
+    }
+
+    // Firefox Hack
+    @-moz-document url-prefix() {
+        select {
+            background-size: rem-calc(24 18)
+        }
     }
 
     // inverted color styles

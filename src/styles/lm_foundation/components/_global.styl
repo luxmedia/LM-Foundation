@@ -191,6 +191,14 @@ $svg-scale-factor-uni ?=             0.2 // rem-based - is added to background-s
 $svg-scale-factor-x ?=               2 // multiply the svg width with this factor to get a pseudo padding for better icon alignment
 $svg-scale-factor-y ?=               1 // multiply the svg height with this factor to get a pseudo padding for better icon alignment
 
+if ($default-float == 'left') {
+    $arrow-default ?=               'lm/00021-left.svg'
+    $arrow-opposite ?=              'lm/00027-right.svg'
+} else {
+    $arrow-default ?=               'lm/00027-right.svg'
+    $arrow-opposite ?=              'lm/00021-left.svg'
+}
+
 // Transitions
 $transition-default-speed ?=        .2s
 
@@ -417,20 +425,7 @@ blur-filter($radius = $global-blur-radius) {
 // COLOR MIXINS
 // =========================================================================
 
-// scale color
-scale-color($value = false, $factor = false) {
-    if ($value && $factor) {
-        if ($value != transparent) {
-            if ($scale-factor > 0%) {
-                return lighten($value, $factor)
-            } else {
-                return darken($value, -($factor))
-            }
-        } else {
-            return $value
-        }
-    }
-}
+
 // CSS grayscale filter
 filter-grayscale($value = 100%, $reset = false) {
     if $value {
@@ -442,34 +437,6 @@ filter-grayscale($value = 100%, $reset = false) {
         if $reset {
             filter: none
         }
-    }
-}
-
-// Return color with alpha-channel and an opaque fallback
-color_alpha($color = $black, $opacity = false, $bg = $white) {
-    if (($opacity != false) && ($opacity != 1)) {
-        // /.ie8 & {
-        //     {$property}: blend(color_alpha($color, $opacity), $bg) // ie8 only
-        // }
-        // /.color_alpha & {
-        //     {$property}: color_alpha($color, $opacity) // modern browsers
-        // }
-        if $ie8 {
-            return blend(rgba($color, $opacity), $bg) // ie8 only
-        } else {
-            return rgba($color, $opacity) // modern browsers
-        }
-    } else {
-        return rgb($color)
-    }
-}
-
-// Return rgb-color-value
-color_rgb(value) {
-    if (value && value != none && value != transparent) {
-        return rgb(value)
-    } else {
-        return value
     }
 }
 
@@ -682,16 +649,33 @@ hamburger($width, $left, $top, $thickness, $gap, $color, $hover-color, $offcanva
                 left: (($tabbar-menu-icon-width - $width) / 2)
             }
         } else {
-            margin-top: -($width/2)
+            margin-top: -($width / 2)
             top: 50%
             {$opposite-direction}: $topbar-link-padding
         }
 
         box-shadow: 0 0 0 $thickness $color, 0 ($gap + $thickness) 0 $thickness $color, 0 ((2 * $gap) + (2 * $thickness)) 0 $thickness $color
         width: $width
+        single-transition(all)
     }
     span:hover:after {
         box-shadow: 0 0 0 $thickness $hover-color, 0 ($gap + $thickness) 0 $thickness $hover-color, 0 ((2 * $gap) + (2 * $thickness)) 0 $thickness $hover-color
+    }
+}
+
+// Close Icon
+closeicon($width, $thickness, $color, $hover-color, $offcanvas) {
+    span::after {
+        background: linear-gradient(-45deg, transparent 0%, transparent 46%, $color 46%,  $color 56%,transparent 56%, transparent 100%), linear-gradient(45deg, transparent 0%, transparent 46%, $color 46%,  $color 56%,transparent 56%, transparent 100%)
+        box-shadow: none
+        height: $width
+        width: $width
+        single-transition(all)
+    }
+
+    span:hover:after {
+        background: linear-gradient(-45deg, transparent 0%, transparent 46%, $hover-color 46%,  $hover-color 56%,transparent 56%, transparent 100%), linear-gradient(45deg, transparent 0%, transparent 46%, $hover-color 46%,  $hover-color 56%,transparent 56%, transparent 100%)
+        box-shadow: none
     }
 }
 

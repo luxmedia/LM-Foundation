@@ -220,13 +220,11 @@ if $include-html-slickslider-classes {
 
         &__prev {
             {$default-float}: -(($slick-nav-button-size + rem-calc(5)))
-
-            svg-background($file:'arrows_'+$default-float+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+            svg-background($file: $arrow-default, $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
         &__next {
             {$opposite-direction}: -(($slick-nav-button-size + rem-calc(5)))
-
-            svg-background($file:'arrows_'+$opposite-direction+'.svg', $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
+            svg-background($file: $arrow-opposite, $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
 
         &__slider.arrows-bottom {

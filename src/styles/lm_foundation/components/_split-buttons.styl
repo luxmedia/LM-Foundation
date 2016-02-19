@@ -50,7 +50,7 @@ $split-button-pip-top-lrg ?=                 ($button-pip-lrg + rem-calc(5))
 $split-button-pip-default-float-lrg ?=       -(rem-calc(6))
 
 // pip svg settings
-$split-button-pip-svg ?=                     'arrows_down.svg'
+$split-button-pip-svg ?=                     'lm/00015-down.svg'
 $split-button-pip-svg-shapes ?=              ('polyline' 'polygon')
 
 
@@ -141,7 +141,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
             border-{$default-float}-width: $outline
             border-color: $pip-color
 
-            svg-background($file:$split-button-pip-svg, $shapes:$split-button-pip-svg-shapes, $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $size:false, $repeat:false, $position-x:false)
+            svg-background($file: $split-button-pip-svg, $shapes: $split-button-pip-svg-shapes, $stroke: $pip-color, $stroke-hover: $pip-color, $stroke-width: $svg-stroke-width-small, $size: false, $repeat: false, $position-x: false)
             
             &:hover,
             &[aria-expanded="true"] {

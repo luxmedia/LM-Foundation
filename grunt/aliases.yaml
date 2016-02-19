@@ -4,13 +4,13 @@ stylesheets:
     - 'stylus:fonts'
     - 'stylus:fontsie'
     - 'stylus:dist' #autopprefixer plugin is included here via 'use'-option!
-    # - 'stylus:ie8'
+    # - 'stylus:ie8' # TURN ON FOR PRODUCTION USE
     - 'postcss:fonts'
     - 'postcss:fontsie'
     - 'postcss:data'
     - 'postcss:dist'
-    # - 'postcss:ie9to10'
-    # - 'postcss:ie8'
+    # - 'postcss:ie9to10' # TURN ON FOR PRODUCTION USE
+    # - 'postcss:ie8' # TURN ON FOR PRODUCTION USE
     - 'clean:stylesheets'
 scripts:
   description: 'Compiles and concatenates the JavaScript files.'

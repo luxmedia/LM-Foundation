@@ -355,7 +355,7 @@ off-canvas-submenu($position) {
     position: absolute
     top: 0
     width: $off-canvas-width
-    height: $off-canvas-height
+    // height: $off-canvas-height
     z-index: ($zindex-offcanvas - 1)
     -webkit-overflow-scrolling: touch
     if ($position == left) {
@@ -455,9 +455,15 @@ icon-double-arrows($position){
     top: 50%
     margin-top: -(rem-calc(10))
 }
+
 // SVG Background Icon
 icon-svg-arrow($position){
-    svg-background($file:'arrows_'+$position+'.svg', $shapes:('polyline' 'polygon'), $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$off-canvas-link-color, $position-x:$position)
+    if ($position == 'left') {
+        $svgfile = $arrow-default
+    } else {
+        $svgfile = $arrow-opposite
+    }
+    svg-background($file: $svgfile, $shapes:('polyline' 'polygon'), $size:rem-calc(18), $stroke-width:$svg-stroke-width-small, $stroke:$off-canvas-link-color, $position-x:$position)
 }
 
 //
@@ -518,9 +524,17 @@ if $include-html-off-canvas-classes {
         // $offcanvas - Set to true
         hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tabbar-hamburger-icon-thickness, $tabbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true)
 
+        &:hover {
+            color: $tabbar-menu-icon-hover
+        }
+
         &.is-icononly {
             display: block
             width: $tabbar-menu-icon-width
+        }
+
+        &[aria-expanded="true"] {
+            closeicon($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-thickness, $tabbar-menu-icon-color, $tabbar-menu-icon-color-hover, true) 
         }
     }
 

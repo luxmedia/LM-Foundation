@@ -71,7 +71,7 @@ $topbar-site-search-input-height ?=          ($topbar-height - (2 * $topbar-site
 $topbar-site-search-font-size ?=             fontsize(1rem)
 $topbar-site-search-font-color ?=            $black
 $topbar-site-search-text-transform ?=        lowercase
-$topbar-site-search-svg-bg ?=                'basic_search_2.svg'
+$topbar-site-search-svg-bg ?=                'lm/00084-search_2.svg'
 $topbar-site-search-svg-bg-shapes ?=         ('circle' 'line' 'rect')
 
 // Style the top bar dropdown elements
@@ -570,7 +570,7 @@ if $include-html-topbar-classes {
             // Show Arrow only for medium-up breakpoints
             // if ($topbar-arrows){
             //     > a {
-            //         svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+            //         svg-background($file:'lm/00015-down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
             //     }
             // }
             if ($topbar-arrows){
@@ -783,7 +783,7 @@ if $include-html-topbar-classes {
                 if $topbar-arrows {
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                        svg-background($file:'lm/00015-down.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                     }
                 }
 
@@ -808,7 +808,7 @@ if $include-html-topbar-classes {
                     > a {
                         if ($topbar-dropdown-arrows) {
                             padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                            svg-background($file:'arrows_right.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                            svg-background($file:'lm/00027-right.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                         }
                     }
                 }

@@ -178,7 +178,7 @@ table() {
 // Container for large tables (scrollable)
 large-table() {
 
-    // .block__tbl--lrg {
+    .block__tbl--lrg {
     //     padding-bottom: rem-calc(30)
     //     position: relative
 
@@ -189,7 +189,15 @@ large-table() {
     //         overflow-y: auto // visible
     //         width: auto
     //     }
-    // }
+        +mediaquery($small-up) {
+            overflow: scroll
+            overflow-y: hidden
+        }
+
+        +mediaquery($large-up) {
+            overflow: auto
+        }
+    }
 
     table.tbl--lrg {
         

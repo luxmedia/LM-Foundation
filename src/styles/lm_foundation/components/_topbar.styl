@@ -71,7 +71,7 @@ $topbar-site-search-input-height ?=          ($topbar-height - (2 * $topbar-site
 $topbar-site-search-font-size ?=             fontsize(1rem)
 $topbar-site-search-font-color ?=            $black
 $topbar-site-search-text-transform ?=        lowercase
-$topbar-site-search-svg-bg ?=                'basic_search_2.svg'
+$topbar-site-search-svg-bg ?=                'lm/00084-search_2.svg'
 $topbar-site-search-svg-bg-shapes ?=         ('circle' 'line' 'rect')
 
 // Style the top bar dropdown elements
@@ -324,6 +324,7 @@ if $include-html-topbar-classes {
                 } else {
                     border: none
                 }
+
                 // &:focus,
                 // &:hover {
                 //     background-color: $topbar-button-search-bg-color-hover
@@ -331,6 +332,10 @@ if $include-html-topbar-classes {
 
                 &.is-icononly {
                     padding: 0
+
+                    &:hover {
+                        background-color: $topbar-button-search-bg-color-hover !important
+                    }
                 }
 
                 .i {
@@ -518,6 +523,11 @@ if $include-html-topbar-classes {
                         }
                         line-height: $topbar-height
                         padding: 0 $topbar-link-padding
+                        
+                        +mediaquery($small-only) {
+                            padding: 0 rem-calc(11)
+                        }
+
                         &:hover {
                             if ($topbar-link-bg-hover != $topbar-bg-color) {
                                 background-color: $topbar-link-bg-hover
@@ -528,6 +538,7 @@ if $include-html-topbar-classes {
                         }
                     }
                 }
+
                 // Apply the hover link color when it has that class
                 &.is-hover:not(.has-form) > a:not(.btn),
                 &:hover:not(.has-form) > a:not(.btn) {
@@ -592,7 +603,7 @@ if $include-html-topbar-classes {
             // Show Arrow only for medium-up breakpoints
             // if ($topbar-arrows){
             //     > a {
-            //         svg-background($file:'arrows_down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+            //         svg-background($file:'lm/00015-down.svg', $shapes:('polyline' 'polygon'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
             //     }
             // }
             if ($topbar-arrows){
@@ -760,7 +771,7 @@ if $include-html-topbar-classes {
                 if $topbar-arrows {
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        svg-background($file:'arrows_down.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                        svg-background($file:'lm/00015-down.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                     }
                 }
 
@@ -785,7 +796,7 @@ if $include-html-topbar-classes {
                     > a {
                         if ($topbar-dropdown-arrows) {
                             padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                            svg-background($file:'arrows_right.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                            svg-background($file: $arrow-opposite, $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
                         }
                     }
                 }
