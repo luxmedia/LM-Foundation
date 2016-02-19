@@ -1,1 +1,0 @@
-Hover me, i have <span data-tooltip aria-haspopup="true" class="has-tip" title="Tooltips are awesome, you should totally use them!">extended information</span>
