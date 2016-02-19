@@ -4,7 +4,7 @@
 module.exports = {
 
     // Create css for common modern browsers
-    dist: {
+    production: {
         options: {
             linenos: true,
             compress: false,

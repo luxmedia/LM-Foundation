@@ -18,7 +18,7 @@ module.exports = {
   },
 
   // Create css for common modern browsers
-  dist: {
+  production: {
       options: {
         map: false, // inline sourcemaps
 

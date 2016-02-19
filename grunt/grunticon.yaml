@@ -6,7 +6,7 @@ options:
   colors: '<%= lm_conf.svg_colors_arr %>'
   defaultWidth: '<%= lm_conf.png_width %>'
   defaultHeight: '<%= lm_conf.png_height %>'
-dist:
+production:
   expand: true
   cwd: '<%= base_paths.dest %>/svg/min'
   src:

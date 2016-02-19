@@ -3,7 +3,7 @@
 // Converts SVGs to Webfont and CSS
 
 module.exports = {
-  dist: {
+  production: {
     src: ['<%= lm_conf.svg_src_files %>'],
     dest: '<%= base_paths.dest %>/fonts',
     destCss: '<%= base_paths.src %>/styles/lm_foundation/components',

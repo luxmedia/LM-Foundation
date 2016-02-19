@@ -7,6 +7,6 @@ options:
   svg:
     style: 'dislay:none;'
 
-dist:
+production:
   src: '<%= lm_conf.svg_src %>'
   dest: '<%= lm_conf.svg_dist_file %>'

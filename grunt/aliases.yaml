@@ -3,12 +3,12 @@ stylesheets:
   tasks:
     - 'stylus:fonts'
     - 'stylus:fontsie'
-    - 'stylus:dist' #autopprefixer plugin is included here via 'use'-option!
+    - 'stylus:production' #autopprefixer plugin is included here via 'use'-option!
     # - 'stylus:ie8' # TURN ON FOR PRODUCTION USE
     - 'postcss:fonts'
     - 'postcss:fontsie'
     - 'postcss:data'
-    - 'postcss:dist'
+    - 'postcss:production'
     # - 'postcss:ie9to10' # TURN ON FOR PRODUCTION USE
     # - 'postcss:ie8' # TURN ON FOR PRODUCTION USE
     - 'clean:stylesheets'
@@ -27,7 +27,7 @@ svgs:
 build:
   description: 'Compiles all of the assets and copies the files to the distribution directory.'
   tasks:
-    - 'clean:dist'
+    - 'clean:production'
     - 'copy'
     - 'webfont' # Turn On/Off grunt-webfont svg converter
     - 'stylesheets'

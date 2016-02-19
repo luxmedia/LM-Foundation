@@ -9,7 +9,7 @@ options:
     - 'ie 9'
 
 # All modern Browsers
-dist:
+production:
   options:
     remove: false
     browsers:

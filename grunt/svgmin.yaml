@@ -6,7 +6,7 @@ options:
       removeViewBox: false
     -
       removeUselessStrokeAndFill: false
-dist:
+production:
   expand: true
   cwd: '<%= base_paths.src %>/svg'
   src:

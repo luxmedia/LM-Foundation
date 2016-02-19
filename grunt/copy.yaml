@@ -1,5 +1,5 @@
 # Copy files to dist directory
-dist:
+production:
   files:
     -
       expand: true

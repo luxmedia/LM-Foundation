@@ -1,5 +1,5 @@
 # compile coffeescript
-dist:
+production:
   expand: true
   cwd: '<%= base_paths.src  %>'
   src: '**/*.coffee'

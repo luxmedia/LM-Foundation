@@ -1,5 +1,5 @@
 # clean dist directory from old files
-dist:
+production:
   src:
     - '<%= base_paths.dest %>'
 
