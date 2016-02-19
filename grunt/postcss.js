@@ -23,7 +23,7 @@ module.exports = {
         map: false, // inline sourcemaps
 
         processors: [
-          require('autoprefixer-core')({browsers: ('> 5%','ie > 10')}), // add vendor prefixes
+          require('autoprefixer')({browsers: ('> 5%','ie > 10')}), // add vendor prefixes
           require('postcss-data-packer')({dataFile: false, pure: false}), // strip data expcet data
           require('cssnano')() // minify the result
         ]
@@ -88,7 +88,7 @@ module.exports = {
         map: false, // inline sourcemaps
 
         processors: [
-          require('autoprefixer-core')({browsers: ('ie 9', 'ie 10')}), // add vendor prefixes
+          require('autoprefixer')({browsers: ('ie 9', 'ie 10')}), // add vendor prefixes
           require('pixrem')({replace: true, browsers: ('ie 9', 'ie 10') }), // add fallbacks for rem units -> https://github.com/robwierzbowski/node-pixrem
           require('cssnano')() // minify the result
         ]
@@ -103,7 +103,7 @@ module.exports = {
         map: false, // inline sourcemaps
 
         processors: [
-          require('autoprefixer-core')({browsers: ('ie 8')}), // add vendor prefixes
+          require('autoprefixer')({browsers: ('ie 8')}), // add vendor prefixes
           require('pixrem')({replace: true, browsers: 'ie 8' }), // add fallbacks for rem units -> https://github.com/robwierzbowski/node-pixrem
           require('cssnano')() // minify the result
         ]
