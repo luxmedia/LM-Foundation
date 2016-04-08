@@ -13,7 +13,11 @@ $include-xl-html-grid-classes ?=     true
 
 // DEPRECATED row-width - max row width is defined by breakpoints in section "Container sizes"!
 // $row-width ?=                        (rem-calc($xlarge-breakpoint-px, $base-value:$browser-default-font-size) - $column-gutter) // rem-calc(1140)
-$row-width ?=                        (rem-calc($values:$xlarge-breakpoint-px) - $column-gutter)
+if $include-xl-html-grid-classes {
+    $row-width ?=                        (rem-calc($values:$xxlarge-breakpoint-px) - $column-gutter)
+} else {
+    $row-width ?=                        (rem-calc($values:$xlarge-breakpoint-px) - $column-gutter)
+}
 
 $total-columns ?=                    12
 $column-gutter ?=                    rem-calc(20)
