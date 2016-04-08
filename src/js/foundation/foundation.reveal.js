@@ -50,7 +50,7 @@
           S = self.S;
 
       S(this.scope)
-        .off('.reveal')
+        .off('.fndtn.reveal')
         .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']:not([disabled])', function (e) {
           e.preventDefault();
 
@@ -191,7 +191,7 @@
           if (e.namespace !== 'fndtn.reveal') return;
         });
 
-        modal.on('open.fndtn.reveal').trigger('open.fndtn.reveal');
+        modal.trigger('open.fndtn.reveal');
 
 
         if (open_modal.length < 1) {

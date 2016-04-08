@@ -17,7 +17,7 @@ $block-grid-default-spacing ?=               rem-calc(10)
 $align-block-grid-to-grid ?=                 false
 
 if $align-block-grid-to-grid {
-    $block-grid-default-spacing = $column-gutter
+    $block-grid-default-spacing ?= $column-gutter
 }
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
