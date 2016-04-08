@@ -112,6 +112,7 @@ if $include-html-slickslider-classes {
                 background-size: $slick-loading-image-bg-size
             }
 
+            &.dragging,
             &.is-dragging {
                 cursor($slick-cursor-dragging)
             }
@@ -168,7 +169,8 @@ if $include-html-slickslider-classes {
                 display: none
             }
 
-            &.dragging img {
+            &.dragging img,
+            &.is-dragging img {
                 pointer-events: none
             }
 
