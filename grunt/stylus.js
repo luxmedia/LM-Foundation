@@ -35,7 +35,8 @@ module.exports = {
     fonts: {
         options: {
             linenos: true,
-            compress: true
+            compress: true,
+            'resolve url': true
         },
         files: {
             '<%= lm_conf.css_dist_file_styles_fonts %>.css': '<%= lm_conf.styl_src_file_fonts %>'

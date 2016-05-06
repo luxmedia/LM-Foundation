@@ -17,7 +17,7 @@ module.exports = {
       types: 'eot,woff', // 'eot,woff2,woff,ttf,svg'
       syntax: 'bem',
       stylesheet: 'styl',
-      relativeFontPath: '../fonts',
+      relativeFontPath: '../fonts', // Custom font path. Will be used instead of destCss in CSS file. Useful with CSS preprocessors.
       rename: function(name) {
           // .icon_entypo-add, .icon_fontawesome-add, etc.
           var path = require('path');

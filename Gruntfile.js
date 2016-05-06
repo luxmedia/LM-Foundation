@@ -27,11 +27,11 @@ module.exports = function(grunt) {
         var custom__js = grunt.file.readJSON(jsonpath+'/cust__js.json');
     }
 
-    // Global Variables
+    // Global folder-paths, based on gruntfile.js location
     var base_paths = {
-        nodejs: base__params.nodejs,
-        src: base__params.src,
-        dest: base__params.dest
+        nodejs: 'node_modules',
+        src: 'src',
+        dest: 'dist'
     };
 
     // 1. BUILD FOUNDATION COMPONENTS ARRAY
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
         // vednor js
         js_src_vendor: ['<%= base_paths.src %>/js/vendor/common/*.js'],
         // ie8 fallback js
-        js_src_ie8: ['<%= base_paths.src %>/js/vendor/' + base__params.namespace_ie_8 + '/*.js'],
+        js_src_ie8: ['<%= base_paths.src %>/js/vendor/ie8/*.js'],
         // foundation js source files
         // make sure to load foundation.js before its components (see JSON routine above) !!!
         js_src_fndtn_com: fndtn__src__com,
@@ -97,11 +97,11 @@ module.exports = function(grunt) {
         // custom javascripts
         js_src_custom: js_src_scripts,
         // stylus source file(s)
-        styl_src: ['<%= base_paths.src %>/' + base__params.namespace_common_styles + '/*.styl'],
-        styl_src_file: '<%= base_paths.src %>/' + base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
-        styl_src_file_fonts: '<%= base_paths.src %>/' + base__params.namespace_common_styles + '/custom/fonts.styl',
-        styl_src_files: base__params.namespace_common_styles + '/' + base__params.namespace_common_styles + '.styl',
-        styl_src_ie8flag: base__params.namespace_common_styles + '/aux/_ie8-flag.styl',
+        styl_src: ['<%= base_paths.src %>/styles/*.styl'],
+        styl_src_file: '<%= base_paths.src %>/styles/styles.styl',
+        styl_src_file_fonts: '<%= base_paths.src %>/styles/custom/fonts.styl',
+        styl_src_files: 'styles/styles.styl',
+        styl_src_ie8flag: 'styles/aux/_ie8-flag.styl',
         // svg source folder/filess
         svg_src: ['<%= base_paths.src %>/svg'],
         svg_src_files: ['<%= base_paths.src %>/svg/lm/*.svg', '<%= base_paths.src %>/svg/cust/*.svg'],
@@ -111,21 +111,21 @@ module.exports = function(grunt) {
 
         // js distribution folder and files
         js_dist_folder: '<%= base_paths.dest %>/js',
-        js_dist_file_vendor: '<%= base_paths.dest %>/js/' + base__params.namespace_vendor,
-        js_dist_file_fndtn: '<%= base_paths.dest %>/js/' + base__params.namespace_fndtn,
-        js_dist_file_plugins: '<%= base_paths.dest %>/js/' + base__params.namespace_plugins,
-        js_dist_file_custom: '<%= base_paths.dest %>/js/' + base__params.namespace_custom,
-        js_dist_file_ie8: '<%= base_paths.dest %>/js/' + base__params.namespace_ie_8,
+        js_dist_file_vendor: '<%= base_paths.dest %>/js/vendor',
+        js_dist_file_fndtn: '<%= base_paths.dest %>/js/fndtn',
+        js_dist_file_plugins: '<%= base_paths.dest %>/js/plugins',
+        js_dist_file_custom: '<%= base_paths.dest %>/js/custom',
+        js_dist_file_ie8: '<%= base_paths.dest %>/js/ie8',
         // css distribution folder and files
         css_dist_folder: '<%= base_paths.dest %>/css',
-        css_dist_file_styles: '<%= base_paths.dest %>/css/' + base__params.namespace_common_styles,
-        css_dist_file_styles_data: '<%= base_paths.dest %>/css/' + base__params.namespace_common_styles + '_data',
+        css_dist_file_styles: '<%= base_paths.dest %>/css/styles',
+        css_dist_file_styles_data: '<%= base_paths.dest %>/css/styles_data',
         css_dist_file_styles_fonts: '<%= base_paths.dest %>/css/fonts',
-        css_dist_file_ie9to10: '<%= base_paths.dest %>/css/' + base__params.namespace_ie_9to10,
-        css_dist_file_ie8: '<%= base_paths.dest %>/css/' + base__params.namespace_ie_8,
+        css_dist_file_ie9to10: '<%= base_paths.dest %>/css/ie9-10',
+        css_dist_file_ie8: '<%= base_paths.dest %>/css/ie8',
         // svg distribution folder and files
         svg_dist: ['<%= base_paths.dest %>/svg'],
-        svg_dist_file: '<%= base_paths.dest %>/svg/' + base__params.namespace_svg_sprite + '.svg',
+        svg_dist_file: '<%= base_paths.dest %>/svg/sprite.svg',
 
         // --- PARAMETERS ---
         // -------------------

@@ -19,7 +19,8 @@
       is_hover : true,
       scrolltop : true, // jump to top when sticky nav menu toggle is clicked
       sticky_on : 'all',
-      dropdown_autoclose: true
+      dropdown_autoclose: true,
+      is_toggleable : true
     },
 
     init : function (section, method, options) {
@@ -97,63 +98,65 @@
         topbar = self.S('[' + this.attr_name() + ']');
       }
 
-      var settings = topbar.data(this.attr_name(true) + '-init');
+      var settings = topbar.data(this.attr_name(true) + '-init'),
+          topbarContainer = topbar.parents('.topbar__wrap'),
+          section = self.S('section, .topbar-section', topbar);
 
-      var topbarContainer = topbar.parents('.topbar__wrap');
-
-      var section = self.S('section, .topbar-section', topbar);
-
-      if (self.breakpoint()) {
-        if (!self.rtl) {
-          section.css({left : '0%'});
-          $('>.name', section).css({left : '100%'});
-        } else {
-          section.css({right : '0%'});
-          $('>.name', section).css({right : '100%'});
-        }
-
-        self.S('li.is-moved', section).removeClass('is-moved');
-        topbar.data('index', 0);
-
-        topbar
-          .toggleClass('expanded')
-          .css('height', '');
-      }
-
-      if (settings.scrolltop) {
-        if (!topbar.hasClass('expanded')) {
-          if (topbar.hasClass('topbar--fixed')) {
-            topbarContainer.addClass('topbar__wrap--fixed');
-            topbar.removeClass('topbar--fixed');
-            self.S('body').addClass('f-topbar-fixed');
-          }
-        } else if (topbarContainer.hasClass('topbar__wrap--fixed')) {
-          if (settings.scrolltop) {
-            topbarContainer.removeClass('topbar__wrap--fixed');
-            topbar.addClass('topbar--fixed');
-            self.S('body').removeClass('f-topbar-fixed');
-
-            window.scrollTo(0, 0);
+      if(settings.is_toggleable) {
+        
+        if (self.breakpoint()) {
+          if (!self.rtl) {
+            section.css({left : '0%'});
+            $('>.name', section).css({left : '100%'});
           } else {
-            topbarContainer.removeClass('expanded');
+            section.css({right : '0%'});
+            $('>.name', section).css({right : '100%'});
           }
-        }
-      } else {
-        if (self.is_sticky(topbar, topbarContainer, settings)) {
-          topbarContainer.addClass('topbar__wrap--fixed');
+
+          self.S('li.is-moved', section).removeClass('is-moved');
+          topbar.data('index', 0);
+
+          topbar
+            .toggleClass('expanded')
+            .css('height', '');
         }
 
-        if (topbarContainer.hasClass('topbar__wrap--fixed')) {
+        if (settings.scrolltop) {
           if (!topbar.hasClass('expanded')) {
-            topbar.removeClass('topbar--fixed');
-            topbarContainer.removeClass('expanded');
-            self.update_sticky_positioning();
-          } else {
-            topbar.addClass('topbar--fixed');
-            topbarContainer.addClass('expanded');
-            self.S('body').addClass('f-topbar-fixed');
+            if (topbar.hasClass('topbar--fixed')) {
+              topbarContainer.addClass('topbar__wrap--fixed');
+              topbar.removeClass('topbar--fixed');
+              self.S('body').addClass('f-topbar-fixed');
+            }
+          } else if (topbarContainer.hasClass('topbar__wrap--fixed')) {
+            if (settings.scrolltop) {
+              topbarContainer.removeClass('topbar__wrap--fixed');
+              topbar.addClass('topbar--fixed');
+              self.S('body').removeClass('f-topbar-fixed');
+
+              window.scrollTo(0, 0);
+            } else {
+              topbarContainer.removeClass('expanded');
+            }
+          }
+        } else {
+          if (self.is_sticky(topbar, topbarContainer, settings)) {
+            topbarContainer.addClass('topbar__wrap--fixed');
+          }
+
+          if (topbarContainer.hasClass('topbar__wrap--fixed')) {
+            if (!topbar.hasClass('expanded')) {
+              topbar.removeClass('topbar--fixed');
+              topbarContainer.removeClass('expanded');
+              self.update_sticky_positioning();
+            } else {
+              topbar.addClass('topbar--fixed');
+              topbarContainer.addClass('expanded');
+              self.S('body').addClass('f-topbar-fixed');
+            }
           }
         }
+
       }
     },
 
