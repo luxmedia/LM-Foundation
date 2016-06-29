@@ -18,7 +18,6 @@ $product-list-item-margin ?=                     rem-calc(15 0)
 $product-grid-item-margin ?=                     rem-calc(16)
 $product-list-item-bg ?=                         $white
 $product-list-item-bg-hover ?=                   darken($product-list-bg,10%) // transparent
-$product-list-item-fig-overlay-bg ?=             rgba($product-list-item-bg-hover,.75)
 $product-list-item-border ?=                     false
 $product-list-item-border-width ?=               2px
 $product-list-item-border-style ?=               solid
@@ -112,6 +111,14 @@ $product-list-button-ico-color ?=                $product-list-button-color
 $product-list-button-ico-color-hover ?=          scale-color($product-list-button-ico-color,$button-function-factor) // $white
 $product-list-button-width ?=                    rem-calc(45)
 $product-list-button-height ?=                   $product-list-button-width
+
+$product-list-item-cta-overlay-bg ?=             rgba($product-list-item-bg-hover,.75)
+$product-list-item-cta-overlay-height ?=         $product-grid-img-height
+$product-list-item-cta-overlay-padding ?=        0
+$product-list-item-cta-overlay-pos-x ?=          $default-float
+$product-list-item-cta-overlay-pos-y ?=          top
+$product-list-item-cta-overlay-text-align ?=     center
+$product-list-item-cta-overlay-width ?=          100%
 
 $product-list-ribbon-offset-top ?=               ($product-list-item-padding + rem-calc(5))
 $product-list-ribbon-offset-top-sml ?=           $product-list-item-padding
@@ -265,21 +272,6 @@ if $include-html-productlist-classes {
                 position: relative
                 text-align: center
 
-                .fig-overlay {
-                    kill-flicker()
-                    background-color: $product-list-item-fig-overlay-bg
-                    height: $product-grid-img-height
-                    left: 0
-                    line-height: 1
-                    opacity: 0
-                    position: absolute
-                    text-align: center
-                    top: 0
-                    visibility: hidden
-                    width: 100%
-                    single-transition($speed:$product-list-transition-speed)
-                }
-
                 img {
                     border: none
                     margin: 0
@@ -349,6 +341,24 @@ if $include-html-productlist-classes {
                     svg-background($file: $arrow-opposite, $shapes:('polyline' 'polygon'), $size:$product-list-button-ico-size, $stroke-width:$svg-stroke-width-small, $stroke:$product-list-button-ico-color, $stroke-hover:$product-list-button-ico-color-hover, $position-x:center)
                 }
             }
+            
+            // Overlay for call to action links on hover
+            &__cta-overlay {
+                kill-flicker()
+                background: $product-list-item-cta-overlay-bg
+                height: $product-list-item-cta-overlay-height
+                {$product-list-item-cta-overlay-pos-x}: 0
+                line-height: 1
+                max-width: 100%
+                opacity: 0
+                padding: $product-list-item-cta-overlay-padding
+                position: absolute
+                text-align: $product-list-item-cta-overlay-text-align
+                {$product-list-item-cta-overlay-pos-y}: 0
+                visibility: hidden
+                width: $product-list-item-cta-overlay-width
+                single-transition($speed:$product-list-transition-speed)
+            }
 
             .ribbon {
                 top: $product-list-ribbon-offset-top
@@ -373,7 +383,7 @@ if $include-html-productlist-classes {
                         blur-filter($product-list-item-hover-blur)
                     }
                 }
-                .fig-overlay {
+                .prd__cta-overlay  {
                     opacity: 1
                     visibility: visible
                 }
@@ -529,10 +539,11 @@ if $include-html-productlist-classes {
                     margin: -($product-list-item-padding)
                     margin-{$opposite-direction}: $product-list-img-gutter
                     width: $product-list-img-width
+                }
 
-                    .fig-overlay {
-                        height: $product-list-img-height
-                    }
+                &__cta-overlay  {
+                    height: $product-list-img-height
+                    width: @height
                 }
 
                 &__brand {

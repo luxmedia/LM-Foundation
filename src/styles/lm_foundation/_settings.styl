@@ -103,24 +103,24 @@
 // Folder
 // =========================================================================
 
-// $base-http ?=                       base_params.httpurl
+// $base-http =                       base_params.httpurl
 
 
 // // NOTE: path is relative to output style.css in dist/css/
-// $relative-theme-path ?=              '../../' // path relative from output style.css in "dist/css/"
-// $absolute-theme-path ?=              base_params.themeroot_absolute // e.g. '/out/mytheme/src/'
-// $absolute-image-path ?=              $absolute-theme-path + base_params.themeimages_folder // e.g. '/out/mytheme/img'
+// $relative-theme-path =              '../../' // path relative from output style.css in "dist/css/"
+// $absolute-theme-path =              base_params.themeroot_absolute // e.g. '/out/mytheme/src/'
+// $absolute-image-path =              $absolute-theme-path + base_params.themeimages_folder // e.g. '/out/mytheme/img'
 
-// $base-path-src ?=                    'src'
-// $base-path-svg ?=                    $base-path-src+'/svg'
-// $base-path-png ?=                    $base-path-src+'/png'
-// $base-path-dist ?=                   'dist'
+// $base-path-src =                    'src'
+// $base-path-svg =                    $base-path-src+'/svg'
+// $base-path-png =                    $base-path-src+'/png'
+// $base-path-dist =                   'dist'
 
-// $dir-dist ?=                         'dist' // Name of distribution folder
-// $dir_img ?=                          $base-path-src + '/img'
-// $dir_font ?=                         $base-path-dist + '/fonts'
+// $dir-dist =                         'dist' // Name of distribution folder
+// $dir_img =                          $base-path-src + '/img'
+// $dir_font =                         $base-path-dist + '/fonts'
 
-// $relative-paths ?=                   true
+// $relative-paths =                   true
 
 // =========================================================================
 // c. Global
@@ -241,8 +241,10 @@
 // // Shadow and Elevation
 // $shadow-switches =                 1px 2px 4px color_alpha($black, .25)
 // $shadow-switches-hover =           1px 2px 5px color_alpha($black, .4)
-// $shadow-button =                   1px 1px 3px color_alpha($black, .2)
-// $shadow-button-hover =             1px 1px 3px color_alpha($black, .3)
+// $shadow-button =                   inset -2px -2px 0 color_alpha($black, .2)
+// $shadow-button-hover =             $shadow-button
+// $shadow-button-disabled =          inset 2px 2px 0 color_alpha($black, .2)
+// $shadow-button-disabled-hover =    $shadow-button-disabled
 // $shadow-searchbar =                1px 1px 3px color_alpha($black, .25)
 // $shadow-searchbar-hover =          1px 3px 5px color_alpha($black, .3)
 // $shadow-appbar =                   0 3px 6px color_alpha($black, .25)
@@ -259,9 +261,9 @@
 // $shadow-menu-hover =               false
 // $shadow-submenu =                  1px 8px 12px color_alpha($black, .3)
 // $shadow-submenu-hover =            false
-// $shadow-navdrawerleft =            6px 0 16px color_alpha($black, .25)
+// $shadow-navdrawerleft =            6px 0 16px color_alpha($black, .3)
 // $shadow-navdrawerleft-hover =      false
-// $shadow-navdrawerright =           -6px 0 16px color_alpha($black, .25)
+// $shadow-navdrawerright =           -6px 0 16px color_alpha($black, .3)
 // $shadow-navdrawerright-hover =     false
 // $shadow-modal =                    0px 18px 32px 2px color_alpha($black, .3)
 // $shadow-modal-hover =              false
@@ -1540,7 +1542,6 @@ if jeet is defined {
 // $product-grid-item-margin =                     rem-calc(16)
 // $product-list-item-bg =                         $white
 // $product-list-item-bg-hover =                   darken($product-list-bg,10%) // transparent
-// $product-list-item-fig-overlay-bg =             rgba($product-list-item-bg-hover,.75)
 // $product-list-item-border =                     false
 // $product-list-item-border-width =               2px
 // $product-list-item-border-style =               solid
@@ -1632,6 +1633,14 @@ if jeet is defined {
 // $product-list-button-ico-color-hover =          scale-color($product-list-button-ico-color,$button-function-factor) // $white
 // $product-list-button-width =                    rem-calc(45)
 // $product-list-button-height =                   $product-list-button-width
+
+// $product-list-item-cta-overlay-bg =             rgba($product-list-item-bg-hover,.75)
+// $product-list-item-cta-overlay-height =         $product-grid-img-height
+// $product-list-item-cta-overlay-padding =        0
+// $product-list-item-cta-overlay-pos-x =          $default-float
+// $product-list-item-cta-overlay-pos-y =          top
+// $product-list-item-cta-overlay-text-align =     center
+// $product-list-item-cta-overlay-width =          100%
 
 // $product-list-ribbon-offset-top =               ($product-list-item-padding + rem-calc(5))
 

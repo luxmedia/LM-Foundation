@@ -283,8 +283,10 @@ if $include-html-topbar-classes {
 
                     &:hover {
                         color: $topbar-logo-font-color-hover
-                        background-color: $topbar-logo-bg-hover
-                        single-transition(background-color)
+                        if $topbar-logo-bg-hover {
+                            background-color: $topbar-logo-bg-hover
+                            single-transition(background-color)
+                        }
                     }
 
                     img {
@@ -307,7 +309,7 @@ if $include-html-topbar-classes {
                 padding-{$default-float}: rem-calc(15)
                 padding-{$opposite-direction}: ($topbar-button-search-width + rem-calc(6))
                 text-transform: $topbar-site-search-text-transform
-                border: none
+                // border: none
                 width: 100%
             }
             .btn,

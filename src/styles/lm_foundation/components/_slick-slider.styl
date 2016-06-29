@@ -299,7 +299,6 @@ if $include-html-slickslider-classes {
                     &:before {
                         background-color: $slick-dot-color
                         content: $slick-dot-character
-                        font-family: $slick-font-family
                         font-size: $slick-dot-size
                         height: $slick-dot-size
                         left: 50%
@@ -318,7 +317,7 @@ if $include-html-slickslider-classes {
                 }
 
                 &.is-active button:before,
-                &.is-active button:before:hover {
+                &.is-active button:hover:before {
                     background-color: $slick-dot-color-active
                     color: $slick-dot-color-active
                     cursor($cursor-default-value)

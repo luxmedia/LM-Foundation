@@ -91,8 +91,10 @@ $button-svg-scale-correction ?=              remify(.2rem) // is added to backgr
 
 button-base($style = true, $display = $button-display) {
     if $style {
-        border-style: $button-border-style
-        border-width: $button-border-width
+        if ($button-border-width != false) {
+            border-style: $button-border-style
+            border-width: $button-border-width
+        }
         cursor: $cursor-pointer-value
         font_family($button-font-family)
         font-weight: $button-font-weight
@@ -302,7 +304,7 @@ button-style($bg = $button-bg-color, $radius = false, $disabled = false, $bg-hov
 
     // We can set $disabled:true to create a disabled transparent button.
     if $disabled {
-        box-shadow: none
+        shadow-elevation('button-disabled')
         cursor: $button-disabled-cursor
         opacity: $button-disabled-opacity
 
