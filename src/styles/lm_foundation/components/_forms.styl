@@ -24,7 +24,7 @@ $input-font-color-hover-inv ?=               $white
 $input-font-size ?=                          fontsize(1.1rem)
 $input-line-height ?=                        $base-line-height
 $input-padding ?=                            ($form-spacing / 2) $form-spacing
-$input-font-size-computed ?=                 unit((floor(($input-line-height * $input-font-size), 4)), 'rem')
+$input-font-size-computed ?=                 ($input-line-height * $input-font-size)
 $input-font-weight ?=                        $font-weight-normal
 $input-bg-color ?=                           transparent // $white
 $input-bg-color-inv ?=                       transparent
@@ -43,7 +43,7 @@ $input-disabled-bg ?=                        transparent
 $input-disabled-cursor ?=                    $cursor-disabled-value
 $input-box-shadow ?=                         false // inset 0 1px 2px color_alpha(0,0,0,.1)
 $input-include-glowing-effect ?=             false
-$input-element-height ?=                     ($input-font-size-computed + $form-spacing - rem-calc(1))
+$input-element-height-computed ?=            ($input-font-size-computed + $form-spacing)
 
 $placeholder-color ?=                        $font-color-hint
 $placeholder-color-hover ?=                  darken($font-color-hint, 15%)
@@ -394,8 +394,8 @@ prefix-postfix-base() {
     border-width: $input-prefix-border-size
     display: block
     font-size: $form-label-font-size
-    height: ($input-font-size + $form-spacing - rem-calc(1))
-    line-height: ($input-font-size + $form-spacing - rem-calc(1))
+    height: $input-element-height-computed
+    line-height: $input-element-height-computed
     overflow: $input-prefix-overflow
     padding-bottom: 0
     padding-top: 0
@@ -841,21 +841,21 @@ if $include-html-form-classes {
         prefix(false, false, true)
     }
 
-    .prefix.btn--rad {
+    .prefix.btn--radius {
         radius(0)
-        side-radius($default-float, $button-radius)
+        side-radius($default-float, $global-radius)
     }
-    .postfix.btn--rad {
+    .postfix.btn--radius {
         radius(0)
-        side-radius($opposite-direction, $button-radius)
+        side-radius($opposite-direction, $global-radius)
     }
-    .prefix.btn--rnd {
+    .prefix.btn--round {
         radius(0)
-        side-radius($default-float, $button-round)
+        side-radius($default-float, $global-rounded)
     }
-    .postfix.btn--rnd {
+    .postfix.btn--round {
         radius(0)
-        side-radius($opposite-direction, $button-round)
+        side-radius($opposite-direction, $global-rounded)
     }
 
     // Separate prefix and postfix styles when on span or label so buttons keep their own
@@ -896,56 +896,56 @@ if $include-html-form-classes {
 
     form {
         .row {
-            .prefix--rad.row--collapse {
+            .prefix--radius.row--collapse {
                 input,
                 textarea,
                 select,
                 button {
                     radius(0)
-                    side-radius($opposite-direction, $button-radius)
+                    side-radius($opposite-direction, $global-radius)
                 }
                 .prefix {
                     radius(0)
-                    side-radius($default-float, $button-radius)
+                    side-radius($default-float, $global-radius)
                 }
             }
-            .postfix--rad.row--collapse {
+            .postfix--radius.row--collapse {
                 input,
                 textarea,
                 select,
                 button {
                     radius(0)
-                    side-radius($default-float, $button-radius)
+                    side-radius($default-float, $global-radius)
                 }
                 .postfix {
                     radius(0)
-                    side-radius($opposite-direction, $button-radius)
+                    side-radius($opposite-direction, $global-radius)
                 }
             }
-            .prefix--rnd.row--collapse {
+            .prefix--round.row--collapse {
                 input,
                 textarea,
                 select,
                 button {
                     radius(0)
-                    side-radius($opposite-direction, $button-round)
+                    side-radius($opposite-direction, $global-rounded)
                 }
                 .prefix {
                     radius(0)
-                    side-radius($default-float, $button-round)
+                    side-radius($default-float, $global-rounded)
                 }
             }
-            .postfix--rnd.row--collapse {
+            .postfix--round.row--collapse {
                 input,
                 textarea,
                 select,
                 button {
                     radius(0)
-                    side-radius($default-float, $button-round)
+                    side-radius($default-float, $global-rounded)
                 }
                 .postfix {
                     radius(0)
-                    side-radius($opposite-direction, $button-round)
+                    side-radius($opposite-direction, $global-rounded)
                 }
             }
         }

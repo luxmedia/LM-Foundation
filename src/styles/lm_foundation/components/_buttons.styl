@@ -140,14 +140,21 @@ button-flat($font-color = $primary-color, $bg-hover = $primary-color, $font-colo
     border: none
     box-shadow: none
     color: $font-color
+    
     &:hover,
     &:focus {
         color: $font-color-hover
         background-color: $bg-hover
+
+        if ($shadow-button == $shadow-button-hover) {
+            shadow-elevation($el:'button', $shadow-hover:false)
+        }
+
         label {
             color: $font-color-hover
             opacity: .7
         }
+
         > .i {
             color: $font-color-hover
         }
@@ -451,10 +458,10 @@ if $include-html-button-classes {
         // NOTE: add additional btn corner variants only for 'all' button-corner-style.
         // Otherwise we dont need more corner styles to avoid design inconsistency and blown up code.
         if ($button-corner-style == 'all') {
-            &--rad {
+            &--radius {
                 button-style($bg:false, $radius:true)
             }
-            &--rnd {
+            &--round {
                 button-style($bg:false, $radius:$button-round)
             }
         }

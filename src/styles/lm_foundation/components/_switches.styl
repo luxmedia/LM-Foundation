@@ -26,8 +26,9 @@ $switch-font-color-inv ?=                       $input-font-color-inv
 $switch-font-color-hover ?=                     $input-font-color-hover
 $switch-font-color-hover-inv ?=                 $input-font-color-hover-inv
 $switch-bg ?=                                   color_alpha($black, .15) // $gray-medium-1
-$switch-bg-hover ?=                             $switch-bg
+$switch-bg-hover ?=                             color_alpha($black, .25)
 $switch-bg-active ?=                            $primary-color
+$switch-bg-active-hover ?=                      darken($primary-color, 15%)
 $switch-border-color ?=                         $gray-base // blend($input-border-color, $white)
 $switch-border-color-hover ?=                   darken($switch-border-color, 15%) // darken($switch-border-color, 25%)
 $switch-border-color-active ?=                  $switch-bg-active
@@ -206,7 +207,7 @@ switch-size($height = $switch-height-med) {
 // $negative-color - Background color of negative side of switch. Default: $switch-negative-color.
 // $radius - Radius to apply to switch. Default: false.
 // $base-style - Apply base styles? Default: true.
-switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, $radius = false, $base-style = true, $inverted-colors = false) {
+switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, $radius = false, $base-style = true, $inverted-colors = false, $bg-hover = $switch-bg-hover, $bg-active-hover = $switch-bg-active-hover) {
 
     if $base-style {
         label {
@@ -218,6 +219,7 @@ switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, 
             font-size: $switch-font-size
 
             &:hover {
+                background: $bg-hover
                 if ($switch-border-width != 0) {
                     border-color: (!$inverted-colors ? $switch-border-color-hover : $switch-inv-border-color-hover)
                 }
@@ -240,6 +242,10 @@ switch-style($paddle-bg = $switch-paddle-bg, $active-color = $switch-bg-active, 
                 background: (!$inverted-colors ? $active-color : $switch-inv-bg-active)
                 if ($switch-border-width != 0) {
                     border-color: (!$inverted-colors ? $switch-border-color-active : $switch-inv-border-color-active)
+                }
+
+                &:hover {
+                    background: $bg-active-hover
                 }
             }
             &:active + label:after {

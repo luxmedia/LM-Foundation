@@ -149,6 +149,8 @@ $global-ui-shadow-hover ?=           1px 1px 3px color_alpha($black, .4)
 // Shadow and Elevation
 $shadow-switches ?=                 1px 2px 4px color_alpha($black, .25)
 $shadow-switches-hover ?=           1px 2px 5px color_alpha($black, .4)
+$shadow-badge ?=                    2px 2px 0 color_alpha($black, .2)
+$shadow-badge-hover ?=              $shadow-badge
 $shadow-button ?=                   inset -2px -2px 0 color_alpha($black, .2)
 $shadow-button-hover ?=             $shadow-button
 $shadow-button-disabled ?=          inset 2px 2px 0 color_alpha($black, .2)
@@ -370,13 +372,9 @@ radius($radius = $global-radius) {
 // $side - Options: left, right, top, bottom
 side-radius($side, $radius = $global-radius) {
     if ($side == left || $side == right) {
-        -webkit-border-bottom-{$side}-radius: $radius
-        -webkit-border-top-{$side}-radius: $radius
         border-bottom-{$side}-radius: $radius
         border-top-{$side}-radius: $radius
     } else {
-        -webkit-{$side}-left-radius: $radius
-        -webkit-{$side}-right-radius: $radius
         border-{$side}-left-radius: $radius
         border-{$side}-right-radius: $radius
     }
