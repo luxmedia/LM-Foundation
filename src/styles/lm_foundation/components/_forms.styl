@@ -24,7 +24,6 @@ $input-font-color-hover-inv ?=               $white
 $input-font-size ?=                          fontsize(1.1rem)
 $input-line-height ?=                        $base-line-height
 $input-padding ?=                            ($form-spacing / 2) $form-spacing
-$input-font-size-computed ?=                 ($input-line-height * $input-font-size)
 $input-font-weight ?=                        $font-weight-normal
 $input-bg-color ?=                           transparent // $white
 $input-bg-color-inv ?=                       transparent
@@ -43,7 +42,7 @@ $input-disabled-bg ?=                        transparent
 $input-disabled-cursor ?=                    $cursor-disabled-value
 $input-box-shadow ?=                         false // inset 0 1px 2px color_alpha(0,0,0,.1)
 $input-include-glowing-effect ?=             false
-$input-element-height-computed ?=            ($input-font-size-computed + $form-spacing)
+$input-element-height-computed ?=            unit((($input-line-height * $input-font-size) + (2 * $input-padding[0])), 'rem')
 
 $placeholder-color ?=                        $font-color-hint
 $placeholder-color-hover ?=                  darken($font-color-hint, 15%)
@@ -230,7 +229,7 @@ form-element() {
     color: $input-font-color
     display: block
     font-size: $input-font-size
-    font-weight: $input-font-weight
+    fontweight($input-font-weight)
     font_family($input-font-family)
     line-height: $input-line-height
     margin: 0 0 $form-spacing 0
@@ -338,7 +337,7 @@ form-label($alignment = false, $base-style = true) {
         color: $form-label-font-color
         display: block
         font-size: $form-label-font-size
-        font-weight: $form-label-font-weight
+        fontweight($form-label-font-weight)
         line-height: $form-label-line-height
         margin-bottom: $form-label-bottom-margin
         padding-bottom: $form-label-bottom-padding
@@ -492,7 +491,7 @@ fieldset() {
         background: $legend-bg
         color: $legend-font-color
         font-size: $legend-font-size
-        font-weight: $legend-font-weight
+        fontweight($legend-font-weight)
         font_family($legend-font-family)
         margin: 0
         margin-{$default-float}: -(rem-calc(3))
@@ -578,7 +577,7 @@ form-error-message($bg = $input-error-message-bg-color) {
     display: block
     font-size: $input-error-message-font-size
     font-style: $input-error-message-font-style
-    font-weight: $input-error-message-font-weight
+    fontweight($input-error-message-font-weight)
     margin-bottom: $form-spacing
     margin-top: $input-error-message-top
     padding: $input-error-message-padding
@@ -611,7 +610,7 @@ form-select()  {
         border-color: $select-border-color
         color: $input-font-color
         font-size: $input-font-size
-        font-weight: $input-font-weight
+        fontweight($input-font-weight)
         font_family($body-font-family)
         padding: $select-padding
     }
@@ -677,7 +676,7 @@ form-checkbox-base() {
         cursor($cursor-pointer-value)
         display: inline-block
         font-size: $input-font-size
-        font-weight: $form-label-ui-font-weight
+        fontweight($form-label-ui-font-weight)
         margin-{$default-float}: (.5 * $form-spacing)
         margin-{$opposite-direction}: $form-spacing
         margin-bottom: (.5 * $form-spacing)
@@ -834,11 +833,11 @@ if $include-html-form-classes {
     // Adjust padding, alignment and radius if pre/post element is a button
     .postfix.btn {
         button-size(false,false)
-        postfix(false, false, true)
+        postfix($bg:false, $border-left-hidden:false, $is-button:true)
     }
     .prefix.btn {
         button-size(false,false)
-        prefix(false, false, true)
+        prefix($bg:false, $border-left-hidden:false, $is-button:true)
     }
 
     .prefix.btn--radius {

@@ -129,7 +129,7 @@ fontsize(value) {
 scale-color($value = false, $factor = false) {
     if ($value && $factor) {
         if ($value != transparent) {
-            if ($scale-factor > 0%) {
+            if (($scale-factor > 0%) || (lightness($value) < 20%)) {
                 return lighten($value, $factor)
             } else {
                 return darken($value, -($factor))
@@ -247,9 +247,13 @@ data($attr) {
 }
 
 /* ========================================================================= */
-// REM CALCULATIONS
+// EM/REM CALCULATIONS
 /* ========================================================================= */
 
+// Calculate an em-based letterspacing based on graphic-software vaues. Like 50 = 0.05em
+tracking($track) {
+    return (($track / 1000) * 1em)
+}
 
 // REM CALC
 

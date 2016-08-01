@@ -49,7 +49,7 @@ if $include-html-tooltip-classes {
         border-bottom: $has-tip-border-bottom
         color: $has-tip-font-color
         cursor: $has-tip-cursor-type
-        font-weight: $has-tip-font-weight
+        fontweight($has-tip-font-weight)
 
         &:hover,
         &:focus {
@@ -70,7 +70,7 @@ if $include-html-tooltip-classes {
         color: $tooltip-font-color
         display: none
         font-size: $tooltip-font-size
-        font-weight: $tooltip-font-weight
+        fontweight($tooltip-font-weight)
         line-height: $tooltip-line-height
         max-width: $tooltip-max-width
         padding: $tooltip-padding
@@ -130,7 +130,7 @@ if $include-html-tooltip-classes {
         color: $tooltip-close-font-color
         display: block
         font-size: $tooltip-close-font-size
-        font-weight: $tooltip-close-font-weight
+        fontweight($tooltip-close-font-weight)
     }
 
     +mediaquery($small) {

@@ -140,7 +140,7 @@ $product-list-transition-speed ?=               240ms
 
 prd-opts() {
     color: $product-list-opts-color
-    font-weight: $product-list-opts-font-weight
+    fontweight($product-list-opts-font-weight)
     font_family($product-list-opts-font-family)
     line-height: $product-list-opts-line-height
     text-transform: uppercase
@@ -225,7 +225,21 @@ prd-opts() {
 //
 
 if $include-html-productlist-classes {
-    
+
+    .prd {
+        .ribbon {
+            top: $product-list-ribbon-offset-top
+        }
+
+        // sorty ribbons if we have more than one ribbon
+        &--special.prd--new {
+            .ribbon--primary,
+            .ribbon--special {
+                top: ($product-list-ribbon-offset-top + rem-calc(30))
+            }
+        }
+    }
+
     // Wrapper (ul)
     .prdlist {
         clearfix()
@@ -286,7 +300,7 @@ if $include-html-productlist-classes {
                 color: $product-list-manu-color
                 display: block
                 font-size: $product-list-manu-font-size
-                font-weight: $product-grid-manu-font-weight
+                fontweight($product-grid-manu-font-weight)
                 font_family($product-list-title-font-family)
                 line-height: $product-list-title-line-height
                 margin: $product-list-manu-margin
@@ -300,7 +314,7 @@ if $include-html-productlist-classes {
                 color: $product-list-title-color 
                 display: block
                 font-size: $product-grid-title-font-size
-                font-weight: $product-list-title-font-weight
+                fontweight($product-list-title-font-weight)
                 font_family($product-list-title-font-family)
                 line-height: $product-list-title-line-height
                 margin: $product-list-title-margin
@@ -358,18 +372,6 @@ if $include-html-productlist-classes {
                 visibility: hidden
                 width: $product-list-item-cta-overlay-width
                 single-transition($speed:$product-list-transition-speed)
-            }
-
-            .ribbon {
-                top: $product-list-ribbon-offset-top
-            }
-
-            // sorty ribbons if we have more than one ribbon
-            &--special.prd--new {
-                .ribbon--primary,
-                .ribbon--special {
-                    top: ($product-list-ribbon-offset-top + rem-calc(30))
-                }
             }
 
             &:hover {
@@ -548,7 +550,7 @@ if $include-html-productlist-classes {
 
                 &__brand {
                     display: block
-                    font-weight: $product-list-manu-font-weight
+                    fontweight($product-list-manu-font-weight)
                     margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                     text-transform: $product-list-manu-text-transform
                 }

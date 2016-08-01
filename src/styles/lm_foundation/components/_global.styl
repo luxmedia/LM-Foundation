@@ -39,7 +39,7 @@ $font-family-headings ?=             $font-family-sans-serif
 $font-family-custom ?=               $font-family-sans-serif
 $font-family-custom-fallback ?=      $font-family-sans-serif
 $font-default-spacing ?=             0
-$font-custom-spacing ?=              .05em
+$font-custom-spacing ?=              tracking(50)
 
 // define default font weights
 $font-weight-normal ?=               normal
@@ -128,7 +128,8 @@ $body-font-weight ?=                 $font-weight-normal
 $body-font-style ?=                  normal
 
 // font-smoothing
-$font-smoothing ?=                   antialiased
+$font-smoothing ?=                   subpixel-antialiased
+$font-smoothing-bold ?=              antialiased
 
 // focus shadow
 $focus-shadow ?=                     false // 1px 1px 10px $primary-color
@@ -490,7 +491,7 @@ find_similar_basecolor($color = false) {
 }
 
 // SVG backgrounds based on "svg-stylus" plugin
-svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = false, $fill-hover = none, $stroke-hover = false, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = center) {
+svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = false, $fill-hover = none, $stroke-hover = false, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = 45%) {
     // possible svg shapes
     // If your svg files feature <g> you could use this instead of "all"
     // "g" is the svg group selector which inherits its styling to all children
@@ -692,9 +693,13 @@ clearfix() {
 }
 
 // Force smooth font rendering
-antialiased() {
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
+antialiased($render = $font-smoothing) {
+	if ($font-smoothing == antialiased) {
+	    -webkit-font-smoothing: $font-smoothing
+	    -moz-osx-font-smoothing: grayscale
+    } else {
+    	-webkit-font-smoothing: $font-smoothing
+    }
 }
 
 // add a glowing effect to block elements
@@ -800,6 +805,14 @@ if ($text-direction == ltr) {
 // @DEPRECATED - We use fontsize() in _functions.styl instead
 font_size(value) {
     font-size: fontsize(value)
+}
+
+// Return font-weight and - if submitted - a special font-rendering type
+fontweight($weight = $font-weight-bold, $antialias = $font-smoothing-bold) {
+	font-weight: $weight
+	if ($antialias && ($weight != $font-weight-normal)) {
+		-webkit-font-smoothing: $antialias
+	}
 }
 
 // Handle fallback for non-fontface Browsers

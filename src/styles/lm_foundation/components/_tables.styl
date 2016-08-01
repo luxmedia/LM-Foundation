@@ -80,7 +80,7 @@ table() {
         background: $table-caption-bg
         color: $table-caption-font-color
         font-size: $table-caption-font-size
-        font-weight: $table-caption-font-weight
+        fontweight($table-caption-font-weight)
     }
 
     thead {
@@ -92,7 +92,7 @@ table() {
                 border-bottom: $table-head-border 
                 color: $table-head-font-color
                 font-size: $table-head-font-size
-                font-weight: $table-head-font-weight
+                fontweight($table-head-font-weight)
                 padding: $table-head-padding
                 if $table-head-text-transform {
                     text-transform: $table-head-text-transform
@@ -109,7 +109,7 @@ table() {
             td {
                 color: $table-foot-font-color
                 font-size: $table-foot-font-size
-                font-weight: $table-foot-font-weight
+                fontweight($table-foot-font-weight)
                 padding: $table-foot-padding
                 if $table-foot-text-transform {
                     text-transform: $table-foot-text-transform

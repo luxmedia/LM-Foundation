@@ -80,6 +80,8 @@ $button-disabled-cursor ?=                   $cursor-disabled-value
 $button-svg-padding ?=                       remify(.6rem)
 $button-svg-scale-correction ?=              remify(.2rem) // is added to background-size value to make bg-icons a bit bigger
 
+$button-icon-offset ?=                       -(rem-calc(2))
+$button-icon-offset-lrg ?=                   -(rem-calc(4))
 
 //
 // @MIXIN
@@ -97,7 +99,7 @@ button-base($style = true, $display = $button-display) {
         }
         cursor: $cursor-pointer-value
         font_family($button-font-family)
-        font-weight: $button-font-weight
+        fontweight($button-font-weight)
         line-height: normal
         margin: 0 0 $button-margin-bottom
         position: relative
@@ -113,7 +115,7 @@ button-base($style = true, $display = $button-display) {
 
         // position icons inside of buttons
         > .i {
-            margin-top: -(rem-calc(2))
+            margin-top: $button-icon-offset
         }
         
         label {
@@ -207,6 +209,11 @@ button-size($padding = $button-med, $full-width = false) {
         } else if ($padding == $button-lrg) {
             font-size: $button-font-lrg
             svg-background($size: $button-font-lrg)
+
+            // position icons inside of buttons
+            > .i {
+                margin-top: $button-icon-offset-lrg
+            }
         }
 
     }
@@ -374,8 +381,6 @@ if $include-html-button-classes {
         } else {
             button-style()
         }
-
-        antialiased()
     }
 
     .btn {

@@ -98,7 +98,7 @@ pagination-current-item($has-anchor = true) {
             border-color: transparent
             color: $pagination-link-current-font-color
             cursor: $pagination-link-current-cursor
-            font-weight: $pagination-link-current-font-weight
+            fontweight($pagination-link-current-font-weight)
             
             &:hover,
             &:focus {
@@ -110,7 +110,7 @@ pagination-current-item($has-anchor = true) {
         background: $pagination-link-current-background
         color: $pagination-link-current-font-color
         cursor: $pagination-link-current-cursor
-        font-weight: $pagination-link-current-font-weight
+        fontweight($pagination-link-current-font-weight)
         height: auto
         padding: $pagination-link-pad
         radius(0)
@@ -148,7 +148,7 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
                 color: $pagination-link-font-color
                 display: block
                 font-size: $pagination-font-size
-                font-weight: normal
+                fontweight(normal)
                 font_family($pagination-font-family)
                 line-height: inherit
                 padding: $pagination-link-pad

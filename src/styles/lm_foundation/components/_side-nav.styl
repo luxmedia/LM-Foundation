@@ -78,7 +78,7 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
     li,
     dt {
         font-size: $font-size
-        font-weight: $side-nav-font-weight
+        fontweight($side-nav-font-weight)
         margin: $side-nav-list-margin
         if ($side-nav-list-border-style) {
             border-color: $side-nav-list-border-color
@@ -113,7 +113,7 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
 
         &.is-active > a:first-child:not(.btn) {
             color: $side-nav-link-color-active
-            font-weight: $side-nav-font-weight-active
+            fontweight($side-nav-font-weight-active)
             font_family($side-nav-font-family-active)
         }
 
@@ -128,7 +128,7 @@ side-nav($divider-color = $side-nav-divider-color, $font-size = $side-nav-font-s
         &.heading {
             color: $side-nav-heading-color
             font-size: $side-nav-heading-font-size
-            font-weight: $side-nav-heading-font-weight
+            fontweight($side-nav-heading-font-weight)
             text-transform: $side-nav-heading-text-transform
         }
     }

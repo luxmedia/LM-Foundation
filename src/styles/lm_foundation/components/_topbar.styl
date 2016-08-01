@@ -274,7 +274,7 @@ if $include-html-topbar-classes {
                     background-color: $topbar-logo-bg
                     color: $topbar-logo-font-color
                     display: block
-                    font-weight: $topbar-logo-font-weight
+                    fontweight($topbar-logo-font-weight)
                     font_family($topbar-logo-font-family)
                     height: $topbar-logo-height
                     line-height: $topbar-logo-height
@@ -356,7 +356,7 @@ if $include-html-topbar-classes {
                 color: check_contrast($topbar-link-color, $topbar-bg-color)
                 display: block
                 font-size:$topbar-menu-link-font-size
-                font-weight: $topbar-menu-link-weight
+                fontweight($topbar-menu-link-weight)
                 height: $topbar-height
                 line-height: $topbar-height
                 min-width: $topbar-height
@@ -458,7 +458,7 @@ if $include-html-topbar-classes {
                     color: check_contrast($topbar-link-color, $topbar-bg-color)
                     display: block
                     font-size:$topbar-link-font-size
-                    font-weight: $topbar-link-weight
+                    fontweight($topbar-link-weight)
                     font_family($topbar-link-font-family)
                     padding-{$default-float}: $topbar-link-padding
                     padding: rem-calc(12 0)
@@ -648,7 +648,7 @@ if $include-html-topbar-classes {
                 &:not(.has-form) a:not(.btn):not(.prd__link) {
                     display: block
                     font-size:$topbar-link-font-size
-                    font-weight: $topbar-dropdown-link-weight
+                    fontweight($topbar-dropdown-link-weight)
                     font_family($topbar-link-font-family)
                     line-height: 1.4
                     padding: $topbar-link-padding (2 * $topbar-link-padding)
@@ -656,7 +656,7 @@ if $include-html-topbar-classes {
                     white-space: nowrap
 
                     &.parent-link {
-                        font-weight: $topbar-link-weight
+                        fontweight($topbar-link-weight)
                     }
 
                     &:not(.is-active) {
@@ -706,7 +706,7 @@ if $include-html-topbar-classes {
             label {
                 color: $topbar-dropdown-label-color
                 font-size: $topbar-dropdown-label-font-size
-                font-weight: $topbar-dropdown-label-font-weight
+                fontweight($topbar-dropdown-label-font-weight)
                 margin-bottom: 0
                 padding: rem-calc(8 $topbar-link-padding 2)
                 text-transform: $topbar-dropdown-label-text-transform

@@ -43,6 +43,9 @@ $slick-dot-block-button-line-height ?=  1.2rem
 $slick-dot-block-button-padding ?=  rem-calc(5)
 $slick-dot-block-button-bg ?=       $slick-dot-color-alt
 $slick-dot-block-button-bg-hover ?= $slick-dot-color-hover-alt
+$slick-dot-block-button-bg-active ?= $slick-dot-color-active
+$slick-dot-block-button-color ?=    $slick-dot-color
+$slick-dot-block-button-color-active ?= $slick-dot-color-active
 $slick-dot-block-sensitive-size ?=  rem-calc(18)
 $slick-dot-margin ?=                rem-calc(0 5)
 $slick-dot-padding ?=               rem-calc(5)
@@ -229,21 +232,31 @@ if $include-html-slickslider-classes {
             svg-background($file: $arrow-opposite, $shapes:$slick-nav-button-svg-shapes, $size:$slick-nav-button-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$slick-arrow-color, $stroke-hover:$slick-arrow-color-hover, $scale-x:1, $position-x:center)
         }
 
-        &__slider.arrows-bottom {
-            .slick__next {
-                {$opposite-direction}: rem-calc(10)
+        &__slider {
+            &.arrows-bottom {
+                .slick__next {
+                    {$opposite-direction}: rem-calc(10)
+                }
+                .slick__prev {
+                    {$default-float}: rem-calc(10)
+                }
+                .slick-arrow {
+                    top: auto
+                    bottom: rem-calc(10)
+                }
             }
-            .slick__prev {
-                {$default-float}: rem-calc(10)
-            }
-            .slick__next,
-            .slick__prev {
-                top: auto
-                // bottom: ($slick-nav-button-size / 2)
-                bottom: rem-calc(10)
+            &.arrows-top {
+                .slick__next {
+                    {$opposite-direction}: rem-calc(10)
+                }
+                .slick__prev {
+                    {$default-float}: rem-calc(10)
+                }
+                .slick-arrow {
+                    top: 0
+                }
             }
         }
-
         // DOTS FOR NAVIGATION
 
         // Single Dots
@@ -353,7 +366,7 @@ if $include-html-slickslider-classes {
                         background: $slick-dot-block-button-bg
                         border: none
                         box-shadow: none
-                        color: $slick-dot-button-font-color
+                        color: $slick-dot-block-button-color
                         cursor($cursor-pointer-value)
                         display: block
                         font-size: $slick-dot-button-font-size
@@ -379,8 +392,8 @@ if $include-html-slickslider-classes {
                     }
                     &.is-active button,
                     &.is-active:hover button {
-                        background: $slick-dot-color-active
-                        color: $slick-dot-button-font-color-active
+                        background: $slick-dot-block-button-bg-active
+                        color: $slick-dot-block-button-color-active
                         cursor($cursor-default-value)
                     }
                 }

@@ -81,7 +81,7 @@ crumbs() {
 
     a {
         color: $crumb-font-color
-        font-weight: $crumb-font-weight
+        fontweight($crumb-font-weight)
     }
 
     // Current is for the link of the current page
@@ -89,7 +89,7 @@ crumbs() {
         color: $crumb-font-color-current
         cursor: $cursor-default-value
         a {
-            font-weight: $crumb-font-weight-current
+            fontweight($crumb-font-weight-current)
             color: $crumb-font-color-current
             cursor: $cursor-default-value
         }

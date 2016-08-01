@@ -52,7 +52,7 @@ $badge-active-bg ?=                          $badge-font-color
 // We use this mixin to create a default label base.
 label-base() {
     display: inline-block
-    font-weight: $label-font-weight
+    fontweight($label-font-weight)
     font_family($label-font-family)
     line-height: 1
     margin-bottom: 0
@@ -231,11 +231,11 @@ if $include-html-label-classes {
         }
         &--xlrg {
             label-size($padding:false, $label-font-size-xlrg)
-            font-weight: $font-weight-normal
+            fontweight($font-weight-normal)
         }
         &--xxlrg {
             label-size(false, $label-font-size-xxlrg)
-            font-weight: $font-weight-normal
+            fontweight($font-weight-normal)
         }
 
         // Badges

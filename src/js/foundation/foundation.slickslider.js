@@ -472,6 +472,10 @@
 
             }
 
+            // LUXMEDIA MOD
+            _.options.appendArrows.addClass('has-arrows');
+            // EOF            
+
         }
 
     };

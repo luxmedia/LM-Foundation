@@ -63,7 +63,7 @@ sub-nav($font-color = $sub-nav-font-color, $font-size = $sub-nav-font-size, $act
         color: $font-color
         float: $default-float
         font-size: $font-size
-        font-weight: $sub-nav-font-weight
+        fontweight($sub-nav-font-weight)
         font_family($sub-nav-font-family)
         margin-bottom: 0
         margin-{$default-float}: rem-calc(16)
@@ -82,7 +82,7 @@ sub-nav($font-color = $sub-nav-font-color, $font-size = $sub-nav-font-size, $act
             background: $active-bg
             color: $sub-nav-active-color
             cursor: $sub-nav-active-cursor
-            font-weight: $sub-nav-active-font-weight
+            fontweight($sub-nav-active-font-weight)
             padding: $sub-nav-active-padding
             radius($sub-nav-border-radius)
 

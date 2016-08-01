@@ -105,20 +105,23 @@
 
 // $base-http =                       base_params.httpurl
 
-
-// // NOTE: path is relative to output style.css in dist/css/
-// $relative-theme-path =              '../../' // path relative from output style.css in "dist/css/"
-// $absolute-theme-path =              base_params.themeroot_absolute // e.g. '/out/mytheme/src/'
-// $absolute-image-path =              $absolute-theme-path + base_params.themeimages_folder // e.g. '/out/mytheme/img'
-
-// $base-path-src =                    'src'
-// $base-path-svg =                    $base-path-src+'/svg'
-// $base-path-png =                    $base-path-src+'/png'
-// $base-path-dist =                   'dist'
+// $base-path-src =                    base_params.src
+// $base-path-svg =                    ($base-path-src + '/svg')
+// $base-path-png =                    ($base-path-src + '/png')
+// $base-path-dist =                   base_params.dest
 
 // $dir-dist =                         'dist' // Name of distribution folder
-// $dir_img =                          $base-path-src + '/img'
-// $dir_font =                         $base-path-dist + '/fonts'
+
+// // NOTE: path is relative to output style.css in dist/css/
+// $relative-theme-path =              '../../../' // path relative from output style.css in "dist/css/"
+
+// $absolute-theme-path =              '/src' // e.g. '/out/mytheme/src/'
+// $absolute-image-path =              '/img' // e.g. '/out/mytheme/img'
+
+// $dir_font =                         ($base-path-dist + '/fonts')
+// $dir_img =                          ($base-path-src + '/img')
+// $dir_js =                           ($absolute-theme-path + $dir-dist + '/js')
+// $dir_themebase =                  	 $relative-theme-path
 
 // $relative-paths =                   true
 

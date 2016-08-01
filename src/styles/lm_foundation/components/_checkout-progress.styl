@@ -105,7 +105,7 @@ if $include-html-checkout-progress-classes {
             a {
                 color: $gray-base
                 font-size: $checkout-progress-label-font-size
-                font-weight: $font-weight-bold
+                fontweight($font-weight-bold)
                 text-decoration: none
                 text-transform: uppercase
                 &:hover {
@@ -120,7 +120,7 @@ if $include-html-checkout-progress-classes {
                 box-shadow: 0 0 0 2px $white // simualte white gap to progress bar
                 color: $checkout-progress-step-next-color
                 font-size: $checkout-progress-step-font-size
-                font-weight: $font-weight-normal
+                fontweight($font-weight-normal, false)
                 height: $checkout-progress-step-height //rem-calc(35)
                 left: rem-calc(20)
                 line-height: $checkout-progress-step-line-height //rem-calc(35)

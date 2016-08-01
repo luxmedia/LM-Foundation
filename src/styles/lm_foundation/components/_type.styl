@@ -229,7 +229,7 @@ aside() {
 
 subheader() {
     color: $subheader-font-color
-    font-weight: $subheader-font-weight
+    fontweight($subheader-font-weight)
     line-height: $subheader-line-height
     margin-bottom: $subheader-bottom-margin
     margin-top: $subheader-top-margin
@@ -289,7 +289,7 @@ if $include-html-type-classes {
     /* Default paragraph styles */
     p {
         font-size: $paragraph-font-size
-        font-weight: $paragraph-font-weight
+        fontweight($paragraph-font-weight)
         font_family($paragraph-font-family)
         line-height: $paragraph-line-height
         margin-bottom: $paragraph-margin-bottom
@@ -334,38 +334,38 @@ if $include-html-type-classes {
     h1 {
         color: $h1-font-color
         font-size: ($h1-font-size - $h1-font-reduction)
-        font-weight: $h1-font-weight
+        fontweight($h1-font-weight)
         font_family($h1-font-family)
         line-height: $h1-line-height
     }
     h2 {
         color: $h2-font-color
         font-size: ($h2-font-size - $h2-font-reduction)
-        font-weight: $h2-font-weight
+        fontweight($h2-font-weight)
         font_family($h2-font-family)
         line-height: $h2-line-height
     }
     h3 {
         color: $h3-font-color
         font-size: ($h3-font-size - $h3-font-reduction)
-        font-weight: $h3-font-weight
+        fontweight($h3-font-weight)
         font_family($h3-font-family)
         line-height: $h3-line-height
     }
     h4 {
         color: $h4-font-color
         font-size: ($h4-font-size - $h4-font-reduction)
-        font-weight: $h4-font-weight
+        fontweight($h4-font-weight)
     }
     h5 {
         color: $h5-font-color
         font-size: ($h5-font-size - $h5-font-reduction)
-        font-weight: $h5-font-weight
+        fontweight($h5-font-weight)
     }
     h6 {
         color: $h6-font-color
         font-size: ($h6-font-size - $h6-font-reduction)
-        font-weight: $h6-font-weight
+        fontweight($h6-font-weight)
     }
 
     .subheader {
@@ -387,7 +387,7 @@ if $include-html-type-classes {
     }
 
     strong, b {
-        font-weight: $font-weight-bold
+        fontweight($font-weight-bold)
         line-height: inherit
     }
 
@@ -411,7 +411,7 @@ if $include-html-type-classes {
         border-width: $code-border-size
         color: $code-color
         font-size: $code-font-size
-        font-weight: $code-font-weight
+        fontweight($code-font-weight)
         font_family($code-font-family)
         padding: $code-padding
     }
@@ -493,7 +493,7 @@ if $include-html-type-classes {
     /* Definition Lists */
     dl {
         dt {
-            font-weight: $definition-list-header-weight
+            fontweight($definition-list-header-weight)
             margin-bottom: $definition-list-header-margin-bottom
             text-transform: $definition-list-header-text-transform
         }
@@ -556,7 +556,7 @@ if $include-html-type-classes {
         }
         .fn {
             font-size: $microformat-fullname-font-size
-            font-weight: $microformat-fullname-font-weight
+            fontweight($microformat-fullname-font-weight)
         }
     }
 
@@ -568,7 +568,7 @@ if $include-html-type-classes {
         abbr {
             border: none
             cursor: $cursor-default-value
-            font-weight: $microformat-abbr-font-weight
+            fontweight($microformat-abbr-font-weight)
             padding: $microformat-abbr-padding
             text-decoration: $microformat-abbr-font-decoration
         }

@@ -190,7 +190,7 @@ tab-bar-base() {
     // Typography
     h1,h2,h3,h4,h5,h6 {
         color: $tabbar-header-color
-        font-weight: $tabbar-header-weight
+        fontweight($tabbar-header-weight)
         line-height: $tabbar-header-line-height
         margin: $tabbar-header-margin
         white-space: nowrap
@@ -271,7 +271,7 @@ off-canvas-list() {
             color: $off-canvas-label-color
             display: block
             font-size: $off-canvas-label-font-size
-            font-weight: $off-canvas-label-font-weight
+            fontweight($off-canvas-label-font-weight)
             margin: $off-canvas-label-margin
             padding: $off-canvas-label-padding
             text-transform: $off-canvas-label-text-transform
@@ -282,7 +282,7 @@ off-canvas-list() {
             color: $off-canvas-link-color
             display: block
             font-size: $off-canvas-link-font-size
-            font-weight: $off-canvas-link-font-weight
+            fontweight($off-canvas-link-font-weight)
             font_family($off-canvas-link-font-family)
             padding: $off-canvas-link-padding
             position: relative
@@ -384,7 +384,7 @@ off-canvas-submenu($position) {
         border-bottom: $off-canvas-back-border-bottom
         border-top: $off-canvas-back-border-top
         color: $off-canvas-label-color
-        font-weight: $off-canvas-label-font-weight
+        fontweight($off-canvas-label-font-weight)
         margin: $off-canvas-label-margin
         padding: $off-canvas-label-padding
         // text-align: center
@@ -501,7 +501,7 @@ if $include-html-off-canvas-classes {
     .tab-bar .menu-icon {
         color: $tabbar-menu-icon-color
         display: inline-block
-        font-weight: $font-weight-bold
+        fontweight($font-weight-bold)
         font_family($font-family-custom)
         height: $tabbar-menu-icon-height
         min-width: @height
