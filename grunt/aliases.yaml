@@ -33,7 +33,6 @@ build:
     - 'stylesheets'
     - 'scripts'
     # - 'svgs'
-    # - 'jade'
     - 'cleanempty'
 default:
   description: 'Watches the project for changes, automatically builds them and runs a server.'

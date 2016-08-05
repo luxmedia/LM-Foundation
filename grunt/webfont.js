@@ -25,6 +25,7 @@ module.exports = {
       },
       skip: false,
       // template: '<%= base_paths.src %>/styles/lm_foundation/templates/icons.css',
+      engine: 'fontforge',
 
       templateOptions: {
         baseClass: 'i',

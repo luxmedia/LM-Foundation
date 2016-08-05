@@ -48,6 +48,7 @@ $off-canvas-label-border-bottom ?=           none
 $off-canvas-label-margin ?=                  0
 $off-canvas-link-padding ?=                  rem-calc(10)
 $off-canvas-link-color ?=                    $white
+$off-canvas-link-color-hover ?=              $white
 $off-canvas-link-font-family ?=              $font-family-custom
 $off-canvas-link-font-size ?=                fontsize(0.9rem)
 $off-canvas-link-font-weight ?=              $font-weight-bold
@@ -88,6 +89,9 @@ $off-canvas-overlay-background-hover ?=      false // color_alpha($white, 0.05)
 // Transition Variables
 $off-canvas-transition-speed ?=              .4s
 $menu-slide ?=                              'transform .4s ease'
+
+$off-canvas-shadow-elevation-left ?=        'navdrawerleft' // false
+$off-canvas-shadow-elevation-right ?=       'navdrawerright' // false
 
 //
 // @mixins
@@ -291,6 +295,7 @@ off-canvas-list() {
 
             &:hover {
                 background: $off-canvas-bg-hover
+                color: $off-canvas-link-color-hover
             }
 
             &:active {
@@ -571,8 +576,11 @@ if $include-html-off-canvas-classes {
         .exit-off-canvas {
             back-link()
         }
-        .left-off-canvas-menu {           
-            shadow-elevation('navdrawerleft')
+
+        if $off-canvas-shadow-elevation-left {
+            .left-off-canvas-menu {           
+                shadow-elevation($off-canvas-shadow-elevation-left)
+            }
         }
     }
 
@@ -587,8 +595,10 @@ if $include-html-off-canvas-classes {
         .exit-off-canvas {
             back-link()
         }
-        .right-off-canvas-menu {           
-            shadow-elevation('navdrawerright')
+        if $off-canvas-shadow-elevation-right {
+            .right-off-canvas-menu {           
+                shadow-elevation($off-canvas-shadow-elevation-right)
+            }
         }
     }
     .move-top {
@@ -619,11 +629,15 @@ if $include-html-off-canvas-classes {
         .exit-off-canvas {
             back-link()
         }
-        .left-off-canvas-menu {           
-            shadow-elevation('navdrawerleft')
+        if $off-canvas-shadow-elevation-left {
+            .left-off-canvas-menu {           
+                shadow-elevation($off-canvas-shadow-elevation-left)
+            }
         }
-        .right-off-canvas-menu {           
-            shadow-elevation('navdrawerright')
+        if $off-canvas-shadow-elevation-right {
+            .right-off-canvas-menu {           
+                shadow-elevation($off-canvas-shadow-elevation-right)
+            }
         }
     }
     .offcanvas-overlap-left .right-off-canvas-menu,
@@ -633,11 +647,15 @@ if $include-html-off-canvas-classes {
         transform: none
         z-index: $zindex-offcanvas
     }
-    .offcanvas-overlap-left .right-off-canvas-menu {
-        shadow-elevation('navdrawerright')
+    if $off-canvas-shadow-elevation-right {
+        .offcanvas-overlap-left .right-off-canvas-menu {
+            shadow-elevation($off-canvas-shadow-elevation-right)
+        }
     }
-    .offcanvas-overlap-right .left-off-canvas-menu{
-        shadow-elevation('navdrawerleft')
+    if $off-canvas-shadow-elevation-left {
+        .offcanvas-overlap-right .left-off-canvas-menu{
+            shadow-elevation($off-canvas-shadow-elevation-left)
+        }
     }
 
     // Older browsers

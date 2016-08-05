@@ -443,22 +443,25 @@ filter-grayscale($value = 100%, $reset = false) {
 
 // Return a color with a predefined minimium luminance contrast to its background
 check_contrast($fg = $white, $bg = $black, $contrast-min = $luminance-contrast-min) {
-    $lightness-bg = lightness($bg)
-    $lightness-fg = lightness($fg)
     $color = $fg
+    
+	if (($bg != transparent) && ($bg != none)) {
+	    $lightness-bg = lightness($bg)
+	    $lightness-fg = lightness($fg)
 
-    if dark($bg) {
-        $contrast-range = ($lightness-fg - $lightness-bg)
-        if ($contrast-range < $contrast-min) {
-            $lightness-new = ($lightness-fg + ($contrast-min - $contrast-range))
-            $color = lightness($fg, $lightness-new)
-        }
-    } else {
-        $contrast-range = ($lightness-bg - $lightness-fg)
-        if ($contrast-range < $contrast-min) {
-            $lightness-new = ($lightness-fg - ($contrast-min - $contrast-range))
-            $color = lightness($fg, $lightness-new)
-        }
+	    if dark($bg) {
+	        $contrast-range = ($lightness-fg - $lightness-bg)
+	        if ($contrast-range < $contrast-min) {
+	            $lightness-new = ($lightness-fg + ($contrast-min - $contrast-range))
+	            $color = lightness($fg, $lightness-new)
+	        }
+	    } else {
+	        $contrast-range = ($lightness-bg - $lightness-fg)
+	        if ($contrast-range < $contrast-min) {
+	            $lightness-new = ($lightness-fg - ($contrast-min - $contrast-range))
+	            $color = lightness($fg, $lightness-new)
+	        }
+	    }
     }
     return $color
 }

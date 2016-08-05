@@ -14,6 +14,7 @@
 $include-html-topbar-classes =               com_js.TOPBAR
 
 // Background color for the top bar
+$topbar-wrap-bg ?=                           $charcoal-1
 $topbar-bg-color ?=                          $charcoal-1
 $topbar-bg ?=                                $topbar-bg-color
 
@@ -42,7 +43,7 @@ $topbar-link-color-active ?=                 $white
 $topbar-link-color-active-hover ?=           $white
 $topbar-link-weight ?=                       $font-weight-bold
 $topbar-link-font-size ?=                    fontsize(.8rem)
-$topbar-link-bg ?=                           $topbar-bg
+$topbar-link-bg ?=                           $topbar-bg-color
 $topbar-link-bg-hover ?=                     scale-color($topbar-link-bg, $topbar-link-hover-lightness)
 $topbar-link-bg-active ?=                    $primary-color
 $topbar-link-bg-active-hover ?=              scale-color($primary-color, $topbar-link-hover-lightness)
@@ -63,7 +64,7 @@ $topbar-button-search-svg-color ?=           $gray-dark-1
 $topbar-button-search-svg-color-hover ?=     $primary-color
 $topbar-button-search-svg-stroke-width ?=    $svg-stroke-width-small
 $topbar-input-border-width ?=                false // 1px 0 0 1px
-$topbar-input-border-color ?=                darken($topbar-bg, 20%)
+$topbar-input-border-color ?=                darken($topbar-bg-color, 20%)
 $topbar-button-font-size ?=                  fontsize(.8rem)
 
 $topbar-site-search-padding ?=               $topbar-button-top // ($topbar-button-top (3 * $topbar-button-top))
@@ -83,7 +84,7 @@ $topbar-dropdown-link-bg-hover ?=            scale-color($topbar-dropdown-link-b
 $topbar-dropdown-link-padding ?=             rem-calc(6 20)
 $topbar-dropdown-link-weight ?=              $font-weight-bold
 $topbar-dropdown-toggle-size ?=              5px
-$topbar-dropdown-toggle-color ?=             blend(rgba($white, .7), $topbar-bg) // rgba($white, .75)
+$topbar-dropdown-toggle-color ?=             blend(rgba($white, .7), $topbar-bg-color) // rgba($white, .75)
 $topbar-dropdown-toggle-color-hover ?=       $white
 
 $topbar-dropdown-label-color ?=              lighten($topbar-link-bg, 30%)
@@ -119,6 +120,7 @@ $topbar-sticky-class ?=                      '.sticky'
 $topbar-arrows ?=                            true //Set false to remove the triangle icon from the menu item
 $topbar-dropdown-arrows ?=                   true //Set false to remove the \00bb >> text from dropdown subnavigation li// 
 
+$topbar-shadow-elevation ?=                 'appbar' // false
 
 //
 // @mixins
@@ -154,7 +156,7 @@ if $include-html-topbar-classes {
 
     /* Wrapped around .topbar to contain to grid width */
     .contain-to-grid {
-        background-color: $topbar-bg
+        background: $topbar-wrap-bg
         width: 100%
 
         .topbar {
@@ -165,8 +167,10 @@ if $include-html-topbar-classes {
 
     // Wrapped around .topbar to make it stick to the top
     .topbar__wrap {
-        background-color: $topbar-bg
-        shadow-elevation('appbar')
+        background: $topbar-wrap-bg
+        if ($topbar-shadow-elevation) {
+            shadow-elevation($topbar-shadow-elevation)
+        }
 
         &--fixed {
             position: fixed
@@ -199,7 +203,7 @@ if $include-html-topbar-classes {
     // Main top nav section
     .topbar {
         clearfix()
-        background-color: $topbar-bg
+        background: $topbar-bg
         height: $topbar-height
         line-height: $topbar-height
         margin-bottom: $topbar-margin-bottom
