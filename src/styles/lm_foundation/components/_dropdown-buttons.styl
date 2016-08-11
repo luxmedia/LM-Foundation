@@ -90,7 +90,7 @@ dropdown-button($padding = medium, $pip-color = $dropdown-button-pip-color, $bas
 
     // We can control the pip color. We didn't use logic in this case, just set it and forget it.
     if $pip-color {
-        svg-background($file:$dropdown-button-svg-bg, $shapes:$dropdown-button-svg-bg-shapes, $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $position-x:$opposite-direction)
+        svg-background($file:$dropdown-button-svg-bg, $color:$pip-color, $color-hover:$pip-color, $position-x:$opposite-direction)
     }
 }
 
@@ -114,7 +114,7 @@ if $include-html-dropdown-button-classes {
         }
         
         &--secondary {
-            svg-background($file:$dropdown-button-svg-bg, $shapes:$dropdown-button-svg-bg-shapes, $stroke:$dropdown-button-pip-color-alt, $stroke-hover:$dropdown-button-pip-color-alt, $stroke-width:$svg-stroke-width-small, $size:false, $repeat:false, $position-x:false)
+            svg-background($file:$dropdown-button-svg-bg, $color:$dropdown-button-pip-color-alt, $color-hover:$dropdown-button-pip-color-alt, $size:false, $repeat:false, $position-x:false)
         }
     }
 }

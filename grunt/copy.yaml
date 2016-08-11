@@ -3,7 +3,7 @@ production:
   files:
     -
       expand: true
-      cwd: '<%= base_paths.src %>'
+      cwd: '<%= basePaths.src %>'
       src:
         - '**/*'
         - '!**/*.styl'
@@ -12,6 +12,6 @@ production:
         - '!**/*.svg'
         - '!**/*.json'
         - '!json'
-      dest: '<%= base_paths.dest %>'
+      dest: '<%= basePaths.dest %>'
       flatten: false
       filter: 'isFile'

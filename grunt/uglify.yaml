@@ -5,23 +5,23 @@ options:
   preserveComments: 'some'
 
 vendor:
-  src: '<%= lm_conf.js_dist_file_vendor %>.js'
-  # src: ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lm_conf.js %>', 'doc/assets/js/docs.js']
-  dest: '<%= lm_conf.js_dist_file_vendor %>.min.js'
+  src: '<%= lmConf.js_dist_file_vendor %>.js'
+  # src: ['<%= vendor %>/jquery/dist/jquery.js', '<%= vendor %>/lodash/dist/lodash.min.js','<%= vendor %>/fastclick/lib/fastclick.js', '<%= vendor %>/jquery-placeholder/jquery.placeholder.js', '<%= vendor %>/jquery.autocomplete/dist/jquery.autocomplete.js', '<%= lmConf.js %>', 'doc/assets/js/docs.js']
+  dest: '<%= lmConf.js_dist_file_vendor %>.min.js'
 
 foundation:
-  src: '<%= lm_conf.js_dist_file_fndtn %>.js'
-  dest: '<%= lm_conf.js_dist_file_fndtn %>.min.js'
+  src: '<%= lmConf.js_dist_file_fndtn %>.js'
+  dest: '<%= lmConf.js_dist_file_fndtn %>.min.js'
 
 plugins:
-  src: '<%= lm_conf.js_dist_file_plugins %>.js'
-  dest: '<%= lm_conf.js_dist_file_plugins %>.min.js'
+  src: '<%= lmConf.js_dist_file_plugins %>.js'
+  dest: '<%= lmConf.js_dist_file_plugins %>.min.js'
 
 custom:
-  src: '<%= lm_conf.js_dist_file_custom %>.js'
-  dest: '<%= lm_conf.js_dist_file_custom %>.min.js'
+  src: '<%= lmConf.js_dist_file_custom %>.js'
+  dest: '<%= lmConf.js_dist_file_custom %>.min.js'
 
 # ie8 fallback scripts for html5 and media-query support
 ie8:
-  src: '<%= lm_conf.js_dist_file_ie8 %>.js'
-  dest: '<%= lm_conf.js_dist_file_ie8 %>.min.js'
+  src: '<%= lmConf.js_dist_file_ie8 %>.js'
+  dest: '<%= lmConf.js_dist_file_ie8 %>.min.js'

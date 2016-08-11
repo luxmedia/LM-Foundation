@@ -3,6 +3,7 @@
 // Licensed under MIT Open Source
 
 @require '../_functions'
+@require '../../aux/_filebase'
 
 //
 // @variables
@@ -493,33 +494,39 @@ find_similar_basecolor($color = false) {
     }
 }
 
+// 
 // SVG backgrounds based on "svg-stylus" plugin
-svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = all, $fill = none, $stroke = false, $fill-hover = none, $stroke-hover = false, $stroke-width = 0, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = 45%) {
+// IMPORTANT-NOTE: Stroke-based SVGs are note supported anymore
+// SVGs MUST be created as merged path and NOT using strokes
+svg-background($path = $base-path-svg, $file = false, $properties = false, $shapes = default, $color = false, $color-hover = false, $size = $svg-icons-base-size, $scale-x = $svg-scale-factor-x, $scale-y = $svg-scale-factor-y, $scale-uni = $svg-scale-factor-uni, $repeat = no-repeat, $position-x = $opposite-direction, $position-y = 45%) {
     // possible svg shapes
     // If your svg files feature <g> you could use this instead of "all"
     // "g" is the svg group selector which inherits its styling to all children
     $svg-shapes-all = ('path' 'circle' 'ellipse' 'rect' 'line' 'polyline' 'polygon' 'text')
+    $svg-shape-default = 'path'
 
     if ($shapes == all) {
         $shapes = $svg-shapes-all
+    } else if ($shapes == default) {
+		$shapes = $svg-shape-default
     }
     // placeholder for final params
     $svg-params-normal-state = ()
     $svg-params-hover-state = ()
 
     if $file {
-        $path-to-file = !$ie8 ? ($path+'/'+$file) : ($base-path-png+'/'+$file)
+        $path-to-file = !$ie8 ? ($path + '/' + $file) : ($base-path-png + '/' + $file)
 
         // Render SVG background if NOT ie8-flag
         if !$ie8 {
             // set styles (normal and hover) for all possible shapes
             for $shape in $shapes {
-                if $stroke {
-                    $params-normal = ($shape+' fill '+color_rgb($fill)+', '+$shape+' stroke '+color_rgb($stroke)+', '+$shape+' stroke-width '+$stroke-width)
+                if $color {
+                    $params-normal = ($shape+' fill ' + color_rgb($color))
                     push($svg-params-normal-state, $params-normal)
                 }
-                if $stroke-hover {
-                    $params-hover = ($shape+' fill '+color_rgb($fill-hover)+', '+$shape+' stroke '+color_rgb($stroke-hover)+', '+$shape+' stroke-width '+$stroke-width)
+                if $color-hover {
+                    $params-hover = ($shape+' fill ' + color_rgb($color-hover))
                     push($svg-params-hover-state, $params-hover)
                 }
             }
@@ -528,11 +535,11 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
             if $properties {
                 background-image: svgurl($path-to-file) svg($properties)
             } else {
-                if $stroke {
+                if $color {
                     background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-normal-state)))
                 }
                 // Additional Styling for Hover State
-                if ($stroke-hover && ($stroke-hover != $stroke)) {
+                if ($color-hover && ($color-hover != $color)) {
                     &:focus,
                     &:hover {
                         background-image: svgurl($path-to-file) svg(unquote(join(', ', $svg-params-hover-state)))
@@ -541,17 +548,15 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
             }
         // Render PNG background if ie8-flag is set
         } else {
-            if find_similar_basecolor($fill) {
-                $pngfile = ($path-to-file + '-' + find_similar_basecolor($fill) + '.png')
-            } else if find_similar_basecolor($stroke) {
-                $pngfile = ($path-to-file + '-' + find_similar_basecolor($stroke) + '.png')
+            if find_similar_basecolor($color) {
+                $pngfile = ($path-to-file + '-' + find_similar_basecolor($color) + '.png')
             } else {
                 $pngfile = false
             }
             if $pngfile {
                 background-image: url($pngfile)
             }
-            // TODO: Implement ie8 stroke-hover bg and minimize if's
+            // TODO: Implement ie8 color-hover bg and minimize if's
         }
     }
     // sizing parameter
@@ -697,11 +702,9 @@ clearfix() {
 
 // Force smooth font rendering
 antialiased($render = $font-smoothing) {
+    -webkit-font-smoothing: $font-smoothing
 	if ($font-smoothing == antialiased) {
-	    -webkit-font-smoothing: $font-smoothing
 	    -moz-osx-font-smoothing: grayscale
-    } else {
-    	-webkit-font-smoothing: $font-smoothing
     }
 }
 
@@ -864,12 +867,16 @@ image-url($url = '', $imgbase = $dir_img) {
     }
 }
 
-font-url($url = '', $fontbase = $dir_font) {
+fontUrl($url = '', $fontbase = $dir_font) {
     if $url {
         return unquote('url(' + $fontbase + '/' + $url + ')')
     } else {
         return false
     }
+}
+
+font-url($url = '', $fontbase = $dir_font) {
+	fontUrl($url, $fontbase)
 }
 
 

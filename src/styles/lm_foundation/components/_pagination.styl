@@ -219,11 +219,11 @@ pagination($center = false, $base-style = true, $use-default-classes = true) {
 
             &.pager__prev a {
                 padding-{$default-float}: ($pagination-link-svg-size * 1.7)
-                svg-background($file:$pagination-link-prev-svg-bg, $shapes:$pagination-link-prev-svg-bg-shapes, $size:$pagination-link-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:$default-float)
+                svg-background($file:$pagination-link-prev-svg-bg, $size:$pagination-link-svg-size, $color:$pagination-link-font-color, $color-hover:$pagination-link-hover-color, $position-x:$default-float)
             }
             &.pager__next a {
                 padding-{$opposite-direction}: ($pagination-link-svg-size * 1.7)
-                svg-background($file:$pagination-link-next-svg-bg,  $shapes:$pagination-link-next-svg-bg-shapes, $size:$pagination-link-svg-size, $stroke-width:$svg-stroke-width-small, $stroke:$pagination-link-font-color, $stroke-hover:$pagination-link-hover-color, $position-x:$opposite-direction)
+                svg-background($file:$pagination-link-next-svg-bg, $size:$pagination-link-svg-size, $color:$pagination-link-font-color, $color-hover:$pagination-link-hover-color, $position-x:$opposite-direction)
             }
         }
     }
@@ -283,10 +283,10 @@ if $include-pagination-classes {
                         color: $pagination-link-bg-hover
                     }
                     &.pager__prev a {
-                        svg-background($file:$pagination-link-prev-svg-bg, $shapes:$pagination-link-prev-svg-bg-shapes, $stroke-width:$svg-stroke-width-small, $stroke:false, $stroke-hover:$pagination-link-bg-hover, $size:false, $repeat:false, $position-x:false)
+                        svg-background($file:$pagination-link-prev-svg-bg, $color:false, $color-hover:$pagination-link-bg-hover, $size:false, $repeat:false, $position-x:false)
                     }
                     &.pager__next a {
-                        svg-background($file:$pagination-link-next-svg-bg,  $shapes:$pagination-link-next-svg-bg-shapes, $stroke-width:$svg-stroke-width-small, $stroke:false, $stroke-hover:$pagination-link-bg-hover, $size:false, $repeat:false, $position-x:false)
+                        svg-background($file:$pagination-link-next-svg-bg, $color:false, $color-hover:$pagination-link-bg-hover, $size:false, $repeat:false, $position-x:false)
                     }
                 }
             }

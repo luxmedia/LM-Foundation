@@ -56,7 +56,7 @@ accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordio
         if $active-bg {
             background: $active-bg
         }
-        svg-background($file:'lm/00034-up.svg', $shapes:('polyline' 'polygon'), $stroke: $accordion-navigation-font-color-hover, $stroke-hover: $accordion-navigation-font-color-hover, $stroke-width: $svg-stroke-width-small, $position-x: $opposite-direction)
+        svg-background($file:'lm/00034-up.svg', $color: $accordion-navigation-font-color-hover, $color-hover: $accordion-navigation-font-color-hover, $position-x: $opposite-direction)
         if ($accordion-navigation-border-color != $accordion-navigation-border-color-active) {
             border-color: $accordion-navigation-border-color
         }
@@ -67,7 +67,7 @@ accordion-navigation($bg = $accordion-navigation-bg-color, $hover-bg = $accordio
         if $bg {
             background: $bg
         }
-        svg-background($file:'lm/00015-down.svg', $shapes:('polyline' 'polygon'), $stroke: $icon-color-normal, $stroke-hover: $accordion-navigation-font-color-hover, $stroke-width: $svg-stroke-width-small, $position-x: $opposite-direction)
+        svg-background($file:'lm/00015-down.svg', $color: $icon-color-normal, $color-hover: $accordion-navigation-font-color-hover, $position-x: $opposite-direction)
 
         border-top: $accordion-navigation-border-width solid $accordion-navigation-border-color
         color: $font-color

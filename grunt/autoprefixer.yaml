@@ -17,9 +17,9 @@ production:
       - 'ie >= 11'
   multiple_files:
       expand: true
-      cwd: '<%= base_paths.dest %>'
+      cwd: '<%= basePaths.dest %>'
       src: '**/*.css'
-      dest: '<%= base_paths.dest %>'
+      dest: '<%= basePaths.dest %>'
 
 # Internet Explorer 9 and 10 only
 ie9to10:
@@ -30,9 +30,9 @@ ie9to10:
       - 'ie 10'
   multiple_files:
       expand: true
-      cwd: '<%= base_paths.dest %>'
+      cwd: '<%= basePaths.dest %>'
       src: '**/*.css'
-      dest: '<%= base_paths.dest %>'
+      dest: '<%= basePaths.dest %>'
 
 # Internet Explorer 8 only. Lower than 8 is not supported!
 ie8:
@@ -42,6 +42,6 @@ ie8:
       - 'ie 8'
   multiple_files:
       expand: true
-      cwd: '<%= base_paths.dest %>'
+      cwd: '<%= basePaths.dest %>'
       src: '**/*.css'
-      dest: '<%= base_paths.dest %>'
+      dest: '<%= basePaths.dest %>'

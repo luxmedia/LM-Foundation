@@ -7,68 +7,71 @@ module.exports = function(grunt) {
     var jsonpath = 'src/json';
 
     // BASE PATH AND FILES VARIABLES
-    if (grunt.file.isFile(jsonpath+'/base__params.json')) {
-        var base__params = grunt.file.readJSON(jsonpath+'/base__params.json', {encoding:"utf-8"});
+    if (grunt.file.isFile(jsonpath + '/base__params.json')) {
+        var baseParams = grunt.file.readJSON(jsonpath + '/base__params.json', {encoding:"utf-8"});
     }
     // BASE COLOR VARIABELS (used for svg and png variant generation)
-    if (grunt.file.isFile(jsonpath+'/base__colors.json')) {
-        var base__colors = grunt.file.readJSON(jsonpath+'/base__colors.json', {encoding:"utf-8"});
+    if (grunt.file.isFile(jsonpath + '/base__colors.json')) {
+        var baseColors = grunt.file.readJSON(jsonpath + '/base__colors.json', {encoding:"utf-8"});
     }
     // GET THE FRAMEWORK (FOUNDATION) COMPONENTS TO BE LOADED
-    if (grunt.file.isFile(jsonpath+'/fndtn__com__js.json')) {
-        var fndtn__com = grunt.file.readJSON(jsonpath+'/fndtn__com__js.json');
+    if (grunt.file.isFile(jsonpath + '/fndtn__com__js.json')) {
+        var fndtnCom = grunt.file.readJSON(jsonpath + '/fndtn__com__js.json');
     }
     // CUSTOM JQUERY PLUGINS
-    if (grunt.file.isFile(jsonpath+'/cust__jquery__plugins.json')) {
-        var jquery__plugins = grunt.file.readJSON(jsonpath+'/cust__jquery__plugins.json');
+    if (grunt.file.isFile(jsonpath + '/cust__jquery__plugins.json')) {
+        var jqueryPlugins = grunt.file.readJSON(jsonpath + '/cust__jquery__plugins.json');
     }
     // CUSTOM SCRIPTS
-    if (grunt.file.isFile(jsonpath+'/cust__js.json')) {
-        var custom__js = grunt.file.readJSON(jsonpath+'/cust__js.json');
+    if (grunt.file.isFile(jsonpath + '/cust__js.json')) {
+        var customJs = grunt.file.readJSON(jsonpath + '/cust__js.json');
     }
 
     // Global folder-paths, based on gruntfile.js location
-    var base_paths = {
-        nodejs: 'node_modules',
-        src: 'src',
-        dest: 'dist'
+    var basePaths = {
+        nodejs: baseParams.nodejs,
+        src: baseParams.src,
+        dest: baseParams.dest
     };
+
+    // placeholder variable for-if condition
+    var fname = '';
 
     // 1. BUILD FOUNDATION COMPONENTS ARRAY
     // first element in array MUST be the foundation.js base script!
-    var fndtn__src__com = ['<%= base_paths.src %>/js/foundation/foundation.js'];
+    var fndtnSrcCom = ['<%= basePaths.src %>/js/foundation/foundation.js'];
     // IMPORTANT NOTE: Naming of foundation.xxx.js and objects in "components-js.json" MUST match (but case-insensitive)!!!
-    for ( var key in fndtn__com ) {
-        if (fndtn__com[key] == true) {
+    for ( var key in fndtnCom ) {
+        if (fndtnCom[key] == true) {
             var fname = key;
-            fndtn__src__com.push('<%= base_paths.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
+            fndtnSrcCom.push('<%= basePaths.src %>/js/foundation/foundation.' + fname.toLowerCase() + '.js');
         }
     }
     // 2. BUILD COLORS STRING (Depending on "svgmin" syntax for "ext")
-    var svg_color_str = '.colors';
-    // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jquery__plugins.json" MUST match (but case-insensitive)!!!
-    for ( var key in base__colors ) {
-        var fname = key
-        svg_color_str += '-' + fname.toLowerCase();
+    var svgColorStr = '.colors';
+    // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jqueryPlugins.json" MUST match (but case-insensitive)!!!
+    for ( var key in baseColors ) {
+        fname = key
+        svgColorStr += '-' + fname.toLowerCase();
     }
-    svg_color_str += '.svg';
+    svgColorStr += '.svg';
 
     // 3. BUILD JQUERY PLUGINS ARRAY
-    var js_src_jquery_plugins = [];
-    // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jquery__plugins.json" MUST match (but case-insensitive)!!!
-    for ( var key in jquery__plugins ) {
-        if (jquery__plugins[key] == true) {
+    var jsSrcJqueryPlugins = [];
+    // IMPORTANT NOTE: Naming of jquery.xxx.js and objects in "jqueryPlugins.json" MUST match (but case-insensitive)!!!
+    for ( var key in jqueryPlugins ) {
+        if (jqueryPlugins[key] == true) {
             var fname = key;
-            js_src_jquery_plugins.push('<%= base_paths.src %>/js/custom/plugins/jquery.' + fname.toLowerCase() + '.js');
+            jsSrcJqueryPlugins.push('<%= basePaths.src %>/js/custom/plugins/jquery.' + fname.toLowerCase() + '.js');
         }
     }
     // 4. BUILD CUSTOM SCRIPTS ARRAY
-    var js_src_scripts = [];
-    // IMPORTANT NOTE: Naming of custom.xxx.js and objects in "custom__js.json" MUST match (but case-insensitive)!!!
-    for ( var key in custom__js ) {
-        if (custom__js[key] == true) {
+    var jsSrcScripts = [];
+    // IMPORTANT NOTE: Naming of custom.xxx.js and objects in "customJs.json" MUST match (but case-insensitive)!!!
+    for ( var key in customJs ) {
+        if (customJs[key] == true) {
             var fname = key;
-            js_src_scripts.push('<%= base_paths.src %>/js/custom/custom.' + fname.toLowerCase() + '.js');
+            jsSrcScripts.push('<%= basePaths.src %>/js/custom/custom.' + fname.toLowerCase() + '.js');
         }
     }
 
@@ -79,65 +82,65 @@ module.exports = function(grunt) {
     // ASSIGN CUSTOM VARIABLES
     // ===============================================
     // define our source and destination folders
-    var lm_conf = {
+    var lmConf = {
 
         // --- SOURCE ---
         // --------------
 
         stylus_plugins: ['svg-stylus'],
         // vednor js
-        js_src_vendor: ['<%= base_paths.src %>/js/vendor/common/*.js'],
+        js_src_vendor: ['<%= basePaths.src %>/js/vendor/common/*.js'],
         // ie8 fallback js
-        js_src_ie8: ['<%= base_paths.src %>/js/vendor/ie8/*.js'],
+        js_src_ie8: ['<%= basePaths.src %>/js/vendor/ie8/*.js'],
         // foundation js source files
         // make sure to load foundation.js before its components (see JSON routine above) !!!
-        js_src_fndtn_com: fndtn__src__com,
+        js_src_fndtn_com: fndtnSrcCom,
         // Custom jquery plugins
-        js_src_plugins: js_src_jquery_plugins,
+        js_src_plugins: jsSrcJqueryPlugins,
         // custom javascripts
-        js_src_custom: js_src_scripts,
+        js_src_custom: jsSrcScripts,
         // stylus source file(s)
-        styl_src: ['<%= base_paths.src %>/styles/*.styl'],
-        styl_src_file: '<%= base_paths.src %>/styles/styles.styl',
-        styl_src_file_fonts: '<%= base_paths.src %>/styles/custom/fonts.styl',
+        styl_src: ['<%= basePaths.src %>/styles/*.styl'],
+        styl_src_file: '<%= basePaths.src %>/styles/styles.styl',
+        styl_src_file_fonts: '<%= basePaths.src %>/styles/custom/fonts.styl',
         styl_src_files: 'styles/styles.styl',
         styl_src_ie8flag: 'styles/aux/_ie8-flag.styl',
         // svg source folder/filess
-        svg_src: ['<%= base_paths.src %>/svg'],
-        svg_src_files: ['<%= base_paths.src %>/svg/lm/*.svg', '<%= base_paths.src %>/svg/cust/*.svg'],
+        svg_src: ['<%= basePaths.src %>/svg'],
+        svg_src_files: ['<%= basePaths.src %>/svg/lm/*.svg', '<%= basePaths.src %>/svg/cust/*.svg'],
 
         // --- DESTINATION ---
         // -------------------
 
         // js distribution folder and files
-        js_dist_folder: '<%= base_paths.dest %>/js',
-        js_dist_file_vendor: '<%= base_paths.dest %>/js/vendor',
-        js_dist_file_fndtn: '<%= base_paths.dest %>/js/fndtn',
-        js_dist_file_plugins: '<%= base_paths.dest %>/js/plugins',
-        js_dist_file_custom: '<%= base_paths.dest %>/js/custom',
-        js_dist_file_ie8: '<%= base_paths.dest %>/js/ie8',
+        js_dist_folder: '<%= basePaths.dest %>/js',
+        js_dist_file_vendor: '<%= basePaths.dest %>/js/vendor',
+        js_dist_file_fndtn: '<%= basePaths.dest %>/js/fndtn',
+        js_dist_file_plugins: '<%= basePaths.dest %>/js/plugins',
+        js_dist_file_custom: '<%= basePaths.dest %>/js/custom',
+        js_dist_file_ie8: '<%= basePaths.dest %>/js/ie8',
         // css distribution folder and files
-        css_dist_folder: '<%= base_paths.dest %>/css',
-        css_dist_file_styles: '<%= base_paths.dest %>/css/styles',
-        css_dist_file_styles_data: '<%= base_paths.dest %>/css/styles_data',
-        css_dist_file_styles_fonts: '<%= base_paths.dest %>/css/fonts',
-        css_dist_file_ie9to10: '<%= base_paths.dest %>/css/ie9-10',
-        css_dist_file_ie8: '<%= base_paths.dest %>/css/ie8',
+        css_dist_folder: '<%= basePaths.dest %>/css',
+        css_dist_file_styles: '<%= basePaths.dest %>/css/styles',
+        css_dist_file_styles_data: '<%= basePaths.dest %>/css/styles_data',
+        css_dist_file_styles_fonts: '<%= basePaths.dest %>/css/fonts',
+        css_dist_file_ie9to10: '<%= basePaths.dest %>/css/ie9-10',
+        css_dist_file_ie8: '<%= basePaths.dest %>/css/ie8',
         // svg distribution folder and files
-        svg_dist: ['<%= base_paths.dest %>/svg'],
-        svg_dist_file: '<%= base_paths.dest %>/svg/sprite.svg',
+        svg_dist: ['<%= basePaths.dest %>/svg'],
+        svg_dist_file: '<%= basePaths.dest %>/svg/sprite.svg',
 
         // --- PARAMETERS ---
         // -------------------
         
-        svg_colors_arr: base__colors,
-        svg_colors_ext: svg_color_str,
+        svg_colors_arr: baseColors,
+        svg_colors_ext: svgColorStr,
         // Default png-widths for grunticon svg-fallback
-        png_width: base__params.default_png_width,
-        png_height: base__params.default_png_height,
+        png_width: baseParams.default_png_width,
+        png_height: baseParams.default_png_height,
 
         // excludes for "copy" to avoid duplication
-        do_not_copy: ['!<%= base_paths.src %>/**/*.styl', '!<%= base_paths.src %>/**/*.coffee', '!<%= base_paths.src %>/**/*.jade'],
+        do_not_copy: ['!<%= basePaths.src %>/**/*.styl', '!<%= basePaths.src %>/**/*.coffee', '!<%= basePaths.src %>/**/*.jade'],
         // avoid cleaning out this files (minified distribution versions)
         do_not_clean_js: ['!**/*.min.js'],
         do_not_clean_css: []
@@ -160,15 +163,15 @@ module.exports = function(grunt) {
         // data passed into config. Can use with <%= test %>
         data: {
             test: false,
-            base_paths: base_paths,
-            lm_conf: lm_conf,
-            base__params: base__params
+            basePaths: basePaths,
+            lmConf: lmConf,
+            baseParams: baseParams
         },
 
         // pass variables to modules and tasks
         // config: {
-        //     base_paths: base_paths,
-        //     lm_conf: lm_conf
+        //     base_paths: basePaths,
+        //     lm_conf: lmConf
         // }
 
         // can optionally pass options to load-grunt-tasks.

@@ -80,7 +80,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
             {$opposite-direction}: 0
 
             // use svg for pip
-            svg-background($file:$split-button-pip-svg, $shapes:$split-button-pip-svg-shapes, $stroke:$pip-color, $stroke-hover:$pip-color, $stroke-width:$svg-stroke-width-small, $position-x:center)
+            svg-background($file:$split-button-pip-svg, $color:$pip-color, $color-hover:$pip-color, $position-x:center)
             
             &:hover,
             &[aria-expanded="true"] {
@@ -141,7 +141,7 @@ split-button($padding = medium, $pip-color = $split-button-pip-color, $span-bord
             border-{$default-float}-width: $outline
             border-color: $pip-color
 
-            svg-background($file: $split-button-pip-svg, $shapes: $split-button-pip-svg-shapes, $stroke: $pip-color, $stroke-hover: $pip-color, $stroke-width: $svg-stroke-width-small, $size: false, $repeat: false, $position-x: false)
+            svg-background($file: $split-button-pip-svg, $color: $pip-color, $color-hover: $pip-color, $size: false, $repeat: false, $position-x: false)
             
             &:hover,
             &[aria-expanded="true"] {

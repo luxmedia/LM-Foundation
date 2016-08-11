@@ -2,5 +2,5 @@
 server:
   options:
     port: 4000
-    base: '<%= base_paths.dest %>'
+    base: '<%= basePaths.dest %>'
     hostname: '*'

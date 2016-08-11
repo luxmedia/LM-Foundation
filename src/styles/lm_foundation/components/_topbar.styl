@@ -777,7 +777,7 @@ if $include-html-topbar-classes {
                 if $topbar-arrows {
                     > a {
                         padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                        svg-background($file:'lm/00015-down.svg', $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                        svg-background($file:'lm/00015-down.svg', $color:$topbar-dropdown-toggle-color, $color-hover:$topbar-dropdown-toggle-color-hover)
                     }
                 }
 
@@ -802,7 +802,7 @@ if $include-html-topbar-classes {
                     > a {
                         if ($topbar-dropdown-arrows) {
                             padding-{$opposite-direction}: ($topbar-link-padding + $topbar-link-dropdown-padding) !important
-                            svg-background($file: $arrow-opposite, $shapes:('polyline'), $stroke:$topbar-dropdown-toggle-color, $stroke-hover:$topbar-dropdown-toggle-color-hover, $stroke-width:$svg-stroke-width-small)
+                            svg-background($file: $arrow-opposite, $color:$topbar-dropdown-toggle-color, $color-hover:$topbar-dropdown-toggle-color-hover)
                         }
                     }
                 }

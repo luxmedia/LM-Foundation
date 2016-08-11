@@ -20,6 +20,13 @@ $ico-font-size-tny ?=                   fontsize(1.2rem)
 $ico-font-size-sml ?=                   fontsize(1.6rem)
 $ico-font-size-lrg ?=                   fontsize(2.4rem)
 $ico-font-size-xlrg ?=                  fontsize(2.8rem)
+$ico-font-size-xxlrg ?=                 fontsize(3.2rem)
+
+$ico-font-weight ?=                     $font-weight-bold
+$ico-font-weight-alt ?=                 $font-weight-normal
+$ico-font-smoothing ?=                  'subpixel-antialiased'
+$ico-font-smoothing-alt ?=              'antialiased'
+
 $ico-width-med ?=                       rem-calc(38)
 $ico-margin-med ?=                     rem-calc(5 10)
 $ico-margin-sml ?=                     rem-calc(3 5)
@@ -42,7 +49,7 @@ if $include-html-icons-classes {
 ico-base() {
     // Base styling
     font-size: $ico-font-size-med
-    fontweight($font-weight-bold)
+    fontweight($ico-font-weight, $ico-font-smoothing)
     position: relative
     // top: 1px
     // text-align: center
@@ -103,6 +110,14 @@ if $include-html-icons-classes {
         }
         &--xlrg {
             ico-size($ico-font-size-xlrg)
+        }
+        &--xxlrg {
+            ico-size($ico-font-size-xxlrg)
+        }
+
+        &--alt {
+            font-weight: $ico-font-weight-alt
+            antialiased($ico-font-smoothing-alt)
         }
 
         // Shape variants

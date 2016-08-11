@@ -88,8 +88,9 @@ $form-label-required-color ?=                $font-color-caption
 $form-label-required-font-size ?=            fontsize(2.4rem)
 $form-label-required-font-style ?=           normal
 $form-label-required-position ?=             absolute
-$form-label-required-right ?=                -(rem-calc(5))
+$form-label-required-right ?=                rem-calc(4)
 $form-label-required-top ?=                  rem-calc(18)
+$form-label-required-font-smoothing ?=       $font-smoothing-bold
 
 $input-checkbox-width ?=                     14px
 $input-checkbox-bg ?=                        $white
@@ -358,6 +359,9 @@ form-label($alignment = false, $base-style = true) {
                 position: $form-label-required-position
                 top: $form-label-required-top
                 {$opposite-direction}: $form-label-required-right
+                if $form-label-required-font-smoothing {
+                    antialiased($form-label-required-font-smoothing)
+                }
             }
 
             &.is-valid {
@@ -598,7 +602,7 @@ form-select()  {
     &::-ms-expand {
         display: none
     }
-    svg-background($file:'lm/00015-down.svg', $shapes:('polyline' 'polygon'), $stroke:$icon-color-normal, $stroke-hover:$icon-color-hover, $stroke-width:$svg-stroke-width-small, $position-x: $opposite-direction)
+    svg-background($file:'lm/00015-down.svg', $color:$icon-color-normal, $color-hover:$icon-color-hover, $position-x: $opposite-direction)
     
     if !$select-style-like-input {
         antialiased()

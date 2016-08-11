@@ -1,0 +1,23 @@
+# WEBFONT
+# https://github.com/sapegin/grunt-webfont
+# Converts SVGs to Webfont and CSS
+dist:
+  src: '<%= lmConf.svg_src_files %>'
+  dest: '<%= basePaths.dest %>/fonts'
+  destCss: '<%= basePaths.src %>/styles/lm_foundation/components'
+  destHtml: 'docs'
+  options:
+    # fontFilename: 'icons-{hash}'
+    fontFilename: 'icons'
+    hashes: false
+    htmlDemo: false
+    types: 'eot,woff,ttf' # 'eot,woff2,woff,ttf,svg'
+    syntax: 'bem'
+    stylesheet: 'styl'
+    relativeFontPath: '../fonts'
+    skip: false
+    # template: '<%= basePaths.src %>/styles/lm_foundation/templates/icons.css'
+    templateOptions:
+      baseClass: 'i'
+      classPrefix: 'i__'
+      mixinPrefix: 'i--'

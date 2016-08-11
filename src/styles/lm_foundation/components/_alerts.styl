@@ -179,28 +179,28 @@ if $include-html-alert-classes {
         if $include-primary-2-color-styles {
             &--primary-2 {
                 alert-style($bg: lightness($primary-2-color, 90%), $font-color: lightness($primary-2-color, 30%), $border-color: lightness($primary-2-color, 75%))
-                svg-background($file:'lm/00020-info.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$primary-2-color, $stroke-hover:false, $repeat:false, $position-x:false)
+                svg-background($file:'lm/00020-info.svg', $size:false, $color:$primary-2-color, $color-hover:false, $repeat:false, $position-x:false)
             }
         }
         &--secondary {
             alert-style($bg: lighten($secondary-color, 80%), $font-color: darken($secondary-color, 40%), $border-color: $secondary-color)
-            svg-background($file:'lm/00020-info.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$secondary-color, $stroke-hover:false, $repeat:false, $position-x:false)
+            svg-background($file:'lm/00020-info.svg', $size:false, $color:$secondary-color, $color-hover:false, $repeat:false, $position-x:false)
         }
         &--success {
             alert-style($bg: lightness($success-color, 90%), $font-color: lightness($success-color, 30%), $border-color: lightness($success-color, 75%))
-            svg-background($file:'lm/00002-circle_check.svg', $shapes:('polyline' 'circle'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$success-color, $stroke-hover:false, $repeat:false, $position-x:false)
+            svg-background($file:'lm/00002-circle_check.svg', $size:false, $color:$success-color, $color-hover:false, $repeat:false, $position-x:false)
         }
         &--info {
             alert-style($bg: lightness($info-color, 90%), $font-color: lightness($info-color, 30%), $border-color: lightness($info-color, 75%))
-            svg-background($file:'lm/00020-info.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$info-color, $stroke-hover:false, $repeat:false, $position-x:false)
+            svg-background($file:'lm/00020-info.svg', $size:false, $color:$info-color, $color-hover:false, $repeat:false, $position-x:false)
         }            
         &--warning {
             alert-style($bg: lightness($warning-color, 90%), $font-color: $alert-font-color-warning, $border-color: lightness($warning-color, 75%))
-            svg-background($file:'lm/00016-exclamation.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$warning-color, $stroke-hover:false, $repeat:false, $position-x:false)
+            svg-background($file:'lm/00016-exclamation.svg', $size:false, $color:$warning-color, $color-hover:false, $repeat:false, $position-x:false)
         }
         &--critical {
             alert-style($bg: lighten($alert-color, 80%), $font-color: $alert-font-color-critical, $border-color: $critical-color)
-            svg-background($file:'lm/00038-ban.svg', $shapes:('path' 'line'), $size:false, $stroke-width:$svg-stroke-width-medium, $stroke:$critical-color, $stroke-hover:false, $repeat:false, $position-x:false)
+            svg-background($file:'lm/00038-ban.svg', $size:false, $color:$critical-color, $color-hover:false, $repeat:false, $position-x:false)
         }
 
         // ALTERNATIVE ALERT STYLE - intense filled bg and inverted typo

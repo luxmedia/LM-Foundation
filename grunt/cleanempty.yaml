@@ -2,4 +2,4 @@
 options:
   files: true
   folders: true
-src: '<%= base_paths.dest %>/**/*'
+src: '<%= basePaths.dest %>/**/*'

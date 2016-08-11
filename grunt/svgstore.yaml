@@ -8,5 +8,5 @@ options:
     style: 'dislay:none;'
 
 production:
-  src: '<%= lm_conf.svg_src %>'
-  dest: '<%= lm_conf.svg_dist_file %>'
+  src: '<%= lmConf.svg_src %>'
+  dest: '<%= lmConf.svg_dist_file %>'

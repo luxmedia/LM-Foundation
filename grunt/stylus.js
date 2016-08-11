@@ -20,14 +20,14 @@ module.exports = {
         },
         // files: [{
         //     expand: true,
-        //     cwd: '<%= base_paths.src  %>',
-        //     src: '<%= lm_conf.styl_src_files %>',
-        //     dest: '<%= lm_conf.css_dist_folder %>',
+        //     cwd: '<%= basePaths.src  %>',
+        //     src: '<%= lmConf.styl_src_files %>',
+        //     dest: '<%= lmConf.css_dist_folder %>',
         //     ext: '.css',
         //     flatten: true
         // }]
         files: {
-            '<%= lm_conf.css_dist_file_styles %>.css': '<%= lm_conf.styl_src_file %>'
+            '<%= lmConf.css_dist_file_styles %>.css': '<%= lmConf.styl_src_file %>'
         }
     },
 
@@ -36,30 +36,31 @@ module.exports = {
         options: {
             linenos: true,
             compress: true,
-            'resolve url': true
+            'resolve url': true,
+            'resolve url nocheck': true,
         },
         files: {
-            '<%= lm_conf.css_dist_file_styles_fonts %>.css': '<%= lm_conf.styl_src_file_fonts %>'
+            '<%= lmConf.css_dist_file_styles_fonts %>.css': '<%= lmConf.styl_src_file_fonts %>'
         }
     },
     
     // Create css for fonts - ie8 special
     fontsie: {
         options: {
-            paths: ['<%= base_paths.src %>'],
+            paths: ['<%= basePaths.src %>'],
             linenos: true,
             compress: true,
-            import: ['<%= lm_conf.styl_src_ie8flag %>']
+            import: ['<%= lmConf.styl_src_ie8flag %>']
         },
         files: {
-            '<%= lm_conf.css_dist_file_styles_fonts %>_ie.css': '<%= lm_conf.styl_src_file_fonts %>'
+            '<%= lmConf.css_dist_file_styles_fonts %>_ie.css': '<%= lmConf.styl_src_file_fonts %>'
         }
     },
 
     // Create css for ie8 only
     ie8: {
         options: {
-            paths: ['<%= base_paths.src %>'],
+            paths: ['<%= basePaths.src %>'],
             linenos: true,
             compress: false,
             use: [
@@ -69,10 +70,10 @@ module.exports = {
                 //     });
                 // }
             ],
-            import: ['<%= lm_conf.styl_src_ie8flag %>']
+            import: ['<%= lmConf.styl_src_ie8flag %>']
         },
         files: {
-            '<%= lm_conf.css_dist_file_ie8 %>.css': '<%= lm_conf.styl_src_file %>'
+            '<%= lmConf.css_dist_file_ie8 %>.css': '<%= lmConf.styl_src_file %>'
         }
     }
 };

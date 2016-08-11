@@ -13,8 +13,8 @@ module.exports = {
             require('cssnano')() // minify the result
           ]
       },
-      src: '<%= lm_conf.css_dist_file_styles %>.css',
-      dest: '<%= lm_conf.css_dist_file_styles_data %>.min.css',
+      src: '<%= lmConf.css_dist_file_styles %>.css',
+      dest: '<%= lmConf.css_dist_file_styles_data %>.min.css',
   },
 
   // Create css for common modern browsers
@@ -28,10 +28,10 @@ module.exports = {
           require('cssnano')() // minify the result
         ]
       },
-      src: '<%= lm_conf.css_dist_file_styles %>.css',
-      dest: '<%= lm_conf.css_dist_file_styles %>.min.css',
+      src: '<%= lmConf.css_dist_file_styles %>.css',
+      dest: '<%= lmConf.css_dist_file_styles %>.min.css',
       // files: {
-      //     '<%= lm_conf.css_dist_file %>.min.css' : '<%= lm_conf.css_dist_file %>.css'
+      //     '<%= lmConf.css_dist_file %>.min.css' : '<%= lmConf.css_dist_file %>.css'
       // }
   },
 
@@ -55,8 +55,8 @@ module.exports = {
           )}),
         ]
       },
-      src: '<%= lm_conf.css_dist_file_styles_fonts %>.css',
-      dest: '<%= lm_conf.css_dist_file_styles_fonts %>.min.css',
+      src: '<%= lmConf.css_dist_file_styles_fonts %>.css',
+      dest: '<%= lmConf.css_dist_file_styles_fonts %>.min.css',
   },
 
   // Create css for internet explorer - once again :(
@@ -78,8 +78,8 @@ module.exports = {
           )})
         ]
       },
-      src: '<%= lm_conf.css_dist_file_styles_fonts %>_ie.css',
-      dest: '<%= lm_conf.css_dist_file_styles_fonts %>_ie.min.css',
+      src: '<%= lmConf.css_dist_file_styles_fonts %>_ie.css',
+      dest: '<%= lmConf.css_dist_file_styles_fonts %>_ie.min.css',
   },
 
   // Create .css for IE 9 and 10 only
@@ -93,8 +93,8 @@ module.exports = {
           require('cssnano')() // minify the result
         ]
       },
-      src: '<%= lm_conf.css_dist_file_styles %>.css',
-      dest: '<%= lm_conf.css_dist_file_ie9to10 %>.min.css',
+      src: '<%= lmConf.css_dist_file_styles %>.css',
+      dest: '<%= lmConf.css_dist_file_ie9to10 %>.min.css',
   },
 
   // Create css for IE 8 only
@@ -108,8 +108,8 @@ module.exports = {
           require('cssnano')() // minify the result
         ]
       },
-      src: '<%= lm_conf.css_dist_file_ie8 %>.css',
-      dest: '<%= lm_conf.css_dist_file_ie8 %>.min.css',
+      src: '<%= lmConf.css_dist_file_ie8 %>.css',
+      dest: '<%= lmConf.css_dist_file_ie8 %>.min.css',
   }
 
 };

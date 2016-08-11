@@ -3,12 +3,12 @@
 # makes SVG icons into a CSS file
 options:
   cssprefix: '.ico-'
-  colors: '<%= lm_conf.svg_colors_arr %>'
-  defaultWidth: '<%= lm_conf.png_width %>'
-  defaultHeight: '<%= lm_conf.png_height %>'
+  colors: '<%= lmConf.svg_colors_arr %>'
+  defaultWidth: '<%= lmConf.png_width %>'
+  defaultHeight: '<%= lmConf.png_height %>'
 production:
   expand: true
-  cwd: '<%= base_paths.dest %>/svg/min'
+  cwd: '<%= basePaths.dest %>/svg/min'
   src:
     - '*.svg'
-  dest: '<%= base_paths.dest %>/svg/out'
+  dest: '<%= basePaths.dest %>/svg/out'

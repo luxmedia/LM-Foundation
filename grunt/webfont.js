@@ -4,9 +4,9 @@
 
 module.exports = {
   production: {
-    src: ['<%= lm_conf.svg_src_files %>'],
-    dest: '<%= base_paths.dest %>/fonts',
-    destCss: '<%= base_paths.src %>/styles/lm_foundation/components',
+    src: ['<%= lmConf.svg_src_files %>'],
+    dest: '<%= basePaths.dest %>/fonts',
+    destCss: '<%= basePaths.src %>/styles/lm_foundation/components', // output stylus file of generated font. Is used in further stylus processing.
     destHtml: 'docs',
 
     options: {
@@ -17,15 +17,15 @@ module.exports = {
       types: 'eot,woff', // 'eot,woff2,woff,ttf,svg'
       syntax: 'bem',
       stylesheet: 'styl',
-      relativeFontPath: '../fonts', // Custom font path. Will be used instead of destCss in CSS file. Useful with CSS preprocessors.
+      relativeFontPath: '../fonts', // Custom font path. Will be used instead of destCss in stylesheet (CSS/STYL) file. Useful with CSS preprocessors.
       rename: function(name) {
           // .icon_entypo-add, .icon_fontawesome-add, etc.
           var path = require('path');
           return [path.basename(path.dirname(name)), path.basename(name)].join('-');
       },
       skip: false,
-      // template: '<%= base_paths.src %>/styles/lm_foundation/templates/icons.css',
-      engine: 'fontforge', // Default: fontforge, alt: node -> NOTE: node is not working properly!!!
+      // template: '<%= basePaths.src %>/styles/lm_foundation/templates/icons.css',
+      engine: 'node', // Default: fontforge, alt: node -> NOTE: "node" engine needs large icons in compound mode!!
 
       templateOptions: {
         baseClass: 'i',

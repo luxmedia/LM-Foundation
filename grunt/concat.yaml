@@ -1,26 +1,26 @@
 # vendor script like modernizr.js
 vendor:
-  src: '<%= lm_conf.js_src_vendor %>'
-  dest: '<%= lm_conf.js_dist_file_vendor %>.js'
+  src: '<%= lmConf.js_src_vendor %>'
+  dest: '<%= lmConf.js_dist_file_vendor %>.js'
 
 # make shure to load foundation.js before its components !!!
 foundation:
   src:
-    # - '<%= lm_conf.js_src_fndtn %>'
-    - '<%= lm_conf.js_src_fndtn_com %>'
-  dest: '<%= lm_conf.js_dist_file_fndtn %>.js'
+    # - '<%= lmConf.js_src_fndtn %>'
+    - '<%= lmConf.js_src_fndtn_com %>'
+  dest: '<%= lmConf.js_dist_file_fndtn %>.js'
 
 # custom js plugins
 plugins:
-  src: '<%= lm_conf.js_src_plugins %>'
-  dest: '<%= lm_conf.js_dist_file_plugins %>.js'
+  src: '<%= lmConf.js_src_plugins %>'
+  dest: '<%= lmConf.js_dist_file_plugins %>.js'
 
 # custom js scripts
 custom:
-  src: '<%= lm_conf.js_src_custom %>'
-  dest: '<%= lm_conf.js_dist_file_custom %>.js'
+  src: '<%= lmConf.js_src_custom %>'
+  dest: '<%= lmConf.js_dist_file_custom %>.js'
 
 # ie8 fallback scripts for html5 and media-query support
 ie8:
-  src: '<%= lm_conf.js_src_ie8 %>'
-  dest: '<%= lm_conf.js_dist_file_ie8 %>.js'
+  src: '<%= lmConf.js_src_ie8 %>'
+  dest: '<%= lmConf.js_dist_file_ie8 %>.js'

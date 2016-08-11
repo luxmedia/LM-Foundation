@@ -1,0 +1,26 @@
+# Compile stylus files
+# https://github.com/gruntjs/grunt-contrib-stylus
+
+# Create css for common modern browsers
+dist:
+  options:
+    linenos: true
+    compress: false
+    use:
+      - require('svg-stylus')
+      - require('autoprefixer-stylus')('Firefox > 1','Chrome > 1','Opera > 10','ie 9')
+  src: '<%= lmConf.styl_src_file %>'
+  dest: '<%= lmConf.css_dist_file %>.css'
+
+# Create css for ie8 only
+iefallback:
+  options:
+    linenos: true
+    compress: false
+    use:
+      - require('svg-stylus')
+      - require('autoprefixer-stylus')('ie 8')
+  src:
+    - '<%= lmConf.styl_src_ie8flag %>'
+    - '<%= lmConf.styl_src_file %>'
+  dest: '<%= lmConf.css_dist_file_ie8 %>.css'

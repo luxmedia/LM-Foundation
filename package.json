@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
+    "autoprefixer-core": "^5.2.1",
     "autoprefixer-stylus": "^0.9.4",
     "balanced-match": "^0.3.0",
     "cssnano": "^3.7.3",
@@ -53,7 +54,7 @@
     "postcss-data-packer": "^1.2.3",
     "postcss-discard-comments": "^2.0.4",
     "postcss-discard-font-face": "^2.1.0",
-    "svg-stylus": "^0.0.2",
+    "svg-stylus": "^0.0.5",
     "yargs": "^4.8.1"
   }
 }
