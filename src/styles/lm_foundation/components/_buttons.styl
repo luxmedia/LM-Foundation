@@ -19,6 +19,7 @@ $button-tny ?=                               rem-calc(3)
 $button-sml ?=                               rem-calc(4)
 $button-med ?=                               rem-calc(6)
 $button-lrg ?=                               rem-calc(8)
+$button-side-padding-factor ?=               3 // * wider than top/bottom padding
 
 // the display property.
 $button-display ?=                           inline-block
@@ -190,11 +191,8 @@ button-size($padding = $button-med, $full-width = false) {
 
     // We control which padding styles come through,
     // these can be turned off by setting $padding:false
-    if ($padding != false && $padding != null) {
-        padding-top: $padding
-        padding-{$opposite-direction}: (3 * $padding)
-        padding-bottom: ($padding + rem-calc(1))
-        padding-{$default-float}: (3 * $padding)
+    if (($padding != false) && ($padding != null)) {
+        padding: $padding ($button-side-padding-factor * $padding) ($padding + rem-calc(1)) ($button-side-padding-factor * $padding)
 
         // We control the font-size based on mixin input.
         if ($padding == $button-med) {

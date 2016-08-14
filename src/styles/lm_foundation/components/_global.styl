@@ -194,7 +194,7 @@ $svg-stroke-width-medium ?=          5
 $svg-stroke-width-large ?=           4
 $svg-icons-base-size ?=              rem-calc(16) // base icon size
 $svg-scale-factor-uni ?=             0.2 // rem-based - is added to background-size value to make bg-icons a bit bigger
-$svg-scale-factor-x ?=               2 // multiply the svg width with this factor to get a pseudo padding for better icon alignment
+$svg-scale-factor-x ?=               1 // multiply the svg width with this factor to get a pseudo padding for better icon alignment -> NOT, does not work in FF
 $svg-scale-factor-y ?=               1 // multiply the svg height with this factor to get a pseudo padding for better icon alignment
 
 if ($default-float == 'left') {
@@ -562,10 +562,14 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
     // sizing parameter
     if ($size && !$ie8) {
         $size = remify($size)
-        background-size: ($size*$scale-x + $scale-uni) ($size*$scale-y + $scale-uni)
+        background-size: ($size * $scale-x + $scale-uni) ($size * $scale-y + $scale-uni)
     }
     // position parameter
     if $position-x {
+    	// Avoid icon to close to the right edge
+    	if ($position-x == $opposite-direction) {
+    		$position-x = 95%
+    	}
         background-position: $position-x $position-y
     }
     // repeat parameter
