@@ -17,6 +17,7 @@ $include-html-tabs-dark-style ?=                false
 $tabs-navigation-padding ?=                     rem-calc(10 15)
 $tabs-navigation-border-width ?=                1px
 $tabs-navigation-border-color ?=                $separator-color
+$tabs-navigation-border-position ?=             bottom
 $tabs-navigation-bg-color ?=                    transparent
 $tabs-navigation-active-bg-color ?=             transparent
 $tabs-navigation-hover-bg-color ?=              transparent
@@ -73,7 +74,7 @@ tabs-style($bg = $tabs-navigation-bg-color, $bg-hover = $tabs-navigation-hover-b
         if (($bg-active != $bg) && (!$inverted)) {
             background: $tabs-navigation-active-bg-color
         }
-        border-bottom-color: $tabs-navigation-link-active-border-color
+        border-{$tabs-navigation-border-position}-color: $tabs-navigation-link-active-border-color
         if (!$inverted) {
             color: $font-color-active
         } else {
@@ -94,23 +95,23 @@ if $include-html-tabs-classes {
     }
     .tabs {
         if ($tabs-navigation-border-width) {
-            border-bottom: $tabs-navigation-border-width solid $tabs-navigation-border-color
+            border-{$tabs-navigation-border-position}: $tabs-navigation-border-width solid $tabs-navigation-border-color
         }
         clearfix()
-        margin-bottom: 0 !important
+        margin-{$tabs-navigation-border-position}: 0 !important
         margin-left: 0
 
         dd,
         .tab-title {
             float: $default-float
             list-style: none
-            margin-bottom: -($tabs-navigation-border-width) !important
+            margin-{$tabs-navigation-border-position}: -($tabs-navigation-border-width) !important
             margin-top: $tabs-navigation-border-width
             margin-right: 1px
             position: relative
 
             > a {
-                border-bottom: $tabs-navigation-link-border-width solid transparent
+                border-{$tabs-navigation-border-position}: $tabs-navigation-link-border-width solid transparent
                 display: block
                 font-size: $tabs-navigation-font-size
                 fontweight($tabs-navigation-font-weight)

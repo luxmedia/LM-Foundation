@@ -78,8 +78,8 @@ $button-round ?=                             $global-rounded
 $button-disabled-opacity ?=                  .7
 $button-disabled-cursor ?=                   $cursor-disabled-value
 
-$button-svg-padding ?=                       remify(.6rem)
-$button-svg-scale-correction ?=              remify(.2rem) // is added to background-size value to make bg-icons a bit bigger
+$button-svg-padding ?=                       rem-calc(6)
+$button-svg-scale-correction ?=              rem-calc(4) // is added to background-size value to make bg-icons a bit bigger
 
 $button-icon-offset ?=                       -(rem-calc(2))
 $button-icon-offset-lrg ?=                   -(rem-calc(4))
@@ -112,7 +112,8 @@ button-base($style = true, $display = $button-display) {
         border-radius: 0
         
         // SVGs inside buttons
-        background-position: right center
+        // DEPRECATED: see svg-background at line 201 mixins instead
+        // background-position: right center
 
         // position icons inside of buttons
         > .i {
@@ -197,16 +198,16 @@ button-size($padding = $button-med, $full-width = false) {
         // We control the font-size based on mixin input.
         if ($padding == $button-med) {
             font-size: $button-font-med
-            svg-background($size: $button-font-med)
+            svg-background($size: ($button-font-med + $button-svg-scale-correction))
         } else if ($padding == $button-tny) {
             font-size: $button-font-tny
-            svg-background($size: $button-font-tny)
+            svg-background($size: ($button-font-tny + $button-svg-scale-correction))
         } else if ($padding == $button-sml) {
             font-size: $button-font-sml
-            svg-background($size: $button-font-sml)
+            svg-background($size: ($button-font-sml + $button-svg-scale-correction))
         } else if ($padding == $button-lrg) {
             font-size: $button-font-lrg
-            svg-background($size: $button-font-lrg)
+            svg-background($size: ($button-font-lrg + $button-svg-scale-correction))
 
             // position icons inside of buttons
             > .i {

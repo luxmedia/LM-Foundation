@@ -48,7 +48,7 @@ $price-desc-bottom-border ?=                 dotted 1px $gray-medium-1
 $price-item-color ?=                         $charcoal-1
 $price-item-padding ?=                       rem-calc(15)
 $price-item-align ?=                         center
-$price-item-font-size ?=                     rem-calc(14)
+$price-item-font-size ?=                     fontsize(1.5rem)
 $price-item-weight ?=                        $font-weight-normal
 $price-item-bottom-border ?=                 dotted 1px $gray-medium-1
 
@@ -197,6 +197,10 @@ if $include-html-pricing-classes {
             }
         }
 
+        &--final {
+            font-size: $price-final-font-size
+        }
+
         &--old {
             if ($price-old-font-family != $price-final-font-family) {
                 font_family($price-old-font-family)
@@ -219,7 +223,7 @@ if $include-html-pricing-classes {
         &__label {
             font-size: $price-label-font-size // Fallback font size
             fontweight($price-label-font-weight)
-            margin-right: rem-calc(4)
+            margin-{$opposite-direction}: rem-calc(4)
             text-transform: $price-label-text-transform
             
             &--uvp { }
@@ -230,7 +234,8 @@ if $include-html-pricing-classes {
 
     // Price-Boxes and styles
     .price-box {
-        text-align: right
+        text-align: $opposite-direction
+        font-size: $price-item-font-size
 
         .price {
             color: $price-final-color
@@ -243,11 +248,16 @@ if $include-html-pricing-classes {
             }
             &--minimal {
             }
+            if ($price-final-font-size != $price-item-font-size) {
+                &--final {
+                    font-size: $price-final-font-size
+                }
+            }
             &--special {
                 if ($price-special-color != $price-final-color) {
                     color: $price-special-color
                 }
-                if ($price-special-font-size != $price-final-font-size) {
+                if ($price-special-font-size != $price-item-font-size) {
                     font-size: $price-special-font-size
                 }
             }

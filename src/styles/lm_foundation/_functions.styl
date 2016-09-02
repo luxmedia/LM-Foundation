@@ -129,7 +129,10 @@ fontsize(value) {
 scale-color($value = false, $factor = false) {
     if ($value && $factor) {
         if ($value != transparent) {
-            if (($scale-factor > 0%) || (lightness($value) < 20%)) {
+            if (($scale-factor > 0%) || (lightness($value) < 25%)) {
+                if ($factor < 0) {
+                    $factor = -($factor)
+                }
                 return lighten($value, $factor)
             } else {
                 return darken($value, -($factor))

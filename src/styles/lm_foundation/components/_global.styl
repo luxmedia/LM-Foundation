@@ -562,7 +562,13 @@ svg-background($path = $base-path-svg, $file = false, $properties = false, $shap
     // sizing parameter
     if ($size && !$ie8) {
         $size = remify($size)
-        background-size: ($size * $scale-x + $scale-uni) ($size * $scale-y + $scale-uni)
+        $btnSizeX = round(($size * $scale-x + $scale-uni), '2')
+        $btnSizeY = round(($size * $scale-y + $scale-uni), '2')
+        if ($btnSizeX == $btnSizeY) {
+        	background-size: $btnSizeX
+        } else {
+			background-size: $btnSizeX $btnSizeY
+        }
     }
     // position parameter
     if $position-x {

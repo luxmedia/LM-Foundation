@@ -23,7 +23,6 @@ $product-list-item-border-width ?=               2px
 $product-list-item-border-style ?=               solid
 $product-list-item-border-color ?=               transparent
 $product-list-item-border-hover-color ?=         transparent
-$product-list-item-hover-blur ?=                 10px // false
 
 $product-list-img-bg ?=                          $white
 $product-list-img-padding ?=                     rem-calc(8) // padding of actual image (not container!)
@@ -31,9 +30,13 @@ $product-grid-img-gutter ?=                      rem-calc(10)
 $product-grid-img-margin ?=                      $product-grid-img-gutter // DEPRECATED - we use gutter instead
 $product-list-img-gutter ?=                      rem-calc(20)
 $product-list-img-margin ?=                      $product-list-img-gutter // DEPRECATED - we use gutter instead
+$product-img-native-height ?=                    150px // this is the actual size of the product image
 $product-grid-img-height ?=                      120px
-$product-list-img-height ?=                      140px
-$product-list-img-width ?=                       $product-list-img-height
+$product-list-img-height ?=                      135px
+
+$product-list-item-hover-blur ?=                 false // 10px
+$product-grid-item-hover-zoomin ?=               round(($product-img-native-height / $product-grid-img-height), 2) // false
+$product-list-item-hover-zoomin ?=               round(($product-img-native-height / $product-list-img-height), 2) // false
 
 $product-list-title-font-family ?=               $font-family-custom
 $product-grid-title-font-size ?=                 fontsize(.9rem)
@@ -95,6 +98,7 @@ $product-list-opts-label-margin ?=               rem-calc(0 10 5 0)
 $product-list-opts-label-border ?=               false // 1px solid rgba($black, 0.15)
 $product-list-opts-label-bg ?=                   transparent
 $product-list-opts-label-color ?=                $gray-darker-1
+$product-list-opts-label-lbl-color ?=            $primary-color
 
 $product-list-opts-link-color ?=                 $charcoal-1
 $product-list-opts-link-font-size ?=             fontsize(.8rem)
@@ -132,6 +136,7 @@ $product-grid-tny-img-height ?=                  50px
 
 $product-list-transition-speed ?=               240ms
 
+$product-list-item-shadow ?=                    'card'
 
 //
 // @mixins
@@ -247,12 +252,12 @@ if $include-html-productlist-classes {
         margin: 0
         background-color: $product-list-bg
 
-        &.row:not(.row--collapse) {
-            margin-left: 0
-            margin-right: 0
-            padding-left: ($column-gutter / 2)
-            padding-right: ($column-gutter / 2)
-        }
+        // &.row:not(.row--collapse) {
+        //     margin-left: 0
+        //     margin-right: 0
+        //     padding-left: ($column-gutter / 2)
+        //     padding-right: ($column-gutter / 2)
+        // }
 
         > li {
             list-style-type: none
@@ -269,7 +274,9 @@ if $include-html-productlist-classes {
             padding: $product-list-item-padding
             position: relative
             z-index: 1
-            shadow-elevation('card')
+            if $product-list-item-shadow {
+                shadow-elevation($product-list-item-shadow)
+            }
             single-transition($speed:$product-list-transition-speed)
 
             &__link {
@@ -380,11 +387,18 @@ if $include-html-productlist-classes {
                     border-color: $product-list-item-border-hover-color
                 }
                 overflow: visible
-                if $product-list-item-hover-blur {
+
+                if ($product-list-item-hover-blur || $product-list-item-hover-zoomin) {
                     .prd__img img {
-                        blur-filter($product-list-item-hover-blur)
+                        if $product-list-item-hover-blur {
+                            blur-filter($product-list-item-hover-blur)
+                        }
+                        if $product-list-item-hover-zoomin {
+                            transform: scale(unit($product-list-item-hover-zoomin, ''))
+                        }
                     }
                 }
+
                 .prd__cta-overlay  {
                     opacity: 1
                     visibility: visible
@@ -405,8 +419,13 @@ if $include-html-productlist-classes {
                 margin: $product-list-item-margin
                 padding: 0
                 
-                // Use foundation grid-system-classes in html to arrange product columns!!
+                if ($product-grid-item-hover-zoomin && ($product-grid-item-hover-zoomin != $product-list-item-hover-zoomin)) {
+                    &:hover .prd__img img {
+                        transform: scale(unit($product-grid-item-hover-zoomin, ''))
+                    }
+                }
 
+                // Use foundation grid-system-classes in html to arrange product columns!!
                 &__link {
                     padding: $product-grid-item-padding
                 }
@@ -535,12 +554,13 @@ if $include-html-productlist-classes {
                 }
 
                 &__img {
-                    float: $default-float
                     height: $product-list-img-height
-                    line-height: ($product-list-img-height - 10px)
-                    margin: -($product-list-item-padding)
-                    margin-{$opposite-direction}: $product-list-img-gutter
-                    width: $product-list-img-width
+                    // DEPRECATED: Use grid classes instead.
+                    // float: $default-float
+                    // line-height: ($product-list-img-height - 10px)
+                    // margin: -($product-list-item-padding)
+                    // margin-{$opposite-direction}: $product-list-img-gutter
+                    // width: $product-list-img-width
                 }
 
                 &__cta-overlay  {
@@ -551,17 +571,20 @@ if $include-html-productlist-classes {
                 &__brand {
                     display: block
                     fontweight($product-list-manu-font-weight)
-                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
+                    // DEPRECATED: Use grid classes instead.
+                    // margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                     text-transform: $product-list-manu-text-transform
                 }
                 &__title {
                     display: block
                     font-size: $product-list-title-font-size
-                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
+                    // DEPRECATED: Use grid classes instead.
+                    // margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                 }
 
                 &__sdesc {
-                    margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
+                    // DEPRECATED: Use grid classes instead.
+                    // margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
                 }
 
                 .price-box {
@@ -575,10 +598,11 @@ if $include-html-productlist-classes {
                 if $product-list-opts-border {
                     border-top: $product-list-opts-border
                 }
-                margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
+                // DEPRECATED: Use grid classes instead.
+                // margin-{$default-float}: (rem-calc($product-list-img-width) + $product-list-img-gutter)
 
                 .lbl {
-                    color: $primary-color
+                    color: $product-list-opts-label-lbl-color
                     float: $default-float
                 }
 

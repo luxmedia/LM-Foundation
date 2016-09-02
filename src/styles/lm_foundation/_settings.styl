@@ -439,6 +439,7 @@ if jeet is defined {
 // $header-top-margin =                remify(.2rem)
 // $header-bottom-margin =             remify(.5rem)
 // $header-text-rendering =            optimizeLegibility
+// $header-antialias =                 antialiased
 
 // // header font families -  we may have different font families for higher level headings
 // $h1-font-family =                   $font-family-headings
@@ -806,8 +807,8 @@ if jeet is defined {
 // $button-disabled-opacity =                  .7
 // $button-disabled-cursor =                   $cursor-disabled-value
 
-// $button-svg-padding =                       remify(.6rem)
-// $button-svg-scale-correction =              remify(.2rem) // is added to background-size value to make bg-icons a bit bigger
+// $button-svg-padding =                       rem-calc(6)
+// $button-svg-scale-correction =              rem-calc(2) // is added to background-size value to make bg-icons a bit bigger
 
 
 // =========================================================================
@@ -1582,7 +1583,6 @@ if jeet is defined {
 // $product-list-item-border-color =               transparent
 // $product-list-item-border-hover-color =         transparent
 // $product-list-item-box-shadow-hover =           false // 0 0 10px rgba($black, 0.2)
-// $product-list-item-hover-blur =                 10px // false
 
 // $product-list-img-bg =                          $white
 // $product-list-img-padding =                     rem-calc(8) // padding of actual image (not container!)
@@ -1590,9 +1590,13 @@ if jeet is defined {
 // $product-grid-img-margin =                      $product-grid-img-gutter // DEPRECATED - we use gutter instead
 // $product-list-img-gutter =                      rem-calc(20)
 // $product-list-img-margin =                      $product-list-img-gutter // DEPRECATED - we use gutter instead
+// $product-img-native-height =                    150px // this is the actual size of the product image
 // $product-grid-img-height =                      120px
-// $product-list-img-height =                      140px
-// $product-list-img-width =                       $product-list-img-height
+// $product-list-img-height =                      135px
+
+// $product-list-item-hover-blur =                 false // 10px
+// $product-grid-item-hover-zoomin =               unit(($product-img-native-height / $product-grid-img-height), '') // false
+// $product-list-item-hover-zoomin =               unit(($product-img-native-height / $product-list-img-height), '') // false
 
 // $product-list-title-font-family =               $font-family-custom
 // $product-grid-title-font-size =                 fontsize(.9rem)
@@ -1651,6 +1655,7 @@ if jeet is defined {
 // $product-list-opts-label-border =               false // 1px solid rgba($black, 0.15)
 // $product-list-opts-label-bg =                   transparent
 // $product-list-opts-label-color =                $gray-darker-1
+// $product-list-opts-label-lbl-color =            $primary-color
 
 // $product-list-opts-link-color =                 $charcoal-1
 // $product-list-opts-link-font-size =             fontsize(.8rem)
